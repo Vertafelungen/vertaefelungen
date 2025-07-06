@@ -11,13 +11,13 @@ Wir fertigen diese Vertäfelung originalgetreu nach historischem Vorbild – in 
 ## Technische Angaben
 
 - **Produktcode:** P0002
-- **Stilrichtung:** Klassizismus / Norddeutsche Backsteinarchitektur
+- **Stilrichtung:** Gründerzeit / Klassisch
 - **Kategorie:** Hohe Vertäfelung
 - **Holzarten:** Eiche (sichtbar), Kiefer (empfohlen bei farblichem Anstrich)
 - **Höhe:** 292 cm (anpassbar)
 - **Ausführung:** Roh-Bausatz oder montagefertig
 - **Visualisierung:** Individuell möglich
-- **Lieferzeit:** ca. 6 Wochen nach Auftrag
+- **Lieferzeit:** ca. 10 Wochen nach Auftrag
 - **Grundpreis:** ab 1.221,88 € pro Lfm zzgl. Lieferung
 
 ---
