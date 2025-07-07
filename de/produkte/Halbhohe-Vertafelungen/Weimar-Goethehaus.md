@@ -1,16 +1,27 @@
----
-layout: product
-title: "P0011 – Weimar – Goethehaus am Frauenplan"
-subtitle: "Originalgetreue Rekonstruktion eines klassizistischen Lambris"
-location: "Weimar, Thüringen"
-height: "ca. 122,5 cm"
-wood_types: ["Eiche", "Kiefer"]
-price_lfm: "526,79 €"
-delivery_time: "ca. 12 Wochen"
-product_type: "Halbhohe Vertäfelung"
-categories: ["klassizistisch", "bürgerlich", "einfach", "originalgetreu"]
+# Weimar – Goethehaus am Frauenplan (P0011)
+
+Diese klassizistische Vertäfelung stammt aus Goethes Wohnhaus in Weimar, einem gelungenen Zusammenspiel von bürgerlicher Repräsentation und bäuerlicher Schlichtheit.
+
+**Form, Proportionen und Aufbau** orientieren sich genau am historischen Vorbild. Das zurückhaltende Profil und die glatten Füllungen spiegeln die Klarheit der Weimarer Klassik wider.
+
+Anfertigung auf Bestellung – Lieferzeit ca. **12 Wochen**, zzgl. Versand.
+
 ---
 
-Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus klassizistischem Bürgertum und einfachem Bauerhaus. Diese halbhohe Wandvertäfelung orientiert sich an den historischen Originalen und wird originalgetreu in Eiche oder Kiefer gefertigt. 
+## Technische Details
 
-Die Fertigung erfolgt individuell auf Bestellung mit einer Standardhöhe von ca. 122,5 cm. Auf Wunsch kann das Panel für einen farbigen Anstrich vorbereitet werden.
+- **Artikelnummer:** P0011  
+- **Stil:** Weimarer Klassizismus  
+- **Kategorie:** Hohe Vertäfelung  
+- **Holzarten:** Kiefer oder Eiche  
+- **Höhe:** ca. 1225 mm  
+- **Ausführung:** Bausatz oder fertig vormontiert  
+- **Grundpreis:** ab 526,79 € pro Laufmeter (inkl. MwSt., zzgl. Versand)
+
+---
+
+## Hinweise
+
+- Originalgetreue Rekonstruktion aus Goethes Wohnhaus am Frauenplan.  
+- Besonders geeignet für klassisch inspirierte Innenräume mit ruhiger Atmosphäre.  
+- Auf Wunsch vorbereitet für einen farbigen Anstrich.
