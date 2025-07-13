@@ -1,2 +1,0 @@
-# vertaefelungen
-VertäfelungsGPT
