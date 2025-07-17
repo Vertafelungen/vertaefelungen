@@ -15,22 +15,31 @@ Historische, stilistische und konstruktive Grundlagen zu Wandvertäfelungen im A
 
 ---
 
-## 🏛️ Dokumentierte Lambris (halbhoch)
+## 🏛️ Dokumentierte Vertäfelungen
 
-Rekonstruktionen und Vorbilder für historische Lambris aus realen Altbauten.
+Rekonstruktionen und Vorbilder aus realen Altbauten – als Inspirationsquelle und Planungsgrundlage.
 
-- [Produkte / Halbhohe Vertäfelungen](öffentlich/produkte/halbhohe-vertaefelungen/readme.md)
+- [Halbhohe Vertäfelungen (Lambris)](oeffentlich/produkte/halbhohe-vertaefelungen/readme.md)  
+  Vertäfelungen bis Brüstungshöhe oder maximal halbe Raumhöhe, z. B. für Flure und Dielen.
 
-Beispiele:
-- [Berlin Invalidenstraße](öffentlich/produkte/halbhohe-vertaefelungen/berlin-invalidenstrasse.md)
-- [Leipzig Ludwigstraße](öffentlich/produkte/halbhohe-vertaefelungen/leipzig-ludwigstrasse.md)
-- [Weimar Goethehaus](öffentlich/produkte/halbhohe-vertaefelungen/weimar-goethehaus.md)
+- [Hohe Vertäfelungen](oeffentlich/produkte/hohe-vertaefelungen/readme.md)  
+  Wandfüllende Vertäfelungen aus Salons, Herrenzimmern und Repräsentationsräumen.
 
 ---
 
-## 🌿 Naturöle zur Holzbehandlung
+## 🪚 Leisten & Zubehör
 
-Beschreibung, Unterschiede und Anwendung natürlicher Öle zur Oberflächenbehandlung.
+Funktionale und dekorative Ergänzungselemente zur Wandgestaltung.
+
+- [Sockelleisten](oeffentlich/produkte/leisten/sockelleisten.md)
+- [Wandleisten](oeffentlich/produkte/leisten/wandleisten.md)
+- [Lüftungsrosetten](oeffentlich/produkte/zubehoer/lueftungsrosetten.md)
+
+---
+
+## 🌿 Öle und Farben
+
+Natürliche Oberflächenbehandlungen für historische Hölzer.
 
 - [Leinöl – traditionell und reversibel](oele/leinoel.md)  
 - [Tungöl – wasserabweisend und robust](oele/tungoel.md)
