@@ -8,10 +8,10 @@ Diese Sammlung bietet vertiefte Informationen rund um historische Holzvertäfelu
 
 Historische, stilistische und konstruktive Grundlagen zu Wandvertäfelungen im Altbau.
 
-- [Allgemeines zur Holzvertäfelung](vertaeferung/allgemein.md)  
-- [Wandhöhen und Proportionen](vertaeferung/wandhoehen.md)  
-- [Aufbau klassischer Lambris](vertaeferung/aufbau-lambris.md)  
-- [FAQ zu Holzvertäfelungen](vertaeferung/faq-vertaefelung.md)
+- [Allgemeines zur Holzvertäfelung](../oeffentlich/produkte/halbhohe-vertaefelungen/allgemein.md)
+- [Wandhöhen und Proportionen](../allgemeine-informationen/wandhoehen.md)
+- [Aufbau klassischer Lambris](../allgemeine-informationen/aufbau-lambris.md)
+- [FAQ zu Holzvertäfelungen](../allgemeine-informationen/faq-vertaefelung.md)
 
 ---
 
@@ -19,10 +19,10 @@ Historische, stilistische und konstruktive Grundlagen zu Wandvertäfelungen im A
 
 Rekonstruktionen und Vorbilder aus realen Altbauten – als Inspirationsquelle und Planungsgrundlage.
 
-- [Halbhohe Vertäfelungen (Lambris)](oeffentlich/produkte/halbhohe-vertaefelungen/readme.md)  
+- [Halbhohe Vertäfelungen (Lambris)](../oeffentlich/produkte/halbhohe-vertaefelungen/allgemein.md)  
   Vertäfelungen bis Brüstungshöhe oder maximal halbe Raumhöhe, z. B. für Flure und Dielen.
 
-- [Hohe Vertäfelungen](oeffentlich/produkte/hohe-vertaefelungen/readme.md)  
+- [Hohe Vertäfelungen](../oeffentlich/produkte/hohe-vertaefelungen/allgemein.md)  
   Wandfüllende Vertäfelungen aus Salons, Herrenzimmern und Repräsentationsräumen.
 
 ---
@@ -31,9 +31,9 @@ Rekonstruktionen und Vorbilder aus realen Altbauten – als Inspirationsquelle u
 
 Funktionale und dekorative Ergänzungselemente zur Wandgestaltung.
 
-- [Sockelleisten](oeffentlich/produkte/leisten/sockelleisten.md)
-- [Wandleisten](oeffentlich/produkte/leisten/wandleisten.md)
-- [Lüftungsrosetten](oeffentlich/produkte/zubehoer/lueftungsrosetten.md)
+- [Sockelleisten](../oeffentlich/produkte/leisten/sockelleisten.md)
+- [Wandleisten](../oeffentlich/produkte/leisten/wandleisten.md)
+- [Lüftungsrosetten](../oeffentlich/produkte/zubehoer/lueftungsrosetten.md)
 
 ---
 
@@ -41,8 +41,8 @@ Funktionale und dekorative Ergänzungselemente zur Wandgestaltung.
 
 Natürliche Oberflächenbehandlungen für historische Hölzer.
 
-- [Leinöl – traditionell und reversibel](oele/leinoel.md)  
-- [Tungöl – wasserabweisend und robust](oele/tungoel.md)
+- [Leinöl – traditionell und reversibel](../oeffentlich/produkte/oele-und-farben/leinoel.md)
+- [Tungöl – wasserabweisend und robust](../oeffentlich/produkte/oele-und-farben/tungoel.md)
 
 ---
 
@@ -50,4 +50,4 @@ Natürliche Oberflächenbehandlungen für historische Hölzer.
 
 Kurzerklärungen zentraler Begriffe rund um Vertäfelung, Stilistik und Verarbeitung.
 
-- [Fachbegriffe im Überblick](glossar.md)
+- [Fachbegriffe im Überblick](../allgemeine-informationen/glossar.md)
