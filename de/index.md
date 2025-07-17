@@ -8,10 +8,10 @@ Diese Sammlung bietet vertiefte Informationen rund um historische Holzvertäfelu
 
 Historische, stilistische und konstruktive Grundlagen zu Wandvertäfelungen im Altbau.
 
-- [Allgemeines zur Holzvertäfelung](../oeffentlich/produkte/halbhohe-vertaefelungen/allgemein.md)
+- [Allgemeines zur Holzvertäfelung](../oeffentlich/produkte/halbhohe-vertafelungen/allgemein.md)
 - [Wandhöhen und Proportionen](../allgemeine-informationen/wandhoehen.md)
 - [Aufbau klassischer Lambris](../allgemeine-informationen/aufbau-lambris.md)
-- [FAQ zu Holzvertäfelungen](../allgemeine-informationen/faq-vertaefelung.md)
+- [FAQ zu Holzvertäfelungen](../allgemeine-informationen/faq-vertafelung.md)
 
 ---
 
@@ -19,10 +19,10 @@ Historische, stilistische und konstruktive Grundlagen zu Wandvertäfelungen im A
 
 Rekonstruktionen und Vorbilder aus realen Altbauten – als Inspirationsquelle und Planungsgrundlage.
 
-- [Halbhohe Vertäfelungen (Lambris)](../oeffentlich/produkte/halbhohe-vertaefelungen/allgemein.md)  
+- [Halbhohe Vertäfelungen (Lambris)](../oeffentlich/produkte/halbhohe-vertafelungen/allgemein.md)  
   Vertäfelungen bis Brüstungshöhe oder maximal halbe Raumhöhe, z. B. für Flure und Dielen.
 
-- [Hohe Vertäfelungen](../oeffentlich/produkte/hohe-vertaefelungen/allgemein.md)  
+- [Hohe Vertäfelungen](../oeffentlich/produkte/hohe-vertafelungen/allgemein.md)  
   Wandfüllende Vertäfelungen aus Salons, Herrenzimmern und Repräsentationsräumen.
 
 ---
@@ -41,8 +41,8 @@ Funktionale und dekorative Ergänzungselemente zur Wandgestaltung.
 
 Natürliche Oberflächenbehandlungen für historische Hölzer.
 
-- [Leinöl – traditionell und reversibel](../oeffentlich/produkte/oele-und-farben/leinoel.md)
-- [Tungöl – wasserabweisend und robust](../oeffentlich/produkte/oele-und-farben/tungoel.md)
+- [Leinöl – traditionell und reversibel](../oeffentlich/produkte/oele-farben/leinoel.md)
+- [Tungöl – wasserabweisend und robust](../oeffentlich/produkte/oele-farben/tungoel.md)
 
 ---
 
