@@ -8,10 +8,23 @@ Diese Sammlung bietet vertiefte Informationen rund um historische Holzvertäfelu
 
 Historische, stilistische und konstruktive Grundlagen zu Wandvertäfelungen im Altbau.
 
-- [Allgemeines zur Holzvertäfelung](vertaeferung/allgemein.md)
-- [Wandhöhen und Proportionen](vertaeferung/wandhoehen.md)
-- [Aufbau klassischer Lambris](vertaeferung/aufbau-lambris.md)
+- [Allgemeines zur Holzvertäfelung](vertaeferung/allgemein.md)  
+- [Wandhöhen und Proportionen](vertaeferung/wandhoehen.md)  
+- [Aufbau klassischer Lambris](vertaeferung/aufbau-lambris.md)  
 - [FAQ zu Holzvertäfelungen](vertaeferung/faq-vertaefelung.md)
+
+---
+
+## 🏛️ Dokumentierte Lambris (halbhoch)
+
+Rekonstruktionen und Vorbilder für historische Lambris aus realen Altbauten.
+
+- [Produkte / Halbhohe Vertäfelungen](öffentlich/produkte/halbhohe-vertaefelungen/readme.md)
+
+Beispiele:
+- [Berlin Invalidenstraße](öffentlich/produkte/halbhohe-vertaefelungen/berlin-invalidenstrasse.md)
+- [Leipzig Ludwigstraße](öffentlich/produkte/halbhohe-vertaefelungen/leipzig-ludwigstrasse.md)
+- [Weimar Goethehaus](öffentlich/produkte/halbhohe-vertaefelungen/weimar-goethehaus.md)
 
 ---
 
@@ -19,16 +32,8 @@ Historische, stilistische und konstruktive Grundlagen zu Wandvertäfelungen im A
 
 Beschreibung, Unterschiede und Anwendung natürlicher Öle zur Oberflächenbehandlung.
 
-- [Leinöl – traditionell und reversibel](oele/leinoel.md)
+- [Leinöl – traditionell und reversibel](oele/leinoel.md)  
 - [Tungöl – wasserabweisend und robust](oele/tungoel.md)
-
----
-
-## 📐 Zubehör & Leistenprofile
-
-Fachwissen rund um Wandanschlüsse, Leistenformen und Ergänzungsteile.
-
-*(Noch in Vorbereitung – Inhalte folgen bald.)*
 
 ---
 
