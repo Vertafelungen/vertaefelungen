@@ -1,39 +1,53 @@
 # Knowledge Base – Wall Panelling & Lambris
 
-This collection provides in-depth information on historical wall panelling, materials, surface treatments and accessories. It is intended as a practical reference for restoration, reconstruction, and planning.
+This collection provides in-depth knowledge on historical wall panelling, materials, finishes, and accessories. It supports planning, restoration, and interpretation of historic interiors.
 
 ---
 
-## 🪵 Historical Wood Panelling
+## 🪵 Wood Panelling – Basics
 
-Historical, stylistic and constructive foundations of wall panelling in historic buildings.
+Historical, stylistic, and constructive foundations of wall panelling in heritage buildings.
 
-- [General introduction to wood panelling](panelling/general.md)
-- [Proportions and wall heights](panelling/wall-heights.md)
-- [Lambris construction principles](panelling/construction.md)
-- [FAQ about wood panelling](panelling/faq-panelling.md)
-
----
-
-## 🌿 Natural Oils for Wood Finishing
-
-Overview of natural oils, their properties, differences, and usage.
-
-- [Linseed oil – traditional and reversible](oele/linseed-oil.md)
-- [Tung oil – water-resistant and robust](oele/tung-oil.md)
+- [General introduction to wood panelling](../public/products/dado-panel/general.md)
+- [Wall heights and room proportions](../general-information/wall-heights.md)
+- [Construction of traditional lambris](../general-information/lambris-structure.md)
+- [FAQ on wood panelling](../general-information/faq-panelling.md)
 
 ---
 
-## 📐 Accessories & Mouldings
+## 🏛️ Documented Examples
 
-Knowledge about joints, trim profiles, and decorative parts.
+Digitized models and references from actual historic interiors – useful for reconstruction and inspiration.
 
-*(Coming soon – content in progress.)*
+- [Dado-height panelling (Lambris)](../public/products/dado-panel/README.md)  
+  Panelling up to window sill height or mid-wall level – common in hallways and studies.
+
+- [Full-height panelling](../public/products/high-wainscoting/README.md)  
+  Panelling covering entire walls – found in salons, offices, or ceremonial rooms.
+
+---
+
+## 🪚 Moldings & Accessories
+
+Functional and decorative components for panelling transitions and design.
+
+- [Baseboards](../public/products/moldings/baseboards.md)
+- [Wall moldings](../public/products/moldings/wall-moldings.md)
+- [Ventilation grilles](../public/products/accessories/ventilation-grilles.md)
+
+---
+
+## 🌿 Natural Finishes
+
+Surface treatments for historical wood – reversible and conservation-grade.
+
+- [Linseed oil – traditional and breathable](../public/products/oilandpaint/linseed-oil.md)
+- [Tung oil – water-repellent and robust](../public/products/oilandpaint/tung-oil.md)
 
 ---
 
 ## 📚 Glossary
 
-Short definitions of relevant terms in restoration, style, and materials.
+Short definitions of important restoration and design terms.
 
-- [Glossary of technical terms](glossar.md)
+- [Glossary of technical terms](../general-information/glossary.md)
