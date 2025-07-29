@@ -27,7 +27,7 @@ This FAQ is aimed at property owners, planners, craftsmen, restorers and enthusi
 
 ## Contents
 
-Main topics can be found in [index_en.md](index_en.md).
+Main topics can be found in [index.md](index.md).
 
 ---
 
@@ -35,7 +35,7 @@ Main topics can be found in [index_en.md](index_en.md).
 
 - All content is subject to copyright; please cite sources.
 - The collection is regularly expanded and updated.
-- For further expert advice or bespoke solutions, please contact us via [vertaefelungen.de](https://www.vertaefelungen.de).
+- For further expert advice or bespoke solutions, please contact us via [vertaefelungen.de/en](https://www.vertaefelungen.de/en/).
 
 ---
 
