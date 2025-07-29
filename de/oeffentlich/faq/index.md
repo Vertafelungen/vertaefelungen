@@ -18,17 +18,17 @@ Willkommen in der FAQ-Sammlung zu allen Fragen rund um Holzvertäfelung, Profill
 
 ## Themenübersicht
 
-- [Planung & Bestellung](faq-planung-bestellung.md)
-- [Herstellung](faq-herstellung.md)
-- [Lieferung](faq-lieferung.md)
-- [Leinöl als Holzschutzmittel](faq-leinoel.md)
-- [Tungöl als Holzschutzmittel](faq-tungoel.md)
-- [Beeck Standölinnenfarbe Pro](faq-beeck-standoelinnenfarbe-pro.md)
-- [Holzvertäfelung im Altbau](faq-holzvertaefelung-altbau.md)
-- [Profilierte Wandleisten aus Holz](faq-profilierte-wandleisten-holz.md)
-- [Profilierte Tür- und Fensterumrahmungen](faq-profilierte-tuer-fensterumrahmungen.md)
-- [Fußleisten – Sockelleisten](faq-fussleisten-sockelleisten.md)
-- [Restaurierung / Reproduktion historischer Vertäfelungen und Holzleisten](faq-restaurierung-reproduktion-vertaefelungen-holzleisten.md)
+- [Planung & Bestellung](planung-bestellung.md)
+- [Herstellung](herstellung.md)
+- [Lieferung](lieferung.md)
+- [Leinöl als Holzschutzmittel](leinoel.md)
+- [Tungöl als Holzschutzmittel](tungoel.md)
+- [Beeck Standölinnenfarbe Pro](beeck-standoelinnenfarbe-pro.md)
+- [Holzvertäfelung im Altbau](holzvertaefelung-altbau.md)
+- [Profilierte Wandleisten aus Holz](profilierte-wandleisten-holz.md)
+- [Profilierte Tür- und Fensterumrahmungen](tuer-fensterrahmen.md)
+- [Fußleisten – Sockelleisten](sockelleisten.md)
+- [Restaurierung / Reproduktion historischer Vertäfelungen und Holzleisten](restaurierung-reproduktion-vertaefelungen-holzleisten.md)
 
 ---
 

@@ -24,10 +24,10 @@ Welcome to the FAQ collection for all questions about wood panelling, profiled m
 - [Linseed Oil as Wood Preservative](linseed-oil.md)
 - [Tung Oil as Wood Preservative](tung-oil.md)
 - [Beeck Stand Oil Interior Paint Pro](beeck-stand-oil-paint.md)
-- [Wood Panelling in Historic Buildings](wood-panelling-historic.md)
-- [Profiled Wall Mouldings](profiled-wall-mouldings.md)
+- [Wood Panelling in Historic Buildings](wood-panelling.md)
+- [Profiled Wall Mouldings](wall-mouldings.md)
 - [Profiled Door and Window Surrounds](profiled-door-window-surrounds.md)
-- [Skirtings & Baseboards](skirtings-baseboards.md)
+- [Skirtings & Baseboards](skirtings.md)
 - [Restoration & Reproduction of Historic Panelling and Wood Trims](restoration-reproduction-panelling-trims.md)
 - [Product FAQ P0003 (Morris Room, Victoria & Albert Museum)](p0003-green-dining-room.md)
 
