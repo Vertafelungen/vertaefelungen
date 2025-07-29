@@ -1,1 +1,48 @@
+---
+title: "Lieferung: Versand & Montage"
+slug: "faq-lieferung"
+kategorie: "FAQ"
+tags: ["Lieferung", "Versand", "Montage", "Lieferbedingungen"]
+erstellt_am: "2025-07-28"
+letzte_aenderung: "2025-07-28"
+sichtbar: true
+sprachversion: "de"
+beschreibung: "Antworten auf häufig gestellte Fragen zur Lieferung, Verpackung und Montage von Vertäfelungen."
+---
 
+# FAQ: Lieferung
+
+## 1. Wann erfolgt die Lieferung?
+
+- Die Lieferung erfolgt **nach Zahlungseingang der Restsumme**, sobald die Fertigung abgeschlossen ist.
+- Du wirst vorab informiert und erhältst einen Liefertermin mit der Spedition.
+
+## 2. Wie erfolgt der Versand & was ist der Lieferumfang?
+
+- Die Vertäfelungen werden **in Holzkisten per Spedition** geliefert.
+- Verpackungsgrößen bis ca. 240 cm werden **frei Bordsteinkante** abgeladen, größere Verpackungen **frei LKW**.
+
+## 3. In welchem Zustand wird das Holz geliefert?
+
+- Alle Elemente sind **gehobelt, geschliffen und grundiert**, mit einer Restfeuchte von ca. 12 %.
+- Das Holz sollte **eine Woche im Raum ruhen**, um sich vor Montage zu akklimatisieren.
+- Unveränderliche Elemente wie Kassetten sind bereits montiert; lange Leisten liegen separat bei und haben ggf. Übermaß für Toleranzausgleich.
+
+## 4. Wie läuft die Montage ab?
+
+- Auf Wunsch übernimmt der Hersteller die **Montage bis zum letzten Pinselstrich**; danach wird die Schlussrechnung gestellt.
+- Alternativ erfolgt die Montage durch dich oder eine beauftragte Fachfirma.
+
+## 5. Was muss ich bei der Anlieferung beachten?
+
+- Prüfe die Ware **bei Übergabe** im Beisein des Fahrers auf äußere Beschädigungen und die Anzahl der Packstücke. Notiere Schäden sofort auf dem Lieferschein und sende Fotos per E‑Mail.
+- Die Ware ist **transportschadenversichert**, diese Versicherung ist im Lieferpreis enthalten.
+
+## 6. Wer trägt die Versandkosten und ab wann gilt die Gefahr?
+
+- Die **Liefer- und Versandkosten trägt der Kunde**.
+- Die Gefahr geht mit der Übergabe am Erfüllungsort auf dich über – je nach Vereinbarung frei Bordsteinkante oder frei LKW.
+
+---
+
+*Fragen offen? Gern ergänzen wir weitere Punkte oder passe das FAQ an deine Bedürfnisse an!*
