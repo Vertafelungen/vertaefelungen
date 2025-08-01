@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 import requests
+from io import StringIO   # <--- Wichtig: Das richtige Import!
 
 # Sheet-URL: HIER DEINE CSV-URL EINFÜGEN!
 SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv"
@@ -8,7 +9,8 @@ SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6
 response = requests.get(SHEET_CSV_URL)
 response.raise_for_status()
 
-df = pd.read_csv(pd.compat.StringIO(response.text))
+# Hier der korrigierte Aufruf für alle modernen Pandas-Versionen:
+df = pd.read_csv(StringIO(response.text))
 
 # Funktion für das Anlegen der Dateien
 def write_md_files(export_col, slug_col):
