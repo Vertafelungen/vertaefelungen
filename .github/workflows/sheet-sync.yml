@@ -18,7 +18,7 @@ jobs:
       - name: Benötigte Pakete installieren
         run: pip install pandas requests
       - name: Sheet Sync Script ausführen
-        run: python sync_from_sheet.py
+        run: python sync-from-sheet.py
       - name: Änderungen commiten & pushen
         run: |
           git config --global user.name "GitHub Action"
