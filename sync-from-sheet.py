@@ -3,7 +3,7 @@ import os
 import requests
 
 # Sheet-URL: HIER DEINE CSV-URL EINFÜGEN!
-SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/DEINE_ID/pub?output=csv"
+SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv"
 
 response = requests.get(SHEET_CSV_URL)
 response.raise_for_status()
