@@ -123,9 +123,9 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: Pastel Green Interior Stand-Oil Paint PRO from BEECK
+- meta_description: BEECK Stand Oil Paint PRO â professional linseed oil paint for restorers & painters. Heritage-grade, durable, VOC-compliant. Satin-matt or satin-gloss.
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_

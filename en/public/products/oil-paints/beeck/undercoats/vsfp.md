@@ -57,9 +57,9 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: White, matt oil varnish for professional priming coats on wood
+- meta_description: BEECK Undercoat Pro, opaque white, filling, fast-drying primer for wood indoors and exterior
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_

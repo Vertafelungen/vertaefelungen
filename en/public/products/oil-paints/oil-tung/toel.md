@@ -63,9 +63,9 @@ TUNG wood oil varnish dries significantly faster and harder than a linseed oil v
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: Tung oil varnish
+- meta_description: 7Tung oil natural â pure, hardening wood oil for high-stress surfaces. Solvent-free, weather-resistant, deep-penetrating. Suitable for in- & outdoor use.
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_

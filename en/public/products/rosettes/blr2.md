@@ -55,9 +55,9 @@ Hight approx 3 mm
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: Ventilation Rosette 2
+- meta_description: Elegant ventilation rosette based on the original design. Cast brass, polished. Diameter approx. 42 mm. Hight approx 3 mm.
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_

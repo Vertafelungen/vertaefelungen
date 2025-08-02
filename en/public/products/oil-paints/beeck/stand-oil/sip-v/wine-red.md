@@ -73,9 +73,9 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: Wine Red Interior Stand-Oil Paint PRO from BEECK
+- meta_description: Beeck Interior Stand-Oil Paint Pro is a highly pigmented linseed oil paint for the preservation of listed buildings / restoration of wooden objects and paneling
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_

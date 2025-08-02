@@ -51,9 +51,9 @@ Balsamic turpentine oil is used to dilute linseed oil paints.
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: Balsamic turpentine oil
+- meta_description: Gum turpentine â natural solvent for thinning linseed oil products & cleaning brushes. Perfect for painters, restorers & historic preservation work.
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_

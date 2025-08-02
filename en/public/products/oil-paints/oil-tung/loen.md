@@ -63,9 +63,9 @@ Linseed oil has a strong, typical odour at first, but this fades over the course
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: Pur Linseed Oil
+- meta_description: Linseed oil â cold-pressed, pure wood oil for interior & exterior use. Ideal for priming, restoration & wood care. Solvent-free and long-lasting.
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_

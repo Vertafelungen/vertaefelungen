@@ -58,9 +58,9 @@ For interior use as a quick-drying finish with a drying time of up to 24 hours.
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: Linseed Oil Varnish
+- meta_description: Boiled linseed oil â oxidatively drying wood oil for priming, protection & restoration. Solvent-free, deep-penetrating, ideal for indoor & outdoor use.
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_

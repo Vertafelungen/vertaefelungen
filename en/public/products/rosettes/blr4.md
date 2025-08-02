@@ -50,9 +50,9 @@ Hight approx. 4 mm
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: Ventilation Rosette 4
+- meta_description: Elegant ventilation rosette based on the original design. Milled brass, smoothed surface. Diameter 45 mm. Hight approx. 4 mm.
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_

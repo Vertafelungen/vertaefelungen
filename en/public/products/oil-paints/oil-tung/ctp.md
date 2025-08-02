@@ -49,9 +49,9 @@ Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and 
 
 ## SEO-Metadaten
 
-- meta_title: {meta_title}
-- meta_description: {meta_description}
+- meta_title: Citrus terpene
+- meta_description: Citrus terpenes â natural orange oil solvent for thinning oils & cleaning tools. Biodegradable, effective, and pleasantly scented.
 
 ## Tags
 
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
+_keine Tags hinterlegt_
