@@ -11,7 +11,6 @@ meta_description: "Gum turpentine â natural solvent for thinning linseed oi
 bilder:
   - btoe.jpg
 price: "13,45 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 5 Liter
@@ -33,10 +32,9 @@ Balsamic turpentine oil is used to dilute linseed oil paints.
 
 - Referenz: BTÃ
 - Preis: 13,45 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

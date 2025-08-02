@@ -14,7 +14,6 @@ bilder:
   - klassikgruen03.jpg
   - klassikgruen-farbfaecher.jpg
 price: "57,15 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 01
@@ -70,10 +69,9 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 - Referenz: Beeck SIP KlassikgrÃ¼n
 - Preis: 57,15 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

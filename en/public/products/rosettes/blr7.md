@@ -13,7 +13,6 @@ bilder:
   - blr7-2.jpg
   - blr7-1.jpg
 price: "46,22 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
     []
@@ -34,10 +33,9 @@ Hight approx 12 mm
 
 - Referenz: BLR 7
 - Preis: 46,22 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LÃ¼ftungsrosetten
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

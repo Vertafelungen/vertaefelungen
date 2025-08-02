@@ -1,19 +1,18 @@
 ---
-slug: ""
+slug: "blr5"
 product_id: "73"
 reference: "BLR 5"
-titel: ""
+titel: "LÃ¼ftungsrosette 5"
 kategorie: "Artikel, LÃ¼ftungsrosetten"
 beschreibung: >
-  
-meta_title: ""
-meta_description: ""
+  LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 58 mm Hohe ca. 13 mm
+meta_title: "blr5 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl"
+meta_description: "LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen"
 bilder:
   - blr5-3.jpg
   - blr5-2.jpg
   - blr5-1.jpg
 price: "54,62 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
     []
@@ -22,18 +21,21 @@ sortierung: ""
 langcode: ""
 ---
 
-# 
+# LÃ¼ftungsrosette 5
 
+LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen.
+Messingguss, poliert
 
+Durchmesser ca. 58 mm
+Hohe ca. 13 mm
 
 ## Technische Daten
 
 - Referenz: BLR 5
 - Preis: 54,62 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LÃ¼ftungsrosetten
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 
@@ -47,8 +49,8 @@ langcode: ""
 
 ## SEO-Metadaten
 
-- meta_title: 
-- meta_description: 
+- meta_title: blr5 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl
+- meta_description: LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen
 
 ## Tags
 

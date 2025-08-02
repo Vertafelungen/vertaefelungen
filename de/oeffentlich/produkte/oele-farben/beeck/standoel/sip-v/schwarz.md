@@ -1,19 +1,18 @@
 ---
-slug: ""
+slug: "schwarz"
 product_id: "98"
 reference: "Beeck SIP Schwarz"
-titel: ""
+titel: "Schwarz - BEECK StandÃ¶linnenfarbe PRO"
 kategorie: "Artikel, STANDÃLINNENFARBE PRO Volltonfarben"
 beschreibung: >
-  
-meta_title: ""
-meta_description: ""
+  BEECK StandÃ¶linnenfarbe PRO Volltonfarbe, deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
+meta_title: "StandÃ¶lfarbe Schwarz, deckend, fÃ¼r Holz im Innenbereich"
+meta_description: "Beeck StandÃ¶linnenfarbe Pro ist eine reine LeinÃ¶lfarbe fÃ¼r professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung."
 bilder:
   - schwarz.jpg
   - schwarz-farbfaecher.jpg
   - sip_gebinde.jpg
 price: "57,15 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 0,75 L, seidenmatt
@@ -33,18 +32,21 @@ sortierung: ""
 langcode: ""
 ---
 
-# 
+# Schwarz - BEECK StandÃ¶linnenfarbe PRO
 
+BEECK StandÃ¶linnenfarbe PRO
+Volltonfarbe, deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
 
+Verwendungszweck
+LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
 
 ## Technische Daten
 
 - Referenz: Beeck SIP Schwarz
 - Preis: 57,15 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, STANDÃLINNENFARBE PRO Volltonfarben
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 
@@ -69,8 +71,8 @@ langcode: ""
 
 ## SEO-Metadaten
 
-- meta_title: 
-- meta_description: 
+- meta_title: StandÃ¶lfarbe Schwarz, deckend, fÃ¼r Holz im Innenbereich
+- meta_description: Beeck StandÃ¶linnenfarbe Pro ist eine reine LeinÃ¶lfarbe fÃ¼r professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung.
 
 ## Tags
 

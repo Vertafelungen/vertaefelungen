@@ -11,7 +11,6 @@ meta_description: "BEECK Undercoat Pro, opaque white, filling, fast-drying prime
 bilder:
   - vsfp.jpg
 price: "30,60 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 0,75 L
@@ -37,10 +36,9 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 - Referenz: Beeck VSF P
 - Preis: 30,60 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, Vorstreichfarbe PRO
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

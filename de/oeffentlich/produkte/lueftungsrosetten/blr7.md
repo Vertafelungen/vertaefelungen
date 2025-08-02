@@ -1,19 +1,18 @@
 ---
-slug: ""
+slug: "blr7"
 product_id: "75"
 reference: "BLR 7"
-titel: ""
+titel: "LÃ¼ftungsrosette 7"
 kategorie: "Artikel, LÃ¼ftungsrosetten"
 beschreibung: >
-  
-meta_title: ""
-meta_description: ""
+  LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 28 mm Hohe ca. 12 mm
+meta_title: "blr7 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl"
+meta_description: "LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen"
 bilder:
   - blr7-3.jpg
   - blr7-2.jpg
   - blr7-1.jpg
 price: "46,22 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
     []
@@ -22,18 +21,21 @@ sortierung: ""
 langcode: ""
 ---
 
-# 
+# LÃ¼ftungsrosette 7
 
+LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen.
+Messingguss, poliert
 
+Durchmesser ca. 28 mm
+Hohe ca. 12 mm
 
 ## Technische Daten
 
 - Referenz: BLR 7
 - Preis: 46,22 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LÃ¼ftungsrosetten
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 
@@ -47,8 +49,8 @@ langcode: ""
 
 ## SEO-Metadaten
 
-- meta_title: 
-- meta_description: 
+- meta_title: blr7 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl
+- meta_description: LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen
 
 ## Tags
 

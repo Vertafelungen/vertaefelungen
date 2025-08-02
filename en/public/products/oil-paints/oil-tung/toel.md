@@ -11,7 +11,6 @@ meta_description: "7Tung oil natural â pure, hardening wood oil for high-st
 bilder:
   - toel.jpg
 price: "22,69 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 1 Liter
@@ -41,10 +40,9 @@ TUNG wood oil varnish dries significantly faster and harder than a linseed oil v
 
 - Referenz: TÃL
 - Preis: 22,69 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

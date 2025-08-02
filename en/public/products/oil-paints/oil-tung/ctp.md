@@ -11,7 +11,6 @@ meta_description: "Citrus terpenes â natural orange oil solvent for thinnin
 bilder:
   - ctp.jpg
 price: "20,17 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 1 Liter
@@ -31,10 +30,9 @@ Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and 
 
 - Referenz: CTP
 - Preis: 20,17 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

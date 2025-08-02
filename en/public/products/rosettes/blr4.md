@@ -13,7 +13,6 @@ bilder:
   - blr4-2.jpg
   - blr4-1.jpg
 price: "41,18 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
     []
@@ -33,10 +32,9 @@ Hight approx. 4 mm
 
 - Referenz: BLR 4
 - Preis: 41,18 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: LÃ¼ftungsrosetten
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

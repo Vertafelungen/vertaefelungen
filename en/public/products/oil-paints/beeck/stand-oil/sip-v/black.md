@@ -13,7 +13,6 @@ bilder:
   - schwarz-farbfaecher.jpg
   - sip_gebinde.jpg
 price: "57,15 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 0,75 L, seidenmatt
@@ -45,10 +44,9 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 - Referenz: Beeck SIP Schwarz
 - Preis: 57,15 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, STANDÃLINNENFARBE PRO Volltonfarben
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

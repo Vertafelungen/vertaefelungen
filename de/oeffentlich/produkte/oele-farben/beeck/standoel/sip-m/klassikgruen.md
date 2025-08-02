@@ -1,20 +1,19 @@
 ---
-slug: ""
+slug: "klassikgruen"
 product_id: "112"
 reference: "Beeck SIP KlassikgrÃ¼n"
-titel: ""
+titel: "KlassikgrÃ¼n - BEECK StandÃ¶linnenfarbe PRO"
 kategorie: "Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne"
 beschreibung: >
-  
-meta_title: ""
-meta_description: ""
+  BEECK StandÃ¶linnenfarbe PRO Mischton, deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
+meta_title: "StandÃ¶lfarbe KlassikgrÃ¼n, deckend, fÃ¼r Holz im Innenbereich"
+meta_description: "BEECK StandÃ¶linnenfarbe PRO KlassikgrÃ¼n â Ã¶kologischer Ãllack fÃ¼r stilvolle InnenrÃ¤ume, ideal fÃ¼r MÃ¶bel, TÃ¼ren & Denkmalschutz, seidenmatt oder glÃ¤nzend."
 bilder:
   - klassikgruen01.jpg
   - klassikgruen02.jpg
   - klassikgruen03.jpg
   - klassikgruen-farbfaecher.jpg
 price: "57,15 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 01
@@ -58,18 +57,21 @@ sortierung: ""
 langcode: ""
 ---
 
-# 
+# KlassikgrÃ¼n - BEECK StandÃ¶linnenfarbe PRO
 
+BEECK StandÃ¶linnenfarbe PRO
+Mischton, deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
 
+Verwendungszweck
+LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
 
 ## Technische Daten
 
 - Referenz: Beeck SIP KlassikgrÃ¼n
 - Preis: 57,15 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 
@@ -119,8 +121,8 @@ langcode: ""
 
 ## SEO-Metadaten
 
-- meta_title: 
-- meta_description: 
+- meta_title: StandÃ¶lfarbe KlassikgrÃ¼n, deckend, fÃ¼r Holz im Innenbereich
+- meta_description: BEECK StandÃ¶linnenfarbe PRO KlassikgrÃ¼n â Ã¶kologischer Ãllack fÃ¼r stilvolle InnenrÃ¤ume, ideal fÃ¼r MÃ¶bel, TÃ¼ren & Denkmalschutz, seidenmatt oder glÃ¤nzend.
 
 ## Tags
 

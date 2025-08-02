@@ -11,7 +11,6 @@ meta_description: "Boiled linseed oil â oxidatively drying wood oil for pri
 bilder:
   - loef.jpg
 price: "13,45 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 1 Liter
@@ -36,10 +35,9 @@ For interior use as a quick-drying finish with a drying time of up to 24 hours.
 
 - Referenz: LÃF
 - Preis: 13,45 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

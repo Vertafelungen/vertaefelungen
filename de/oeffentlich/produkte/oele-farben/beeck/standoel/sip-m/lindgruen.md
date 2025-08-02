@@ -1,20 +1,19 @@
 ---
-slug: ""
+slug: "lindgruen"
 product_id: "113"
 reference: "Beeck SIP LindgrÃ¼n"
-titel: ""
+titel: "LindgrÃ¼n - BEECK StandÃ¶linnenfarbe PRO"
 kategorie: "Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne"
 beschreibung: >
-  
-meta_title: ""
-meta_description: ""
+  BEECK StandÃ¶linnenfarbe PRO Mischton, deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
+meta_title: "StandÃ¶lfarbe LindgrÃ¼n, deckend, fÃ¼r Holz im Innenbereich"
+meta_description: "BEECK StandÃ¶linnenfarbe PRO LindgrÃ¼n â Profi-LeinÃ¶llack fÃ¼r Maler & Restauratoren. Denkmalgerecht, Ã¶kologisch, seidenmatt oder seidenglÃ¤nzend."
 bilder:
   - lindgruen01.jpg
   - lindgruen02.jpg
   - lindgruen03.jpg
   - lindgruen-farbfaecher.jpg
 price: "57,15 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 0,75 L, seidenmatt, LindgrÃ¼n 01
@@ -58,18 +57,21 @@ sortierung: ""
 langcode: ""
 ---
 
-# 
+# LindgrÃ¼n - BEECK StandÃ¶linnenfarbe PRO
 
+BEECK StandÃ¶linnenfarbe PRO
+Mischton, deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
 
+Verwendungszweck
+LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
 
 ## Technische Daten
 
 - Referenz: Beeck SIP LindgrÃ¼n
 - Preis: 57,15 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 
@@ -119,8 +121,8 @@ langcode: ""
 
 ## SEO-Metadaten
 
-- meta_title: 
-- meta_description: 
+- meta_title: StandÃ¶lfarbe LindgrÃ¼n, deckend, fÃ¼r Holz im Innenbereich
+- meta_description: BEECK StandÃ¶linnenfarbe PRO LindgrÃ¼n â Profi-LeinÃ¶llack fÃ¼r Maler & Restauratoren. Denkmalgerecht, Ã¶kologisch, seidenmatt oder seidenglÃ¤nzend.
 
 ## Tags
 

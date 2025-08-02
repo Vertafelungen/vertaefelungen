@@ -1,17 +1,16 @@
 ---
-slug: ""
+slug: "btoe"
 product_id: "63"
 reference: "BTÃ"
-titel: ""
+titel: "BalsamterpentinÃ¶l"
 kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
-  
-meta_title: ""
-meta_description: ""
+  BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird. LeinÃ¶lfirnis kann mit BalsamterpentinÃ¶l im VerhÃ¤ltnis 1:1 zu HalbÃ¶l verdÃ¼nnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen. BalsamterpentinÃ¶l wird zum VerdÃ¼nnen von LeinÃ¶lfarben verwendet.
+meta_title: "btoe â BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel"
+meta_description: "BalsamterpentinÃ¶l â natÃ¼rliches LÃ¶semittel zum VerdÃ¼nnen von LeinÃ¶lprodukten & Reinigen von Pinseln. Ideal fÃ¼r Maler, Restauratoren & Denkmalpflege."
 bilder:
   - btoe.jpg
 price: "13,45 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 5 Liter
@@ -23,18 +22,19 @@ sortierung: ""
 langcode: ""
 ---
 
-# 
+# BalsamterpentinÃ¶l
 
-
+BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.
+LeinÃ¶lfirnis kann mit BalsamterpentinÃ¶l im VerhÃ¤ltnis 1:1 zu HalbÃ¶l verdÃ¼nnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen.
+BalsamterpentinÃ¶l wird zum VerdÃ¼nnen von LeinÃ¶lfarben verwendet.
 
 ## Technische Daten
 
 - Referenz: BTÃ
 - Preis: 13,45 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 
@@ -49,8 +49,8 @@ langcode: ""
 
 ## SEO-Metadaten
 
-- meta_title: 
-- meta_description: 
+- meta_title: btoe â BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel
+- meta_description: BalsamterpentinÃ¶l â natÃ¼rliches LÃ¶semittel zum VerdÃ¼nnen von LeinÃ¶lprodukten & Reinigen von Pinseln. Ideal fÃ¼r Maler, Restauratoren & Denkmalpflege.
 
 ## Tags
 

@@ -13,7 +13,6 @@ bilder:
   - blr6-2.jpg
   - blr6-1.jpg
 price: "49,58 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
     []
@@ -34,10 +33,9 @@ Hight approx 11 mm
 
 - Referenz: BLR 6
 - Preis: 49,58 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LÃ¼ftungsrosetten
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

@@ -11,7 +11,6 @@ meta_description: "Linseed oil â cold-pressed, pure wood oil for interior &
 bilder:
   - loen.jpg
 price: "12,61 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 1 Liter
@@ -41,10 +40,9 @@ Linseed oil has a strong, typical odour at first, but this fades over the course
 
 - Referenz: LÃN
 - Preis: 12,61 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

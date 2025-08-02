@@ -15,7 +15,6 @@ bilder:
   - blr1-2.jpg
   - blr1-1.jpg
 price: "54,62 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
     []
@@ -36,10 +35,9 @@ Hight approx 5 mm
 
 - Referenz: BLR 1
 - Preis: 54,62 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LÃ¼ftungsrosetten
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

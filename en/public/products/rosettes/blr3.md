@@ -15,7 +15,6 @@ bilder:
   - blr3-2.jpg
   - blr3-1.jpg
 price: "49,58 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
     []
@@ -36,10 +35,9 @@ Hight approx 3 mm
 
 - Referenz: BLR 3
 - Preis: 49,58 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LÃ¼ftungsrosetten
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 

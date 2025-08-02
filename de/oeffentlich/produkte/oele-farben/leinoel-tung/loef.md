@@ -1,17 +1,16 @@
 ---
-slug: ""
+slug: "loef"
 product_id: "62"
 reference: "LÃF"
-titel: ""
+titel: "LeinÃ¶lfirnis"
 kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
-  
-meta_title: ""
-meta_description: ""
+  LeinÃ¶lfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
+meta_title: "loef â LeinÃ¶lfirnis mit Sikkativen.Im Innenbereich al"
+meta_description: "LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ¼r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ¼r innen & auÃen."
 bilder:
   - loef.jpg
 price: "13,45 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 1 Liter
@@ -27,18 +26,18 @@ sortierung: ""
 langcode: ""
 ---
 
-# 
+# LeinÃ¶lfirnis
 
-
+LeinÃ¶lfirnis mit Sikkativen.
+Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
 
 ## Technische Daten
 
 - Referenz: LÃF
 - Preis: 13,45 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 
@@ -57,8 +56,8 @@ langcode: ""
 
 ## SEO-Metadaten
 
-- meta_title: 
-- meta_description: 
+- meta_title: loef â LeinÃ¶lfirnis mit Sikkativen.Im Innenbereich al
+- meta_description: LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ¼r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ¼r innen & auÃen.
 
 ## Tags
 

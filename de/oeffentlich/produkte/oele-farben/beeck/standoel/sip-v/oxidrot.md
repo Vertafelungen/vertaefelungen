@@ -1,19 +1,18 @@
 ---
-slug: ""
+slug: "oxidrot"
 product_id: "105"
 reference: "Beek SIP Oxidrot"
-titel: ""
+titel: "Oxidrot - BEECK StandÃ¶linnenfarbe PRO"
 kategorie: "Artikel, STANDÃLINNENFARBE PRO Volltonfarben"
 beschreibung: >
-  
-meta_title: ""
-meta_description: ""
+  BEECK StandÃ¶linnenfarbe PRO Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
+meta_title: "Oxidrot, BEECK StandÃ¶linnnenfarbe PRO"
+meta_description: "Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ¼r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen."
 bilder:
   - oxidrot.jpg
   - oxidrot-farbfaecher.jpg
   - sip_gebinde.jpg
 price: "57,15 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 0,75 L, seidenmatt
@@ -33,18 +32,21 @@ sortierung: ""
 langcode: ""
 ---
 
-# 
+# Oxidrot - BEECK StandÃ¶linnenfarbe PRO
 
+BEECK StandÃ¶linnenfarbe PRO
+Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
 
+Verwendungszweck
+LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
 
 ## Technische Daten
 
 - Referenz: Beek SIP Oxidrot
 - Preis: 57,15 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, STANDÃLINNENFARBE PRO Volltonfarben
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 
@@ -69,8 +71,8 @@ langcode: ""
 
 ## SEO-Metadaten
 
-- meta_title: 
-- meta_description: 
+- meta_title: Oxidrot, BEECK StandÃ¶linnnenfarbe PRO
+- meta_description: Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ¼r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen.
 
 ## Tags
 

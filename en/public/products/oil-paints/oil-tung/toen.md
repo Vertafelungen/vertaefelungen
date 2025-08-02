@@ -11,7 +11,6 @@ meta_description: "Tung oil natural â pure, hardening wood oil for high-str
 bilder:
   - toen.jpg
 price: "21,01 €"
-preis_aufschlag: ""
 verfuegbar: "1"
 varianten_yaml: |
   - bezeichnung: 1 Liter
@@ -37,10 +36,9 @@ It is registered in the CAS database under the name "wood oil"
 
 - Referenz: TÃN
 - Preis: 21,01 €
-- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: 
+- Sortierung: nan
 
 ## Varianten
 
