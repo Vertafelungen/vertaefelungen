@@ -1,3 +1,5 @@
+with open("umlauttest.md", "w", encoding="utf-8") as f:
+    f.write("Test: ä ö ü Ä Ö Ü ß\n")
 import pandas as pd
 import os
 import requests
