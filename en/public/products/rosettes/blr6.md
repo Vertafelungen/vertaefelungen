@@ -1,3 +1,57 @@
-# blr6
+---
+slug: blr6
+product_id: 74
+reference: BLR 6
+titel: "Ventilation Rosette 6"
+kategorie: Artikel, LÃ¼ftungsrosetten
+beschreibung: >
+  Elegant ventilation rosette based on the original design. Cast brass, polished  Diameter approx. 46 mm Hight approx 11 mm
+meta_title: "Ventilation Rosette 6"
+meta_description: "Elegant ventilation rosette based on the original design. Cast brass, polished. Diameter approx. 46 mm. Hight approx 11 mm."
+bilder:
+  - blr6-3.jpg
+  - blr6-2.jpg
+  - blr6-1.jpg
+price: 49580000
+verfuegbar: 1
+varianten_yaml: | 
+[]
+tags: []
+sortierung: nan
+langcode: nan
+---
 
-Automatisch erzeugt aus Sheet.
+# Ventilation Rosette 6
+
+Elegant ventilation rosette based on the original design.
+Cast brass, polished
+
+Diameter approx. 46 mm
+Hight approx 11 mm
+
+## Technische Daten
+
+- Referenz: BLR 6
+- Preis: 49580000 €
+- Verfügbar: 1
+- Kategorie: Artikel, LÃ¼ftungsrosetten
+- Sortierung: nan
+
+## Varianten
+
+[]
+
+## Bilder
+
+![](blr6-3.jpg)
+![](blr6-2.jpg)
+![](blr6-1.jpg)
+
+## SEO-Metadaten
+
+- meta_title: {meta_title}
+- meta_description: {meta_description}
+
+## Tags
+
+{tags}
