@@ -1,3 +1,3 @@
-# sl0001
+# lemon-yellow
 
 Automatisch erzeugt aus Sheet.

@@ -1,3 +1,3 @@
-# sl0001
+# pastel-green
 
 Automatisch erzeugt aus Sheet.

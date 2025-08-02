@@ -1,3 +1,3 @@
-# sl0001
+# wine-red
 
 Automatisch erzeugt aus Sheet.

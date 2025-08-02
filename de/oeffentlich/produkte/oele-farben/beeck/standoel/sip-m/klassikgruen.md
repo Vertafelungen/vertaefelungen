@@ -1,3 +1,3 @@
-# sl0001
+# klassikgruen
 
 Automatisch erzeugt aus Sheet.

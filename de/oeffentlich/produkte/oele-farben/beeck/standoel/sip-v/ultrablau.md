@@ -1,3 +1,3 @@
-# sl0001
+# ultrablau
 
 Automatisch erzeugt aus Sheet.

@@ -1,3 +1,3 @@
-# sl0001
+# weiss
 
 Automatisch erzeugt aus Sheet.

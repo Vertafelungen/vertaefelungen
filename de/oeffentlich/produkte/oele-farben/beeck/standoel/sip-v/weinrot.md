@@ -1,3 +1,3 @@
-# sl0001
+# weinrot
 
 Automatisch erzeugt aus Sheet.

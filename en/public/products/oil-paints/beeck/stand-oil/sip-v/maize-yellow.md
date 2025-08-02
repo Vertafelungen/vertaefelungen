@@ -1,3 +1,3 @@
-# sl0001
+# maize-yellow
 
 Automatisch erzeugt aus Sheet.
