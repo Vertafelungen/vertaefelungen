@@ -13,15 +13,15 @@ bilder:
 price: "12,61 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 45378151
-- bezeichnung: 10 Liter
-  preis_aufschlag: 96638655
-- bezeichnung: 20 Liter
-  preis_aufschlag: 197478992
+varianten_yaml: |
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 45,38 €
+  - bezeichnung: 10 Liter
+    preis_aufschlag: 96,64 €
+  - bezeichnung: 20 Liter
+    preis_aufschlag: 197,48 €
 tags: []
 sortierung: ""
 langcode: ""
@@ -48,14 +48,14 @@ Linseed oil has a strong, typical odour at first, but this fades over the course
 
 ## Varianten
 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 45378151
-- bezeichnung: 10 Liter
-  preis_aufschlag: 96638655
-- bezeichnung: 20 Liter
-  preis_aufschlag: 197478992
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 45,38 €
+  - bezeichnung: 10 Liter
+    preis_aufschlag: 96,64 €
+  - bezeichnung: 20 Liter
+    preis_aufschlag: 197,48 €
 
 ## Bilder
 

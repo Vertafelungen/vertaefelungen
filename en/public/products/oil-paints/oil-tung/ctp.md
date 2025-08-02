@@ -13,11 +13,11 @@ bilder:
 price: "20,17 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 80672269
+varianten_yaml: |
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 80,67 €
 tags: []
 sortierung: ""
 langcode: ""
@@ -38,10 +38,10 @@ Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and 
 
 ## Varianten
 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 80672269
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 80,67 €
 
 ## Bilder
 

@@ -13,11 +13,11 @@ bilder:
 price: "13,45 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-- bezeichnung: 5 Liter
-  preis_aufschlag: 50420168
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
+varianten_yaml: |
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 50,42 €
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
 tags: []
 sortierung: ""
 langcode: ""
@@ -38,10 +38,10 @@ langcode: ""
 
 ## Varianten
 
-- bezeichnung: 5 Liter
-  preis_aufschlag: 50420168
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 50,42 €
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
 
 ## Bilder
 

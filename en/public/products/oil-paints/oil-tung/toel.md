@@ -13,15 +13,15 @@ bilder:
 price: "22,69 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 82352941
-- bezeichnung: 10 Liter
-  preis_aufschlag: 178991597
-- bezeichnung: 20 Liter
-  preis_aufschlag: 355462185
+varianten_yaml: |
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 82,35 €
+  - bezeichnung: 10 Liter
+    preis_aufschlag: 178,99 €
+  - bezeichnung: 20 Liter
+    preis_aufschlag: 355,46 €
 tags: []
 sortierung: ""
 langcode: ""
@@ -48,14 +48,14 @@ TUNG wood oil varnish dries significantly faster and harder than a linseed oil v
 
 ## Varianten
 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 82352941
-- bezeichnung: 10 Liter
-  preis_aufschlag: 178991597
-- bezeichnung: 20 Liter
-  preis_aufschlag: 355462185
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 82,35 €
+  - bezeichnung: 10 Liter
+    preis_aufschlag: 178,99 €
+  - bezeichnung: 20 Liter
+    preis_aufschlag: 355,46 €
 
 ## Bilder
 

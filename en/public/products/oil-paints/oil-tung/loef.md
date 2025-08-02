@@ -13,15 +13,15 @@ bilder:
 price: "13,45 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 50420168
-- bezeichnung: 10 Liter
-  preis_aufschlag: 108403361
-- bezeichnung: 20 Liter
-  preis_aufschlag: 226050420
+varianten_yaml: |
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 50,42 €
+  - bezeichnung: 10 Liter
+    preis_aufschlag: 108,40 €
+  - bezeichnung: 20 Liter
+    preis_aufschlag: 226,05 €
 tags: []
 sortierung: ""
 langcode: ""
@@ -43,14 +43,14 @@ For interior use as a quick-drying finish with a drying time of up to 24 hours.
 
 ## Varianten
 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 50420168
-- bezeichnung: 10 Liter
-  preis_aufschlag: 108403361
-- bezeichnung: 20 Liter
-  preis_aufschlag: 226050420
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 50,42 €
+  - bezeichnung: 10 Liter
+    preis_aufschlag: 108,40 €
+  - bezeichnung: 20 Liter
+    preis_aufschlag: 226,05 €
 
 ## Bilder
 

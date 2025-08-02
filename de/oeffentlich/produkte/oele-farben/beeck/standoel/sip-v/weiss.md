@@ -15,19 +15,19 @@ bilder:
 price: "41,50 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-- bezeichnung: 0,75 L, seidenmatt
-  preis_aufschlag: 0
-- bezeichnung: 0,75 L, seidenglanz
-  preis_aufschlag: 0
-- bezeichnung: 2,5 L, seidenmatt
-  preis_aufschlag: 91000000
-- bezeichnung: 2,5 L, seidenglanz
-  preis_aufschlag: 91000000
-- bezeichnung: 10 L, seidenmatt
-  preis_aufschlag: 467000000
-- bezeichnung: 10 L, seidenglanz
-  preis_aufschlag: 467000000
+varianten_yaml: |
+  - bezeichnung: 0,75 L, seidenmatt
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenglanz
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 2,5 L, seidenmatt
+    preis_aufschlag: 91,00 €
+  - bezeichnung: 2,5 L, seidenglanz
+    preis_aufschlag: 91,00 €
+  - bezeichnung: 10 L, seidenmatt
+    preis_aufschlag: 467,00 €
+  - bezeichnung: 10 L, seidenglanz
+    preis_aufschlag: 467,00 €
 tags: []
 sortierung: ""
 langcode: ""
@@ -48,18 +48,18 @@ langcode: ""
 
 ## Varianten
 
-- bezeichnung: 0,75 L, seidenmatt
-  preis_aufschlag: 0
-- bezeichnung: 0,75 L, seidenglanz
-  preis_aufschlag: 0
-- bezeichnung: 2,5 L, seidenmatt
-  preis_aufschlag: 91000000
-- bezeichnung: 2,5 L, seidenglanz
-  preis_aufschlag: 91000000
-- bezeichnung: 10 L, seidenmatt
-  preis_aufschlag: 467000000
-- bezeichnung: 10 L, seidenglanz
-  preis_aufschlag: 467000000
+  - bezeichnung: 0,75 L, seidenmatt
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenglanz
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 2,5 L, seidenmatt
+    preis_aufschlag: 91,00 €
+  - bezeichnung: 2,5 L, seidenglanz
+    preis_aufschlag: 91,00 €
+  - bezeichnung: 10 L, seidenmatt
+    preis_aufschlag: 467,00 €
+  - bezeichnung: 10 L, seidenglanz
+    preis_aufschlag: 467,00 €
 
 ## Bilder
 

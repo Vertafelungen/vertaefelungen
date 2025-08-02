@@ -13,13 +13,13 @@ bilder:
 price: "30,60 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-- bezeichnung: 0,75 L
-  preis_aufschlag: 0
-- bezeichnung: 2,5 L
-  preis_aufschlag: 66400000
-- bezeichnung: 10 L
-  preis_aufschlag: 341100000
+varianten_yaml: |
+  - bezeichnung: 0,75 L
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 2,5 L
+    preis_aufschlag: 66,40 €
+  - bezeichnung: 10 L
+    preis_aufschlag: 341,10 €
 tags: []
 sortierung: ""
 langcode: ""
@@ -44,12 +44,12 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Varianten
 
-- bezeichnung: 0,75 L
-  preis_aufschlag: 0
-- bezeichnung: 2,5 L
-  preis_aufschlag: 66400000
-- bezeichnung: 10 L
-  preis_aufschlag: 341100000
+  - bezeichnung: 0,75 L
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 2,5 L
+    preis_aufschlag: 66,40 €
+  - bezeichnung: 10 L
+    preis_aufschlag: 341,10 €
 
 ## Bilder
 

@@ -13,13 +13,13 @@ bilder:
 price: "21,01 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 90000000
-- bezeichnung: 10 Liter
-  preis_aufschlag: 195000000
+varianten_yaml: |
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 90,00 €
+  - bezeichnung: 10 Liter
+    preis_aufschlag: 195,00 €
 tags: []
 sortierung: ""
 langcode: ""
@@ -40,12 +40,12 @@ langcode: ""
 
 ## Varianten
 
-- bezeichnung: 1 Liter
-  preis_aufschlag: 0
-- bezeichnung: 5 Liter
-  preis_aufschlag: 90000000
-- bezeichnung: 10 Liter
-  preis_aufschlag: 195000000
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 90,00 €
+  - bezeichnung: 10 Liter
+    preis_aufschlag: 195,00 €
 
 ## Bilder
 

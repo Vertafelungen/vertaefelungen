@@ -15,8 +15,8 @@ bilder:
 price: "54,62 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-[]
+varianten_yaml: |
+    []
 tags: []
 sortierung: ""
 langcode: ""
@@ -41,7 +41,7 @@ Hight approx 13 mm
 
 ## Varianten
 
-[]
+    []
 
 ## Bilder
 

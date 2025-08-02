@@ -17,8 +17,8 @@ bilder:
 price: "49,58 €"
 preis_aufschlag: ""
 verfuegbar: "1"
-varianten_yaml: | 
-[]
+varianten_yaml: |
+    []
 tags: []
 sortierung: ""
 langcode: ""
@@ -39,7 +39,7 @@ langcode: ""
 
 ## Varianten
 
-[]
+    []
 
 ## Bilder
 
