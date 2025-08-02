@@ -8,7 +8,7 @@ SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6
 
 response = requests.get(SHEET_CSV_URL)
 response.raise_for_status()
-df = pd.read_csv(StringIO(response.text))
+df = pd.read_csv(StringIO(response.text), encoding="utf-8")
 
 def yaml_list(val):
     if pd.isna(val) or str(val).strip() == "":
@@ -39,22 +39,17 @@ def format_varianten_yaml(varianten_str):
     if not varianten_str or pd.isna(varianten_str):
         return ""
     lines = []
-    last_line_was_dash = False
     for line in str(varianten_str).split("\n"):
         stripped = line.strip()
         if stripped.startswith('- '):
             lines.append('  ' + stripped)
-            last_line_was_dash = True
         elif "preis_aufschlag:" in line:
             key, val = line.split(":", 1)
             val = val.strip()
             price = format_price(val)
             lines.append(f"    preis_aufschlag: {price}")
-            last_line_was_dash = False
         elif stripped:
-            # Weitere Felder auf zweiter Ebene korrekt einrücken
             lines.append('    ' + stripped)
-            last_line_was_dash = False
     return "\n".join(lines)
 
 def build_content(row, lang="de"):
@@ -110,6 +105,7 @@ langcode: {yaml_safe(langcode)}
 ---
 """
 
+    # --- Markdown-Body ---
     content = yaml + f"""
 # {titel}
 
@@ -130,7 +126,7 @@ langcode: {yaml_safe(langcode)}
 
 ## Bilder
 
-""" + ("\n".join(f"![]({b})" for b in bilder) if bilder else "_keine Bilder hinterlegt_") + """
+""" + ("\n".join(f"![]({b})" for b in bilder) if bilder else "_keine Bilder hinterlegt_") + f"""
 
 ## SEO-Metadaten
 
