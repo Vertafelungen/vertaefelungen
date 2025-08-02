@@ -12,64 +12,83 @@ response.raise_for_status()
 df = pd.read_csv(StringIO(response.text))
 
 def yaml_list(val):
-    """Hilfsfunktion: Kommagetrennte Strings als YAML-Liste ausgeben"""
     if pd.isna(val) or str(val).strip() == "":
-        return "[]"
-    items = [x.strip() for x in str(val).split(",") if x.strip()]
-    return "[" + ", ".join(f'"{item}"' for item in items) + "]"
+        return []
+    return [x.strip() for x in str(val).split(",") if x.strip()]
 
 def bilder_liste(val):
     if pd.isna(val) or not str(val).strip():
         return []
-    # Kommagetrennte Liste
     return [b.strip() for b in str(val).split(",") if b.strip()]
 
+def yaml_safe(s):
+    if s is None or pd.isna(s):
+        return '""'
+    s = str(s)
+    s = s.replace('"', "'")
+    return f'"{s}"'
+
+def format_price(val):
+    try:
+        # Sheetwert als int, letzte 6 Stellen = Nachkommastellen
+        num = int(val)
+        euro = num / 1_000_000
+        return f"{euro:,.2f} €".replace(",", "X").replace(".", ",").replace("X", ".")  # dt. Format
+    except:
+        return ""
+
 def build_content(row, lang="de"):
-    # Felder für YAML je nach Sprache
     prefix = "" if lang == "de" else "_en"
-    # Felder aus Zeile holen
-    slug = row.get(f"slug{prefix}", "")
-    product_id = row.get("product_id", "")
-    reference = row.get("reference", "")
-    titel = row.get(f"titel{prefix}", "")
-    beschreibung = row.get(f"beschreibung_md{prefix}", "")
-    meta_title = row.get(f"meta_title{prefix}", "")
-    meta_description = row.get(f"meta_description{prefix}", "")
-    price = row.get("price", "")
-    verfuegbar = row.get("verfuegbar", "")
-    kategorie = row.get("kategorie_raw", "")
+
+    def safeval(key):
+        v = row.get(key, "")
+        return "" if pd.isna(v) else str(v).strip()
+
+    slug = safeval(f"slug{prefix}")
+    product_id = safeval("product_id")
+    reference = safeval("reference")
+    titel = safeval(f"titel{prefix}")
+    beschreibung = safeval(f"beschreibung_md{prefix}")
+    meta_title = safeval(f"meta_title{prefix}") or safeval(f"meta_titel{prefix}")
+    meta_description = safeval(f"meta_description{prefix}")
+    price = format_price(row.get("price", ""))
+    preis_aufschlag = format_price(row.get("preis_aufschlag", ""))
+    verfuegbar = safeval("verfuegbar")
+    kategorie = safeval("kategorie_raw")
     bilder = bilder_liste(row.get("bilder_liste", ""))
-    varianten_yaml = row.get("varianten_yaml", "")
+    varianten_yaml = safeval("varianten_yaml")
     tags = yaml_list(row.get("tags", ""))
-    sortierung = row.get("sortierung", "")
-    langcode = row.get(f"langcode{prefix}", "")
-    
-    # YAML Frontmatter
+    sortierung = safeval("sortierung")
+    langcode = safeval(f"langcode{prefix}")
+
     yaml = f"""---
-slug: {slug}
-product_id: {product_id}
-reference: {reference}
-titel: "{titel}"
-kategorie: {kategorie}
+slug: {yaml_safe(slug)}
+product_id: {yaml_safe(product_id)}
+reference: {yaml_safe(reference)}
+titel: {yaml_safe(titel)}
+kategorie: {yaml_safe(kategorie)}
 beschreibung: >
-  {beschreibung.replace('\n', ' ')}
-meta_title: "{meta_title}"
-meta_description: "{meta_description}"
+  {beschreibung.replace('\n', ' ') if beschreibung else ''}
+meta_title: {yaml_safe(meta_title)}
+meta_description: {yaml_safe(meta_description)}
 bilder:
 """
-    for b in bilder:
-        yaml += f"  - {b}\n"
-    yaml += f"""price: {price}
-verfuegbar: {verfuegbar}
+    if bilder:
+        for b in bilder:
+            yaml += f"  - {b}\n"
+    else:
+        yaml += "  -\n"
+    yaml += f"""price: {yaml_safe(price)}
+preis_aufschlag: {yaml_safe(preis_aufschlag)}
+verfuegbar: {yaml_safe(verfuegbar)}
 varianten_yaml: | 
-{varianten_yaml if pd.notna(varianten_yaml) else ""}
-tags: {tags}
-sortierung: {sortierung}
-langcode: {langcode}
+{varianten_yaml if varianten_yaml else ""}
+tags: {tags if tags else "[]"}
+sortierung: {yaml_safe(sortierung)}
+langcode: {yaml_safe(langcode)}
 ---
 """
 
-    # Markdown Body
     content = yaml + f"""
 # {titel}
 
@@ -78,18 +97,19 @@ langcode: {langcode}
 ## Technische Daten
 
 - Referenz: {reference}
-- Preis: {price} €
+- Preis: {price}
+- Aufschlag: {preis_aufschlag}
 - Verfügbar: {verfuegbar}
 - Kategorie: {kategorie}
 - Sortierung: {sortierung}
 
 ## Varianten
 
-{varianten_yaml if pd.notna(varianten_yaml) else "_keine Varianten hinterlegt_"}
+{varianten_yaml if varianten_yaml else "_keine Varianten hinterlegt_"}
 
 ## Bilder
 
-""" + "\n".join(f"![]({b})" for b in bilder) + """
+""" + ("\n".join(f"![]({b})" for b in bilder) if bilder else "_keine Bilder hinterlegt_") + """
 
 ## SEO-Metadaten
 
@@ -98,7 +118,7 @@ langcode: {langcode}
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
 """
     return content
 
@@ -115,6 +135,5 @@ def write_md_files(export_col, slug_col, lang):
                 f.write(content)
             print(f"{full_path} geschrieben.")
 
-# Deutsch & Englisch synchronisieren
 write_md_files('export_pfad_de', 'slug_de', lang="de")
 write_md_files('export_pfad_en', 'slug_en', lang="en")
