@@ -3,12 +3,11 @@ import os
 import requests
 from io import StringIO
 
-# Sheet-URL: HIER DEINE CSV-URL EINFÜGEN!
+# Sheet-URL hier einfügen!
 SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv"
 
 response = requests.get(SHEET_CSV_URL)
 response.raise_for_status()
-
 df = pd.read_csv(StringIO(response.text))
 
 def yaml_list(val):
@@ -30,12 +29,33 @@ def yaml_safe(s):
 
 def format_price(val):
     try:
-        # Sheetwert als int, letzte 6 Stellen = Nachkommastellen
         num = int(val)
         euro = num / 1_000_000
-        return f"{euro:,.2f} €".replace(",", "X").replace(".", ",").replace("X", ".")  # dt. Format
+        return f"{euro:,.2f} €".replace(",", "X").replace(".", ",").replace("X", ".")
     except:
         return ""
+
+def format_varianten_yaml(varianten_str):
+    if not varianten_str or pd.isna(varianten_str):
+        return ""
+    lines = []
+    last_line_was_dash = False
+    for line in str(varianten_str).split("\n"):
+        stripped = line.strip()
+        if stripped.startswith('- '):
+            lines.append('  ' + stripped)
+            last_line_was_dash = True
+        elif "preis_aufschlag:" in line:
+            key, val = line.split(":", 1)
+            val = val.strip()
+            price = format_price(val)
+            lines.append(f"    preis_aufschlag: {price}")
+            last_line_was_dash = False
+        elif stripped:
+            # Weitere Felder auf zweiter Ebene korrekt einrücken
+            lines.append('    ' + stripped)
+            last_line_was_dash = False
+    return "\n".join(lines)
 
 def build_content(row, lang="de"):
     prefix = "" if lang == "de" else "_en"
@@ -56,7 +76,8 @@ def build_content(row, lang="de"):
     verfuegbar = safeval("verfuegbar")
     kategorie = safeval("kategorie_raw")
     bilder = bilder_liste(row.get("bilder_liste", ""))
-    varianten_yaml = safeval("varianten_yaml")
+    varianten_yaml_raw = safeval("varianten_yaml")
+    varianten_yaml = format_varianten_yaml(varianten_yaml_raw)
     tags = yaml_list(row.get("tags", ""))
     sortierung = safeval("sortierung")
     langcode = safeval(f"langcode{prefix}")
@@ -81,8 +102,8 @@ bilder:
     yaml += f"""price: {yaml_safe(price)}
 preis_aufschlag: {yaml_safe(preis_aufschlag)}
 verfuegbar: {yaml_safe(verfuegbar)}
-varianten_yaml: | 
-{varianten_yaml if varianten_yaml else ""}
+varianten_yaml: |
+{varianten_yaml if varianten_yaml else "  "}
 tags: {tags if tags else "[]"}
 sortierung: {yaml_safe(sortierung)}
 langcode: {yaml_safe(langcode)}
