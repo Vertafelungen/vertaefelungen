@@ -53,29 +53,39 @@ def format_varianten_yaml(varianten_str):
     return "\n".join(lines)
 
 def build_content(row, lang="de"):
-    prefix = "" if lang == "de" else "_en"
+    if lang == "de":
+        slug = row.get("slug_de", "")
+        titel = row.get("titel_de", "")
+        beschreibung = row.get("beschreibung_md_de", "")
+        meta_title = row.get("meta_title_de", "")
+        meta_description = row.get("meta_description_de", "")
+        kategorie = row.get("kategorie_raw", "")
+        verfuegbar = row.get("verfuegbar", "")
+        bilder = bilder_liste(row.get("bilder_liste", ""))
+        price = format_price(row.get("price", ""))
+        varianten_yaml_raw = row.get("varianten_yaml", "")
+        varianten_yaml = format_varianten_yaml(varianten_yaml_raw)
+        tags = yaml_list(row.get("tags", ""))
+        sortierung = row.get("sortierung", "")
+        langcode = row.get("langcode_de", "")
+    else:
+        slug = row.get("slug_en", "")
+        titel = row.get("titel_en", "")
+        beschreibung = row.get("beschreibung_md_en", "")
+        meta_title = row.get("meta_title_en", "")
+        meta_description = row.get("meta_description_en", "")
+        kategorie = row.get("kategorie_raw", "")
+        verfuegbar = row.get("verfuegbar", "")
+        bilder = bilder_liste(row.get("bilder_liste", ""))
+        price = format_price(row.get("price", ""))
+        varianten_yaml_raw = row.get("varianten_yaml", "")
+        varianten_yaml = format_varianten_yaml(varianten_yaml_raw)
+        tags = yaml_list(row.get("tags", ""))
+        sortierung = row.get("sortierung", "")
+        langcode = row.get("langcode_en", "")
 
-    def safeval(key):
-        v = row.get(key, "")
-        return "" if pd.isna(v) else str(v).strip()
-
-    slug = safeval(f"slug{prefix}")
-    product_id = safeval("product_id")
-    reference = safeval("reference")
-    titel = safeval(f"titel{prefix}")
-    beschreibung = safeval(f"beschreibung_md{prefix}")
-    meta_title = safeval(f"meta_title{prefix}") or safeval(f"meta_titel{prefix}")
-    meta_description = safeval(f"meta_description{prefix}")
-    price = format_price(row.get("price", ""))
-    preis_aufschlag = format_price(row.get("preis_aufschlag", ""))
-    verfuegbar = safeval("verfuegbar")
-    kategorie = safeval("kategorie_raw")
-    bilder = bilder_liste(row.get("bilder_liste", ""))
-    varianten_yaml_raw = safeval("varianten_yaml")
-    varianten_yaml = format_varianten_yaml(varianten_yaml_raw)
-    tags = yaml_list(row.get("tags", ""))
-    sortierung = safeval("sortierung")
-    langcode = safeval(f"langcode{prefix}")
+    product_id = row.get("product_id", "")
+    reference = row.get("reference", "")
 
     yaml = f"""---
 slug: {yaml_safe(slug)}
@@ -84,7 +94,7 @@ reference: {yaml_safe(reference)}
 titel: {yaml_safe(titel)}
 kategorie: {yaml_safe(kategorie)}
 beschreibung: >
-  {beschreibung.replace('\n', ' ') if beschreibung else ''}
+  {beschreibung.replace('\n', ' ') if pd.notna(beschreibung) else ''}
 meta_title: {yaml_safe(meta_title)}
 meta_description: {yaml_safe(meta_description)}
 bilder:
@@ -95,7 +105,6 @@ bilder:
     else:
         yaml += "  -\n"
     yaml += f"""price: {yaml_safe(price)}
-preis_aufschlag: {yaml_safe(preis_aufschlag)}
 verfuegbar: {yaml_safe(verfuegbar)}
 varianten_yaml: |
 {varianten_yaml if varianten_yaml else "  "}
@@ -115,7 +124,6 @@ langcode: {yaml_safe(langcode)}
 
 - Referenz: {reference}
 - Preis: {price}
-- Aufschlag: {preis_aufschlag}
 - Verfügbar: {verfuegbar}
 - Kategorie: {kategorie}
 - Sortierung: {sortierung}
