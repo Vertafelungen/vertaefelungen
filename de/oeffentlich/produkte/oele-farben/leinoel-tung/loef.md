@@ -1,17 +1,18 @@
 ---
-slug: 
-product_id: 62
-reference: LÃF
+slug: ""
+product_id: "62"
+reference: "LÃF"
 titel: ""
-kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
   
 meta_title: ""
 meta_description: ""
 bilder:
   - loef.jpg
-price: 13450000
-verfuegbar: 1
+price: "13,45 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 - bezeichnung: 1 Liter
   preis_aufschlag: 0
@@ -22,8 +23,8 @@ varianten_yaml: |
 - bezeichnung: 20 Liter
   preis_aufschlag: 226050420
 tags: []
-sortierung: nan
-langcode: 
+sortierung: ""
+langcode: ""
 ---
 
 # 
@@ -33,10 +34,11 @@ langcode:
 ## Technische Daten
 
 - Referenz: LÃF
-- Preis: 13450000 €
+- Preis: 13,45 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -60,4 +62,4 @@ langcode:
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}

@@ -1,9 +1,9 @@
 ---
-slug: 
-product_id: 72
-reference: BLR 2
+slug: ""
+product_id: "72"
+reference: "BLR 2"
 titel: ""
-kategorie: Artikel, LÃ¼ftungsrosetten
+kategorie: "Artikel, LÃ¼ftungsrosetten"
 beschreibung: >
   
 meta_title: ""
@@ -14,13 +14,14 @@ bilder:
   - blr2-3.jpg
   - blr2-2.jpg
   - blr2-1.jpg
-price: 49580000
-verfuegbar: 1
+price: "49,58 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 []
 tags: []
-sortierung: nan
-langcode: 
+sortierung: ""
+langcode: ""
 ---
 
 # 
@@ -30,10 +31,11 @@ langcode:
 ## Technische Daten
 
 - Referenz: BLR 2
-- Preis: 49580000 €
+- Preis: 49,58 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LÃ¼ftungsrosetten
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -54,4 +56,4 @@ langcode:
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}

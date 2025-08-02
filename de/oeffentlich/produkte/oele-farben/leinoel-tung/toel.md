@@ -1,17 +1,18 @@
 ---
-slug: 
-product_id: 65
-reference: TÃL
+slug: ""
+product_id: "65"
+reference: "TÃL"
 titel: ""
-kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
   
 meta_title: ""
 meta_description: ""
 bilder:
   - toel.jpg
-price: 22690000
-verfuegbar: 1
+price: "22,69 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 - bezeichnung: 1 Liter
   preis_aufschlag: 0
@@ -22,8 +23,8 @@ varianten_yaml: |
 - bezeichnung: 20 Liter
   preis_aufschlag: 355462185
 tags: []
-sortierung: nan
-langcode: 
+sortierung: ""
+langcode: ""
 ---
 
 # 
@@ -33,10 +34,11 @@ langcode:
 ## Technische Daten
 
 - Referenz: TÃL
-- Preis: 22690000 €
+- Preis: 22,69 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -60,4 +62,4 @@ langcode:
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}

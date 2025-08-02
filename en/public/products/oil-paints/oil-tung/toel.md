@@ -1,17 +1,18 @@
 ---
-slug: toel
-product_id: 65
-reference: TÃL
+slug: "toel"
+product_id: "65"
+reference: "TÃL"
 titel: "Tung oil varnish"
-kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
   Tung oil boiled with linseed oil, linseed oil stand oil and siccatives.  For interior and exterior use.  Â   TUNG wood oil varnish dries significantly faster and harder than a linseed oil varnish. The surface is initially matt glossy. It is used as a finishing varnish on linseed oil primers, as it swells less with water and has better UV resistance than a linseed oil varnish. It is very suitable for maintaining all types of hardwoods. The formerly well-known Eburit hard drying oil is based on the same ingredients as our wood oil varnish.
 meta_title: "Tung oil varnish"
 meta_description: "7Tung oil natural â pure, hardening wood oil for high-stress surfaces. Solvent-free, weather-resistant, deep-penetrating. Suitable for in- & outdoor use."
 bilder:
   - toel.jpg
-price: 22690000
-verfuegbar: 1
+price: "22,69 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 - bezeichnung: 1 Liter
   preis_aufschlag: 0
@@ -22,8 +23,8 @@ varianten_yaml: |
 - bezeichnung: 20 Liter
   preis_aufschlag: 355462185
 tags: []
-sortierung: nan
-langcode: nan
+sortierung: ""
+langcode: ""
 ---
 
 # Tung oil varnish
@@ -39,10 +40,11 @@ TUNG wood oil varnish dries significantly faster and harder than a linseed oil v
 ## Technische Daten
 
 - Referenz: TÃL
-- Preis: 22690000 €
+- Preis: 22,69 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -66,4 +68,4 @@ TUNG wood oil varnish dries significantly faster and harder than a linseed oil v
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}

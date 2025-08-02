@@ -1,9 +1,9 @@
 ---
-slug: 
-product_id: 70
-reference: BLR 4
+slug: ""
+product_id: "70"
+reference: "BLR 4"
 titel: ""
-kategorie: LÃ¼ftungsrosetten
+kategorie: "LÃ¼ftungsrosetten"
 beschreibung: >
   
 meta_title: ""
@@ -12,13 +12,14 @@ bilder:
   - blr4-3.jpg
   - blr4-2.jpg
   - blr4-1.jpg
-price: 41180000
-verfuegbar: 1
+price: "41,18 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 []
 tags: []
-sortierung: nan
-langcode: 
+sortierung: ""
+langcode: ""
 ---
 
 # 
@@ -28,10 +29,11 @@ langcode:
 ## Technische Daten
 
 - Referenz: BLR 4
-- Preis: 41180000 €
+- Preis: 41,18 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: LÃ¼ftungsrosetten
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -50,4 +52,4 @@ langcode:
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}

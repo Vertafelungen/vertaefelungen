@@ -1,9 +1,9 @@
 ---
-slug: pastel-green
-product_id: 113
-reference: Beeck SIP LindgrÃ¼n
+slug: "pastel-green"
+product_id: "113"
+reference: "Beeck SIP LindgrÃ¼n"
 titel: "Pastel Green - BEECK Interior Stand-Oil Paint PRO"
-kategorie: Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne
+kategorie: "Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne"
 beschreibung: >
   Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.  Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 meta_title: "Pastel Green Interior Stand-Oil Paint PRO from BEECK"
@@ -13,8 +13,9 @@ bilder:
   - lindgruen02.jpg
   - lindgruen03.jpg
   - lindgruen-farbfaecher.jpg
-price: 57150000
-verfuegbar: 1
+price: "57,15 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 - bezeichnung: 0,75 L, seidenmatt, LindgrÃ¼n 01
   preis_aufschlag: 0
@@ -53,8 +54,8 @@ varianten_yaml: |
 - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 03
   preis_aufschlag: 556350000
 tags: []
-sortierung: nan
-langcode: nan
+sortierung: ""
+langcode: ""
 ---
 
 # Pastel Green - BEECK Interior Stand-Oil Paint PRO
@@ -68,10 +69,11 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 ## Technische Daten
 
 - Referenz: Beeck SIP LindgrÃ¼n
-- Preis: 57150000 €
+- Preis: 57,15 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -126,4 +128,4 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}

@@ -1,17 +1,18 @@
 ---
-slug: 
-product_id: 61
-reference: LÃN
+slug: ""
+product_id: "61"
+reference: "LÃN"
 titel: ""
-kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
   
 meta_title: ""
 meta_description: ""
 bilder:
   - loen.jpg
-price: 12610000
-verfuegbar: 1
+price: "12,61 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 - bezeichnung: 1 Liter
   preis_aufschlag: 0
@@ -22,8 +23,8 @@ varianten_yaml: |
 - bezeichnung: 20 Liter
   preis_aufschlag: 197478992
 tags: []
-sortierung: nan
-langcode: 
+sortierung: ""
+langcode: ""
 ---
 
 # 
@@ -33,10 +34,11 @@ langcode:
 ## Technische Daten
 
 - Referenz: LÃN
-- Preis: 12610000 €
+- Preis: 12,61 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -60,4 +62,4 @@ langcode:
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}

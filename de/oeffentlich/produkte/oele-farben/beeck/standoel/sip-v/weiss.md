@@ -1,9 +1,9 @@
 ---
-slug: 
-product_id: 94
-reference: Beeck SIP WeiÃ
+slug: ""
+product_id: "94"
+reference: "Beeck SIP WeiÃ"
 titel: ""
-kategorie: Artikel, STANDÃLINNENFARBE PRO Volltonfarben
+kategorie: "Artikel, STANDÃLINNENFARBE PRO Volltonfarben"
 beschreibung: >
   
 meta_title: ""
@@ -12,8 +12,9 @@ bilder:
   - weiss.jpg
   - weiss-farbfaecher.jpg
   - sip_gebinde.jpg
-price: 41500000
-verfuegbar: 1
+price: "41,50 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 - bezeichnung: 0,75 L, seidenmatt
   preis_aufschlag: 0
@@ -28,8 +29,8 @@ varianten_yaml: |
 - bezeichnung: 10 L, seidenglanz
   preis_aufschlag: 467000000
 tags: []
-sortierung: nan
-langcode: 
+sortierung: ""
+langcode: ""
 ---
 
 # 
@@ -39,10 +40,11 @@ langcode:
 ## Technische Daten
 
 - Referenz: Beeck SIP WeiÃ
-- Preis: 41500000 €
+- Preis: 41,50 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, STANDÃLINNENFARBE PRO Volltonfarben
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -72,4 +74,4 @@ langcode:
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}

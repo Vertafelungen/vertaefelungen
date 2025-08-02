@@ -1,25 +1,26 @@
 ---
-slug: 
-product_id: 63
-reference: BTÃ
+slug: ""
+product_id: "63"
+reference: "BTÃ"
 titel: ""
-kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
   
 meta_title: ""
 meta_description: ""
 bilder:
   - btoe.jpg
-price: 13450000
-verfuegbar: 1
+price: "13,45 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 - bezeichnung: 5 Liter
   preis_aufschlag: 50420168
 - bezeichnung: 1 Liter
   preis_aufschlag: 0
 tags: []
-sortierung: nan
-langcode: 
+sortierung: ""
+langcode: ""
 ---
 
 # 
@@ -29,10 +30,11 @@ langcode:
 ## Technische Daten
 
 - Referenz: BTÃ
-- Preis: 13450000 €
+- Preis: 13,45 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -52,4 +54,4 @@ langcode:
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}

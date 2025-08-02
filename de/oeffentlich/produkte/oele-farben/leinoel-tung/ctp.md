@@ -1,25 +1,26 @@
 ---
-slug: 
-product_id: 64
-reference: CTP
+slug: ""
+product_id: "64"
+reference: "CTP"
 titel: ""
-kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
   
 meta_title: ""
 meta_description: ""
 bilder:
   - ctp.jpg
-price: 20170000
-verfuegbar: 1
+price: "20,17 €"
+preis_aufschlag: ""
+verfuegbar: "1"
 varianten_yaml: | 
 - bezeichnung: 1 Liter
   preis_aufschlag: 0
 - bezeichnung: 5 Liter
   preis_aufschlag: 80672269
 tags: []
-sortierung: nan
-langcode: 
+sortierung: ""
+langcode: ""
 ---
 
 # 
@@ -29,10 +30,11 @@ langcode:
 ## Technische Daten
 
 - Referenz: CTP
-- Preis: 20170000 €
+- Preis: 20,17 €
+- Aufschlag: 
 - Verfügbar: 1
 - Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
-- Sortierung: nan
+- Sortierung: 
 
 ## Varianten
 
@@ -52,4 +54,4 @@ langcode:
 
 ## Tags
 
-{tags}
+{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
