@@ -1,16 +1,16 @@
-with open("umlauttest.md", "w", encoding="utf-8") as f:
-    f.write("Test: ä ö ü Ä Ö Ü ß\n")
 import pandas as pd
 import os
 import requests
-from io import StringIO
 
-# Sheet-URL hier einfügen!
 SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv"
 
 response = requests.get(SHEET_CSV_URL)
 response.raise_for_status()
-df = pd.read_csv(StringIO(response.text), encoding="latin1")
+
+# NEU: Verwende BytesIO statt StringIO und decode explizit
+from io import BytesIO
+csv_bytes = BytesIO(response.content)
+df = pd.read_csv(csv_bytes, encoding="utf-8")
 
 def yaml_list(val):
     if pd.isna(val) or str(val).strip() == "":
