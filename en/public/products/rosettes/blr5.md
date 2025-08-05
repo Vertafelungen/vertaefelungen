@@ -3,7 +3,7 @@ slug: "blr5"
 product_id: "73"
 reference: "BLR 5"
 titel: "Ventilation Rosette 5"
-kategorie: "Artikel, LÃ¼ftungsrosetten"
+kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
   Elegant ventilation rosette based on the original design. Cast brass, polished  Diameter approx. 58 mm Hight approx 13 mm
 meta_title: "Ventilation Rosette 5"
@@ -34,7 +34,7 @@ Hight approx 13 mm
 - Referenz: BLR 5
 - Preis: 54,62 €
 - Verfügbar: 1
-- Kategorie: Artikel, LÃ¼ftungsrosetten
+- Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: nan
 
 ## Varianten

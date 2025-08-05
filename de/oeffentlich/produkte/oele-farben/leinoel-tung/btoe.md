@@ -1,13 +1,13 @@
 ---
 slug: "btoe"
 product_id: "63"
-reference: "BTÃ"
-titel: "BalsamterpentinÃ¶l"
-kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
+reference: "BTÖ"
+titel: "Balsamterpentinöl"
+kategorie: "Artikel, Leinöl, Tungöl, Balsam"
 beschreibung: >
-  BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird. LeinÃ¶lfirnis kann mit BalsamterpentinÃ¶l im VerhÃ¤ltnis 1:1 zu HalbÃ¶l verdÃ¼nnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen. BalsamterpentinÃ¶l wird zum VerdÃ¼nnen von LeinÃ¶lfarben verwendet.
-meta_title: "btoe â BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel"
-meta_description: "BalsamterpentinÃ¶l â natÃ¼rliches LÃ¶semittel zum VerdÃ¼nnen von LeinÃ¶lprodukten & Reinigen von Pinseln. Ideal fÃ¼r Maler, Restauratoren & Denkmalpflege."
+  Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird. Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen. Balsamterpentinöl wird zum Verdünnen von Leinölfarben verwendet.
+meta_title: "btoe – Balsamterpentinöl ist ein natürliches Lösungsmittel"
+meta_description: "Balsamterpentinöl – natürliches Lösemittel zum Verdünnen von Leinölprodukten & Reinigen von Pinseln. Ideal für Maler, Restauratoren & Denkmalpflege."
 bilder:
   - btoe.jpg
 price: "13,45 €"
@@ -22,18 +22,18 @@ sortierung: ""
 langcode: ""
 ---
 
-# BalsamterpentinÃ¶l
+# Balsamterpentinöl
 
-BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.
-LeinÃ¶lfirnis kann mit BalsamterpentinÃ¶l im VerhÃ¤ltnis 1:1 zu HalbÃ¶l verdÃ¼nnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen.
-BalsamterpentinÃ¶l wird zum VerdÃ¼nnen von LeinÃ¶lfarben verwendet.
+Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.
+Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen.
+Balsamterpentinöl wird zum Verdünnen von Leinölfarben verwendet.
 
 ## Technische Daten
 
-- Referenz: BTÃ
+- Referenz: BTÖ
 - Preis: 13,45 €
 - Verfügbar: 1
-- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+- Kategorie: Artikel, Leinöl, Tungöl, Balsam
 - Sortierung: nan
 
 ## Varianten
@@ -49,8 +49,8 @@ BalsamterpentinÃ¶l wird zum VerdÃ¼nnen von LeinÃ¶lfarben verwendet.
 
 ## SEO-Metadaten
 
-- meta_title: btoe â BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel
-- meta_description: BalsamterpentinÃ¶l â natÃ¼rliches LÃ¶semittel zum VerdÃ¼nnen von LeinÃ¶lprodukten & Reinigen von Pinseln. Ideal fÃ¼r Maler, Restauratoren & Denkmalpflege.
+- meta_title: btoe – Balsamterpentinöl ist ein natürliches Lösungsmittel
+- meta_description: Balsamterpentinöl – natürliches Lösemittel zum Verdünnen von Leinölprodukten & Reinigen von Pinseln. Ideal für Maler, Restauratoren & Denkmalpflege.
 
 ## Tags
 

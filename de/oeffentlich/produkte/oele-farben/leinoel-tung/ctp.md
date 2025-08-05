@@ -3,11 +3,11 @@ slug: "ctp"
 product_id: "64"
 reference: "CTP"
 titel: "Citrusterpene"
-kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
+kategorie: "Artikel, Leinöl, Tungöl, Balsam"
 beschreibung: >
-  Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nnen von Farben und zum LÃ¶sen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist fÃ¼r Ã¶kologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es wÃ¤hrend des Wachstums aufgenommen hat.
-meta_title: "ctp â Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nne"
-meta_description: "Citrusterpene â natÃ¼rliches OrangenÃ¶l-LÃ¶semittel zum VerdÃ¼nnen von Ãlen & Reinigen von Werkzeug. Biologisch abbaubar, kraftvoll & angenehm im Geruch."
+  Citrusterpene kann wie Balsamterpentinöl zum Verdünnen von Farben und zum Lösen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist für ökologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es während des Wachstums aufgenommen hat.
+meta_title: "ctp – Citrusterpene kann wie Balsamterpentinöl zum Verdünne"
+meta_description: "Citrusterpene – natürliches Orangenöl-Lösemittel zum Verdünnen von Ölen & Reinigen von Werkzeug. Biologisch abbaubar, kraftvoll & angenehm im Geruch."
 bilder:
   - ctp.jpg
 price: "20,17 €"
@@ -24,14 +24,14 @@ langcode: ""
 
 # Citrusterpene
 
-Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nnen von Farben und zum LÃ¶sen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist fÃ¼r Ã¶kologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es wÃ¤hrend des Wachstums aufgenommen hat.
+Citrusterpene kann wie Balsamterpentinöl zum Verdünnen von Farben und zum Lösen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist für ökologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es während des Wachstums aufgenommen hat.
 
 ## Technische Daten
 
 - Referenz: CTP
 - Preis: 20,17 €
 - Verfügbar: 1
-- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+- Kategorie: Artikel, Leinöl, Tungöl, Balsam
 - Sortierung: nan
 
 ## Varianten
@@ -47,8 +47,8 @@ Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nnen von Farben und zum 
 
 ## SEO-Metadaten
 
-- meta_title: ctp â Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nne
-- meta_description: Citrusterpene â natÃ¼rliches OrangenÃ¶l-LÃ¶semittel zum VerdÃ¼nnen von Ãlen & Reinigen von Werkzeug. Biologisch abbaubar, kraftvoll & angenehm im Geruch.
+- meta_title: ctp – Citrusterpene kann wie Balsamterpentinöl zum Verdünne
+- meta_description: Citrusterpene – natürliches Orangenöl-Lösemittel zum Verdünnen von Ölen & Reinigen von Werkzeug. Biologisch abbaubar, kraftvoll & angenehm im Geruch.
 
 ## Tags
 

@@ -3,7 +3,7 @@ slug: "blr7"
 product_id: "75"
 reference: "BLR 7"
 titel: "Ventilation Rosette 7"
-kategorie: "Artikel, LÃ¼ftungsrosetten"
+kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
   Elegant ventilation rosette based on an original design. Cast brass, polished  Diameter approx. 28 mm Hight approx 12 mm
 meta_title: "Ventilation Rosette 7"
@@ -34,7 +34,7 @@ Hight approx 12 mm
 - Referenz: BLR 7
 - Preis: 46,22 €
 - Verfügbar: 1
-- Kategorie: Artikel, LÃ¼ftungsrosetten
+- Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: nan
 
 ## Varianten

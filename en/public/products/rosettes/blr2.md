@@ -3,7 +3,7 @@ slug: "blr2"
 product_id: "72"
 reference: "BLR 2"
 titel: "Ventilation Rosette 2"
-kategorie: "Artikel, LÃ¼ftungsrosetten"
+kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
   Elegant ventilation rosette based on the original design. Cast brass, polished  Diameter approx. 42 mm Hight approx 3 mm
 meta_title: "Ventilation Rosette 2"
@@ -36,7 +36,7 @@ Hight approx 3 mm
 - Referenz: BLR 2
 - Preis: 49,58 €
 - Verfügbar: 1
-- Kategorie: Artikel, LÃ¼ftungsrosetten
+- Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: nan
 
 ## Varianten

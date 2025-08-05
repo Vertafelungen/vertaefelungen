@@ -3,7 +3,7 @@ slug: "ultra-blue"
 product_id: "106"
 reference: "Beek SIP Ultrablau"
 titel: "Ultra Blue - BEECK Interior Stand-Oil Paint PRO"
-kategorie: "Artikel, STANDÃLINNENFARBE PRO Volltonfarben"
+kategorie: "Artikel, STANDÖLINNENFARBE PRO Volltonfarben"
 beschreibung: >
   Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.  Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 meta_title: "Ultra Blue Interior Stand-Oil Paint PRO from BEECK"
@@ -45,7 +45,7 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 - Referenz: Beek SIP Ultrablau
 - Preis: 57,15 €
 - Verfügbar: 1
-- Kategorie: Artikel, STANDÃLINNENFARBE PRO Volltonfarben
+- Kategorie: Artikel, STANDÖLINNENFARBE PRO Volltonfarben
 - Sortierung: nan
 
 ## Varianten

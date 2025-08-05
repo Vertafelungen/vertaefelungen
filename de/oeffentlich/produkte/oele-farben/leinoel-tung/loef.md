@@ -1,13 +1,13 @@
 ---
 slug: "loef"
 product_id: "62"
-reference: "LÃF"
-titel: "LeinÃ¶lfirnis"
-kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
+reference: "LÖF"
+titel: "Leinölfirnis"
+kategorie: "Artikel, Leinöl, Tungöl, Balsam"
 beschreibung: >
-  LeinÃ¶lfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
-meta_title: "loef â LeinÃ¶lfirnis mit Sikkativen.Im Innenbereich al"
-meta_description: "LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ¼r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ¼r innen & auÃen."
+  Leinölfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
+meta_title: "loef – Leinölfirnis mit Sikkativen.Im Innenbereich al"
+meta_description: "Leinölfirnis – oxidativ trocknendes Holzöl für Grundierung, Holzschutz & Restaurierung. Lösemittelfrei, tief eindringend, ideal für innen & außen."
 bilder:
   - loef.jpg
 price: "13,45 €"
@@ -26,17 +26,17 @@ sortierung: ""
 langcode: ""
 ---
 
-# LeinÃ¶lfirnis
+# Leinölfirnis
 
-LeinÃ¶lfirnis mit Sikkativen.
+Leinölfirnis mit Sikkativen.
 Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
 
 ## Technische Daten
 
-- Referenz: LÃF
+- Referenz: LÖF
 - Preis: 13,45 €
 - Verfügbar: 1
-- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+- Kategorie: Artikel, Leinöl, Tungöl, Balsam
 - Sortierung: nan
 
 ## Varianten
@@ -56,8 +56,8 @@ Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bi
 
 ## SEO-Metadaten
 
-- meta_title: loef â LeinÃ¶lfirnis mit Sikkativen.Im Innenbereich al
-- meta_description: LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ¼r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ¼r innen & auÃen.
+- meta_title: loef – Leinölfirnis mit Sikkativen.Im Innenbereich al
+- meta_description: Leinölfirnis – oxidativ trocknendes Holzöl für Grundierung, Holzschutz & Restaurierung. Lösemittelfrei, tief eindringend, ideal für innen & außen.
 
 ## Tags
 

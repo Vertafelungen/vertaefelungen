@@ -1,13 +1,13 @@
 ---
 slug: "loen"
 product_id: "61"
-reference: "LÃN"
+reference: "LÖN"
 titel: "Pur Linseed Oil"
-kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
+kategorie: "Artikel, Leinöl, Tungöl, Balsam"
 beschreibung: >
   Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative. For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process. Drying time up to 2 weeks. Linseed oil fires the wood, the grain becomes more prominent.  Linseed oil is preferable to any artificially produced wood preservative and primer in interior areas. It is 100% natural and has proven itself traditionally. Linseed oil has a strong, typical odour at first, but this fades over the course of weeks.
 meta_title: "Pur Linseed Oil"
-meta_description: "Linseed oil â cold-pressed, pure wood oil for interior & exterior use. Ideal for priming, restoration & wood care. Solvent-free and long-lasting."
+meta_description: "Linseed oil – cold-pressed, pure wood oil for interior & exterior use. Ideal for priming, restoration & wood care. Solvent-free and long-lasting."
 bilder:
   - loen.jpg
 price: "12,61 €"
@@ -38,10 +38,10 @@ Linseed oil has a strong, typical odour at first, but this fades over the course
 
 ## Technische Daten
 
-- Referenz: LÃN
+- Referenz: LÖN
 - Preis: 12,61 €
 - Verfügbar: 1
-- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+- Kategorie: Artikel, Leinöl, Tungöl, Balsam
 - Sortierung: nan
 
 ## Varianten
@@ -62,7 +62,7 @@ Linseed oil has a strong, typical odour at first, but this fades over the course
 ## SEO-Metadaten
 
 - meta_title: Pur Linseed Oil
-- meta_description: Linseed oil â cold-pressed, pure wood oil for interior & exterior use. Ideal for priming, restoration & wood care. Solvent-free and long-lasting.
+- meta_description: Linseed oil – cold-pressed, pure wood oil for interior & exterior use. Ideal for priming, restoration & wood care. Solvent-free and long-lasting.
 
 ## Tags
 

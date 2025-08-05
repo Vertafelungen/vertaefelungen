@@ -2,12 +2,12 @@
 slug: "blr3"
 product_id: "60"
 reference: "BLR 3"
-titel: "LÃ¼ftungsrosette 3"
-kategorie: "Artikel, LÃ¼ftungsrosetten"
+titel: "Lüftungsrosette 3"
+kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 36 mm Hohe ca. 3 mm
-meta_title: "blr3 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl"
-meta_description: "LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen"
+  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 36 mm Hohe ca. 3 mm
+meta_title: "blr3 – Lüftungsrosette für Vertäfelungen, nach Originalvorl"
+meta_description: "Lüftungsrosette für Holzvertäfelungen"
 bilder:
   - blr3-5.jpg
   - blr3-4.jpg
@@ -23,9 +23,9 @@ sortierung: ""
 langcode: ""
 ---
 
-# LÃ¼ftungsrosette 3
+# Lüftungsrosette 3
 
-LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen.
+Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert
 
 Durchmesser ca. 36 mm
@@ -36,7 +36,7 @@ Hohe ca. 3 mm
 - Referenz: BLR 3
 - Preis: 49,58 €
 - Verfügbar: 1
-- Kategorie: Artikel, LÃ¼ftungsrosetten
+- Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: nan
 
 ## Varianten
@@ -53,8 +53,8 @@ Hohe ca. 3 mm
 
 ## SEO-Metadaten
 
-- meta_title: blr3 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl
-- meta_description: LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen
+- meta_title: blr3 – Lüftungsrosette für Vertäfelungen, nach Originalvorl
+- meta_description: Lüftungsrosette für Holzvertäfelungen
 
 ## Tags
 

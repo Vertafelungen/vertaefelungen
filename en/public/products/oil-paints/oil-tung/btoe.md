@@ -1,13 +1,13 @@
 ---
 slug: "btoe"
 product_id: "63"
-reference: "BTÃ"
+reference: "BTÖ"
 titel: "Balsamic turpentine oil"
-kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
+kategorie: "Artikel, Leinöl, Tungöl, Balsam"
 beschreibung: >
   Balsamic turpentine oil is a natural solvent that is obtained by repeated distillation (recification) of coniferous wood resins. Linseed oil varnish can be diluted with balsamic turpentine oil in a ratio of 1:1 to half oil. This allows the quick-drying varnish to penetrate deeper into the wood. Balsamic turpentine oil is used to dilute linseed oil paints.
 meta_title: "Balsamic turpentine oil"
-meta_description: "Gum turpentine â natural solvent for thinning linseed oil products & cleaning brushes. Perfect for painters, restorers & historic preservation work."
+meta_description: "Gum turpentine – natural solvent for thinning linseed oil products & cleaning brushes. Perfect for painters, restorers & historic preservation work."
 bilder:
   - btoe.jpg
 price: "13,45 €"
@@ -30,10 +30,10 @@ Balsamic turpentine oil is used to dilute linseed oil paints.
 
 ## Technische Daten
 
-- Referenz: BTÃ
+- Referenz: BTÖ
 - Preis: 13,45 €
 - Verfügbar: 1
-- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+- Kategorie: Artikel, Leinöl, Tungöl, Balsam
 - Sortierung: nan
 
 ## Varianten
@@ -50,7 +50,7 @@ Balsamic turpentine oil is used to dilute linseed oil paints.
 ## SEO-Metadaten
 
 - meta_title: Balsamic turpentine oil
-- meta_description: Gum turpentine â natural solvent for thinning linseed oil products & cleaning brushes. Perfect for painters, restorers & historic preservation work.
+- meta_description: Gum turpentine – natural solvent for thinning linseed oil products & cleaning brushes. Perfect for painters, restorers & historic preservation work.
 
 ## Tags
 

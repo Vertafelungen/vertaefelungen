@@ -1,13 +1,13 @@
 ---
 slug: "toel"
 product_id: "65"
-reference: "TÃL"
-titel: "Tung HolzÃ¶llack"
-kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
+reference: "TÖL"
+titel: "Tung Holzöllack"
+kategorie: "Artikel, Leinöl, Tungöl, Balsam"
 beschreibung: >
-  TungÃ¶l verkocht mit LackleinÃ¶l, LeinÃ¶lstandÃ¶l und Sikkativen.  Anwendung innen und auÃen.  Â   TUNG HolzÃ¶llack trocknet bedeutend schneller und hÃ¤rter als ein LeinÃ¶lfirnisanstrich. Die OberflÃ¤che ist anfÃ¤nglich matt glÃ¤nzend. Er wird eingesetzt als Schlussfirnis auf LeinÃ¶lgrundierungen, da er weniger durch Wasser quillt und eine bessere UV BestÃ¤ndigkeit besitzt als ein LeinÃ¶lfirnis. Sehr gut ist er auch zur Pflege aller Arten von Holz, auch HarthÃ¶lzer, geeignet. Das legendÃ¤re Eburit HartrockenÃ¶l basiert auf den gleichen Inhaltsstoffen wie unser HolzÃ¶llack.
-meta_title: "toel â <p style='margin:0px;font-style:normal;font-size:10.7px"
-meta_description: "TungÃ¶l natur â reines, hÃ¤rtendes HolzÃ¶l fÃ¼r stark beanspruchte OberflÃ¤chen. LÃ¶semittelfrei, wetterfest, tief eindringend. Ideal fÃ¼r innen & auÃen."
+  Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen.  Anwendung innen und außen.     TUNG Holzöllack trocknet bedeutend schneller und härter als ein Leinölfirnisanstrich. Die Oberfläche ist anfänglich matt glänzend. Er wird eingesetzt als Schlussfirnis auf Leinölgrundierungen, da er weniger durch Wasser quillt und eine bessere UV Beständigkeit besitzt als ein Leinölfirnis. Sehr gut ist er auch zur Pflege aller Arten von Holz, auch Harthölzer, geeignet. Das legendäre Eburit Hartrockenöl basiert auf den gleichen Inhaltsstoffen wie unser Holzöllack.
+meta_title: "toel – <p style='margin:0px;font-style:normal;font-size:10.7px"
+meta_description: "Tungöl natur – reines, härtendes Holzöl für stark beanspruchte Oberflächen. Lösemittelfrei, wetterfest, tief eindringend. Ideal für innen & außen."
 bilder:
   - toel.jpg
 price: "22,69 €"
@@ -26,22 +26,22 @@ sortierung: ""
 langcode: ""
 ---
 
-# Tung HolzÃ¶llack
+# Tung Holzöllack
 
-TungÃ¶l verkocht mit LackleinÃ¶l, LeinÃ¶lstandÃ¶l und Sikkativen.
+Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen.
 
-Anwendung innen und auÃen.
+Anwendung innen und außen.
 
-Â 
+ 
 
-TUNG HolzÃ¶llack trocknet bedeutend schneller und hÃ¤rter als ein LeinÃ¶lfirnisanstrich. Die OberflÃ¤che ist anfÃ¤nglich matt glÃ¤nzend. Er wird eingesetzt als Schlussfirnis auf LeinÃ¶lgrundierungen, da er weniger durch Wasser quillt und eine bessere UV BestÃ¤ndigkeit besitzt als ein LeinÃ¶lfirnis. Sehr gut ist er auch zur Pflege aller Arten von Holz, auch HarthÃ¶lzer, geeignet. Das legendÃ¤re Eburit HartrockenÃ¶l basiert auf den gleichen Inhaltsstoffen wie unser HolzÃ¶llack.
+TUNG Holzöllack trocknet bedeutend schneller und härter als ein Leinölfirnisanstrich. Die Oberfläche ist anfänglich matt glänzend. Er wird eingesetzt als Schlussfirnis auf Leinölgrundierungen, da er weniger durch Wasser quillt und eine bessere UV Beständigkeit besitzt als ein Leinölfirnis. Sehr gut ist er auch zur Pflege aller Arten von Holz, auch Harthölzer, geeignet. Das legendäre Eburit Hartrockenöl basiert auf den gleichen Inhaltsstoffen wie unser Holzöllack.
 
 ## Technische Daten
 
-- Referenz: TÃL
+- Referenz: TÖL
 - Preis: 22,69 €
 - Verfügbar: 1
-- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
+- Kategorie: Artikel, Leinöl, Tungöl, Balsam
 - Sortierung: nan
 
 ## Varianten
@@ -61,8 +61,8 @@ TUNG HolzÃ¶llack trocknet bedeutend schneller und hÃ¤rter als ein LeinÃ¶lf
 
 ## SEO-Metadaten
 
-- meta_title: toel â <p style="margin:0px;font-style:normal;font-size:10.7px
-- meta_description: TungÃ¶l natur â reines, hÃ¤rtendes HolzÃ¶l fÃ¼r stark beanspruchte OberflÃ¤chen. LÃ¶semittelfrei, wetterfest, tief eindringend. Ideal fÃ¼r innen & auÃen.
+- meta_title: toel – <p style="margin:0px;font-style:normal;font-size:10.7px
+- meta_description: Tungöl natur – reines, härtendes Holzöl für stark beanspruchte Oberflächen. Lösemittelfrei, wetterfest, tief eindringend. Ideal für innen & außen.
 
 ## Tags
 

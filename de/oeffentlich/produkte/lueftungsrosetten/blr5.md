@@ -2,12 +2,12 @@
 slug: "blr5"
 product_id: "73"
 reference: "BLR 5"
-titel: "LÃ¼ftungsrosette 5"
-kategorie: "Artikel, LÃ¼ftungsrosetten"
+titel: "Lüftungsrosette 5"
+kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 58 mm Hohe ca. 13 mm
-meta_title: "blr5 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl"
-meta_description: "LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen"
+  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 58 mm Hohe ca. 13 mm
+meta_title: "blr5 – Lüftungsrosette für Vertäfelungen, nach Originalvorl"
+meta_description: "Lüftungsrosette für Holzvertäfelungen"
 bilder:
   - blr5-3.jpg
   - blr5-2.jpg
@@ -21,9 +21,9 @@ sortierung: ""
 langcode: ""
 ---
 
-# LÃ¼ftungsrosette 5
+# Lüftungsrosette 5
 
-LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen.
+Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert
 
 Durchmesser ca. 58 mm
@@ -34,7 +34,7 @@ Hohe ca. 13 mm
 - Referenz: BLR 5
 - Preis: 54,62 €
 - Verfügbar: 1
-- Kategorie: Artikel, LÃ¼ftungsrosetten
+- Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: nan
 
 ## Varianten
@@ -49,8 +49,8 @@ Hohe ca. 13 mm
 
 ## SEO-Metadaten
 
-- meta_title: blr5 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl
-- meta_description: LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen
+- meta_title: blr5 – Lüftungsrosette für Vertäfelungen, nach Originalvorl
+- meta_description: Lüftungsrosette für Holzvertäfelungen
 
 ## Tags
 
