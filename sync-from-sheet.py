@@ -147,7 +147,7 @@ langcode: {yaml_safe(langcode)}
 
 {', '.join(tags) if tags else "_keine Tags hinterlegt_"}
 """
-    return content
+    return content, titel, beschreibung, meta_title
 
 def write_md_files(export_col, slug_col, lang):
     for _, row in df.iterrows():
@@ -157,7 +157,16 @@ def write_md_files(export_col, slug_col, lang):
             full_dir = pfad.rstrip('/')
             os.makedirs(full_dir, exist_ok=True)
             full_path = f"{full_dir}/{slug}.md"
-            content = build_content(row, lang)
+            content, titel, beschreibung, meta_title = build_content(row, lang)
+
+            # DEBUG-Ausgaben
+            print("-" * 40)
+            print(f"File: {full_path}")
+            print("Titel:", titel)
+            print("Beschreibung (Ausschnitt):", beschreibung[:80])
+            print("Meta-Title:", meta_title)
+            print("-" * 40)
+
             with open(full_path, 'w', encoding='utf-8') as f:
                 f.write(content)
             print(f"{full_path} geschrieben.")
