@@ -10,7 +10,7 @@ SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6
 
 response = requests.get(SHEET_CSV_URL)
 response.raise_for_status()
-df = pd.read_csv(StringIO(response.text), encoding="utf-8-sig")
+df = pd.read_csv(StringIO(response.text), encoding="latin1")
 
 def yaml_list(val):
     if pd.isna(val) or str(val).strip() == "":
