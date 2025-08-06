@@ -1,4 +1,4 @@
-# Sitemap – tatsächliche Ordner- und Dateistruktur
+# Sitemap 05.08.2025 – tatsächliche Ordner- und Dateistruktur
 
 - vertaefelungen-main-2/
     - vertaefelungen-main/
