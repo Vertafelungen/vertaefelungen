@@ -32,7 +32,10 @@ Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Deck
 - **Brüstungshoch** (ca. 1 m): meist unter Fenstern, als Sitzbank-Verkleidung oder Wandabschluss
 - **Halbhoch** (ca. 1,2–1,4 m): häufig in Fluren, Salons, Esszimmern
 - **Raumhoch** (bis Decke): für repräsentative Räume, Bibliotheken, Säle
-- **Kassettenvertäfelung:** klassisch mit Füllungen und Rahmen
+- **Kassettenvertäfelung:** klassisch mit Füllungen und Rahmen, Rechteck liegend, Rechteck stehend, quadratisch 
+- **Nadelstreif-Paneelen:** vertikale Gliederung mit seitlich profilierten Paneelbrettern oder separaten profilierten Stäben
+- **Fassadengliederungen:** gestalterische Anlehnung an Fassaden, mit betonter Sockelzone, Scheinfenstern, Fensterverdachung, Lisenen, Architrav, Traufgesims
+- **Maßwerk-Motive:** Vertäfelung mit angedeuteten Spitzbogen- oder Rundbogenfenstern mit gotischem Maßwerk ausgeschmückt
 - **Profilierte Leisten und Bekleidungen:** zur Gliederung, als Zierabschluss, für Türen
 
 ---
