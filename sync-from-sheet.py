@@ -32,19 +32,16 @@ df = pd.read_csv(csv_bytes, encoding="utf-8")
 
 # ===== HELPERS (unchanged behaviour) =====
 def yaml_list(val):
-    import pandas as pd
     if pd.isna(val) or str(val).strip() == "":
         return []
     return [x.strip() for x in str(val).split(",") if x.strip()]
 
 def bilder_liste(val):
-    import pandas as pd
     if pd.isna(val) or not str(val).strip():
         return []
     return [b.strip() for b in str(val).split(",") if b.strip()]
 
 def yaml_safe(s):
-    import pandas as pd
     if s is None or pd.isna(s):
         return '""'
     s = str(s)
@@ -56,11 +53,10 @@ def format_price(val):
         num = int(val)
         euro = num / 1_000_000
         return f"{euro:,.2f} €".replace(",", "X").replace(".", ",").replace("X", ".")
-    except:
+    except Exception:
         return ""
 
 def format_varianten_yaml(varianten_str):
-    import pandas as pd
     if not varianten_str or pd.isna(varianten_str):
         return ""
     lines = []
@@ -78,14 +74,13 @@ def format_varianten_yaml(varianten_str):
     return "\n".join(lines)
 
 def _short_summary(text, limit=240):
-    import pandas as pd
     if text is None or pd.isna(text):
         return ""
     s = " ".join(str(text).split())
     return s[:limit]
 
 def build_content(row, lang="de"):
-    import pandas as pd
+    # Extract raw fields
     if lang == "de":
         slug = row.get("slug_de", "")
         titel = row.get("titel_de", "")
@@ -120,64 +115,76 @@ def build_content(row, lang="de"):
     product_id = row.get("product_id", "")
     reference = row.get("reference", "")
 
-    yaml_block = f"""---
-slug: {yaml_safe(slug)}
-product_id: {yaml_safe(product_id)}
-reference: {yaml_safe(reference)}
-titel: {yaml_safe(titel)}
-kategorie: {yaml_safe(kategorie)}
-beschreibung: >
-  {beschreibung.replace('\n', ' ') if pd.notna(beschreibung) else ''}
-meta_title: {yaml_safe(meta_title)}
-meta_description: {yaml_safe(meta_description)}
-bilder:
-"""
+    # PREP: avoid backslashes in f-string expressions — precompute strings
+    beschreibung_text = ""
+    if pd.notna(beschreibung):
+        beschreibung_text = str(beschreibung).replace("\n", " ")
+    meta_title_text = "" if pd.isna(meta_title) else str(meta_title)
+    meta_description_text = "" if pd.isna(meta_description) else str(meta_description)
+
+    yaml_lines = []
+    yaml_lines.append("---")
+    yaml_lines.append(f"slug: {yaml_safe(slug)}")
+    yaml_lines.append(f"product_id: {yaml_safe(product_id)}")
+    yaml_lines.append(f"reference: {yaml_safe(reference)}")
+    yaml_lines.append(f"titel: {yaml_safe(titel)}")
+    yaml_lines.append(f"kategorie: {yaml_safe(kategorie)}")
+    yaml_lines.append("beschreibung: >")
+    yaml_lines.append(f"  {beschreibung_text}")
+    yaml_lines.append(f"meta_title: {yaml_safe(meta_title_text)}")
+    yaml_lines.append(f"meta_description: {yaml_safe(meta_description_text)}")
+    yaml_lines.append("bilder:")
     if bilder:
         for b in bilder:
-            yaml_block += f"  - {b}\n"
+            yaml_lines.append(f"  - {b}")
     else:
-        yaml_block += "  -\n"
-    yaml_block += f"""price: {yaml_safe(price)}
-verfuegbar: {yaml_safe(verfuegbar)}
-varianten_yaml: |
-{varianten_yaml if varianten_yaml else "  "}
-tags: {tags if tags else "[]"}
-sortierung: {yaml_safe(sortierung)}
-langcode: {yaml_safe(langcode)}
----
-"""
+        yaml_lines.append("  -")
+    yaml_lines.append(f"price: {yaml_safe(price)}")
+    yaml_lines.append(f"verfuegbar: {yaml_safe(verfuegbar)}")
+    yaml_lines.append("varianten_yaml: |")
+    yaml_lines.append(varianten_yaml if varianten_yaml else "  ")
+    yaml_lines.append(f"tags: {tags if tags else '[]'}")
+    yaml_lines.append(f"sortierung: {yaml_safe(sortierung)}")
+    yaml_lines.append(f"langcode: {yaml_safe(langcode)}")
+    yaml_lines.append("---")
+    yaml_block = "\n".join(yaml_lines)
 
-    # Markdown body
-    content = yaml_block + f"""
-# {titel}
-
-{beschreibung}
-
-## Technische Daten
-
-- Referenz: {reference}
-- Preis: {price}
-- Verfügbar: {verfuegbar}
-- Kategorie: {kategorie}
-- Sortierung: {sortierung}
-
-## Varianten
-
-{varianten_yaml if varianten_yaml else "_keine Varianten hinterlegt_"}
-
-## Bilder
-
-""" + ("\n".join(f"![]({b})" for b in bilder) if bilder else "_keine Bilder hinterlegt_") + f"""
-
-## SEO-Metadaten
-
-- meta_title: {meta_title}
-- meta_description: {meta_description}
-
-## Tags
-
-{', '.join(tags) if tags else "_keine Tags hinterlegt_"}
-"""
+    # Markdown body (no backslash expressions inside f-strings)
+    body_parts = []
+    body_parts.append(f"# {titel}")
+    body_parts.append("")
+    body_parts.append(str(beschreibung if pd.notna(beschreibung) else ""))
+    body_parts.append("")
+    body_parts.append("## Technische Daten")
+    body_parts.append("")
+    body_parts.append(f"- Referenz: {reference}")
+    body_parts.append(f"- Preis: {price}")
+    body_parts.append(f"- Verfügbar: {verfuegbar}")
+    body_parts.append(f"- Kategorie: {kategorie}")
+    body_parts.append(f"- Sortierung: {sortierung}")
+    body_parts.append("")
+    body_parts.append("## Varianten")
+    body_parts.append("")
+    body_parts.append(varianten_yaml if varianten_yaml else "_keine Varianten hinterlegt_")
+    body_parts.append("")
+    body_parts.append("## Bilder")
+    body_parts.append("")
+    if bilder:
+        for b in bilder:
+            body_parts.append(f"![]({b})")
+    else:
+        body_parts.append("_keine Bilder hinterlegt_")
+    body_parts.append("")
+    body_parts.append("## SEO-Metadaten")
+    body_parts.append("")
+    body_parts.append(f"- meta_title: {meta_title_text}")
+    body_parts.append(f"- meta_description: {meta_description_text}")
+    body_parts.append("")
+    body_parts.append("## Tags")
+    body_parts.append("")
+    body_parts.append(", ".join(tags) if tags else "_keine Tags hinterlegt_")
+    body_parts.append("")
+    content = yaml_block + "\n\n" + "\n".join(body_parts)
 
     json_item = {
         "path": "",  # will be set relative to repo root
@@ -188,7 +195,7 @@ langcode: {yaml_safe(langcode)}
         "summary": _short_summary(beschreibung),
         "images": bilder
     }
-    return content, titel, beschreibung, meta_title, json_item
+    return content, titel, beschreibung, meta_title_text, json_item
 
 catalog_de = []
 catalog_en = []
