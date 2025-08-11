@@ -13,6 +13,7 @@ bilder:
   - lindgruen02.jpg
   - lindgruen03.jpg
   - lindgruen-farbfaecher.jpg
+  - sip_gebinde.jpg
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -118,6 +119,7 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 ![](lindgruen02.jpg)
 ![](lindgruen03.jpg)
 ![](lindgruen-farbfaecher.jpg)
+![](sip_gebinde.jpg)
 
 ## SEO-Metadaten
 

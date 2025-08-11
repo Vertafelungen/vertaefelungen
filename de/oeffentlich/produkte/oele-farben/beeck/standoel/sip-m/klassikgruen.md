@@ -13,6 +13,7 @@ bilder:
   - klassikgruen02.jpg
   - klassikgruen03.jpg
   - klassikgruen-farbfaecher.jpg
+  - sip_gebinde.jpg
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -118,6 +119,7 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 ![](klassikgruen02.jpg)
 ![](klassikgruen03.jpg)
 ![](klassikgruen-farbfaecher.jpg)
+![](sip_gebinde.jpg)
 
 ## SEO-Metadaten
 
