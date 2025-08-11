@@ -1,28 +1,50 @@
-import pandas as pd
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Generates Markdown files (DE/EN) from a Google Sheet CSV (SSOT) and produces
+produkte.de.json / produkte.en.json with RELATIVE paths (repo-root relative).
+Designed to run locally and in GitHub Actions (daily).
+
+Dependencies: pandas, requests
+"""
+
 import os
+import json
+import pandas as pd
 import requests
-
-SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv"
-
-response = requests.get(SHEET_CSV_URL)
-response.raise_for_status()
-
-# NEU: Verwende BytesIO statt StringIO und decode explizit
+from datetime import datetime
 from io import BytesIO
-csv_bytes = BytesIO(response.content)
+
+# ===== CONFIG =====
+SHEET_CSV_URL = os.getenv("SHEET_CSV_URL", "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv")
+
+# Columns in the Google Sheet (keep existing, including Umlaut handling)
+COL_EXPORT_DE = "export_pfad_de"
+COL_EXPORT_EN = "export_pfad_en"
+COL_SLUG_DE   = "slug_de"
+COL_SLUG_EN   = "slug_en"
+
+# ===== FETCH SHEET =====
+resp = requests.get(SHEET_CSV_URL, timeout=60)
+resp.raise_for_status()
+csv_bytes = BytesIO(resp.content)
 df = pd.read_csv(csv_bytes, encoding="utf-8")
 
+# ===== HELPERS (unchanged behaviour) =====
 def yaml_list(val):
+    import pandas as pd
     if pd.isna(val) or str(val).strip() == "":
         return []
     return [x.strip() for x in str(val).split(",") if x.strip()]
 
 def bilder_liste(val):
+    import pandas as pd
     if pd.isna(val) or not str(val).strip():
         return []
     return [b.strip() for b in str(val).split(",") if b.strip()]
 
 def yaml_safe(s):
+    import pandas as pd
     if s is None or pd.isna(s):
         return '""'
     s = str(s)
@@ -38,6 +60,7 @@ def format_price(val):
         return ""
 
 def format_varianten_yaml(varianten_str):
+    import pandas as pd
     if not varianten_str or pd.isna(varianten_str):
         return ""
     lines = []
@@ -54,7 +77,15 @@ def format_varianten_yaml(varianten_str):
             lines.append('    ' + stripped)
     return "\n".join(lines)
 
+def _short_summary(text, limit=240):
+    import pandas as pd
+    if text is None or pd.isna(text):
+        return ""
+    s = " ".join(str(text).split())
+    return s[:limit]
+
 def build_content(row, lang="de"):
+    import pandas as pd
     if lang == "de":
         slug = row.get("slug_de", "")
         titel = row.get("titel_de", "")
@@ -89,7 +120,7 @@ def build_content(row, lang="de"):
     product_id = row.get("product_id", "")
     reference = row.get("reference", "")
 
-    yaml = f"""---
+    yaml_block = f"""---
 slug: {yaml_safe(slug)}
 product_id: {yaml_safe(product_id)}
 reference: {yaml_safe(reference)}
@@ -103,10 +134,10 @@ bilder:
 """
     if bilder:
         for b in bilder:
-            yaml += f"  - {b}\n"
+            yaml_block += f"  - {b}\n"
     else:
-        yaml += "  -\n"
-    yaml += f"""price: {yaml_safe(price)}
+        yaml_block += "  -\n"
+    yaml_block += f"""price: {yaml_safe(price)}
 verfuegbar: {yaml_safe(verfuegbar)}
 varianten_yaml: |
 {varianten_yaml if varianten_yaml else "  "}
@@ -116,8 +147,8 @@ langcode: {yaml_safe(langcode)}
 ---
 """
 
-    # --- Markdown-Body ---
-    content = yaml + f"""
+    # Markdown body
+    content = yaml_block + f"""
 # {titel}
 
 {beschreibung}
@@ -147,23 +178,36 @@ langcode: {yaml_safe(langcode)}
 
 {', '.join(tags) if tags else "_keine Tags hinterlegt_"}
 """
-    return content, titel, beschreibung, meta_title
+
+    json_item = {
+        "path": "",  # will be set relative to repo root
+        "slug": str(slug or "").strip(),
+        "category": str(kategorie or "").strip(),
+        "title": str(titel or "").strip(),
+        "has_yaml": True,
+        "summary": _short_summary(beschreibung),
+        "images": bilder
+    }
+    return content, titel, beschreibung, meta_title, json_item
+
+catalog_de = []
+catalog_en = []
 
 def write_md_files(export_col, slug_col, lang):
     for _, row in df.iterrows():
-        pfad = str(row[export_col]).strip() if not pd.isna(row[export_col]) else ''
-        slug = str(row[slug_col]).strip() if not pd.isna(row[slug_col]) else ''
+        pfad = str(row.get(export_col, "")).strip() if not pd.isna(row.get(export_col, "")) else ''
+        slug = str(row.get(slug_col, "")).strip() if not pd.isna(row.get(slug_col, "")) else ''
         if pfad and slug:
-            full_dir = pfad.rstrip('/')
+            # ensure relative paths for GH Action; repo root is current working dir
+            full_dir = pfad.strip().strip('/').replace("\\", "/")
             os.makedirs(full_dir, exist_ok=True)
             full_path = f"{full_dir}/{slug}.md"
-            content, titel, beschreibung, meta_title = build_content(row, lang)
+            content, titel, beschreibung, meta_title, json_item = build_content(row, lang)
 
-            # DEBUG-Ausgaben
             print("-" * 40)
             print(f"File: {full_path}")
             print("Titel:", titel)
-            print("Beschreibung (Ausschnitt):", beschreibung[:80])
+            print("Beschreibung (Ausschnitt):", (beschreibung[:80] if isinstance(beschreibung, str) else ""))
             print("Meta-Title:", meta_title)
             print("-" * 40)
 
@@ -171,5 +215,27 @@ def write_md_files(export_col, slug_col, lang):
                 f.write(content)
             print(f"{full_path} geschrieben.")
 
-write_md_files('export_pfad_de', 'slug_de', lang="de")
-write_md_files('export_pfad_en', 'slug_en', lang="en")
+            # relative path for JSON (no leading ./)
+            rel = full_path.replace("\\", "/")
+            if rel.startswith("./"):
+                rel = rel[2:]
+            json_item["path"] = rel
+            if lang == "de":
+                catalog_de.append(json_item)
+            else:
+                catalog_en.append(json_item)
+
+# Generate .md and collect items
+write_md_files(COL_EXPORT_DE, COL_SLUG_DE, lang="de")
+write_md_files(COL_EXPORT_EN, COL_SLUG_EN, lang="en")
+
+# Write JSON catalogs at repo root
+produkte_de = {"language": "de", "generated": datetime.now().isoformat(), "items": catalog_de}
+produkte_en = {"language": "en", "generated": datetime.now().isoformat(), "items": catalog_en}
+
+with open("produkte.de.json", "w", encoding="utf-8") as f:
+    json.dump(produkte_de, f, ensure_ascii=False, indent=2)
+with open("produkte.en.json", "w", encoding="utf-8") as f:
+    json.dump(produkte_en, f, ensure_ascii=False, indent=2)
+
+print("produkte.de.json und produkte.en.json geschrieben.")
