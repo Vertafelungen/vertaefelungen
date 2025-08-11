@@ -6,11 +6,11 @@ from google.oauth2 import service_account
 from googleapiclient.errors import HttpError
 
 # === Konfiguration via ENV ===
-OPENAI_API_KEY   = os.getenv("OPENAI_API_KEY", "").strip()
-DRIVE_FOLDER_ID  = os.getenv("DRIVE_FOLDER_ID", "").strip()
-SPREADSHEET_ID   = os.getenv("SPREADSHEET_ID", "").strip()
-SHEET_TAB_NAME   = os.getenv("SHEET_TAB_NAME", "").strip() or None  # None = 1. Blatt
-CREDENTIALS_FILE = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "credentials.json")
+OPENAI_API_KEY   = os.getenv("8398e2703b3b33e8411223fd7151a90ce98eaa80", "").strip()
+DRIVE_FOLDER_ID  = os.getenv("1x2GgjjCsiIxJtzynJyCIg6mYY914OHQa?dmr", "").strip()
+SPREADSHEET_ID   = os.getenv("17PINnHHTErdkmb0H4j9lyXyMt_O4D9jgsGLG1qusULI", "").strip()
+SHEET_TAB_NAME   = os.getenv("vertaefelungen", "").strip() or None  # None = 1. Blatt
+CREDENTIALS_FILE = os.getenv("GOOGLE_APPLICATION_CREDENTIALS", "alttext-automatisierung-8398e2703b3b.json")
 
 # Spalten-Header im Sheet (GENAU so benannt)
 COL_BILDER_LISTE = "bilder_liste"
