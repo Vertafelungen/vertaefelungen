@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "alttext-automatisierung",
+  "private_key_id": "8398e2703b3b33e8411223fd7151a90ce98eaa80",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCoyT02NhGe9QMr\nAQjp4y/JDGAMfgEbKajNzKAeq8EFOYS3FP+qtDGODFsUwITE6g+GrtDgWKWziB4Y\nd4qY64gbD69Ix+rxt/pC6CmMk40L95OYfhdhTTJ+GTJj0igzFEa1NF/OmXuuvfbm\ndMAMsr36IPWqaAt3qdR8RMp3VT19SPI899juGAmcaRIVvo3Aalp0z1h14r7oNacz\niN9I5DJjWPLskqcCegqkULNHxo3rs76p9AmBIGpRqVKilj+6J+uqH18DBGYjzl2e\nqUFmo+v8CXDCdfscRy78XOMfAW0puTt4+23B1Pb+WOafpFKh1YKR8O6a35NhCalz\nxWHqAmqTAgMBAAECggEABtYj1xLIku4soyzHDiYoFNYd+9OMuutsjW1o3OUrC8mh\nIQNGOcVTroO8mrITjqBGYbep+TRN/eAZC/enkvsTR7lSabnDP+gqSFR7/lgpod70\nyPvueX/1eBsQKe/ktfDvzj4hVU5tLo4+NmZrMvh4bm2wVaciM8Yat6/XnY7Dz1O4\ntSEbKW9eHtphPOwrDzKhe+cPvUvyoW8CD2OqwZ9foHe27S9ZMdxtfZFBPb7fh1mK\nMgH4JA5epNdPAWX9ej1e5bJPGkEJF+D64A/kGrm0MDLmYcvC25gLYIrsVBjb0Z+D\n2LzdA1ZeJl8/2eI2QuncLcvaUauXcfGXneowyLX1UQKBgQDZJ/F/70u/ZnGADFV8\nT9dVhmKuqCzHPSP9TA7sEHqlYhJS/1DYlOA/tfX5lbfGGR1jDNE0u/wKeauKmkX5\nvQySvtoVt1ZRIkpY49l7hRTVjLEqo1s3DdGJG6WquZxi9OVdt5HY2JQaUJkEuQOy\nhLs97ezYQPdHD0WGg2KZJIHC4wKBgQDG+lQx4onKBVAkTp18Kd2Mw41wb3iKzIUz\nDUJKRxtctC/4taIEUWFXZXt8NwmYNT0lgaKA3WVOtI3gpyaTNwif8MvKkT+HP1Oh\nGmf8yt2ldwDX3yapTvBrO97q8+o7S8vdWGrPrAaEXWBioq3rkN379UN8STtevGza\nOPm97ndYkQKBgD7d5ndwMpC1urQkXfdAMgnrftQrkdMYazvgcg17c9Y/PyjSC3i4\nGPe42P4pjuuFx9EuG77VkVEDClt08D8tsN8m64IP8qhIcher1wGAdJiiQ4QhiL22\nfWvhGiQD2jd3yJNKGqoZgT7hCHuqiFx9OqviHog4vp3O2QTpMnk9bWebAoGBAJXc\nDbNwihRkQgLGTugn49vToGARJHltJdjYYJfuzBXbA9JOghK8dBLNtN5N2WUQm9f2\ntbxWgqlvZPfRDEWOCmnjgqkzEeS79jF84NrMs3iekz0CrWyQrpQlCHRudnhoUseH\ngxKb3mCsrx46pcCoX/gWtdgSk6t7QIRuqvG4e5xxAoGBAIMP/RG6K9f+oxV06LCJ\n0mc7kTnnKUG3drXgIQD8itYcAPfy93dCgtsQbBAVT1t/suUFfUo8N5Iru91ijvQw\nVlBO9ar/eFCOQz7qyLEzGXKUGAiE3o5KewDhm+P4GEFPTZfcow484NC/fW+pNtHG\npqJGeQYqinGrVGN7pFPfD49Q\n-----END PRIVATE KEY-----\n",
+  "client_email": "drive-api@alttext-automatisierung.iam.gserviceaccount.com",
+  "client_id": "104293298065618833769",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/drive-api%40alttext-automatisierung.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
