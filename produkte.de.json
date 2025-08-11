@@ -1,109 +1,43 @@
 {
   "language": "de",
-  "generated": "2025-08-11T06:20:55.065041",
+  "generated": "2025-08-11T07:50:30.165422",
   "items": [
     {
-      "path": "allgemeine-informationen/geschichte-der-holzvertaefelung.md",
-      "slug": "geschichte-der-holzvertaefelung",
-      "category": null,
-      "title": null,
-      "has_yaml": false,
-      "summary": "# Die Geschichte der Holzvertäfelung",
-      "images": []
-    },
-    {
-      "path": "interne-prozesse/Montage.md",
-      "slug": "Montage",
-      "category": null,
-      "title": null,
-      "has_yaml": false,
-      "summary": "# Montageanleitung für Holzvertäfelungen",
-      "images": []
-    },
-    {
-      "path": "interne-prozesse/Visualisierung.md",
-      "slug": "Visualisierung",
-      "category": null,
-      "title": null,
-      "has_yaml": false,
-      "summary": "# Visualisierung und Angebotskalkulation",
-      "images": []
-    },
-    {
-      "path": "interne-prozesse/Fertigung.md",
-      "slug": "Fertigung",
-      "category": null,
-      "title": null,
-      "has_yaml": false,
-      "summary": "# Fertigung",
-      "images": []
-    },
-    {
-      "path": "interne-prozesse/Angebotserstellung.md",
-      "slug": "Angebotserstellung",
-      "category": null,
-      "title": null,
-      "has_yaml": false,
-      "summary": "# Angebots- und Auftragsprozess",
-      "images": []
-    },
-    {
-      "path": "docs/sitemap_vertaefelungen.md",
-      "slug": "sitemap_vertaefelungen",
-      "category": null,
-      "title": null,
-      "has_yaml": false,
-      "summary": "# Sitemap 05.08.2025 – tatsächliche Ordner- und Dateistruktur",
-      "images": []
-    },
-    {
-      "path": "docs/roadmap.md",
-      "slug": "roadmap",
-      "category": null,
-      "title": null,
-      "has_yaml": false,
-      "summary": "# Projekt-Roadmap: Vertäfelungen & Lambris – Systemarchitektur & Arbeitsschritte",
-      "images": []
-    },
-    {
-      "path": "docs/naming.md",
-      "slug": "naming",
-      "category": null,
-      "title": null,
-      "has_yaml": false,
-      "summary": "# Namens- und Strukturregeln",
-      "images": []
-    },
-    {
-      "path": "oeffentlich/produkte/hohe-vertaefelungen/p0014.md",
-      "slug": "p0014",
-      "category": "hohe-vertaefelungen",
-      "title": "P0014 - Lübeck - Schiffergesellschaft",
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/klassikgruen.md",
+      "slug": "klassikgruen",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Mischtöne",
+      "title": "Klassikgrün - BEECK Standölinnenfarbe PRO",
       "has_yaml": true,
-      "summary": "# P0014 - Lübeck - Schiffergesellschaft",
+      "summary": "BEECK Standölinnenfarbe PRO Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Tür",
       "images": [
-        "p0014-01.png",
-        "p0014-02.png",
-        "p0014-03.png",
-        "p0014-04.png",
-        "p0014-05.png",
-        "p0014-06.png",
-        "p0014-07.png",
-        "p0014-08.png",
-        "p0014-09.png",
-        "p0014-10.png",
-        "p0014-11.png"
+        "klassikgruen01.jpg",
+        "klassikgruen02.jpg",
+        "klassikgruen03.jpg",
+        "klassikgruen-farbfaecher.jpg"
       ]
     },
     {
-      "path": "oeffentlich/produkte/hohe-vertaefelungen/p0002.md",
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/lindgruen.md",
+      "slug": "lindgruen",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Mischtöne",
+      "title": "Lindgrün - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Tür",
+      "images": [
+        "lindgruen01.jpg",
+        "lindgruen02.jpg",
+        "lindgruen03.jpg",
+        "lindgruen-farbfaecher.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0002.md",
       "slug": "p0002",
-      "category": "hohe-vertaefelungen",
+      "category": "Artikel, Hohe Vertäfelungen",
       "title": "P0002 - Hamburger Michel",
       "has_yaml": true,
-      "summary": "# P0002 - Hamburger Michel",
+      "summary": "Die Turmhalle des Michels ist mit einer knapp 3 Meter hohen Eichenvertäfelung ausgestattet, die aus der Zeit des Wiederaufbaus von 1906-1912 stammt. Die vertikale Kassettierung zieht sich um den ganzen Raum und schafft eine klare, unaufdrin",
       "images": [
-        "Vertäfelung „Hamburger Michel“ – hohe Wandvertäfelung nach historischem Vorbild. Als Bausatz in Kiefer. Perfekt für stilechtes Interieur.",
         "p0002-10.png",
         "p0002-11.png",
         "p0002-12.png",
@@ -120,48 +54,12 @@
       ]
     },
     {
-      "path": "oeffentlich/produkte/hohe-vertaefelungen/p0017.md",
-      "slug": "p0017",
-      "category": "hohe-vertaefelungen",
-      "title": "P0017 - Hohes Nadelstreif-Paneel mit Shaker Peg Rail",
-      "has_yaml": true,
-      "summary": "# P0017 - Hohes Nadelstreif-Paneel mit Shaker Peg Rail",
-      "images": [
-        "p0017-01.png",
-        "p0017-02.png",
-        "p0017-03.png",
-        "p0017-04.png",
-        "p0017-05.png",
-        "p0017-06.png",
-        "p0017-07.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/hohe-vertaefelungen/p0013.md",
-      "slug": "p0013",
-      "category": "hohe-vertaefelungen",
-      "title": "P0013 - Berlin - Mommsenstraße",
-      "has_yaml": true,
-      "summary": "# P0013 - Berlin - Mommsenstraße",
-      "images": [
-        "p0013-01.png",
-        "p0013-02.png",
-        "p0013-03.png",
-        "p0013-04.png",
-        "p0013-05.png",
-        "p0013-06.png",
-        "p0013-07.png",
-        "p0013-08.png",
-        "p0013-09.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/hohe-vertaefelungen/p0003.md",
+      "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0003.md",
       "slug": "p0003",
-      "category": "hohe-vertaefelungen",
+      "category": "Artikel, Hohe Vertäfelungen",
       "title": "P0003 - London - V&A - Morris Room",
       "has_yaml": true,
-      "summary": "# P0003 - London - V&A - Morris Room",
+      "summary": "Sir Henry Cole, der Gründungsdirektor des South Kensington Museums, hat gutes Gespür bewiesen, als er 1861 den jungen William Morris mit der Gestaltung des \"Green Dining Room“, dem heutigen „Morris Room“, beauftragte. Morris, später einer d",
       "images": [
         "p0003-01.png",
         "p0003-02.png",
@@ -181,964 +79,69 @@
       ]
     },
     {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/ultrablau.md",
-      "slug": "ultrablau",
-      "category": "oele-farben",
-      "title": "Ultrablau - BEECK Standölinnenfarbe PRO",
+      "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0017.md",
+      "slug": "p0017",
+      "category": "Artikel, Hohe Vertäfelungen",
+      "title": "P0017 - Hohes Nadelstreif-Paneel mit Shaker Peg Rail",
       "has_yaml": true,
-      "summary": "# Ultrablau - BEECK Standölinnenfarbe PRO",
+      "summary": "Diese Vertäfelung sieht super aus und ist unerhört praktisch. Unser Shaker Peg Rail wird genau in der Form hergestellt, wie es im Shaker Museum Enfield vorzufinden ist. Das Peg-Rail ist ein sinnvolle Erfindung, die es ermöglicht, Dinge grif",
       "images": [
-        "ultrablau.jpg",
-        "ultrablau-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "p0017-01.png",
+        "p0017-02.png",
+        "p0017-03.png",
+        "p0017-04.png",
+        "p0017-05.png",
+        "p0017-06.png",
+        "p0017-07.png"
       ]
     },
     {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/weinrot.md",
-      "slug": "weinrot",
-      "category": "oele-farben",
-      "title": "Weinrot - BEECK Standölinnenfarbe PRO",
+      "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0013.md",
+      "slug": "p0013",
+      "category": "Artikel, Hohe Vertäfelungen",
+      "title": "P0013 - Berlin - Mommsenstraße",
       "has_yaml": true,
-      "summary": "# Weinrot - BEECK Standölinnenfarbe PRO",
+      "summary": "Die Berliner Mommsenstraße liegt zwischen Kantstraße und Kurfürstendamm in einem sehr mondänen, schicken Wohnviertel mit vielen Galerien und Boutiquen. Die hier gezeigte Vertäfelung überzeugt durch ihren gleichmäßigen Rhythmus. Sie lässt si",
       "images": [
-        "weinrot.jpg",
-        "weinrot-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "p0013-01.png",
+        "p0013-02.png",
+        "p0013-03.png",
+        "p0013-04.png",
+        "p0013-05.png",
+        "p0013-06.png",
+        "p0013-07.png",
+        "p0013-08.png",
+        "p0013-09.png"
       ]
     },
     {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/weiss.md",
-      "slug": "weiss",
-      "category": "oele-farben",
-      "title": "Weiß - BEECK Standölinnenfarbe PRO",
+      "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0014.md",
+      "slug": "p0014",
+      "category": "Artikel, Hohe Vertäfelungen",
+      "title": "P0014 - Lübeck - Schiffergesellschaft",
       "has_yaml": true,
-      "summary": "# Weiß - BEECK Standölinnenfarbe PRO",
+      "summary": "Die Schiffergesellschaft Lübeck besteht seit 1401. Sie wurde gegründet, um Witwen und Waisen von auf See gebliebenen Seefahrern Speisen und Wohnraum zu gewähren. Der Innenraum ist reich mit Schiffsmodellen und kuriosen Dingen geschmückt, di",
       "images": [
-        "weiss.jpg",
-        "weiss-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "p0014-01.png",
+        "p0014-02.png",
+        "p0014-03.png",
+        "p0014-04.png",
+        "p0014-05.png",
+        "p0014-06.png",
+        "p0014-07.png",
+        "p0014-08.png",
+        "p0014-09.png",
+        "p0014-10.png",
+        "p0014-11.png"
       ]
     },
     {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/gruen.md",
-      "slug": "gruen",
-      "category": "oele-farben",
-      "title": "Grün - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Grün - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "gruen.jpg",
-        "gruen-farbfaecher.jpg",
-        "sip_gebinde.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/schwarz.md",
-      "slug": "schwarz",
-      "category": "oele-farben",
-      "title": "Schwarz - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Schwarz - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "schwarz.jpg",
-        "schwarz-farbfaecher.jpg",
-        "sip_gebinde.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/zitronengelb.md",
-      "slug": "zitronengelb",
-      "category": "oele-farben",
-      "title": "Zitronengelb - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Zitronengelb - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "zitronengelb.jpg",
-        "zitronengelb-farbfaecher.jpg",
-        "sip_gebinde.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/oxidrot.md",
-      "slug": "oxidrot",
-      "category": "oele-farben",
-      "title": "Oxidrot - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Oxidrot - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "oxidrot.jpg",
-        "oxidrot-farbfaecher.jpg",
-        "sip_gebinde.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/ocker.md",
-      "slug": "ocker",
-      "category": "oele-farben",
-      "title": "Ockergelb - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Ockergelb - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "ocker.jpg",
-        "ocker-farbfaecher.jpg",
-        "sip_gebinde.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/umbra.md",
-      "slug": "umbra",
-      "category": "oele-farben",
-      "title": "Umbra - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Umbra - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "umbra.jpg",
-        "umbra-farbfaecher.jpg",
-        "sip_gebinde.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/maisgelb.md",
-      "slug": "maisgelb",
-      "category": "oele-farben",
-      "title": "Maisgelb - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Maisgelb - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "maisgelb.jpg",
-        "maisgelb-farbfaecher.jpg",
-        "sip_gebinde.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/braun.md",
-      "slug": "braun",
-      "category": "oele-farben",
-      "title": "Braun - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Braun - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "braun.jpg",
-        "braun-farbfaecher.jpg",
-        "sip_gebinde.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/klassikgruen.md",
-      "slug": "klassikgruen",
-      "category": "oele-farben",
-      "title": "Klassikgrün - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Klassikgrün - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "klassikgruen01.jpg",
-        "klassikgruen02.jpg",
-        "klassikgruen03.jpg",
-        "klassikgruen-farbfaecher.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/lindgruen.md",
-      "slug": "lindgruen",
-      "category": "oele-farben",
-      "title": "Lindgrün - BEECK Standölinnenfarbe PRO",
-      "has_yaml": true,
-      "summary": "# Lindgrün - BEECK Standölinnenfarbe PRO",
-      "images": [
-        "lindgruen01.jpg",
-        "lindgruen02.jpg",
-        "lindgruen03.jpg",
-        "lindgruen-farbfaecher.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/leinoel-tung/loen.md",
-      "slug": "loen",
-      "category": "oele-farben",
-      "title": "Reines Leinöl, ohne Sikkativ",
-      "has_yaml": true,
-      "summary": "# Reines Leinöl, ohne Sikkativ",
-      "images": [
-        "loen.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/leinoel-tung/toen.md",
-      "slug": "toen",
-      "category": "oele-farben",
-      "title": "Tungöl natur",
-      "has_yaml": true,
-      "summary": "# Tungöl natur",
-      "images": [
-        "toen.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/leinoel-tung/loef.md",
-      "slug": "loef",
-      "category": "oele-farben",
-      "title": "Leinölfirnis",
-      "has_yaml": true,
-      "summary": "# Leinölfirnis",
-      "images": [
-        "loef.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/leinoel-tung/btoe.md",
-      "slug": "btoe",
-      "category": "oele-farben",
-      "title": "Balsamterpentinöl",
-      "has_yaml": true,
-      "summary": "# Balsamterpentinöl",
-      "images": [
-        "btoe.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/leinoel-tung/toel.md",
-      "slug": "toel",
-      "category": "oele-farben",
-      "title": "Tung Holzöllack",
-      "has_yaml": true,
-      "summary": "# Tung Holzöllack",
-      "images": [
-        "toel.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/oele-farben/leinoel-tung/ctp.md",
-      "slug": "ctp",
-      "category": "oele-farben",
-      "title": "Citrusterpene",
-      "has_yaml": true,
-      "summary": "# Citrusterpene",
-      "images": [
-        "ctp.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/lueftungsrosetten/blr7.md",
-      "slug": "blr7",
-      "category": "lueftungsrosetten",
-      "title": "Lüftungsrosette 7",
-      "has_yaml": true,
-      "summary": "# Lüftungsrosette 7",
-      "images": [
-        "blr7-3.jpg",
-        "blr7-2.jpg",
-        "blr7-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/lueftungsrosetten/blr3.md",
-      "slug": "blr3",
-      "category": "lueftungsrosetten",
-      "title": "Lüftungsrosette 3",
-      "has_yaml": true,
-      "summary": "# Lüftungsrosette 3",
-      "images": [
-        "blr3-5.jpg",
-        "blr3-4.jpg",
-        "blr3-3.jpg",
-        "blr3-2.jpg",
-        "blr3-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/lueftungsrosetten/blr2.md",
-      "slug": "blr2",
-      "category": "lueftungsrosetten",
-      "title": "Lüftungsrosette 2",
-      "has_yaml": true,
-      "summary": "# Lüftungsrosette 2",
-      "images": [
-        "blr2-5.jpg",
-        "blr2-4.jpg",
-        "blr2-3.jpg",
-        "blr2-2.jpg",
-        "blr2-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/lueftungsrosetten/blr6.md",
-      "slug": "blr6",
-      "category": "lueftungsrosetten",
-      "title": "Lüftungsrosette 6",
-      "has_yaml": true,
-      "summary": "# Lüftungsrosette 6",
-      "images": [
-        "blr6-3.jpg",
-        "blr6-2.jpg",
-        "blr6-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/lueftungsrosetten/blr1.md",
-      "slug": "blr1",
-      "category": "lueftungsrosetten",
-      "title": "Lüftungsrosette 1",
-      "has_yaml": true,
-      "summary": "# Lüftungsrosette 1",
-      "images": [
-        "blr1-5.jpg",
-        "blr1-3.jpg",
-        "blr1-4.jpg",
-        "blr1-2.jpg",
-        "blr1-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/lueftungsrosetten/blr5.md",
-      "slug": "blr5",
-      "category": "lueftungsrosetten",
-      "title": "Lüftungsrosette 5",
-      "has_yaml": true,
-      "summary": "# Lüftungsrosette 5",
-      "images": [
-        "blr5-3.jpg",
-        "blr5-2.jpg",
-        "blr5-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/lueftungsrosetten/blr4.md",
-      "slug": "blr4",
-      "category": "lueftungsrosetten",
-      "title": "Lüftungsrosette 4",
-      "has_yaml": true,
-      "summary": "# Lüftungsrosette 4",
-      "images": [
-        "blr4-3.jpg",
-        "blr4-2.jpg",
-        "blr4-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl10.md",
-      "slug": "wl10",
-      "category": "leisten",
-      "title": "Wandleiste 10",
-      "has_yaml": true,
-      "summary": "# Wandleiste 10",
-      "images": [
-        "wl10.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl14.md",
-      "slug": "wl14",
-      "category": "leisten",
-      "title": "Wandleiste 14",
-      "has_yaml": true,
-      "summary": "# Wandleiste 14",
-      "images": [
-        "wl14.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl04.md",
-      "slug": "wl04",
-      "category": "leisten",
-      "title": "Wandleiste 04 „Rundstableiste“",
-      "has_yaml": true,
-      "summary": "# Wandleiste 04 „Rundstableiste“",
-      "images": [
-        "wl04.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl15.md",
-      "slug": "wl15",
-      "category": "leisten",
-      "title": "Wandleiste 15",
-      "has_yaml": true,
-      "summary": "# Wandleiste 15",
-      "images": [
-        "wl15.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl05.md",
-      "slug": "wl05",
-      "category": "leisten",
-      "title": "Wandleiste 05 „Hohe Welle“",
-      "has_yaml": true,
-      "summary": "# Wandleiste 05 „Hohe Welle“",
-      "images": [
-        "wl05.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl11.md",
-      "slug": "wl11",
-      "category": "leisten",
-      "title": "Wandleiste 11",
-      "has_yaml": true,
-      "summary": "# Wandleiste 11",
-      "images": [
-        "wl11.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl01.md",
-      "slug": "wl01",
-      "category": "leisten",
-      "title": "Wandleiste 01",
-      "has_yaml": true,
-      "summary": "# Wandleiste 01",
-      "images": [
-        "Klassisch profilierte Wandleiste WL 01 aus Massivholz, 40 x 16 mm. Mit asymmetrischem Profil zur Gliederung von Wandflächen und Rahmenbildung.",
-        "wl01.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl06.md",
-      "slug": "wl06",
-      "category": "leisten",
-      "title": "Wandleiste 06",
-      "has_yaml": true,
-      "summary": "# Wandleiste 06",
-      "images": [
-        "wl06.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl12.md",
-      "slug": "wl12",
-      "category": "leisten",
-      "title": "Wandleiste 12",
-      "has_yaml": true,
-      "summary": "# Wandleiste 12",
-      "images": [
-        "wl12.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl02.md",
-      "slug": "wl02",
-      "category": "leisten",
-      "title": "Wandleiste 02 „Dom-Profil“",
-      "has_yaml": true,
-      "summary": "# Wandleiste 02 „Dom-Profil“",
-      "images": [
-        "wl02.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl13.md",
-      "slug": "wl13",
-      "category": "leisten",
-      "title": "Wandleiste 13",
-      "has_yaml": true,
-      "summary": "# Wandleiste 13",
-      "images": [
-        "wl13.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl03.md",
-      "slug": "wl03",
-      "category": "leisten",
-      "title": "Wandleiste 03 „Riffelleiste“",
-      "has_yaml": true,
-      "summary": "# Wandleiste 03 „Riffelleiste“",
-      "images": [
-        "wl03.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl07.md",
-      "slug": "wl07",
-      "category": "leisten",
-      "title": "Wandleiste 07",
-      "has_yaml": true,
-      "summary": "# Wandleiste 07",
-      "images": [
-        "wl07.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl08.md",
-      "slug": "wl08",
-      "category": "leisten",
-      "title": "Wandleiste 08",
-      "has_yaml": true,
-      "summary": "# Wandleiste 08",
-      "images": [
-        "wl08.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/wandleisten/wl09.md",
-      "slug": "wl09",
-      "category": "leisten",
-      "title": "Wandleiste 09",
-      "has_yaml": true,
-      "summary": "# Wandleiste 09",
-      "images": [
-        "wl09.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/sockelleisten/sl0004.md",
-      "slug": "sl0004",
-      "category": "leisten",
-      "title": "SL0004 - 2teilige hohe Sockelleiste 175/45",
-      "has_yaml": true,
-      "summary": "# SL0004 - 2teilige hohe Sockelleiste 175/45",
-      "images": [
-        "sl0004-4.jpg",
-        "sl0004-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/sockelleisten/sl0005.md",
-      "slug": "sl0005",
-      "category": "leisten",
-      "title": "SL0005 - abgerundete Oberkante 80/16",
-      "has_yaml": true,
-      "summary": "# SL0005 - abgerundete Oberkante 80/16",
-      "images": [
-        "sl0005-2.jpg",
-        "sl0005-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/sockelleisten/sl0007-ie.md",
-      "slug": "sl0007-ie",
-      "category": "leisten",
-      "title": "SL0007 - Innenecke",
-      "has_yaml": true,
-      "summary": "# SL0007 - Innenecke",
-      "images": []
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/sockelleisten/sl0001.md",
-      "slug": "sl0001",
-      "category": "leisten",
-      "title": "SL0001 - Hamburger Leiste 170/25",
-      "has_yaml": true,
-      "summary": "# SL0001 - Hamburger Leiste 170/25",
-      "images": [
-        "sl0001-2.jpg",
-        "sl0001-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/sockelleisten/sl0006.md",
-      "slug": "sl0006",
-      "category": "leisten",
-      "title": "SL0006 - mit Karnies 58/18",
-      "has_yaml": true,
-      "summary": "# SL0006 - mit Karnies 58/18",
-      "images": [
-        "sl0006-2.jpg",
-        "sl0006-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/sockelleisten/sl0002.md",
-      "slug": "sl0002",
-      "category": "leisten",
-      "title": "SL0002 - Hamburger Leiste 120/18",
-      "has_yaml": true,
-      "summary": "# SL0002 - Hamburger Leiste 120/18",
-      "images": [
-        "sl0002-2.jpg",
-        "sl0002-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/sockelleisten/sl0003.md",
-      "slug": "sl0003",
-      "category": "leisten",
-      "title": "SL0003 - Kreuzberger Leiste 165/28",
-      "has_yaml": true,
-      "summary": "# SL0003 - Kreuzberger Leiste 165/28",
-      "images": [
-        "sl0003-2.jpg",
-        "sl0003-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/sockelleisten/sl0007-ae.md",
-      "slug": "sl0007-ae",
-      "category": "leisten",
-      "title": "SL0007 - Außenecke",
-      "has_yaml": true,
-      "summary": "# SL0007 - Außenecke",
-      "images": []
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/sockelleisten/sl0007.md",
-      "slug": "sl0007",
-      "category": "leisten",
-      "title": "SL0007 - München - Augustiner Stammhaus - Sockelleiste 450/62",
-      "has_yaml": true,
-      "summary": "# SL0007 - München - Augustiner Stammhaus - Sockelleiste 450/62",
-      "images": [
-        "sl0007-3.jpg",
-        "sl0007-2.jpg",
-        "sl0007-1.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr11.md",
-      "slug": "tr11",
-      "category": "leisten",
-      "title": "Türbekleidung 11",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 11",
-      "images": [
-        "tr11.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr05.md",
-      "slug": "tr05",
-      "category": "leisten",
-      "title": "Türbekleidung 05",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 05",
-      "images": [
-        "tr05.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr01-160.md",
-      "slug": "tr01-160",
-      "category": "leisten",
-      "title": "Türbekleidung 01 / 160",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 01 / 160",
-      "images": [
-        "tr01-160.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr15.md",
-      "slug": "tr15",
-      "category": "leisten",
-      "title": "Türbekleidung 15",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 15",
-      "images": [
-        "tr15.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr04.md",
-      "slug": "tr04",
-      "category": "leisten",
-      "title": "Türbekleidung 04",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 04",
-      "images": [
-        "tr04.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr01-120.md",
-      "slug": "tr01-120",
-      "category": "leisten",
-      "title": "Türbekleidung 01 / 120",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 01 / 120",
-      "images": [
-        "tr01-120.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr14.md",
-      "slug": "tr14",
-      "category": "leisten",
-      "title": "Türbekleidung 14",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 14",
-      "images": [
-        "tr14.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr07.md",
-      "slug": "tr07",
-      "category": "leisten",
-      "title": "Türbekleidung 07",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 07",
-      "images": [
-        "tr07.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr01-200.md",
-      "slug": "tr01-200",
-      "category": "leisten",
-      "title": "Türbekleidung 01 / 200",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 01 / 200",
-      "images": [
-        "tr01-200.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr17.md",
-      "slug": "tr17",
-      "category": "leisten",
-      "title": "Türbekleidung 17",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 17",
-      "images": [
-        "tr17.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr03.md",
-      "slug": "tr03",
-      "category": "leisten",
-      "title": "Türbekleidung 03",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 03",
-      "images": [
-        "tr03.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr13.md",
-      "slug": "tr13",
-      "category": "leisten",
-      "title": "Türbekleidung 13",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 13",
-      "images": [
-        "tr13.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr02.md",
-      "slug": "tr02",
-      "category": "leisten",
-      "title": "Türbekleidung 02",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 02",
-      "images": [
-        "tr02.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr12.md",
-      "slug": "tr12",
-      "category": "leisten",
-      "title": "Türbekleidung 12",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 12",
-      "images": [
-        "tr12.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr06.md",
-      "slug": "tr06",
-      "category": "leisten",
-      "title": "Türbekleidung 06",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 06",
-      "images": [
-        "tr06.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr09.md",
-      "slug": "tr09",
-      "category": "leisten",
-      "title": "Türbekleidung 09",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 09",
-      "images": [
-        "tr09.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/leisten/tuerbekleidungen/tr18.md",
-      "slug": "tr18",
-      "category": "leisten",
-      "title": "Türbekleidung 18",
-      "has_yaml": true,
-      "summary": "# Türbekleidung 18",
-      "images": [
-        "tr18.jpg"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0004.md",
-      "slug": "p0004",
-      "category": "halbhohe-vertaefelungen",
-      "title": "P0004 - Berlin - Sophienstraße",
-      "has_yaml": true,
-      "summary": "# P0004 - Berlin - Sophienstraße",
-      "images": [
-        "p0004-01.png",
-        "p0004-02.png",
-        "p0004-03.png",
-        "p0004-04.png",
-        "p0004-05.png",
-        "p0004-06.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0010.md",
-      "slug": "p0010",
-      "category": "halbhohe-vertaefelungen",
-      "title": "P0010 - Rom - Petersdom - Balustrade am Petrusgrab",
-      "has_yaml": true,
-      "summary": "# P0010 - Rom - Petersdom - Balustrade am Petrusgrab",
-      "images": [
-        "p0010-1.png",
-        "p0010-2.png",
-        "p0010-3.png",
-        "p0010-4.png",
-        "p0010-5.png",
-        "p0010-6.png",
-        "p0010-7.png",
-        "p0010-8.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0011.md",
-      "slug": "p0011",
-      "category": "halbhohe-vertaefelungen",
-      "title": "P0011 - Weimar - Goethehaus am Frauenplan",
-      "has_yaml": true,
-      "summary": "# P0011 - Weimar - Goethehaus am Frauenplan",
-      "images": [
-        "Vertäfelung „Weimar Goethehaus“ – halbhohe Wandvertäfelung nach originalem Vorbild. Kiefernholz-Bausatz für museale Räume und klassisches Wohnen.",
-        "p0011-1.png",
-        "p0011-2.png",
-        "p0011-3.png",
-        "p0011-4.png",
-        "p0011-5.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0001.md",
-      "slug": "p0001",
-      "category": "halbhohe-vertaefelungen",
-      "title": "P0001 - Berlin - Winsstraße",
-      "has_yaml": true,
-      "summary": "# P0001 - Berlin - Winsstraße",
-      "images": [
-        "p0001-01.png",
-        "p0001-02.png",
-        "p0001-03.png",
-        "p0001-05.png",
-        "p0001-04.png",
-        "p0001-07.png",
-        "p0001-08.png",
-        "p0001-09.png",
-        "p0001-06.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0015.md",
-      "slug": "p0015",
-      "category": "halbhohe-vertaefelungen",
-      "title": "P0015 - Berlin - Alte Nationalgalerie",
-      "has_yaml": true,
-      "summary": "# P0015 - Berlin - Alte Nationalgalerie",
-      "images": [
-        "p0015-01.png",
-        "p0015-02.png",
-        "p0015-03.png",
-        "p0015-04.png",
-        "p0015-05.png",
-        "p0015-06.png",
-        "p0015-07.png",
-        "p0015-08.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0005.md",
-      "slug": "p0005",
-      "category": "halbhohe-vertaefelungen",
-      "title": "P0005 - Berlin - Bleibtreustraße",
-      "has_yaml": true,
-      "summary": "# P0005 - Berlin - Bleibtreustraße",
-      "images": [
-        "p0005-01.png",
-        "p0005-02.png",
-        "p0005-03.png",
-        "p0005-04.png",
-        "p0005-05.png",
-        "p0005-06.png",
-        "p0005-07.png",
-        "p0005-08.png",
-        "p0005-09.png",
-        "p0005-10.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0022.md",
-      "slug": "p0022",
-      "category": "halbhohe-vertaefelungen",
-      "title": "P0022 - Lübeck - Rathaus - Langes Haus",
-      "has_yaml": true,
-      "summary": "# P0022 - Lübeck - Rathaus - Langes Haus",
-      "images": [
-        "p0022-11.png",
-        "p0022-01.png",
-        "p0022-10.png",
-        "p0022-02.png",
-        "p0022-03.png",
-        "p0022-04.png",
-        "p0022-05.png",
-        "p0022-06.png",
-        "p0022-07.png",
-        "p0022-08.png",
-        "p0022-09.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0006.md",
-      "slug": "p0006",
-      "category": "halbhohe-vertaefelungen",
-      "title": "P0006 - Leipzig - Ludwigstraße",
-      "has_yaml": true,
-      "summary": "# P0006 - Leipzig - Ludwigstraße",
-      "images": [
-        "p0006-01.png",
-        "p0006-02.png",
-        "p0006-03.png",
-        "p0006-04.png",
-        "p0006-05.png",
-        "p0006-06.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0018.md",
-      "slug": "p0018",
-      "category": "halbhohe-vertaefelungen",
-      "title": "P0018 - Berlin - Invalidenstraße",
-      "has_yaml": true,
-      "summary": "# P0018 - Berlin - Invalidenstraße",
-      "images": [
-        "p0018-1.png",
-        "p0018-2.png",
-        "p0018-3.png",
-        "p0018-4.png",
-        "p0018-6.png",
-        "p0018-5.png",
-        "p0018-7.png",
-        "p0018-8.png"
-      ]
-    },
-    {
-      "path": "oeffentlich/produkte/halbhohe-vertaefelungen/p0009.md",
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0009.md",
       "slug": "p0009",
-      "category": "halbhohe-vertaefelungen",
+      "category": "Artikel, Halbhohe Vertäfelungen",
       "title": "P0009 - Nadelstreif & Zierstab",
       "has_yaml": true,
-      "summary": "# P0009 - Nadelstreif & Zierstab",
+      "summary": "Was wir salop als \"Nadelstreif\" bezeichnen, ist die Kombination von Brett und Zierleiste. Beides sind separate Elemente, die sich mit Nut und Feder verbinden und im Wechsel aneinander reihen. Das Besondere ist, dass es unterschiedliche Zier",
       "images": [
         "p0009-1-3.jpg",
         "p0009-1-5.jpg",
@@ -1156,123 +159,926 @@
       ]
     },
     {
-      "path": "oeffentlich/faq/produkte/p0003.md",
-      "slug": "p0003",
-      "category": "p0003.md",
-      "title": "Produkt-FAQ: Vertäfelung P0003 nach dem Green Dining Room (Morris Room) im Victoria & Albert Museum",
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0001.md",
+      "slug": "p0001",
+      "category": "Artikel, Halbhohe Vertäfelungen",
+      "title": "P0001 - Berlin - Winsstraße",
       "has_yaml": true,
-      "summary": "# Produkt-FAQ: Vertäfelung P0003 (Green Dining Room – Morris Room, Victoria & Albert Museum London)",
+      "summary": "Der Wins-Kietz im Berliner Prenzlauer Berg ist ein Wohnviertel mit viel Lebensqualität. Das Bild wird von Straßenkaffees, Buch- und Rotweinläden geprägt und gerade die gut erhaltene Altbausubstanz hat einen großen Anteil an der Atmosphäre d",
       "images": [
-        "Green Dining Room (Morris Room), Victoria & Albert Museum, London"
+        "p0001-01.png",
+        "p0001-02.png",
+        "p0001-03.png",
+        "p0001-05.png",
+        "p0001-04.png",
+        "p0001-07.png",
+        "p0001-08.png",
+        "p0001-09.png",
+        "p0001-06.png"
       ]
     },
     {
-      "path": "oeffentlich/faq/ablaeufe/lieferung.md",
-      "slug": "lieferung",
-      "category": null,
-      "title": "Lieferung: Versand & Montage",
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0004.md",
+      "slug": "p0004",
+      "category": "Artikel, Halbhohe Vertäfelungen",
+      "title": "P0004 - Berlin - Sophienstraße",
       "has_yaml": true,
-      "summary": "# FAQ: Lieferung",
+      "summary": "Die Berliner Sophienstraße hat einen besonders malerischen Kleinstadtcharme und den einzigen erhaltenen barocken Kirchturm Berlins. Von der Sophienstraße gelangt man in die Hackeschen Höfe und in die Sophien-Gips-Höfe. Der Lambris hat eine ",
+      "images": [
+        "p0004-01.png",
+        "p0004-02.png",
+        "p0004-03.png",
+        "p0004-04.png",
+        "p0004-05.png",
+        "p0004-06.png"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0005.md",
+      "slug": "p0005",
+      "category": "Artikel, Halbhohe Vertäfelungen",
+      "title": "P0005 - Berlin - Bleibtreustraße",
+      "has_yaml": true,
+      "summary": "Sehr eindrucksvoll und trotzdem recht einfach aufgebaut. Durch die aneinander gereihten „Fenster“ mit den Dreipassbögen als Abschluss, entsteht eine neogotische Vertäfelung. Solches Interieur verhilft einem gründerzeitlichen Hauseingang zu ",
+      "images": [
+        "p0005-01.png",
+        "p0005-02.png",
+        "p0005-03.png",
+        "p0005-04.png",
+        "p0005-05.png",
+        "p0005-06.png",
+        "p0005-07.png",
+        "p0005-08.png",
+        "p0005-09.png",
+        "p0005-10.png"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0006.md",
+      "slug": "p0006",
+      "category": "Artikel, Halbhohe Vertäfelungen",
+      "title": "P0006 - Leipzig - Ludwigstraße",
+      "has_yaml": true,
+      "summary": "Dieser Lambris aus einem Hauseingang der Leipziger Ludwigstraße (Volkmarsdorf) stammt aus der Bauzeit des Gebäudes von 1884 und hat somit ein Alter von rund 140 Jahren. Diese Zeitspanne überbrückt fünf Generationen.",
+      "images": [
+        "p0006-01.png",
+        "p0006-02.png",
+        "p0006-03.png",
+        "p0006-04.png",
+        "p0006-05.png",
+        "p0006-06.png"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0022.md",
+      "slug": "p0022",
+      "category": "Artikel, Halbhohe Vertäfelungen",
+      "title": "P0022 - Lübeck - Rathaus - Langes Haus",
+      "has_yaml": true,
+      "summary": "Rathaus Lübeck - Die Zentrale der Hanse. Hier fanden vom 14. - 18. Jh. die Hansetage statt, auf denen das Miteinander geregelt wurden. Noch heute debattiert hier die Bürgerschaft über die aktuellen Themen. Lübeck ist eine sehr stolze Stadt,",
+      "images": [
+        "p0022-11.png",
+        "p0022-01.png",
+        "p0022-10.png",
+        "p0022-02.png",
+        "p0022-03.png",
+        "p0022-04.png",
+        "p0022-05.png",
+        "p0022-06.png",
+        "p0022-07.png",
+        "p0022-08.png",
+        "p0022-09.png"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0010.md",
+      "slug": "p0010",
+      "category": "Artikel, Halbhohe Vertäfelungen",
+      "title": "P0010 - Rom - Petersdom - Balustrade am Petrusgrab",
+      "has_yaml": true,
+      "summary": "Die Balustrade, die wir als Vorlage für dieses neue Vertäfelung genommen haben, befindet sich im Zentrum des Petersdoms, direkt vor Berninis Ziborium. Sie umgibt den Treppenabgang zur Vatikanischen Nekropole, in der sich das Grab Petrus bef",
+      "images": [
+        "p0010-1.png",
+        "p0010-2.png",
+        "p0010-3.png",
+        "p0010-4.png",
+        "p0010-5.png",
+        "p0010-6.png",
+        "p0010-7.png",
+        "p0010-8.png"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0011.md",
+      "slug": "p0011",
+      "category": "Artikel, Halbhohe Vertäfelungen",
+      "title": "P0011 - Weimar - Goethehaus am Frauenplan",
+      "has_yaml": true,
+      "summary": "Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen Bürgertum und einfachem Bauerhaus.",
+      "images": [
+        "p0011-1.png",
+        "p0011-2.png",
+        "p0011-3.png",
+        "p0011-4.png",
+        "p0011-5.png"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0018.md",
+      "slug": "p0018",
+      "category": "Artikel, Halbhohe Vertäfelungen",
+      "title": "P0018 - Berlin - Invalidenstraße",
+      "has_yaml": true,
+      "summary": "Vor 130 Jahren befand sich hier die Bäckerei Balzer. Alle Wände sind mit frischen Sommerblumenfliesen und schön profilierten Holzleisten verkleidet und die Brötchen dufteten bestimmt gleich doppelt so gut! Heute gibt´s hier Burger und die K",
+      "images": [
+        "p0018-1.png",
+        "p0018-2.png",
+        "p0018-3.png",
+        "p0018-4.png",
+        "p0018-6.png",
+        "p0018-5.png",
+        "p0018-7.png",
+        "p0018-8.png"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0015.md",
+      "slug": "p0015",
+      "category": "Artikel, Halbhohe Vertäfelungen",
+      "title": "P0015 - Berlin - Alte Nationalgalerie",
+      "has_yaml": true,
+      "summary": "Ein gutes Beispiel für eine flache Vertäfelung, die für klare Strukturen sorgt und die ausgestellten Bilder in den Fokus rückt. Der Bereich wirkt wie eine flache Balustrade mit viel Platz, um Bilder in unterschiedlichen Formaten auf Augenhö",
+      "images": [
+        "p0015-01.png",
+        "p0015-02.png",
+        "p0015-03.png",
+        "p0015-04.png",
+        "p0015-05.png",
+        "p0015-06.png",
+        "p0015-07.png",
+        "p0015-08.png"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007.md",
+      "slug": "sl0007",
+      "category": "Artikel, Sockelleisten",
+      "title": "SL0007 - München - Augustiner Stammhaus - Sockelleiste 450/62",
+      "has_yaml": true,
+      "summary": "Diese 4-teilige, 45 cm hohe Sockelleiste kommt aus dem Stammhaus der Augustiner Brauerei in der Münchner Innenstadt. Mit ihr sind im 1.OG einige Wohnräume der Brauerfamilie Wagner ausgestattet, die „Wagner Salons“. Die Salons wurden 1896-97",
+      "images": [
+        "sl0007-3.jpg",
+        "sl0007-2.jpg",
+        "sl0007-1.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007-ie.md",
+      "slug": "sl0007-ie",
+      "category": "Sockelleisten",
+      "title": "SL0007 - Innenecke",
+      "has_yaml": true,
+      "summary": "Passende Innenecke für Sockelleiste P0033, sorgt für ein einfaches Verlegen, da keine Gehrungen gesägt werden müssen und betont die Ecken.",
       "images": []
     },
     {
-      "path": "oeffentlich/faq/ablaeufe/planung-bestellung.md",
-      "slug": "planung-bestellung",
-      "category": null,
-      "title": "Planung & Bestellung: Ablauf und Hinweise",
+      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0005.md",
+      "slug": "sl0005",
+      "category": "Artikel, Sockelleisten",
+      "title": "SL0005 - abgerundete Oberkante 80/16",
       "has_yaml": true,
-      "summary": "# FAQ: Planung & Bestellung",
+      "summary": "Schlicht und einfach, mit abgerundeter Oberkante",
+      "images": [
+        "sl0005-2.jpg",
+        "sl0005-1.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007-ae.md",
+      "slug": "sl0007-ae",
+      "category": "Sockelleisten",
+      "title": "SL0007 - Außenecke",
+      "has_yaml": true,
+      "summary": "Passende Außenecke für Sockelleiste P0033. Sorgt für ein einfaches Verlegen, da keine Gehrungen gesägt werden müssen und kann als seitlicher Abschluß verwendet werden,",
       "images": []
     },
     {
-      "path": "oeffentlich/faq/ablaeufe/herstellung.md",
-      "slug": "herstellung",
-      "category": null,
-      "title": "Herstellung: Prozess & Nachhaltigkeit",
+      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0001.md",
+      "slug": "sl0001",
+      "category": "Artikel, Sockelleisten",
+      "title": "SL0001 - Hamburger Leiste 170/25",
       "has_yaml": true,
-      "summary": "# FAQ: Herstellung",
-      "images": []
+      "summary": "Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen. Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lässt.",
+      "images": [
+        "sl0001-2.jpg",
+        "sl0001-1.jpg"
+      ]
     },
     {
-      "path": "oeffentlich/faq/themen/profilierte-wandleisten-holz.md",
-      "slug": "profilierte-wandleisten-holz",
-      "category": null,
-      "title": "Profilierte Wandleisten aus Holz: Formen, Verwendung, Restaurierung",
+      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0002.md",
+      "slug": "sl0002",
+      "category": "Artikel, Sockelleisten",
+      "title": "SL0002 - Hamburger Leiste 120/18",
       "has_yaml": true,
-      "summary": "# FAQ: Profilierte Wandleisten aus Holz",
-      "images": []
+      "summary": "Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen. Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lässt.",
+      "images": [
+        "sl0002-2.jpg",
+        "sl0002-1.jpg"
+      ]
     },
     {
-      "path": "oeffentlich/faq/themen/sockelleisten.md",
-      "slug": "sockelleisten",
-      "category": null,
-      "title": "Fußleisten und Sockelleisten: Formen, Funktion, Restaurierung",
+      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0003.md",
+      "slug": "sl0003",
+      "category": "Artikel, Sockelleisten",
+      "title": "SL0003 - Kreuzberger Leiste 165/28",
       "has_yaml": true,
-      "summary": "# FAQ: Fußleisten – Sockelleisten",
-      "images": []
+      "summary": "Eine echte Berliner Leiste, die für eine Wohnung in der Adalbertstr. nachgefräst wurde.",
+      "images": [
+        "sl0003-2.jpg",
+        "sl0003-1.jpg"
+      ]
     },
     {
-      "path": "oeffentlich/faq/themen/restaurierung-reproduktion-vertaefelungen-holzleisten.md",
-      "slug": "restaurierung-reproduktion-vertaefelungen-holzleisten",
-      "category": null,
-      "title": "Restaurierung und Reproduktion historischer Vertäfelungen und Holzleisten",
+      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0004.md",
+      "slug": "sl0004",
+      "category": "Artikel, Sockelleisten",
+      "title": "SL0004 - 2teilige hohe Sockelleiste 175/45",
       "has_yaml": true,
-      "summary": "# FAQ: Restaurierung / Reproduktion historischer Vertäfelungen und Holzleisten",
-      "images": []
+      "summary": "Reich profilierte, hohe Sockelleiste, die aus 2 Teilen zusammengesetzt wird.",
+      "images": [
+        "sl0004-4.jpg",
+        "sl0004-1.jpg"
+      ]
     },
     {
-      "path": "oeffentlich/faq/themen/tungoel.md",
-      "slug": "tungoel",
-      "category": null,
-      "title": "Tungöl als Holzschutzmittel",
+      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0006.md",
+      "slug": "sl0006",
+      "category": "Artikel, Sockelleisten",
+      "title": "SL0006 - mit Karnies 58/18",
       "has_yaml": true,
-      "summary": "# FAQ: Tungöl als Holzschutzmittel in der Denkmalpflege",
-      "images": []
+      "summary": "schlicht, mit Karnies",
+      "images": [
+        "sl0006-2.jpg",
+        "sl0006-1.jpg"
+      ]
     },
     {
-      "path": "oeffentlich/faq/themen/beeck-standoelinnenfarbe-pro.md",
-      "slug": "beeck-standoelinnenfarbe-pro",
-      "category": null,
-      "title": "Beeck Standölinnenfarbe Pro: FAQ",
+      "path": "de/oeffentlich/produkte/lueftungsrosetten/blr3.md",
+      "slug": "blr3",
+      "category": "Artikel, Lüftungsrosetten",
+      "title": "Lüftungsrosette 3",
       "has_yaml": true,
-      "summary": "# FAQ: Beeck Standölinnenfarbe Pro",
-      "images": []
+      "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 36 mm Hohe ca. 3 mm",
+      "images": [
+        "blr3-5.jpg",
+        "blr3-4.jpg",
+        "blr3-3.jpg",
+        "blr3-2.jpg",
+        "blr3-1.jpg"
+      ]
     },
     {
-      "path": "oeffentlich/faq/themen/tuer-fensterrahmen.md",
-      "slug": "tuer-fensterrahmen",
-      "category": null,
-      "title": "Profilierte Tür- und Fensterumrahmungen: Formen, Funktion, Restaurierung",
+      "path": "de/oeffentlich/produkte/lueftungsrosetten/blr4.md",
+      "slug": "blr4",
+      "category": "Lüftungsrosetten",
+      "title": "Lüftungsrosette 4",
       "has_yaml": true,
-      "summary": "# FAQ: Profilierte Tür- und Fensterumrahmungen",
-      "images": []
+      "summary": "Formschöne Lüftungsrosette für Vertäfelungen. Messing gefräst, Oberfläche geschlichtet Durchmesser 45 mm Höhe ca. 4 mm",
+      "images": [
+        "blr4-3.jpg",
+        "blr4-2.jpg",
+        "blr4-1.jpg"
+      ]
     },
     {
-      "path": "oeffentlich/faq/themen/holzvertaefelung-altbau.md",
-      "slug": "holzvertaefelung-altbau",
-      "category": null,
-      "title": "Holzvertäfelung im Altbau: Herkunft, Funktion, Stilkunde, Restaurierung",
+      "path": "de/oeffentlich/produkte/lueftungsrosetten/blr1.md",
+      "slug": "blr1",
+      "category": "Artikel, Lüftungsrosetten",
+      "title": "Lüftungsrosette 1",
       "has_yaml": true,
-      "summary": "# FAQ: Holzvertäfelung im Altbau",
-      "images": []
+      "summary": "Formschöne Lüftungsrosette für Vertäfelungen, Abguss einer Originalvorlage, Messingguss, poliert Durchmesser ca. 52 mm Höhe ca. 5 mm",
+      "images": [
+        "blr1-5.jpg",
+        "blr1-3.jpg",
+        "blr1-4.jpg",
+        "blr1-2.jpg",
+        "blr1-1.jpg"
+      ]
     },
     {
-      "path": "oeffentlich/faq/themen/leinoel.md",
-      "slug": "leinoel",
-      "category": null,
-      "title": "Leinöl als Holzschutzmittel",
+      "path": "de/oeffentlich/produkte/lueftungsrosetten/blr2.md",
+      "slug": "blr2",
+      "category": "Artikel, Lüftungsrosetten",
+      "title": "Lüftungsrosette 2",
       "has_yaml": true,
-      "summary": "# FAQ: Leinöl als Holzschutzmittel in der Denkmalpflege",
-      "images": []
+      "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 42 mm Hohe ca. 3 mm",
+      "images": [
+        "blr2-5.jpg",
+        "blr2-4.jpg",
+        "blr2-3.jpg",
+        "blr2-2.jpg",
+        "blr2-1.jpg"
+      ]
     },
     {
-      "path": "oeffentlich/faq/themen/lueftungsrosetten.md",
-      "slug": "lueftungsrosetten",
-      "category": null,
-      "title": "Lüftungsrosetten für historische Holzvertäfelungen",
+      "path": "de/oeffentlich/produkte/lueftungsrosetten/blr5.md",
+      "slug": "blr5",
+      "category": "Artikel, Lüftungsrosetten",
+      "title": "Lüftungsrosette 5",
       "has_yaml": true,
-      "summary": "# FAQ: Lüftungsrosetten für historische Holzvertäfelungen",
-      "images": []
+      "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 58 mm Hohe ca. 13 mm",
+      "images": [
+        "blr5-3.jpg",
+        "blr5-2.jpg",
+        "blr5-1.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/lueftungsrosetten/blr6.md",
+      "slug": "blr6",
+      "category": "Artikel, Lüftungsrosetten",
+      "title": "Lüftungsrosette 6",
+      "has_yaml": true,
+      "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 46 mm Hohe ca. 11 mm",
+      "images": [
+        "blr6-3.jpg",
+        "blr6-2.jpg",
+        "blr6-1.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/lueftungsrosetten/blr7.md",
+      "slug": "blr7",
+      "category": "Artikel, Lüftungsrosetten",
+      "title": "Lüftungsrosette 7",
+      "has_yaml": true,
+      "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 28 mm Hohe ca. 12 mm",
+      "images": [
+        "blr7-3.jpg",
+        "blr7-2.jpg",
+        "blr7-1.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr06.md",
+      "slug": "tr06",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 06",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen TR 06, Maße: 115 x 26 mm",
+      "images": [
+        "tr06.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr07.md",
+      "slug": "tr07",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 07",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 07, Maße: 143 x 31 mm",
+      "images": [
+        "tr07.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr01-160.md",
+      "slug": "tr01-160",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 01 / 160",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen TR 01 / 160, Maße: 160 x 24 mm",
+      "images": [
+        "tr01-160.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr01-120.md",
+      "slug": "tr01-120",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 01 / 120",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen TR 01 / 120, Maße: 120 x 18 mm",
+      "images": [
+        "tr01-120.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr01-200.md",
+      "slug": "tr01-200",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 01 / 200",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen TR 01 / 200, Maße: 200 x 24 mm",
+      "images": [
+        "tr01-200.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr02.md",
+      "slug": "tr02",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 02",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen TR 02, Maße: 100 x 17 mm",
+      "images": [
+        "tr02.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr03.md",
+      "slug": "tr03",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 03",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen TR 03, Maße: 160 X 42 mm",
+      "images": [
+        "tr03.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr04.md",
+      "slug": "tr04",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 04",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen TR 04, Maße: 160 X 34 mm",
+      "images": [
+        "tr04.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr05.md",
+      "slug": "tr05",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 05",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen TR 05, Maße: 179 x 42 mm",
+      "images": [
+        "tr05.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr09.md",
+      "slug": "tr09",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 09",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 09, Maße: 115 x 26 mm",
+      "images": [
+        "tr09.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr11.md",
+      "slug": "tr11",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 11",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 11, Maße: 118 x 23 mm mm",
+      "images": [
+        "tr11.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr12.md",
+      "slug": "tr12",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 12",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 12, Maße: 117 x 28 mm",
+      "images": [
+        "tr12.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr13.md",
+      "slug": "tr13",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 13",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 13, Maße: 103 x 23 mm",
+      "images": [
+        "tr13.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr14.md",
+      "slug": "tr14",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 14",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 14, Maße: 118 x 20 mm",
+      "images": [
+        "tr14.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr15.md",
+      "slug": "tr15",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 15",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 15, Maße: 117 x 19 mm",
+      "images": [
+        "tr15.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr17.md",
+      "slug": "tr17",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 17",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 17, Maße: 164 x 58 mm",
+      "images": [
+        "tr17.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr18.md",
+      "slug": "tr18",
+      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "title": "Türbekleidung 18",
+      "has_yaml": true,
+      "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 18, Maße: 150 x 40 mm",
+      "images": [
+        "tr18.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl01.md",
+      "slug": "wl01",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 01",
+      "has_yaml": true,
+      "summary": "Profilierte Holzleiste 16 x 40 mm In Kiefer oder White Wood, andere Holzarten auf Anfrage Die Wandleiste WL 01 besitzt ein klassisch gestaltetes, asymmetrisches Profil im Maß 40 x 16 mm. Der Aufbau kombiniert einen voluminös geschwungene Ka",
+      "images": [
+        "wl01.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl02.md",
+      "slug": "wl02",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 02 „Dom-Profil“",
+      "has_yaml": true,
+      "summary": "„Dom-Profil“ Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab. Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen ",
+      "images": [
+        "wl02.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl03.md",
+      "slug": "wl03",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 03 „Riffelleiste“",
+      "has_yaml": true,
+      "summary": "Riffelleiste - Massive Holzleiste 10 x 40 mm. In Kiefer oder White Wood, andere Holzarten aus Anfrage. Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sic",
+      "images": [
+        "wl03.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl04.md",
+      "slug": "wl04",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 04 „Rundstableiste“",
+      "has_yaml": true,
+      "summary": "Rundstableiste - Massive Holzleiste 10 x 40 mm, Rundstableiste. In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werd",
+      "images": [
+        "wl04.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl05.md",
+      "slug": "wl05",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 05 „Hohe Welle“",
+      "has_yaml": true,
+      "summary": "\"Hohe Welle\" - Massive Holzleiste 20 x 40 mm, nicht symmetrisches Profil mit zentralem Halbrundstab. In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste könne",
+      "images": [
+        "wl05.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl06.md",
+      "slug": "wl06",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 06",
+      "has_yaml": true,
+      "summary": "Holzleiste 15 x 30 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen glied",
+      "images": [
+        "wl06.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl07.md",
+      "slug": "wl07",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 07",
+      "has_yaml": true,
+      "summary": "Holzleiste 15 x 30 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen glied",
+      "images": [
+        "wl07.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl08.md",
+      "slug": "wl08",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 08",
+      "has_yaml": true,
+      "summary": "Holzleiste 18 x 35 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen glied",
+      "images": [
+        "wl08.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl09.md",
+      "slug": "wl09",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 09",
+      "has_yaml": true,
+      "summary": "Profilierte Holzleiste 18 x 40 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
+      "images": [
+        "wl09.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl10.md",
+      "slug": "wl10",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 10",
+      "has_yaml": true,
+      "summary": "Profilierte Holzleiste 23 x 80 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
+      "images": [
+        "wl10.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl11.md",
+      "slug": "wl11",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 11",
+      "has_yaml": true,
+      "summary": "Profilierte Holzleiste 32 x 47 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
+      "images": [
+        "wl11.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl12.md",
+      "slug": "wl12",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 12",
+      "has_yaml": true,
+      "summary": "Profilierte Holzleiste 25 x 43 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
+      "images": [
+        "wl12.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl13.md",
+      "slug": "wl13",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 13",
+      "has_yaml": true,
+      "summary": "Profilierte Holzleiste 8 x 35 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandfl",
+      "images": [
+        "wl13.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl14.md",
+      "slug": "wl14",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 14",
+      "has_yaml": true,
+      "summary": "Profilierte Holzleiste 21 x 60 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
+      "images": [
+        "wl14.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/leisten/wandleisten/wl15.md",
+      "slug": "wl15",
+      "category": "Artikel, Wandleisten",
+      "title": "Wandleiste 15",
+      "has_yaml": true,
+      "summary": "Profilierte Holzleiste 25 x 100 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wand",
+      "images": [
+        "wl15.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/loen.md",
+      "slug": "loen",
+      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "title": "Reines Leinöl, ohne Sikkativ",
+      "has_yaml": true,
+      "summary": "Gereinigtes Leinöl mit niedrigem Säuregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines Leinöl hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Troc",
+      "images": [
+        "loen.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/loef.md",
+      "slug": "loef",
+      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "title": "Leinölfirnis",
+      "has_yaml": true,
+      "summary": "Leinölfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.",
+      "images": [
+        "loef.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/btoe.md",
+      "slug": "btoe",
+      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "title": "Balsamterpentinöl",
+      "has_yaml": true,
+      "summary": "Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird. Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrock",
+      "images": [
+        "btoe.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/ctp.md",
+      "slug": "ctp",
+      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "title": "Citrusterpene",
+      "has_yaml": true,
+      "summary": "Citrusterpene kann wie Balsamterpentinöl zum Verdünnen von Farben und zum Lösen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist für ökologische Hol",
+      "images": [
+        "ctp.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/toel.md",
+      "slug": "toel",
+      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "title": "Tung Holzöllack",
+      "has_yaml": true,
+      "summary": "Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen. Anwendung innen und außen. TUNG Holzöllack trocknet bedeutend schneller und härter als ein Leinölfirnisanstrich. Die Oberfläche ist anfänglich matt glänzend. Er wird eingesetzt a",
+      "images": [
+        "toel.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/toen.md",
+      "slug": "toen",
+      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "title": "Tungöl natur",
+      "has_yaml": true,
+      "summary": "Tungöl Natur, ohne Sikkativ. Es polymerisiert ähnlich wie Leinöl, trocknet jedoch schneller und bildet eine harte, matte Oberfläche. Wird Holz ausschließlich mit Tungöl Natur behandelt, bleibt die natürliche Holzfarbe im Wesentlichen erhalt",
+      "images": [
+        "toen.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/weiss.md",
+      "slug": "weiss",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Weiß - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Volltonfarbe, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarben sind für farbige Holz-Behandlungen im Innenbereic",
+      "images": [
+        "weiss.jpg",
+        "weiss-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/schwarz.md",
+      "slug": "schwarz",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Schwarz - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Volltonfarbe, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für",
+      "images": [
+        "schwarz.jpg",
+        "schwarz-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/umbra.md",
+      "slug": "umbra",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Umbra - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
+      "images": [
+        "umbra.jpg",
+        "umbra-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/braun.md",
+      "slug": "braun",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Braun - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
+      "images": [
+        "braun.jpg",
+        "braun-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/gruen.md",
+      "slug": "gruen",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Grün - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
+      "images": [
+        "gruen.jpg",
+        "gruen-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/zitronengelb.md",
+      "slug": "zitronengelb",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Zitronengelb - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
+      "images": [
+        "zitronengelb.jpg",
+        "zitronengelb-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/maisgelb.md",
+      "slug": "maisgelb",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Maisgelb - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
+      "images": [
+        "maisgelb.jpg",
+        "maisgelb-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/ocker.md",
+      "slug": "ocker",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Ockergelb - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
+      "images": [
+        "ocker.jpg",
+        "ocker-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/oxidrot.md",
+      "slug": "oxidrot",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Oxidrot - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
+      "images": [
+        "oxidrot.jpg",
+        "oxidrot-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/ultrablau.md",
+      "slug": "ultrablau",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Ultrablau - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
+      "images": [
+        "ultrablau.jpg",
+        "ultrablau-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
+    },
+    {
+      "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/weinrot.md",
+      "slug": "weinrot",
+      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "title": "Weinrot - BEECK Standölinnenfarbe PRO",
+      "has_yaml": true,
+      "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
+      "images": [
+        "weinrot.jpg",
+        "weinrot-farbfaecher.jpg",
+        "sip_gebinde.jpg"
+      ]
     }
   ]
 }
