@@ -9,11 +9,11 @@ beschreibung: >
 meta_title: "Standölfarbe Lindgrün, deckend, für Holz im Innenbereich"
 meta_description: "BEECK Standölinnenfarbe PRO Lindgrün – Profi-Leinöllack für Maler & Restauratoren. Denkmalgerecht, ökologisch, seidenmatt oder seidenglänzend."
 bilder:
-  - lindgruen01.jpg
-  - lindgruen02.jpg
-  - lindgruen03.jpg
-  - lindgruen-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - lindgruen01.png
+  - lindgruen02.png
+  - lindgruen03.png
+  - lindgruen-farbfaecher.png
+  - sip_gebinde.png
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -115,11 +115,11 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 
 ## Bilder
 
-![](lindgruen01.jpg)
-![](lindgruen02.jpg)
-![](lindgruen03.jpg)
-![](lindgruen-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](lindgruen01.png)
+![](lindgruen02.png)
+![](lindgruen03.png)
+![](lindgruen-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

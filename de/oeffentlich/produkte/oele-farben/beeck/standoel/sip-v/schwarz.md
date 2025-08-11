@@ -9,9 +9,9 @@ beschreibung: >
 meta_title: "Standölfarbe Schwarz, deckend, für Holz im Innenbereich"
 meta_description: "Beeck Standölinnenfarbe Pro ist eine reine Leinölfarbe für professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung."
 bilder:
-  - schwarz.jpg
-  - schwarz-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - schwarz.png
+  - schwarz-farbfaecher.png
+  - sip_gebinde.png
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -65,9 +65,9 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 
 ## Bilder
 
-![](schwarz.jpg)
-![](schwarz-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](schwarz.png)
+![](schwarz-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

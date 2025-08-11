@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "Linseed Oil Varnish"
 meta_description: "Boiled linseed oil – oxidatively drying wood oil for priming, protection & restoration. Solvent-free, deep-penetrating, ideal for indoor & outdoor use."
 bilder:
-  - loef.jpg
+  - loef.png
 price: "13,45 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -52,7 +52,7 @@ For interior use as a quick-drying finish with a drying time of up to 24 hours.
 
 ## Bilder
 
-![](loef.jpg)
+![](loef.png)
 
 ## SEO-Metadaten
 

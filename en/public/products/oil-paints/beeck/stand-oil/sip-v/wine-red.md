@@ -9,9 +9,9 @@ beschreibung: >
 meta_title: "Wine Red Interior Stand-Oil Paint PRO from BEECK"
 meta_description: "Beeck Interior Stand-Oil Paint Pro is a highly pigmented linseed oil paint for the preservation of listed buildings / restoration of wooden objects and paneling"
 bilder:
-  - weinrot.jpg
-  - weinrot-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - weinrot.png
+  - weinrot-farbfaecher.png
+  - sip_gebinde.png
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -65,9 +65,9 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](weinrot.jpg)
-![](weinrot-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](weinrot.png)
+![](weinrot-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

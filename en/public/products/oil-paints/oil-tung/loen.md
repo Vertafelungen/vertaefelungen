@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "Pur Linseed Oil"
 meta_description: "Linseed oil – cold-pressed, pure wood oil for interior & exterior use. Ideal for priming, restoration & wood care. Solvent-free and long-lasting."
 bilder:
-  - loen.jpg
+  - loen.png
 price: "12,61 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -57,7 +57,7 @@ Linseed oil has a strong, typical odour at first, but this fades over the course
 
 ## Bilder
 
-![](loen.jpg)
+![](loen.png)
 
 ## SEO-Metadaten
 

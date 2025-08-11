@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "toen – Tungöl Natur, ohne Sikkativ. Es polymerisiert ähnlic"
 meta_description: "Tungöl natur – reines, härtendes Holzöl für stark beanspruchte Oberflächen. Lösemittelfrei, wetterfest, tief eindringend. Ideal für innen & außen."
 bilder:
-  - toen.jpg
+  - toen.png
 price: "21,01 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -50,7 +50,7 @@ In der CAS Datenbank ist es unter der Bezeichnung „Holzöl“ registriert.
 
 ## Bilder
 
-![](toen.jpg)
+![](toen.png)
 
 ## SEO-Metadaten
 

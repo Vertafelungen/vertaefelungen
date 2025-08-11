@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "Tung oil natural"
 meta_description: "Tung oil natural – pure, hardening wood oil for high-stress surfaces. Solvent-free, weather-resistant, deep-penetrating. Suitable for in- & outdoor use."
 bilder:
-  - toen.jpg
+  - toen.png
 price: "21,01 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -51,7 +51,7 @@ It is registered in the CAS database under the name "wood oil"
 
 ## Bilder
 
-![](toen.jpg)
+![](toen.png)
 
 ## SEO-Metadaten
 

@@ -9,9 +9,9 @@ beschreibung: >
 meta_title: "Ultrablau, BEECK Standölinnnenfarbe PRO, deckend"
 meta_description: "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen."
 bilder:
-  - ultrablau.jpg
-  - ultrablau-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - ultrablau.png
+  - ultrablau-farbfaecher.png
+  - sip_gebinde.png
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -65,9 +65,9 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 
 ## Bilder
 
-![](ultrablau.jpg)
-![](ultrablau-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](ultrablau.png)
+![](ultrablau-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

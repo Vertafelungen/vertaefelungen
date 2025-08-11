@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "generated": "2025-08-11T10:37:54.513708",
+  "generated": "2025-08-11T18:35:41.027213",
   "items": [
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/klassikgruen.md",
@@ -10,11 +10,11 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Tür",
       "images": [
-        "klassikgruen01.jpg",
-        "klassikgruen02.jpg",
-        "klassikgruen03.jpg",
-        "klassikgruen-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "klassikgruen01.png",
+        "klassikgruen02.png",
+        "klassikgruen03.png",
+        "klassikgruen-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -25,11 +25,11 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Tür",
       "images": [
-        "lindgruen01.jpg",
-        "lindgruen02.jpg",
-        "lindgruen03.jpg",
-        "lindgruen-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "lindgruen01.png",
+        "lindgruen02.png",
+        "lindgruen03.png",
+        "lindgruen-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -145,19 +145,19 @@
       "has_yaml": true,
       "summary": "Was wir salop als \"Nadelstreif\" bezeichnen, ist die Kombination von Brett und Zierleiste. Beides sind separate Elemente, die sich mit Nut und Feder verbinden und im Wechsel aneinander reihen. Das Besondere ist, dass es unterschiedliche Zier",
       "images": [
-        "p0009-1-3.jpg",
-        "p0009-1-5.jpg",
-        "p0009-1-7.jpg",
-        "p0009-1-9.jpg",
-        "p0009-1-1-1-a.jpg",
-        "p0009-1-1-1-b.jpg",
+        "p0009-1-3.png",
+        "p0009-1-5.png",
+        "p0009-1-7.png",
+        "p0009-1-9.png",
+        "p0009-1-1-1-a.png",
+        "p0009-1-1-1-b.png",
         "p0009-1-1-1-c",
-        "p0009-1-1-1-d.jpg",
-        "p0009-1-1-1-e.jpg",
-        "p0009-1-1-1-f.jpg",
-        "p0009-1-1-2.jpg",
-        "p0009-2-1-1.jpg",
-        "p0009-2-1-2.jpg"
+        "p0009-1-1-1-d.png",
+        "p0009-1-1-1-e.png",
+        "p0009-1-1-1-f.png",
+        "p0009-1-1-2.png",
+        "p0009-2-1-1.png",
+        "p0009-2-1-2.png"
       ]
     },
     {
@@ -329,9 +329,9 @@
       "has_yaml": true,
       "summary": "Diese 4-teilige, 45 cm hohe Sockelleiste kommt aus dem Stammhaus der Augustiner Brauerei in der Münchner Innenstadt. Mit ihr sind im 1.OG einige Wohnräume der Brauerfamilie Wagner ausgestattet, die „Wagner Salons“. Die Salons wurden 1896-97",
       "images": [
-        "sl0007-3.jpg",
-        "sl0007-2.jpg",
-        "sl0007-1.jpg"
+        "sl0007-3.png",
+        "sl0007-2.png",
+        "sl0007-1.png"
       ]
     },
     {
@@ -351,8 +351,8 @@
       "has_yaml": true,
       "summary": "Schlicht und einfach, mit abgerundeter Oberkante",
       "images": [
-        "sl0005-2.jpg",
-        "sl0005-1.jpg"
+        "sl0005-2.png",
+        "sl0005-1.png"
       ]
     },
     {
@@ -372,8 +372,8 @@
       "has_yaml": true,
       "summary": "Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen. Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lässt.",
       "images": [
-        "sl0001-2.jpg",
-        "sl0001-1.jpg"
+        "sl0001-2.png",
+        "sl0001-1.png"
       ]
     },
     {
@@ -384,8 +384,8 @@
       "has_yaml": true,
       "summary": "Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen. Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lässt.",
       "images": [
-        "sl0002-2.jpg",
-        "sl0002-1.jpg"
+        "sl0002-2.png",
+        "sl0002-1.png"
       ]
     },
     {
@@ -396,8 +396,8 @@
       "has_yaml": true,
       "summary": "Eine echte Berliner Leiste, die für eine Wohnung in der Adalbertstr. nachgefräst wurde.",
       "images": [
-        "sl0003-2.jpg",
-        "sl0003-1.jpg"
+        "sl0003-2.png",
+        "sl0003-1.png"
       ]
     },
     {
@@ -408,8 +408,8 @@
       "has_yaml": true,
       "summary": "Reich profilierte, hohe Sockelleiste, die aus 2 Teilen zusammengesetzt wird.",
       "images": [
-        "sl0004-4.jpg",
-        "sl0004-1.jpg"
+        "sl0004-4.png",
+        "sl0004-1.png"
       ]
     },
     {
@@ -420,8 +420,8 @@
       "has_yaml": true,
       "summary": "schlicht, mit Karnies",
       "images": [
-        "sl0006-2.jpg",
-        "sl0006-1.jpg"
+        "sl0006-2.png",
+        "sl0006-1.png"
       ]
     },
     {
@@ -432,11 +432,11 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 36 mm Hohe ca. 3 mm",
       "images": [
-        "blr3-5.jpg",
-        "blr3-4.jpg",
-        "blr3-3.jpg",
-        "blr3-2.jpg",
-        "blr3-1.jpg"
+        "blr3-5.png",
+        "blr3-4.png",
+        "blr3-3.png",
+        "blr3-2.png",
+        "blr3-1.png"
       ]
     },
     {
@@ -447,9 +447,9 @@
       "has_yaml": true,
       "summary": "Formschöne Lüftungsrosette für Vertäfelungen. Messing gefräst, Oberfläche geschlichtet Durchmesser 45 mm Höhe ca. 4 mm",
       "images": [
-        "blr4-3.jpg",
-        "blr4-2.jpg",
-        "blr4-1.jpg"
+        "blr4-3.png",
+        "blr4-2.png",
+        "blr4-1.png"
       ]
     },
     {
@@ -460,11 +460,11 @@
       "has_yaml": true,
       "summary": "Formschöne Lüftungsrosette für Vertäfelungen, Abguss einer Originalvorlage, Messingguss, poliert Durchmesser ca. 52 mm Höhe ca. 5 mm",
       "images": [
-        "blr1-5.jpg",
-        "blr1-3.jpg",
-        "blr1-4.jpg",
-        "blr1-2.jpg",
-        "blr1-1.jpg"
+        "blr1-5.png",
+        "blr1-3.png",
+        "blr1-4.png",
+        "blr1-2.png",
+        "blr1-1.png"
       ]
     },
     {
@@ -475,11 +475,11 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 42 mm Hohe ca. 3 mm",
       "images": [
-        "blr2-5.jpg",
-        "blr2-4.jpg",
-        "blr2-3.jpg",
-        "blr2-2.jpg",
-        "blr2-1.jpg"
+        "blr2-5.png",
+        "blr2-4.png",
+        "blr2-3.png",
+        "blr2-2.png",
+        "blr2-1.png"
       ]
     },
     {
@@ -490,9 +490,9 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 58 mm Hohe ca. 13 mm",
       "images": [
-        "blr5-3.jpg",
-        "blr5-2.jpg",
-        "blr5-1.jpg"
+        "blr5-3.png",
+        "blr5-2.png",
+        "blr5-1.png"
       ]
     },
     {
@@ -503,9 +503,9 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 46 mm Hohe ca. 11 mm",
       "images": [
-        "blr6-3.jpg",
-        "blr6-2.jpg",
-        "blr6-1.jpg"
+        "blr6-3.png",
+        "blr6-2.png",
+        "blr6-1.png"
       ]
     },
     {
@@ -516,9 +516,9 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 28 mm Hohe ca. 12 mm",
       "images": [
-        "blr7-3.jpg",
-        "blr7-2.jpg",
-        "blr7-1.jpg"
+        "blr7-3.png",
+        "blr7-2.png",
+        "blr7-1.png"
       ]
     },
     {
@@ -529,7 +529,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen TR 06, Maße: 115 x 26 mm",
       "images": [
-        "tr06.jpg"
+        "tr06.png"
       ]
     },
     {
@@ -540,7 +540,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 07, Maße: 143 x 31 mm",
       "images": [
-        "tr07.jpg"
+        "tr07.png"
       ]
     },
     {
@@ -551,7 +551,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen TR 01 / 160, Maße: 160 x 24 mm",
       "images": [
-        "tr01-160.jpg"
+        "tr01-160.png"
       ]
     },
     {
@@ -562,7 +562,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen TR 01 / 120, Maße: 120 x 18 mm",
       "images": [
-        "tr01-120.jpg"
+        "tr01-120.png"
       ]
     },
     {
@@ -573,7 +573,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen TR 01 / 200, Maße: 200 x 24 mm",
       "images": [
-        "tr01-200.jpg"
+        "tr01-200.png"
       ]
     },
     {
@@ -584,7 +584,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen TR 02, Maße: 100 x 17 mm",
       "images": [
-        "tr02.jpg"
+        "tr02.png"
       ]
     },
     {
@@ -595,7 +595,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen TR 03, Maße: 160 X 42 mm",
       "images": [
-        "tr03.jpg"
+        "tr03.png"
       ]
     },
     {
@@ -606,7 +606,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen TR 04, Maße: 160 X 34 mm",
       "images": [
-        "tr04.jpg"
+        "tr04.png"
       ]
     },
     {
@@ -617,7 +617,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen TR 05, Maße: 179 x 42 mm",
       "images": [
-        "tr05.jpg"
+        "tr05.png"
       ]
     },
     {
@@ -628,7 +628,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 09, Maße: 115 x 26 mm",
       "images": [
-        "tr09.jpg"
+        "tr09.png"
       ]
     },
     {
@@ -639,7 +639,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 11, Maße: 118 x 23 mm mm",
       "images": [
-        "tr11.jpg"
+        "tr11.png"
       ]
     },
     {
@@ -650,7 +650,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 12, Maße: 117 x 28 mm",
       "images": [
-        "tr12.jpg"
+        "tr12.png"
       ]
     },
     {
@@ -661,7 +661,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 13, Maße: 103 x 23 mm",
       "images": [
-        "tr13.jpg"
+        "tr13.png"
       ]
     },
     {
@@ -672,7 +672,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 14, Maße: 118 x 20 mm",
       "images": [
-        "tr14.jpg"
+        "tr14.png"
       ]
     },
     {
@@ -683,7 +683,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 15, Maße: 117 x 19 mm",
       "images": [
-        "tr15.jpg"
+        "tr15.png"
       ]
     },
     {
@@ -694,7 +694,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 17, Maße: 164 x 58 mm",
       "images": [
-        "tr17.jpg"
+        "tr17.png"
       ]
     },
     {
@@ -705,7 +705,7 @@
       "has_yaml": true,
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 18, Maße: 150 x 40 mm",
       "images": [
-        "tr18.jpg"
+        "tr18.png"
       ]
     },
     {
@@ -716,7 +716,7 @@
       "has_yaml": true,
       "summary": "Profilierte Holzleiste 16 x 40 mm In Kiefer oder White Wood, andere Holzarten auf Anfrage Die Wandleiste WL 01 besitzt ein klassisch gestaltetes, asymmetrisches Profil im Maß 40 x 16 mm. Der Aufbau kombiniert einen voluminös geschwungene Ka",
       "images": [
-        "wl01.jpg"
+        "wl01.png"
       ]
     },
     {
@@ -727,7 +727,7 @@
       "has_yaml": true,
       "summary": "„Dom-Profil“ Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab. Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen ",
       "images": [
-        "wl02.jpg"
+        "wl02.png"
       ]
     },
     {
@@ -738,7 +738,7 @@
       "has_yaml": true,
       "summary": "Riffelleiste - Massive Holzleiste 10 x 40 mm. In Kiefer oder White Wood, andere Holzarten aus Anfrage. Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sic",
       "images": [
-        "wl03.jpg"
+        "wl03.png"
       ]
     },
     {
@@ -749,7 +749,7 @@
       "has_yaml": true,
       "summary": "Rundstableiste - Massive Holzleiste 10 x 40 mm, Rundstableiste. In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werd",
       "images": [
-        "wl04.jpg"
+        "wl04.png"
       ]
     },
     {
@@ -760,7 +760,7 @@
       "has_yaml": true,
       "summary": "\"Hohe Welle\" - Massive Holzleiste 20 x 40 mm, nicht symmetrisches Profil mit zentralem Halbrundstab. In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste könne",
       "images": [
-        "wl05.jpg"
+        "wl05.png"
       ]
     },
     {
@@ -771,7 +771,7 @@
       "has_yaml": true,
       "summary": "Holzleiste 15 x 30 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen glied",
       "images": [
-        "wl06.jpg"
+        "wl06.png"
       ]
     },
     {
@@ -782,7 +782,7 @@
       "has_yaml": true,
       "summary": "Holzleiste 15 x 30 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen glied",
       "images": [
-        "wl07.jpg"
+        "wl07.png"
       ]
     },
     {
@@ -793,7 +793,7 @@
       "has_yaml": true,
       "summary": "Holzleiste 18 x 35 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen glied",
       "images": [
-        "wl08.jpg"
+        "wl08.png"
       ]
     },
     {
@@ -804,7 +804,7 @@
       "has_yaml": true,
       "summary": "Profilierte Holzleiste 18 x 40 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
-        "wl09.jpg"
+        "wl09.png"
       ]
     },
     {
@@ -815,7 +815,7 @@
       "has_yaml": true,
       "summary": "Profilierte Holzleiste 23 x 80 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
-        "wl10.jpg"
+        "wl10.png"
       ]
     },
     {
@@ -826,7 +826,7 @@
       "has_yaml": true,
       "summary": "Profilierte Holzleiste 32 x 47 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
-        "wl11.jpg"
+        "wl11.png"
       ]
     },
     {
@@ -837,7 +837,7 @@
       "has_yaml": true,
       "summary": "Profilierte Holzleiste 25 x 43 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
-        "wl12.jpg"
+        "wl12.png"
       ]
     },
     {
@@ -848,7 +848,7 @@
       "has_yaml": true,
       "summary": "Profilierte Holzleiste 8 x 35 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandfl",
       "images": [
-        "wl13.jpg"
+        "wl13.png"
       ]
     },
     {
@@ -859,7 +859,7 @@
       "has_yaml": true,
       "summary": "Profilierte Holzleiste 21 x 60 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
-        "wl14.jpg"
+        "wl14.png"
       ]
     },
     {
@@ -870,7 +870,7 @@
       "has_yaml": true,
       "summary": "Profilierte Holzleiste 25 x 100 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wand",
       "images": [
-        "wl15.jpg"
+        "wl15.png"
       ]
     },
     {
@@ -881,7 +881,7 @@
       "has_yaml": true,
       "summary": "Gereinigtes Leinöl mit niedrigem Säuregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines Leinöl hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Troc",
       "images": [
-        "loen.jpg"
+        "loen.png"
       ]
     },
     {
@@ -892,7 +892,7 @@
       "has_yaml": true,
       "summary": "Leinölfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.",
       "images": [
-        "loef.jpg"
+        "loef.png"
       ]
     },
     {
@@ -903,7 +903,7 @@
       "has_yaml": true,
       "summary": "Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird. Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrock",
       "images": [
-        "btoe.jpg"
+        "btoe.png"
       ]
     },
     {
@@ -914,7 +914,7 @@
       "has_yaml": true,
       "summary": "Citrusterpene kann wie Balsamterpentinöl zum Verdünnen von Farben und zum Lösen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist für ökologische Hol",
       "images": [
-        "ctp.jpg"
+        "ctp.png"
       ]
     },
     {
@@ -925,7 +925,7 @@
       "has_yaml": true,
       "summary": "Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen. Anwendung innen und außen. TUNG Holzöllack trocknet bedeutend schneller und härter als ein Leinölfirnisanstrich. Die Oberfläche ist anfänglich matt glänzend. Er wird eingesetzt a",
       "images": [
-        "toel.jpg"
+        "toel.png"
       ]
     },
     {
@@ -936,7 +936,7 @@
       "has_yaml": true,
       "summary": "Tungöl Natur, ohne Sikkativ. Es polymerisiert ähnlich wie Leinöl, trocknet jedoch schneller und bildet eine harte, matte Oberfläche. Wird Holz ausschließlich mit Tungöl Natur behandelt, bleibt die natürliche Holzfarbe im Wesentlichen erhalt",
       "images": [
-        "toen.jpg"
+        "toen.png"
       ]
     },
     {
@@ -947,9 +947,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Volltonfarbe, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarben sind für farbige Holz-Behandlungen im Innenbereic",
       "images": [
-        "weiss.jpg",
-        "weiss-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "weiss.png",
+        "weiss-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -960,9 +960,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Volltonfarbe, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für",
       "images": [
-        "schwarz.jpg",
-        "schwarz-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "schwarz.png",
+        "schwarz-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -973,9 +973,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
       "images": [
-        "umbra.jpg",
-        "umbra-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "umbra.png",
+        "umbra-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -986,9 +986,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
       "images": [
-        "braun.jpg",
-        "braun-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "braun.png",
+        "braun-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -999,9 +999,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
       "images": [
-        "gruen.jpg",
-        "gruen-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "gruen.png",
+        "gruen-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -1012,9 +1012,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
       "images": [
-        "zitronengelb.jpg",
-        "zitronengelb-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "zitronengelb.png",
+        "zitronengelb-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -1025,9 +1025,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
       "images": [
-        "maisgelb.jpg",
-        "maisgelb-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "maisgelb.png",
+        "maisgelb-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -1038,9 +1038,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
       "images": [
-        "ocker.jpg",
-        "ocker-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "ocker.png",
+        "ocker-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -1051,9 +1051,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
       "images": [
-        "oxidrot.jpg",
-        "oxidrot-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "oxidrot.png",
+        "oxidrot-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -1064,9 +1064,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
       "images": [
-        "ultrablau.jpg",
-        "ultrablau-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "ultrablau.png",
+        "ultrablau-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     },
     {
@@ -1077,9 +1077,9 @@
       "has_yaml": true,
       "summary": "BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz. Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäf",
       "images": [
-        "weinrot.jpg",
-        "weinrot-farbfaecher.jpg",
-        "sip_gebinde.jpg"
+        "weinrot.png",
+        "weinrot-farbfaecher.png",
+        "sip_gebinde.png"
       ]
     }
   ]

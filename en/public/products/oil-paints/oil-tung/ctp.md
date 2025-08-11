@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "Citrus terpene"
 meta_description: "Citrus terpenes – natural orange oil solvent for thinning oils & cleaning tools. Biodegradable, effective, and pleasantly scented."
 bilder:
-  - ctp.jpg
+  - ctp.png
 price: "20,17 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -43,7 +43,7 @@ Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and 
 
 ## Bilder
 
-![](ctp.jpg)
+![](ctp.png)
 
 ## SEO-Metadaten
 

@@ -9,11 +9,11 @@ beschreibung: >
 meta_title: "Ventilation Rosette 2"
 meta_description: "Elegant ventilation rosette based on the original design. Cast brass, polished. Diameter approx. 42 mm. Hight approx 3 mm."
 bilder:
-  - blr2-5.jpg
-  - blr2-4.jpg
-  - blr2-3.jpg
-  - blr2-2.jpg
-  - blr2-1.jpg
+  - blr2-5.png
+  - blr2-4.png
+  - blr2-3.png
+  - blr2-2.png
+  - blr2-1.png
 price: "49,58 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -45,11 +45,11 @@ Hight approx 3 mm
 
 ## Bilder
 
-![](blr2-5.jpg)
-![](blr2-4.jpg)
-![](blr2-3.jpg)
-![](blr2-2.jpg)
-![](blr2-1.jpg)
+![](blr2-5.png)
+![](blr2-4.png)
+![](blr2-3.png)
+![](blr2-2.png)
+![](blr2-1.png)
 
 ## SEO-Metadaten
 

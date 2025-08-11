@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "loen – Gereinigtes Leinöl mit niedrigem Säuregehalt, frei v"
 meta_description: "Leinöl – kaltgepresstes, reines Holzöl für Innen & Außen. Ideal zur Holzpflege, Grundierung & Restaurierung. Lösemittelfrei, traditionell & dauerhaft."
 bilder:
-  - loen.jpg
+  - loen.png
 price: "12,61 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -57,7 +57,7 @@ Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe v
 
 ## Bilder
 
-![](loen.jpg)
+![](loen.png)
 
 ## SEO-Metadaten
 

@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "White, matt oil varnish for professional priming coats on wood"
 meta_description: "BEECK Undercoat Pro, opaque white, filling, fast-drying primer for wood indoors and exterior"
 bilder:
-  - vsfp.jpg
+  - vsfp.png
 price: "30,60 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -51,7 +51,7 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](vsfp.jpg)
+![](vsfp.png)
 
 ## SEO-Metadaten
 

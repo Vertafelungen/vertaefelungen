@@ -9,11 +9,11 @@ beschreibung: >
 meta_title: "Pastel Green Interior Stand-Oil Paint PRO from BEECK"
 meta_description: "BEECK Stand Oil Paint PRO – professional linseed oil paint for restorers & painters. Heritage-grade, durable, VOC-compliant. Satin-matt or satin-gloss."
 bilder:
-  - lindgruen01.jpg
-  - lindgruen02.jpg
-  - lindgruen03.jpg
-  - lindgruen-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - lindgruen01.png
+  - lindgruen02.png
+  - lindgruen03.png
+  - lindgruen-farbfaecher.png
+  - sip_gebinde.png
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -115,11 +115,11 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](lindgruen01.jpg)
-![](lindgruen02.jpg)
-![](lindgruen03.jpg)
-![](lindgruen-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](lindgruen01.png)
+![](lindgruen02.png)
+![](lindgruen03.png)
+![](lindgruen-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

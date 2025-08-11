@@ -9,11 +9,11 @@ beschreibung: >
 meta_title: "blr3 – Lüftungsrosette für Vertäfelungen, nach Originalvorl"
 meta_description: "Lüftungsrosette für Holzvertäfelungen"
 bilder:
-  - blr3-5.jpg
-  - blr3-4.jpg
-  - blr3-3.jpg
-  - blr3-2.jpg
-  - blr3-1.jpg
+  - blr3-5.png
+  - blr3-4.png
+  - blr3-3.png
+  - blr3-2.png
+  - blr3-1.png
 price: "49,58 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -45,11 +45,11 @@ Hohe ca. 3 mm
 
 ## Bilder
 
-![](blr3-5.jpg)
-![](blr3-4.jpg)
-![](blr3-3.jpg)
-![](blr3-2.jpg)
-![](blr3-1.jpg)
+![](blr3-5.png)
+![](blr3-4.png)
+![](blr3-3.png)
+![](blr3-2.png)
+![](blr3-1.png)
 
 ## SEO-Metadaten
 

@@ -9,9 +9,9 @@ beschreibung: >
 meta_title: "Oxidrot, BEECK Standölinnnenfarbe PRO"
 meta_description: "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen."
 bilder:
-  - oxidrot.jpg
-  - oxidrot-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - oxidrot.png
+  - oxidrot-farbfaecher.png
+  - sip_gebinde.png
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -65,9 +65,9 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 
 ## Bilder
 
-![](oxidrot.jpg)
-![](oxidrot-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](oxidrot.png)
+![](oxidrot-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

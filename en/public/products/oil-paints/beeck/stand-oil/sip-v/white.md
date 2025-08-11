@@ -9,9 +9,9 @@ beschreibung: >
 meta_title: "White Interior Stand-Oil Paint PRO from BEECK"
 meta_description: "Beeck Interior Stand-Oil Paint Pro is a highly pigmented linseed oil paint for the preservation of listed buildings / restoration of wooden objects and paneling"
 bilder:
-  - weiss.jpg
-  - weiss-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - weiss.png
+  - weiss-farbfaecher.png
+  - sip_gebinde.png
 price: "41,50 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -65,9 +65,9 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](weiss.jpg)
-![](weiss-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](weiss.png)
+![](weiss-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

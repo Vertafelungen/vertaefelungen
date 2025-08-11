@@ -9,11 +9,11 @@ beschreibung: >
 meta_title: "Standölfarbe Klassikgrün, deckend, für Holz im Innenbereich"
 meta_description: "BEECK Standölinnenfarbe PRO Klassikgrün – ökologischer Öllack für stilvolle Innenräume, ideal für Möbel, Türen & Denkmalschutz, seidenmatt oder glänzend."
 bilder:
-  - klassikgruen01.jpg
-  - klassikgruen02.jpg
-  - klassikgruen03.jpg
-  - klassikgruen-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - klassikgruen01.png
+  - klassikgruen02.png
+  - klassikgruen03.png
+  - klassikgruen-farbfaecher.png
+  - sip_gebinde.png
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -115,11 +115,11 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 
 ## Bilder
 
-![](klassikgruen01.jpg)
-![](klassikgruen02.jpg)
-![](klassikgruen03.jpg)
-![](klassikgruen-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](klassikgruen01.png)
+![](klassikgruen02.png)
+![](klassikgruen03.png)
+![](klassikgruen-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

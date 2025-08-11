@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "Balsamic turpentine oil"
 meta_description: "Gum turpentine – natural solvent for thinning linseed oil products & cleaning brushes. Perfect for painters, restorers & historic preservation work."
 bilder:
-  - btoe.jpg
+  - btoe.png
 price: "13,45 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -45,7 +45,7 @@ Balsamic turpentine oil is used to dilute linseed oil paints.
 
 ## Bilder
 
-![](btoe.jpg)
+![](btoe.png)
 
 ## SEO-Metadaten
 

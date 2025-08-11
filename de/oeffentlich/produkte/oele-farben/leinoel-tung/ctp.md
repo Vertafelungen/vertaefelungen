@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "ctp – Citrusterpene kann wie Balsamterpentinöl zum Verdünne"
 meta_description: "Citrusterpene – natürliches Orangenöl-Lösemittel zum Verdünnen von Ölen & Reinigen von Werkzeug. Biologisch abbaubar, kraftvoll & angenehm im Geruch."
 bilder:
-  - ctp.jpg
+  - ctp.png
 price: "20,17 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -43,7 +43,7 @@ Citrusterpene kann wie Balsamterpentinöl zum Verdünnen von Farben und zum Lös
 
 ## Bilder
 
-![](ctp.jpg)
+![](ctp.png)
 
 ## SEO-Metadaten
 

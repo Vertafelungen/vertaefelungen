@@ -9,9 +9,9 @@ beschreibung: >
 meta_title: "Maize Yellow Interior Stand-Oil Paint PRO from BEECK"
 meta_description: "Beeck Interior Stand-Oil Paint Pro is a highly pigmented linseed oil paint for the preservation of listed buildings / restoration of wooden objects and paneling"
 bilder:
-  - maisgelb.jpg
-  - maisgelb-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - maisgelb.png
+  - maisgelb-farbfaecher.png
+  - sip_gebinde.png
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -65,9 +65,9 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](maisgelb.jpg)
-![](maisgelb-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](maisgelb.png)
+![](maisgelb-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

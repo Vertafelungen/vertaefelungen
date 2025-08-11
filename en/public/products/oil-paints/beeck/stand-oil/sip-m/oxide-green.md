@@ -9,11 +9,11 @@ beschreibung: >
 meta_title: "Oxide Green Interior Stand-Oil Paint PRO from BEECK"
 meta_description: "BEECK Stand Oil Paint PRO – professional linseed oil paint for restorers & painters. Heritage-grade, durable, VOC-compliant. Satin-matt or satin-gloss."
 bilder:
-  - klassikgruen01.jpg
-  - klassikgruen02.jpg
-  - klassikgruen03.jpg
-  - klassikgruen-farbfaecher.jpg
-  - sip_gebinde.jpg
+  - klassikgruen01.png
+  - klassikgruen02.png
+  - klassikgruen03.png
+  - klassikgruen-farbfaecher.png
+  - sip_gebinde.png
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -115,11 +115,11 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](klassikgruen01.jpg)
-![](klassikgruen02.jpg)
-![](klassikgruen03.jpg)
-![](klassikgruen-farbfaecher.jpg)
-![](sip_gebinde.jpg)
+![](klassikgruen01.png)
+![](klassikgruen02.png)
+![](klassikgruen03.png)
+![](klassikgruen-farbfaecher.png)
+![](sip_gebinde.png)
 
 ## SEO-Metadaten
 

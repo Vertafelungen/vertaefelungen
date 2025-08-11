@@ -9,7 +9,7 @@ beschreibung: >
 meta_title: "Tung oil varnish"
 meta_description: "7Tung oil natural – pure, hardening wood oil for high-stress surfaces. Solvent-free, weather-resistant, deep-penetrating. Suitable for in- & outdoor use."
 bilder:
-  - toel.jpg
+  - toel.png
 price: "22,69 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -57,7 +57,7 @@ TUNG wood oil varnish dries significantly faster and harder than a linseed oil v
 
 ## Bilder
 
-![](toel.jpg)
+![](toel.png)
 
 ## SEO-Metadaten
 
