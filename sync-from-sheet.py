@@ -16,7 +16,10 @@ from datetime import datetime
 from io import BytesIO
 
 # ===== CONFIG =====
-SHEET_CSV_URL = os.getenv("SHEET_CSV_URL", "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv")
+SHEET_CSV_URL = os.getenv(
+    "SHEET_CSV_URL",
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv"
+)
 
 # Columns in the Google Sheet (keep existing, including Umlaut handling)
 COL_EXPORT_DE = "export_pfad_de"
@@ -24,13 +27,17 @@ COL_EXPORT_EN = "export_pfad_en"
 COL_SLUG_DE   = "slug_de"
 COL_SLUG_EN   = "slug_en"
 
+# Alttext-Spalten (Q/R)
+COL_ALT_DE = "bilder_alt_de"
+COL_ALT_EN = "bilder_alt_en"
+
 # ===== FETCH SHEET =====
 resp = requests.get(SHEET_CSV_URL, timeout=60)
 resp.raise_for_status()
 csv_bytes = BytesIO(resp.content)
 df = pd.read_csv(csv_bytes, encoding="utf-8")
 
-# ===== HELPERS (unchanged behaviour) =====
+# ===== HELPERS =====
 def yaml_list(val):
     if pd.isna(val) or str(val).strip() == "":
         return []
@@ -40,6 +47,12 @@ def bilder_liste(val):
     if pd.isna(val) or not str(val).strip():
         return []
     return [b.strip() for b in str(val).split(",") if b.strip()]
+
+def alt_liste(val):
+    """Comma-separated alt texts, keep order; empty cells become ''. """
+    if pd.isna(val) or not str(val).strip():
+        return []
+    return [a.strip() for a in str(val).split(",")]
 
 def yaml_safe(s):
     if s is None or pd.isna(s):
@@ -90,6 +103,7 @@ def build_content(row, lang="de"):
         kategorie = row.get("kategorie_raw", "")
         verfuegbar = row.get("verfuegbar", "")
         bilder = bilder_liste(row.get("bilder_liste", ""))
+        bilder_alt = alt_liste(row.get(COL_ALT_DE, ""))
         price = format_price(row.get("price", ""))
         varianten_yaml_raw = row.get("varianten_yaml", "")
         varianten_yaml = format_varianten_yaml(varianten_yaml_raw)
@@ -105,6 +119,7 @@ def build_content(row, lang="de"):
         kategorie = row.get("kategorie_raw", "")
         verfuegbar = row.get("verfuegbar", "")
         bilder = bilder_liste(row.get("bilder_liste", ""))
+        bilder_alt = alt_liste(row.get(COL_ALT_EN, ""))
         price = format_price(row.get("price", ""))
         varianten_yaml_raw = row.get("varianten_yaml", "")
         varianten_yaml = format_varianten_yaml(varianten_yaml_raw)
@@ -115,13 +130,14 @@ def build_content(row, lang="de"):
     product_id = row.get("product_id", "")
     reference = row.get("reference", "")
 
-    # PREP: avoid backslashes in f-string expressions — precompute strings
+    # PREP
     beschreibung_text = ""
     if pd.notna(beschreibung):
         beschreibung_text = str(beschreibung).replace("\n", " ")
     meta_title_text = "" if pd.isna(meta_title) else str(meta_title)
     meta_description_text = "" if pd.isna(meta_description) else str(meta_description)
 
+    # YAML
     yaml_lines = []
     yaml_lines.append("---")
     yaml_lines.append(f"slug: {yaml_safe(slug)}")
@@ -139,6 +155,14 @@ def build_content(row, lang="de"):
             yaml_lines.append(f"  - {b}")
     else:
         yaml_lines.append("  -")
+    # Alttexte parallel ablegen
+    yaml_lines.append("bilder_alt:")
+    if bilder:
+        for i in range(len(bilder)):
+            alt = bilder_alt[i] if i < len(bilder_alt) else ""
+            yaml_lines.append(f"  - {yaml_safe(alt)}")
+    else:
+        yaml_lines.append("  -")
     yaml_lines.append(f"price: {yaml_safe(price)}")
     yaml_lines.append(f"verfuegbar: {yaml_safe(verfuegbar)}")
     yaml_lines.append("varianten_yaml: |")
@@ -149,7 +173,7 @@ def build_content(row, lang="de"):
     yaml_lines.append("---")
     yaml_block = "\n".join(yaml_lines)
 
-    # Markdown body (no backslash expressions inside f-strings)
+    # Markdown body
     body_parts = []
     body_parts.append(f"# {titel}")
     body_parts.append("")
@@ -170,8 +194,9 @@ def build_content(row, lang="de"):
     body_parts.append("## Bilder")
     body_parts.append("")
     if bilder:
-        for b in bilder:
-            body_parts.append(f"![]({b})")
+        for i, b in enumerate(bilder):
+            alt = bilder_alt[i] if i < len(bilder_alt) else ""
+            body_parts.append(f"![{alt}]({b})")
     else:
         body_parts.append("_keine Bilder hinterlegt_")
     body_parts.append("")
@@ -193,7 +218,8 @@ def build_content(row, lang="de"):
         "title": str(titel or "").strip(),
         "has_yaml": True,
         "summary": _short_summary(beschreibung),
-        "images": bilder
+        "images": bilder,
+        "images_alt": bilder_alt
     }
     return content, titel, beschreibung, meta_title_text, json_item
 
@@ -240,9 +266,9 @@ write_md_files(COL_EXPORT_EN, COL_SLUG_EN, lang="en")
 produkte_de = {"language": "de", "generated": datetime.now().isoformat(), "items": catalog_de}
 produkte_en = {"language": "en", "generated": datetime.now().isoformat(), "items": catalog_en}
 
-with open("produkte.de.json", "w", encoding="utf-8") as f:
+with open("/mnt/data/produkte.de.json", "w", encoding="utf-8") as f:
     json.dump(produkte_de, f, ensure_ascii=False, indent=2)
-with open("produkte.en.json", "w", encoding="utf-8") as f:
+with open("/mnt/data/produkte.en.json", "w", encoding="utf-8") as f:
     json.dump(produkte_en, f, ensure_ascii=False, indent=2)
 
 print("produkte.de.json und produkte.en.json geschrieben.")
