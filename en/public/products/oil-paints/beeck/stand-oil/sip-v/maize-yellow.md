@@ -12,6 +12,10 @@ bilder:
   - maisgelb.png
   - maisgelb-farbfaecher.png
   - sip_gebinde.png
+bilder_alt:
+  - ""
+  - ""
+  - ""
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |

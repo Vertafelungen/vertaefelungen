@@ -10,6 +10,8 @@ meta_title: "btoe – Balsamterpentinöl ist ein natürliches Lösungsmittel"
 meta_description: "Balsamterpentinöl – natürliches Lösemittel zum Verdünnen von Leinölprodukten & Reinigen von Pinseln. Ideal für Maler, Restauratoren & Denkmalpflege."
 bilder:
   - btoe.png
+bilder_alt:
+  - ""
 price: "13,45 €"
 verfuegbar: "1"
 varianten_yaml: |

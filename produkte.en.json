@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "generated": "2025-08-12T05:02:21.684880",
+  "generated": "2025-08-12T05:26:08.193638",
   "items": [
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-m/oxide-green.md",
@@ -15,6 +15,16 @@
         "klassikgruen03.png",
         "klassikgruen-farbfaecher.png",
         "sip_gebinde.png"
+      ],
+      "images_alt": [
+        "Stand linseed interior paint pro – color Klassikgruen",
+        "packshot",
+        "Stand linseed interior paint pro – Klassikgruen",
+        "side view of can",
+        "Stand linseed interior paint pro – Klassikgruen",
+        "label close‑up",
+        "Color fan for Klassikgruen with comparison tones",
+        "2.5‑liter can BEECK Stand linseed interior paint pro"
       ]
     },
     {
@@ -30,7 +40,8 @@
         "lindgruen03.png",
         "lindgruen-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/high-wainscoting/p0002.md",
@@ -53,6 +64,23 @@
         "p0002-11.png",
         "p0002-12.png",
         "p0002-13.png"
+      ],
+      "images_alt": [
+        "Detail view of the base section of wood panelling P0002 Hamburger Michel",
+        "Angled view of four tall rectangular panel fields of wood panelling P0002 Hamburger Michel",
+        "Front view of wood panelling P0002 Hamburger Michel with 2913 mm height dimension",
+        "Perspective view of the base and corner section of wood panelling P0002 Hamburger Michel",
+        "3D rendering of the complete wall design with wood panelling P0002 Hamburger Michel",
+        "Detail view of the upper moulding of wood panelling P0002 Hamburger Michel",
+        "Perspective view of the profiled upper corner section of wood panelling P0002 Hamburger Michel",
+        "Detail view of the base section of wood panelling P0002 Hamburger Michel as technical drawing",
+        "Close-up photo of the upper moulding of the historic wood panelling P0002 Hamburger Michel",
+        "Exterior view of St. Michael’s Church in Hamburg (“Michel”)",
+        "Close-up of the base moulding of the historic wood panelling P0002 Hamburger Michel",
+        "View of the wood-panelled staircase wall in Hamburg’s Michel with signage to the crypt",
+        "Detail photo of a corner base section of the wood panelling P0002 Hamburger Michel",
+        "Frontal view of the wood-panelled wall with central pilaster in Hamburg’s Michel",
+        ""
       ]
     },
     {
@@ -78,7 +106,8 @@
         "p0003-13.png",
         "p0003-14.png",
         "p0003-15.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/high-wainscoting/p0017.md",
@@ -95,7 +124,8 @@
         "p0017-05.png",
         "p0017-06.png",
         "p0017-07.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/high-wainscoting/p0013.md",
@@ -114,7 +144,8 @@
         "p0013-07.png",
         "p0013-08.png",
         "p0013-09.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/high-wainscoting/p0014.md",
@@ -135,7 +166,8 @@
         "p0014-09.png",
         "p0014-10.png",
         "p0014-11.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/dado-panel/p0009.md",
@@ -158,7 +190,8 @@
         "p0009-1-1-2.png",
         "p0009-2-1-1.png",
         "p0009-2-1-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/dado-panel/p0001.md",
@@ -177,6 +210,19 @@
         "p0001-07.png",
         "p0001-08.png",
         "p0001-09.png"
+      ],
+      "images_alt": [
+        "technical visualization of wood panelling P0001",
+        "front view with 1100 mm height dimension",
+        "3D rendering of wood panelling P0001 in a corner setting with varied panel fields",
+        "Perspective view of wood panelling P0001 in a corner with profiled framing",
+        "Detail view of the upper moulding of wood panelling P0001",
+        "Detail view of the base section of wood panelling P0001",
+        "Interior view of the panel design of wood panelling P0001 in a corner joint",
+        "Photo of original painted wood panelling P0001 in an entrance hall with tiled floor",
+        "Frontal close-up of a central panel field of wood panelling P0001 with round ornament",
+        "Angled view of original wood panelling P0001 with base and round ornament in the panel",
+        ""
       ]
     },
     {
@@ -193,7 +239,8 @@
         "p0004-04.png",
         "p0004-05.png",
         "p0004-06.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/dado-panel/p0005.md",
@@ -213,7 +260,8 @@
         "p0005-08.png",
         "p0005-09.png",
         "p0005-10.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/dado-panel/p0006.md",
@@ -229,7 +277,8 @@
         "p0006-04.png",
         "p0006-05.png",
         "p0006-06.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/dado-panel/p0022.md",
@@ -250,7 +299,8 @@
         "p0022-09.png",
         "p0022-10.png",
         "p0022-11.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/dado-panel/p0010.md",
@@ -268,7 +318,8 @@
         "p0010-6.png",
         "p0010-7.png",
         "p0010-8.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/dado-panel/p0011.md",
@@ -283,7 +334,8 @@
         "p0011-3.png",
         "p0011-4.png",
         "p0011-5.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/dado-panel/p0018.md",
@@ -301,7 +353,8 @@
         "p0018-5.png",
         "p0018-7.png",
         "p0018-8.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/dado-panel/p0015.md",
@@ -319,7 +372,8 @@
         "p0015-06.png",
         "p0015-07.png",
         "p0015-08.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0007.md",
@@ -332,7 +386,8 @@
         "sl0007-1.png",
         "sl0007-2.png",
         "sl0007-3.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0007-ie.md",
@@ -341,7 +396,8 @@
       "title": "P0033 - inner corner",
       "has_yaml": true,
       "summary": "Matching inner corner for skirting board P0033, emphasises the corners.",
-      "images": []
+      "images": [],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0005.md",
@@ -353,7 +409,8 @@
       "images": [
         "sl0005-1.png",
         "sl0005-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0007-ae.md",
@@ -362,7 +419,8 @@
       "title": "copy of P0033 - inner corner",
       "has_yaml": true,
       "summary": "Matching inner corner for skirting board P0033, emphasises the corners.",
-      "images": []
+      "images": [],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0001.md",
@@ -374,7 +432,8 @@
       "images": [
         "sl0001-1.png",
         "sl0001-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0002.md",
@@ -386,7 +445,8 @@
       "images": [
         "sl0002-1.png",
         "sl0002-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0003.md",
@@ -398,7 +458,8 @@
       "images": [
         "sl0003-1.png",
         "sl0003-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0004.md",
@@ -410,7 +471,8 @@
       "images": [
         "sl0004-1.png",
         "sl0004-4.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0006.md",
@@ -422,7 +484,8 @@
       "images": [
         "sl0006-1.png",
         "sl0006-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/rosettes/blr3.md",
@@ -437,7 +500,8 @@
         "blr3-3.png",
         "blr3-4.png",
         "blr3-5.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/rosettes/blr4.md",
@@ -450,7 +514,8 @@
         "blr4-1.png",
         "blr4-2.png",
         "blr4-3.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/rosettes/blr1.md",
@@ -465,7 +530,8 @@
         "blr1-3.png",
         "blr1-4.png",
         "blr1-5.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/rosettes/blr2.md",
@@ -480,7 +546,8 @@
         "blr2-3.png",
         "blr2-4.png",
         "blr2-5.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/rosettes/blr5.md",
@@ -493,7 +560,8 @@
         "blr5-1.png",
         "blr5-3.png",
         "blr5-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/rosettes/blr6.md",
@@ -506,7 +574,8 @@
         "blr6-1.png",
         "blr6-2.png",
         "blr6-3.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/rosettes/blr7.md",
@@ -519,7 +588,8 @@
         "blr7-1.png",
         "blr7-2.png",
         "blr7-3.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr06.md",
@@ -530,7 +600,8 @@
       "summary": "Door and window frame TR 06, dimensions: 115 x 26 mm",
       "images": [
         "tr06.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr07.md",
@@ -541,7 +612,8 @@
       "summary": "Door and window frame TR 07, dimensions: 143 x 31 mm",
       "images": [
         "tr07.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr01-160.md",
@@ -552,7 +624,8 @@
       "summary": "Door and window frame TR 01 / 160, dimensions: 160 x 24 mm",
       "images": [
         "tr01-160.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr01-120.md",
@@ -563,7 +636,8 @@
       "summary": "Door and window frame TR 01 / 120, dimensions: 120 x 18 mm",
       "images": [
         "tr01-120.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr01-200.md",
@@ -574,7 +648,8 @@
       "summary": "Door and window frame TR 01 / 200, dimensions: 200 x 24 mm",
       "images": [
         "tr01-200.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr02.md",
@@ -585,7 +660,8 @@
       "summary": "Door and window frame TR 06, dimensions: 100 x 17 mm",
       "images": [
         "tr02.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr03.md",
@@ -596,7 +672,8 @@
       "summary": "Door and window frame TR 03, dimensions: 160 X 42 mm",
       "images": [
         "tr03.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr04.md",
@@ -607,7 +684,8 @@
       "summary": "Door and window frame TR 04, dimensions: 160 X 34 mm",
       "images": [
         "tr04.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr05.md",
@@ -618,7 +696,8 @@
       "summary": "Door and window frame TR 05, dimensions: 179 x 42 mm",
       "images": [
         "tr05.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr09.md",
@@ -629,7 +708,8 @@
       "summary": "Door and window frame TR 09, dimensions: 115 x 26 mm",
       "images": [
         "tr09.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr11.md",
@@ -640,7 +720,8 @@
       "summary": "Door and window frame TR 11, dimensions: 118 x 23 mm",
       "images": [
         "tr11.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr12.md",
@@ -651,7 +732,8 @@
       "summary": "Door and window frame TR 12, dimensions: 117 x 28 mm",
       "images": [
         "tr12.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr13.md",
@@ -662,7 +744,8 @@
       "summary": "Door and window frame TR 13, dimensions: 103 x 23 mm",
       "images": [
         "tr13.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr14.md",
@@ -673,7 +756,8 @@
       "summary": "Door and window frame TR 14, dimensions: 118 x 20 mm",
       "images": [
         "tr14.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr15.md",
@@ -684,7 +768,8 @@
       "summary": "Door and window frame TR 15, dimensions: 117 x 19 mm",
       "images": [
         "tr15.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr17.md",
@@ -695,7 +780,8 @@
       "summary": "Door and window frame TR 17, dimensions: 164 x 58 mm",
       "images": [
         "tr17.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/door/tr18.md",
@@ -706,7 +792,8 @@
       "summary": "Door and window frame TR 18, dimensions: 150 x 40 mm",
       "images": [
         "tr18.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl01.md",
@@ -717,7 +804,8 @@
       "summary": "Profiled wooden moulding 16 x 40 mm Available in pine or whitewood, other wood types on request The WL 01 wall moulding features a classically shaped, asymmetrical profile measuring 40 x 16 mm. The design combines a generously curved cyma r",
       "images": [
         "wl01.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl02.md",
@@ -728,7 +816,8 @@
       "summary": "Wooden moulding 20 x 40 mm, symmetric „Dome Profil“ As a wall moulding for direct installation on the plastered wall. This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.",
       "images": [
         "wl02.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl03.md",
@@ -739,7 +828,8 @@
       "summary": "Wooden moulding 10 x 40 mm As a wall moulding for direct installation on the plastered wall. This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.",
       "images": [
         "wl03.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl04.md",
@@ -750,7 +840,8 @@
       "summary": "Round bar strip - Solid wooden strip 10 x 40 mm, round bar strip. Available in pine or whitewood, other wood types available upon request. As a wall strip for direct installation on the plastered wall. This strip can be used to create frame",
       "images": [
         "wl04.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl05.md",
@@ -761,7 +852,8 @@
       "summary": "\"High Wave\" - Solid wooden strip 20 x 40 mm, non-symmetrical profile with a central semicircular bar. Available in pine or whitewood, other wood species available upon request. As a wall strip for direct installation on the plastered wall. ",
       "images": [
         "wl05.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl06.md",
@@ -772,7 +864,8 @@
       "summary": "Wooden strip 15 x 30 mm In pine or whitewood, other wood types available upon request As a wall strip for direct mounting on the plastered wall. This strip can be used to create frames or panels that can be used to divide and partition larg",
       "images": [
         "wl06.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl07.md",
@@ -783,7 +876,8 @@
       "summary": "Wooden strip 15 x 30 mm In pine or whitewood, other wood species available upon request As a wall strip for direct mounting on the plastered wall. This strip can be used to create frames or panels that can be used to divide and partition la",
       "images": [
         "wl07.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl08.md",
@@ -794,7 +888,8 @@
       "summary": "Wooden strip 18 x 35 mm In pine or whitewood, other wood species available upon request As a wall strip for direct mounting on the plastered wall. This strip can be used to create frames or panels that can be used to divide and partition la",
       "images": [
         "wl08.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl09.md",
@@ -805,7 +900,8 @@
       "summary": "Profiled wooden strip 18 x 40 mm In pine or whitewood, other wood species available upon request As a wall strip for direct installation on the plastered wall. This strip can be used to create frames or panels that can be used to divide and",
       "images": [
         "wl09.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl10.md",
@@ -816,7 +912,8 @@
       "summary": "Profiled wooden strip 23 x 80 mm In pine or whitewood, other wood species available upon request As a wall strip for direct installation on the plastered wall. This strip can be used to create frames or panels that can be used to divide and",
       "images": [
         "wl10.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl11.md",
@@ -827,7 +924,8 @@
       "summary": "Profiled wooden strip 32 x 47 mm In pine or whitewood, other wood species available upon request As a wall strip for direct installation on the plastered wall. This strip can be used to create frames or panels that can be used to divide and",
       "images": [
         "wl11.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl12.md",
@@ -838,7 +936,8 @@
       "summary": "Profiled wooden strip 25 x 43 mm In pine or whitewood, other wood species available upon request As a wall strip for direct installation on the plastered wall. This strip can be used to create frames or panels that can be used to divide and",
       "images": [
         "wl12.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl13.md",
@@ -849,7 +948,8 @@
       "summary": "Profiled wooden strip 8 x 35 mm In pine or whitewood, other wood species available upon request As a wall strip for direct installation on the plastered wall. This strip can be used to create frames or panels that can be used to divide and ",
       "images": [
         "wl13.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl14.md",
@@ -860,7 +960,8 @@
       "summary": "Profiled wooden strip 21 x 60 mm In pine or whitewood, other wood types upon request As a wall strip for direct mounting on the plastered wall. This strip can be used to create frames or panels that can be used to divide and partition large",
       "images": [
         "wl14.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/mouldings/wall/wl15.md",
@@ -871,7 +972,8 @@
       "summary": "Profiled wooden strip 25 x 100 mm In pine or whitewood, other wood species available upon request As a wall strip for direct installation on the plastered wall. This strip can be used to create frames or panels that can be used to divide an",
       "images": [
         "wl15.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/loen.md",
@@ -882,7 +984,8 @@
       "summary": "Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative. For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying pro",
       "images": [
         "loen.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/loef.md",
@@ -893,7 +996,8 @@
       "summary": "Linseed oil varnish with siccatives. For interior use as a quick-drying finish with a drying time of up to 24 hours.",
       "images": [
         "loef.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/btoe.md",
@@ -904,7 +1008,8 @@
       "summary": "Balsamic turpentine oil is a natural solvent that is obtained by repeated distillation (recification) of coniferous wood resins. Linseed oil varnish can be diluted with balsamic turpentine oil in a ratio of 1:1 to half oil. This allows the ",
       "images": [
         "btoe.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/ctp.md",
@@ -915,7 +1020,8 @@
       "summary": "Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and dissolve resins. Citrus terpene has a pleasant orange odour as it is obtained from the distillation of orange peel. It is also particularly suitable for ecologi",
       "images": [
         "ctp.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/toel.md",
@@ -926,7 +1032,8 @@
       "summary": "Tung oil boiled with linseed oil, linseed oil stand oil and siccatives. For interior and exterior use. TUNG wood oil varnish dries significantly faster and harder than a linseed oil varnish. The surface is initially matt glossy. It is used ",
       "images": [
         "toel.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/toen.md",
@@ -937,7 +1044,8 @@
       "summary": "Natural Tung Oil contains no siccatives. It polymerises in a similar way to linseed oil, but dries faster and forms a hard, matt surface. If wood is treated exclusively with Tung Oil Natural, the natural wood colour is essentially retained.",
       "images": [
         "toen.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/white.md",
@@ -950,7 +1058,8 @@
         "weiss.png",
         "weiss-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/black.md",
@@ -963,7 +1072,8 @@
         "schwarz.png",
         "schwarz-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/umber.md",
@@ -976,7 +1086,8 @@
         "umbra.png",
         "umbra-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/brown.md",
@@ -989,7 +1100,8 @@
         "braun.png",
         "braun-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/green.md",
@@ -1002,7 +1114,8 @@
         "gruen.png",
         "gruen-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/lemon-yellow.md",
@@ -1015,7 +1128,8 @@
         "zitronengelb.png",
         "zitronengelb-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/maize-yellow.md",
@@ -1028,7 +1142,8 @@
         "maisgelb.png",
         "maisgelb-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/ochre.md",
@@ -1041,7 +1156,8 @@
         "ocker.png",
         "ocker-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/oxide-red.md",
@@ -1054,7 +1170,8 @@
         "oxidrot.png",
         "oxidrot-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/ultra-blue.md",
@@ -1067,7 +1184,8 @@
         "ultrablau.png",
         "ultrablau-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/wine-red.md",
@@ -1080,7 +1198,8 @@
         "weinrot.png",
         "weinrot-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "en/public/products/oil-paints/beeck/undercoats/vsfp.md",
@@ -1091,7 +1210,8 @@
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
       "images": [
         "vsfp.png"
-      ]
+      ],
+      "images_alt": []
     }
   ]
 }

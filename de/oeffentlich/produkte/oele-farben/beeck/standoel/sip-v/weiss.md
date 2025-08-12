@@ -12,6 +12,10 @@ bilder:
   - weiss.png
   - weiss-farbfaecher.png
   - sip_gebinde.png
+bilder_alt:
+  - ""
+  - ""
+  - ""
 price: "41,50 €"
 verfuegbar: "1"
 varianten_yaml: |

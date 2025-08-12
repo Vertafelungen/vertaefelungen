@@ -14,6 +14,12 @@ bilder:
   - blr2-3.png
   - blr2-4.png
   - blr2-5.png
+bilder_alt:
+  - ""
+  - ""
+  - ""
+  - ""
+  - ""
 price: "49,58 €"
 verfuegbar: "1"
 varianten_yaml: |

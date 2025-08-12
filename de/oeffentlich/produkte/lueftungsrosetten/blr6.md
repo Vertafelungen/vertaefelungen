@@ -12,6 +12,10 @@ bilder:
   - blr6-1.png
   - blr6-2.png
   - blr6-3.png
+bilder_alt:
+  - ""
+  - ""
+  - ""
 price: "49,58 €"
 verfuegbar: "1"
 varianten_yaml: |

@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "generated": "2025-08-12T05:02:21.684867",
+  "generated": "2025-08-12T05:26:08.193624",
   "items": [
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/klassikgruen.md",
@@ -15,6 +15,17 @@
         "klassikgruen03.png",
         "klassikgruen-farbfaecher.png",
         "sip_gebinde.png"
+      ],
+      "images_alt": [
+        "Standölinnenfarbe pro – Farbton Klassikgrün",
+        "Gebindeansicht",
+        "Standölinnenfarbe pro – Klassikgrün",
+        "seitliche Ansicht der Dose",
+        "Standölinnenfarbe pro – Klassikgrün",
+        "Detailansicht des Etiketts",
+        "Farbfächer zu Klassikgrün mit Vergleichstönen",
+        "2",
+        "5‑Liter Dose BEECK Standölinnenfarbe pro"
       ]
     },
     {
@@ -30,7 +41,8 @@
         "lindgruen03.png",
         "lindgruen-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0002.md",
@@ -53,6 +65,23 @@
         "p0002-11.png",
         "p0002-12.png",
         "p0002-13.png"
+      ],
+      "images_alt": [
+        "Detailansicht des Sockelbereichs der Holzvertäfelung P0002 Hamburger Michel",
+        "Schrägansicht von vier hochrechteckigen Paneelfeldern der Holzvertäfelung P0002 Hamburger Michel",
+        "Frontalansicht der Holzvertäfelung P0002 Hamburger Michel mit Maßangabe 2913 mm",
+        "Perspektivansicht der Sockel- und Eckausbildung der Holzvertäfelung P0002 Hamburger Michel",
+        "3D-Visualisierung der kompletten Wandgestaltung mit Holzvertäfelung P0002 Hamburger Michel",
+        "Detailansicht des oberen Profilabschlusses der Holzvertäfelung P0002 Hamburger Michel",
+        "Perspektivansicht der profilierten oberen Eckausbildung der Holzvertäfelung P0002 Hamburger Michel",
+        "Detailansicht des Sockelbereichs der Holzvertäfelung P0002 Hamburger Michel als technische Zeichnung",
+        "Detailfoto des oberen Profilabschlusses der historischen Holzvertäfelung P0002 Hamburger Michel",
+        "Außenansicht der Hauptkirche St. Michaelis in Hamburg („Michel“)",
+        "Nahaufnahme des Sockelprofils der historischen Holzvertäfelung P0002 Hamburger Michel",
+        "Ansicht der holzgetäfelten Wand im Treppenbereich des Hamburger Michel mit Beschilderung zur Krypta",
+        "Detailfoto einer Eckausbildung des Sockels der Holzvertäfelung P0002 Hamburger Michel",
+        "Frontale Ansicht der holzgetäfelten Wand mit Mittelpfeiler im Hamburger Michel",
+        ""
       ]
     },
     {
@@ -78,7 +107,8 @@
         "p0003-13.png",
         "p0003-14.png",
         "p0003-15.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0017.md",
@@ -95,7 +125,8 @@
         "p0017-05.png",
         "p0017-06.png",
         "p0017-07.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0013.md",
@@ -114,7 +145,8 @@
         "p0013-07.png",
         "p0013-08.png",
         "p0013-09.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0014.md",
@@ -135,7 +167,8 @@
         "p0014-09.png",
         "p0014-10.png",
         "p0014-11.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0009.md",
@@ -158,7 +191,8 @@
         "p0009-1-1-2.png",
         "p0009-2-1-1.png",
         "p0009-2-1-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0001.md",
@@ -177,6 +211,18 @@
         "p0001-07.png",
         "p0001-08.png",
         "p0001-09.png"
+      ],
+      "images_alt": [
+        "technische Visualisierung der Holzvertäfelung P0001",
+        "frontal mit Maßangabe 1100 mm",
+        "3D-Visualisierung der Holzvertäfelung P0001 in Raumecke mit unterschiedlichen Paneelfeldern",
+        "Perspektivansicht der Holzvertäfelung P0001 in Raumecke mit profilierter Rahmung",
+        "Detailansicht des oberen Profilabschlusses der Holzvertäfelung P0001",
+        "Detailansicht des Sockelbereichs der Holzvertäfelung P0001",
+        "Innenansicht der Paneelgestaltung der Holzvertäfelung P0001 in Eckausbildung",
+        "Foto einer originalen lackierten Holzvertäfelung P0001 im Hauseingangsbereich mit Fliesenboden",
+        "Frontale Nahaufnahme eines Paneelmittelfeldes der Holzvertäfelung P0001 mit Rundornament",
+        "Schrägansicht einer originalen Holzvertäfelung P0001 mit Sockel und Rundornament im Paneel"
       ]
     },
     {
@@ -193,7 +239,8 @@
         "p0004-04.png",
         "p0004-05.png",
         "p0004-06.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0005.md",
@@ -213,7 +260,8 @@
         "p0005-08.png",
         "p0005-09.png",
         "p0005-10.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0006.md",
@@ -229,7 +277,8 @@
         "p0006-04.png",
         "p0006-05.png",
         "p0006-06.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0022.md",
@@ -250,7 +299,8 @@
         "p0022-09.png",
         "p0022-10.png",
         "p0022-11.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0010.md",
@@ -268,7 +318,8 @@
         "p0010-6.png",
         "p0010-7.png",
         "p0010-8.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0011.md",
@@ -283,7 +334,8 @@
         "p0011-3.png",
         "p0011-4.png",
         "p0011-5.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0018.md",
@@ -301,7 +353,8 @@
         "p0018-5.png",
         "p0018-7.png",
         "p0018-8.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0015.md",
@@ -319,7 +372,8 @@
         "p0015-06.png",
         "p0015-07.png",
         "p0015-08.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007.md",
@@ -332,7 +386,8 @@
         "sl0007-1.png",
         "sl0007-2.png",
         "sl0007-3.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007-ie.md",
@@ -341,7 +396,8 @@
       "title": "SL0007 - Innenecke",
       "has_yaml": true,
       "summary": "Passende Innenecke für Sockelleiste P0033, sorgt für ein einfaches Verlegen, da keine Gehrungen gesägt werden müssen und betont die Ecken.",
-      "images": []
+      "images": [],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0005.md",
@@ -353,7 +409,8 @@
       "images": [
         "sl0005-1.png",
         "sl0005-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007-ae.md",
@@ -362,7 +419,8 @@
       "title": "SL0007 - Außenecke",
       "has_yaml": true,
       "summary": "Passende Außenecke für Sockelleiste P0033. Sorgt für ein einfaches Verlegen, da keine Gehrungen gesägt werden müssen und kann als seitlicher Abschluß verwendet werden,",
-      "images": []
+      "images": [],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0001.md",
@@ -374,7 +432,8 @@
       "images": [
         "sl0001-1.png",
         "sl0001-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0002.md",
@@ -386,7 +445,8 @@
       "images": [
         "sl0002-1.png",
         "sl0002-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0003.md",
@@ -398,7 +458,8 @@
       "images": [
         "sl0003-1.png",
         "sl0003-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0004.md",
@@ -410,7 +471,8 @@
       "images": [
         "sl0004-1.png",
         "sl0004-4.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0006.md",
@@ -422,7 +484,8 @@
       "images": [
         "sl0006-1.png",
         "sl0006-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr3.md",
@@ -437,7 +500,8 @@
         "blr3-3.png",
         "blr3-4.png",
         "blr3-5.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr4.md",
@@ -450,7 +514,8 @@
         "blr4-1.png",
         "blr4-2.png",
         "blr4-3.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr1.md",
@@ -465,7 +530,8 @@
         "blr1-3.png",
         "blr1-4.png",
         "blr1-5.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr2.md",
@@ -480,7 +546,8 @@
         "blr2-3.png",
         "blr2-4.png",
         "blr2-5.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr5.md",
@@ -493,7 +560,8 @@
         "blr5-1.png",
         "blr5-3.png",
         "blr5-2.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr6.md",
@@ -506,7 +574,8 @@
         "blr6-1.png",
         "blr6-2.png",
         "blr6-3.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr7.md",
@@ -519,7 +588,8 @@
         "blr7-1.png",
         "blr7-2.png",
         "blr7-3.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr06.md",
@@ -530,7 +600,8 @@
       "summary": "Tür- und Fensterrahmen TR 06, Maße: 115 x 26 mm",
       "images": [
         "tr06.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr07.md",
@@ -541,7 +612,8 @@
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 07, Maße: 143 x 31 mm",
       "images": [
         "tr07.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr01-160.md",
@@ -552,7 +624,8 @@
       "summary": "Tür- und Fensterrahmen TR 01 / 160, Maße: 160 x 24 mm",
       "images": [
         "tr01-160.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr01-120.md",
@@ -563,7 +636,8 @@
       "summary": "Tür- und Fensterrahmen TR 01 / 120, Maße: 120 x 18 mm",
       "images": [
         "tr01-120.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr01-200.md",
@@ -574,7 +648,8 @@
       "summary": "Tür- und Fensterrahmen TR 01 / 200, Maße: 200 x 24 mm",
       "images": [
         "tr01-200.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr02.md",
@@ -585,7 +660,8 @@
       "summary": "Tür- und Fensterrahmen TR 02, Maße: 100 x 17 mm",
       "images": [
         "tr02.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr03.md",
@@ -596,7 +672,8 @@
       "summary": "Tür- und Fensterrahmen TR 03, Maße: 160 X 42 mm",
       "images": [
         "tr03.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr04.md",
@@ -607,7 +684,8 @@
       "summary": "Tür- und Fensterrahmen TR 04, Maße: 160 X 34 mm",
       "images": [
         "tr04.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr05.md",
@@ -618,7 +696,8 @@
       "summary": "Tür- und Fensterrahmen TR 05, Maße: 179 x 42 mm",
       "images": [
         "tr05.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr09.md",
@@ -629,7 +708,8 @@
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 09, Maße: 115 x 26 mm",
       "images": [
         "tr09.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr11.md",
@@ -640,7 +720,8 @@
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 11, Maße: 118 x 23 mm mm",
       "images": [
         "tr11.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr12.md",
@@ -651,7 +732,8 @@
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 12, Maße: 117 x 28 mm",
       "images": [
         "tr12.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr13.md",
@@ -662,7 +744,8 @@
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 13, Maße: 103 x 23 mm",
       "images": [
         "tr13.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr14.md",
@@ -673,7 +756,8 @@
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 14, Maße: 118 x 20 mm",
       "images": [
         "tr14.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr15.md",
@@ -684,7 +768,8 @@
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 15, Maße: 117 x 19 mm",
       "images": [
         "tr15.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr17.md",
@@ -695,7 +780,8 @@
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 17, Maße: 164 x 58 mm",
       "images": [
         "tr17.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr18.md",
@@ -706,7 +792,8 @@
       "summary": "Tür- und Fensterrahmen nach Originalvorlage TR 18, Maße: 150 x 40 mm",
       "images": [
         "tr18.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl01.md",
@@ -717,7 +804,8 @@
       "summary": "Profilierte Holzleiste 16 x 40 mm In Kiefer oder White Wood, andere Holzarten auf Anfrage Die Wandleiste WL 01 besitzt ein klassisch gestaltetes, asymmetrisches Profil im Maß 40 x 16 mm. Der Aufbau kombiniert einen voluminös geschwungene Ka",
       "images": [
         "wl01.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl02.md",
@@ -728,7 +816,8 @@
       "summary": "„Dom-Profil“ Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab. Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen ",
       "images": [
         "wl02.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl03.md",
@@ -739,7 +828,8 @@
       "summary": "Riffelleiste - Massive Holzleiste 10 x 40 mm. In Kiefer oder White Wood, andere Holzarten aus Anfrage. Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sic",
       "images": [
         "wl03.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl04.md",
@@ -750,7 +840,8 @@
       "summary": "Rundstableiste - Massive Holzleiste 10 x 40 mm, Rundstableiste. In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werd",
       "images": [
         "wl04.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl05.md",
@@ -761,7 +852,8 @@
       "summary": "\"Hohe Welle\" - Massive Holzleiste 20 x 40 mm, nicht symmetrisches Profil mit zentralem Halbrundstab. In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste könne",
       "images": [
         "wl05.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl06.md",
@@ -772,7 +864,8 @@
       "summary": "Holzleiste 15 x 30 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen glied",
       "images": [
         "wl06.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl07.md",
@@ -783,7 +876,8 @@
       "summary": "Holzleiste 15 x 30 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen glied",
       "images": [
         "wl07.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl08.md",
@@ -794,7 +888,8 @@
       "summary": "Holzleiste 18 x 35 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen glied",
       "images": [
         "wl08.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl09.md",
@@ -805,7 +900,8 @@
       "summary": "Profilierte Holzleiste 18 x 40 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
         "wl09.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl10.md",
@@ -816,7 +912,8 @@
       "summary": "Profilierte Holzleiste 23 x 80 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
         "wl10.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl11.md",
@@ -827,7 +924,8 @@
       "summary": "Profilierte Holzleiste 32 x 47 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
         "wl11.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl12.md",
@@ -838,7 +936,8 @@
       "summary": "Profilierte Holzleiste 25 x 43 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
         "wl12.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl13.md",
@@ -849,7 +948,8 @@
       "summary": "Profilierte Holzleiste 8 x 35 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandfl",
       "images": [
         "wl13.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl14.md",
@@ -860,7 +960,8 @@
       "summary": "Profilierte Holzleiste 21 x 60 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandf",
       "images": [
         "wl14.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl15.md",
@@ -871,7 +972,8 @@
       "summary": "Profilierte Holzleiste 25 x 100 mm In Kiefer oder White Wood, andere Holzarten aus Anfrage Als Wandleiste zur direkten Montage auf der verputzen Wand. Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wand",
       "images": [
         "wl15.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/loen.md",
@@ -882,7 +984,8 @@
       "summary": "Gereinigtes Leinöl mit niedrigem Säuregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines Leinöl hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Troc",
       "images": [
         "loen.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/loef.md",
@@ -893,7 +996,8 @@
       "summary": "Leinölfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.",
       "images": [
         "loef.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/btoe.md",
@@ -904,7 +1008,8 @@
       "summary": "Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird. Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrock",
       "images": [
         "btoe.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/ctp.md",
@@ -915,7 +1020,8 @@
       "summary": "Citrusterpene kann wie Balsamterpentinöl zum Verdünnen von Farben und zum Lösen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist für ökologische Hol",
       "images": [
         "ctp.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/toel.md",
@@ -926,7 +1032,8 @@
       "summary": "Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen. Anwendung innen und außen. TUNG Holzöllack trocknet bedeutend schneller und härter als ein Leinölfirnisanstrich. Die Oberfläche ist anfänglich matt glänzend. Er wird eingesetzt a",
       "images": [
         "toel.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/toen.md",
@@ -937,7 +1044,8 @@
       "summary": "Tungöl Natur, ohne Sikkativ. Es polymerisiert ähnlich wie Leinöl, trocknet jedoch schneller und bildet eine harte, matte Oberfläche. Wird Holz ausschließlich mit Tungöl Natur behandelt, bleibt die natürliche Holzfarbe im Wesentlichen erhalt",
       "images": [
         "toen.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/weiss.md",
@@ -950,7 +1058,8 @@
         "weiss.png",
         "weiss-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/schwarz.md",
@@ -963,7 +1072,8 @@
         "schwarz.png",
         "schwarz-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/umbra.md",
@@ -976,7 +1086,8 @@
         "umbra.png",
         "umbra-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/braun.md",
@@ -989,7 +1100,8 @@
         "braun.png",
         "braun-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/gruen.md",
@@ -1002,7 +1114,8 @@
         "gruen.png",
         "gruen-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/zitronengelb.md",
@@ -1015,7 +1128,8 @@
         "zitronengelb.png",
         "zitronengelb-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/maisgelb.md",
@@ -1028,7 +1142,8 @@
         "maisgelb.png",
         "maisgelb-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/ocker.md",
@@ -1041,7 +1156,8 @@
         "ocker.png",
         "ocker-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/oxidrot.md",
@@ -1054,7 +1170,8 @@
         "oxidrot.png",
         "oxidrot-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/ultrablau.md",
@@ -1067,7 +1184,8 @@
         "ultrablau.png",
         "ultrablau-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/weinrot.md",
@@ -1080,7 +1198,8 @@
         "weinrot.png",
         "weinrot-farbfaecher.png",
         "sip_gebinde.png"
-      ]
+      ],
+      "images_alt": []
     }
   ]
 }

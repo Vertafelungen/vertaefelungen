@@ -10,6 +10,8 @@ meta_title: "toel – <p style='margin:0px;font-style:normal;font-size:10.7px"
 meta_description: "Tungöl natur – reines, härtendes Holzöl für stark beanspruchte Oberflächen. Lösemittelfrei, wetterfest, tief eindringend. Ideal für innen & außen."
 bilder:
   - toel.png
+bilder_alt:
+  - ""
 price: "22,69 €"
 verfuegbar: "1"
 varianten_yaml: |

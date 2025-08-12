@@ -14,6 +14,12 @@ bilder:
   - klassikgruen03.png
   - klassikgruen-farbfaecher.png
   - sip_gebinde.png
+bilder_alt:
+  - "Stand linseed interior paint pro – color Klassikgruen"
+  - "packshot"
+  - "Stand linseed interior paint pro – Klassikgruen"
+  - "side view of can"
+  - "Stand linseed interior paint pro – Klassikgruen"
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -115,11 +121,11 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](klassikgruen01.png)
-![](klassikgruen02.png)
-![](klassikgruen03.png)
-![](klassikgruen-farbfaecher.png)
-![](sip_gebinde.png)
+![Stand linseed interior paint pro – color Klassikgruen](klassikgruen01.png)
+![packshot](klassikgruen02.png)
+![Stand linseed interior paint pro – Klassikgruen](klassikgruen03.png)
+![side view of can](klassikgruen-farbfaecher.png)
+![Stand linseed interior paint pro – Klassikgruen](sip_gebinde.png)
 
 ## SEO-Metadaten
 

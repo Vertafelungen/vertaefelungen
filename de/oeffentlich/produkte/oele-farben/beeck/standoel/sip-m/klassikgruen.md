@@ -14,6 +14,12 @@ bilder:
   - klassikgruen03.png
   - klassikgruen-farbfaecher.png
   - sip_gebinde.png
+bilder_alt:
+  - "Standölinnenfarbe pro – Farbton Klassikgrün"
+  - "Gebindeansicht"
+  - "Standölinnenfarbe pro – Klassikgrün"
+  - "seitliche Ansicht der Dose"
+  - "Standölinnenfarbe pro – Klassikgrün"
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -115,11 +121,11 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 
 ## Bilder
 
-![](klassikgruen01.png)
-![](klassikgruen02.png)
-![](klassikgruen03.png)
-![](klassikgruen-farbfaecher.png)
-![](sip_gebinde.png)
+![Standölinnenfarbe pro – Farbton Klassikgrün](klassikgruen01.png)
+![Gebindeansicht](klassikgruen02.png)
+![Standölinnenfarbe pro – Klassikgrün](klassikgruen03.png)
+![seitliche Ansicht der Dose](klassikgruen-farbfaecher.png)
+![Standölinnenfarbe pro – Klassikgrün](sip_gebinde.png)
 
 ## SEO-Metadaten
 

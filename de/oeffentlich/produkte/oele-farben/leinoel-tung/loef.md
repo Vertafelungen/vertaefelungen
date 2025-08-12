@@ -10,6 +10,8 @@ meta_title: "loef – Leinölfirnis mit Sikkativen.Im Innenbereich al"
 meta_description: "Leinölfirnis – oxidativ trocknendes Holzöl für Grundierung, Holzschutz & Restaurierung. Lösemittelfrei, tief eindringend, ideal für innen & außen."
 bilder:
   - loef.png
+bilder_alt:
+  - ""
 price: "13,45 €"
 verfuegbar: "1"
 varianten_yaml: |

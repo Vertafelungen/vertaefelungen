@@ -10,6 +10,8 @@ meta_title: "Linseed Oil Varnish"
 meta_description: "Boiled linseed oil – oxidatively drying wood oil for priming, protection & restoration. Solvent-free, deep-penetrating, ideal for indoor & outdoor use."
 bilder:
   - loef.png
+bilder_alt:
+  - ""
 price: "13,45 €"
 verfuegbar: "1"
 varianten_yaml: |
