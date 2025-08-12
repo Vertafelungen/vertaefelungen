@@ -21,6 +21,9 @@ SHEET_CSV_URL = os.getenv(
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv"
 )
 
+# Optional output dir for JSON catalogs (defaults repo root)
+OUTPUT_DIR = os.getenv("OUTPUT_DIR", ".").strip()
+
 # Columns in the Google Sheet (keep existing, including Umlaut handling)
 COL_EXPORT_DE = "export_pfad_de"
 COL_EXPORT_EN = "export_pfad_en"
@@ -262,13 +265,17 @@ def write_md_files(export_col, slug_col, lang):
 write_md_files(COL_EXPORT_DE, COL_SLUG_DE, lang="de")
 write_md_files(COL_EXPORT_EN, COL_SLUG_EN, lang="en")
 
-# Write JSON catalogs at repo root
+# Write JSON catalogs
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+de_path = os.path.join(OUTPUT_DIR, "produkte.de.json")
+en_path = os.path.join(OUTPUT_DIR, "produkte.en.json")
+
 produkte_de = {"language": "de", "generated": datetime.now().isoformat(), "items": catalog_de}
 produkte_en = {"language": "en", "generated": datetime.now().isoformat(), "items": catalog_en}
 
-with open("/mnt/data/produkte.de.json", "w", encoding="utf-8") as f:
+with open(de_path, "w", encoding="utf-8") as f:
     json.dump(produkte_de, f, ensure_ascii=False, indent=2)
-with open("/mnt/data/produkte.en.json", "w", encoding="utf-8") as f:
+with open(en_path, "w", encoding="utf-8") as f:
     json.dump(produkte_en, f, ensure_ascii=False, indent=2)
 
-print("produkte.de.json und produkte.en.json geschrieben.")
+print(f"{de_path} und {en_path} geschrieben.")
