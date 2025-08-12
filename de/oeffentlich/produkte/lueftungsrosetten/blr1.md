@@ -9,11 +9,11 @@ beschreibung: >
 meta_title: "blr1 – Formschöne Lüftungsrosette für Vertäfelungen, Abguss"
 meta_description: "Lüftungsrosette für Holzvertäfelungen"
 bilder:
-  - blr1-5.png
+  - blr1-1.png
+  - blr1-2.png
   - blr1-3.png
   - blr1-4.png
-  - blr1-2.png
-  - blr1-1.png
+  - blr1-5.png
 price: "54,62 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -45,11 +45,11 @@ Höhe ca. 5 mm
 
 ## Bilder
 
-![](blr1-5.png)
+![](blr1-1.png)
+![](blr1-2.png)
 ![](blr1-3.png)
 ![](blr1-4.png)
-![](blr1-2.png)
-![](blr1-1.png)
+![](blr1-5.png)
 
 ## SEO-Metadaten
 

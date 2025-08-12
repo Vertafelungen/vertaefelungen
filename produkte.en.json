@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "generated": "2025-08-11T18:35:41.027225",
+  "generated": "2025-08-12T05:02:21.684880",
   "items": [
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-m/oxide-green.md",
@@ -40,10 +40,6 @@
       "has_yaml": true,
       "summary": "The tower hall of the Michel has high oak panelling dating from the reconstruction period of 1906-1912. The vertical panelling runs around the entire room and creates a clear, unobtrusive structure. The panelling consists of a clear base an",
       "images": [
-        "p0002-10.png",
-        "p0002-11.png",
-        "p0002-12.png",
-        "p0002-13.png",
         "p0002-01.png",
         "p0002-02.png",
         "p0002-03.png",
@@ -52,7 +48,11 @@
         "p0002-06.png",
         "p0002-07.png",
         "p0002-08.png",
-        "p0002-09.png"
+        "p0002-09.png",
+        "p0002-10.png",
+        "p0002-11.png",
+        "p0002-12.png",
+        "p0002-13.png"
       ]
     },
     {
@@ -239,9 +239,7 @@
       "has_yaml": true,
       "summary": "Town Hall Lübeck - The centre of the Hanseatic League. This is where from the 14th to the 18th century the Hansa Days took place, where co-operation was regulated. The city council still debates current issues here today. Lübeck is a very p",
       "images": [
-        "p0022-11.png",
         "p0022-01.png",
-        "p0022-10.png",
         "p0022-02.png",
         "p0022-03.png",
         "p0022-04.png",
@@ -249,7 +247,9 @@
         "p0022-06.png",
         "p0022-07.png",
         "p0022-08.png",
-        "p0022-09.png"
+        "p0022-09.png",
+        "p0022-10.png",
+        "p0022-11.png"
       ]
     },
     {
@@ -329,9 +329,9 @@
       "has_yaml": true,
       "summary": "This high skirting board comes from the main building of the Augustiner brewery in Munich city centre. Some living rooms of the Wagner brewery family, the \"Wagner Salons\", are furnished with it on the first floor. The salons were remodelled",
       "images": [
-        "sl0007-3.png",
+        "sl0007-1.png",
         "sl0007-2.png",
-        "sl0007-1.png"
+        "sl0007-3.png"
       ]
     },
     {
@@ -351,8 +351,8 @@
       "has_yaml": true,
       "summary": "Plain and simple, with a rounded upper edge",
       "images": [
-        "sl0005-2.png",
-        "sl0005-1.png"
+        "sl0005-1.png",
+        "sl0005-2.png"
       ]
     },
     {
@@ -372,8 +372,8 @@
       "has_yaml": true,
       "summary": "Hamburg or Berlin skirting board? Both are the same. Unfortunately, the origin of the terms cannot be proven more precisely. We think that this beautifully shaped profile can also be used in Dresden or Augsburg.",
       "images": [
-        "sl0001-2.png",
-        "sl0001-1.png"
+        "sl0001-1.png",
+        "sl0001-2.png"
       ]
     },
     {
@@ -384,8 +384,8 @@
       "has_yaml": true,
       "summary": "Hamburg or Berlin skirting board? Both are the same. Unfortunately, the origin of the terms cannot be proven more precisely. We think that this beautifully shaped profile can also be used in Dresden or Augsburg.",
       "images": [
-        "sl0002-2.png",
-        "sl0002-1.png"
+        "sl0002-1.png",
+        "sl0002-2.png"
       ]
     },
     {
@@ -396,8 +396,8 @@
       "has_yaml": true,
       "summary": "A genuine Berlin skirting board that was re-milled for an apartment in Adalbertstr.",
       "images": [
-        "sl0003-2.png",
-        "sl0003-1.png"
+        "sl0003-1.png",
+        "sl0003-2.png"
       ]
     },
     {
@@ -408,8 +408,8 @@
       "has_yaml": true,
       "summary": "Richly profiled, high skirting board made up of 2 parts.",
       "images": [
-        "sl0004-4.png",
-        "sl0004-1.png"
+        "sl0004-1.png",
+        "sl0004-4.png"
       ]
     },
     {
@@ -420,8 +420,8 @@
       "has_yaml": true,
       "summary": "simple with cyma",
       "images": [
-        "sl0006-2.png",
-        "sl0006-1.png"
+        "sl0006-1.png",
+        "sl0006-2.png"
       ]
     },
     {
@@ -432,11 +432,11 @@
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Cast brass, polished Diameter approx. 36 mm Hight approx 3 mm",
       "images": [
-        "blr3-5.png",
-        "blr3-4.png",
-        "blr3-3.png",
+        "blr3-1.png",
         "blr3-2.png",
-        "blr3-1.png"
+        "blr3-3.png",
+        "blr3-4.png",
+        "blr3-5.png"
       ]
     },
     {
@@ -447,9 +447,9 @@
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Milled brass, smoothed surface Diameter 45 mm Hight approx. 4 mm",
       "images": [
-        "blr4-3.png",
+        "blr4-1.png",
         "blr4-2.png",
-        "blr4-1.png"
+        "blr4-3.png"
       ]
     },
     {
@@ -460,11 +460,11 @@
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on an original design. Cast brass, polished Diameter approx. 52 mm Hight approx 5 mm",
       "images": [
-        "blr1-5.png",
+        "blr1-1.png",
+        "blr1-2.png",
         "blr1-3.png",
         "blr1-4.png",
-        "blr1-2.png",
-        "blr1-1.png"
+        "blr1-5.png"
       ]
     },
     {
@@ -475,11 +475,11 @@
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Cast brass, polished Diameter approx. 42 mm Hight approx 3 mm",
       "images": [
-        "blr2-5.png",
-        "blr2-4.png",
-        "blr2-3.png",
+        "blr2-1.png",
         "blr2-2.png",
-        "blr2-1.png"
+        "blr2-3.png",
+        "blr2-4.png",
+        "blr2-5.png"
       ]
     },
     {
@@ -490,9 +490,9 @@
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Cast brass, polished Diameter approx. 58 mm Hight approx 13 mm",
       "images": [
+        "blr5-1.png",
         "blr5-3.png",
-        "blr5-2.png",
-        "blr5-1.png"
+        "blr5-2.png"
       ]
     },
     {
@@ -503,9 +503,9 @@
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Cast brass, polished Diameter approx. 46 mm Hight approx 11 mm",
       "images": [
-        "blr6-3.png",
+        "blr6-1.png",
         "blr6-2.png",
-        "blr6-1.png"
+        "blr6-3.png"
       ]
     },
     {
@@ -516,9 +516,9 @@
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on an original design. Cast brass, polished Diameter approx. 28 mm Hight approx 12 mm",
       "images": [
-        "blr7-3.png",
+        "blr7-1.png",
         "blr7-2.png",
-        "blr7-1.png"
+        "blr7-3.png"
       ]
     },
     {

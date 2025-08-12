@@ -9,9 +9,9 @@ beschreibung: >
 meta_title: "blr4 – Formschöne Lüftungsrosette für Vertäfelungen.M"
 meta_description: "Formschöne Lüftungsrosette für Vertäfelungen. Messing gefräst, Oberfläche geschlichtet. Durchmesser 45 mm. Höhe ca. 4 mm."
 bilder:
-  - blr4-3.png
-  - blr4-2.png
   - blr4-1.png
+  - blr4-2.png
+  - blr4-3.png
 price: "41,18 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -43,9 +43,9 @@ Höhe ca. 4 mm
 
 ## Bilder
 
-![](blr4-3.png)
-![](blr4-2.png)
 ![](blr4-1.png)
+![](blr4-2.png)
+![](blr4-3.png)
 
 ## SEO-Metadaten
 

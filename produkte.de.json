@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "generated": "2025-08-11T18:35:41.027213",
+  "generated": "2025-08-12T05:02:21.684867",
   "items": [
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/klassikgruen.md",
@@ -40,10 +40,6 @@
       "has_yaml": true,
       "summary": "Die Turmhalle des Michels ist mit einer knapp 3 Meter hohen Eichenvertäfelung ausgestattet, die aus der Zeit des Wiederaufbaus von 1906-1912 stammt. Die vertikale Kassettierung zieht sich um den ganzen Raum und schafft eine klare, unaufdrin",
       "images": [
-        "p0002-10.png",
-        "p0002-11.png",
-        "p0002-12.png",
-        "p0002-13.png",
         "p0002-01.png",
         "p0002-02.png",
         "p0002-03.png",
@@ -52,7 +48,11 @@
         "p0002-06.png",
         "p0002-07.png",
         "p0002-08.png",
-        "p0002-09.png"
+        "p0002-09.png",
+        "p0002-10.png",
+        "p0002-11.png",
+        "p0002-12.png",
+        "p0002-13.png"
       ]
     },
     {
@@ -239,9 +239,7 @@
       "has_yaml": true,
       "summary": "Rathaus Lübeck - Die Zentrale der Hanse. Hier fanden vom 14. - 18. Jh. die Hansetage statt, auf denen das Miteinander geregelt wurden. Noch heute debattiert hier die Bürgerschaft über die aktuellen Themen. Lübeck ist eine sehr stolze Stadt,",
       "images": [
-        "p0022-11.png",
         "p0022-01.png",
-        "p0022-10.png",
         "p0022-02.png",
         "p0022-03.png",
         "p0022-04.png",
@@ -249,7 +247,9 @@
         "p0022-06.png",
         "p0022-07.png",
         "p0022-08.png",
-        "p0022-09.png"
+        "p0022-09.png",
+        "p0022-10.png",
+        "p0022-11.png"
       ]
     },
     {
@@ -329,9 +329,9 @@
       "has_yaml": true,
       "summary": "Diese 4-teilige, 45 cm hohe Sockelleiste kommt aus dem Stammhaus der Augustiner Brauerei in der Münchner Innenstadt. Mit ihr sind im 1.OG einige Wohnräume der Brauerfamilie Wagner ausgestattet, die „Wagner Salons“. Die Salons wurden 1896-97",
       "images": [
-        "sl0007-3.png",
+        "sl0007-1.png",
         "sl0007-2.png",
-        "sl0007-1.png"
+        "sl0007-3.png"
       ]
     },
     {
@@ -351,8 +351,8 @@
       "has_yaml": true,
       "summary": "Schlicht und einfach, mit abgerundeter Oberkante",
       "images": [
-        "sl0005-2.png",
-        "sl0005-1.png"
+        "sl0005-1.png",
+        "sl0005-2.png"
       ]
     },
     {
@@ -372,8 +372,8 @@
       "has_yaml": true,
       "summary": "Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen. Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lässt.",
       "images": [
-        "sl0001-2.png",
-        "sl0001-1.png"
+        "sl0001-1.png",
+        "sl0001-2.png"
       ]
     },
     {
@@ -384,8 +384,8 @@
       "has_yaml": true,
       "summary": "Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen. Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lässt.",
       "images": [
-        "sl0002-2.png",
-        "sl0002-1.png"
+        "sl0002-1.png",
+        "sl0002-2.png"
       ]
     },
     {
@@ -396,8 +396,8 @@
       "has_yaml": true,
       "summary": "Eine echte Berliner Leiste, die für eine Wohnung in der Adalbertstr. nachgefräst wurde.",
       "images": [
-        "sl0003-2.png",
-        "sl0003-1.png"
+        "sl0003-1.png",
+        "sl0003-2.png"
       ]
     },
     {
@@ -408,8 +408,8 @@
       "has_yaml": true,
       "summary": "Reich profilierte, hohe Sockelleiste, die aus 2 Teilen zusammengesetzt wird.",
       "images": [
-        "sl0004-4.png",
-        "sl0004-1.png"
+        "sl0004-1.png",
+        "sl0004-4.png"
       ]
     },
     {
@@ -420,8 +420,8 @@
       "has_yaml": true,
       "summary": "schlicht, mit Karnies",
       "images": [
-        "sl0006-2.png",
-        "sl0006-1.png"
+        "sl0006-1.png",
+        "sl0006-2.png"
       ]
     },
     {
@@ -432,11 +432,11 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 36 mm Hohe ca. 3 mm",
       "images": [
-        "blr3-5.png",
-        "blr3-4.png",
-        "blr3-3.png",
+        "blr3-1.png",
         "blr3-2.png",
-        "blr3-1.png"
+        "blr3-3.png",
+        "blr3-4.png",
+        "blr3-5.png"
       ]
     },
     {
@@ -447,9 +447,9 @@
       "has_yaml": true,
       "summary": "Formschöne Lüftungsrosette für Vertäfelungen. Messing gefräst, Oberfläche geschlichtet Durchmesser 45 mm Höhe ca. 4 mm",
       "images": [
-        "blr4-3.png",
+        "blr4-1.png",
         "blr4-2.png",
-        "blr4-1.png"
+        "blr4-3.png"
       ]
     },
     {
@@ -460,11 +460,11 @@
       "has_yaml": true,
       "summary": "Formschöne Lüftungsrosette für Vertäfelungen, Abguss einer Originalvorlage, Messingguss, poliert Durchmesser ca. 52 mm Höhe ca. 5 mm",
       "images": [
-        "blr1-5.png",
+        "blr1-1.png",
+        "blr1-2.png",
         "blr1-3.png",
         "blr1-4.png",
-        "blr1-2.png",
-        "blr1-1.png"
+        "blr1-5.png"
       ]
     },
     {
@@ -475,11 +475,11 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 42 mm Hohe ca. 3 mm",
       "images": [
-        "blr2-5.png",
-        "blr2-4.png",
-        "blr2-3.png",
+        "blr2-1.png",
         "blr2-2.png",
-        "blr2-1.png"
+        "blr2-3.png",
+        "blr2-4.png",
+        "blr2-5.png"
       ]
     },
     {
@@ -490,9 +490,9 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 58 mm Hohe ca. 13 mm",
       "images": [
+        "blr5-1.png",
         "blr5-3.png",
-        "blr5-2.png",
-        "blr5-1.png"
+        "blr5-2.png"
       ]
     },
     {
@@ -503,9 +503,9 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 46 mm Hohe ca. 11 mm",
       "images": [
-        "blr6-3.png",
+        "blr6-1.png",
         "blr6-2.png",
-        "blr6-1.png"
+        "blr6-3.png"
       ]
     },
     {
@@ -516,9 +516,9 @@
       "has_yaml": true,
       "summary": "Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert Durchmesser ca. 28 mm Hohe ca. 12 mm",
       "images": [
-        "blr7-3.png",
+        "blr7-1.png",
         "blr7-2.png",
-        "blr7-1.png"
+        "blr7-3.png"
       ]
     },
     {
