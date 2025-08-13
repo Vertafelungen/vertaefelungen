@@ -15,11 +15,11 @@ bilder:
   - lindgruen-farbfaecher.png
   - sip_gebinde.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
-  - ""
-  - ""
+  - "Pastel Green color sample 01"
+  - "Pastel Green color sample 02"
+  - "Pastel Green color sample 03"
+  - "Pastel Green 01–03 color comparison with recipes"
+  - "2.5 L Stand oil interior paint can"
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -121,11 +121,11 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](lindgruen01.png)
-![](lindgruen02.png)
-![](lindgruen03.png)
-![](lindgruen-farbfaecher.png)
-![](sip_gebinde.png)
+![Pastel Green color sample 01](lindgruen01.png)
+![Pastel Green color sample 02](lindgruen02.png)
+![Pastel Green color sample 03](lindgruen03.png)
+![Pastel Green 01–03 color comparison with recipes](lindgruen-farbfaecher.png)
+![2.5 L Stand oil interior paint can](sip_gebinde.png)
 
 ## SEO-Metadaten
 

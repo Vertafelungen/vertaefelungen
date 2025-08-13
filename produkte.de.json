@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "generated": "2025-08-12T05:33:48.081475",
+  "generated": "2025-08-13T05:34:56.697951",
   "items": [
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/klassikgruen.md",
@@ -42,7 +42,14 @@
         "lindgruen-farbfaecher.png",
         "sip_gebinde.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Lindgrün Farbtonmuster 01",
+        "Lindgrün Farbtonmuster 02",
+        "Lindgrün Farbtonmuster 03",
+        "Farbvergleich Lindgrün 01–03 mit Rezepturen",
+        "Gebinde Standölinnenfarbe Pro 2",
+        "5 L"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/hohe-vertaefelungen/p0002.md",
@@ -67,21 +74,22 @@
         "p0002-13.png"
       ],
       "images_alt": [
-        "Detailansicht des Sockelbereichs der Holzvertäfelung P0002 Hamburger Michel",
-        "Schrägansicht von vier hochrechteckigen Paneelfeldern der Holzvertäfelung P0002 Hamburger Michel",
-        "Frontalansicht der Holzvertäfelung P0002 Hamburger Michel mit Maßangabe 2913 mm",
-        "Perspektivansicht der Sockel- und Eckausbildung der Holzvertäfelung P0002 Hamburger Michel",
-        "3D-Visualisierung der kompletten Wandgestaltung mit Holzvertäfelung P0002 Hamburger Michel",
-        "Detailansicht des oberen Profilabschlusses der Holzvertäfelung P0002 Hamburger Michel",
-        "Perspektivansicht der profilierten oberen Eckausbildung der Holzvertäfelung P0002 Hamburger Michel",
-        "Detailansicht des Sockelbereichs der Holzvertäfelung P0002 Hamburger Michel als technische Zeichnung",
-        "Detailfoto des oberen Profilabschlusses der historischen Holzvertäfelung P0002 Hamburger Michel",
-        "Außenansicht der Hauptkirche St. Michaelis in Hamburg („Michel“)",
-        "Nahaufnahme des Sockelprofils der historischen Holzvertäfelung P0002 Hamburger Michel",
-        "Ansicht der holzgetäfelten Wand im Treppenbereich des Hamburger Michel mit Beschilderung zur Krypta",
-        "Detailfoto einer Eckausbildung des Sockels der Holzvertäfelung P0002 Hamburger Michel",
-        "Frontale Ansicht der holzgetäfelten Wand mit Mittelpfeiler im Hamburger Michel",
-        ""
+        "Hohe historische Holzvertäfelung mit sechs Kassetten und auskragendem Kranzgesims",
+        "Höhe 2913 mm",
+        "Detailansicht des profilierten Kranzgesimses einer dunklen Holzvertäfelung in klassizistischem Stil",
+        "Barocke Hauptkirche St. Michaelis in Hamburg",
+        "Außenansicht mit Turm und offenem Kirchenvorplatz",
+        "Sockelleiste aus dunklem Holz mit gestuftem Profil auf hellen Natursteinfliesen im Innenbereich",
+        "Innenansicht hoher Holzvertäfelung mit Kassettengliederung und Treppe zur Krypta im Kirchenraum",
+        "Eckansicht eines massiven Sockels mit Profilabschluss an dunkler Holzvertäfelung in Kirchenhalle",
+        "Frontansicht hoher Holzvertäfelung mit mittigem Pilaster und umlaufendem profiliertem Kranzgesims",
+        "Nahaufnahme eines profilierten Eckbereichs mit Gesims und Pilaster aus dunklem Holzmaterial",
+        "Detailansicht einer profilierten Sockelleiste mit Holzmaserung im unteren Bereich der Vertäfelung",
+        "Nahaufnahme eines vertikalen Pilasters mit Profilkanten und Gesimsabschluss in dunklem Holz",
+        "Frontale Wandvertäfelung mit gleichmäßig angeordneten",
+        "hochrechteckigen Kassettenfeldern",
+        "Detail eines profilierten Gesimsübergangs zwischen Wand und hoher Holzvertäfelung in Eiche",
+        "Nahaufnahme einer profilierten Sockelzone mit Basenleiste und Steinboden im historischen Innenraum"
       ]
     },
     {
@@ -213,16 +221,15 @@
         "p0001-09.png"
       ],
       "images_alt": [
-        "technische Visualisierung der Holzvertäfelung P0001",
-        "frontal mit Maßangabe 1100 mm",
-        "3D-Visualisierung der Holzvertäfelung P0001 in Raumecke mit unterschiedlichen Paneelfeldern",
-        "Perspektivansicht der Holzvertäfelung P0001 in Raumecke mit profilierter Rahmung",
-        "Detailansicht des oberen Profilabschlusses der Holzvertäfelung P0001",
-        "Detailansicht des Sockelbereichs der Holzvertäfelung P0001",
-        "Innenansicht der Paneelgestaltung der Holzvertäfelung P0001 in Eckausbildung",
-        "Foto einer originalen lackierten Holzvertäfelung P0001 im Hauseingangsbereich mit Fliesenboden",
-        "Frontale Nahaufnahme eines Paneelmittelfeldes der Holzvertäfelung P0001 mit Rundornament",
-        "Schrägansicht einer originalen Holzvertäfelung P0001 mit Sockel und Rundornament im Paneel"
+        "Detailansicht einer vertikalen Holzvertäfelung mit schmalen profilierten Leisten",
+        "Gesamtansicht einer hohen Vertäfelung mit klassischem Kranzprofil",
+        "Obere Abschlussleiste der Vertäfelung mit feinem Profil",
+        "Vertäfelung in Raumsituation mit Fensterlaibung links",
+        "Sockelleiste mit glattem Profil im unteren Bereich der Vertäfelung",
+        "Eckansicht einer hohen Vertäfelung mit durchgehenden Profilleisten",
+        "Detail der oberen Profilierung an einer Innenraumecke",
+        "Schrägansicht einer Vertäfelung in einer Gebäudeecke",
+        "Detail der vertikalen Profilleisten aus Holz"
       ]
     },
     {
@@ -240,7 +247,14 @@
         "p0004-05.png",
         "p0004-06.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Detailansicht einer Holzvertäfelungsecke mit Rahmenprofilen",
+        "Frontalansicht einer dreifeldrigen Holzvertäfelung mit Maßangabe 1035 mm",
+        "Detail der oberen Profilierung einer Holzvertäfelung",
+        "Perspektivansicht einer Holzvertäfelung um eine Raumecke",
+        "Detailansicht der Sockelleiste einer Holzvertäfelung",
+        "Gesamtansicht einer raumhohen Wand mit umlaufender halbhoher Holzvertäfelung in einem Raum in Berlin-Sophienstraße"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0005.md",
@@ -261,7 +275,18 @@
         "p0005-09.png",
         "p0005-10.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Detailansicht der Holzvertäfelung P0005 in SketchUp-Visualisierung",
+        "Frontalansicht der Holzvertäfelung P0005 mit Maßangabe 1035 mm",
+        "Detailansicht des oberen Abschlussprofils der Holzvertäfelung P0005",
+        "Perspektivansicht der kompletten Holzvertäfelung P0005 im Raum",
+        "Detailansicht des Sockelprofils der Holzvertäfelung P0005",
+        "Gesamtansicht der Holzvertäfelung P0005 an einer langen Wand mit Ecke",
+        "Perspektivansicht der Holzvertäfelung P0005 mit seitlicher Wand",
+        "Detailansicht der Eckverbindung der Holzvertäfelung P0005",
+        "Nahansicht des mittleren Paneels der Holzvertäfelung P0005",
+        "Gesamtansicht der Holzvertäfelung P0005 mit vollständigem Wandverlauf"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0006.md",

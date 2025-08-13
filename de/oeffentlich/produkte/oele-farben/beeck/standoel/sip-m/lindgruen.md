@@ -15,11 +15,11 @@ bilder:
   - lindgruen-farbfaecher.png
   - sip_gebinde.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
-  - ""
-  - ""
+  - "Lindgrün Farbtonmuster 01"
+  - "Lindgrün Farbtonmuster 02"
+  - "Lindgrün Farbtonmuster 03"
+  - "Farbvergleich Lindgrün 01–03 mit Rezepturen"
+  - "Gebinde Standölinnenfarbe Pro 2"
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -121,11 +121,11 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 
 ## Bilder
 
-![](lindgruen01.png)
-![](lindgruen02.png)
-![](lindgruen03.png)
-![](lindgruen-farbfaecher.png)
-![](sip_gebinde.png)
+![Lindgrün Farbtonmuster 01](lindgruen01.png)
+![Lindgrün Farbtonmuster 02](lindgruen02.png)
+![Lindgrün Farbtonmuster 03](lindgruen03.png)
+![Farbvergleich Lindgrün 01–03 mit Rezepturen](lindgruen-farbfaecher.png)
+![Gebinde Standölinnenfarbe Pro 2](sip_gebinde.png)
 
 ## SEO-Metadaten
 

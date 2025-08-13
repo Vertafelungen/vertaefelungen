@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "generated": "2025-08-12T05:33:48.081490",
+  "generated": "2025-08-13T05:34:56.697965",
   "items": [
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-m/oxide-green.md",
@@ -41,7 +41,13 @@
         "lindgruen-farbfaecher.png",
         "sip_gebinde.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Pastel Green color sample 01",
+        "Pastel Green color sample 02",
+        "Pastel Green color sample 03",
+        "Pastel Green 01–03 color comparison with recipes",
+        "2.5 L Stand oil interior paint can"
+      ]
     },
     {
       "path": "en/public/products/high-wainscoting/p0002.md",
@@ -66,21 +72,21 @@
         "p0002-13.png"
       ],
       "images_alt": [
-        "Detail view of the base section of wood panelling P0002 Hamburger Michel",
-        "Angled view of four tall rectangular panel fields of wood panelling P0002 Hamburger Michel",
-        "Front view of wood panelling P0002 Hamburger Michel with 2913 mm height dimension",
-        "Perspective view of the base and corner section of wood panelling P0002 Hamburger Michel",
-        "3D rendering of the complete wall design with wood panelling P0002 Hamburger Michel",
-        "Detail view of the upper moulding of wood panelling P0002 Hamburger Michel",
-        "Perspective view of the profiled upper corner section of wood panelling P0002 Hamburger Michel",
-        "Detail view of the base section of wood panelling P0002 Hamburger Michel as technical drawing",
-        "Close-up photo of the upper moulding of the historic wood panelling P0002 Hamburger Michel",
-        "Exterior view of St. Michael’s Church in Hamburg (“Michel”)",
-        "Close-up of the base moulding of the historic wood panelling P0002 Hamburger Michel",
-        "View of the wood-panelled staircase wall in Hamburg’s Michel with signage to the crypt",
-        "Detail photo of a corner base section of the wood panelling P0002 Hamburger Michel",
-        "Frontal view of the wood-panelled wall with central pilaster in Hamburg’s Michel",
-        ""
+        "Tall historic wood paneling with six panels and projecting cornice molding",
+        "total height 2913 mm",
+        "Close-up of the profiled cornice of a dark wood paneling in neoclassical interior church design",
+        "Baroque main church St. Michael’s in Hamburg",
+        "exterior view with tower and open church forecourt",
+        "Dark wood skirting board with stepped profile on light natural stone tiles in interior space",
+        "Interior view of tall wood paneling with panel divisions and stairway leading to the crypt",
+        "Corner view of a massive base with molded finish on dark wood paneling in church interior",
+        "Front view of tall wood paneling with central pilaster and continuous profiled cornice",
+        "Close-up of a profiled corner section with cornice and pilaster made from dark wood",
+        "Detail view of a profiled skirting board with wood grain in the lower part of the paneling",
+        "Close-up of a vertical pilaster with profiled edges and cornice end in dark stained wood",
+        "Frontal wood paneling with evenly spaced tall rectangular panel fields in historic style",
+        "Detail of a profiled cornice transition between wall and tall oak wood paneling",
+        "Close-up of a profiled base zone with base molding and stone floor in historic interior"
       ]
     },
     {
@@ -212,17 +218,15 @@
         "p0001-09.png"
       ],
       "images_alt": [
-        "technical visualization of wood panelling P0001",
-        "front view with 1100 mm height dimension",
-        "3D rendering of wood panelling P0001 in a corner setting with varied panel fields",
-        "Perspective view of wood panelling P0001 in a corner with profiled framing",
-        "Detail view of the upper moulding of wood panelling P0001",
-        "Detail view of the base section of wood panelling P0001",
-        "Interior view of the panel design of wood panelling P0001 in a corner joint",
-        "Photo of original painted wood panelling P0001 in an entrance hall with tiled floor",
-        "Frontal close-up of a central panel field of wood panelling P0001 with round ornament",
-        "Angled view of original wood panelling P0001 with base and round ornament in the panel",
-        ""
+        "Detail view of vertical wooden paneling with narrow profiled strips",
+        "Full view of tall paneling with classic crown molding",
+        "Upper molding of the paneling with fine profile",
+        "Paneling in room setting with window reveal on the left",
+        "Baseboard with smooth profile at the lower section of the paneling",
+        "Corner view of tall paneling with continuous profile strips",
+        "Detail of the upper molding at an interior corner",
+        "Angled view of paneling in a building corner",
+        "Detail of vertical profiled wooden strips"
       ]
     },
     {
@@ -240,7 +244,14 @@
         "p0004-05.png",
         "p0004-06.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Detailed view of a wood paneling corner with frame profiles",
+        "Front view of a three-panel wood paneling with 1035 mm height dimension",
+        "Detail of the upper molding of wood paneling",
+        "Perspective view of wood paneling around a room corner",
+        "Close-up of the baseboard of wood paneling",
+        "Overall view of a wall with continuous half-height wood paneling in a room in Berlin-Sophienstraße"
+      ]
     },
     {
       "path": "en/public/products/dado-panel/p0005.md",
@@ -261,7 +272,18 @@
         "p0005-09.png",
         "p0005-10.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Detail view of wood paneling P0005 in SketchUp visualization",
+        "Front view of wood paneling P0005 with height dimension 1035 mm",
+        "Detail view of the top molding of wood paneling P0005",
+        "Perspective view of complete wood paneling P0005 in the room",
+        "Detail view of the base molding of wood paneling P0005",
+        "Overall view of wood paneling P0005 along a long wall with corner",
+        "Perspective view of wood paneling P0005 with side wall",
+        "Detail view of the corner joint of wood paneling P0005",
+        "Close-up of the center panel of wood paneling P0005",
+        "Overall view of wood paneling P0005 with full wall layout"
+      ]
     },
     {
       "path": "en/public/products/dado-panel/p0006.md",
