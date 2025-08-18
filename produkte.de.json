@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "generated": "2025-08-17T05:33:48.096483",
+  "generated": "2025-08-18T05:38:11.739590",
   "items": [
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/klassikgruen.md",
@@ -244,7 +244,22 @@
         "p0009-2-1-1.png",
         "p0009-2-1-2.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Frontalansicht Vertäfelung P0009 „Nadelstreif-Paneel“ 1220 mm hoch mit glatten Paneelen senkrechten Deckleisten profiliertem Gesims und Sockelleiste",
+        "Detailansicht Vertäfelung P0009 „Nadelstreif-Paneel“ obere Zone mit glatten Paneelen senkrechten Deckleisten und profiliertem Gesims",
+        "Detailansicht Vertäfelung P0009 „Nadelstreif-Paneel“ untere Zone mit glatten Paneelen senkrechten Deckleisten und kräftiger Sockelleiste",
+        "Perspektivansicht Vertäfelung P0009 „Nadelstreif-Paneel“ mit senkrechten Deckleisten profiliertem oberen Abschluss und kräftiger Sockelleiste über Eck ausgeführt",
+        "Raumansicht Vertäfelung P0009 Nadelstreif halbhoch mit Dreikantstab in Kiefer über Eck montiert",
+        "Halbhohe Vertäfelung P0009 Nadelstreif mit Dreikantstab Ausführung in Eiche Höhe 1220 mm",
+        "Detailansicht P0009 Nadelstreif-Vertäfelung halbhoch Kiefer mit charakteristischem Dreikantstab Profil",
+        "Halbhohe Vertäfelung P0009 Nadelstreif mit Flachstab aus Kiefer für stilvolle Altbau Innenräume",
+        "Halbhohe Vertäfelung P0009 Nadelstreif mit Hohlkehlstab aus Kiefer 1220 mm hoch für stilvolle Altbau Räume",
+        "Halbhohe Vertäfelung P0009 Nadelstreif mit Rundstab 1220 mm hoch klassische Holzvertäfelung für Altbau",
+        "Halbhohe Vertäfelung P0009 Nadelstreif mit Kerbstab traditionelle Holzvertäfelung und Wunschhöhe",
+        "Hohe Vertäfelung P0009 Nadelstreif mit profiliertem Gesims 1470 mm klassische Wandvertäfelung mit Sockel",
+        "Brusthohe Vertäfelung P0009 Nadelstreif Kiefernholz 1470 mm mit hohem Kopfprofil und klassischem Sockel",
+        "Brusthohe Vertäfelung P0009 Nadelstreif in massiver Eiche 1470 mm mit profiliertem Kopfprofil und Sockel"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/halbhohe-vertaefelungen/p0001.md",
@@ -265,15 +280,18 @@
         "p0001-09.png"
       ],
       "images_alt": [
-        "Detailansicht einer vertikalen Holzvertäfelung mit schmalen profilierten Leisten",
-        "Gesamtansicht einer hohen Vertäfelung mit klassischem Kranzprofil",
-        "Obere Abschlussleiste der Vertäfelung mit feinem Profil",
-        "Vertäfelung in Raumsituation mit Fensterlaibung links",
-        "Sockelleiste mit glattem Profil im unteren Bereich der Vertäfelung",
-        "Eckansicht einer hohen Vertäfelung mit durchgehenden Profilleisten",
-        "Detail der oberen Profilierung an einer Innenraumecke",
-        "Schrägansicht einer Vertäfelung in einer Gebäudeecke",
-        "Detail der vertikalen Profilleisten aus Holz"
+        "Brusthohe Kassettenvertäfelung P0001 aus Berlin Winsstrasse",
+        "klassizistische Lambris in Kiefer oder Eiche",
+        "Raumansicht Kassettenvertäfelung P0001 aus Berlin Winsstrasse",
+        "repräsentative Lambris mit Profil und Ornament",
+        "Detailansicht Kassettenvertäfelung P0001 Berlin Winsstrasse mit profilierter Rahmung und kräftigem Sockel über Eck",
+        "Detailansicht Kopfprofil Vertäfelung P0001 Berlin Winsstrasse mit ausladendem Gesims und profilierter Rahmung",
+        "Sockelzone Vertäfelung P0001 Berlin Winsstrasse mit kräftig abgetrepptem Profil und massiver Basisgestaltung",
+        "Detailansicht Vertäfelung P0001 Berlin Winsstrasse mit stark profilierten Kassettenrahmen in der Ecke",
+        "Historischer Eingangsflur Berlin Winsstrasse mit Halbholzvertäfelung P0001 und Jugendstil-Mosaikfliesen",
+        "Detail Halbholzvertäfelung P0001 im Eingangsflur Berlin Winsstrasse mit Kreisornament",
+        "Halbhohe Wandvertäfelung P0001 mit Kreisornament im Flur Berlin Winsstraße über Jugendstilfliesen",
+        "Detailaufnahme Kreisornament der Kassettenvertäfelung P0001 Berlin Winsstrasse in der Sockelzone"
       ]
     },
     {
@@ -292,12 +310,15 @@
         "p0004-06.png"
       ],
       "images_alt": [
-        "Detailansicht einer Holzvertäfelungsecke mit Rahmenprofilen",
-        "Frontalansicht einer dreifeldrigen Holzvertäfelung mit Maßangabe 1035 mm",
-        "Detail der oberen Profilierung einer Holzvertäfelung",
-        "Perspektivansicht einer Holzvertäfelung um eine Raumecke",
-        "Detailansicht der Sockelleiste einer Holzvertäfelung",
-        "Gesamtansicht einer raumhohen Wand mit umlaufender halbhoher Holzvertäfelung in einem Raum in Berlin-Sophienstraße"
+        "Ansicht einer brusthohen Kassettenvertäfelung P0004 Berlin Sophienstraße klassizistische Lambris mit Profilrahmung",
+        "Klassizistische Kassettenvertäfelung P0004 Sophienstraße Berlin-Mitte",
+        "rekonstruierte Lambris mit Profilrahmen",
+        "Halbhohe klassizistische Kassettenvertäfelung P0004 Sophienstraße Berlin-Mitte",
+        "Wandansicht mit durchlaufender Lambris",
+        "Detailansicht klassizistische Kassettenvertäfelung P0004 Sophienstraße Berlin-Mitte mit profiliertem Eckanschluss",
+        "Detailansicht klassizistische Wandvertäfelung P0004 Sophienstraße Berlin-Mitte mit stark profiliertem Gesimsabschluss",
+        "Halbhohe Kassettenvertäfelung P0004 aus der Sophienstraße in Berlin-Mitte",
+        "klassizistische Lambris mit profilierter Rahmung und massivem Sockel"
       ]
     },
     {
@@ -320,16 +341,17 @@
         "p0005-10.png"
       ],
       "images_alt": [
-        "Detailansicht der Holzvertäfelung P0005 in SketchUp-Visualisierung",
-        "Frontalansicht der Holzvertäfelung P0005 mit Maßangabe 1035 mm",
-        "Detailansicht des oberen Abschlussprofils der Holzvertäfelung P0005",
-        "Perspektivansicht der kompletten Holzvertäfelung P0005 im Raum",
-        "Detailansicht des Sockelprofils der Holzvertäfelung P0005",
-        "Gesamtansicht der Holzvertäfelung P0005 an einer langen Wand mit Ecke",
-        "Perspektivansicht der Holzvertäfelung P0005 mit seitlicher Wand",
-        "Detailansicht der Eckverbindung der Holzvertäfelung P0005",
-        "Nahansicht des mittleren Paneels der Holzvertäfelung P0005",
-        "Gesamtansicht der Holzvertäfelung P0005 mit vollständigem Wandverlauf"
+        "Brusthohe Gründerzeit Vertäfelung P0005 Bleibtreustr Berlin mit Arkaden Pilastern Gesimsprofil",
+        "Eckansicht Gründerzeit Kassettenvertäfelung P0005 Bleibtreustr Berlin mit Arkaden Pilastern Gesimsprofil",
+        "Gesamtansicht Gründerzeit Kassettenvertäfelung P0005 Bleibtreustr Berlin umlaufende Lambris mit Arkaden und Gesimsprofil",
+        "Detailansicht Gründerzeit Kassettenvertäfelung P0005 Bleibtreustr Berlin Gesimsabschluss mit Schmuckprofilen und Füllungen",
+        "Sockelansicht Gründerzeit Kassettenvertäfelung P0005 Bleibtreustr Berlin profilierte Lambris mit Zierknäufen",
+        "Detailansicht klassizistische Kassettenvertäfelung P0005 Bleibtreustr Berlin mit profiliertem Bogenabschluss",
+        "Detailansicht Sockel klassizistische Kassettenvertäfelung P0005 Bleibtreustraße Berlin mit Profilrahmung",
+        "Originalansicht klassizistische Kassettenvertäfelung P0005 Bleibtreustraße Berlin mit profilierten Pilastern und rundbogigen Blendfeldern",
+        "Brusthohe Kassettenvertäfelung P0005 Bleibtreustr Berlin mit profiliertem Sockel und Gesims in Eiche",
+        "Historisches Entrée P0005 Bleibtreustr Berlin mit Eichenvertäfelung",
+        "Stuckdecke und Kassettentür"
       ]
     },
     {

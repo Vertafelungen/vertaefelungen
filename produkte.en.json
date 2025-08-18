@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "generated": "2025-08-17T05:33:48.096493",
+  "generated": "2025-08-18T05:38:11.739603",
   "items": [
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-m/oxide-green.md",
@@ -216,7 +216,8 @@
         "Historic Lübeck wall panelling Schiffergesellschaft detail view of profiled base section with panels",
         "Facade of the historic Schiffergesellschaft Lübeck with brick stepped gable and representative entrance portal",
         "Historic wooden panelling with panelled fields and ornamental frieze in the Schiffergesellschaft Lübeck",
-        "Historic interior of the Schiffergesellschaft Lübeck with carved wooden column saint figure panelling and ship models. Detail of the wooden panelling in the Schiffergesellschaft Lübeck with carved head relief and ornaments"
+        "Historic interior of the Schiffergesellschaft Lübeck with carved wooden column saint figure panelling and ship models",
+        "Detail of the wooden panelling in the Schiffergesellschaft Lübeck with carved head relief and ornaments"
       ]
     },
     {
@@ -241,7 +242,22 @@
         "p0009-2-1-1.png",
         "p0009-2-1-2.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Frontal view panelling P0009 “Pinstripe Panel” 1220 mm high with smooth panels vertical cover strips profiled cornice and base moulding",
+        "Detail view panelling P0009 “Pinstripe Panel” upper section with smooth panels vertical cover strips and profiled cornice",
+        "Detail view panelling P0009 “Pinstripe Panel” lower section with smooth panels vertical cover strips and strong skirting board",
+        "Perspective view panelling P0009 “Pinstripe Panel” with vertical cover strips profiled top moulding and strong skirting board installed around a corner",
+        "Room view panelling P0009 pinstripe half height with triangular moulding in pine installed around a corner",
+        "Half height panelling P0009 pinstripe with triangular moulding oak version height 1220 mm",
+        "Detail view P0009 pinstripe half height panelling pine with characteristic triangular moulding profile",
+        "Half height panelling P0009 pinstripe with flat moulding pine for elegant historic interiors",
+        "Half height panelling P0009 pinstripe with cove moulding pine 1220 mm high for stylish historic interiors",
+        "Half height panelling P0009 pinstripe with rounded moulding 1220 mm high traditional wooden panelling for interiors",
+        "Half height panelling P0009 pinstripe with decorative cubes on cover strips 1220 mm high traditional wood panelling",
+        "Tall panelling P0009 pinstripe with profiled cornice 1470 mm classic wood wall panelling with skirting",
+        "Tall panelling P0009 pinstripe pine wood 1470 mm with high head cornice profile and classic skirting",
+        "Dado height panelling P0009 pinstripe solid oak 1470 mm with profiled cornice head detail and skirting"
+      ]
     },
     {
       "path": "en/public/products/dado-panel/p0001.md",
@@ -262,15 +278,18 @@
         "p0001-09.png"
       ],
       "images_alt": [
-        "Detail view of vertical wooden paneling with narrow profiled strips",
-        "Full view of tall paneling with classic crown molding",
-        "Upper molding of the paneling with fine profile",
-        "Paneling in room setting with window reveal on the left",
-        "Baseboard with smooth profile at the lower section of the paneling",
-        "Corner view of tall paneling with continuous profile strips",
-        "Detail of the upper molding at an interior corner",
-        "Angled view of paneling in a building corner",
-        "Detail of vertical profiled wooden strips"
+        "Dado height panelling P0001 from Berlin Winsstrasse",
+        "classical lambris reproduction in pine or oak",
+        "Room view panelled wainscot P0001 from Berlin Winsstrasse",
+        "representative dado panelling with profile and ornament",
+        "Detail view panelled wainscot P0001 Berlin Winsstrasse with profiled framing and strong skirting at corner",
+        "Detail view cornice profile panelling P0001 Berlin Winsstrasse with projecting moulding and profiled framing",
+        "Base section panelling P0001 Berlin Winsstrasse with strong stepped profile and solid pedestal design",
+        "Detail view panelling P0001 Berlin Winsstrasse with heavily profiled panel frames at the corner",
+        "Historic entrance hall Berlin Winsstrasse with half-height panelling P0001 and Jugendstil mosaic tiles",
+        "Detail half-height panelling P0001 in entrance hall Berlin Winsstrasse with circle ornament",
+        "Half-height wall panelling P0001 with circle motif in hallway Berlin Winsstrasse above Jugendstil tiles",
+        "Close-up circle ornament of panelling P0001 Berlin Winsstrasse in dado section"
       ]
     },
     {
@@ -289,12 +308,15 @@
         "p0004-06.png"
       ],
       "images_alt": [
-        "Detailed view of a wood paneling corner with frame profiles",
-        "Front view of a three-panel wood paneling with 1035 mm height dimension",
-        "Detail of the upper molding of wood paneling",
-        "Perspective view of wood paneling around a room corner",
-        "Close-up of the baseboard of wood paneling",
-        "Overall view of a wall with continuous half-height wood paneling in a room in Berlin-Sophienstraße"
+        "Dado height panelling P0004 Berlin Sophienstrasse classical lambris with profiled framing",
+        "Classical panelled wainscot P0004 Sophienstrasse Berlin-Mitte",
+        "reconstructed dado panelling with profiled frames",
+        "Half-height classical panelled wainscot P0004 Sophienstrasse Berlin-Mitte",
+        "wall view with continuous dado panelling",
+        "Detail view classical panelled wainscot P0004 Sophienstrasse Berlin-Mitte with profiled corner joint",
+        "Detail view classical wall panelling P0004 Sophienstrasse Berlin-Mitte with heavily profiled cornice finish",
+        "Dado height panelled wainscot P0004 from Sophienstrasse Berlin-Mitte",
+        "classical lambris with profiled framing and solid base"
       ]
     },
     {
@@ -317,16 +339,17 @@
         "p0005-10.png"
       ],
       "images_alt": [
-        "Detail view of wood paneling P0005 in SketchUp visualization",
-        "Front view of wood paneling P0005 with height dimension 1035 mm",
-        "Detail view of the top molding of wood paneling P0005",
-        "Perspective view of complete wood paneling P0005 in the room",
-        "Detail view of the base molding of wood paneling P0005",
-        "Overall view of wood paneling P0005 along a long wall with corner",
-        "Perspective view of wood paneling P0005 with side wall",
-        "Detail view of the corner joint of wood paneling P0005",
-        "Close-up of the center panel of wood paneling P0005",
-        "Overall view of wood paneling P0005 with full wall layout"
+        "Dado height Gründerzeit panelling P0005 Bleibtreustr Berlin with arcades pilasters cornice profile",
+        "Corner view Gründerzeit panelled wainscot P0005 Bleibtreustr Berlin with arcades pilasters cornice profile",
+        "Full view Gründerzeit panelled wainscot P0005 Bleibtreustr Berlin surrounding dado with arcades and cornice profile",
+        "Detail view Gründerzeit panelled wainscot P0005 Bleibtreustr Berlin cornice finish with decorative profiles and fillings",
+        "Base view Gründerzeit panelled wainscot P0005 Bleibtreustr Berlin profiled dado panelling with ornamental knobs",
+        "Detail view classical panelled wainscot P0005 Bleibtreustr Berlin with profiled arched termination",
+        "Detail view plinth classical panelled wainscot P0005 Bleibtreustrasse Berlin with profiled framing",
+        "Original view classical panelled wainscot P0005 Bleibtreustrasse Berlin with profiled pilasters and arched blind panels",
+        "Dado height panelling P0005 Bleibtreustr Berlin with profiled base and cornice moulding crafted in oak",
+        "Historic entrance hall P0005 Bleibtreustr Berlin with oak panelling",
+        "stucco ceiling and panelled door"
       ]
     },
     {
