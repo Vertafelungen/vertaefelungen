@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "generated": "2025-08-18T05:38:11.739603",
+  "generated": "2025-08-19T05:32:17.828633",
   "items": [
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-m/oxide-green.md",
@@ -367,7 +367,15 @@
         "p0006-05.png",
         "p0006-06.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Dado height Gründerzeit panelling P0006 Leipzig Ludwigstrasse with stripe profiles and cornice moulding",
+        "Corner view Gründerzeit panelling P0006 Leipzig Ludwigstrasse with stripe panels and strong cornice",
+        "Dado height Gründerzeit panelling P0006 Leipzig Ludwigstrasse with vertical battens",
+        "plinth and cornice moulding",
+        "Detail view Gründerzeit panelling P0006 Leipzig Ludwigstrasse with profiled vertical battens and plinth finish",
+        "Detail Gründerzeit panelling P0006 Leipzig Ludwigstrasse with strong cornice moulding and vertical battens",
+        "Base section Gründerzeit panelling P0006 Leipzig Ludwigstrasse with wide plinth moulding and vertical panel battens"
+      ]
     },
     {
       "path": "en/public/products/dado-panel/p0022.md",
@@ -389,7 +397,19 @@
         "p0022-10.png",
         "p0022-11.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Dado height Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with panelled fields and cornice",
+        "Corner view Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with panelled fields and cornice",
+        "View Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with continuous panelled fields and cornice",
+        "Detail Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with profiled panels and carved finish",
+        "Detail view cornice Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with profiled moulding and carved ornament",
+        "Base section Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with wide profiled plinth and vertical batten panel",
+        "Historic corridor Lübeck Town Hall Long House with Gründerzeit panelling wooden ceiling and black white checkerboard floor",
+        "Panelled corridor Lübeck Town Hall Long House with wooden bench Renaissance portraits and herringbone parquet floor",
+        "Renaissance panelling Lübeck Town Hall oak wood with clear panel division and fine grain pattern",
+        "Detail Renaissance panelling Lübeck Town Hall oak wood with strong grain and carved upper edge finish",
+        "Detail Renaissance panelling Lübeck Town Hall oak cornice with moulded cavetto profile and edge finish"
+      ]
     },
     {
       "path": "en/public/products/dado-panel/p0010.md",
@@ -408,7 +428,16 @@
         "p0010-7.png",
         "p0010-8.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Historical baluster panelling in early baroque style after St Peters Basilica Rome with profiled base and strong vase balusters",
+        "Frontal view early baroque baluster panelling after St Peters Basilica Rome 1225 mm high with vase balusters",
+        "Overall view early baroque baluster panelling St Peters Basilica Rome balustrade at tomb of Saint Peter",
+        "Photo balustrade St Peters Basilica Rome baroque balusters in marble with gilded vase ornaments and inlays",
+        "St Peters Basilica Rome baroque baldachin by Bernini with twisted columns above St Peters tomb and golden apse",
+        "Balustrade in St Peters Basilica Rome with strong reddish brown marble balusters gilded ornaments and marble inlays",
+        "Close up of the balustrade in St Peters Basilica with reddish brown marble balusters marble panels and inlay frame",
+        "Base detail of the balustrade in St Peters Basilica with light marble molding inlay panel and gilded elements"
+      ]
     },
     {
       "path": "en/public/products/dado-panel/p0011.md",
@@ -424,7 +453,13 @@
         "p0011-4.png",
         "p0011-5.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Classical baluster panelling after Goethes House Weimar with cut out vase balusters 930 mm high",
+        "Overall view classical baluster panelling after Goethes House Weimar with multiple panels and wall connection",
+        "Corner view classical baluster panelling after Goethes House Weimar with vase shaped balusters 930 mm high",
+        "Detail classical baluster panelling after Goethes House Weimar with profiled cornice top 930 mm",
+        "Base detail classical baluster panelling after Goethes House Weimar with carved profile 930 mm"
+      ]
     },
     {
       "path": "en/public/products/dado-panel/p0018.md",
@@ -443,7 +478,16 @@
         "p0018-7.png",
         "p0018-8.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Classical wall panelling with floral Jugendstil tiles dandelion motif from Invalidenstrasse Berlin 1570 mm",
+        "Classical wall panelling with floral Jugendstil tiles dandelion motif full view Invalidenstrasse Berlin",
+        "Classical wall panelling with floral Jugendstil tiles dandelion motif corner view Invalidenstrasse Berlin",
+        "Classical wall panelling with floral Jugendstil ceramic tiles detailed view Invalidenstrasse Berlin",
+        "Historic wall panelling with Jugendstil ceramic tiles partial view template Invalidenstrasse Berlin",
+        "Detail view classical wall panelling with Jugendstil ceramic tiles Berlin historic template Invalidenstrasse",
+        "Historic Berlin café interior with wooden panelling Jugendstil ceramic tiles and decorative panels",
+        "Art Nouveau wall panelling with wooden frame and historic tiles in Berlin café interior design"
+      ]
     },
     {
       "path": "en/public/products/dado-panel/p0015.md",
