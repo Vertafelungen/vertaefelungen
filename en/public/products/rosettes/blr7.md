@@ -13,9 +13,9 @@ bilder:
   - blr7-2.png
   - blr7-3.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
+  - "Round brass vent with three openings flat mounted on wooden surface about 40 mm diameter"
+  - "Brass vent with three openings with measuring tape beside showing size indication nearly four centimeters"
+  - "Round brass vent with three openings photographed diagonally from below on wooden surface"
 price: "46,22 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -47,9 +47,9 @@ Hight approx 12 mm
 
 ## Bilder
 
-![](blr7-1.png)
-![](blr7-2.png)
-![](blr7-3.png)
+![Round brass vent with three openings flat mounted on wooden surface about 40 mm diameter](blr7-1.png)
+![Brass vent with three openings with measuring tape beside showing size indication nearly four centimeters](blr7-2.png)
+![Round brass vent with three openings photographed diagonally from below on wooden surface](blr7-3.png)
 
 ## SEO-Metadaten
 

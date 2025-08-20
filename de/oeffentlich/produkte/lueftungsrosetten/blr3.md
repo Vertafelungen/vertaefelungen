@@ -15,11 +15,11 @@ bilder:
   - blr3-4.png
   - blr3-5.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
-  - ""
-  - ""
+  - "Belüftungsrosette BLR3 aus Messing auf Holzfläche montiert"
+  - "Belüftungsrosette BLR3 aus Messing mit Maßband zur Größenangabe"
+  - "Belüftungsrosette BLR3 in Messing flach auf Holzuntergrund liegend"
+  - "historische Belüftungsrosette BLR3 aus Messing in gealterter Holzvertäfelung"
+  - "Belüftungsrosette BLR3 Messingrosette in kompletter Holzvertäfelung eingesetzt"
 price: "49,58 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -51,11 +51,11 @@ Hohe ca. 3 mm
 
 ## Bilder
 
-![](blr3-1.png)
-![](blr3-2.png)
-![](blr3-3.png)
-![](blr3-4.png)
-![](blr3-5.png)
+![Belüftungsrosette BLR3 aus Messing auf Holzfläche montiert](blr3-1.png)
+![Belüftungsrosette BLR3 aus Messing mit Maßband zur Größenangabe](blr3-2.png)
+![Belüftungsrosette BLR3 in Messing flach auf Holzuntergrund liegend](blr3-3.png)
+![historische Belüftungsrosette BLR3 aus Messing in gealterter Holzvertäfelung](blr3-4.png)
+![Belüftungsrosette BLR3 Messingrosette in kompletter Holzvertäfelung eingesetzt](blr3-5.png)
 
 ## SEO-Metadaten
 

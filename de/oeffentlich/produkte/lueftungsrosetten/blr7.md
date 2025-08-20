@@ -13,9 +13,9 @@ bilder:
   - blr7-2.png
   - blr7-3.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
+  - "Runde Messinglüftung mit drei Öffnungen flach auf Holzfläche montiert 40 mm Durchmesser"
+  - "Messinglüftung mit drei Öffnungen daneben Zollstock zeigt Maßangabe von knapp vier Zentimetern"
+  - "Runde Messinglüftung mit drei Öffnungen schräg von unten fotografiert auf Holzfläche"
 price: "46,22 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -47,9 +47,9 @@ Hohe ca. 12 mm
 
 ## Bilder
 
-![](blr7-1.png)
-![](blr7-2.png)
-![](blr7-3.png)
+![Runde Messinglüftung mit drei Öffnungen flach auf Holzfläche montiert 40 mm Durchmesser](blr7-1.png)
+![Messinglüftung mit drei Öffnungen daneben Zollstock zeigt Maßangabe von knapp vier Zentimetern](blr7-2.png)
+![Runde Messinglüftung mit drei Öffnungen schräg von unten fotografiert auf Holzfläche](blr7-3.png)
 
 ## SEO-Metadaten
 

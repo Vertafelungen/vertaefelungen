@@ -15,11 +15,11 @@ bilder:
   - blr1-4.png
   - blr1-5.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
-  - ""
-  - ""
+  - "Belüftungsrosette aus Messing mit Vierpass-Durchbruch"
+  - "montiert in Holzverkleidung"
+  - "Nahaufnahme"
+  - "Belüftungsrosette aus Messing mit Vierpass-Durchbruch"
+  - "neben Maßband zur Größenreferenz"
 price: "54,62 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -51,11 +51,11 @@ Höhe ca. 5 mm
 
 ## Bilder
 
-![](blr1-1.png)
-![](blr1-2.png)
-![](blr1-3.png)
-![](blr1-4.png)
-![](blr1-5.png)
+![Belüftungsrosette aus Messing mit Vierpass-Durchbruch](blr1-1.png)
+![montiert in Holzverkleidung](blr1-2.png)
+![Nahaufnahme](blr1-3.png)
+![Belüftungsrosette aus Messing mit Vierpass-Durchbruch](blr1-4.png)
+![neben Maßband zur Größenreferenz](blr1-5.png)
 
 ## SEO-Metadaten
 

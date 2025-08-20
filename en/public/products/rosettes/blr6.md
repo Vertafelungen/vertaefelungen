@@ -13,9 +13,9 @@ bilder:
   - blr6-2.png
   - blr6-3.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
+  - "Round brass ventilation disc with eight slots"
+  - "mounted on wooden surface"
+  - "front view"
 price: "49,58 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -47,9 +47,9 @@ Hight approx 11 mm
 
 ## Bilder
 
-![](blr6-1.png)
-![](blr6-2.png)
-![](blr6-3.png)
+![Round brass ventilation disc with eight slots](blr6-1.png)
+![mounted on wooden surface](blr6-2.png)
+![front view](blr6-3.png)
 
 ## SEO-Metadaten
 

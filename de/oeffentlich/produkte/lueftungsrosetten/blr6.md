@@ -13,9 +13,9 @@ bilder:
   - blr6-2.png
   - blr6-3.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
+  - "Runde Lüftungsscheibe aus Messing mit acht Schlitzen"
+  - "montiert auf Holzfläche"
+  - "frontal aufgenommen"
 price: "49,58 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -47,9 +47,9 @@ Hohe ca. 11 mm
 
 ## Bilder
 
-![](blr6-1.png)
-![](blr6-2.png)
-![](blr6-3.png)
+![Runde Lüftungsscheibe aus Messing mit acht Schlitzen](blr6-1.png)
+![montiert auf Holzfläche](blr6-2.png)
+![frontal aufgenommen](blr6-3.png)
 
 ## SEO-Metadaten
 

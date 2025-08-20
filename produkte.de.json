@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "generated": "2025-08-19T05:32:17.828620",
+  "generated": "2025-08-20T05:32:06.304818",
   "items": [
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/klassikgruen.md",
@@ -511,7 +511,16 @@
         "p0015-07.png",
         "p0015-08.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Klassizistische Wandvertäfelung aus der Alten Nationalgalerie Berlin rechteckiges Paneel 595 mm",
+        "Klassizistische Wandvertäfelung Alte Nationalgalerie Berlin Gesamtansicht Raum mit Paneelen",
+        "Klassizistische Wandvertäfelung Alte Nationalgalerie Berlin Eckansicht mit profilierter Rahmenstruktur",
+        "Klassizistische Wandvertäfelung Alte Nationalgalerie Berlin Detailansicht mit profilierter Ecksituation",
+        "Klassizistische Wandvertäfelung Alte Nationalgalerie Berlin Seitenansicht eines Paneels mit Profilrahmen",
+        "Ausstellungsraum Alte Nationalgalerie Berlin mit klassizistischer Wandvertäfelung grauer Sockelzone Parkettboden und Gemälden an weißen Wänden",
+        "Detailansicht Ausstellungsraum Alte Nationalgalerie Berlin mit klassizistischer Wandvertäfelung grauer Sockelzone Parkettboden",
+        "Ausstellungsraum Alte Nationalgalerie Berlin mit grauer klassizistischer Sockelvertäfelung Parkettboden und zwei Gemälden"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007.md",
@@ -525,7 +534,11 @@
         "sl0007-2.png",
         "sl0007-3.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Sockelleiste vierteilig 450 mm Neobarock Jugendstil Mischung Wagner Salons Augustiner München",
+        "Sockelleiste vierteilig 450 mm Neobarock Jugendstil Mischung Eckansicht Wagner Salons Augustiner",
+        "Sockelleiste vierteilig 450 mm Neobarock Jugendstil Mischung Wandansicht Gehrung Wagner Salons Augustiner"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007-ie.md",
@@ -548,7 +561,10 @@
         "sl0005-1.png",
         "sl0005-2.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Sockelleiste SOL 0005 abgerundet 16/80 in Raumecke mit Wandansicht und Profilquerschnitt",
+        "Sockelleiste SOL 0005 abgerundet 16/80 in technischer Darstellung mit Höhe 80 mm"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007-ae.md",
@@ -571,7 +587,10 @@
         "sl0001-1.png",
         "sl0001-2.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Technische Zeichnung einer Hamburger Sockelleiste 25/170 mit 170 mm Höhe und markantem Profil",
+        "Detaillierte Darstellung der Hamburger Sockelleiste 25/170 in einer Raumecke mit Profilansicht und Wandmontage"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0002.md",
@@ -584,7 +603,13 @@
         "sl0002-1.png",
         "sl0002-2.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Sockelleiste Hamburger Leiste 25/120 mit geschwungener Profilkante",
+        "Höhe 120 mm",
+        "technische Zeichnung",
+        "Sockelleiste Hamburger Leiste 25/120 montiert an einer weißen Wand in einer Raumecke",
+        "klassische Form mit profiliertem oberen Abschluss"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0003.md",
@@ -597,7 +622,12 @@
         "sl0003-1.png",
         "sl0003-2.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Kreuzberger Sockelleiste 28/165 montiert in Raumecke",
+        "umlaufende hohe Profilleiste mit Schattenwirkung",
+        "Technische Zeichnung Kreuzberger Sockelleiste 28/165",
+        "Profilansicht mit Höhenmaß 165 mm und klarer Kontur"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0004.md",
@@ -610,7 +640,10 @@
         "sl0004-1.png",
         "sl0004-4.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Freigestellte technische Zeichnung einer zweiteiligen Sockelleiste SOL0004 mit 175 mm Höhe und gestuftem Profil",
+        "Sockelleiste SOL0004 zweiteilig 45/175 montiert in einer Raumecke als technische Darstellung mit sichtbarem Profilverlauf"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0006.md",
@@ -623,7 +656,10 @@
         "sl0006-1.png",
         "sl0006-2.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Freigestellte technische Zeichnung der Karniesleiste SOL0006 58/18 mit klarer Profilkontur und Maßangabe 58 mm",
+        "Raumansicht mit montierter Karniesleiste SOL0006 58/18 als dezente Wandabschlussleiste in Innenraumecke"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr3.md",
@@ -639,12 +675,18 @@
         "blr3-4.png",
         "blr3-5.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Belüftungsrosette BLR3 aus Messing auf Holzfläche montiert",
+        "Belüftungsrosette BLR3 aus Messing mit Maßband zur Größenangabe",
+        "Belüftungsrosette BLR3 in Messing flach auf Holzuntergrund liegend",
+        "historische Belüftungsrosette BLR3 aus Messing in gealterter Holzvertäfelung",
+        "Belüftungsrosette BLR3 Messingrosette in kompletter Holzvertäfelung eingesetzt"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr4.md",
       "slug": "blr4",
-      "category": "Lüftungsrosetten",
+      "category": "Artikel, Lüftungsrosetten",
       "title": "Lüftungsrosette 4",
       "has_yaml": true,
       "summary": "Formschöne Lüftungsrosette für Vertäfelungen. Messing gefräst, Oberfläche geschlichtet Durchmesser 45 mm Höhe ca. 4 mm",
@@ -653,7 +695,11 @@
         "blr4-2.png",
         "blr4-3.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Messing-Lüftungsrosette mit fünfblättriger Öffnung montiert auf Holzfläche",
+        "Messing-Lüftungsrosette mit Maßstab zur Größenangabe auf Holzfläche",
+        "Messing-Lüftungsrosette mit fünf Öffnungen flach liegend auf Holzfläche fotografiert"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr1.md",
@@ -669,7 +715,18 @@
         "blr1-4.png",
         "blr1-5.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Belüftungsrosette aus Messing mit Vierpass-Durchbruch",
+        "montiert in Holzverkleidung",
+        "Nahaufnahme",
+        "Belüftungsrosette aus Messing mit Vierpass-Durchbruch",
+        "neben Maßband zur Größenreferenz",
+        "Belüftungsrosette aus Messing mit Vierpass-Durchbruch",
+        "Seitenansicht flach auf Holzfläche montiert",
+        "Holzvertäfelung mit eingelassenen Belüftungsrosetten aus Messing in historischer Anwendung",
+        "Originale historische Belüftungsrosette aus Messing mit Patina",
+        "eingelassen in dunkle Holzvertäfelung"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr2.md",
@@ -685,7 +742,13 @@
         "blr2-4.png",
         "blr2-5.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Messing-Lüftungsrosette mit verschlungenem Rankenornament auf Holzplatte",
+        "Messing-Lüftungsrosette mit Maßstab zur Größenangabe auf Holzplatte",
+        "Messing-Lüftungsrosette seitlich fotografiert mit Reliefstruktur",
+        "historische Patina-Lüftungsrosette in dunkler Holzvertäfelung eingelassen",
+        "Holzvertäfelung mit mehreren eingelassenen Lüftungsrosetten in gleichmäßigem Raster"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr5.md",
@@ -699,7 +762,11 @@
         "blr5-3.png",
         "blr5-2.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Rundes Messing-Lüftungsgitter mit neun tropfenförmigen Öffnungen und mittiger Schraube",
+        "Messing-Lüftungsgitter mit neun Öffnungen neben Zollstockmaß ca. fünf Zentimeter auf Holz",
+        "Rundes Messing-Lüftungsgitter mit neun Öffnungen im Schräglicht von der Seite fotografiert"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr6.md",
@@ -713,7 +780,15 @@
         "blr6-2.png",
         "blr6-3.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Runde Lüftungsscheibe aus Messing mit acht Schlitzen",
+        "montiert auf Holzfläche",
+        "frontal aufgenommen",
+        "Runde Lüftungsscheibe aus Messing mit acht Schlitzen",
+        "daneben Zollstock zur Maßangabe sichtbar",
+        "Runde Lüftungsscheibe aus Messing mit gewölbter Form",
+        "seitlich auf Holzfläche montiert dargestellt"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr7.md",
@@ -727,7 +802,11 @@
         "blr7-2.png",
         "blr7-3.png"
       ],
-      "images_alt": []
+      "images_alt": [
+        "Runde Messinglüftung mit drei Öffnungen flach auf Holzfläche montiert 40 mm Durchmesser",
+        "Messinglüftung mit drei Öffnungen daneben Zollstock zeigt Maßangabe von knapp vier Zentimetern",
+        "Runde Messinglüftung mit drei Öffnungen schräg von unten fotografiert auf Holzfläche"
+      ]
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr06.md",

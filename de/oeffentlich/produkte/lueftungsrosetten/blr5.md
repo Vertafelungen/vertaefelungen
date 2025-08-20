@@ -13,9 +13,9 @@ bilder:
   - blr5-3.png
   - blr5-2.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
+  - "Rundes Messing-Lüftungsgitter mit neun tropfenförmigen Öffnungen und mittiger Schraube"
+  - "Messing-Lüftungsgitter mit neun Öffnungen neben Zollstockmaß ca. fünf Zentimeter auf Holz"
+  - "Rundes Messing-Lüftungsgitter mit neun Öffnungen im Schräglicht von der Seite fotografiert"
 price: "54,62 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -47,9 +47,9 @@ Hohe ca. 13 mm
 
 ## Bilder
 
-![](blr5-1.png)
-![](blr5-3.png)
-![](blr5-2.png)
+![Rundes Messing-Lüftungsgitter mit neun tropfenförmigen Öffnungen und mittiger Schraube](blr5-1.png)
+![Messing-Lüftungsgitter mit neun Öffnungen neben Zollstockmaß ca. fünf Zentimeter auf Holz](blr5-3.png)
+![Rundes Messing-Lüftungsgitter mit neun Öffnungen im Schräglicht von der Seite fotografiert](blr5-2.png)
 
 ## SEO-Metadaten
 

@@ -15,11 +15,11 @@ bilder:
   - blr1-4.png
   - blr1-5.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
-  - ""
-  - ""
+  - "Brass ventilation rosette with quatrefoil cutout"
+  - "mounted in wood panelling"
+  - "close-up view"
+  - "Brass ventilation rosette with quatrefoil cutout"
+  - "shown beside tape measure for size reference"
 price: "54,62 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -51,11 +51,11 @@ Hight approx 5 mm
 
 ## Bilder
 
-![](blr1-1.png)
-![](blr1-2.png)
-![](blr1-3.png)
-![](blr1-4.png)
-![](blr1-5.png)
+![Brass ventilation rosette with quatrefoil cutout](blr1-1.png)
+![mounted in wood panelling](blr1-2.png)
+![close-up view](blr1-3.png)
+![Brass ventilation rosette with quatrefoil cutout](blr1-4.png)
+![shown beside tape measure for size reference](blr1-5.png)
 
 ## SEO-Metadaten
 

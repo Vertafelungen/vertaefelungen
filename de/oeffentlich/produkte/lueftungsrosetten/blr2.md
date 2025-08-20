@@ -15,11 +15,11 @@ bilder:
   - blr2-4.png
   - blr2-5.png
 bilder_alt:
-  - ""
-  - ""
-  - ""
-  - ""
-  - ""
+  - "Messing-Lüftungsrosette mit verschlungenem Rankenornament auf Holzplatte"
+  - "Messing-Lüftungsrosette mit Maßstab zur Größenangabe auf Holzplatte"
+  - "Messing-Lüftungsrosette seitlich fotografiert mit Reliefstruktur"
+  - "historische Patina-Lüftungsrosette in dunkler Holzvertäfelung eingelassen"
+  - "Holzvertäfelung mit mehreren eingelassenen Lüftungsrosetten in gleichmäßigem Raster"
 price: "49,58 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -51,11 +51,11 @@ Hohe ca. 3 mm
 
 ## Bilder
 
-![](blr2-1.png)
-![](blr2-2.png)
-![](blr2-3.png)
-![](blr2-4.png)
-![](blr2-5.png)
+![Messing-Lüftungsrosette mit verschlungenem Rankenornament auf Holzplatte](blr2-1.png)
+![Messing-Lüftungsrosette mit Maßstab zur Größenangabe auf Holzplatte](blr2-2.png)
+![Messing-Lüftungsrosette seitlich fotografiert mit Reliefstruktur](blr2-3.png)
+![historische Patina-Lüftungsrosette in dunkler Holzvertäfelung eingelassen](blr2-4.png)
+![Holzvertäfelung mit mehreren eingelassenen Lüftungsrosetten in gleichmäßigem Raster](blr2-5.png)
 
 ## SEO-Metadaten
 
