@@ -36,6 +36,11 @@ COL_EXPORT_EN = "export_pfad_en"
 COL_SLUG_DE   = "slug_de"
 COL_SLUG_EN   = "slug_en"
 
+# Neue Felder für source + Aktualisierungsstand
+COL_SOURCE_DE = "source_de"
+COL_SOURCE_EN = "source_en"
+COL_LAST_UPDATED = "last_updated"
+
 # Alttext-Spalten (Q/R)
 COL_ALT_DE = "bilder_alt_de"
 COL_ALT_EN = "bilder_alt_en"
