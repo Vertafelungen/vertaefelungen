@@ -40,6 +40,12 @@ resp.raise_for_status()
 csv_bytes = BytesIO(resp.content)
 df = pd.read_csv(csv_bytes, encoding="utf-8")
 
+
+    # ===== FIXED METADATA =====
+    author = "Tobias Klaus"
+    author_url = "https://www.vertaefelungen.de/de/content/4-uber-uns"
+    license_info = "CC BY-SA 4.0"
+
 # ===== HELPERS =====
 def yaml_list(val):
     if pd.isna(val) or str(val).strip() == "":
