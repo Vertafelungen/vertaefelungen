@@ -9,7 +9,7 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # erlaubt Commit/Push mit GITHUB_TOKEN
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -26,7 +26,7 @@ jobs:
 
       - name: Run sync-from-sheet.py
         env:
-          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}  # optional override per Secret
+          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
         run: |
           python sync-from-sheet.py
 
@@ -34,11 +34,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
           git add -A
-          if git diff --cached --quiet; then
-            echo "No changes to commit."
-          else
+          git diff --cached --quiet && echo "No changes to commit." || (
+            git pull --rebase origin main
             git commit -m "chore(sync): update markdown + produkte JSON ($(date -u +'%Y-%m-%dT%H:%M:%SZ'))"
             git push origin main
-          fi
+          )
