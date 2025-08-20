@@ -1,3 +1,21 @@
+
+def format_varianten_md(yaml_text):
+    try:
+        eintraege = yaml.safe_load(yaml_text)
+        if not isinstance(eintraege, list):
+            return "_Keine Varianten verfügbar._"
+        lines = ["## Varianten", ""]
+        for eintrag in eintraege:
+            bez = eintrag.get("bezeichnung", "").strip()
+            preis = eintrag.get("preis_aufschlag", "").strip()
+            if bez or preis:
+                lines.append(f"- **{bez}** (Aufschlag: {preis})")
+        lines.append("")  # Leerzeile zum Abschluss
+        return "\n".join(lines)
+    except Exception:
+        return "_Varianten konnten nicht geladen werden._"
+
+
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
