@@ -22,17 +22,18 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Citrus terpene
-==============
+# Citrus terpene
 
 Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and dissolve resins. Citrus terpene has a pleasant orange odour as it is obtained from the distillation of orange peel. It is also particularly suitable for ecological wood coatings. It is absolutely CO2 neutral, as it only releases as much CO2 as it has absorbed during growth.
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: CTP
 - Preis: 20,17 €
@@ -40,24 +41,22 @@ Technische Daten
 - Kategorie: Artikel, Leinöl, Tungöl, Balsam
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-- **1 Liter** (Aufschlag: 0,00 €)
-- **5 Liter** (Aufschlag: 80,67 €)
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 80,67 €
 
-Bilder
-------
+## Bilder
 
 ![](ctp.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: Citrus terpene
 - meta_description: Citrus terpenes – natural orange oil solvent for thinning oils & cleaning tools. Biodegradable, effective, and pleasantly scented.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

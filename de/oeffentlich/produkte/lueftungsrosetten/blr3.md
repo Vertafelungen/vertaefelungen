@@ -5,11 +5,7 @@ reference: "BLR 3"
 titel: "Lüftungsrosette 3"
 kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
-  Messingguss, poliert
-  
-  Durchmesser ca. 36 mm
-  Hohe ca. 3 mm
+  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 36 mm Hohe ca. 3 mm
 meta_title: "blr3 – Lüftungsrosette für Vertäfelungen, nach Originalvorl"
 meta_description: "Lüftungsrosette für Holzvertäfelungen"
 bilder:
@@ -31,12 +27,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Lüftungsrosette 3
-=================
+# Lüftungsrosette 3
 
 Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert
@@ -44,8 +42,7 @@ Messingguss, poliert
 Durchmesser ca. 36 mm
 Hohe ca. 3 mm
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BLR 3
 - Preis: 49,58 €
@@ -53,15 +50,11 @@ Technische Daten
 - Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-```yaml
     []
-```
 
-Bilder
-------
+## Bilder
 
 ![Belüftungsrosette BLR3 aus Messing auf Holzfläche montiert](blr3-1.png)
 ![Belüftungsrosette BLR3 aus Messing mit Maßband zur Größenangabe](blr3-2.png)
@@ -69,13 +62,11 @@ Bilder
 ![historische Belüftungsrosette BLR3 aus Messing in gealterter Holzvertäfelung](blr3-4.png)
 ![Belüftungsrosette BLR3 Messingrosette in kompletter Holzvertäfelung eingesetzt](blr3-5.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: blr3 – Lüftungsrosette für Vertäfelungen, nach Originalvorl
 - meta_description: Lüftungsrosette für Holzvertäfelungen
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

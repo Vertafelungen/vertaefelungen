@@ -5,11 +5,7 @@ reference: "Beeck SIP Ocker"
 titel: "Ockergelb - BEECK Standölinnenfarbe PRO"
 kategorie: "Artikel, STANDÖLINNENFARBE PRO Volltonfarben"
 beschreibung: >
-  BEECK Standölinnenfarbe PRO
-  Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
-  
-  Verwendungszweck
-  Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
+  BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
 meta_title: "Ocker, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich"
 meta_description: "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen."
 bilder:
@@ -38,12 +34,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Ockergelb - BEECK Standölinnenfarbe PRO
-=======================================
+# Ockergelb - BEECK Standölinnenfarbe PRO
 
 BEECK Standölinnenfarbe PRO
 Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
@@ -51,8 +49,7 @@ Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgra
 Verwendungszweck
 Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: Beeck SIP Ocker
 - Preis: 57,15 €
@@ -60,30 +57,32 @@ Technische Daten
 - Kategorie: Artikel, STANDÖLINNENFARBE PRO Volltonfarben
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-- **0,75 L, seidenmatt** (Aufschlag: 0,00 €)
-- **0,75 L, seidenglanz** (Aufschlag: 0,00 €)
-- **2,5 L, seidenmatt** (Aufschlag: 102,35 €)
-- **2,5 L, seidenglanz** (Aufschlag: 102,35 €)
-- **10 L, seidenmatt** (Aufschlag: 556,35 €)
-- **10 L, seidenglanz** (Aufschlag: 556,35 €)
+  - bezeichnung: 0,75 L, seidenmatt
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenglanz
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 2,5 L, seidenmatt
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenglanz
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 10 L, seidenmatt
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenglanz
+    preis_aufschlag: 556,35 €
 
-Bilder
-------
+## Bilder
 
 ![](ocker.png)
 ![](ocker-farbfaecher.png)
 ![](sip_gebinde.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: Ocker, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich
 - meta_description: Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

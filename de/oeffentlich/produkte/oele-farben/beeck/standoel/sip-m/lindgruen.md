@@ -5,11 +5,7 @@ reference: "Beeck SIP Lindgrün"
 titel: "Lindgrün - BEECK Standölinnenfarbe PRO"
 kategorie: "Artikel, STANDÖLINNENFARBE PRO Mischtöne"
 beschreibung: >
-  BEECK Standölinnenfarbe PRO
-  Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
-  
-  Verwendungszweck
-  Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
+  BEECK Standölinnenfarbe PRO Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
 meta_title: "Standölfarbe Lindgrün, deckend, für Holz im Innenbereich"
 meta_description: "BEECK Standölinnenfarbe PRO Lindgrün – Profi-Leinöllack für Maler & Restauratoren. Denkmalgerecht, ökologisch, seidenmatt oder seidenglänzend."
 bilder:
@@ -66,12 +62,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro-mischtoene/113-504-klassikgruen.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt/73-klassikgrun-klassikgrun_01"
+last_updated: "2025-08-20"
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Lindgrün - BEECK Standölinnenfarbe PRO
-======================================
+# Lindgrün - BEECK Standölinnenfarbe PRO
 
 BEECK Standölinnenfarbe PRO
 Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
@@ -79,8 +77,7 @@ Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich
 Verwendungszweck
 Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: Beeck SIP Lindgrün
 - Preis: 57,15 €
@@ -88,30 +85,46 @@ Technische Daten
 - Kategorie: Artikel, STANDÖLINNENFARBE PRO Mischtöne
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-- **0,75 L, seidenmatt, Lindgrün 01** (Aufschlag: 0,00 €)
-- **0,75 L, seidenmatt, Klassikgrün 02** (Aufschlag: 0,00 €)
-- **0,75 L, seidenmatt, Klassikgrün 03** (Aufschlag: 0,00 €)
-- **0,75 L, seidenglanz, Klassikgrün 01** (Aufschlag: 0,00 €)
-- **0,75 L, seidenglanz, Klassikgrün 02** (Aufschlag: 0,00 €)
-- **0,75 L, seidenglanz, Klassikgrün 03** (Aufschlag: 0,00 €)
-- **2,5 L, seidenmatt, Klassikgrün 01** (Aufschlag: 102,35 €)
-- **2,5 L, seidenmatt, Klassikgrün 02** (Aufschlag: 102,35 €)
-- **2,5 L, seidenmatt, Klassikgrün 03** (Aufschlag: 102,35 €)
-- **2,5 L, seidenglanz, Klassikgrün 01** (Aufschlag: 102,35 €)
-- **2,5 L, seidenglanz, Klassikgrün 02** (Aufschlag: 102,35 €)
-- **2,5 L, seidenglanz, Klassikgrün 03** (Aufschlag: 102,35 €)
-- **10 L, seidenmatt, Klassikgrün 01** (Aufschlag: 556,35 €)
-- **10 L, seidenmatt, Klassikgrün 02** (Aufschlag: 556,35 €)
-- **10 L, seidenmatt, Klassikgrün 03** (Aufschlag: 556,35 €)
-- **10 L, seidenglanz, Klassikgrün 01** (Aufschlag: 556,35 €)
-- **10 L, seidenglanz, Klassikgrün 02** (Aufschlag: 556,35 €)
-- **10 L, seidenglanz, Klassikgrün 03** (Aufschlag: 556,35 €)
+  - bezeichnung: 0,75 L, seidenmatt, Lindgrün 01
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 02
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 03
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 01
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 02
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 03
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 01
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 02
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 03
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 01
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 02
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 03
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 10 L, seidenmatt, Klassikgrün 01
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenmatt, Klassikgrün 02
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenmatt, Klassikgrün 03
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenglanz, Klassikgrün 01
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenglanz, Klassikgrün 02
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenglanz, Klassikgrün 03
+    preis_aufschlag: 556,35 €
 
-Bilder
-------
+## Bilder
 
 ![Lindgrün Farbtonmuster 01](lindgruen01.png)
 ![Lindgrün Farbtonmuster 02](lindgruen02.png)
@@ -119,13 +132,11 @@ Bilder
 ![Farbvergleich Lindgrün 01–03 mit Rezepturen](lindgruen-farbfaecher.png)
 ![Gebinde Standölinnenfarbe Pro 2](sip_gebinde.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: Standölfarbe Lindgrün, deckend, für Holz im Innenbereich
 - meta_description: BEECK Standölinnenfarbe PRO Lindgrün – Profi-Leinöllack für Maler & Restauratoren. Denkmalgerecht, ökologisch, seidenmatt oder seidenglänzend.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

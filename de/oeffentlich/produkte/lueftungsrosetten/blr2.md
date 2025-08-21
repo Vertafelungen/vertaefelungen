@@ -5,11 +5,7 @@ reference: "BLR 2"
 titel: "Lüftungsrosette 2"
 kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
-  Messingguss, poliert
-  
-  Durchmesser ca. 42 mm
-  Hohe ca. 3 mm
+  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 42 mm Hohe ca. 3 mm
 meta_title: "blr2 – Lüftungsrosette für Vertäfelungen, nach Originalvorl"
 meta_description: "Lüftungsrosette für Holzvertäfelungen"
 bilder:
@@ -31,12 +27,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Lüftungsrosette 2
-=================
+# Lüftungsrosette 2
 
 Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert
@@ -44,8 +42,7 @@ Messingguss, poliert
 Durchmesser ca. 42 mm
 Hohe ca. 3 mm
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BLR 2
 - Preis: 49,58 €
@@ -53,15 +50,11 @@ Technische Daten
 - Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-```yaml
     []
-```
 
-Bilder
-------
+## Bilder
 
 ![Messing-Lüftungsrosette mit verschlungenem Rankenornament auf Holzplatte](blr2-1.png)
 ![Messing-Lüftungsrosette mit Maßstab zur Größenangabe auf Holzplatte](blr2-2.png)
@@ -69,13 +62,11 @@ Bilder
 ![historische Patina-Lüftungsrosette in dunkler Holzvertäfelung eingelassen](blr2-4.png)
 ![Holzvertäfelung mit mehreren eingelassenen Lüftungsrosetten in gleichmäßigem Raster](blr2-5.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: blr2 – Lüftungsrosette für Vertäfelungen, nach Originalvorl
 - meta_description: Lüftungsrosette für Holzvertäfelungen
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

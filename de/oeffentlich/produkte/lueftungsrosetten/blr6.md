@@ -5,11 +5,7 @@ reference: "BLR 6"
 titel: "Lüftungsrosette 6"
 kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
-  Messingguss, poliert
-  
-  Durchmesser ca. 46 mm
-  Hohe ca. 11 mm
+  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 46 mm Hohe ca. 11 mm
 meta_title: "blr6 – Lüftungsrosette für Vertäfelungen, nach Originalvorl"
 meta_description: "Lüftungsrosette für Holzvertäfelungen"
 bilder:
@@ -27,12 +23,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Lüftungsrosette 6
-=================
+# Lüftungsrosette 6
 
 Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert
@@ -40,8 +38,7 @@ Messingguss, poliert
 Durchmesser ca. 46 mm
 Hohe ca. 11 mm
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BLR 6
 - Preis: 49,58 €
@@ -49,27 +46,21 @@ Technische Daten
 - Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-```yaml
     []
-```
 
-Bilder
-------
+## Bilder
 
 ![Runde Lüftungsscheibe aus Messing mit acht Schlitzen](blr6-1.png)
 ![montiert auf Holzfläche](blr6-2.png)
 ![frontal aufgenommen](blr6-3.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: blr6 – Lüftungsrosette für Vertäfelungen, nach Originalvorl
 - meta_description: Lüftungsrosette für Holzvertäfelungen
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

@@ -5,8 +5,7 @@ reference: "LÖF"
 titel: "Leinölfirnis"
 kategorie: "Artikel, Leinöl, Tungöl, Balsam"
 beschreibung: >
-  Leinölfirnis mit Sikkativen.
-  Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
+  Leinölfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
 meta_title: "loef – Leinölfirnis mit Sikkativen.Im Innenbereich al"
 meta_description: "Leinölfirnis – oxidativ trocknendes Holzöl für Grundierung, Holzschutz & Restaurierung. Lösemittelfrei, tief eindringend, ideal für innen & außen."
 bilder:
@@ -27,18 +26,19 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Leinölfirnis
-============
+# Leinölfirnis
 
 Leinölfirnis mit Sikkativen.
 Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: LÖF
 - Preis: 13,45 €
@@ -46,26 +46,26 @@ Technische Daten
 - Kategorie: Artikel, Leinöl, Tungöl, Balsam
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-- **1 Liter** (Aufschlag: 0,00 €)
-- **5 Liter** (Aufschlag: 50,42 €)
-- **10 Liter** (Aufschlag: 108,40 €)
-- **20 Liter** (Aufschlag: 226,05 €)
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 50,42 €
+  - bezeichnung: 10 Liter
+    preis_aufschlag: 108,40 €
+  - bezeichnung: 20 Liter
+    preis_aufschlag: 226,05 €
 
-Bilder
-------
+## Bilder
 
 ![](loef.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: loef – Leinölfirnis mit Sikkativen.Im Innenbereich al
 - meta_description: Leinölfirnis – oxidativ trocknendes Holzöl für Grundierung, Holzschutz & Restaurierung. Lösemittelfrei, tief eindringend, ideal für innen & außen.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

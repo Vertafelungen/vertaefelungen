@@ -5,11 +5,7 @@ reference: "BLR 4"
 titel: "Lüftungsrosette 4"
 kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  Formschöne Lüftungsrosette für Vertäfelungen.
-  Messing gefräst, Oberfläche geschlichtet
-  
-  Durchmesser 45 mm
-  Höhe ca. 4 mm
+  Formschöne Lüftungsrosette für Vertäfelungen. Messing gefräst, Oberfläche geschlichtet  Durchmesser 45 mm Höhe ca. 4 mm
 meta_title: "blr4 – Formschöne Lüftungsrosette für Vertäfelungen.M"
 meta_description: "Formschöne Lüftungsrosette für Vertäfelungen. Messing gefräst, Oberfläche geschlichtet. Durchmesser 45 mm. Höhe ca. 4 mm."
 bilder:
@@ -27,12 +23,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Lüftungsrosette 4
-=================
+# Lüftungsrosette 4
 
 Formschöne Lüftungsrosette für Vertäfelungen.
 Messing gefräst, Oberfläche geschlichtet
@@ -40,8 +38,7 @@ Messing gefräst, Oberfläche geschlichtet
 Durchmesser 45 mm
 Höhe ca. 4 mm
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BLR 4
 - Preis: 41,18 €
@@ -49,27 +46,21 @@ Technische Daten
 - Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-```yaml
     []
-```
 
-Bilder
-------
+## Bilder
 
 ![Messing-Lüftungsrosette mit fünfblättriger Öffnung montiert auf Holzfläche](blr4-1.png)
 ![Messing-Lüftungsrosette mit Maßstab zur Größenangabe auf Holzfläche](blr4-2.png)
 ![Messing-Lüftungsrosette mit fünf Öffnungen flach liegend auf Holzfläche fotografiert](blr4-3.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: blr4 – Formschöne Lüftungsrosette für Vertäfelungen.M
 - meta_description: Formschöne Lüftungsrosette für Vertäfelungen. Messing gefräst, Oberfläche geschlichtet. Durchmesser 45 mm. Höhe ca. 4 mm.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

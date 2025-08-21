@@ -5,11 +5,7 @@ reference: "BLR 7"
 titel: "Lüftungsrosette 7"
 kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
-  Messingguss, poliert
-  
-  Durchmesser ca. 28 mm
-  Hohe ca. 12 mm
+  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 28 mm Hohe ca. 12 mm
 meta_title: "blr7 – Lüftungsrosette für Vertäfelungen, nach Originalvorl"
 meta_description: "Lüftungsrosette für Holzvertäfelungen"
 bilder:
@@ -27,12 +23,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Lüftungsrosette 7
-=================
+# Lüftungsrosette 7
 
 Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert
@@ -40,8 +38,7 @@ Messingguss, poliert
 Durchmesser ca. 28 mm
 Hohe ca. 12 mm
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BLR 7
 - Preis: 46,22 €
@@ -49,27 +46,21 @@ Technische Daten
 - Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-```yaml
     []
-```
 
-Bilder
-------
+## Bilder
 
 ![Runde Messinglüftung mit drei Öffnungen flach auf Holzfläche montiert 40 mm Durchmesser](blr7-1.png)
 ![Messinglüftung mit drei Öffnungen daneben Zollstock zeigt Maßangabe von knapp vier Zentimetern](blr7-2.png)
 ![Runde Messinglüftung mit drei Öffnungen schräg von unten fotografiert auf Holzfläche](blr7-3.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: blr7 – Lüftungsrosette für Vertäfelungen, nach Originalvorl
 - meta_description: Lüftungsrosette für Holzvertäfelungen
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

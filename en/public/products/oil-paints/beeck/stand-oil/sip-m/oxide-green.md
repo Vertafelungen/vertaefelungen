@@ -5,11 +5,7 @@ reference: "Beeck SIP Klassikgrün"
 titel: "Oxide Green - BEECK Interior Stand-Oil Paint PRO"
 kategorie: "Artikel, STANDÖLINNENFARBE PRO Mischtöne"
 beschreibung: >
-  Beeck Interior Stand-Oil Paint PRO
-  Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
-  
-  Intended use
-  Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
+  Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.  Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 meta_title: "Oxide Green Interior Stand-Oil Paint PRO from BEECK"
 meta_description: "BEECK Stand Oil Paint PRO – professional linseed oil paint for restorers & painters. Heritage-grade, durable, VOC-compliant. Satin-matt or satin-gloss."
 bilder:
@@ -66,12 +62,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro-mischtoene/112-486-oxidgreen.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin/73-classic_green-classic_green_01"
+last_updated: "2025-08-20"
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Oxide Green - BEECK Interior Stand-Oil Paint PRO
-================================================
+# Oxide Green - BEECK Interior Stand-Oil Paint PRO
 
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
@@ -79,8 +77,7 @@ Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: sa
 Intended use
 Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: Beeck SIP Klassikgrün
 - Preis: 57,15 €
@@ -88,30 +85,46 @@ Technische Daten
 - Kategorie: Artikel, STANDÖLINNENFARBE PRO Mischtöne
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-- **0,75 L, seidenmatt, Klassikgrün 01** (Aufschlag: 0,00 €)
-- **0,75 L, seidenmatt, Klassikgrün 02** (Aufschlag: 0,00 €)
-- **0,75 L, seidenmatt, Klassikgrün 03** (Aufschlag: 0,00 €)
-- **0,75 L, seidenglanz, Klassikgrün 01** (Aufschlag: 0,00 €)
-- **0,75 L, seidenglanz, Klassikgrün 02** (Aufschlag: 0,00 €)
-- **0,75 L, seidenglanz, Klassikgrün 03** (Aufschlag: 0,00 €)
-- **2,5 L, seidenmatt, Klassikgrün 01** (Aufschlag: 102,35 €)
-- **2,5 L, seidenmatt, Klassikgrün 02** (Aufschlag: 102,35 €)
-- **2,5 L, seidenmatt, Klassikgrün 03** (Aufschlag: 102,35 €)
-- **2,5 L, seidenglanz, Klassikgrün 01** (Aufschlag: 102,35 €)
-- **2,5 L, seidenglanz, Klassikgrün 02** (Aufschlag: 102,35 €)
-- **2,5 L, seidenglanz, Klassikgrün 03** (Aufschlag: 102,35 €)
-- **10 L, seidenmatt, Klassikgrün 01** (Aufschlag: 556,35 €)
-- **10 L, seidenmatt, Klassikgrün 02** (Aufschlag: 556,35 €)
-- **10 L, seidenmatt, Klassikgrün 03** (Aufschlag: 556,35 €)
-- **10 L, seidenglanz, Klassikgrün 01** (Aufschlag: 556,35 €)
-- **10 L, seidenglanz, Klassikgrün 02** (Aufschlag: 556,35 €)
-- **10 L, seidenglanz, Klassikgrün 03** (Aufschlag: 556,35 €)
+  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 01
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 02
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 03
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 01
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 02
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 03
+    preis_aufschlag: 0,00 €
+  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 01
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 02
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 03
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 01
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 02
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 03
+    preis_aufschlag: 102,35 €
+  - bezeichnung: 10 L, seidenmatt, Klassikgrün 01
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenmatt, Klassikgrün 02
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenmatt, Klassikgrün 03
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenglanz, Klassikgrün 01
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenglanz, Klassikgrün 02
+    preis_aufschlag: 556,35 €
+  - bezeichnung: 10 L, seidenglanz, Klassikgrün 03
+    preis_aufschlag: 556,35 €
 
-Bilder
-------
+## Bilder
 
 ![Stand linseed interior paint pro – color Klassikgruen](klassikgruen01.png)
 ![packshot](klassikgruen02.png)
@@ -119,13 +132,11 @@ Bilder
 ![side view of can](klassikgruen-farbfaecher.png)
 ![Stand linseed interior paint pro – Klassikgruen](sip_gebinde.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: Oxide Green Interior Stand-Oil Paint PRO from BEECK
 - meta_description: BEECK Stand Oil Paint PRO – professional linseed oil paint for restorers & painters. Heritage-grade, durable, VOC-compliant. Satin-matt or satin-gloss.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

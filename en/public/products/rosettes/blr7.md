@@ -5,11 +5,7 @@ reference: "BLR 7"
 titel: "Ventilation Rosette 7"
 kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  Elegant ventilation rosette based on an original design.
-  Cast brass, polished
-  
-  Diameter approx. 28 mm
-  Hight approx 12 mm
+  Elegant ventilation rosette based on an original design. Cast brass, polished  Diameter approx. 28 mm Hight approx 12 mm
 meta_title: "Ventilation Rosette 7"
 meta_description: "Elegant ventilation rosette based on an original design. Cast brass, polished. Diameter approx. 28 mm. Hight approx 12 mm."
 bilder:
@@ -27,12 +23,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Ventilation Rosette 7
-=====================
+# Ventilation Rosette 7
 
 Elegant ventilation rosette based on an original design.
 Cast brass, polished
@@ -40,8 +38,7 @@ Cast brass, polished
 Diameter approx. 28 mm
 Hight approx 12 mm
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BLR 7
 - Preis: 46,22 €
@@ -49,27 +46,21 @@ Technische Daten
 - Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-```yaml
     []
-```
 
-Bilder
-------
+## Bilder
 
 ![Round brass vent with three openings flat mounted on wooden surface about 40 mm diameter](blr7-1.png)
 ![Brass vent with three openings with measuring tape beside showing size indication nearly four centimeters](blr7-2.png)
 ![Round brass vent with three openings photographed diagonally from below on wooden surface](blr7-3.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: Ventilation Rosette 7
 - meta_description: Elegant ventilation rosette based on an original design. Cast brass, polished. Diameter approx. 28 mm. Hight approx 12 mm.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

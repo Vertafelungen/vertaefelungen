@@ -5,11 +5,7 @@ reference: "BLR 3"
 titel: "Ventilation Rosette 3"
 kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  Elegant ventilation rosette based on the original design.
-  Cast brass, polished
-  
-  Diameter approx. 36 mm
-  Hight approx 3 mm
+  Elegant ventilation rosette based on the original design. Cast brass, polished  Diameter approx. 36 mm Hight approx 3 mm
 meta_title: "Ventilation Rosette 3"
 meta_description: "Elegant ventilation rosette based on the original design. Cast brass, polished. Diameter approx. 36 mm. Hight approx 3 mm."
 bilder:
@@ -31,12 +27,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Ventilation Rosette 3
-=====================
+# Ventilation Rosette 3
 
 Elegant ventilation rosette based on the original design.
 Cast brass, polished
@@ -44,8 +42,7 @@ Cast brass, polished
 Diameter approx. 36 mm
 Hight approx 3 mm
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BLR 3
 - Preis: 49,58 €
@@ -53,15 +50,11 @@ Technische Daten
 - Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-```yaml
     []
-```
 
-Bilder
-------
+## Bilder
 
 ![Ventilation rosette BLR3 made of brass mounted on wooden surface](blr3-1.png)
 ![Ventilation rosette BLR3 brass with measuring tape for size reference](blr3-2.png)
@@ -69,13 +62,11 @@ Bilder
 ![Historical brass ventilation rosette BLR3 in aged wood paneling](blr3-4.png)
 ![Ventilation rosette BLR3 brass rosette integrated into complete wood paneling](blr3-5.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: Ventilation Rosette 3
 - meta_description: Elegant ventilation rosette based on the original design. Cast brass, polished. Diameter approx. 36 mm. Hight approx 3 mm.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

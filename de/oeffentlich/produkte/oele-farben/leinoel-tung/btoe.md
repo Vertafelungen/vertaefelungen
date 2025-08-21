@@ -5,9 +5,7 @@ reference: "BTÖ"
 titel: "Balsamterpentinöl"
 kategorie: "Artikel, Leinöl, Tungöl, Balsam"
 beschreibung: >
-  Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.
-  Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen.
-  Balsamterpentinöl wird zum Verdünnen von Leinölfarben verwendet.
+  Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird. Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen. Balsamterpentinöl wird zum Verdünnen von Leinölfarben verwendet.
 meta_title: "btoe – Balsamterpentinöl ist ein natürliches Lösungsmittel"
 meta_description: "Balsamterpentinöl – natürliches Lösemittel zum Verdünnen von Leinölprodukten & Reinigen von Pinseln. Ideal für Maler, Restauratoren & Denkmalpflege."
 bilder:
@@ -24,19 +22,20 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Balsamterpentinöl
-=================
+# Balsamterpentinöl
 
 Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.
 Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen.
 Balsamterpentinöl wird zum Verdünnen von Leinölfarben verwendet.
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BTÖ
 - Preis: 13,45 €
@@ -44,24 +43,22 @@ Technische Daten
 - Kategorie: Artikel, Leinöl, Tungöl, Balsam
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-- **5 Liter** (Aufschlag: 50,42 €)
-- **1 Liter** (Aufschlag: 0,00 €)
+  - bezeichnung: 5 Liter
+    preis_aufschlag: 50,42 €
+  - bezeichnung: 1 Liter
+    preis_aufschlag: 0,00 €
 
-Bilder
-------
+## Bilder
 
 ![](btoe.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: btoe – Balsamterpentinöl ist ein natürliches Lösungsmittel
 - meta_description: Balsamterpentinöl – natürliches Lösemittel zum Verdünnen von Leinölprodukten & Reinigen von Pinseln. Ideal für Maler, Restauratoren & Denkmalpflege.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

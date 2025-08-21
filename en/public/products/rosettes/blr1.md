@@ -5,11 +5,7 @@ reference: "BLR 1"
 titel: "Ventilation Rosette 1"
 kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  Elegant ventilation rosette based on an original design.
-  Cast brass, polished
-  
-  Diameter approx. 52 mm
-  Hight approx 5 mm
+  Elegant ventilation rosette based on an original design. Cast brass, polished  Diameter approx. 52 mm Hight approx 5 mm
 meta_title: "Ventilation Rosette 1"
 meta_description: "Elegant ventilation rosette based on an original design. Cast brass, polished. Diameter approx. 52 mm. Hight approx 5 mm."
 bilder:
@@ -31,12 +27,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Ventilation Rosette 1
-=====================
+# Ventilation Rosette 1
 
 Elegant ventilation rosette based on an original design.
 Cast brass, polished
@@ -44,8 +42,7 @@ Cast brass, polished
 Diameter approx. 52 mm
 Hight approx 5 mm
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BLR 1
 - Preis: 54,62 €
@@ -53,15 +50,11 @@ Technische Daten
 - Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-```yaml
     []
-```
 
-Bilder
-------
+## Bilder
 
 ![Brass ventilation rosette with quatrefoil cutout](blr1-1.png)
 ![mounted in wood panelling](blr1-2.png)
@@ -69,13 +62,11 @@ Bilder
 ![Brass ventilation rosette with quatrefoil cutout](blr1-4.png)
 ![shown beside tape measure for size reference](blr1-5.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: Ventilation Rosette 1
 - meta_description: Elegant ventilation rosette based on an original design. Cast brass, polished. Diameter approx. 52 mm. Hight approx 5 mm.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_

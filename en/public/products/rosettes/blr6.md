@@ -5,11 +5,7 @@ reference: "BLR 6"
 titel: "Ventilation Rosette 6"
 kategorie: "Artikel, Lüftungsrosetten"
 beschreibung: >
-  Elegant ventilation rosette based on the original design.
-  Cast brass, polished
-  
-  Diameter approx. 46 mm
-  Hight approx 11 mm
+  Elegant ventilation rosette based on the original design. Cast brass, polished  Diameter approx. 46 mm Hight approx 11 mm
 meta_title: "Ventilation Rosette 6"
 meta_description: "Elegant ventilation rosette based on the original design. Cast brass, polished. Diameter approx. 46 mm. Hight approx 11 mm."
 bilder:
@@ -27,12 +23,14 @@ varianten_yaml: |
 tags: []
 sortierung: ""
 langcode: ""
+author: "Tobias Klaus"
+author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 
-<!-- markdownlint-disable MD013 -->
-
-Ventilation Rosette 6
-=====================
+# Ventilation Rosette 6
 
 Elegant ventilation rosette based on the original design.
 Cast brass, polished
@@ -40,8 +38,7 @@ Cast brass, polished
 Diameter approx. 46 mm
 Hight approx 11 mm
 
-Technische Daten
-----------------
+## Technische Daten
 
 - Referenz: BLR 6
 - Preis: 49,58 €
@@ -49,27 +46,21 @@ Technische Daten
 - Kategorie: Artikel, Lüftungsrosetten
 - Sortierung: 
 
-Varianten
----------
+## Varianten
 
-```yaml
     []
-```
 
-Bilder
-------
+## Bilder
 
 ![Round brass ventilation disc with eight slots](blr6-1.png)
 ![mounted on wooden surface](blr6-2.png)
 ![front view](blr6-3.png)
 
-SEO-Metadaten
--------------
+## SEO-Metadaten
 
 - meta_title: Ventilation Rosette 6
 - meta_description: Elegant ventilation rosette based on the original design. Cast brass, polished. Diameter approx. 46 mm. Hight approx 11 mm.
 
-Tags
-----
+## Tags
 
 _keine Tags hinterlegt_
