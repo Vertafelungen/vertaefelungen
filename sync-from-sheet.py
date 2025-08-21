@@ -6,22 +6,14 @@ produkte.de.json / produkte.en.json with RELATIVE paths (repo-root relative).
 Designed to run locally and in GitHub Actions (daily).
 
 Dependencies: pandas, requests
-Optional: pyyaml (für hübsche Varianten-Aufzählung; sonst Fallback als Codeblock)
 """
 
 import os
-import re
 import json
 import pandas as pd
 import requests
 from datetime import datetime
 from io import BytesIO
-
-# pyyaml ist optional; bei Nichtverfügbarkeit nutzen wir einen Fallback
-try:
-    import yaml  # type: ignore
-except Exception:
-    yaml = None
 
 # ===== FIXED METADATA =====
 author = "Tobias Klaus"
@@ -31,14 +23,13 @@ license_info = "CC BY-SA 4.0"
 # ===== CONFIG =====
 SHEET_CSV_URL = os.getenv(
     "SHEET_CSV_URL",
-    # <- Deine funktionierende URL bleibt erhalten
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv"
 )
 
 # Optional output dir for JSON catalogs (defaults repo root)
 OUTPUT_DIR = os.getenv("OUTPUT_DIR", ".").strip()
 
-# Columns in the Google Sheet (keep existing, including Umlaut handling)
+# Columns in the Google Sheet
 COL_EXPORT_DE = "export_pfad_de"
 COL_EXPORT_EN = "export_pfad_en"
 COL_SLUG_DE   = "slug_de"
@@ -49,7 +40,7 @@ COL_SOURCE_DE = "source_de"
 COL_SOURCE_EN = "source_en"
 COL_LAST_UPDATED = "last_updated"
 
-# Alttext-Spalten (Q/R)
+# Alttext-Spalten
 COL_ALT_DE = "bilder_alt_de"
 COL_ALT_EN = "bilder_alt_en"
 
@@ -72,7 +63,6 @@ def bilder_liste(val):
     return [b.strip() for b in str(val).split(",") if b.strip()]
 
 def alt_liste(val):
-    """Comma-separated alt texts, keep order; empty cells become ''. """
     if pd.isna(val) or not str(val).strip():
         return []
     return [a.strip() for a in str(val).split(",")]
@@ -93,7 +83,6 @@ def format_price(val):
         return ""
 
 def format_varianten_yaml(varianten_str):
-    """Beibehaltener Formatierer (wird als Fallback in Codeblock genutzt)."""
     if not varianten_str or pd.isna(varianten_str):
         return ""
     lines = []
@@ -116,52 +105,7 @@ def _short_summary(text, limit=240):
     s = " ".join(str(text).split())
     return s[:limit]
 
-def _strip_heading_punct(s: str) -> str:
-    """Entfernt MD026-kritische Satzzeichen am Ende einer Überschrift."""
-    return re.sub(r"[.,;:!?]+$", "", s.strip())
-
-def h1_setext(text: str) -> str:
-    t = _strip_heading_punct(text)
-    return f"{t}\n{'=' * len(t)}"
-
-def h2_setext(text: str) -> str:
-    t = _strip_heading_punct(text)
-    return f"{t}\n{'-' * len(t)}"
-
-def varianten_as_bullets(varianten_yaml_raw: str) -> list[str]:
-    """
-    Versucht, die Varianten-YAML in eine Aufzählung zu verwandeln.
-    Fällt andernfalls auf Codeblock-Fallback zurück (leer -> Hinweis).
-    """
-    if not varianten_yaml_raw:
-        return ["_keine Varianten hinterlegt_"]
-
-    if yaml is not None:
-        try:
-            data = yaml.safe_load(varianten_yaml_raw)
-            items = []
-            if isinstance(data, list):
-                for e in data:
-                    bez = (e or {}).get("bezeichnung", "")
-                    preis = format_price((e or {}).get("preis_aufschlag", ""))
-                    if bez or preis:
-                        if preis:
-                            items.append(f"- **{bez}** (Aufschlag: {preis})")
-                        else:
-                            items.append(f"- **{bez}**")
-            if items:
-                return items
-        except Exception:
-            pass
-
-    # Fallback: YAML als Codeblock, damit markdownlint nicht auf Listen-Regeln triggert
-    rendered = format_varianten_yaml(varianten_yaml_raw)
-    if rendered.strip():
-        return ["```yaml", rendered, "```"]
-    return ["_keine Varianten hinterlegt_"]
-
 def build_content(row, lang="de"):
-    # Extract raw fields
     if lang == "de":
         slug = row.get("slug_de", "")
         titel = row.get("titel_de", "")
@@ -174,9 +118,11 @@ def build_content(row, lang="de"):
         bilder_alt = alt_liste(row.get(COL_ALT_DE, ""))
         price = format_price(row.get("price", ""))
         varianten_yaml_raw = row.get("varianten_yaml", "")
+        varianten_yaml = format_varianten_yaml(varianten_yaml_raw)
         tags = yaml_list(row.get("tags", ""))
         sortierung = row.get("sortierung", "")
         langcode = row.get("langcode_de", "")
+        source_url = str(row.get(COL_SOURCE_DE, "") or "").strip()
     else:
         slug = row.get("slug_en", "")
         titel = row.get("titel_en", "")
@@ -189,15 +135,19 @@ def build_content(row, lang="de"):
         bilder_alt = alt_liste(row.get(COL_ALT_EN, ""))
         price = format_price(row.get("price", ""))
         varianten_yaml_raw = row.get("varianten_yaml", "")
+        varianten_yaml = format_varianten_yaml(varianten_yaml_raw)
         tags = yaml_list(row.get("tags", ""))
         sortierung = row.get("sortierung", "")
         langcode = row.get("langcode_en", "")
+        source_url = str(row.get(COL_SOURCE_EN, "") or "").strip()
 
     product_id = row.get("product_id", "")
     reference = row.get("reference", "")
+    last_updated = str(row.get(COL_LAST_UPDATED, "") or "").strip()
 
-    # PREP – Beschreibung unverändert lassen (keine harte Einzeiler-Konvertierung => weniger MD013)
-    beschreibung_text = str(beschreibung) if pd.notna(beschreibung) else ""
+    beschreibung_text = ""
+    if pd.notna(beschreibung):
+        beschreibung_text = str(beschreibung).replace("\n", " ")
     meta_title_text = "" if pd.isna(meta_title) else str(meta_title)
     meta_description_text = "" if pd.isna(meta_description) else str(meta_description)
 
@@ -210,9 +160,7 @@ def build_content(row, lang="de"):
     yaml_lines.append(f"titel: {yaml_safe(titel)}")
     yaml_lines.append(f"kategorie: {yaml_safe(kategorie)}")
     yaml_lines.append("beschreibung: >")
-    # Einrückung für Folded-Block
-    for line in beschreibung_text.splitlines() or [""]:
-        yaml_lines.append(f"  {line}")
+    yaml_lines.append(f"  {beschreibung_text}")
     yaml_lines.append(f"meta_title: {yaml_safe(meta_title_text)}")
     yaml_lines.append(f"meta_description: {yaml_safe(meta_description_text)}")
     yaml_lines.append("bilder:")
@@ -221,7 +169,6 @@ def build_content(row, lang="de"):
             yaml_lines.append(f"  - {b}")
     else:
         yaml_lines.append("  -")
-    # Alttexte parallel ablegen
     yaml_lines.append("bilder_alt:")
     if bilder:
         for i in range(len(bilder)):
@@ -231,33 +178,27 @@ def build_content(row, lang="de"):
         yaml_lines.append("  -")
     yaml_lines.append(f"price: {yaml_safe(price)}")
     yaml_lines.append(f"verfuegbar: {yaml_safe(verfuegbar)}")
-    # Rohvarianten in YAML (unverändert im Frontmatter behalten)
     yaml_lines.append("varianten_yaml: |")
-    rendered_varianten_yaml = format_varianten_yaml(varianten_yaml_raw)
-    yaml_lines.append(rendered_varianten_yaml if rendered_varianten_yaml else "  ")
+    yaml_lines.append(varianten_yaml if varianten_yaml else "  ")
     yaml_lines.append(f"tags: {tags if tags else '[]'}")
     yaml_lines.append(f"sortierung: {yaml_safe(sortierung)}")
     yaml_lines.append(f"langcode: {yaml_safe(langcode)}")
+    # neue Felder
+    yaml_lines.append(f"author: {yaml_safe(author)}")
+    yaml_lines.append(f"author_url: {yaml_safe(author_url)}")
+    yaml_lines.append(f"license: {yaml_safe(license_info)}")
+    yaml_lines.append(f"source: {yaml_safe(source_url)}")
+    yaml_lines.append(f"last_updated: {yaml_safe(last_updated)}")
     yaml_lines.append("---")
     yaml_block = "\n".join(yaml_lines)
 
-    # Markdown body (lint-freundlich)
+    # Markdown body
     body_parts = []
-    # --- Hinweis für markdownlint: MD013 global für diese Datei aus
-    body_parts.append("<!-- markdownlint-disable MD013 -->")
+    body_parts.append(f"# {titel}")
     body_parts.append("")
-
-    # H1 (Setext) – MD003-konform, MD026-sicher
-    body_parts.append(h1_setext(str(titel)))
+    body_parts.append(str(beschreibung if pd.notna(beschreibung) else ""))
     body_parts.append("")
-
-    # Freitext-Beschreibung (so wie im Sheet; keine erzwungene Einzeile)
-    if beschreibung_text.strip():
-        body_parts.append(beschreibung_text.strip())
-        body_parts.append("")
-
-    # Technische Daten (H2 Setext + Liste, Leerzeilen drumherum)
-    body_parts.append(h2_setext("Technische Daten"))
+    body_parts.append("## Technische Daten")
     body_parts.append("")
     body_parts.append(f"- Referenz: {reference}")
     body_parts.append(f"- Preis: {price}")
@@ -265,15 +206,11 @@ def build_content(row, lang="de"):
     body_parts.append(f"- Kategorie: {kategorie}")
     body_parts.append(f"- Sortierung: {sortierung}")
     body_parts.append("")
-
-    # Varianten (H2 Setext + Liste/Codeblock)
-    body_parts.append(h2_setext("Varianten"))
+    body_parts.append("## Varianten")
     body_parts.append("")
-    body_parts.extend(varianten_as_bullets(varianten_yaml_raw))
+    body_parts.append(varianten_yaml if varianten_yaml else "_keine Varianten hinterlegt_")
     body_parts.append("")
-
-    # Bilder
-    body_parts.append(h2_setext("Bilder"))
+    body_parts.append("## Bilder")
     body_parts.append("")
     if bilder:
         for i, b in enumerate(bilder):
@@ -282,16 +219,12 @@ def build_content(row, lang="de"):
     else:
         body_parts.append("_keine Bilder hinterlegt_")
     body_parts.append("")
-
-    # SEO
-    body_parts.append(h2_setext("SEO-Metadaten"))
+    body_parts.append("## SEO-Metadaten")
     body_parts.append("")
     body_parts.append(f"- meta_title: {meta_title_text}")
     body_parts.append(f"- meta_description: {meta_description_text}")
     body_parts.append("")
-
-    # Tags
-    body_parts.append(h2_setext("Tags"))
+    body_parts.append("## Tags")
     body_parts.append("")
     body_parts.append(", ".join(tags) if tags else "_keine Tags hinterlegt_")
     body_parts.append("")
@@ -299,16 +232,21 @@ def build_content(row, lang="de"):
     content = yaml_block + "\n\n" + "\n".join(body_parts)
 
     json_item = {
-        "path": "",  # will be set relative to repo root
+        "path": "",
         "slug": str(slug or "").strip(),
         "category": str(kategorie or "").strip(),
         "title": str(titel or "").strip(),
         "has_yaml": True,
-        "summary": _short_summary(beschreibung_text),
+        "summary": _short_summary(beschreibung),
         "images": bilder,
-        "images_alt": bilder_alt
+        "images_alt": bilder_alt,
+        "author": author,
+        "author_url": author_url,
+        "license": license_info,
+        "source": source_url,
+        "last_updated": last_updated
     }
-    return content, (str(titel) or ""), beschreibung_text, meta_title_text, json_item
+    return content, titel, beschreibung, meta_title_text, json_item
 
 catalog_de = []
 catalog_en = []
@@ -318,7 +256,6 @@ def write_md_files(export_col, slug_col, lang):
         pfad = str(row.get(export_col, "")).strip() if not pd.isna(row.get(export_col, "")) else ''
         slug = str(row.get(slug_col, "")).strip() if not pd.isna(row.get(slug_col, "")) else ''
         if pfad and slug:
-            # ensure relative paths for GH Action; repo root is current working dir
             full_dir = pfad.strip().strip('/').replace("\\", "/")
             os.makedirs(full_dir, exist_ok=True)
             full_path = f"{full_dir}/{slug}.md"
@@ -335,7 +272,6 @@ def write_md_files(export_col, slug_col, lang):
                 f.write(content)
             print(f"{full_path} geschrieben.")
 
-            # relative path for JSON (no leading ./)
             rel = full_path.replace("\\", "/")
             if rel.startswith("./"):
                 rel = rel[2:]
