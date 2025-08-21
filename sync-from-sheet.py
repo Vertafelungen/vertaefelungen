@@ -171,6 +171,13 @@ def build_content(row, lang="de"):
 
     # YAML
     yaml_lines = []
+    source = row.get(COL_SOURCE_DE if lang == "de" else COL_SOURCE_EN, "")
+    last_updated = row.get(COL_LAST_UPDATED, "")
+
+    yaml_lines.append(f"author: {yaml_safe(author)}")
+    yaml_lines.append(f"license: {yaml_safe(license_info)}")
+    yaml_lines.append(f"source: {yaml_safe(source)}")
+    yaml_lines.append(f"last_updated: {yaml_safe(last_updated)}")
     yaml_lines.append("---")
     yaml_lines.append(f"slug: {yaml_safe(slug)}")
     yaml_lines.append(f"product_id: {yaml_safe(product_id)}")
