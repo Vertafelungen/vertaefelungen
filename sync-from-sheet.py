@@ -248,7 +248,7 @@ def build_content(row, lang="de"):
     body_parts.append("")
     body_parts.append(", ".join(tags) if tags else "_keine Tags hinterlegt_")
     body_parts.append("")
-    content = yaml_block + "\n\n" + "\n".join(body_parts)
+    content = format_markdown_lint_safe(yaml_block + "\n\n" + "\n".join(body_parts))
 
     json_item = {
         "path": "",  # will be set relative to repo root
@@ -315,3 +315,29 @@ with open(en_path, "w", encoding="utf-8") as f:
     json.dump(produkte_en, f, ensure_ascii=False, indent=2)
 
 print(f"{de_path} und {en_path} geschrieben.")
+
+def format_markdown_lint_safe(md_text):
+    lines = md_text.split("\n")
+
+    # Leerzeile vor Überschriften
+    fixed_lines = []
+    for i, line in enumerate(lines):
+        if line.startswith("##") and (i == 0 or lines[i - 1].strip() != ""):
+            fixed_lines.append("")
+        fixed_lines.append(line)
+
+    # Leerzeile vor und nach "## Tags"
+    for i in range(len(fixed_lines)):
+        if fixed_lines[i].strip().lower() == "## tags":
+            if i > 0 and fixed_lines[i - 1].strip() != "":
+                fixed_lines.insert(i, "")
+            if i + 2 < len(fixed_lines) and fixed_lines[i + 2].strip() != "":
+                fixed_lines.insert(i + 2, "")
+            break
+
+    # Letzte Zeile: nur genau eine Leerzeile am Ende
+    while fixed_lines and fixed_lines[-1].strip() == "":
+        fixed_lines.pop()
+    fixed_lines.append("")
+
+    return "\n".join(fixed_lines)
