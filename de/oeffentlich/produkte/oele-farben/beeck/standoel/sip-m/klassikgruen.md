@@ -1,3 +1,7 @@
+author: "Tobias Klaus"
+license: "CC BY-SA 4.0"
+source: "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro-mischtoene/112-klassikgruen.html"
+last_updated: "2025-08-20"
 ---
 slug: "klassikgruen"
 product_id: "112"

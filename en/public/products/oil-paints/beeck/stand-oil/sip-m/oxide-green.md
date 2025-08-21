@@ -1,3 +1,7 @@
+author: "Tobias Klaus"
+license: "CC BY-SA 4.0"
+source: "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro-mischtoene/112-486-oxidgreen.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin/73-classic_green-classic_green_01"
+last_updated: "2025-08-20"
 ---
 slug: "oxide-green"
 product_id: "112"

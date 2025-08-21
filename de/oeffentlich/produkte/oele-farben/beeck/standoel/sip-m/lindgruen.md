@@ -1,3 +1,7 @@
+author: "Tobias Klaus"
+license: "CC BY-SA 4.0"
+source: "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro-mischtoene/113-504-klassikgruen.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt/73-klassikgrun-klassikgrun_01"
+last_updated: "2025-08-20"
 ---
 slug: "lindgruen"
 product_id: "113"

@@ -1,3 +1,7 @@
+author: "Tobias Klaus"
+license: "CC BY-SA 4.0"
+source: "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro-mischtoene/113-oxidgreen.html"
+last_updated: "2025-08-20"
 ---
 slug: "pastel-green"
 product_id: "113"

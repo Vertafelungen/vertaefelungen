@@ -1,3 +1,7 @@
+author: "Tobias Klaus"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 slug: "oxidrot"
 product_id: "105"

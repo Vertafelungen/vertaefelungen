@@ -1,3 +1,7 @@
+author: "Tobias Klaus"
+license: "CC BY-SA 4.0"
+source: ""
+last_updated: ""
 ---
 slug: "loef"
 product_id: "62"
