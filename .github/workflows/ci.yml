@@ -25,6 +25,9 @@ jobs:
           node-version: '20'
       - run: npm install -g markdownlint-cli
 
+      - name: Fix markdown files (auto-lint)
+        run: |
+          python tools/fix_markdown_lint.py
       - name: Run markdownlint
         run: |
           markdownlint '**/*.md' --ignore 'node_modules' || (echo 'Markdownlint found issues'; exit 1)
