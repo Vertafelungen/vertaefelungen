@@ -25,11 +25,13 @@ jobs:
       - name: Generate JSON-LD (DE)
         run: |
           cd tools
+          echo "🌍 Starte JSON-LD-Generierung für Deutsch..."
           python generate_jsonld_from_produkte.py de
 
       - name: Generate JSON-LD (EN)
         run: |
           cd tools
+          echo "🌍 Starte JSON-LD-Generierung für Englisch..."
           python generate_jsonld_from_produkte.py en
 
       - name: Commit generated JSON-LD files (only if changed)
