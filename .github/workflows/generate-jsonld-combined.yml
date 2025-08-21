@@ -32,11 +32,11 @@ jobs:
           cd tools
           python generate_jsonld_from_produkte.py en
 
-      - name: Commit generated JSON-LD files
+      - name: Commit generated JSON-LD files (only if changed)
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add produkte-jsonld.de.json produkte-jsonld.en.json
-          git commit -m "Automated JSON-LD export (DE + EN)"
+          git add ../produkte-jsonld.de.json ../produkte-jsonld.en.json
+          git diff --cached --quiet || git commit -m "Automated JSON-LD export (DE + EN)"
           git push
         continue-on-error: true
