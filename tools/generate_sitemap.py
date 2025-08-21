@@ -8,7 +8,7 @@ def extract_title(filepath):
             if lines[0].strip() == "---":
                 for i in range(1, len(lines)):
                     if lines[i].strip().startswith("title:"):
-                        return lines[i].strip().split(":", 1)[1].strip().strip('"'')
+                        return lines[i].strip().split(":", 1)[1].strip().strip('"')
                     if lines[i].strip() == "---":
                         break
     except Exception:
