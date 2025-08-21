@@ -1,30 +1,40 @@
 # Quotation and Order Process
-
 ## 1. Initial Contact and Basic Info
 - The customer sends an inquiry via form or email, including room details, chosen style, and preferred wood type.
+
 - We offer a **telephone or in-person consultation** upon request.
 
 ## 2. Preliminary Estimate
 - Based on running meters and style, we provide a **rough price range** (free of charge).
+
 - This initial estimate serves as an orientation for the customer.
 
 ## 3. Visualization & Planning Phase
 - Upon positive feedback, our team creates a scale-accurate **3D visualization** using SketchUp.
+
 - We charge **10% of the estimated total price** as a planning fee (e.g., €1,000 on a €10,000 estimate).
+
 - Visualization forms the basis for the detailed final quotation and potential approval.
 
 ## 4. Final Offer and Approval
 - Based on approved visualization, we generate a **detailed quotation**, including:
+
   - Material and variant choices (e.g., spruce/oak, DIY-kit vs. professional installation)
+
   - Quantity and running meter details
+
   - Installation options (DIY or by a partner installer)
+
 - Upon accepting the offer, a **50% deposit** is required.
 
 ## 5. Production and Installation
 - Production begins once deposit is received.
+
 - Post-production, we arrange delivery or coordinate professional installation.
+
 - Remaining balance is due upon delivery or completion of installation.
 
 ## 6. Finalization & Completion
 - Conduct final inspection of installation results.
+
 - Issue final invoice after successful handover to the customer.

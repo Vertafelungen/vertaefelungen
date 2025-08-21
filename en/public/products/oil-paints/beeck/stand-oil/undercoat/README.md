@@ -1,5 +1,4 @@
 # Category: undercoats
-
 This is the category **undercoats** with 1 entries.
 
 ## Inhalte / Contents

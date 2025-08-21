@@ -13,18 +13,24 @@ beschreibung: >
 meta_title: "Pur Linseed Oil"
 meta_description: "Linseed oil – cold-pressed, pure wood oil for interior & exterior use. Ideal for priming, restoration & wood care. Solvent-free and long-lasting."
 bilder:
+
   - loen.png
 bilder_alt:
+
   - ""
 price: "12,61 €"
 verfuegbar: "1"
 varianten_yaml: |
+
   - bezeichnung: 1 Liter
     preis_aufschlag: 0,00 €
+
   - bezeichnung: 5 Liter
     preis_aufschlag: 45,38 €
+
   - bezeichnung: 10 Liter
     preis_aufschlag: 96,64 €
+
   - bezeichnung: 20 Liter
     preis_aufschlag: 197,48 €
 tags: []
@@ -33,7 +39,6 @@ langcode: ""
 ---
 
 # Pur Linseed Oil
-
 Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
 For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.
 Drying time up to 2 weeks. Linseed oil fires the wood, the grain becomes more prominent.
@@ -43,33 +48,36 @@ It is 100% natural and has proven itself traditionally.
 Linseed oil has a strong, typical odour at first, but this fades over the course of weeks.
 
 ## Technische Daten
-
 - Referenz: LÖN
+
 - Preis: 12,61 €
+
 - Verfügbar: 1
+
 - Kategorie: Artikel, Leinöl, Tungöl, Balsam
+
 - Sortierung: nan
 
 ## Varianten
-
   - bezeichnung: 1 Liter
     preis_aufschlag: 0,00 €
+
   - bezeichnung: 5 Liter
     preis_aufschlag: 45,38 €
+
   - bezeichnung: 10 Liter
     preis_aufschlag: 96,64 €
+
   - bezeichnung: 20 Liter
     preis_aufschlag: 197,48 €
 
 ## Bilder
-
 ![](loen.png)
 
 ## SEO-Metadaten
-
 - meta_title: Pur Linseed Oil
+
 - meta_description: Linseed oil – cold-pressed, pure wood oil for interior & exterior use. Ideal for priming, restoration & wood care. Solvent-free and long-lasting.
 
 ## Tags
-
 _keine Tags hinterlegt_

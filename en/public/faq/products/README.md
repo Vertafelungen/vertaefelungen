@@ -1,5 +1,4 @@
 # Category: products
-
 This is the category **products** with 1 entries.
 
 ## Inhalte / Contents

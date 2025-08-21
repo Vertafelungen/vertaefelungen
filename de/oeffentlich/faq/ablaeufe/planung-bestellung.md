@@ -11,9 +11,7 @@ beschreibung: "Antworten auf häufige Fragen zum Ablauf der Planung und Bestellu
 ---
 
 # FAQ: Planung & Bestellung
-
 ## 1. Wie läuft der Bestellvorgang ab?
-
 Der Ablauf Ihrer Bestellung bei Vertäfelung & Lambris ist klar strukturiert und für Sie transparent gestaltet:
 
 1. **Unverbindliche Anfrage**  
@@ -34,18 +32,21 @@ Der Ablauf Ihrer Bestellung bei Vertäfelung & Lambris ist klar strukturiert und
 ---
 
 ## 2. Was wird für die Angebotserstellung benötigt?
-
 Für eine schnelle und passgenaue Angebotserstellung benötigen wir:
+
 - Maße der Wand/Fläche (Breite x Höhe)
+
 - Gewünschte Ausführung/Profil (ggf. Verweis auf ein Produkt aus unserem Shop)
+
 - Fotos oder Skizzen (optional, aber hilfreich)
+
 - Angaben zum gewünschten Lieferzeitpunkt und zu Besonderheiten (z. B. Altbau, Denkmalschutz)
 
 ---
 
 ## 3. Wie erfolgt die Bezahlung?
-
 - **50 % Anzahlung** nach Auftragsbestätigung
+
 - Restzahlung vor Lieferung
 
 Die Zahlungsmodalitäten erhalten Sie detailliert mit dem Angebot.
@@ -53,31 +54,26 @@ Die Zahlungsmodalitäten erhalten Sie detailliert mit dem Angebot.
 ---
 
 ## 4. Wie lange dauert die Lieferung?
-
 Die Lieferzeit hängt von der Auftragslage und dem Umfang Ihres Projekts ab. In der Regel beträgt sie **4 bis 8 Wochen** ab Zahlungseingang der Anzahlung. Eine genaue Angabe erhalten Sie im Angebot.
 
 ---
 
 ## 5. Kann ich die Bestellung nachträglich ändern?
-
 Solange die Fertigung noch nicht begonnen hat, können Änderungen berücksichtigt werden. Bitte sprechen Sie uns frühzeitig an.
 
 ---
 
 ## 6. Gibt es eine individuelle Beratung?
-
 Ja, wir beraten Sie persönlich – telefonisch, per E-Mail oder auf Wunsch vor Ort (nach Absprache).
 
 ---
 
 ## 7. Was ist bei denkmalgeschützten Objekten zu beachten?
-
 Bitte informieren Sie uns über einen bestehenden Denkmalschutz. Wir unterstützen Sie gerne mit den passenden Unterlagen und abgestimmten Lösungen.
 
 ---
 
 ## 8. Wer übernimmt die Montage?
-
 Die Montage erfolgt durch Sie oder Ihre Fachfirma vor Ort. Auf Wunsch vermitteln wir Ihnen gerne eine erfahrene Tischlerei in Ihrer Region.
 
 ---

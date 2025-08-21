@@ -1,5 +1,4 @@
 # Kategorie: allgemeine-informationen
-
 Dies ist die Kategorie **allgemeine-informationen** mit 1 Einträgen.
 
 ## Inhalte / Contents

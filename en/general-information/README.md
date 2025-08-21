@@ -1,5 +1,4 @@
 # Category: general-information
-
 This is the category **general-information** with 1 entries.
 
 ## Inhalte / Contents

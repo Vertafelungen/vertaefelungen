@@ -11,76 +11,92 @@ beschreibung: "Umfassende FAQ zu Holzvertäfelungen im Altbau: Herkunft, Funktio
 ---
 
 # FAQ: Holzvertäfelung im Altbau
-
 ## 1. Was versteht man unter Holzvertäfelung im Altbau?
-
 Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Decken) mit Paneelen, Rahmenfüllungen oder Profilbrettern aus Massivholz. In Altbauten – insbesondere im Gründerzeit- und Jugendstil – prägen sie als gestalterisches und schützendes Element das Raumbild.
 
 ---
 
 ## 2. Welche Funktionen hatten Vertäfelungen ursprünglich?
-
 - **Schutz:** Vor Kälte, Feuchtigkeit, Beschädigung der Wandoberfläche
+
 - **Gestaltung:** Dekorativer, oft repräsentativer Raumschmuck – prägend für Stil und Wohnkultur
+
 - **Akustik & Klima:** Verbesserung der Raumakustik und Behaglichkeit
+
 - **Integration:** Verbergen von Installationen, Integration von Türen und Heizkörperverkleidungen
 
 ---
 
 ## 3. Welche typischen Bauformen gibt es?
-
 - **Brüstungshoch** (ca. 1 m): meist unter Fenstern, als Sitzbank-Verkleidung oder Wandabschluss
+
 - **Halbhoch** (ca. 1,2–1,4 m): häufig in Fluren, Salons, Esszimmern
+
 - **Raumhoch** (bis Decke): für repräsentative Räume, Bibliotheken, Säle
-- **Kassettenvertäfelung:** klassisch mit Füllungen und Rahmen, Rechteck liegend, Rechteck stehend, quadratisch 
+
+- **Kassettenvertäfelung:** klassisch mit Füllungen und Rahmen, Rechteck liegend, Rechteck stehend, quadratisch
+
 - **Nadelstreif-Paneelen:** vertikale Gliederung mit seitlich profilierten Paneelbrettern oder separaten profilierten Stäben
+
 - **Fassadengliederungen:** gestalterische Anlehnung an Fassaden, mit betonter Sockelzone, Scheinfenstern, Fensterverdachung, Lisenen, Architrav, Traufgesims
+
 - **Maßwerk-Motive:** Vertäfelung mit angedeuteten Spitzbogen- oder Rundbogenfenstern mit gotischem Maßwerk ausgeschmückt
+
 - **Profilierte Leisten und Bekleidungen:** zur Gliederung, als Zierabschluss, für Türen
 
 ---
 
 ## 4. In welchen Stilepochen waren Vertäfelungen besonders verbreitet?
-
 - **Barock, Rokoko:** aufwändige, oft plastische Schnitzereien und Vergoldungen
+
 - **Klassizismus:** klare Gliederung, schlichte Profile
+
 - **Historismus/Gründerzeit:** reiche Profilierung, florale und ornamentale Details
+
 - **Jugendstil:** geschwungene Linien, florale und organische Motive
+
 - **Bauhaus/1920er:** geometrische, zurückhaltende Paneele und Furnierarbeiten
 
 ---
 
 ## 5. Wie erkennt man eine historische Vertäfelung?
-
 - Massivholz (Kiefer, Eiche, Nadelhölzer), aufwändige Profilierung und Füllungsbauweise
+
 - Handschrift der Epoche: Profile, Gliederung, Schnitzerei, Oberflächen
+
 - Alte Befestigungstechniken (Holzdübel, Holznägel, verdeckte Verschraubung)
 
 ---
 
 ## 6. Was sind die wichtigsten Aspekte bei Restaurierung und Nachfertigung?
-
 - **Bestandsaufnahme:** Originale Maße, Profile, Holzarten dokumentieren
+
 - **Reversibilität:** Materialien und Montagen sollten rückbaubar und schadfrei für das Original sein
+
 - **Materialtreue:** Verwendung artgleicher Hölzer und traditioneller Techniken
+
 - **Schadensbehebung:** Ergänzung fehlender Teile, behutsame Reinigung, Schutz vor Feuchte und Schädlingen
+
 - **Dokumentation:** Jedes Arbeitsschritt sollte nachvollziehbar bleiben (Fotodokumentation)
 
 ---
 
 ## 7. Gibt es Besonderheiten im Altbau?
-
 - Unregelmäßige Wandverläufe, Setzungen, alte Putzschichten und Installationen
+
 - Anforderungen des Denkmalschutzes und der energetischen Sanierung
+
 - Oft komplexe Integration in bestehende Raumstrukturen (Türen, Heizkörper, Fensterbänke)
 
 ---
 
 ## 8. Wie erfolgt die Pflege und Erhaltung von Vertäfelungen?
-
 - Regelmäßiges, schonendes Reinigen (trocken, nebelfeucht)
+
 - Auffrischung der Oberfläche mit geeigneten Ölen oder Wachsen
+
 - Fachgerechte Beseitigung von Schäden durch Schädlinge oder Feuchtigkeit
+
 - Keine aggressiven Reinigungsmittel oder zu starke Schleifarbeiten!
 
 ---

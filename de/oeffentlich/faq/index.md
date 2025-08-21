@@ -11,23 +11,31 @@ beschreibung: "Thematische Übersicht und Navigation zu den wichtigsten FAQ-Bere
 ---
 
 # FAQ: Übersicht und Navigation
-
 Willkommen in der FAQ-Sammlung zu allen Fragen rund um Holzvertäfelung, Profilleisten, Oberflächen und Restaurierung. Wähle einen Themenbereich aus:
 
 ---
 
 ## Themenübersicht
-
 - [Planung & Bestellung](planung-bestellung.md)
+
 - [Herstellung](herstellung.md)
+
 - [Lieferung](lieferung.md)
+
 - [Leinöl als Holzschutzmittel](leinoel.md)
+
 - [Tungöl als Holzschutzmittel](tungoel.md)
+
 - [Beeck Standölinnenfarbe Pro](beeck-standoelinnenfarbe-pro.md)
+
 - [Holzvertäfelung im Altbau](holzvertaefelung-altbau.md)
+
 - [Profilierte Wandleisten aus Holz](profilierte-wandleisten-holz.md)
+
 - [Profilierte Tür- und Fensterumrahmungen](tuer-fensterrahmen.md)
+
 - [Fußleisten – Sockelleisten](sockelleisten.md)
+
 - [Restaurierung / Reproduktion historischer Vertäfelungen und Holzleisten](restaurierung-reproduktion-vertaefelungen-holzleisten.md)
 
 ---
