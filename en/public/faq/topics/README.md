@@ -1,23 +1,17 @@
-# Category: topics
-This is the category **topics** with 9 entries.
+# Topics
 
-## Inhalte / Contents
-- [beeck-stand-oil-paint](beeck-stand-oil-paint.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [linseed-oil](linseed-oil.md)
+- [beeck-stand-oil-paint](./beeck-stand-oil-paint.md): 
+- [linseed-oil](./linseed-oil.md): 
+- [profiled-door-window-surrounds](./profiled-door-window-surrounds.md): 
+- [restoration-reproduction-panelling-trims](./restoration-reproduction-panelling-trims.md): 
+- [skirtings](./skirtings.md): 
+- [tung-oil](./tung-oil.md): 
+- [ventilation-rosettes](./ventilation-rosettes.md): 
+- [wall-mouldings](./wall-mouldings.md): 
+- [wood-panelling](./wood-panelling.md): 
 
-- [profiled-door-window-surrounds](profiled-door-window-surrounds.md)
+---
 
-- [restoration-reproduction-panelling-trims](restoration-reproduction-panelling-trims.md)
-
-- [skirtings](skirtings.md)
-
-- [tung-oil](tung-oil.md)
-
-- [ventilation-rosettes](ventilation-rosettes.md)
-
-- [wall-mouldings](wall-mouldings.md)
-
-- [wood-panelling](wood-panelling.md)
-
-> Automatisch erstellt am 2025-08-11 05:25
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

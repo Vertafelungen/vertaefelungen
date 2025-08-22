@@ -1,9 +1,10 @@
-# Kategorie: sip-m
-Dies ist die Kategorie **sip-m** mit 2 Einträgen.
+# Sip M
 
-## Inhalte / Contents
-- [klassikgruen](klassikgruen.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [lindgruen](lindgruen.md)
+- [klassikgruen](./klassikgruen.md): 
+- [lindgruen](./lindgruen.md): 
 
-> Automatisch erstellt am 2025-08-11 05:25
+---
+
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

@@ -1,11 +1,11 @@
-# Kategorie: ablaeufe
-Dies ist die Kategorie **ablaeufe** mit 3 Einträgen.
+# Ablaeufe
 
-## Inhalte / Contents
-- [herstellung](herstellung.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [lieferung](lieferung.md)
+- [herstellung](./herstellung.md): 
+- [lieferung](./lieferung.md): 
+- [planung-bestellung](./planung-bestellung.md): 
 
-- [planung-bestellung](planung-bestellung.md)
+---
 
-> Automatisch erstellt am 2025-08-11 05:25
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

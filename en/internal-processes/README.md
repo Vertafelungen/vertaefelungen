@@ -1,13 +1,12 @@
-# Category: internal-processes
-This is the category **internal-processes** with 4 entries.
+# Internal Processes
 
-## Inhalte / Contents
-- [Installation](Installation.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [Production](Production.md)
+- [Installation](./Installation.md): 
+- [Production](./Production.md): 
+- [Quotation](./Quotation.md): 
+- [Visualization](./Visualization.md): 
 
-- [Quotation](Quotation.md)
+---
 
-- [Visualization](Visualization.md)
-
-> Automatisch erstellt am 2025-08-11 05:25
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

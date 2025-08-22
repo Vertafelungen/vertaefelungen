@@ -1,13 +1,12 @@
-# Kategorie: interne-prozesse
-Dies ist die Kategorie **interne-prozesse** mit 4 Einträgen.
+# Interne Prozesse
 
-## Inhalte / Contents
-- [Angebotserstellung](Angebotserstellung.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [Fertigung](Fertigung.md)
+- [Angebotserstellung](./Angebotserstellung.md): 
+- [Fertigung](./Fertigung.md): 
+- [Montage](./Montage.md): 
+- [Visualisierung](./Visualisierung.md): 
 
-- [Montage](Montage.md)
+---
 
-- [Visualisierung](Visualisierung.md)
-
-> Automatisch erstellt am 2025-08-11 05:25
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

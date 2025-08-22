@@ -1,15 +1,13 @@
-# Produktübersicht
-In diesem Verzeichnis befinden sich alle Produktkategorien, die öffentlich dokumentiert sind. Zu jeder Kategorie gibt es eigene Unterordner mit einer README-Datei und den jeweiligen Produkten.
+# Produkte
 
-## Kategorien
-- [Hohe Vertäfelungen](hohe-vertaefelungen/)
+Dieser Ordner enthält folgende Unterverzeichnisse:
 
-- [Halbhohe Vertäfelungen (Lambris)](halbhohe-vertaefelungen/)
+- [halbhohe-vertaefelungen](./halbhohe-vertaefelungen/README.md)
+- [hohe-vertaefelungen](./hohe-vertaefelungen/README.md)
+- [leisten](./leisten/README.md)
+- [lueftungsrosetten](./lueftungsrosetten/README.md)
+- [oele-farben](./oele-farben/README.md)
 
-- [Sockelleisten](sockelleisten/)
+---
 
-- [Wandleisten](wandleisten/)
-
-- [Lüftungsrosetten](lueftungsrosetten/)
-
-- [Öle und Farben](oele-und-farben/)
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

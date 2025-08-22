@@ -1,9 +1,10 @@
-# Public
+# Mouldings
 
 Dieser Ordner enthält folgende Unterverzeichnisse:
 
-- [faq](./faq/README.md)
-- [products](./products/README.md)
+- [door](./door/README.md)
+- [skirtings](./skirtings/README.md)
+- [wall](./wall/README.md)
 
 ---
 

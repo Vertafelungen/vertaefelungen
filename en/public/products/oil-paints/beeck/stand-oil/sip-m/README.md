@@ -1,9 +1,10 @@
-# Category: sip-m
-This is the category **sip-m** with 2 entries.
+# Sip M
 
-## Inhalte / Contents
-- [oxide-green](oxide-green.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [pastel-green](pastel-green.md)
+- [oxide-green](./oxide-green.md): 
+- [pastel-green](./pastel-green.md): 
 
-> Automatisch erstellt am 2025-08-11 05:25
+---
+
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

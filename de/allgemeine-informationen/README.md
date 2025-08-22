@@ -1,7 +1,9 @@
-# Kategorie: allgemeine-informationen
-Dies ist die Kategorie **allgemeine-informationen** mit 1 Einträgen.
+# Allgemeine Informationen
 
-## Inhalte / Contents
-- [geschichte-der-holzvertaefelung](geschichte-der-holzvertaefelung.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-> Automatisch erstellt am 2025-08-11 05:25
+- [geschichte-der-holzvertaefelung](./geschichte-der-holzvertaefelung.md): 
+
+---
+
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

@@ -1,27 +1,19 @@
-# Kategorie: sip-v
-Dies ist die Kategorie **sip-v** mit 11 Einträgen.
+# Sip V
 
-## Inhalte / Contents
-- [braun](braun.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [gruen](gruen.md)
+- [braun](./braun.md): 
+- [gruen](./gruen.md): 
+- [maisgelb](./maisgelb.md): 
+- [ocker](./ocker.md): 
+- [oxidrot](./oxidrot.md): 
+- [schwarz](./schwarz.md): 
+- [ultrablau](./ultrablau.md): 
+- [umbra](./umbra.md): 
+- [weinrot](./weinrot.md): 
+- [weiss](./weiss.md): 
+- [zitronengelb](./zitronengelb.md): 
 
-- [maisgelb](maisgelb.md)
+---
 
-- [ocker](ocker.md)
-
-- [oxidrot](oxidrot.md)
-
-- [schwarz](schwarz.md)
-
-- [ultrablau](ultrablau.md)
-
-- [umbra](umbra.md)
-
-- [weinrot](weinrot.md)
-
-- [weiss](weiss.md)
-
-- [zitronengelb](zitronengelb.md)
-
-> Automatisch erstellt am 2025-08-11 05:25
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

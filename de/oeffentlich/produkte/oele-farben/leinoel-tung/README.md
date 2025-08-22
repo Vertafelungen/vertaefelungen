@@ -1,17 +1,14 @@
-# Kategorie: leinoel-tung
-Dies ist die Kategorie **leinoel-tung** mit 6 Einträgen.
+# Leinoel Tung
 
-## Inhalte / Contents
-- [btoe](btoe.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [ctp](ctp.md)
+- [btoe](./btoe.md): 
+- [ctp](./ctp.md): 
+- [loef](./loef.md): 
+- [loen](./loen.md): 
+- [toel](./toel.md): 
+- [toen](./toen.md): 
 
-- [loef](loef.md)
+---
 
-- [loen](loen.md)
-
-- [toel](toel.md)
-
-- [toen](toen.md)
-
-> Automatisch erstellt am 2025-08-11 05:25
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

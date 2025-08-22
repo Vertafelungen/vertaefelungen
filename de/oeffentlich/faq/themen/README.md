@@ -1,23 +1,17 @@
-# Kategorie: themen
-Dies ist die Kategorie **themen** mit 9 Einträgen.
+# Themen
 
-## Inhalte / Contents
-- [beeck-standoelinnenfarbe-pro](beeck-standoelinnenfarbe-pro.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [holzvertaefelung-altbau](holzvertaefelung-altbau.md)
+- [beeck-standoelinnenfarbe-pro](./beeck-standoelinnenfarbe-pro.md): 
+- [holzvertaefelung-altbau](./holzvertaefelung-altbau.md): 
+- [leinoel](./leinoel.md): 
+- [lueftungsrosetten](./lueftungsrosetten.md): 
+- [profilierte-wandleisten-holz](./profilierte-wandleisten-holz.md): 
+- [restaurierung-reproduktion-vertaefelungen-holzleisten](./restaurierung-reproduktion-vertaefelungen-holzleisten.md): 
+- [sockelleisten](./sockelleisten.md): 
+- [tuer-fensterrahmen](./tuer-fensterrahmen.md): 
+- [tungoel](./tungoel.md): 
 
-- [leinoel](leinoel.md)
+---
 
-- [lueftungsrosetten](lueftungsrosetten.md)
-
-- [profilierte-wandleisten-holz](profilierte-wandleisten-holz.md)
-
-- [restaurierung-reproduktion-vertaefelungen-holzleisten](restaurierung-reproduktion-vertaefelungen-holzleisten.md)
-
-- [sockelleisten](sockelleisten.md)
-
-- [tuer-fensterrahmen](tuer-fensterrahmen.md)
-
-- [tungoel](tungoel.md)
-
-> Automatisch erstellt am 2025-08-11 05:25
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

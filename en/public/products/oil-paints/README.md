@@ -1,9 +1,9 @@
-# Public
+# Oil-Paints
 
 Dieser Ordner enthält folgende Unterverzeichnisse:
 
-- [faq](./faq/README.md)
-- [products](./products/README.md)
+- [beeck](./beeck/README.md)
+- [oil-tung](./oil-tung/README.md)
 
 ---
 

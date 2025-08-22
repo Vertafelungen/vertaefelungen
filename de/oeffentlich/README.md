@@ -1,12 +1,10 @@
-# Öffentliche Inhalte
-In diesem Verzeichnis finden sich alle Informationen, die für Kunden, Partner oder externe Nutzer sichtbar sein sollen. Dazu gehören:
+# Oeffentlich
 
-- Produktdokumentationen nach Kategorien (`produkte/`)
+Dieser Ordner enthält folgende Unterverzeichnisse:
 
-- Referenzprojekte
+- [faq](./faq/README.md)
+- [produkte](./produkte/README.md)
 
-- Materialien & Oberflächen
+---
 
-- Historische Vorbilder der Gestaltung
-
-Diese Inhalte bilden die Grundlage für Beratung, Chatbots, Dokumentationen und weitere digitale Services.
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

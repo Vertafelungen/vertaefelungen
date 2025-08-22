@@ -1,15 +1,13 @@
-# Product Overview
-This folder contains all product categories that are publicly documented. Each category has its own subfolder with a README file and associated product entries.
+# Products
 
-## Categories
-- [High Wainscoting](high-wainscoting/)
+Dieser Ordner enthält folgende Unterverzeichnisse:
 
-- [Half-Height Paneling](half-height-paneling/)
+- [dado-panel](./dado-panel/README.md)
+- [high-wainscoting](./high-wainscoting/README.md)
+- [mouldings](./mouldings/README.md)
+- [oil-paints](./oil-paints/README.md)
+- [rosettes](./rosettes/README.md)
 
-- [Baseboards](baseboards/)
+---
 
-- [Wall Moldings](molding/)
-
-- [Ventilation Rosettes](ventilation-rosettes/)
-
-- [Oils and Colors](oils-and-colors/)
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

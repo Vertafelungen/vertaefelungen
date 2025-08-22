@@ -1,11 +1,11 @@
-# Kategorie: docs
-Dies ist die Kategorie **docs** mit 3 Einträgen.
+# Docs
 
-## Inhalte / Contents
-- [naming](naming.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [roadmap](roadmap.md)
+- [naming](./naming.md): 
+- [roadmap](./roadmap.md): 
+- [sitemap_vertaefelungen](./sitemap_vertaefelungen.md): 
 
-- [sitemap_vertaefelungen](sitemap_vertaefelungen.md)
+---
 
-> Automatisch erstellt am 2025-08-11 05:25
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

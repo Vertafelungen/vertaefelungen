@@ -1,11 +1,11 @@
-# Category: processes
-This is the category **processes** with 3 entries.
+# Processes
 
-## Inhalte / Contents
-- [delivery](delivery.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [manufacture](manufacture.md)
+- [delivery](./delivery.md): 
+- [manufacture](./manufacture.md): 
+- [planning-ordering](./planning-ordering.md): 
 
-- [planning-ordering](planning-ordering.md)
+---
 
-> Automatisch erstellt am 2025-08-11 05:25
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

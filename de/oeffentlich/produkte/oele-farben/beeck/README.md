@@ -1,9 +1,8 @@
-# Public
+# Beeck
 
 Dieser Ordner enthält folgende Unterverzeichnisse:
 
-- [faq](./faq/README.md)
-- [products](./products/README.md)
+- [standoel](./standoel/README.md)
 
 ---
 

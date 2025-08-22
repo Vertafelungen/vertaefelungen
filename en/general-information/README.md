@@ -1,7 +1,9 @@
-# Category: general-information
-This is the category **general-information** with 1 entries.
+# General Information
 
-## Inhalte / Contents
-- [History-of-Wood-Paneling](History-of-Wood-Paneling.md)
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-> Automatisch erstellt am 2025-08-11 05:25
+- [History-of-Wood-Paneling](./History-of-Wood-Paneling.md): 
+
+---
+
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

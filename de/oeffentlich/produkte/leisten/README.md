@@ -1,9 +1,10 @@
-# Public
+# Leisten
 
 Dieser Ordner enthält folgende Unterverzeichnisse:
 
-- [faq](./faq/README.md)
-- [products](./products/README.md)
+- [sockelleisten](./sockelleisten/README.md)
+- [tuerbekleidungen](./tuerbekleidungen/README.md)
+- [wandleisten](./wandleisten/README.md)
 
 ---
 

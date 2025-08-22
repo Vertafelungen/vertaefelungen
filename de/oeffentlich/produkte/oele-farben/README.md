@@ -1,9 +1,9 @@
-# Public
+# Oele-Farben
 
 Dieser Ordner enthält folgende Unterverzeichnisse:
 
-- [faq](./faq/README.md)
-- [products](./products/README.md)
+- [beeck](./beeck/README.md)
+- [leinoel-tung](./leinoel-tung/README.md)
 
 ---
 

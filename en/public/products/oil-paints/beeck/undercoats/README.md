@@ -1,9 +1,8 @@
-# Public
+# Undercoats
 
-Dieser Ordner enthält folgende Unterverzeichnisse:
+Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
-- [faq](./faq/README.md)
-- [products](./products/README.md)
+- [vsfp](./vsfp.md): 
 
 ---
 
