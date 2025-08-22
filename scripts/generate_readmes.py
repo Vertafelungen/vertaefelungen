@@ -12,18 +12,19 @@ def extract_yaml(file_path):
             return yaml.safe_load(parts[1])
     return {}
 
-def generate_readme_for_category(category_path):
+def generate_product_readme(path):
     entries = []
-    for filename in sorted(os.listdir(category_path)):
+    for filename in sorted(os.listdir(path)):
         if filename.endswith('.md') and not filename.startswith('README'):
-            filepath = os.path.join(category_path, filename)
+            filepath = os.path.join(path, filename)
             data = extract_yaml(filepath)
             titel = data.get('titel_de', filename.replace('.md', ''))
             beschreibung = data.get('beschreibung_md_de', '')
             slug = filename.replace('.md', '')
             entries.append(f"- [{titel}](./{slug}.md): {beschreibung}")
 
-    readme_content = f"""# {os.path.basename(category_path).replace('-', ' ').title()}
+    if entries:
+        content = f"""# {os.path.basename(path).replace('-', ' ').title()}
 
 Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
@@ -33,10 +34,44 @@ Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 
 Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris
 """
-    with open(os.path.join(category_path, 'README.md'), 'w', encoding='utf-8') as f:
-        f.write(readme_content)
+        with open(os.path.join(path, 'README.md'), 'w', encoding='utf-8') as f:
+            f.write(content)
 
-# Alle Unterordner durchgehen
-for root, dirs, files in os.walk(BASE_DIR):
-    if any(f.endswith('.md') and not f.startswith('README') for f in files):
-        generate_readme_for_category(root)
+def generate_folder_readme(path):
+    subdirs = [d for d in sorted(os.listdir(path)) if os.path.isdir(os.path.join(path, d))]
+    entries = []
+    for sub in subdirs:
+        subpath = os.path.join(path, sub)
+        if os.path.isdir(subpath):
+            entries.append(f"- [{sub}](./{sub}/README.md)")
+
+    if entries:
+        content = f"""# {os.path.basename(path).title()}
+
+Dieser Ordner enthält folgende Unterverzeichnisse:
+
+{chr(10).join(entries)}
+
+---
+
+Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris
+"""
+        with open(os.path.join(path, 'README.md'), 'w', encoding='utf-8') as f:
+            f.write(content)
+
+# Rekursive Generierung
+def process_path(path):
+    has_md = any(f.endswith('.md') and not f.startswith('README') for f in os.listdir(path))
+    has_dirs = any(os.path.isdir(os.path.join(path, f)) for f in os.listdir(path))
+
+    if has_md:
+        generate_product_readme(path)
+    elif has_dirs:
+        generate_folder_readme(path)
+
+    for f in os.listdir(path):
+        sub = os.path.join(path, f)
+        if os.path.isdir(sub):
+            process_path(sub)
+
+process_path('vertaefelungen/de')
