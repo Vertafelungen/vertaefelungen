@@ -23,6 +23,10 @@ jobs:
       run: |
         git config --global user.name 'github-actions'
         git config --global user.email 'github-actions@github.com'
-        git add vertaefelungen/**/README.md
-        git commit -m "Auto-generated README updates" || echo "No changes to commit"
-        git push
+        if git ls-files --others --modified --exclude-standard | grep -q 'README.md'; then
+          git add vertaefelungen/**/README.md
+          git commit -m "Auto-generated README updates"
+          git push
+        else
+          echo "No README.md changes to commit"
+        fi
