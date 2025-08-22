@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /drafts/
+Disallow: /tmp/
+Disallow: /private/
+
+Sitemap: https://www.vertaefelungen.de/sitemap.xml
