@@ -1,4 +1,4 @@
-name: Build & Deploy Wissen (daily)
+name: Build & Deploy Wissen (daily, SFTP)
 
 on:
   push:
@@ -13,7 +13,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -28,14 +28,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install markdown pyyaml
 
-      - name: Verify required FTP secrets exist
+      - name: Verify required SFTP secrets exist
         run: |
           missing=0
           if [ -z "${{ secrets.FTP_HOST }}" ]; then echo "::error::Missing secret: FTP_HOST"; missing=1; fi
           if [ -z "${{ secrets.FTP_USER }}" ]; then echo "::error::Missing secret: FTP_USER"; missing=1; fi
           if [ -z "${{ secrets.FTP_PASSWORD }}" ]; then echo "::error::Missing secret: FTP_PASSWORD"; missing=1; fi
           if [ "$missing" -ne 0 ]; then
-            echo "One or more required secrets are missing. Add them under Settings → Secrets and variables → Actions."
             exit 1
           fi
 
@@ -47,17 +46,19 @@ jobs:
         run: |
           python scripts/build_site.py
 
-      - name: Deploy via FTP (inkl. .htaccess & Sitemap)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Deploy via SFTP (port 22)
+        uses: sand4rt/ftp-deployer@v1.8
         with:
-          server: ${{ secrets.FTP_HOST }}       # Beispiel: homeXXXX.1and1-data.host
-          username: ${{ secrets.FTP_USER }}     # Dein FTP-Benutzername
-          password: ${{ secrets.FTP_PASSWORD }} # Dein FTP-Passwort
-          protocol: ftps
-          local-dir: site/
-          server-dir: /wissen/
-          exclude: ""
-          state-name: .ftp-deploy-sync-state.json
+          sftp: true
+          host:     ${{ secrets.FTP_HOST }}      # IONOS SFTP Host (Port 22)
+          port:     22
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local_folder: site
+          remote_folder: /wissen
+          # Keep the server clean? set cleanup: true to delete files not present locally
+          cleanup: false
+          include: '[]'
+          exclude: '[]'
+          passive: true
           log-level: verbose
-          timeout: 60000
-          dangerous-clean-slate: false
