@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
   schedule:
-    - cron: "15 3 * * *"   # täglich 03:15 UTC
+    - cron: "15 3 * * *"
   workflow_dispatch:
 
 permissions:
@@ -21,12 +21,23 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"     # kein Cache, damit kein requirements.txt nötig ist
+          python-version: "3.11"
 
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install markdown pyyaml
+
+      - name: Verify required FTP secrets exist
+        run: |
+          missing=0
+          if [ -z "${{ secrets.FTP_HOST }}" ]; then echo "::error::Missing secret: FTP_HOST"; missing=1; fi
+          if [ -z "${{ secrets.FTP_USER }}" ]; then echo "::error::Missing secret: FTP_USER"; missing=1; fi
+          if [ -z "${{ secrets.FTP_PASSWORD }}" ]; then echo "::error::Missing secret: FTP_PASSWORD"; missing=1; fi
+          if [ "$missing" -ne 0 ]; then
+            echo "One or more required secrets are missing. Add them under Settings → Secrets and variables → Actions."
+            exit 1
+          fi
 
       - name: Build static site
         env:
@@ -39,12 +50,14 @@ jobs:
       - name: Deploy via FTP (inkl. .htaccess & Sitemap)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          server: ${{ secrets.FTP_HOST }}       # Beispiel: homeXXXX.1and1-data.host
+          username: ${{ secrets.FTP_USER }}     # Dein FTP-Benutzername
+          password: ${{ secrets.FTP_PASSWORD }} # Dein FTP-Passwort
           protocol: ftps
           local-dir: site/
           server-dir: /wissen/
           exclude: ""
           state-name: .ftp-deploy-sync-state.json
+          log-level: verbose
+          timeout: 60000
           dangerous-clean-slate: false
