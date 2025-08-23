@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Baut aus Markdown eine statische Site für /wissen und erzeugt eine Sitemap.
-- README.md -> index.html im Ordner, foo.md -> foo/index.html (pretty URLs)
-- Frontmatter: title, slug, lang, description, noindex (optional)
+Baut eine statische Site aus Markdown für /wissen und erzeugt eine Sitemap.
+- README.md -> index.html im Ordner
+- foo.md    -> foo/index.html (pretty URLs)
+- Frontmatter (optional): title, slug, lang, description, noindex
 - Fügt Canonical, JSON-LD (WebPage), Breadcrumbs hinzu
-- Erzeugt pro Ordner Auto-Indexseiten
+- Erzeugt Auto-Indexseiten für Ordner ohne README.md
 - Schreibt site/sitemap.xml
-- Schreibt zusätzlich site/.htaccess (mit Fix: keine Umschreibung von Dateien mit Endung, z.B. .xml)
+- Schreibt zusätzlich site/.htaccess (Whitelist für sitemap.xml/robots.txt, keine Umschreibung für Dateien mit Endung)
 """
 
 import os, sys, re, shutil, pathlib, datetime, json
@@ -23,7 +24,7 @@ import xml.etree.ElementTree as ET
 
 BASE_URL     = os.environ.get("BASE_URL", "").rstrip("/")
 CONTENT_ROOT = os.environ.get("CONTENT_ROOT", ".").strip().rstrip("/")
-EXCLUDE_DIRS = set((os.environ.get("EXCLUDE_DIRS", "") or "").split())
+EXCLUDE_DIRS = set(filter(None, (os.environ.get("EXCLUDE_DIRS", "") or "").split()))
 
 if not BASE_URL:
     print("ERROR: BASE_URL not set", file=sys.stderr); sys.exit(1)
@@ -51,20 +52,31 @@ code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberati
 """
 
 HTACCESS = """
-# .htaccess im /wissen/ Ordner (fix: keine Umschreibung von Dateien mit Endung)
+# .htaccess im /wissen/ Ordner
 DirectoryIndex index.html
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
 RewriteBase /wissen/
-# 1) Bestehende Dateien/Ordner direkt ausliefern
+
+# (A) sitemap.xml & robots.txt nicht umschreiben
+RewriteRule ^(sitemap\.xml|robots\.txt)$ - [L]
+
+# (B) existierende Dateien/Ordner direkt ausliefern
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
-# 2) Keine Umschreibung für Dateien mit Endung (z. B. .xml, .css, .js, .jpg, .html)
+
+# (C) keine Umschreibung für Dateien mit Endung (.xml, .css, .js, .jpg, .html, …)
 RewriteCond %{REQUEST_URI} \\.[^/]+$
 RewriteRule ^ - [L]
-# 3) Pretty URLs: alles andere auf index.html im jeweiligen Ordner
-RewriteRule ^([^/]+)/?$ $1/index.html [L]
+
+# (D) Pretty URLs
+RewriteRule ^(.+?)/?$ $1/index.html [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/xml .xml
 </IfModule>
 """
 
@@ -176,7 +188,6 @@ def jsonld_webpage(title, canonical, description, lang="de"):
         "url": "https://www.vertaefelungen.de"
       }
     }
-    import json
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 def collect_markdown(root: pathlib.Path):
@@ -195,10 +206,16 @@ def render_md(md_text: str):
     return html, toc
 
 def ensure_assets():
+    # CSS
     dst = OUT / "assets"
     dst.mkdir(parents=True, exist_ok=True)
     (dst / "style.css").write_text(STYLE_CSS, encoding="utf-8")
-    # Schreibe htaccess
+    # Kopiere optionale Assets/Bilder aus dem Content-Root
+    for maybe in ("assets", "bilder", "images"):
+        src = ROOT / maybe
+        if src.exists() and src.is_dir():
+            shutil.copytree(src, OUT / maybe, dirs_exist_ok=True)
+    # Schreibe .htaccess
     (OUT / ".htaccess").write_text(HTACCESS.strip() + "\n", encoding="utf-8")
 
 def write_dir_autoindex(dir_path: pathlib.Path):
