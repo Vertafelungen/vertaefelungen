@@ -29,16 +29,13 @@ jobs:
 
       - name: Build static site
         env:
-          # Öffentliche URL des Wissen-Bereichs (mit Pfad)
           BASE_URL: "https://www.vertaefelungen.de/wissen"
-          # Repo-Pfad, unter dem deine Markdown-Dateien liegen
           CONTENT_ROOT: "vertaefelungen"
-          # Ordner, die ignoriert werden sollen (durchsuchte Teilbäume)
           EXCLUDE_DIRS: ".git .github scripts node_modules .venv tmp drafts private"
         run: |
           python scripts/build_site.py
 
-      - name: Deploy via FTP
+      - name: Deploy via FTP (inkl. .htaccess & Sitemap)
         uses: SamKirkland/FTP-Deploy-Action@v4
         with:
           server: ${{ secrets.FTP_HOST }}
@@ -47,5 +44,7 @@ jobs:
           protocol: ftps
           local-dir: site/
           server-dir: /wissen/
+          # Wichtig: keine Excludes -> .htaccess wird hochgeladen
+          exclude: ""
           state-name: .ftp-deploy-sync-state.json
           dangerous-clean-slate: false
