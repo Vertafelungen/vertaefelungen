@@ -1,0 +1,51 @@
+name: Build & Deploy Wissen (daily)
+
+on:
+  push:
+    branches: [ "main" ]
+  schedule:
+    - cron: "12 3 * * *"   # täglich 03:12 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install markdown pyyaml
+
+      - name: Build static site
+        env:
+          # Öffentliche URL des Wissen-Bereichs (mit Pfad)
+          BASE_URL: "https://www.vertaefelungen.de/wissen"
+          # Repo-Pfad, unter dem deine Markdown-Dateien liegen
+          CONTENT_ROOT: "vertaefelungen"
+          # Ordner, die ignoriert werden sollen (durchsuchte Teilbäume)
+          EXCLUDE_DIRS: ".git .github scripts node_modules .venv tmp drafts private"
+        run: |
+          python scripts/build_site.py
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: site/
+          server-dir: /wissen/
+          state-name: .ftp-deploy-sync-state.json
+          dangerous-clean-slate: false
