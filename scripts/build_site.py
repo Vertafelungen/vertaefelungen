@@ -1,19 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Baut aus Markdown eine statische Site und erzeugt eine Sitemap.
-- Durchlauf aller .md unter CONTENT_ROOT
-- README.md -> index.html im Ordner
-- foo.md    -> foo/index.html (pretty URLs)
-- Frontmatter (YAML) optional: title, slug, lang, description, noindex
-- Fügt <link rel="canonical">, JSON-LD (WebPage) und Breadcrumbs hinzu
-- Erzeugt pro Ordner eine Auto-Indexseite, falls kein README.md existiert
-- Schreibt site/sitemap.xml (nur Wissen-Bereich)
+Baut aus Markdown eine statische Site für /wissen und erzeugt eine Sitemap.
+- README.md -> index.html im Ordner, foo.md -> foo/index.html (pretty URLs)
+- Frontmatter: title, slug, lang, description, noindex (optional)
+- Fügt Canonical, JSON-LD (WebPage), Breadcrumbs hinzu
+- Erzeugt pro Ordner Auto-Indexseiten
+- Schreibt site/sitemap.xml
+- Schreibt zusätzlich site/.htaccess (mit Fix: keine Umschreibung von Dateien mit Endung, z.B. .xml)
 """
 
-import os, sys, re, shutil, pathlib, datetime, json, hashlib
-from urllib.parse import quote
-from typing import Dict, Optional, Tuple, List
+import os, sys, re, shutil, pathlib, datetime, json
+from typing import Dict, Tuple, List
 
 try:
     import yaml
@@ -50,6 +48,24 @@ html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto
 .dir-list li{margin:.35rem 0}
 .dir-list a{text-decoration:none}
 code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+"""
+
+HTACCESS = """
+# .htaccess im /wissen/ Ordner (fix: keine Umschreibung von Dateien mit Endung)
+DirectoryIndex index.html
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /wissen/
+# 1) Bestehende Dateien/Ordner direkt ausliefern
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+# 2) Keine Umschreibung für Dateien mit Endung (z. B. .xml, .css, .js, .jpg, .html)
+RewriteCond %{REQUEST_URI} \\.[^/]+$
+RewriteRule ^ - [L]
+# 3) Pretty URLs: alles andere auf index.html im jeweiligen Ordner
+RewriteRule ^([^/]+)/?$ $1/index.html [L]
+</IfModule>
 """
 
 BASE_HTML = """<!DOCTYPE html>
@@ -160,6 +176,7 @@ def jsonld_webpage(title, canonical, description, lang="de"):
         "url": "https://www.vertaefelungen.de"
       }
     }
+    import json
     return json.dumps(data, ensure_ascii=False, indent=2)
 
 def collect_markdown(root: pathlib.Path):
@@ -181,6 +198,8 @@ def ensure_assets():
     dst = OUT / "assets"
     dst.mkdir(parents=True, exist_ok=True)
     (dst / "style.css").write_text(STYLE_CSS, encoding="utf-8")
+    # Schreibe htaccess
+    (OUT / ".htaccess").write_text(HTACCESS.strip() + "\n", encoding="utf-8")
 
 def write_dir_autoindex(dir_path: pathlib.Path):
     rel = dir_path.relative_to(ROOT)
@@ -197,17 +216,18 @@ def write_dir_autoindex(dir_path: pathlib.Path):
             items.append(f'<li><a href="{href}/">{p.stem}</a></li>')
     html_list = "<div class='dir-list'><ul>" + "\n".join(items) + "</ul></div>"
     title = rel.as_posix() if rel.as_posix() != "." else "Start"
+    canonical = "/".join([BASE_URL, rel.as_posix().strip("/")]) if rel.as_posix()!="." else BASE_URL
     page = BASE_HTML.format(
         lang="de",
         title=title,
         description=f"Inhaltsverzeichnis: {title}",
         robots="index,follow",
-        canonical="/".join([BASE_URL, rel.as_posix().strip("/")]) if rel.as_posix()!="." else BASE_URL,
+        canonical=canonical,
         base=BASE_URL,
         breadcrumbs=breadcrumbs(rel / "README.md"),
         toc="",
         content=html_list,
-        json_ld=jsonld_webpage(title, "/".join([BASE_URL, rel.as_posix().strip("/")]) if rel.as_posix()!="." else BASE_URL, f"Inhaltsverzeichnis: {title}"),
+        json_ld=jsonld_webpage(title, canonical, f"Inhaltsverzeichnis: {title}"),
         year=datetime.date.today().year
     )
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -255,7 +275,7 @@ def main():
         if not noindex:
             urls.append({"loc": canonical, "lastmod": datetime.date.today().isoformat()})
 
-    # Sitemap schreiben
+    # Wissen-Sitemap schreiben
     NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
     urlset = ET.Element("urlset", attrib={"xmlns": NS})
     for e in urls:
