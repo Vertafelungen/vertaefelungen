@@ -46,19 +46,25 @@ jobs:
         run: |
           python scripts/build_site.py
 
+      - name: List build output (debug)
+        run: |
+          echo "== site/ tree =="
+          ls -lah site || true
+          echo "== site top-level files =="
+          find site -maxdepth 2 -type f -printf "%p\n" | head -n 120
+
       - name: Deploy via SFTP (port 22)
         uses: sand4rt/ftp-deployer@v1.8
         with:
           sftp: true
-          host:     ${{ secrets.FTP_HOST }}      # IONOS SFTP Host (Port 22)
+          host:     ${{ secrets.FTP_HOST }}
           port:     22
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           local_folder: site
           remote_folder: /wissen
-          # Keep the server clean? set cleanup: true to delete files not present locally
           cleanup: false
-          include: '[]'
+          # Wichtig: Includes definieren, sonst Fehler "You need to specify files to upload"
+          include: '["*", "**/*"]'
           exclude: '[]'
           passive: true
-          log-level: verbose
