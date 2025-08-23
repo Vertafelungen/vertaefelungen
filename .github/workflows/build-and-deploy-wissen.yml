@@ -13,6 +13,7 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,6 +22,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
+          cache: "pip"
 
       - name: Install deps
         run: |
@@ -29,24 +31,22 @@ jobs:
 
       - name: Build static site
         env:
-          # Öffentliche URL des Wissen-Bereichs (mit Pfad)
           BASE_URL: "https://www.vertaefelungen.de/wissen"
-          # Pfad zu deinen Markdown-Quellen im Repo (ohne führenden Slash)
           CONTENT_ROOT: "wissen"
-          # Ordner, die ignoriert werden sollen (leer lassen, wenn du alles willst)
           EXCLUDE_DIRS: ".git .github scripts node_modules .venv tmp drafts private"
         run: |
           python scripts/build_site.py
 
       - name: Deploy via FTP (inkl. .htaccess & Sitemap)
-        uses: SamKirkland/FTP-Deploy-Action@v4
+        # FIX: richtiger Repository-Name + Version (case & tag)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          local-dir: site/         # <- direkt Inhalt von site/ deployen
-          server-dir: /wissen/     # <- Zielordner auf dem Server
-          exclude: ""              # <- .htaccess nicht ausschließen
+          local-dir: site/
+          server-dir: /wissen/
+          exclude: ""
           state-name: .ftp-deploy-sync-state.json
           dangerous-clean-slate: false
