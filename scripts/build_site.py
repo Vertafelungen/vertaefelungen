@@ -206,16 +206,13 @@ def render_md(md_text: str):
     return html, toc
 
 def ensure_assets():
-    # CSS
     dst = OUT / "assets"
     dst.mkdir(parents=True, exist_ok=True)
     (dst / "style.css").write_text(STYLE_CSS, encoding="utf-8")
-    # Kopiere optionale Assets/Bilder aus dem Content-Root
     for maybe in ("assets", "bilder", "images"):
         src = ROOT / maybe
         if src.exists() and src.is_dir():
             shutil.copytree(src, OUT / maybe, dirs_exist_ok=True)
-    # Schreibe .htaccess
     (OUT / ".htaccess").write_text(HTACCESS.strip() + "\n", encoding="utf-8")
 
 def write_dir_autoindex(dir_path: pathlib.Path):
@@ -254,11 +251,9 @@ def main():
     ensure_assets()
     urls = []
 
-    # Autoindexe
     for d in sorted(set(p.parent for p in ROOT.rglob("*.md"))):
         write_dir_autoindex(d)
 
-    # Seiten rendern
     for md_path in collect_markdown(ROOT):
         raw = md_path.read_text(encoding="utf-8")
         meta, body = parse_frontmatter(raw)
@@ -292,7 +287,6 @@ def main():
         if not noindex:
             urls.append({"loc": canonical, "lastmod": datetime.date.today().isoformat()})
 
-    # Wissen-Sitemap schreiben
     NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
     urlset = ET.Element("urlset", attrib={"xmlns": NS})
     for e in urls:
