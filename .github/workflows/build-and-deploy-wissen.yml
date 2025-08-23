@@ -21,8 +21,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
-          cache: "pip"
+          python-version: "3.11"     # kein Cache, damit kein requirements.txt nötig ist
 
       - name: Install deps
         run: |
@@ -38,7 +37,6 @@ jobs:
           python scripts/build_site.py
 
       - name: Deploy via FTP (inkl. .htaccess & Sitemap)
-        # FIX: richtiger Repository-Name + Version (case & tag)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
