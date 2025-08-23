@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
   schedule:
-    - cron: "12 3 * * *"   # täglich 03:12 UTC
+    - cron: "15 3 * * *"   # täglich 03:15 UTC
   workflow_dispatch:
 
 permissions:
@@ -29,8 +29,11 @@ jobs:
 
       - name: Build static site
         env:
+          # Öffentliche URL des Wissen-Bereichs (mit Pfad)
           BASE_URL: "https://www.vertaefelungen.de/wissen"
-          CONTENT_ROOT: "vertaefelungen"
+          # Pfad zu deinen Markdown-Quellen im Repo (ohne führenden Slash)
+          CONTENT_ROOT: "wissen"
+          # Ordner, die ignoriert werden sollen (leer lassen, wenn du alles willst)
           EXCLUDE_DIRS: ".git .github scripts node_modules .venv tmp drafts private"
         run: |
           python scripts/build_site.py
@@ -42,9 +45,8 @@ jobs:
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          local-dir: site/
-          server-dir: /wissen/
-          # Wichtig: keine Excludes -> .htaccess wird hochgeladen
-          exclude: ""
+          local-dir: site/         # <- direkt Inhalt von site/ deployen
+          server-dir: /wissen/     # <- Zielordner auf dem Server
+          exclude: ""              # <- .htaccess nicht ausschließen
           state-name: .ftp-deploy-sync-state.json
           dangerous-clean-slate: false
