@@ -47,17 +47,18 @@ jobs:
           echo "=== Baum von ./site ==="
           find site -maxdepth 2 -print
 
-      - name: Deploy via SFTP (mirror & delete)
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # === Deploy using the original SFTP action; upload the CONTENTS of ./site to /wissen ===
+      - name: Deploy via SFTP (upload contents of site/)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          protocol: sftp
-          port: 22
-          local-dir: site/
-          server-dir: /holzvertaefelung-store/wissen/
-          dangerous-clean-slate: true
+          server:      ${{ secrets.SFTP_HOST }}
+          port:        22
+          username:    ${{ secrets.SFTP_USER }}
+          password:    ${{ secrets.SFTP_PASSWORD }}
+          local_path:  "site/."                         # <- upload ONLY the contents of ./site
+          remote_path: "/holzvertaefelung-store/wissen" # <- target folder /wissen
+          sftp_only:   true                              # rssh-restricted account: SFTP only
+          # delete_remote_files: true                    # DO NOT enable; requires SSH shell with rm
           exclude: |
             .git*/
             .github*/
