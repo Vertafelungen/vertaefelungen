@@ -4,9 +4,9 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'build_site.py'
-      - 'de/oeffentlich/**'
-      - 'en/public/**'
+      - 'scripts/build_site.py'                # Script liegt unter scripts/
+      - 'de/oeffentlich/**'                    # DE-Content
+      - 'en/public/**'                         # EN-Content
       - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_dispatch:
 
@@ -35,13 +35,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install markdown pyyaml
 
+      - name: Sanity check
+        run: |
+          ls -la
+          test -f scripts/build_site.py || (echo "scripts/build_site.py fehlt" && exit 1)
+
       - name: Build site
         env:
           BASE_URL: ${{ env.BASE_URL }}
           CONTENT_ROOT: ${{ env.CONTENT_ROOT }}
           EXCLUDE_DIRS: ${{ env.EXCLUDE_DIRS }}
         run: |
-          python build_site.py
+          python scripts/build_site.py
           echo "Built output:"
           find site -maxdepth 3 -type f | head -n 100
 
@@ -71,5 +76,5 @@ jobs:
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
           local_path: "site/*"
-          remote_path: "www/wissen"
+          remote_path: "www/wissen"   # ggf. anpassen, falls dein Zielpfad anders lautet
           sftp_only: true
