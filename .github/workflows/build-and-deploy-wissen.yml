@@ -19,11 +19,6 @@ concurrency:
   group: build-deploy-wissen
   cancel-in-progress: true
 
-env:
-  BASE_URL: 'https://www.vertaefelungen.de/wissen'
-  CONTENT_ROOT: '.'
-  EXCLUDE_DIRS: '.git,.github,.idea,.vscode,scripts'
-
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
@@ -43,17 +38,14 @@ jobs:
 
       - name: Build site
         env:
-          BASE_URL: ${{ env.BASE_URL }}
-          CONTENT_ROOT: ${{ env.CONTENT_ROOT }}
-          EXCLUDE_DIRS: ${{ env.EXCLUDE_DIRS }}
-        shell: bash
+          BASE_URL: "https://www.vertaefelungen.de/wissen"
+          CONTENT_ROOT: "."
+          EXCLUDE_DIRS: ".git,.github,.idea,.vscode,scripts"
         run: |
           set -e
           python scripts/build_site.py
-          echo '=== Ausgabe-Baum (flach) von ./site ==='
-          find site -maxdepth 2 -print | sed 's/^/  /'
-          test -f site/index.html || echo '(Hinweis) Root-Startseite evtl. via Autoindex vorhanden'
-          ls -la site || true
+          echo "=== Baum von ./site ==="
+          find site -maxdepth 2 -print
 
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
@@ -62,7 +54,7 @@ jobs:
           port:        22
           username:    ${{ secrets.SFTP_USER }}
           password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  'site'
-          remote_path: '/holzvertaefelung-store/wissen'
+          local_path:  "site/."                         # nur Inhalt von site/ hochladen
+          remote_path: "/holzvertaefelung-store/wissen" # Zielordner /wissen
           sftp_only:   true
-          # delete_remote_files: true
+          delete_remote_files: true
