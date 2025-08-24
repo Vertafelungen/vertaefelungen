@@ -1,70 +1,85 @@
-name: Build & Deploy Wissen (daily, SFTP)
+name: Build & Deploy Wissen
 
 on:
   push:
-    branches: [ "main" ]
-  schedule:
-    - cron: "15 3 * * *"
+    branches: [ main ]
+    paths:
+      - 'build_site.py'
+      - 'wissen/**'           # <— passe an: dein Inhaltsordner im Repo
+      - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_dispatch:
 
-permissions:
-  contents: read
+env:
+  # BASE_URL MUSS auf die endgültige Ziel-URL von /wissen zeigen
+  BASE_URL: https://www.vertaefelungen.de/wissen
+  # CONTENT_ROOT ist der Ordner im Repo, in dem deine .md liegen (z. B. 'wissen' oder '.')
+  CONTENT_ROOT: wissen
+  # Kommagetrennte Ordnernamen, die beim Rendern ignoriert werden sollen (optional)
+  EXCLUDE_DIRS: node_modules,.git,dist,public
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install markdown pyyaml
 
-      - name: Verify required SFTP secrets exist
-        run: |
-          missing=0
-          if [ -z "${{ secrets.FTP_HOST }}" ]; then echo "::error::Missing secret: FTP_HOST"; missing=1; fi
-          if [ -z "${{ secrets.FTP_USER }}" ]; then echo "::error::Missing secret: FTP_USER"; missing=1; fi
-          if [ -z "${{ secrets.FTP_PASSWORD }}" ]; then echo "::error::Missing secret: FTP_PASSWORD"; missing=1; fi
-          if [ "$missing" -ne 0 ]; then
-            exit 1
-          fi
-
-      - name: Build static site
+      - name: Build site
         env:
-          BASE_URL: "https://www.vertaefelungen.de/wissen"
-          CONTENT_ROOT: "wissen"
-          EXCLUDE_DIRS: ".git .github scripts node_modules .venv tmp drafts private"
+          BASE_URL: ${{ env.BASE_URL }}
+          CONTENT_ROOT: ${{ env.CONTENT_ROOT }}
+          EXCLUDE_DIRS: ${{ env.EXCLUDE_DIRS }}
         run: |
-          python scripts/build_site.py
+          python build_site.py
+          echo "Build complete. Output:"
+          ls -la site | head -n 50
 
-      - name: List build output (debug)
-        run: |
-          echo "== site/ tree =="
-          ls -lah site || true
-          echo "== site top-level files =="
-          find site -maxdepth 2 -type f -printf "%p\n" | head -n 120
-
-      - name: Deploy via SFTP (port 22)
-        uses: sand4rt/ftp-deployer@v1.8
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
         with:
-          sftp: true
-          host:     ${{ secrets.FTP_HOST }}
-          port:     22
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local_folder: site
-          remote_folder: /wissen
-          cleanup: false
-          # Wichtig: Includes definieren, sonst Fehler "You need to specify files to upload"
-          include: '["*", "**/*"]'
-          exclude: '[]'
-          passive: true
+          name: wissen-site
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: wissen-site
+          path: site
+
+      # Variante A: SFTP-Deploy (IONOS Webspace)
+      - name: Deploy via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASS }}
+          local_path: "site/*"
+          remote_path: "www/wissen"    # ggf. anpassen: dein Zielordner
+          sftp_only: true
+
+      # Variante B (optional): rsync mit Deploy-Key
+      # - name: Deploy via rsync
+      #   uses: burnett01/rsync-deployments@6.0.0
+      #   with:
+      #     switches: -avzr --delete
+      #     path: site/
+      #     remote_path: ${{ secrets.RSYNC_REMOTE_PATH }}
+      #     remote_host: ${{ secrets.RSYNC_REMOTE_HOST }}
+      #     remote_user: ${{ secrets.RSYNC_REMOTE_USER }}
+      #     remote_key: ${{ secrets.RSYNC_SSH_KEY }}
