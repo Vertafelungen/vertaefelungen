@@ -4,18 +4,15 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'scripts/build_site.py'                # Script liegt unter scripts/
+      - 'scripts/build_site.py'                # Build-Script
       - 'de/oeffentlich/**'                    # DE-Content
       - 'en/public/**'                         # EN-Content
       - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_dispatch:
 
 env:
-  # Öffentlich erreichbare Basis-URL des Wissen-Bereichs
   BASE_URL: https://www.vertaefelungen.de/wissen
-  # Wir bauen aus dem Repo-Root, damit DE und EN gefunden werden
   CONTENT_ROOT: .
-  # Ordner, die NICHT gerendert werden sollen
   EXCLUDE_DIRS: .github,docs,interne-prozesse,internal-processes,general-information,scripts,tools
 
 jobs:
@@ -54,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: wissen-site
-          path: site
+        path: site
 
   deploy:
     needs: build
@@ -67,14 +64,21 @@ jobs:
           name: wissen-site
           path: site
 
-      # Deploy zum IONOS Webspace per FTP (Secrets im Repo hinterlegen)
-      - name: Deploy via FTP
-        uses: wlixcc/FTP-Deploy-Action@v1.2.4
+      - name: Check SFTP inputs
+        run: |
+          [ -n "${{ secrets.SFTP_HOST }}" ] || (echo "SFTP_HOST secret fehlt" && exit 1)
+          [ -n "${{ secrets.SFTP_USER }}" ] || (echo "SFTP_USER secret fehlt" && exit 1)
+          [ -n "${{ secrets.SFTP_PASSWORD }}" ] || (echo "SFTP_PASSWORD secret fehlt" && exit 1)
+          echo "Port: ${{ secrets.SFTP_PORT || '22' }}"
+          echo "Remote path: /holzvertaefelung-store/wissen"
+
+      - name: Deploy via SFTP (password auth)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.FTP_HOST }}
-          port: ${{ secrets.FTP_PORT }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          local_path: "site/*"
-          remote_path: "www/wissen"   # ggf. anpassen, falls dein Zielpfad anders lautet
-          ftp_only: true
+          server:      ${{ secrets.SFTP_HOST }}                 # z.B. home98215036.1and1-data.host
+          port:        ${{ secrets.SFTP_PORT || '22' }}         # Standard: 22
+          username:    ${{ secrets.SFTP_USER }}                 # z.B. acc12345678
+          password:    ${{ secrets.SFTP_PASSWORD }}             # Webspace-Passwort
+          local_path:  "site/*"
+          remote_path: "/holzvertaefelung-store/wissen"         # Zielordner lt. Screenshot
+          sftp_only:   true
