@@ -12,6 +12,13 @@ on:
       - 'bilder/**'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: build-deploy-wissen
+  cancel-in-progress: true
+
 env:
   BASE_URL: 'https://www.vertaefelungen.de/wissen'   # ohne Slash am Ende
   CONTENT_ROOT: '.'                                   # Repo-Root enthält /de und /en
@@ -40,6 +47,7 @@ jobs:
           CONTENT_ROOT: ${{ env.CONTENT_ROOT }}
           EXCLUDE_DIRS: ${{ env.EXCLUDE_DIRS }}
         run: |
+          set -e
           python scripts/build_site.py
           echo "=== Ausgabe-Baum von ./site ==="
           python - << 'PY'
@@ -51,12 +59,14 @@ for root, dirs, files in os.walk('site'):
     for f in files:
         print(f"{indent}  {f}")
 PY
+          test -f site/index.html || echo "(Hinweis) Root-Startseite evtl. via Autoindex aus Unterordnern vorhanden"
+          ls -la site || true
 
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server:      ${{ secrets.SFTP_HOST }}
-          port:        ${{ secrets.SFTP_PORT || '22' }}
+          port:        22
           username:    ${{ secrets.SFTP_USER }}
           password:    ${{ secrets.SFTP_PASSWORD }}
           local_path:  'site'                                # kompletter Ordner, nicht "site/*"
