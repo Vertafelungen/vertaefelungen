@@ -67,9 +67,9 @@ jobs:
           name: wissen-site
           path: site
 
-      # Deploy zum IONOS Webspace per SFTP (Secrets im Repo hinterlegen)
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      # Deploy zum IONOS Webspace per FTP (Secrets im Repo hinterlegen)
+      - name: Deploy via FTP
+        uses: wlixcc/FTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.FTP_HOST }}
           port: ${{ secrets.FTP_PORT }}
@@ -77,4 +77,4 @@ jobs:
           password: ${{ secrets.FTP_PASS }}
           local_path: "site/*"
           remote_path: "www/wissen"   # ggf. anpassen, falls dein Zielpfad anders lautet
-          sftp_only: true
+          ftp_only: true
