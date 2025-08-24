@@ -5,17 +5,18 @@ on:
     branches: [ main ]
     paths:
       - 'build_site.py'
-      - 'wissen/**'           # <— passe an: dein Inhaltsordner im Repo
+      - 'de/oeffentlich/**'
+      - 'en/public/**'
       - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_dispatch:
 
 env:
-  # BASE_URL MUSS auf die endgültige Ziel-URL von /wissen zeigen
+  # Öffentlich erreichbare Basis-URL des Wissen-Bereichs
   BASE_URL: https://www.vertaefelungen.de/wissen
-  # CONTENT_ROOT ist der Ordner im Repo, in dem deine .md liegen (z. B. 'wissen' oder '.')
-  CONTENT_ROOT: wissen
-  # Kommagetrennte Ordnernamen, die beim Rendern ignoriert werden sollen (optional)
-  EXCLUDE_DIRS: node_modules,.git,dist,public
+  # Wir bauen aus dem Repo-Root, damit DE und EN gefunden werden
+  CONTENT_ROOT: .
+  # Ordner, die NICHT gerendert werden sollen
+  EXCLUDE_DIRS: .github,docs,interne-prozesse,internal-processes,general-information,scripts,tools
 
 jobs:
   build:
@@ -24,12 +25,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install markdown pyyaml
@@ -41,8 +42,8 @@ jobs:
           EXCLUDE_DIRS: ${{ env.EXCLUDE_DIRS }}
         run: |
           python build_site.py
-          echo "Build complete. Output:"
-          ls -la site | head -n 50
+          echo "Built output:"
+          find site -maxdepth 3 -type f | head -n 100
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -61,7 +62,7 @@ jobs:
           name: wissen-site
           path: site
 
-      # Variante A: SFTP-Deploy (IONOS Webspace)
+      # Deploy zum IONOS Webspace per SFTP (Secrets im Repo hinterlegen)
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -70,16 +71,5 @@ jobs:
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
           local_path: "site/*"
-          remote_path: "www/wissen"    # ggf. anpassen: dein Zielordner
+          remote_path: "www/wissen"
           sftp_only: true
-
-      # Variante B (optional): rsync mit Deploy-Key
-      # - name: Deploy via rsync
-      #   uses: burnett01/rsync-deployments@6.0.0
-      #   with:
-      #     switches: -avzr --delete
-      #     path: site/
-      #     remote_path: ${{ secrets.RSYNC_REMOTE_PATH }}
-      #     remote_host: ${{ secrets.RSYNC_REMOTE_HOST }}
-      #     remote_user: ${{ secrets.RSYNC_REMOTE_USER }}
-      #     remote_key: ${{ secrets.RSYNC_SSH_KEY }}
