@@ -4,25 +4,27 @@ on:
   push:
     branches: [ main ]
     paths:
-      - 'scripts/build_site.py'                # Build-Script
-      - 'de/oeffentlich/**'                    # DE-Content
-      - 'en/public/**'                         # EN-Content
+      - 'de/**'
+      - 'en/**'
+      - 'scripts/build_site.py'
       - '.github/workflows/build-and-deploy-wissen.yml'
+      - 'assets/**'
+      - 'bilder/**'
   workflow_dispatch:
 
 env:
-  BASE_URL: https://www.vertaefelungen.de/wissen
-  CONTENT_ROOT: .
-  EXCLUDE_DIRS: .github,docs,interne-prozesse,internal-processes,general-information,scripts,tools
+  BASE_URL: 'https://www.vertaefelungen.de/wissen'   # ohne Slash am Ende
+  CONTENT_ROOT: '.'                                   # Repo-Root enthält /de und /en
+  EXCLUDE_DIRS: '.git,.github,.idea,.vscode,scripts'  # beim Parsen ignorieren
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
@@ -32,11 +34,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install markdown pyyaml
 
-      - name: Sanity check
-        run: |
-          ls -la
-          test -f scripts/build_site.py || (echo "scripts/build_site.py fehlt" && exit 1)
-
       - name: Build site
         env:
           BASE_URL: ${{ env.BASE_URL }}
@@ -44,41 +41,25 @@ jobs:
           EXCLUDE_DIRS: ${{ env.EXCLUDE_DIRS }}
         run: |
           python scripts/build_site.py
-          echo "Built output:"
-          find site -maxdepth 3 -type f | head -n 100
+          echo "=== Ausgabe-Baum von ./site ==="
+          python - << 'PY'
+import os
+for root, dirs, files in os.walk('site'):
+    level = root.count(os.sep)
+    indent = '  ' * level
+    print(f"{indent}{os.path.basename(root) or root}/")
+    for f in files:
+        print(f"{indent}  {f}")
+PY
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: wissen-site
-        path: site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: wissen-site
-          path: site
-
-      - name: Check SFTP inputs
-        run: |
-          [ -n "${{ secrets.SFTP_HOST }}" ] || (echo "SFTP_HOST secret fehlt" && exit 1)
-          [ -n "${{ secrets.SFTP_USER }}" ] || (echo "SFTP_USER secret fehlt" && exit 1)
-          [ -n "${{ secrets.SFTP_PASSWORD }}" ] || (echo "SFTP_PASSWORD secret fehlt" && exit 1)
-          echo "Port: ${{ secrets.SFTP_PORT || '22' }}"
-          echo "Remote path: /holzvertaefelung-store/wissen"
-
-      - name: Deploy via SFTP (password auth)
+      - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server:      ${{ secrets.SFTP_HOST }}                 # z.B. home98215036.1and1-data.host
-          port:        ${{ secrets.SFTP_PORT || '22' }}         # Standard: 22
-          username:    ${{ secrets.SFTP_USER }}                 # z.B. acc12345678
-          password:    ${{ secrets.SFTP_PASSWORD }}             # Webspace-Passwort
-          local_path:  "site/*"
-          remote_path: "/holzvertaefelung-store/wissen"         # Zielordner lt. Screenshot
+          server:      ${{ secrets.SFTP_HOST }}
+          port:        ${{ secrets.SFTP_PORT || '22' }}
+          username:    ${{ secrets.SFTP_USER }}
+          password:    ${{ secrets.SFTP_PASSWORD }}
+          local_path:  'site'                                # kompletter Ordner, nicht "site/*"
+          remote_path: '/holzvertaefelung-store/wissen'      # Ziel auf dem IONOS-Webspace
           sftp_only:   true
+          # delete_remote_files: true                        # optional: Ziel vor Upload leeren
