@@ -10,7 +10,7 @@ on:
       - '.github/workflows/build-and-deploy-wissen.yml'
       - 'assets/**'
       - 'bilder/**'
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 permissions:
   contents: read
