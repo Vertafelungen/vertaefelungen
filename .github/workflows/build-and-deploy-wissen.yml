@@ -20,9 +20,9 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  BASE_URL: 'https://www.vertaefelungen.de/wissen'   # ohne Slash am Ende
-  CONTENT_ROOT: '.'                                   # Repo-Root enthält /de und /en
-  EXCLUDE_DIRS: '.git,.github,.idea,.vscode,scripts'  # beim Parsen ignorieren
+  BASE_URL: 'https://www.vertaefelungen.de/wissen'
+  CONTENT_ROOT: '.'
+  EXCLUDE_DIRS: '.git,.github,.idea,.vscode,scripts'
 
 jobs:
   build-deploy:
@@ -55,11 +55,11 @@ import os
 for root, dirs, files in os.walk('site'):
     level = root.count(os.sep)
     indent = '  ' * level
-    print(f"{indent}{os.path.basename(root) or root}/")
+    base = os.path.basename(root) or root
+    print(f"{indent}{base}/")
     for f in files:
         print(f"{indent}  {f}")
 PY
-          test -f site/index.html || echo "(Hinweis) Root-Startseite evtl. via Autoindex aus Unterordnern vorhanden"
           ls -la site || true
 
       - name: Deploy via SFTP
@@ -69,7 +69,7 @@ PY
           port:        22
           username:    ${{ secrets.SFTP_USER }}
           password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  'site'                                # kompletter Ordner, nicht "site/*"
-          remote_path: '/holzvertaefelung-store/wissen'      # Ziel auf dem IONOS-Webspace
+          local_path:  'site'
+          remote_path: '/holzvertaefelung-store/wissen'
           sftp_only:   true
-          # delete_remote_files: true                        # optional: Ziel vor Upload leeren
+          # delete_remote_files: true
