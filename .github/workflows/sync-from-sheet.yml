@@ -2,14 +2,16 @@ name: Sync from Google Sheet (daily)
 
 on:
   schedule:
-    - cron: '10 5 * * *' # täglich 05:10 UTC
+    - cron: "0 5 * * *"   # täglich 05:00 Uhr
   workflow_dispatch:
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+    env:
+      SHEET_ID: ${{ secrets.SHEET_ID }}
+      SHEET_GID: ${{ secrets.SHEET_GID }}
+      OUTPUT_DIR: "."
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -17,28 +19,26 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pandas requests pyyaml
+        run: pip install pandas requests
 
       - name: Run sync-from-sheet.py
-        env:
-          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
-        run: |
-          python sync-from-sheet.py
+        run: python sync-from-sheet.py
 
-      - name: Commit & push changes (fixed order)
+      - name: Commit & push changes (.md/.json only, stable order)
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
+          set -e
+          # Nur Markdown- und JSON-Dateien stagen (neu/änderungen)
+          CHANGED=0
+          git ls-files -m -o --exclude-standard | grep -E '\.(md|json)$' | xargs -r git add
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "Keine Änderungen an .md/.json"
           else
-            git commit -m "chore(sync): update markdown + produkte JSON ($(date -u +'%Y-%m-%dT%H:%M:%SZ'))"
-            git pull --rebase origin main
-            git push origin main
+            git commit -m "Auto-sync from Google Sheet (md/json)"
+            git push
           fi
