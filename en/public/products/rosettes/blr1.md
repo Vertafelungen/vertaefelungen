@@ -3,7 +3,7 @@ slug: "blr1"
 product_id: "71"
 reference: "BLR 1"
 titel: "Ventilation Rosette 1"
-kategorie: "Artikel, Lüftungsrosetten"
+kategorie: "Artikel, LÃ¼ftungsrosetten"
 beschreibung: >
   Elegant ventilation rosette based on an original design. Cast brass, polished  Diameter approx. 52 mm Hight approx 5 mm
 meta_title: "Ventilation Rosette 1"
@@ -47,7 +47,7 @@ Hight approx 5 mm
 - Referenz: BLR 1
 - Preis: 54,62 €
 - Verfügbar: 1
-- Kategorie: Artikel, Lüftungsrosetten
+- Kategorie: Artikel, LÃ¼ftungsrosetten
 - Sortierung: 
 
 ## Varianten

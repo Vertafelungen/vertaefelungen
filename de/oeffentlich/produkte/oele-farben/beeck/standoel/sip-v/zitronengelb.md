@@ -2,12 +2,12 @@
 slug: "zitronengelb"
 product_id: "102"
 reference: "Beeck SIP Zitronengelb"
-titel: "Zitronengelb - BEECK Standölinnenfarbe PRO"
-kategorie: "Artikel, STANDÖLINNENFARBE PRO Volltonfarben"
+titel: "Zitronengelb - BEECK StandÃ¶linnenfarbe PRO"
+kategorie: "Artikel, STANDÃLINNENFARBE PRO Volltonfarben"
 beschreibung: >
-  BEECK Standölinnenfarbe PRO Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
-meta_title: "Gelb, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich"
-meta_description: "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen."
+  BEECK StandÃ¶linnenfarbe PRO Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
+meta_title: "Gelb, BEECK StandÃ¶linnnenfarbe PRO, deckend, fÃ¼r Holz im Innenbereich"
+meta_description: "Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ¼r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen."
 bilder:
   - zitronengelb.png
   - zitronengelb-farbfaecher.png
@@ -41,20 +41,20 @@ source: ""
 last_updated: ""
 ---
 
-# Zitronengelb - BEECK Standölinnenfarbe PRO
+# Zitronengelb - BEECK StandÃ¶linnenfarbe PRO
 
-BEECK Standölinnenfarbe PRO
-Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
+BEECK StandÃ¶linnenfarbe PRO
+Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
 
 Verwendungszweck
-Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
+LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
 
 ## Technische Daten
 
 - Referenz: Beeck SIP Zitronengelb
 - Preis: 57,15 €
 - Verfügbar: 1
-- Kategorie: Artikel, STANDÖLINNENFARBE PRO Volltonfarben
+- Kategorie: Artikel, STANDÃLINNENFARBE PRO Volltonfarben
 - Sortierung: 
 
 ## Varianten
@@ -80,8 +80,8 @@ Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türe
 
 ## SEO-Metadaten
 
-- meta_title: Gelb, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich
-- meta_description: Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.
+- meta_title: Gelb, BEECK StandÃ¶linnnenfarbe PRO, deckend, fÃ¼r Holz im Innenbereich
+- meta_description: Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ¼r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen.
 
 ## Tags
 

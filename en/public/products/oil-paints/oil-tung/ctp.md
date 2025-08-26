@@ -3,11 +3,11 @@ slug: "ctp"
 product_id: "64"
 reference: "CTP"
 titel: "Citrus terpene"
-kategorie: "Artikel, Leinöl, Tungöl, Balsam"
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
   Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and dissolve resins. Citrus terpene has a pleasant orange odour as it is obtained from the distillation of orange peel. It is also particularly suitable for ecological wood coatings. It is absolutely CO2 neutral, as it only releases as much CO2 as it has absorbed during growth.
 meta_title: "Citrus terpene"
-meta_description: "Citrus terpenes – natural orange oil solvent for thinning oils & cleaning tools. Biodegradable, effective, and pleasantly scented."
+meta_description: "Citrus terpenes â natural orange oil solvent for thinning oils & cleaning tools. Biodegradable, effective, and pleasantly scented."
 bilder:
   - ctp.png
 bilder_alt:
@@ -38,7 +38,7 @@ Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and 
 - Referenz: CTP
 - Preis: 20,17 €
 - Verfügbar: 1
-- Kategorie: Artikel, Leinöl, Tungöl, Balsam
+- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
 - Sortierung: 
 
 ## Varianten
@@ -55,7 +55,7 @@ Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and 
 ## SEO-Metadaten
 
 - meta_title: Citrus terpene
-- meta_description: Citrus terpenes – natural orange oil solvent for thinning oils & cleaning tools. Biodegradable, effective, and pleasantly scented.
+- meta_description: Citrus terpenes â natural orange oil solvent for thinning oils & cleaning tools. Biodegradable, effective, and pleasantly scented.
 
 ## Tags
 

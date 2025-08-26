@@ -1,13 +1,13 @@
 ---
 slug: "loen"
 product_id: "61"
-reference: "LÖN"
-titel: "Reines Leinöl, ohne Sikkativ"
-kategorie: "Artikel, Leinöl, Tungöl, Balsam"
+reference: "LÃN"
+titel: "Reines LeinÃ¶l, ohne Sikkativ"
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
-  Gereinigtes Leinöl mit niedrigem Säuregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines Leinöl hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Trocknungsdauer bis zu 2 Wochen. Leinöl feuert das Holz an, die Maserung tritt deutlicher hervor.  Leinöl ist in Innenbereichen gegenüber jeder künstlich hergestellten Grundierung zu bevorzugen. Es ist 100% natürlich und hat sich traditionell bewährt. Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
-meta_title: "loen – Gereinigtes Leinöl mit niedrigem Säuregehalt, frei v"
-meta_description: "Leinöl – kaltgepresstes, reines Holzöl für Innen & Außen. Ideal zur Holzpflege, Grundierung & Restaurierung. Lösemittelfrei, traditionell & dauerhaft."
+  Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines LeinÃ¶l hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Trocknungsdauer bis zu 2 Wochen. LeinÃ¶l feuert das Holz an, die Maserung tritt deutlicher hervor.  LeinÃ¶l ist in Innenbereichen gegenÃ¼ber jeder kÃ¼nstlich hergestellten Grundierung zu bevorzugen. Es ist 100% natÃ¼rlich und hat sich traditionell bewÃ¤hrt. LeinÃ¶l hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
+meta_title: "loen â Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei v"
+meta_description: "LeinÃ¶l â kaltgepresstes, reines HolzÃ¶l fÃ¼r Innen & AuÃen. Ideal zur Holzpflege, Grundierung & Restaurierung. LÃ¶semittelfrei, traditionell & dauerhaft."
 bilder:
   - loen.png
 bilder_alt:
@@ -33,22 +33,22 @@ source: ""
 last_updated: ""
 ---
 
-# Reines Leinöl, ohne Sikkativ
+# Reines LeinÃ¶l, ohne Sikkativ
 
-Gereinigtes Leinöl mit niedrigem Säuregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ.
-Zur ersten Grundierung von rohem Holz. Reines Leinöl hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm.
-Trocknungsdauer bis zu 2 Wochen. Leinöl feuert das Holz an, die Maserung tritt deutlicher hervor.
+Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ.
+Zur ersten Grundierung von rohem Holz. Reines LeinÃ¶l hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm.
+Trocknungsdauer bis zu 2 Wochen. LeinÃ¶l feuert das Holz an, die Maserung tritt deutlicher hervor.
 
-Leinöl ist in Innenbereichen gegenüber jeder künstlich hergestellten Grundierung zu bevorzugen.
-Es ist 100% natürlich und hat sich traditionell bewährt.
-Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
+LeinÃ¶l ist in Innenbereichen gegenÃ¼ber jeder kÃ¼nstlich hergestellten Grundierung zu bevorzugen.
+Es ist 100% natÃ¼rlich und hat sich traditionell bewÃ¤hrt.
+LeinÃ¶l hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
 
 ## Technische Daten
 
-- Referenz: LÖN
+- Referenz: LÃN
 - Preis: 12,61 €
 - Verfügbar: 1
-- Kategorie: Artikel, Leinöl, Tungöl, Balsam
+- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
 - Sortierung: 
 
 ## Varianten
@@ -68,8 +68,8 @@ Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe v
 
 ## SEO-Metadaten
 
-- meta_title: loen – Gereinigtes Leinöl mit niedrigem Säuregehalt, frei v
-- meta_description: Leinöl – kaltgepresstes, reines Holzöl für Innen & Außen. Ideal zur Holzpflege, Grundierung & Restaurierung. Lösemittelfrei, traditionell & dauerhaft.
+- meta_title: loen â Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei v
+- meta_description: LeinÃ¶l â kaltgepresstes, reines HolzÃ¶l fÃ¼r Innen & AuÃen. Ideal zur Holzpflege, Grundierung & Restaurierung. LÃ¶semittelfrei, traditionell & dauerhaft.
 
 ## Tags
 

@@ -1,13 +1,13 @@
 ---
 slug: "loef"
 product_id: "62"
-reference: "LÖF"
-titel: "Leinölfirnis"
-kategorie: "Artikel, Leinöl, Tungöl, Balsam"
+reference: "LÃF"
+titel: "LeinÃ¶lfirnis"
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
-  Leinölfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
-meta_title: "loef – Leinölfirnis mit Sikkativen.Im Innenbereich al"
-meta_description: "Leinölfirnis – oxidativ trocknendes Holzöl für Grundierung, Holzschutz & Restaurierung. Lösemittelfrei, tief eindringend, ideal für innen & außen."
+  LeinÃ¶lfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
+meta_title: "loef â LeinÃ¶lfirnis mit Sikkativen.Im Innenbereich al"
+meta_description: "LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ¼r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ¼r innen & auÃen."
 bilder:
   - loef.png
 bilder_alt:
@@ -33,17 +33,17 @@ source: ""
 last_updated: ""
 ---
 
-# Leinölfirnis
+# LeinÃ¶lfirnis
 
-Leinölfirnis mit Sikkativen.
+LeinÃ¶lfirnis mit Sikkativen.
 Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
 
 ## Technische Daten
 
-- Referenz: LÖF
+- Referenz: LÃF
 - Preis: 13,45 €
 - Verfügbar: 1
-- Kategorie: Artikel, Leinöl, Tungöl, Balsam
+- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
 - Sortierung: 
 
 ## Varianten
@@ -63,8 +63,8 @@ Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bi
 
 ## SEO-Metadaten
 
-- meta_title: loef – Leinölfirnis mit Sikkativen.Im Innenbereich al
-- meta_description: Leinölfirnis – oxidativ trocknendes Holzöl für Grundierung, Holzschutz & Restaurierung. Lösemittelfrei, tief eindringend, ideal für innen & außen.
+- meta_title: loef â LeinÃ¶lfirnis mit Sikkativen.Im Innenbereich al
+- meta_description: LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ¼r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ¼r innen & auÃen.
 
 ## Tags
 

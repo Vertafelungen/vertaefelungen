@@ -2,19 +2,19 @@
 slug: "blr6"
 product_id: "74"
 reference: "BLR 6"
-titel: "Lüftungsrosette 6"
-kategorie: "Artikel, Lüftungsrosetten"
+titel: "LÃ¼ftungsrosette 6"
+kategorie: "Artikel, LÃ¼ftungsrosetten"
 beschreibung: >
-  Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 46 mm Hohe ca. 11 mm
-meta_title: "blr6 – Lüftungsrosette für Vertäfelungen, nach Originalvorl"
-meta_description: "Lüftungsrosette für Holzvertäfelungen"
+  LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 46 mm Hohe ca. 11 mm
+meta_title: "blr6 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl"
+meta_description: "LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen"
 bilder:
   - blr6-1.png
   - blr6-2.png
   - blr6-3.png
 bilder_alt:
-  - "Runde Lüftungsscheibe aus Messing mit acht Schlitzen"
-  - "montiert auf Holzfläche"
+  - "Runde LÃ¼ftungsscheibe aus Messing mit acht Schlitzen"
+  - "montiert auf HolzflÃ¤che"
   - "frontal aufgenommen"
 price: "49,58 €"
 verfuegbar: "1"
@@ -30,9 +30,9 @@ source: ""
 last_updated: ""
 ---
 
-# Lüftungsrosette 6
+# LÃ¼ftungsrosette 6
 
-Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
+LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert
 
 Durchmesser ca. 46 mm
@@ -43,7 +43,7 @@ Hohe ca. 11 mm
 - Referenz: BLR 6
 - Preis: 49,58 €
 - Verfügbar: 1
-- Kategorie: Artikel, Lüftungsrosetten
+- Kategorie: Artikel, LÃ¼ftungsrosetten
 - Sortierung: 
 
 ## Varianten
@@ -52,14 +52,14 @@ Hohe ca. 11 mm
 
 ## Bilder
 
-![Runde Lüftungsscheibe aus Messing mit acht Schlitzen](blr6-1.png)
-![montiert auf Holzfläche](blr6-2.png)
+![Runde LÃ¼ftungsscheibe aus Messing mit acht Schlitzen](blr6-1.png)
+![montiert auf HolzflÃ¤che](blr6-2.png)
 ![frontal aufgenommen](blr6-3.png)
 
 ## SEO-Metadaten
 
-- meta_title: blr6 – Lüftungsrosette für Vertäfelungen, nach Originalvorl
-- meta_description: Lüftungsrosette für Holzvertäfelungen
+- meta_title: blr6 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl
+- meta_description: LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen
 
 ## Tags
 

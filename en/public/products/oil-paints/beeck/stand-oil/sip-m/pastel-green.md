@@ -1,13 +1,13 @@
 ---
 slug: "pastel-green"
 product_id: "113"
-reference: "Beeck SIP Lindgrün"
+reference: "Beeck SIP LindgrÃ¼n"
 titel: "Pastel Green - BEECK Interior Stand-Oil Paint PRO"
-kategorie: "Artikel, STANDÖLINNENFARBE PRO Mischtöne"
+kategorie: "Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne"
 beschreibung: >
   Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.  Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 meta_title: "Pastel Green Interior Stand-Oil Paint PRO from BEECK"
-meta_description: "BEECK Stand Oil Paint PRO – professional linseed oil paint for restorers & painters. Heritage-grade, durable, VOC-compliant. Satin-matt or satin-gloss."
+meta_description: "BEECK Stand Oil Paint PRO â professional linseed oil paint for restorers & painters. Heritage-grade, durable, VOC-compliant. Satin-matt or satin-gloss."
 bilder:
   - lindgruen01.png
   - lindgruen02.png
@@ -18,46 +18,46 @@ bilder_alt:
   - "Pastel Green color sample 01"
   - "Pastel Green color sample 02"
   - "Pastel Green color sample 03"
-  - "Pastel Green 01–03 color comparison with recipes"
+  - "Pastel Green 01â03 color comparison with recipes"
   - "2.5 L Stand oil interior paint can"
 price: "57,15 €"
 verfuegbar: "1"
 varianten_yaml: |
-  - bezeichnung: 0,75 L, seidenmatt, Lindgrün 01
+  - bezeichnung: 0,75 L, seidenmatt, LindgrÃ¼n 01
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 0,00 €
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 01
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 01
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 102,35 €
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 01
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 01
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 556,35 €
 tags: []
 sortierung: ""
@@ -79,49 +79,49 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Technische Daten
 
-- Referenz: Beeck SIP Lindgrün
+- Referenz: Beeck SIP LindgrÃ¼n
 - Preis: 57,15 €
 - Verfügbar: 1
-- Kategorie: Artikel, STANDÖLINNENFARBE PRO Mischtöne
+- Kategorie: Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne
 - Sortierung: 
 
 ## Varianten
 
-  - bezeichnung: 0,75 L, seidenmatt, Lindgrün 01
+  - bezeichnung: 0,75 L, seidenmatt, LindgrÃ¼n 01
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 0,00 €
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 0,00 €
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 01
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 01
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 102,35 €
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 102,35 €
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 01
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 01
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 556,35 €
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 556,35 €
 
 ## Bilder
@@ -129,13 +129,13 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 ![Pastel Green color sample 01](lindgruen01.png)
 ![Pastel Green color sample 02](lindgruen02.png)
 ![Pastel Green color sample 03](lindgruen03.png)
-![Pastel Green 01–03 color comparison with recipes](lindgruen-farbfaecher.png)
+![Pastel Green 01â03 color comparison with recipes](lindgruen-farbfaecher.png)
 ![2.5 L Stand oil interior paint can](sip_gebinde.png)
 
 ## SEO-Metadaten
 
 - meta_title: Pastel Green Interior Stand-Oil Paint PRO from BEECK
-- meta_description: BEECK Stand Oil Paint PRO – professional linseed oil paint for restorers & painters. Heritage-grade, durable, VOC-compliant. Satin-matt or satin-gloss.
+- meta_description: BEECK Stand Oil Paint PRO â professional linseed oil paint for restorers & painters. Heritage-grade, durable, VOC-compliant. Satin-matt or satin-gloss.
 
 ## Tags
 

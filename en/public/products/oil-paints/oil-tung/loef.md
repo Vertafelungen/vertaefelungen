@@ -1,13 +1,13 @@
 ---
 slug: "loef"
 product_id: "62"
-reference: "LÖF"
+reference: "LÃF"
 titel: "Linseed Oil Varnish"
-kategorie: "Artikel, Leinöl, Tungöl, Balsam"
+kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
   Linseed oil varnish with siccatives. For interior use as a quick-drying finish with a drying time of up to 24 hours.
 meta_title: "Linseed Oil Varnish"
-meta_description: "Boiled linseed oil – oxidatively drying wood oil for priming, protection & restoration. Solvent-free, deep-penetrating, ideal for indoor & outdoor use."
+meta_description: "Boiled linseed oil â oxidatively drying wood oil for priming, protection & restoration. Solvent-free, deep-penetrating, ideal for indoor & outdoor use."
 bilder:
   - loef.png
 bilder_alt:
@@ -40,10 +40,10 @@ For interior use as a quick-drying finish with a drying time of up to 24 hours.
 
 ## Technische Daten
 
-- Referenz: LÖF
+- Referenz: LÃF
 - Preis: 13,45 €
 - Verfügbar: 1
-- Kategorie: Artikel, Leinöl, Tungöl, Balsam
+- Kategorie: Artikel, LeinÃ¶l, TungÃ¶l, Balsam
 - Sortierung: 
 
 ## Varianten
@@ -64,7 +64,7 @@ For interior use as a quick-drying finish with a drying time of up to 24 hours.
 ## SEO-Metadaten
 
 - meta_title: Linseed Oil Varnish
-- meta_description: Boiled linseed oil – oxidatively drying wood oil for priming, protection & restoration. Solvent-free, deep-penetrating, ideal for indoor & outdoor use.
+- meta_description: Boiled linseed oil â oxidatively drying wood oil for priming, protection & restoration. Solvent-free, deep-penetrating, ideal for indoor & outdoor use.
 
 ## Tags
 

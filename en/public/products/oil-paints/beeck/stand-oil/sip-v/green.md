@@ -1,9 +1,9 @@
 ---
 slug: "green"
 product_id: "101"
-reference: "Beek SIP Grün"
+reference: "Beek SIP GrÃ¼n"
 titel: "Green - BEECK Interior Stand-Oil Paint PRO"
-kategorie: "Artikel, STANDÖLINNENFARBE PRO Volltonfarben"
+kategorie: "Artikel, STANDÃLINNENFARBE PRO Volltonfarben"
 beschreibung: >
   Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.  Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 meta_title: "Green Interior Stand-Oil Paint PRO from BEECK"
@@ -51,10 +51,10 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Technische Daten
 
-- Referenz: Beek SIP Grün
+- Referenz: Beek SIP GrÃ¼n
 - Preis: 57,15 €
 - Verfügbar: 1
-- Kategorie: Artikel, STANDÖLINNENFARBE PRO Volltonfarben
+- Kategorie: Artikel, STANDÃLINNENFARBE PRO Volltonfarben
 - Sortierung: 
 
 ## Varianten

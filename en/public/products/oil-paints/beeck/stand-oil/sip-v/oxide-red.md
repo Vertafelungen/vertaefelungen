@@ -3,7 +3,7 @@ slug: "oxide-red"
 product_id: "105"
 reference: "Beek SIP Oxidrot"
 titel: "Oxide Red - BEECK Interior Stand-Oil Paint PRO"
-kategorie: "Artikel, STANDÖLINNENFARBE PRO Volltonfarben"
+kategorie: "Artikel, STANDÃLINNENFARBE PRO Volltonfarben"
 beschreibung: >
   Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.  Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 meta_title: "Oxide Red Interior Stand-Oil Paint PRO from BEECK"
@@ -54,7 +54,7 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 - Referenz: Beek SIP Oxidrot
 - Preis: 57,15 €
 - Verfügbar: 1
-- Kategorie: Artikel, STANDÖLINNENFARBE PRO Volltonfarben
+- Kategorie: Artikel, STANDÃLINNENFARBE PRO Volltonfarben
 - Sortierung: 
 
 ## Varianten

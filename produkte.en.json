@@ -1,11 +1,11 @@
 {
   "language": "en",
-  "generated": "2025-08-25T05:33:40.725759",
+  "generated": "2025-08-26T16:04:59.829363",
   "items": [
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-m/oxide-green.md",
       "slug": "oxide-green",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Mischtöne",
+      "category": "Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne",
       "title": "Oxide Green - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -17,14 +17,14 @@
         "sip_gebinde.png"
       ],
       "images_alt": [
-        "Stand linseed interior paint pro – color Klassikgruen",
+        "Stand linseed interior paint pro â color Klassikgruen",
         "packshot",
-        "Stand linseed interior paint pro – Klassikgruen",
+        "Stand linseed interior paint pro â Klassikgruen",
         "side view of can",
-        "Stand linseed interior paint pro – Klassikgruen",
-        "label close‑up",
+        "Stand linseed interior paint pro â Klassikgruen",
+        "label closeâup",
         "Color fan for Klassikgruen with comparison tones",
-        "2.5‑liter can BEECK Stand linseed interior paint pro"
+        "2.5âliter can BEECK Stand linseed interior paint pro"
       ],
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
@@ -35,7 +35,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-m/pastel-green.md",
       "slug": "pastel-green",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Mischtöne",
+      "category": "Artikel, STANDÃLINNENFARBE PRO MischtÃ¶ne",
       "title": "Pastel Green - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -50,7 +50,7 @@
         "Pastel Green color sample 01",
         "Pastel Green color sample 02",
         "Pastel Green color sample 03",
-        "Pastel Green 01–03 color comparison with recipes",
+        "Pastel Green 01â03 color comparison with recipes",
         "2.5 L Stand oil interior paint can"
       ],
       "author": "Tobias Klaus",
@@ -62,7 +62,7 @@
     {
       "path": "en/public/products/high-wainscoting/p0002.md",
       "slug": "p0002",
-      "category": "Artikel, Hohe Vertäfelungen",
+      "category": "Artikel, Hohe VertÃ¤felungen",
       "title": "P0002 - Hamburg - Michel",
       "has_yaml": true,
       "summary": "The tower hall of the Michel has high oak panelling dating from the reconstruction period of 1906-1912. The vertical panelling runs around the entire room and creates a clear, unobtrusive structure. The panelling consists of a clear base an",
@@ -106,7 +106,7 @@
     {
       "path": "en/public/products/high-wainscoting/p0003.md",
       "slug": "p0003",
-      "category": "Artikel, Hohe Vertäfelungen",
+      "category": "Artikel, Hohe VertÃ¤felungen",
       "title": "P0003 - London - V&A - Morris Room",
       "has_yaml": true,
       "summary": "Sir Henry Cole, the founding director of the South Kensington Museum, showed great flair when he commissioned the young William Morris to design the \"Green Dining Room\", now known as the \"Morris Room\", in 1861. Morris, later one of the most",
@@ -128,7 +128,7 @@
         "p0003-15.png"
       ],
       "images_alt": [
-        "Historical wall panelling by William Morris in the London Victoria and Albert Museum full view with panel fields and profiled cornice height 2120 mm reproduced trübte original",
+        "Historical wall panelling by William Morris in the London Victoria and Albert Museum full view with panel fields and profiled cornice height 2120 mm reproduced trÃ¼bte original",
         "Historical wall panelling by William Morris in the London Victoria and Albert Museum corner view with continuous panel fields and profiled cornice",
         "Detail view of the upper section of the wall panelling by William Morris in the London Victoria and Albert Museum with closely spaced pilasters shallow panel fields and distinctive dentil frieze",
         "Detail view of the wall panelling by William Morris in the London Victoria and Albert Museum with elaborately crafted corbels and dentil frieze above the middle panel",
@@ -153,7 +153,7 @@
     {
       "path": "en/public/products/high-wainscoting/p0017.md",
       "slug": "p0017",
-      "category": "Artikel, Hohe Vertäfelungen",
+      "category": "Artikel, Hohe VertÃ¤felungen",
       "title": "P0017 - High pinstripe panel with shaker peg rail",
       "has_yaml": true,
       "summary": "This cladding looks very nice and is very practical. Our Shaker Peg Rail is made in exactly the same shape as it can be found in the Shaker Museum Enfield. The peg rail is a useful invention that allows you to keep things handy and organize",
@@ -184,10 +184,10 @@
     {
       "path": "en/public/products/high-wainscoting/p0013.md",
       "slug": "p0013",
-      "category": "Artikel, Hohe Vertäfelungen",
+      "category": "Artikel, Hohe VertÃ¤felungen",
       "title": "P0013 - Berlin - Mommsenstr.",
       "has_yaml": true,
-      "summary": "Berlin's Mommsenstraße is located between Kantstraße and Kurfürstendamm in a very sophisticated, chic residential area with many galleries and boutiques. The paneling shown here impresses with its consistent rhythm. It lends itself particul",
+      "summary": "Berlin's MommsenstraÃe is located between KantstraÃe and KurfÃ¼rstendamm in a very sophisticated, chic residential area with many galleries and boutiques.Â The paneling shown here impresses with its consistent rhythm. It lends itself part",
       "images": [
         "p0013-01.png",
         "p0013-02.png",
@@ -219,10 +219,10 @@
     {
       "path": "en/public/products/high-wainscoting/p0014.md",
       "slug": "p0014",
-      "category": "Artikel, Hohe Vertäfelungen",
-      "title": "P0014 - Lübeck - Schiffergesellschaft",
+      "category": "Artikel, Hohe VertÃ¤felungen",
+      "title": "P0014 - LÃ¼beck - Schiffergesellschaft",
       "has_yaml": true,
-      "summary": "The Schiffergesellschaft Lübeck has existed since 1401. The interior is richly decorated with ship models and items that Lübeck captains have collected on their voyages over centuries. This paneling is typical for Lübeck. A similar structur",
+      "summary": "The Schiffergesellschaft LÃ¼beck has existed since 1401. The interior is richly decorated with ship models and items that LÃ¼beck captains have collected on their voyages over centuries. This paneling is typical for LÃ¼beck. A similar struc",
       "images": [
         "p0014-01.png",
         "p0014-02.png",
@@ -237,17 +237,17 @@
         "p0014-11.png"
       ],
       "images_alt": [
-        "Frontal view historic Lübeck wall panelling Schiffergesellschaft 2570 mm high with base zone large rectangular panels and profiled cornice termination",
-        "Historic Lübeck wall panelling Schiffergesellschaft corner view with base zone large rectangular panels and profiled cornice termination typical Lübeck design",
-        "Historic Lübeck wall panelling Schiffergesellschaft full room view with surrounding corner solution base zone large rectangular panels and profiled top cornice typical Lübeck design",
-        "Historic Lübeck wall panelling Schiffergesellschaft detail view upper profiled cornice with classic framing and strong projection",
-        "Historic Lübeck wall panelling Schiffergesellschaft detail view of upper corner design with cornice and profiled framing",
-        "Historic Lübeck wall panelling Schiffergesellschaft detail view of vertical panel transitions with profiled framing",
-        "Historic Lübeck wall panelling Schiffergesellschaft detail view of profiled base section with panels",
-        "Facade of the historic Schiffergesellschaft Lübeck with brick stepped gable and representative entrance portal",
-        "Historic wooden panelling with panelled fields and ornamental frieze in the Schiffergesellschaft Lübeck",
-        "Historic interior of the Schiffergesellschaft Lübeck with carved wooden column saint figure panelling and ship models",
-        "Detail of the wooden panelling in the Schiffergesellschaft Lübeck with carved head relief and ornaments"
+        "Frontal view historic LÃ¼beck wall panelling Schiffergesellschaft 2570 mm high with base zone large rectangular panels and profiled cornice termination",
+        "Historic LÃ¼beck wall panelling Schiffergesellschaft corner view with base zone large rectangular panels and profiled cornice termination typical LÃ¼beck design",
+        "Historic LÃ¼beck wall panelling Schiffergesellschaft full room view with surrounding corner solution base zone large rectangular panels and profiled top cornice typical LÃ¼beck design",
+        "Historic LÃ¼beck wall panelling Schiffergesellschaft detail view upper profiled cornice with classic framing and strong projection",
+        "Historic LÃ¼beck wall panelling Schiffergesellschaft detail view of upper corner design with cornice and profiled framing",
+        "Historic LÃ¼beck wall panelling Schiffergesellschaft detail view of vertical panel transitions with profiled framing",
+        "Historic LÃ¼beck wall panelling Schiffergesellschaft detail view of profiled base section with panels",
+        "Facade of the historic Schiffergesellschaft LÃ¼beck with brick stepped gable and representative entrance portal",
+        "Historic wooden panelling with panelled fields and ornamental frieze in the Schiffergesellschaft LÃ¼beck",
+        "Historic interior of the Schiffergesellschaft LÃ¼beck with carved wooden column saint figure panelling and ship models",
+        "Detail of the wooden panelling in the Schiffergesellschaft LÃ¼beck with carved head relief and ornaments"
       ],
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
@@ -258,7 +258,7 @@
     {
       "path": "en/public/products/dado-panel/p0009.md",
       "slug": "p0009",
-      "category": "Artikel, Halbhohe Vertäfelungen",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
       "title": "P0009 - Board & Batten",
       "has_yaml": true,
       "summary": "What we casually call \"pinstripe\" here is the combination of board and decorative trim. Both are separate elements that connect with tongue and groove and alternate along the length of the wall. The special feature are the differently profi",
@@ -278,10 +278,10 @@
         "p0009-2-1-2.png"
       ],
       "images_alt": [
-        "Frontal view panelling P0009 “Pinstripe Panel” 1220 mm high with smooth panels vertical cover strips profiled cornice and base moulding",
-        "Detail view panelling P0009 “Pinstripe Panel” upper section with smooth panels vertical cover strips and profiled cornice",
-        "Detail view panelling P0009 “Pinstripe Panel” lower section with smooth panels vertical cover strips and strong skirting board",
-        "Perspective view panelling P0009 “Pinstripe Panel” with vertical cover strips profiled top moulding and strong skirting board installed around a corner",
+        "Frontal view panelling P0009 âPinstripe Panelâ 1220 mm high with smooth panels vertical cover strips profiled cornice and base moulding",
+        "Detail view panelling P0009 âPinstripe Panelâ upper section with smooth panels vertical cover strips and profiled cornice",
+        "Detail view panelling P0009 âPinstripe Panelâ lower section with smooth panels vertical cover strips and strong skirting board",
+        "Perspective view panelling P0009 âPinstripe Panelâ with vertical cover strips profiled top moulding and strong skirting board installed around a corner",
         "Room view panelling P0009 pinstripe half height with triangular moulding in pine installed around a corner",
         "Half height panelling P0009 pinstripe with triangular moulding oak version height 1220 mm",
         "Detail view P0009 pinstripe half height panelling pine with characteristic triangular moulding profile",
@@ -302,10 +302,10 @@
     {
       "path": "en/public/products/dado-panel/p0001.md",
       "slug": "p0001",
-      "category": "Artikel, Halbhohe Vertäfelungen",
-      "title": "P0001 - Berlin - Winsstraße",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
+      "title": "P0001 - Berlin - WinsstraÃe",
       "has_yaml": true,
-      "summary": "The Wins quarter around Winsstrasse in Berlin Prenzlauer Berg is a residential area with a high quality of life. The atmosphere is characterised by street cafés, book and wine shops and the well-preserved old buildings also contribute to th",
+      "summary": "The Wins quarter around Winsstrasse in Berlin Prenzlauer Berg is a residential area with a high quality of life. The atmosphere is characterised by street cafÃ©s, book and wine shops and the well-preserved old buildings also contribute to t",
       "images": [
         "p0001-01.png",
         "p0001-02.png",
@@ -340,10 +340,10 @@
     {
       "path": "en/public/products/dado-panel/p0004.md",
       "slug": "p0004",
-      "category": "Artikel, Halbhohe Vertäfelungen",
-      "title": "P0004 - Berlin - Sophienstraße",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
+      "title": "P0004 - Berlin - SophienstraÃe",
       "has_yaml": true,
-      "summary": "Berlin's Sophienstraße has a particularly picturesque small-town charm and the only remaining baroque church tower in Berlin. From Sophienstraße you can reach the Hackesche Höfe and the Sophien-Gips-Höfe. The Lambris has an upright cassette",
+      "summary": "Berlin's SophienstraÃe has a particularly picturesque small-town charm and the only remaining baroque church tower in Berlin. From SophienstraÃe you can reach the Hackesche HÃ¶fe and the Sophien-Gips-HÃ¶fe. The Lambris has an upright cass",
       "images": [
         "p0004-01.png",
         "p0004-02.png",
@@ -372,8 +372,8 @@
     {
       "path": "en/public/products/dado-panel/p0005.md",
       "slug": "p0005",
-      "category": "Artikel, Halbhohe Vertäfelungen",
-      "title": "P0005 - Berlin - Bleibtreustraße",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
+      "title": "P0005 - Berlin - BleibtreustraÃe",
       "has_yaml": true,
       "summary": "Very impressive but quite simply constructed. The \"windows\" lined up in a row with the trefoil arches at the end create neo-Gothic panelling. Such an interior lends prestige and dignity to a Victorian-style entrance.",
       "images": [
@@ -389,11 +389,11 @@
         "p0005-10.png"
       ],
       "images_alt": [
-        "Dado height Gründerzeit panelling P0005 Bleibtreustr Berlin with arcades pilasters cornice profile",
-        "Corner view Gründerzeit panelled wainscot P0005 Bleibtreustr Berlin with arcades pilasters cornice profile",
-        "Full view Gründerzeit panelled wainscot P0005 Bleibtreustr Berlin surrounding dado with arcades and cornice profile",
-        "Detail view Gründerzeit panelled wainscot P0005 Bleibtreustr Berlin cornice finish with decorative profiles and fillings",
-        "Base view Gründerzeit panelled wainscot P0005 Bleibtreustr Berlin profiled dado panelling with ornamental knobs",
+        "Dado height GrÃ¼nderzeit panelling P0005 Bleibtreustr Berlin with arcades pilasters cornice profile",
+        "Corner view GrÃ¼nderzeit panelled wainscot P0005 Bleibtreustr Berlin with arcades pilasters cornice profile",
+        "Full view GrÃ¼nderzeit panelled wainscot P0005 Bleibtreustr Berlin surrounding dado with arcades and cornice profile",
+        "Detail view GrÃ¼nderzeit panelled wainscot P0005 Bleibtreustr Berlin cornice finish with decorative profiles and fillings",
+        "Base view GrÃ¼nderzeit panelled wainscot P0005 Bleibtreustr Berlin profiled dado panelling with ornamental knobs",
         "Detail view classical panelled wainscot P0005 Bleibtreustr Berlin with profiled arched termination",
         "Detail view plinth classical panelled wainscot P0005 Bleibtreustrasse Berlin with profiled framing",
         "Original view classical panelled wainscot P0005 Bleibtreustrasse Berlin with profiled pilasters and arched blind panels",
@@ -410,10 +410,10 @@
     {
       "path": "en/public/products/dado-panel/p0006.md",
       "slug": "p0006",
-      "category": "Artikel, Halbhohe Vertäfelungen",
-      "title": "P0006 - Leipzig - Ludwigstraße",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
+      "title": "P0006 - Leipzig - LudwigstraÃe",
       "has_yaml": true,
-      "summary": "This panelling from a house entrance in Leipzig's Ludwigstraße (Volkmarsdorf) dates from the construction period of the building in 1884 and is therefore around 140 years old. This time spans 6 generations.",
+      "summary": "This panelling from a house entrance in Leipzig's LudwigstraÃe (Volkmarsdorf) dates from the construction period of the building in 1884 and is therefore around 140 years old. This time spans 6 generations.",
       "images": [
         "p0006-01.png",
         "p0006-02.png",
@@ -423,13 +423,13 @@
         "p0006-06.png"
       ],
       "images_alt": [
-        "Dado height Gründerzeit panelling P0006 Leipzig Ludwigstrasse with stripe profiles and cornice moulding",
-        "Corner view Gründerzeit panelling P0006 Leipzig Ludwigstrasse with stripe panels and strong cornice",
-        "Dado height Gründerzeit panelling P0006 Leipzig Ludwigstrasse with vertical battens",
+        "Dado height GrÃ¼nderzeit panelling P0006 Leipzig Ludwigstrasse with stripe profiles and cornice moulding",
+        "Corner view GrÃ¼nderzeit panelling P0006 Leipzig Ludwigstrasse with stripe panels and strong cornice",
+        "Dado height GrÃ¼nderzeit panelling P0006 Leipzig Ludwigstrasse with vertical battens",
         "plinth and cornice moulding",
-        "Detail view Gründerzeit panelling P0006 Leipzig Ludwigstrasse with profiled vertical battens and plinth finish",
-        "Detail Gründerzeit panelling P0006 Leipzig Ludwigstrasse with strong cornice moulding and vertical battens",
-        "Base section Gründerzeit panelling P0006 Leipzig Ludwigstrasse with wide plinth moulding and vertical panel battens"
+        "Detail view GrÃ¼nderzeit panelling P0006 Leipzig Ludwigstrasse with profiled vertical battens and plinth finish",
+        "Detail GrÃ¼nderzeit panelling P0006 Leipzig Ludwigstrasse with strong cornice moulding and vertical battens",
+        "Base section GrÃ¼nderzeit panelling P0006 Leipzig Ludwigstrasse with wide plinth moulding and vertical panel battens"
       ],
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
@@ -440,10 +440,10 @@
     {
       "path": "en/public/products/dado-panel/p0022.md",
       "slug": "p0022",
-      "category": "Artikel, Halbhohe Vertäfelungen",
-      "title": "P0022 - Lübeck - Rathaus - Langes Haus",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
+      "title": "P0022 - LÃ¼beck - Rathaus - Langes Haus",
       "has_yaml": true,
-      "summary": "Town Hall Lübeck - The centre of the Hanseatic League. This is where from the 14th to the 18th century the Hansa Days took place, where co-operation was regulated. The city council still debates current issues here today. Lübeck is a very p",
+      "summary": "Town Hall LÃ¼beck - The centre of the Hanseatic League. This is where from the 14th to the 18th century the Hansa Days took place, where co-operation was regulated. The city council still debates current issues here today. LÃ¼beck is a very",
       "images": [
         "p0022-01.png",
         "p0022-02.png",
@@ -458,17 +458,17 @@
         "p0022-11.png"
       ],
       "images_alt": [
-        "Dado height Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with panelled fields and cornice",
-        "Corner view Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with panelled fields and cornice",
-        "View Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with continuous panelled fields and cornice",
-        "Detail Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with profiled panels and carved finish",
-        "Detail view cornice Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with profiled moulding and carved ornament",
-        "Base section Gründerzeit panelling P0022 Lübeck Town Hall Long House 1893 with wide profiled plinth and vertical batten panel",
-        "Historic corridor Lübeck Town Hall Long House with Gründerzeit panelling wooden ceiling and black white checkerboard floor",
-        "Panelled corridor Lübeck Town Hall Long House with wooden bench Renaissance portraits and herringbone parquet floor",
-        "Renaissance panelling Lübeck Town Hall oak wood with clear panel division and fine grain pattern",
-        "Detail Renaissance panelling Lübeck Town Hall oak wood with strong grain and carved upper edge finish",
-        "Detail Renaissance panelling Lübeck Town Hall oak cornice with moulded cavetto profile and edge finish"
+        "Dado height GrÃ¼nderzeit panelling P0022 LÃ¼beck Town Hall Long House 1893 with panelled fields and cornice",
+        "Â Corner view GrÃ¼nderzeit panelling P0022 LÃ¼beck Town Hall Long House 1893 with panelled fields and cornice",
+        "View GrÃ¼nderzeit panelling P0022 LÃ¼beck Town Hall Long House 1893 with continuous panelled fields and cornice",
+        "Detail GrÃ¼nderzeit panelling P0022 LÃ¼beck Town Hall Long House 1893 with profiled panels and carved finish",
+        "Detail view cornice GrÃ¼nderzeit panelling P0022 LÃ¼beck Town Hall Long House 1893 with profiled moulding and carved ornament",
+        "Base section GrÃ¼nderzeit panelling P0022 LÃ¼beck Town Hall Long House 1893 with wide profiled plinth and vertical batten panel",
+        "Historic corridor LÃ¼beck Town Hall Long House with GrÃ¼nderzeit panelling wooden ceiling and black white checkerboard floor",
+        "Panelled corridor LÃ¼beck Town Hall Long House with wooden bench Renaissance portraits and herringbone parquet floor",
+        "Renaissance panelling LÃ¼beck Town Hall oak wood with clear panel division and fine grain pattern",
+        "Detail Renaissance panelling LÃ¼beck Town Hall oak wood with strong grain and carved upper edge finish",
+        "Detail Renaissance panelling LÃ¼beck Town Hall oak cornice with moulded cavetto profile and edge finish"
       ],
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
@@ -479,7 +479,7 @@
     {
       "path": "en/public/products/dado-panel/p0010.md",
       "slug": "p0010",
-      "category": "Artikel, Halbhohe Vertäfelungen",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
       "title": "P0010 - Rome - St Peter's Basilica - Balustrade at the tomb of St Peter",
       "has_yaml": true,
       "summary": "The balustrade that we have used as a model for this new wainscoting is located in the centre of St Peter's Basilica in Rome, directly in front of Bernini's ciborium. It surrounds the staircase to the Vatican Necropolis, where St Peter's to",
@@ -512,7 +512,7 @@
     {
       "path": "en/public/products/dado-panel/p0011.md",
       "slug": "p0011",
-      "category": "Artikel, Halbhohe Vertäfelungen",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
       "title": "P0011 - Weimar - Goethe's house am Frauenplan",
       "has_yaml": true,
       "summary": "Goethe's home in Weimar is a successful blend of classicist bourgeoisie and simple farmhouse.",
@@ -539,8 +539,8 @@
     {
       "path": "en/public/products/dado-panel/p0018.md",
       "slug": "p0018",
-      "category": "Artikel, Halbhohe Vertäfelungen",
-      "title": "P0018 - Berlin - Invalidenstraße",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
+      "title": "P0018 - Berlin - InvalidenstraÃe",
       "has_yaml": true,
       "summary": "The Balzer bakery was located here 130 years ago. All the walls are covered with fresh summer flower tiles and beautifully profiled wooden mouldings and the buns must have smelled twice as good! Today they're serving burgers and the setting",
       "images": [
@@ -560,8 +560,8 @@
         "Classical wall panelling with floral Jugendstil ceramic tiles detailed view Invalidenstrasse Berlin",
         "Historic wall panelling with Jugendstil ceramic tiles partial view template Invalidenstrasse Berlin",
         "Detail view classical wall panelling with Jugendstil ceramic tiles Berlin historic template Invalidenstrasse",
-        "Historic Berlin café interior with wooden panelling Jugendstil ceramic tiles and decorative panels",
-        "Art Nouveau wall panelling with wooden frame and historic tiles in Berlin café interior design"
+        "Historic Berlin cafÃ© interior with wooden panelling Jugendstil ceramic tiles and decorative panels",
+        "Art Nouveau wall panelling with wooden frame and historic tiles in Berlin cafÃ© interior design"
       ],
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
@@ -572,7 +572,7 @@
     {
       "path": "en/public/products/dado-panel/p0015.md",
       "slug": "p0015",
-      "category": "Artikel, Halbhohe Vertäfelungen",
+      "category": "Artikel, Halbhohe VertÃ¤felungen",
       "title": "P0015 - Berlin - Alte Nationalgalerie",
       "has_yaml": true,
       "summary": "A good example of panelling that provides clear structures and puts the pictures on display centre stage. The surface looks like a flat balustrade with plenty of space at the top to hang pictures in different formats at eye level.",
@@ -688,7 +688,7 @@
         "sl0001-2.png"
       ],
       "images_alt": [
-        "Technische Zeichnung einer Hamburger Sockelleiste 25/170 mit 170 mm Höhe und markantem Profil",
+        "Technische Zeichnung einer Hamburger Sockelleiste 25/170 mit 170 mm HÃ¶he und markantem Profil",
         "Detaillierte Darstellung der Hamburger Sockelleiste 25/170 in einer Raumecke mit Profilansicht und Wandmontage"
       ],
       "author": "Tobias Klaus",
@@ -786,7 +786,7 @@
     {
       "path": "en/public/products/rosettes/blr3.md",
       "slug": "blr3",
-      "category": "Artikel, Lüftungsrosetten",
+      "category": "Artikel, LÃ¼ftungsrosetten",
       "title": "Ventilation Rosette 3",
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Cast brass, polished Diameter approx. 36 mm Hight approx 3 mm",
@@ -813,7 +813,7 @@
     {
       "path": "en/public/products/rosettes/blr4.md",
       "slug": "blr4",
-      "category": "Artikel, Lüftungsrosetten",
+      "category": "Artikel, LÃ¼ftungsrosetten",
       "title": "Ventilation Rosette 4",
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Milled brass, smoothed surface Diameter 45 mm Hight approx. 4 mm",
@@ -836,7 +836,7 @@
     {
       "path": "en/public/products/rosettes/blr1.md",
       "slug": "blr1",
-      "category": "Artikel, Lüftungsrosetten",
+      "category": "Artikel, LÃ¼ftungsrosetten",
       "title": "Ventilation Rosette 1",
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on an original design. Cast brass, polished Diameter approx. 52 mm Hight approx 5 mm",
@@ -868,7 +868,7 @@
     {
       "path": "en/public/products/rosettes/blr2.md",
       "slug": "blr2",
-      "category": "Artikel, Lüftungsrosetten",
+      "category": "Artikel, LÃ¼ftungsrosetten",
       "title": "Ventilation Rosette 2",
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Cast brass, polished Diameter approx. 42 mm Hight approx 3 mm",
@@ -895,7 +895,7 @@
     {
       "path": "en/public/products/rosettes/blr5.md",
       "slug": "blr5",
-      "category": "Artikel, Lüftungsrosetten",
+      "category": "Artikel, LÃ¼ftungsrosetten",
       "title": "Ventilation Rosette 5",
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Cast brass, polished Diameter approx. 58 mm Hight approx 13 mm",
@@ -918,7 +918,7 @@
     {
       "path": "en/public/products/rosettes/blr6.md",
       "slug": "blr6",
-      "category": "Artikel, Lüftungsrosetten",
+      "category": "Artikel, LÃ¼ftungsrosetten",
       "title": "Ventilation Rosette 6",
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on the original design. Cast brass, polished Diameter approx. 46 mm Hight approx 11 mm",
@@ -945,7 +945,7 @@
     {
       "path": "en/public/products/rosettes/blr7.md",
       "slug": "blr7",
-      "category": "Artikel, Lüftungsrosetten",
+      "category": "Artikel, LÃ¼ftungsrosetten",
       "title": "Ventilation Rosette 7",
       "has_yaml": true,
       "summary": "Elegant ventilation rosette based on an original design. Cast brass, polished Diameter approx. 28 mm Hight approx 12 mm",
@@ -968,7 +968,7 @@
     {
       "path": "en/public/products/mouldings/door/tr06.md",
       "slug": "tr06",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 06",
       "has_yaml": true,
       "summary": "Door and window frame TR 06, dimensions: 115 x 26 mm",
@@ -985,7 +985,7 @@
     {
       "path": "en/public/products/mouldings/door/tr07.md",
       "slug": "tr07",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 07",
       "has_yaml": true,
       "summary": "Door and window frame TR 07, dimensions: 143 x 31 mm",
@@ -1002,7 +1002,7 @@
     {
       "path": "en/public/products/mouldings/door/tr01-160.md",
       "slug": "tr01-160",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 01 / 160",
       "has_yaml": true,
       "summary": "Door and window frame TR 01 / 160, dimensions: 160 x 24 mm",
@@ -1019,7 +1019,7 @@
     {
       "path": "en/public/products/mouldings/door/tr01-120.md",
       "slug": "tr01-120",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 01 / 120",
       "has_yaml": true,
       "summary": "Door and window frame TR 01 / 120, dimensions: 120 x 18 mm",
@@ -1036,7 +1036,7 @@
     {
       "path": "en/public/products/mouldings/door/tr01-200.md",
       "slug": "tr01-200",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 01 / 200",
       "has_yaml": true,
       "summary": "Door and window frame TR 01 / 200, dimensions: 200 x 24 mm",
@@ -1053,7 +1053,7 @@
     {
       "path": "en/public/products/mouldings/door/tr02.md",
       "slug": "tr02",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 02",
       "has_yaml": true,
       "summary": "Door and window frame TR 06, dimensions: 100 x 17 mm",
@@ -1070,7 +1070,7 @@
     {
       "path": "en/public/products/mouldings/door/tr03.md",
       "slug": "tr03",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 03",
       "has_yaml": true,
       "summary": "Door and window frame TR 03, dimensions: 160 X 42 mm",
@@ -1087,7 +1087,7 @@
     {
       "path": "en/public/products/mouldings/door/tr04.md",
       "slug": "tr04",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 04",
       "has_yaml": true,
       "summary": "Door and window frame TR 04, dimensions: 160 X 34 mm",
@@ -1104,7 +1104,7 @@
     {
       "path": "en/public/products/mouldings/door/tr05.md",
       "slug": "tr05",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 05",
       "has_yaml": true,
       "summary": "Door and window frame TR 05, dimensions: 179 x 42 mm",
@@ -1121,7 +1121,7 @@
     {
       "path": "en/public/products/mouldings/door/tr09.md",
       "slug": "tr09",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 09",
       "has_yaml": true,
       "summary": "Door and window frame TR 09, dimensions: 115 x 26 mm",
@@ -1138,7 +1138,7 @@
     {
       "path": "en/public/products/mouldings/door/tr11.md",
       "slug": "tr11",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 11",
       "has_yaml": true,
       "summary": "Door and window frame TR 11, dimensions: 118 x 23 mm",
@@ -1155,7 +1155,7 @@
     {
       "path": "en/public/products/mouldings/door/tr12.md",
       "slug": "tr12",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 12",
       "has_yaml": true,
       "summary": "Door and window frame TR 12, dimensions: 117 x 28 mm",
@@ -1172,7 +1172,7 @@
     {
       "path": "en/public/products/mouldings/door/tr13.md",
       "slug": "tr13",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 13",
       "has_yaml": true,
       "summary": "Door and window frame TR 13, dimensions: 103 x 23 mm",
@@ -1189,7 +1189,7 @@
     {
       "path": "en/public/products/mouldings/door/tr14.md",
       "slug": "tr14",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 14",
       "has_yaml": true,
       "summary": "Door and window frame TR 14, dimensions: 118 x 20 mm",
@@ -1206,7 +1206,7 @@
     {
       "path": "en/public/products/mouldings/door/tr15.md",
       "slug": "tr15",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 15",
       "has_yaml": true,
       "summary": "Door and window frame TR 15, dimensions: 117 x 19 mm",
@@ -1223,7 +1223,7 @@
     {
       "path": "en/public/products/mouldings/door/tr17.md",
       "slug": "tr17",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 17",
       "has_yaml": true,
       "summary": "Door and window frame TR 17, dimensions: 164 x 58 mm",
@@ -1240,7 +1240,7 @@
     {
       "path": "en/public/products/mouldings/door/tr18.md",
       "slug": "tr18",
-      "category": "Artikel, Türbekleidungen & Fensterrahmen",
+      "category": "Artikel, TÃ¼rbekleidungen & Fensterrahmen",
       "title": "Door Frame 18",
       "has_yaml": true,
       "summary": "Door and window frame TR 18, dimensions: 150 x 40 mm",
@@ -1277,7 +1277,7 @@
       "category": "Artikel, Wandleisten",
       "title": "Wall Moulding 02 \"Dome\"",
       "has_yaml": true,
-      "summary": "Wooden moulding 20 x 40 mm, symmetric „Dome Profil“ As a wall moulding for direct installation on the plastered wall. This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.",
+      "summary": "Wooden moulding 20 x 40 mm, symmetric âDome ProfilâÂ As a wall moulding for direct installation on the plastered wall. This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.",
       "images": [
         "wl02.png"
       ],
@@ -1294,7 +1294,7 @@
       "category": "Artikel, Wandleisten",
       "title": "Wall Moulding 03",
       "has_yaml": true,
-      "summary": "Wooden moulding 10 x 40 mm As a wall moulding for direct installation on the plastered wall. This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.",
+      "summary": "Wooden moulding 10 x 40 mm As a wall moulding for direct installation on the plastered wall.Â This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.",
       "images": [
         "wl03.png"
       ],
@@ -1512,7 +1512,7 @@
     {
       "path": "en/public/products/oil-paints/oil-tung/loen.md",
       "slug": "loen",
-      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "category": "Artikel, LeinÃ¶l, TungÃ¶l, Balsam",
       "title": "Pur Linseed Oil",
       "has_yaml": true,
       "summary": "Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative. For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying pro",
@@ -1529,7 +1529,7 @@
     {
       "path": "en/public/products/oil-paints/oil-tung/loef.md",
       "slug": "loef",
-      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "category": "Artikel, LeinÃ¶l, TungÃ¶l, Balsam",
       "title": "Linseed Oil Varnish",
       "has_yaml": true,
       "summary": "Linseed oil varnish with siccatives. For interior use as a quick-drying finish with a drying time of up to 24 hours.",
@@ -1546,7 +1546,7 @@
     {
       "path": "en/public/products/oil-paints/oil-tung/btoe.md",
       "slug": "btoe",
-      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "category": "Artikel, LeinÃ¶l, TungÃ¶l, Balsam",
       "title": "Balsamic turpentine oil",
       "has_yaml": true,
       "summary": "Balsamic turpentine oil is a natural solvent that is obtained by repeated distillation (recification) of coniferous wood resins. Linseed oil varnish can be diluted with balsamic turpentine oil in a ratio of 1:1 to half oil. This allows the ",
@@ -1563,7 +1563,7 @@
     {
       "path": "en/public/products/oil-paints/oil-tung/ctp.md",
       "slug": "ctp",
-      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "category": "Artikel, LeinÃ¶l, TungÃ¶l, Balsam",
       "title": "Citrus terpene",
       "has_yaml": true,
       "summary": "Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and dissolve resins. Citrus terpene has a pleasant orange odour as it is obtained from the distillation of orange peel. It is also particularly suitable for ecologi",
@@ -1580,10 +1580,10 @@
     {
       "path": "en/public/products/oil-paints/oil-tung/toel.md",
       "slug": "toel",
-      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "category": "Artikel, LeinÃ¶l, TungÃ¶l, Balsam",
       "title": "Tung oil varnish",
       "has_yaml": true,
-      "summary": "Tung oil boiled with linseed oil, linseed oil stand oil and siccatives. For interior and exterior use. TUNG wood oil varnish dries significantly faster and harder than a linseed oil varnish. The surface is initially matt glossy. It is used ",
+      "summary": "Tung oil boiled with linseed oil, linseed oil stand oil and siccatives. For interior and exterior use. Â TUNG wood oil varnish dries significantly faster and harder than a linseed oil varnish. The surface is initially matt glossy. It is use",
       "images": [
         "toel.png"
       ],
@@ -1597,7 +1597,7 @@
     {
       "path": "en/public/products/oil-paints/oil-tung/toen.md",
       "slug": "toen",
-      "category": "Artikel, Leinöl, Tungöl, Balsam",
+      "category": "Artikel, LeinÃ¶l, TungÃ¶l, Balsam",
       "title": "Tung oil natural",
       "has_yaml": true,
       "summary": "Natural Tung Oil contains no siccatives. It polymerises in a similar way to linseed oil, but dries faster and forms a hard, matt surface. If wood is treated exclusively with Tung Oil Natural, the natural wood colour is essentially retained.",
@@ -1614,7 +1614,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/white.md",
       "slug": "white",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "White - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1633,7 +1633,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/black.md",
       "slug": "black",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Black - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1652,7 +1652,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/umber.md",
       "slug": "umber",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Umber - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1671,7 +1671,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/brown.md",
       "slug": "brown",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Brown - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1690,7 +1690,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/green.md",
       "slug": "green",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Green - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1709,7 +1709,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/lemon-yellow.md",
       "slug": "lemon-yellow",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Lemon Yellow - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1728,7 +1728,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/maize-yellow.md",
       "slug": "maize-yellow",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Maize Yellow - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1747,7 +1747,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/ochre.md",
       "slug": "ochre",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Ochre Yellow - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1766,7 +1766,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/oxide-red.md",
       "slug": "oxide-red",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Oxide Red - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1785,7 +1785,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/ultra-blue.md",
       "slug": "ultra-blue",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Ultra Blue - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",
@@ -1804,7 +1804,7 @@
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/wine-red.md",
       "slug": "wine-red",
-      "category": "Artikel, STANDÖLINNENFARBE PRO Volltonfarben",
+      "category": "Artikel, STANDÃLINNENFARBE PRO Volltonfarben",
       "title": "Wine Red - BEECK Interior Stand-Oil Paint PRO",
       "has_yaml": true,
       "summary": "Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss. Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and c",

@@ -3,7 +3,7 @@ slug: "blr4"
 product_id: "70"
 reference: "BLR 4"
 titel: "Ventilation Rosette 4"
-kategorie: "Artikel, Lüftungsrosetten"
+kategorie: "Artikel, LÃ¼ftungsrosetten"
 beschreibung: >
   Elegant ventilation rosette based on the original design. Milled brass, smoothed surface Diameter 45 mm Hight approx. 4 mm
 meta_title: "Ventilation Rosette 4"
@@ -42,7 +42,7 @@ Hight approx. 4 mm
 - Referenz: BLR 4
 - Preis: 41,18 €
 - Verfügbar: 1
-- Kategorie: Artikel, Lüftungsrosetten
+- Kategorie: Artikel, LÃ¼ftungsrosetten
 - Sortierung: 
 
 ## Varianten
