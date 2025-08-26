@@ -48,6 +48,12 @@ html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto
 .dir-list ul{list-style: none;padding-left:0}
 .dir-list li{margin:.35rem 0}
 .dir-list a{text-decoration:none}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.tile{display:block;border:1px solid #eee;border-radius:8px;overflow:hidden;text-decoration:none}
+.tile-body{padding:12px}
+.tile-title{font-weight:600;margin-bottom:.25rem}
+.tile-teaser{color:#555;font-size:.9rem}
+.tile-thumb img{display:block;width:100%;height:auto}
 code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
 """
 
@@ -182,6 +188,83 @@ def render_md(md_text: str):
     toc = getattr(md, "toc", "")
     return html, toc
 
+
+def load_site_manifest() -> list:
+    candidates = [ROOT / "site_manifest.json", ROOT / "assets" / "site_manifest.json"]
+    for c in candidates:
+        if c.exists():
+            try:
+                import json as _json
+                data = _json.loads(c.read_text(encoding="utf-8"))
+                if isinstance(data, dict) and "items" in data:
+                    return data["items"]
+                if isinstance(data, list):
+                    return data
+            except Exception as e:
+                print("WARN: site_manifest.json konnte nicht geladen werden:", e, file=sys.stderr)
+    return []
+
+def _lang_from_rel(rel: pathlib.Path) -> str:
+    for part in rel.parts:
+        if part.lower() == "en":
+            return "en"
+    return "de"
+
+def render_category_landing(dir_path: pathlib.Path, manifest: list):
+    rel = dir_path.relative_to(ROOT)
+    out = OUT / rel / "index.html"
+    out.parent.mkdir(parents=True, exist_ok=True)
+    lang = _lang_from_rel(rel)
+    base = "/" + rel.as_posix().strip("/") + ("/" if rel.as_posix() != "." else "")
+    def _is_direct_child(pth: str) -> bool:
+        p = pth.strip("/")
+        b = base.strip("/")
+        if not p.startswith(b):
+            return False
+        rest = p[len(b):]
+        return rest != "" and "/" not in rest.strip("/")
+    items = [it for it in manifest if isinstance(it, dict) and it.get("path")]
+    here = [it for it in items if _is_direct_child(it["path"])]
+    if not here:
+        here = [it for it in items if it["path"].strip("/").startswith(base.strip("/"))]
+    def _t(it):
+        return it.get(f"title_{lang}") or it.get("title") or it.get("path").rstrip("/").split("/")[-1]
+    def _z(it):
+        return it.get(f"teaser_{lang}") or it.get("teaser") or ""
+    here.sort(key=lambda it: (it.get("order", 9999), _t(it).lower()))
+    tiles = []
+    for it in here:
+        href = (BASE_URL.rstrip("/") + it["path"]).rstrip("/") + "/"
+        thumb = it.get("thumb") or ""
+        title = _t(it); teaser = _z(it)
+        img = f'<div class="tile-thumb"><img src="{thumb}" alt="" loading="lazy"></div>' if thumb else ""
+        tiles.append(f'<a class="tile" href="{href}">{img}<div class="tile-body"><div class="tile-title">{title}</div><div class="tile-teaser">{teaser}</div></div></a>')
+    page_title = "Start" if rel.as_posix()=="." else rel.as_posix()
+    crumbs = []; acc = []
+    for part in rel.parts:
+        acc.append(part)
+        href = BASE_URL + "/" + "/".join(acc) + "/"
+        crumbs.append(f'<a href="{href}">{part}</a>')
+    bc_html = "" if not crumbs else "<nav class=\"breadcrumbs\">" + " / ".join(crumbs) + "</nav>"
+    html = f"""<!doctype html>
+<html lang="{lang}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{page_title} - Wissen</title>
+<link rel="stylesheet" href="{BASE_URL}/assets/style.css">
+<body>
+<header class="site-header"><div class="wrap">
+  <a class="brand" href="{BASE_URL}/">Wissen</a>
+  <nav class="site-nav"><a href="{BASE_URL}/">Start</a></nav>
+</div></header>
+<main class="content"><div class="wrap page">
+  {bc_html}
+  <h1>{page_title}</h1>
+  <div class="tiles">{''.join(tiles) if tiles else '<p>Keine Inhalte gefunden.</p>'}</div>
+</div></main>
+</body>
+</html>"""
+    out.write_text(html, encoding="utf-8")
 def ensure_assets():
     dst = OUT / "assets"
     dst.mkdir(parents=True, exist_ok=True)
@@ -242,9 +325,13 @@ def main():
     ensure_assets()
     urls = []
 
-    # Autoindex für alle Ordner mit Markdown
-    for d in sorted(set(p.parent for p in ROOT.rglob("*.md"))):
-        write_dir_autoindex(d)
+    # Manifest-gestützte Landingpages statt Autoindex
+    manifest = load_site_manifest()
+    if manifest:
+        cat_dirs = sorted({ (ROOT / (it.get('path','/').strip('/'))).resolve() if it.get('path') else ROOT for it in manifest if isinstance(it, dict) and it.get('type')=='category' })
+        for d in cat_dirs:
+            if str(d).startswith(str(ROOT)):
+                render_category_landing(d, manifest)
 
     for md_path in collect_markdown(ROOT):
         raw = md_path.read_text(encoding="utf-8")
@@ -277,8 +364,9 @@ def main():
         if robots.startswith("index"):
             urls.append({"loc": canonical, "lastmod": datetime.date.today().isoformat()})
 
-    # Root-Autoindex sicherstellen (damit /wissen/ immer eine Liste zeigt)
-    write_dir_autoindex(ROOT)
+    # Root-Landingpage aus Manifest (falls vorhanden)
+    if 'manifest' in locals() and manifest:
+        render_category_landing(ROOT, manifest)
 
     write_sitemap(urls)
     print("OK – gebaut nach:", OUT)
