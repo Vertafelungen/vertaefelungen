@@ -14,6 +14,45 @@ import pandas as pd
 import requests
 from datetime import datetime
 from io import BytesIO
+# ===== ROBUST CSV FETCH =====
+import time
+from urllib.parse import quote
+
+def fetch_sheet_csv(spreadsheet_id=None, sheet_name=None, gid=None, direct_url=None) -> str:
+    """
+    Liefert CSV-Text stabil zurück. Reihenfolge der Kandidaten:
+    1) direct_url (falls gesetzt),
+    2) /export?format=csv&gid=GID,
+    3) /gviz/tq?tqx=out:csv&sheet=Name,
+    4) /export?format=csv (erste Tabelle).
+    """
+    headers = {"User-Agent": "curl/8.0 (+GitHub Actions sync-from-sheet)"}
+    if direct_url:
+        candidates = [direct_url]
+    else:
+        if not spreadsheet_id:
+            raise RuntimeError("SHEET_ID fehlt und keine direkte URL übergeben.")
+        candidates = []
+        if gid:
+            candidates.append(f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv&gid={gid}")
+        if sheet_name:
+            candidates.append(f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/gviz/tq?tqx=out:csv&sheet={quote(sheet_name)}")
+        candidates.append(f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv")
+
+    last_err = None
+    for url in candidates:
+        for attempt in (1,2,3):
+            try:
+                r = requests.get(url, headers=headers, allow_redirects=True, timeout=60)
+                ct = r.headers.get("content-type", "")
+                if r.status_code == 200 and ("text/csv" in ct or r.text.count(",") > 3):
+                    return r.text
+                last_err = f"HTTP {r.status_code}, ct={ct}, url={url}"
+            except Exception as e:
+                last_err = f"{type(e).__name__}: {e} (url={url})"
+            time.sleep(1.2 * attempt)
+    raise RuntimeError(f"CSV-Download fehlgeschlagen: {last_err}")
+
 
 # ===== FIXED METADATA =====
 author = "Tobias Klaus"
@@ -45,10 +84,20 @@ COL_ALT_DE = "bilder_alt_de"
 COL_ALT_EN = "bilder_alt_en"
 
 # ===== FETCH SHEET =====
-resp = requests.get(SHEET_CSV_URL, timeout=60)
-resp.raise_for_status()
-csv_bytes = BytesIO(resp.content)
-df = pd.read_csv(csv_bytes, encoding="utf-8")
+SHEET_ID   = os.getenv("SHEET_ID", "").strip()
+SHEET_GID  = os.getenv("SHEET_GID", "").strip()
+SHEET_NAME = os.getenv("SHEET_NAME", "").strip()
+DIRECT_URL = os.getenv("SHEET_CSV_URL", "").strip()
+
+csv_text = fetch_sheet_csv(
+    spreadsheet_id=SHEET_ID or None,
+    sheet_name=SHEET_NAME or None,
+    gid=SHEET_GID or None,
+    direct_url=DIRECT_URL or None
+)
+from io import StringIO
+csv_bytes = StringIO(csv_text)
+df = pd.read_csv(csv_bytes)
 df = df.fillna("")
 
 # ===== HELPERS =====
