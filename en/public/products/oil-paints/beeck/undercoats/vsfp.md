@@ -27,8 +27,8 @@ langcode: ""
 author: "Tobias Klaus"
 author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
-source: ""
-last_updated: ""
+source: "https://www.vertaefelungen.de/en/45-vorstreichfarbe"
+last_updated: "2025-09-01"
 ---
 
 # BEECK Undercoat PRO

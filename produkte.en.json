@@ -1,6 +1,6 @@
 {
   "language": "en",
-  "generated": "2025-09-01T05:19:06.222939",
+  "generated": "2025-09-02T05:18:31.989457",
   "items": [
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-m/oxide-green.md",
@@ -56,7 +56,7 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro-mischtoene/113-oxidgreen.html",
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro-mischtoene/113-504-oxidgreen.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin/73-classic_green-classic_green_01",
       "last_updated": "2025-08-20"
     },
     {
@@ -606,7 +606,7 @@
       "path": "en/public/products/mouldings/skirtings/sl0007.md",
       "slug": "sl0007",
       "category": "Artikel, Sockelleisten",
-      "title": "P0033 - Munich - Augustiner Brewery Motherhouse",
+      "title": "SL0007 - Munich - Augustiner Brewery Motherhouse",
       "has_yaml": true,
       "summary": "This high skirting board comes from the main building of the Augustiner brewery in Munich city centre. Some living rooms of the Wagner brewery family, the \"Wagner Salons\", are furnished with it on the first floor. The salons were remodelled",
       "images": [
@@ -624,21 +624,6 @@
       "license": "CC BY-SA 4.0",
       "source": "https://www.vertaefelungen.de/en/Skirting/26-Skirting-augustiner-stammhaus.html",
       "last_updated": "2025-08-20"
-    },
-    {
-      "path": "en/public/products/mouldings/skirtings/sl0007-ie.md",
-      "slug": "sl0007-ie",
-      "category": "Sockelleisten",
-      "title": "P0033 - inner corner",
-      "has_yaml": true,
-      "summary": "Matching inner corner for skirting board P0033, emphasises the corners.",
-      "images": [],
-      "images_alt": [],
-      "author": "Tobias Klaus",
-      "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
-      "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0005.md",
@@ -660,21 +645,6 @@
       "license": "CC BY-SA 4.0",
       "source": "https://www.vertaefelungen.de/en/Skirting/34-sl0005-abgerundete-oberkante-80-16.html",
       "last_updated": "2025-08-20"
-    },
-    {
-      "path": "en/public/products/mouldings/skirtings/sl0007-ae.md",
-      "slug": "sl0007-ae",
-      "category": "Sockelleisten",
-      "title": "copy of P0033 - inner corner",
-      "has_yaml": true,
-      "summary": "Matching inner corner for skirting board P0033, emphasises the corners.",
-      "images": [],
-      "images_alt": [],
-      "author": "Tobias Klaus",
-      "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
-      "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
     },
     {
       "path": "en/public/products/mouldings/skirtings/sl0001.md",
@@ -807,8 +777,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/ventilation-rosettes/60-ventilation-rosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/rosettes/blr4.md",
@@ -830,8 +800,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/ventilation-rosettes/70-ventilation-rosette-4.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/rosettes/blr1.md",
@@ -862,8 +832,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/ventilation-rosettes/71-ventilation-rosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/rosettes/blr2.md",
@@ -889,8 +859,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/ventilation-rosettes/72-ventilation-rosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/rosettes/blr5.md",
@@ -912,8 +882,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/ventilation-rosettes/73-ventilation-rosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/rosettes/blr6.md",
@@ -939,8 +909,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/ventilation-rosettes/74-ventilation-rosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/rosettes/blr7.md",
@@ -962,8 +932,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/ventilation-rosettes/75-ventilation-rosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr06.md",
@@ -979,8 +949,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/114-522-tr06.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr07.md",
@@ -996,8 +966,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/115-524-tr07.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr01-160.md",
@@ -1013,8 +983,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/116-526-tr01-160.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr01-120.md",
@@ -1030,8 +1000,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/117-528-tr01-120.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr01-200.md",
@@ -1047,8 +1017,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/118-530-tr01-200.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr02.md",
@@ -1064,8 +1034,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/119-532-tr02.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr03.md",
@@ -1081,8 +1051,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/120-534-tr03.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr04.md",
@@ -1098,8 +1068,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/121-536-tr04.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr05.md",
@@ -1115,8 +1085,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/122-538-tr05.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr09.md",
@@ -1132,8 +1102,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/123-540-tr09.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr11.md",
@@ -1149,8 +1119,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/124-542-tr11.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr12.md",
@@ -1166,8 +1136,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/125-544-tr12.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr13.md",
@@ -1183,8 +1153,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/126-546-tr13.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr14.md",
@@ -1200,8 +1170,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/127-548-tr14.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr15.md",
@@ -1217,8 +1187,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/128-550-tr15.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr17.md",
@@ -1234,8 +1204,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/129-552-tr17.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/door/tr18.md",
@@ -1251,8 +1221,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/doorframe/130-554-tr18.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl01.md",
@@ -1268,8 +1238,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/76-339-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl02.md",
@@ -1285,8 +1255,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/77-341-wl-02.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl03.md",
@@ -1302,8 +1272,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/78-343-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl04.md",
@@ -1319,8 +1289,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/79-345-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl05.md",
@@ -1336,8 +1306,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/80-347-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl06.md",
@@ -1353,8 +1323,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/81-349-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl07.md",
@@ -1370,8 +1340,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/82-351-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl08.md",
@@ -1387,8 +1357,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/84-355-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl09.md",
@@ -1404,8 +1374,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/85-357-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl10.md",
@@ -1421,8 +1391,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/86-359-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl11.md",
@@ -1438,8 +1408,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/87-361-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl12.md",
@@ -1455,8 +1425,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/88-363-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl13.md",
@@ -1472,8 +1442,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/89-365-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl14.md",
@@ -1489,8 +1459,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/90-367-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/mouldings/wall/wl15.md",
@@ -1506,8 +1476,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/wall-mouldings/91-369-wl-01.html#/66-type_of_wood_wl-pine",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/loen.md",
@@ -1523,8 +1493,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/leinoel-tungoel-balsam/61-322-linseedoil.html#/63-gebinde-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/loef.md",
@@ -1540,8 +1510,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/leinoel-tungoel-balsam/62-326-leinolfirnis.html#/63-gebinde-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/btoe.md",
@@ -1557,8 +1527,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/leinoel-tungoel-balsam/63-313-balsamterpentinol.html#/63-gebinde-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/ctp.md",
@@ -1574,8 +1544,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/leinoel-tungoel-balsam/64-330-citrusterpene.html#/63-gebinde-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/toel.md",
@@ -1591,8 +1561,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/leinoel-tungoel-balsam/65-332-tung-oil-natural.html#/63-gebinde-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/oil-tung/toen.md",
@@ -1608,8 +1578,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/leinoel-tungoel-balsam/69-336-tung-oil-natural.html#/63-gebinde-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/white.md",
@@ -1627,8 +1597,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/94-383-white.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/black.md",
@@ -1646,8 +1616,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/98-389-black.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/umber.md",
@@ -1665,8 +1635,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/99-395-umber.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/brown.md",
@@ -1684,8 +1654,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/100-401-brown.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/green.md",
@@ -1703,8 +1673,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/101-407-umber.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/lemon-yellow.md",
@@ -1722,8 +1692,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/102-413-yellow.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/maize-yellow.md",
@@ -1741,8 +1711,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/103-419-umber.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/ochre.md",
@@ -1760,8 +1730,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/104-425-ochre.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/oxide-red.md",
@@ -1779,8 +1749,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/105-431-oxid-red.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/ultra-blue.md",
@@ -1798,8 +1768,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/106-437-ultra-blue.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/stand-oil/sip-v/wine-red.md",
@@ -1817,8 +1787,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/107-443-wine-red.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "en/public/products/oil-paints/beeck/undercoats/vsfp.md",
@@ -1834,8 +1804,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/45-vorstreichfarbe",
+      "last_updated": "2025-09-01"
     }
   ]
 }

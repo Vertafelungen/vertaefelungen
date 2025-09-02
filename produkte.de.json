@@ -1,6 +1,6 @@
 {
   "language": "de",
-  "generated": "2025-09-01T05:19:06.222926",
+  "generated": "2025-09-02T05:18:31.989444",
   "items": [
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-m/klassikgruen.md",
@@ -30,7 +30,7 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro-mischtoene/112-klassikgruen.html",
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro-mischtoene/112-486-klassikgruen.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt/73-klassikgrun-klassikgrun_01",
       "last_updated": "2025-08-20"
     },
     {
@@ -631,21 +631,6 @@
       "last_updated": "2025-08-20"
     },
     {
-      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007-ie.md",
-      "slug": "sl0007-ie",
-      "category": "Sockelleisten",
-      "title": "SL0007 - Innenecke",
-      "has_yaml": true,
-      "summary": "Passende Innenecke fÃ¼r Sockelleiste P0033, sorgt fÃ¼r ein einfaches Verlegen, da keine Gehrungen gesÃ¤gt werden mÃ¼ssen und betont die Ecken.",
-      "images": [],
-      "images_alt": [],
-      "author": "Tobias Klaus",
-      "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
-      "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
-    },
-    {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0005.md",
       "slug": "sl0005",
       "category": "Artikel, Sockelleisten",
@@ -665,21 +650,6 @@
       "license": "CC BY-SA 4.0",
       "source": "https://www.vertaefelungen.de/de/sockelleisten/34-Sockelleiste-abgerundete-oberkante.html",
       "last_updated": "2025-08-20"
-    },
-    {
-      "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0007-ae.md",
-      "slug": "sl0007-ae",
-      "category": "Sockelleisten",
-      "title": "SL0007 - AuÃenecke",
-      "has_yaml": true,
-      "summary": "Passende AuÃenecke fÃ¼r Sockelleiste P0033. Sorgt fÃ¼r ein einfaches Verlegen, da keine Gehrungen gesÃ¤gt werden mÃ¼ssen und kann als seitlicher AbschluÃ verwendet werden,",
-      "images": [],
-      "images_alt": [],
-      "author": "Tobias Klaus",
-      "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
-      "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
     },
     {
       "path": "de/oeffentlich/produkte/leisten/sockelleisten/sl0001.md",
@@ -815,8 +785,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/lueftungsrosetten/60-lueftungsrosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr4.md",
@@ -838,8 +808,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/lueftungsrosetten/70-lueftungsrosette-4.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr1.md",
@@ -870,8 +840,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/en/ventilation-rosettes/71-ventilation-rosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr2.md",
@@ -897,8 +867,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/lueftungsrosetten/72-lueftungsrosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr5.md",
@@ -920,8 +890,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/lueftungsrosetten/73-lueftungsrosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr6.md",
@@ -947,8 +917,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/lueftungsrosetten/74-lueftungsrosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/lueftungsrosetten/blr7.md",
@@ -970,8 +940,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/lueftungsrosetten/75-lueftungsrosette-3.html",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr06.md",
@@ -987,8 +957,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/114-522-tr06.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr07.md",
@@ -1004,8 +974,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/115-524-tr07.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr01-160.md",
@@ -1021,8 +991,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/116-526-tr01-160.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr01-120.md",
@@ -1038,8 +1008,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/117-528-tr01-120.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr01-200.md",
@@ -1055,8 +1025,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/118-530-tr01-200.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr02.md",
@@ -1072,8 +1042,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/119-532-tr02.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr03.md",
@@ -1089,8 +1059,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/119-532-tr02.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr04.md",
@@ -1106,8 +1076,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/121-536-tr03.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr05.md",
@@ -1123,8 +1093,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/122-538-tr05.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr09.md",
@@ -1140,8 +1110,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/123-540-tr09.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr11.md",
@@ -1157,8 +1127,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/124-542-tr11.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr12.md",
@@ -1174,8 +1144,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/125-544-tr12.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr13.md",
@@ -1191,8 +1161,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/126-546-tr13.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr14.md",
@@ -1208,8 +1178,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/127-548-tr14.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr15.md",
@@ -1225,8 +1195,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/128-550-tr15.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr17.md",
@@ -1242,8 +1212,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/129-552-tr17.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/tuerbekleidungen/tr18.md",
@@ -1259,8 +1229,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/tuerrahmen/130-554-tr18.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl01.md",
@@ -1276,8 +1246,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/76-339-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl02.md",
@@ -1293,8 +1263,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/77-341-wl-02.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl03.md",
@@ -1310,8 +1280,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/78-343-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl04.md",
@@ -1327,8 +1297,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/79-345-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl05.md",
@@ -1344,8 +1314,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/80-347-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl06.md",
@@ -1361,8 +1331,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/81-349-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl07.md",
@@ -1378,8 +1348,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/82-351-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl08.md",
@@ -1395,8 +1365,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/84-355-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl09.md",
@@ -1412,8 +1382,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/85-357-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl10.md",
@@ -1429,8 +1399,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/86-359-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl11.md",
@@ -1446,8 +1416,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/87-361-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl12.md",
@@ -1463,8 +1433,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/88-363-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl13.md",
@@ -1480,8 +1450,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/89-365-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl14.md",
@@ -1497,8 +1467,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/90-367-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/leisten/wandleisten/wl15.md",
@@ -1514,8 +1484,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/wandleisten/91-369-wl-01.html#/66-holzart_wl-kiefer",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/loen.md",
@@ -1531,8 +1501,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/61-322-leinol.html#/63-1_25_5_10_20_liter-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/loef.md",
@@ -1548,8 +1518,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/62-326-leinolfirnis.html#/63-1_25_5_10_20_liter-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/btoe.md",
@@ -1565,8 +1535,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/63-313-balsamterpentinol.html#/63-1_25_5_10_20_liter-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/ctp.md",
@@ -1582,8 +1552,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/64-330-citrusterpene.html#/63-1_25_5_10_20_liter-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/toel.md",
@@ -1599,8 +1569,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/65-332-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/leinoel-tung/toen.md",
@@ -1616,8 +1586,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/69-336-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/weiss.md",
@@ -1635,8 +1605,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/94-383-weiss.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/schwarz.md",
@@ -1654,8 +1624,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/98-389-schwarz.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/umbra.md",
@@ -1673,8 +1643,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/99-395-umbra.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/braun.md",
@@ -1692,8 +1662,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/100-401-braun.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/gruen.md",
@@ -1711,8 +1681,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/101-407-gruen.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/zitronengelb.md",
@@ -1730,8 +1700,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/102-413-gelb.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/maisgelb.md",
@@ -1749,8 +1719,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/103-419-maisgelb.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/ocker.md",
@@ -1768,8 +1738,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/104-425-ocker.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/oxidrot.md",
@@ -1787,8 +1757,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/105-431-oxidrot.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/ultrablau.md",
@@ -1806,8 +1776,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/106-437-ultra-blau.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     },
     {
       "path": "de/oeffentlich/produkte/oele-farben/beeck/standoel/sip-v/weinrot.md",
@@ -1825,8 +1795,8 @@
       "author": "Tobias Klaus",
       "author_url": "https://www.vertaefelungen.de/de/content/4-uber-uns",
       "license": "CC BY-SA 4.0",
-      "source": "",
-      "last_updated": ""
+      "source": "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/107-443-weinrot.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt",
+      "last_updated": "2025-09-01"
     }
   ]
 }
