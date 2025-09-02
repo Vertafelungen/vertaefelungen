@@ -1,376 +1,202 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Baut eine statische Site aus Markdown für /wissen und erzeugt eine Sitemap.
-- README.md -> index.html im Ordner
-- foo.md    -> foo/index.html (pretty URLs)
-- Frontmatter (optional): title, slug, lang, description, noindex, faq (Liste), image, counterpart
-- Fügt Canonical, JSON-LD (WebPage/FAQ/Breadcrumbs/Organization/WebSite), Breadcrumbs-HTML hinzu
-- Erzeugt Auto-Indexseiten für Ordner ohne README.md
-- Schreibt site/sitemap.xml
-- Schreibt zusätzlich site/.htaccess (Whitelist für sitemap.xml/robots.txt, keine Umschreibung für Dateien mit Endung)
-- Optional: hreflang-Paare, wenn de/en-Gegenstück existiert
-"""
+# Static site builder for /wissen with pretty URLs and robust .md link rewriting.
 
-import os, sys, shutil, pathlib, datetime, json
-from typing import Dict, Tuple, List
-try:
-    import yaml
-except Exception:
-    yaml = None
+import argparse
+import re
+import sys
+import shutil
+from pathlib import Path
+from urllib.parse import quote
+
+import yaml
 import markdown
-import xml.etree.ElementTree as ET
 
-# --- ENV / CONFIG ---
-BASE_URL     = os.environ.get("BASE_URL", "").rstrip("/")        # z.B. https://www.vertaefelungen.de/wissen
-CONTENT_ROOT = os.environ.get("CONTENT_ROOT", ".").strip().rstrip("/")  # z.B. wissen (Repo-Unterordner) oder .
-EXCLUDE_DIRS = set(filter(None, (os.environ.get("EXCLUDE_DIRS", "") or "").split(",")))
+MD_EXTENSIONS = ['extra', 'meta', 'sane_lists', 'toc']
+FRONTMATTER_RE = re.compile(r'^\s*---\s*\n(.*?)\n---\s*\n', re.DOTALL)
 
-if not BASE_URL:
-    print("ERROR: BASE_URL not set", file=sys.stderr); sys.exit(1)
+def load_frontmatter_and_body(text: str):
+    m = FRONTMATTER_RE.match(text)
+    if m:
+        try:
+            fm = yaml.safe_load(m.group(1)) or {}
+        except Exception:
+            fm = {}
+        body = text[m.end():]
+    else:
+        fm, body = {}, text
+    return fm, body
 
-ROOT = pathlib.Path(CONTENT_ROOT or ".").resolve()
-OUT  = pathlib.Path("site").resolve()
-OUT.mkdir(parents=True, exist_ok=True)
+def md_to_html(md_text: str) -> str:
+    return markdown.markdown(md_text, extensions=MD_EXTENSIONS)
 
-STYLE_CSS = """
-html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;line-height:1.6}
-.wrap{max-width:1100px;margin:0 auto;padding:0 16px}
-.site-header{border-bottom:1px solid #e5e5e5}
-.brand{font-weight:600;margin-right:20px;text-decoration:none}
-.site-nav a{margin-right:12px;text-decoration:none}
-.content{padding:24px 0}
-.page h1{font-size:2rem;margin:0 0 1rem}
-.page h2{margin-top:2rem}
-.page img{max-width:100%}
-.breadcrumbs{font-size:.9rem;color:#666;margin-bottom:12px}
-.toc{border:1px solid #eee;padding:12px;background:#fafafa;margin:12px 0}
-.dir-list ul{list-style: none;padding-left:0}
-.dir-list li{margin:.35rem 0}
-.dir-list a{text-decoration:none}
-.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-.tile{display:block;border:1px solid #eee;border-radius:8px;overflow:hidden;text-decoration:none}
-.tile-body{padding:12px}
-.tile-title{font-weight:600;margin-bottom:.25rem}
-.tile-teaser{color:#555;font-size:.9rem}
-.tile-thumb img{display:block;width:100%;height:auto}
-code,pre{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
-"""
+def _md_target_to_pretty(target: str) -> str:
+    """Map foo.md -> foo/, README.md/_index.md/index.md -> ./"""
+    clean = target.split('#')[0]
+    frag = '' if '#' not in target else '#' + target.split('#', 1)[1]
+    if clean.endswith('.md'):
+        name = Path(clean).name.lower()
+        if name in ('readme.md', '_index.md', 'index.md'):
+            base = str(Path(clean).parent).replace('\\', '/')
+            if base and not base.endswith('/'):
+                base += '/'
+            return base + frag
+        else:
+            stem = Path(clean).stem
+            base = str(Path(clean).parent / stem).replace('\\', '/')
+            if not base.endswith('/'):
+                base += '/'
+            return base + frag
+    return target
 
-HTACCESS = r"""
-# .htaccess im /wissen/ Ordner
-DirectoryIndex index.html
+def rewrite_md_links_in_markdown(markdown_text: str) -> str:
+    """Rewrite all Markdown links [text](url.md#frag) -> [text](pretty/)."""
+    link_re = re.compile(r'(\[([^\]]+)\]\(([^)]+)\))')
+    def repl(m):
+        full, text, url = m.group(0), m.group(2), m.group(3).strip()
+        low = url.lower()
+        if low.startswith(('http://', 'https://', 'mailto:')):
+            return full
+        new = _md_target_to_pretty(url)
+        if new != url:
+            return f'[{text}]({new})'
+        return full
+    return link_re.sub(repl, markdown_text)
 
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /wissen/
+def sanitize_internal_links_in_html(html: str):
+    """Safety net: convert any remaining href="*.md" to pretty URLs in HTML."""
+    def repl(match):
+        href = match.group(1)
+        if href.startswith(('http://','https://','mailto:')):
+            return f'href="{href}"'
+        new = _md_target_to_pretty(href)
+        return f'href="{new}"'
+    return re.sub(r'href="([^"]+)"', repl, html)
 
-# (A) sitemap.xml & robots.txt nicht umschreiben
-RewriteRule ^(sitemap\.xml|robots\.txt)$ - [L]
+def make_breadcrumbs(rel_parts):
+    crumbs = ['<nav class="breadcrumbs">']
+    for i, part in enumerate(rel_parts):
+        label = quote(part.replace('-', ' ').title())
+        if i == len(rel_parts)-1:
+            crumbs.append(f'<span>{label}</span>')
+        else:
+            up = '../' * (len(rel_parts)-i-1)
+            crumbs.append(f'<a href="{up}">{label}</a>')
+    crumbs.append('</nav>')
+    return '\n'.join(crumbs)
 
-# (B) existierende Dateien/Ordner direkt ausliefern
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+def write_file(path: Path, content: str):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(content, encoding='utf-8')
 
-# (C) keine Umschreibung für Dateien mit Endung (.xml, .css, .js, .jpg, .html, …)
-RewriteCond %{REQUEST_URI} \.[^/]+$
-RewriteRule ^ - [L]
-
-# (D) Pretty URLs
-RewriteRule ^(.+?)/?$ $1/index.html [L]
-</IfModule>
-
-<IfModule mod_mime.c>
-  AddType application/xml .xml
-</IfModule>
-"""
-
-BASE_HTML = """<!DOCTYPE html>
-<html lang="{lang}">
+def render_page(title: str, body_html: str, breadcrumbs_html: str, base_url: str, canonical_path: str):
+    head = f'''<!doctype html>
+<html lang="de">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
-<meta name="description" content="{description}">
-<meta name="robots" content="{robots}">
-<link rel="canonical" href="{canonical}">
-<link rel="stylesheet" href="{base}/assets/style.css">
+<link rel="canonical" href="{base_url.rstrip('/')}/{canonical_path.lstrip('/')}">
+<style>
+body{{max-width:900px;margin:2rem auto;padding:0 1rem;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55}}
+nav.breadcrumbs{{font-size:.9rem;color:#666;margin:.5rem 0 1rem}}
+nav.breadcrumbs a{{text-decoration:none}}
+ul.index{{list-style:none;padding:0}}
+ul.index li{{margin:.35rem 0}}
+code,pre{{font-family:ui-monospace,Menlo,Consolas,monospace}}
+a{{text-decoration:none;border-bottom:1px solid #ddd}}
+a:hover{{border-color:#333}}
+hr{{border:none;border-top:1px solid #eee;margin:2rem 0}}
+</style>
 </head>
 <body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="{base}/">Vertäfelung &amp; Lambris · Wissen</a>
-    <nav class="site-nav">
-      <a href="{base}/">Start</a>
-      <a href="{base}/de/">DE</a>
-      <a href="{base}/en/">EN</a>
-      <a href="https://www.vertaefelungen.de" rel="external">vertaefelungen.de</a>
-    </nav>
-  </div>
-</header>
-<main class="content wrap">
-  <nav class="breadcrumbs">{breadcrumbs}</nav>
-  <article class="page">
-    <h1>{title}</h1>
-    <div class="toc">{toc}</div>
-    <div class="md">{content}</div>
-  </article>
+{breadcrumbs_html}
+<main>
+'''
+    foot = '''
 </main>
-<footer class="site-footer">
-  <div class="wrap">
-    <p>© {year} Vertäfelung &amp; Lambris · <a href="https://www.vertaefelungen.de/de/content/2-impressum">Impressum</a> · <a href="https://www.vertaefelungen.de/de/content/7-datenschutzerklaerung">Datenschutz</a></p>
-    <p>Quelle: <a href="{canonical}">{canonical}</a></p>
-  </div>
-</footer>
 </body>
-</html>
-"""
+</html>'''
+    return head + body_html + foot
 
-MD_EXT = ["extra","toc","sane_lists","smarty"]
-
-def parse_frontmatter(text: str):
-    if text.startswith("---"):
-        end = text.find("\n---", 3)
-        if end != -1:
-            head = text[3:end].strip()
-            body = text[end+4:]
-            if yaml:
-                try:
-                    meta = yaml.safe_load(head) or {}
-                except Exception:
-                    meta = {}
-            else:
-                meta = {}
-            return meta, body
-    return {}, text
-
-def pretty_url_for(md_rel: pathlib.Path) -> pathlib.Path:
-    if md_rel.name.lower() == "readme.md":
-        out_dir = OUT / md_rel.parent
-        out = out_dir / "index.html"
-    else:
-        out_dir = OUT / md_rel.with_suffix("")
-        out = out_dir / "index.html"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    return out
-
-def canonical_for(md_rel: pathlib.Path) -> str:
-    if md_rel.name.lower() == "readme.md":
-        path = md_rel.parent.as_posix().strip("/")
-    else:
-        path = md_rel.with_suffix("").as_posix().strip("/")
-    return "/".join(s for s in [BASE_URL, path] if s)
-
-def breadcrumbs_html(md_rel: pathlib.Path) -> str:
-    parts = md_rel.parent.parts if md_rel.name.lower()=="readme.md" else md_rel.with_suffix("").parts
-    if not parts:
-        return f'<a href="{BASE_URL}">Start</a>'
-    crumbs, acc = [], []
-    for seg in parts:
-        acc.append(seg)
-        href = "/".join([BASE_URL] + acc)
-        crumbs.append(f'<a href="{href}">{seg}</a>')
-    return ' / '.join(crumbs)
-
-def collect_markdown(root: pathlib.Path):
-    mds = []
-    for p in root.rglob("*.md"):
-        if any(seg in EXCLUDE_DIRS for seg in p.parts):
-            continue
-        mds.append(p)
-    mds.sort(key=lambda x: (0 if x.name.lower()=="readme.md" else 1, x.as_posix()))
-    return mds
-
-def render_md(md_text: str):
-    md = markdown.Markdown(extensions=MD_EXT, extension_configs={"toc": {"permalink": True}})
-    html = md.convert(md_text)
-    toc = getattr(md, "toc", "")
-    return html, toc
-
-
-def load_site_manifest() -> list:
-    candidates = [ROOT / "site_manifest.json", ROOT / "assets" / "site_manifest.json"]
-    for c in candidates:
-        if c.exists():
-            try:
-                import json as _json
-                data = _json.loads(c.read_text(encoding="utf-8"))
-                if isinstance(data, dict) and "items" in data:
-                    return data["items"]
-                if isinstance(data, list):
-                    return data
-            except Exception as e:
-                print("WARN: site_manifest.json konnte nicht geladen werden:", e, file=sys.stderr)
-    return []
-
-def _lang_from_rel(rel: pathlib.Path) -> str:
-    for part in rel.parts:
-        if part.lower() == "en":
-            return "en"
-    return "de"
-
-def render_category_landing(dir_path: pathlib.Path, manifest: list):
-    rel = dir_path.relative_to(ROOT)
-    out = OUT / rel / "index.html"
-    out.parent.mkdir(parents=True, exist_ok=True)
-    lang = _lang_from_rel(rel)
-    base = "/" + rel.as_posix().strip("/") + ("/" if rel.as_posix() != "." else "")
-    def _is_direct_child(pth: str) -> bool:
-        p = pth.strip("/")
-        b = base.strip("/")
-        if not p.startswith(b):
-            return False
-        rest = p[len(b):]
-        return rest != "" and "/" not in rest.strip("/")
-    items = [it for it in manifest if isinstance(it, dict) and it.get("path")]
-    here = [it for it in items if _is_direct_child(it["path"])]
-    if not here:
-        here = [it for it in items if it["path"].strip("/").startswith(base.strip("/"))]
-    def _t(it):
-        return it.get(f"title_{lang}") or it.get("title") or it.get("path").rstrip("/").split("/")[-1]
-    def _z(it):
-        return it.get(f"teaser_{lang}") or it.get("teaser") or ""
-    here.sort(key=lambda it: (it.get("order", 9999), _t(it).lower()))
-    tiles = []
-    for it in here:
-        href = (BASE_URL.rstrip("/") + it["path"]).rstrip("/") + "/"
-        thumb = it.get("thumb") or ""
-        title = _t(it); teaser = _z(it)
-        img = f'<div class="tile-thumb"><img src="{thumb}" alt="" loading="lazy"></div>' if thumb else ""
-        tiles.append(f'<a class="tile" href="{href}">{img}<div class="tile-body"><div class="tile-title">{title}</div><div class="tile-teaser">{teaser}</div></div></a>')
-    page_title = "Start" if rel.as_posix()=="." else rel.as_posix()
-    crumbs = []; acc = []
-    for part in rel.parts:
-        acc.append(part)
-        href = BASE_URL + "/" + "/".join(acc) + "/"
-        crumbs.append(f'<a href="{href}">{part}</a>')
-    bc_html = "" if not crumbs else "<nav class=\"breadcrumbs\">" + " / ".join(crumbs) + "</nav>"
-    html = f"""<!doctype html>
-<html lang="{lang}">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{page_title} - Wissen</title>
-<link rel="stylesheet" href="{BASE_URL}/assets/style.css">
-<body>
-<header class="site-header"><div class="wrap">
-  <a class="brand" href="{BASE_URL}/">Wissen</a>
-  <nav class="site-nav"><a href="{BASE_URL}/">Start</a></nav>
-</div></header>
-<main class="content"><div class="wrap page">
-  {bc_html}
-  <h1>{page_title}</h1>
-  <div class="tiles">{''.join(tiles) if tiles else '<p>Keine Inhalte gefunden.</p>'}</div>
-</div></main>
-</body>
-</html>"""
-    out.write_text(html, encoding="utf-8")
-def ensure_assets():
-    dst = OUT / "assets"
-    dst.mkdir(parents=True, exist_ok=True)
-    (dst / "style.css").write_text(STYLE_CSS, encoding="utf-8")
-    for maybe in ("assets", "bilder", "images"):
-        src = ROOT / maybe
-        if src.exists() and src.is_dir():
-            shutil.copytree(src, OUT / maybe, dirs_exist_ok=True)
-    (OUT / ".htaccess").write_text(HTACCESS.strip() + "\n", encoding="utf-8")
-
-def write_dir_autoindex(dir_path: pathlib.Path):
-    rel = dir_path.relative_to(ROOT)
-    out = OUT / rel / "index.html"
-    if out.exists():
-        return
+def collect_children(md_files, current_dir: Path):
     items = []
-    for p in sorted(dir_path.iterdir()):
-        if p.is_dir() and any(q.suffix==".md" for q in p.glob("*.md")):
-            href = "/".join([BASE_URL] + [*p.relative_to(ROOT).parts])
-            items.append(f'<li><a href="{href}/">{p.name}/</a></li>')
-        elif p.suffix.lower() == ".md" and p.name.lower() != "readme.md":
-            href = "/".join([BASE_URL, p.relative_to(ROOT).with_suffix("").as_posix()])
-            items.append(f'<li><a href="{href}/">{p.stem}</a></li>')
-    html_list = "<div class='dir-list'><ul>" + "\n".join(items) + "</ul></div>"
-    title = rel.as_posix() if rel.as_posix() != "." else "Start"
-    canonical = "/".join([BASE_URL, rel.as_posix().strip("/")]) if rel.as_posix()!="." else BASE_URL
-    page = BASE_HTML.format(
-        lang="de",
-        title=title,
-        description=f"Inhaltsverzeichnis: {title}",
-        robots="index,follow",
-        canonical=canonical,
-        base=BASE_URL,
-        breadcrumbs=breadcrumbs_html(rel / "README.md"),
-        toc="",
-        content=html_list,
-        year=datetime.date.today().year
-    )
-    out.parent.mkdir(parents=True, exist_ok=True)
-    out.write_text(page, encoding="utf-8")
-
-def write_sitemap(urls: List[Dict[str,str]]):
-    NS = "http://www.sitemaps.org/schemas/sitemap/0.9"
-    urlset = ET.Element("urlset", attrib={"xmlns": NS})
-    seen = set()
-    for e in urls:
-        key = (e["loc"], e["lastmod"])
-        if key in seen:
+    for p in sorted(md_files):
+        if p.parent != current_dir:
             continue
-        seen.add(key)
-        url_el = ET.SubElement(urlset, "url")
-        loc = ET.SubElement(url_el, "loc"); loc.text = e["loc"]
-        lm  = ET.SubElement(url_el, "lastmod"); lm.text = e["lastmod"]
-    xml_bytes = ET.tostring(urlset, encoding="utf-8", xml_declaration=True)
-    (OUT / "sitemap.xml").write_bytes(xml_bytes)
+        name = p.name.lower()
+        if name in ('readme.md', '_index.md', 'index.md'):
+            continue
+        fm, _ = load_frontmatter_and_body(p.read_text(encoding='utf-8'))
+        title = fm.get('title') or p.stem.replace('-', ' ').title()
+        url = f"{p.stem}/"
+        items.append((title, url))
+    return items
+
+def should_exclude(path: Path, exclude_globs):
+    s = str(path)
+    for g in exclude_globs:
+        if path.match(g) or s.startswith(g + '/'):
+            return True
+    return False
 
 def main():
-    ensure_assets()
-    urls = []
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--content-root', default='.', help='Root to scan for Markdown')
+    ap.add_argument('--out-dir', default='build', help='Output directory for HTML')
+    ap.add_argument('--base-url', default='', help='Absolute base URL (e.g. https://www.vertaefelungen.de/wissen)')
+    ap.add_argument('--exclude', default='.git,.github,tools,scripts,build,dist,venv,__pycache__', help='Comma-separated globs/paths to exclude')
+    args = ap.parse_args()
 
-    # Manifest-gestützte Landingpages statt Autoindex
-    manifest = load_site_manifest()
-    if manifest:
-        cat_dirs = sorted({ (ROOT / (it.get('path','/').strip('/'))).resolve() if it.get('path') else ROOT for it in manifest if isinstance(it, dict) and it.get('type')=='category' })
-        for d in cat_dirs:
-            if str(d).startswith(str(ROOT)):
-                render_category_landing(d, manifest)
+    content_root = Path(args.content_root).resolve()
+    out_root = Path(args.out_dir).resolve()
+    if out_root.exists():
+        shutil.rmtree(out_root)
+    out_root.mkdir(parents=True, exist_ok=True)
 
-    for md_path in collect_markdown(ROOT):
-        raw = md_path.read_text(encoding="utf-8")
-        meta, body = ({}, raw) if raw.strip()[:3] != '---' else parse_frontmatter(raw)
-        title = (meta.get("title") or md_path.stem.replace("-", " ").title())
-        description = (meta.get("description") or "").strip()
-        lang = (meta.get("lang") or "de").strip()
+    exclude_globs = [e.strip() for e in args.exclude.split(',') if e.strip()]
+    md_files = [p for p in content_root.rglob('*.md') if not should_exclude(p.relative_to(content_root), exclude_globs)]
 
-        html, toc = render_md(body)
-        rel = md_path.relative_to(ROOT)
-        canonical = canonical_for(rel)
-        robots = "noindex,nofollow" if bool(meta.get("noindex", False)) else "index,follow"
+    for md_path in sorted(md_files):
+        rel = md_path.relative_to(content_root)
+        text = md_path.read_text(encoding='utf-8')
+        fm, body_md = load_frontmatter_and_body(text)
+        title = fm.get('title') or rel.stem.replace('-', ' ').title()
 
-        page = BASE_HTML.format(
-            lang=lang,
-            title=title,
-            description=description[:160],
-            robots=robots,
-            canonical=canonical,
-            base=BASE_URL,
-            breadcrumbs=breadcrumbs_html(rel),
-            toc=toc,
-            content=html,
-            year=datetime.date.today().year
-        )
+        # PRE-PROCESS: rewrite Markdown links pointing to *.md to pretty URLs
+        body_md = rewrite_md_links_in_markdown(body_md)
 
-        out_file = pretty_url_for(rel)
-        out_file.write_text(page, encoding="utf-8")
+        name_low = md_path.name.lower()
+        if name_low in ('readme.md', '_index.md', 'index.md'):
+            out_dir = out_root.joinpath(rel.parent)
+            out_file = out_dir.joinpath('index.html')
+            canonical_path = str(rel.parent).replace('\\', '/') + '/'
+        else:
+            out_dir = out_root.joinpath(rel.parent, rel.stem)
+            out_file = out_dir.joinpath('index.html')
+            canonical_path = str(Path(rel.parent, rel.stem)).replace('\\', '/') + '/'
 
-        if robots.startswith("index"):
-            urls.append({"loc": canonical, "lastmod": datetime.date.today().isoformat()})
+        rel_parts = [p for p in canonical_path.strip('/').split('/') if p]
+        breadcrumbs_html = make_breadcrumbs(rel_parts) if rel_parts else ''
 
-    # Root-Landingpage aus Manifest (falls vorhanden)
-    if 'manifest' in locals() and manifest:
-        render_category_landing(ROOT, manifest)
+        # Convert to HTML
+        body_html = md_to_html(body_md)
 
-    write_sitemap(urls)
-    print("OK – gebaut nach:", OUT)
-    print("Seiten:", len(urls))
+        # POST-PROCESS: safety net in final HTML
+        body_html = sanitize_internal_links_in_html(body_html)
 
-if __name__ == "__main__":
-    main()
+        # Directory index listing
+        if name_low in ('readme.md', '_index.md', 'index.md'):
+            children = collect_children(md_files, md_path.parent)
+            if children:
+                items = '\n'.join(f'<li><a href="{quote(url)}">{title}</a></li>' for title, url in children)
+                body_html += f'\n<hr/>\n<ul class="index">\n{items}\n</ul>\n'
+
+        html = render_page(title, body_html, breadcrumbs_html, args.base_url or '', canonical_path)
+        write_file(out_file, html)
+
+    print(f'[build_site] Done. Built HTML into: {out_root}')
+    return 0
+
+if __name__ == '__main__':
+    sys.exit(main())
