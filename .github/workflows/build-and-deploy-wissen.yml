@@ -40,23 +40,23 @@ jobs:
       - name: Build site (pretty URLs, md-link rewrite)
         env:
           BASE_URL: "https://www.vertaefelungen.de/wissen"
+          GITHUB_SHA: ${{ github.sha }}
         run: |
           set -e
           python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
-          echo "=== Tree of ./site (top 2 levels) ==="
-          find site -maxdepth 2 -print
+          # add a visible version marker to verify the live deploy
+          echo "{\"commit\": \"$GITHUB_SHA\", \"built_at\": \"$(date -u +%FT%TZ)\"}" > site/version.json
+          echo "ok" > site/deploy-check.txt
 
-      - name: Deploy via SFTP (upload contents of site/)
+      - name: Deploy via SFTP to /wissen (upload contents of site/)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server:      ${{ secrets.SFTP_HOST }}
           port:        22
           username:    ${{ secrets.SFTP_USER }}
           password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  "site/."                        
-          remote_path: "/holzvertaefelung-store/wissen" 
+          local_path:  "site/*"
+          remote_path: "/wissen"
           sftp_only:   true
           exclude: |
-            .git*/
-            .github*/
             **/.DS_Store
