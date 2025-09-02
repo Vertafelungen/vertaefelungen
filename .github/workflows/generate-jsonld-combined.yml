@@ -1,0 +1,36 @@
+
+name: Generate JSON-LD (DE+EN)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'produkte.de.json'
+      - 'produkte.en.json'
+      - 'tools/generate_jsonld_from_produkte.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  jsonld:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install PyYAML
+      - name: Generate DE
+        working-directory: tools
+        run: python generate_jsonld_from_produkte.py --lang de --in ../produkte.de.json --out ../produkte-jsonld.de.json
+      - name: Generate EN
+        working-directory: tools
+        run: python generate_jsonld_from_produkte.py --lang en --in ../produkte.en.json --out ../produkte-jsonld.en.json
+      - name: Commit JSON-LD (if changed)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add produkte-jsonld.de.json produkte-jsonld.en.json
+          git diff --cached --quiet || git commit -m "Automated JSON-LD export (DE+EN)"
+          git push
