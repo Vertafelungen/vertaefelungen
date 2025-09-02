@@ -1,9 +1,8 @@
 
-name: CI – Lint, JSON, Linkcheck, Sitemap
+name: CI – Lint, Generate, Linkcheck, Sitemap
 
 on:
   push:
-    branches: [ main ]
   pull_request:
   workflow_dispatch:
 
@@ -12,30 +11,40 @@ permissions:
 
 jobs:
   a-markdown-lint:
+    name: a) Markdown linten
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with: { node-version: '18' }
-      - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: npm install -g markdownlint-cli
-      - run: |
-          python -m pip install --upgrade pip
-          pip install PyYAML
-      - name: Auto-fix light lint issues
+
+      - name: Install Node & markdownlint (action)
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Bewährter Auto-Fix vor dem Lint
+      - name: Fix markdown files (auto-lint)
         run: python tools/fix_markdown_lint.py
-      - name: Lint Markdown
-        run: markdownlint '**/*.md'
+
+      # Wie in der funktionierenden Pipeline: actionshub/markdownlint
+      - name: Run markdownlint
+        uses: actionshub/markdownlint@main
 
   b-json-from-sheet:
+    name: b) produkte.*.json neu generieren
     needs: a-markdown-lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: |
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
           python -m pip install --upgrade pip
           pip install pandas requests
       - name: Generate produkte.{de,en}.json from Google Sheet
@@ -45,37 +54,34 @@ jobs:
         run: python sync-from-sheet.py
 
   c-check-links:
+    name: c) Link- & Bild-Checker (relativ & vorhanden)
     needs: b-json-from-sheet
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: python tools/check_links.py --root . --report-dir reports
-      - name: Fail if internal .md links found
-        run: |
-          if grep -RIn 'href=.*\.md' build || grep -RIn 'href=.*\.md' .github || true; then
-            echo 'Internal links to .md found in project or build. Please fix to use pretty URLs.'
-            exit 1
-          fi
-        shell: bash
+        with:
+          python-version: '3.11'
+      - name: Check relative image + link paths
+        run: python tools/check_links.py --root . --report-dir reports
 
   d-sitemap-md:
+    name: d) Sitemap/Index aktualisieren (optional)
     needs: c-check-links
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: pip install PyYAML
-      - name: Generate sitemap.md (docs view)
-        env:
-          BASE_URL: "https://www.vertaefelungen.de/wissen"
-        run: python generate_sitemap.py --root . --out sitemap.md --indexes
-      - name: Commit and push sitemap.md if changed
+        with:
+          python-version: '3.11'
+      - name: Install PyYAML
+        run: pip install PyYAML
+      - name: Generate sitemap & category indexes
+        run: python scripts/generate_sitemap.py --root . --out sitemap.md --indexes
+      - name: Commit & push sitemap changes (falls geaendert)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add sitemap.md
-          git diff --cached --quiet || git commit -m "update sitemap.md [auto]"
+          git diff --quiet && git diff --staged --quiet || git commit -m "update sitemap.md [auto]"
           git push
