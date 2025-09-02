@@ -55,7 +55,7 @@ jobs:
           port:        22
           username:    ${{ secrets.SFTP_USER }}
           password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  "site/*"
+          local_path:  "site/."
           remote_path: "/wissen"
           sftp_only:   true
           exclude: |
@@ -69,7 +69,7 @@ jobs:
           port:        22
           username:    ${{ secrets.SFTP_USER }}
           password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  "site/*"
+          local_path:  "site/."
           remote_path: "/holzvertaefelung-store/wissen"
           sftp_only:   true
           exclude: |
