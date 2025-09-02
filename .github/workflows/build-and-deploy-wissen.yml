@@ -1,5 +1,5 @@
 
-name: Build & Deploy Wissen
+name: Build & Deploy Wissen (dual-path + verify)
 
 on:
   push:
@@ -37,18 +37,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install markdown PyYAML
 
-      - name: Build site (pretty URLs, md-link rewrite)
+      - name: Build site (pretty URLs + markers)
         env:
           BASE_URL: "https://www.vertaefelungen.de/wissen"
           GITHUB_SHA: ${{ github.sha }}
         run: |
           set -e
           python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
-          # add a visible version marker to verify the live deploy
           echo "{\"commit\": \"$GITHUB_SHA\", \"built_at\": \"$(date -u +%FT%TZ)\"}" > site/version.json
           echo "ok" > site/deploy-check.txt
+          find site -maxdepth 2 -type f | sort | head -n 50
 
-      - name: Deploy via SFTP to /wissen (upload contents of site/)
+      - name: Deploy to /wissen (docroot)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server:      ${{ secrets.SFTP_HOST }}
@@ -60,3 +60,30 @@ jobs:
           sftp_only:   true
           exclude: |
             **/.DS_Store
+
+      - name: Deploy to /holzvertaefelung-store/wissen (alt)
+        continue-on-error: true
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server:      ${{ secrets.SFTP_HOST }}
+          port:        22
+          username:    ${{ secrets.SFTP_USER }}
+          password:    ${{ secrets.SFTP_PASSWORD }}
+          local_path:  "site/*"
+          remote_path: "/holzvertaefelung-store/wissen"
+          sftp_only:   true
+          exclude: |
+            **/.DS_Store
+
+      - name: Verify deploy via HTTP (version.json)
+        run: |
+          set -e
+          URL="https://www.vertaefelungen.de/wissen/version.json"
+          echo "Checking $URL"
+          if curl -fsS "$URL" ; then
+            echo "Deploy verified at /wissen"
+            exit 0
+          fi
+          echo "Primary path not live; checking fallback…"
+          # simple cache-buster
+          curl -fsS "$URL?cache=$(date +%s)" || exit 1
