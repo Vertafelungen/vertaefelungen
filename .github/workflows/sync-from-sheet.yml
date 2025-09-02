@@ -1,44 +1,34 @@
-name: Sync from Google Sheet (daily)
+
+name: Sync from Google Sheet
 
 on:
   schedule:
-    - cron: "0 5 * * *"   # täglich 05:00 Uhr
+    # 03:00 UTC ≙ 05:00 Europe/Berlin (Sommerzeit)
+    - cron: "0 3 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-    env:
-      SHEET_ID: ${{ secrets.SHEET_ID }}
-      SHEET_GID: ${{ secrets.SHEET_GID }}
-      OUTPUT_DIR: "."
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Install dependencies
-        run: pip install pandas requests
-
-      - name: Run sync-from-sheet.py
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests
+      - name: Generate produkte.{de,en}.json
+        env:
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          SHEET_GID: ${{ secrets.SHEET_GID }}
         run: python sync-from-sheet.py
-
-      - name: Commit & push changes (.md/.json only, stable order)
-        shell: bash
+      - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          set -e
-          # Nur Markdown- und JSON-Dateien stagen (neu/änderungen)
-          CHANGED=0
-          git ls-files -m -o --exclude-standard | grep -E '\.(md|json)$' | xargs -r git add
-          if git diff --cached --quiet; then
-            echo "Keine Änderungen an .md/.json"
-          else
-            git commit -m "Auto-sync from Google Sheet (md/json)"
-            git push
-          fi
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add produkte.de.json produkte.en.json
+          git diff --cached --quiet || git commit -m "Auto-sync from Google Sheet (md/json)"
+          git push

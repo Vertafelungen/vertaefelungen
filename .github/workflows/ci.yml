@@ -1,62 +1,81 @@
 
-name: CI – Lint, Generate, Linkcheck, (Sitemap)
+name: CI – Lint, JSON, Linkcheck, Sitemap
 
 on:
   push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   a-markdown-lint:
-    name: a) Markdown linten
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      - name: Install Node & markdownlint
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-
+      - uses: actions/setup-node@v3
+        with: { node-version: '18' }
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
       - run: npm install -g markdownlint-cli
-
-      - name: Fix markdown files (auto-lint)
+      - run: |
+          python -m pip install --upgrade pip
+          pip install PyYAML
+      - name: Auto-fix light lint issues
         run: python tools/fix_markdown_lint.py
-
-      - name: Run markdownlint
+      - name: Lint Markdown
         run: markdownlint '**/*.md'
 
-  b-json:
-    name: b) produkte.*.json neu generieren
+  b-json-from-sheet:
     needs: a-markdown-lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Run Python script to regenerate JSON files
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: |
+          python -m pip install --upgrade pip
+          pip install pandas requests
+      - name: Generate produkte.{de,en}.json from Google Sheet
+        env:
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          SHEET_GID: ${{ secrets.SHEET_GID }}
         run: python sync-from-sheet.py
 
   c-check-links:
-    name: c) Link- & Bild-Checker (relativ & vorhanden)
-    needs: b-json
+    needs: b-json-from-sheet
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check relative image + link paths
-        run: python tools/check_links.py
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: python tools/check_links.py --root . --report-dir reports
+      - name: Fail if internal .md links found
+        run: |
+          if grep -RIn 'href=.*\.md' build || grep -RIn 'href=.*\.md' .github || true; then
+            echo 'Internal links to .md found in project or build. Please fix to use pretty URLs.'
+            exit 1
+          fi
+        shell: bash
 
-  d-sitemap:
-    name: d) Sitemap/Index aktualisieren (optional)
+  d-sitemap-md:
     needs: c-check-links
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
-
-      - name: Generate sitemap & category indexes
-        run: python tools/generate_sitemap.py --root . --out sitemap.md --indexes
-
-      - name: Commit & push sitemap changes (falls geaendert)
+        with: { python-version: '3.11' }
+      - run: pip install PyYAML
+      - name: Generate sitemap.md (docs view)
+        env:
+          BASE_URL: "https://www.vertaefelungen.de/wissen"
+        run: python generate_sitemap.py --root . --out sitemap.md --indexes
+      - name: Commit and push sitemap.md if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add sitemap.md
-          git diff --quiet && git diff --staged --quiet || git commit -m "update sitemap.md [auto]"
+          git diff --cached --quiet || git commit -m "update sitemap.md [auto]"
           git push
