@@ -42,7 +42,7 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
         run: |
           set -e
-          python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL" --sitemap
+          python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
           echo "{\"commit\": \"$GITHUB_SHA\", \"built_at\": \"$(date -u +%FT%TZ)\"}" > site/version.json
           echo "ok" > site/deploy-check.txt
           find site -maxdepth 2 -type f | sort | head -n 50
