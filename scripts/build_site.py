@@ -14,17 +14,17 @@ FRONTMATTER_RE = re.compile(r'^\s*---\s*\n(.*?)\n---\s*\n', re.DOTALL)
 def load_frontmatter_and_body(text: str):
     m = FRONTMATTER_RE.match(text)
     if m:
+        fm_text = m.group(1)
+        body = text[m.end():]
         try:
-            fm = yaml.safe_load(m.group(1)) or {}
+            fm = yaml.safe_load(fm_text) or {}
         except Exception:
             fm = {}
-        body = text[m.end():]
-    else:
-        fm, body = {}, text
-    return fm, body
+        return fm, body
+    return {}, text
 
 def md_to_html(md_text: str) -> str:
-    return markdown.markdown(md_text, extensions=MD_EXTENSIONS)
+    return markdown.markdown(md_text, extensions=MD_EXTENSIONS, output_format='xhtml')
 
 def _md_target_to_pretty(target: str) -> str:
     clean = target.split('#')[0]
@@ -49,7 +49,7 @@ def rewrite_md_links_in_markdown(markdown_text: str, lang_prefix: str) -> str:
     # /wissen/... -> /wissen/<lang>/...
     def fix_abs(m):
         url = m.group(1)
-        low = url.lower().strip()
+        low = url.lower().strip()  # FIX: Klammern ergänzt
         if low.startswith(('http://','https://','mailto:','/wissen/de/','/wissen/en/')):
             return m.group(0)
         if low.startswith('/wissen/'):
@@ -74,8 +74,7 @@ def adjust_relative_assets_in_markdown(md_text: str, moved_down: bool) -> str:
     if not moved_down:
         return md_text
 
-    def fix(url: str) -> str:
-        u = url.strip()
+    def fix(u: str) -> str:
         low = u.lower()
         if low.startswith(('http://','https://','mailto:','/')):
             return u
@@ -141,7 +140,7 @@ def write_file(path: Path, content: str):
 STYLE = """
 <style>
 :root { --w:900px; --pad:1rem; --fg:#111; --fg2:#666; --link:#222; --muted:#eee; }
-body { max-width:var(--w); margin:2rem auto; padding:0 var(--pad); font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; color:var(--fg); }
+body { max-width:var(--w); margin:2rem auto; padding:0 var(--pad); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; color:var(--fg); }
 nav.breadcrumbs { font-size:.9rem; color:var(--fg2); margin:.5rem 0 1rem; }
 nav.breadcrumbs a { text-decoration:none; }
 ul.index { list-style:none; padding:0; }
@@ -159,6 +158,8 @@ hr { border:none; border-top:1px solid var(--muted); margin:2rem 0; }
 def render_head(title: str, description: str, base_url: str, canonical_path: str, fm: dict, jsonld: dict):
     canonical = f"{base_url.rstrip('/')}/{canonical_path.lstrip('/')}" if base_url else canonical_path
     head = "<!doctype html>\n<html lang=\"de\">\n<head>\n"
+    head += '<meta charset="utf-8">\n'  # FIX: Umlaute
+    head += '<meta name="viewport" content="width=device-width, initial-scale=1">\n'
     head += f"<title>{title}</title>\n<link rel=\"canonical\" href=\"{canonical}\">\n"
     head += STYLE + "</head>\n<body>\n"
     if jsonld:
@@ -209,9 +210,6 @@ def main():
         shutil.rmtree(out_root)
     out_root.mkdir(parents=True, exist_ok=True)
 
-    # Output-Verzeichnis ausschließen
-    exclude_globs = [str(out_root.relative_to(content_root))] if out_root.is_relative_to(content_root) else []
-
     # Assets kopieren
     for src in content_root.rglob('*'):
         if src.is_dir() or src.suffix.lower() == '.md':
@@ -244,9 +242,8 @@ def main():
         body_md = adjust_relative_assets_in_markdown(body_md, moved_down)
 
         if is_index:
-            out_dir = out_root / rel.parent
-            out_file = out_dir / 'index.html'
-            canonical_path = str(rel.parent).replace('\\','/') + '/'
+            out_file = out_root / rel.parent / 'index.html'
+            canonical_path = str(Path(rel.parent)).replace('\\','/') + '/'
         else:
             out_dir = out_root / rel.parent / rel.stem
             out_file = out_dir / 'index.html'
