@@ -1,4 +1,4 @@
-name: Build & Deploy Wissen (dual-path + verify)
+name: Build & Deploy Wissen
 
 on:
   push:
@@ -42,7 +42,7 @@ jobs:
           GITHUB_SHA: ${{ github.sha }}
         run: |
           set -e
-          python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
+          python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL" --sitemap
           echo "{\"commit\": \"$GITHUB_SHA\", \"built_at\": \"$(date -u +%FT%TZ)\"}" > site/version.json
           echo "ok" > site/deploy-check.txt
           find site -maxdepth 2 -type f | sort | head -n 50
@@ -57,8 +57,6 @@ jobs:
           local_path:  "site/."
           remote_path: "/wissen"
           sftp_only:   true
-          exclude: |
-            **/.DS_Store
 
       - name: Deploy to /holzvertaefelung-store/wissen (alt)
         continue-on-error: true
@@ -71,8 +69,6 @@ jobs:
           local_path:  "site/."
           remote_path: "/holzvertaefelung-store/wissen"
           sftp_only:   true
-          exclude: |
-            **/.DS_Store
 
       - name: Verify deploy via HTTP (version.json)
         run: |
@@ -84,5 +80,4 @@ jobs:
             exit 0
           fi
           echo "Primary path not live; checking fallback…"
-          # simple cache-buster
           curl -fsS "$URL?cache=$(date +%s)" || exit 1
