@@ -158,43 +158,16 @@ hr { border:none; border-top:1px solid var(--muted); margin:2rem 0; }
 
 def render_head(title: str, description: str, base_url: str, canonical_path: str, fm: dict, jsonld: dict):
     canonical = f"{base_url.rstrip('/')}/{canonical_path.lstrip('/')}" if base_url else canonical_path
-    og_image = ''
-    img = None
-    for key in ('image','og_image','cover','thumbnail'):
-        val = fm.get(key)
-        if isinstance(val,str) and val:
-            img = val; break
-        if isinstance(val,(list,tuple)) and val:
-            img = val[0]; break
-    if img:
-        og_image = f'<meta property="og:image" content="{img if img.startswith("/") else (base_url.rstrip("/") + "/" + img) if base_url else img}">\n'
-
-    meta = "".join([
-        '<meta charset="utf-8">\n',
-        '<meta name="viewport" content="width=device-width, initial-scale=1">\n',
-        f'<title>{title}</title>\n',
-        f'<link rel="canonical" href="{canonical}">\n',
-        f'<meta name="description" content="{description}">\n',
-        f'<meta property="og:title" content="{title}">\n',
-        f'<meta property="og:description" content="{description}">\n',
-        '<meta property="og:type" content="article">\n',
-        f'<meta property="og:url" content="{canonical}">\n',
-        og_image,
-        '<meta name="twitter:card" content="summary_large_image">\n',
-        f'<meta name="twitter:title" content="{title}">\n',
-        f'<meta name="twitter:description" content="{description}">\n',
-    ])
-    if fm.get('noindex'):
-        meta += '<meta name="robots" content="noindex,follow">\n'
-
-    head = "<!doctype html>\n<html lang=\"de\">\n<head>\n" + meta + STYLE + "</head>\n<body>\n"
+    head = "<!doctype html>\n<html lang=\"de\">\n<head>\n"
+    head += f"<title>{title}</title>\n<link rel=\"canonical\" href=\"{canonical}\">\n"
+    head += STYLE + "</head>\n<body>\n"
     if jsonld:
         head += f'<script type="application/ld+json">{json.dumps(jsonld, ensure_ascii=False)}</script>\n'
     return head
 
-def render_page(title: str, description: str, body_html: str, breadcrumbs_html: str, base_url: str, canonical_path: str, fm: dict, jsonld: dict, pager_html: str):
+def render_page(title, description, body_html, breadcrumbs_html, base_url, canonical_path, fm, jsonld, pager_html):
     head = render_head(title, description, base_url, canonical_path, fm, jsonld)
-    foot = f"""{breadcrumbs_html}
+    return head + f"""{breadcrumbs_html}
 <main>
 {body_html}
 {pager_html}
@@ -202,21 +175,6 @@ def render_page(title: str, description: str, body_html: str, breadcrumbs_html: 
 </body>
 </html>
 """
-    return head + foot
-
-def collect_children(md_files, current_dir: Path):
-    items = []
-    for p in sorted(md_files):
-        if p.parent != current_dir:
-            continue
-        name = p.name.lower()
-        if name in ('readme.md','_index.md','index.md'):
-            continue
-        fm, _ = load_frontmatter_and_body(p.read_text(encoding='utf-8'))
-        title = fm.get('title') or p.stem.replace('-',' ').title()
-        url = f"{p.stem}/"
-        items.append((title, url))
-    return items
 
 def should_exclude(path: Path, exclude_globs):
     s = str(path)
@@ -225,45 +183,10 @@ def should_exclude(path: Path, exclude_globs):
             return True
     return False
 
-def make_jsonld(fm, title, description, canonical):
-    if isinstance(fm.get('schema'), dict):
-        obj = fm['schema']
-        obj['@context'] = 'https://schema.org'
-        if '@type' not in obj:
-            obj['@type'] = 'WebPage'
-        return obj
-    if fm.get('product_id') or fm.get('price'):
-        return {
-            '@context':'https://schema.org',
-            '@type':'Product',
-            'name': title,
-            'description': description,
-            'sku': fm.get('product_id') or fm.get('reference'),
-            'url': canonical,
-            'offers': {
-                '@type':'Offer',
-                'price': str(fm.get('price')) if fm.get('price') is not None else None,
-                'priceCurrency': fm.get('currency') or 'EUR',
-                'availability': 'https://schema.org/InStock' if str(fm.get('verfuegbar') or fm.get('available')).strip() in ('1','true','True') else 'https://schema.org/OutOfStock'
-            }
-        }
-    if any(k in fm for k in ('date','author','tags')):
-        return {
-            '@context':'https://schema.org',
-            '@type':'Article',
-            'headline': title,
-            'description': description,
-            'datePublished': fm.get('date'),
-            'author': {'@type':'Person','name': fm.get('author')} if fm.get('author') else None,
-            'url': canonical
-        }
-    return {'@context':'https://schema.org','@type':'WebPage','name':title,'description':description,'url':canonical}
-
 def build_sitemap(entries, out_path: Path, base_url: str):
     lines = ['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for path, lastmod, noindex in entries:
-        if noindex:
-            continue
+        if noindex: continue
         loc = f"{base_url.rstrip('/')}/{path.lstrip('/')}"
         lines.append('  <url>')
         lines.append(f'    <loc>{loc}</loc>')
@@ -275,11 +198,9 @@ def build_sitemap(entries, out_path: Path, base_url: str):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--content-root', default='.', help='Root to scan for Markdown')
-    ap.add_argument('--out-dir', default='build', help='Output directory for HTML')
-    ap.add_argument('--base-url', default='', help='Absolute base URL')
-    ap.add_argument('--exclude', default='.git,.github,tools,scripts,build,dist,venv,__pycache__', help='Excludes')
-    ap.add_argument('--sitemap', action='store_true', help='Generate sitemap.xml')
+    ap.add_argument('--content-root', default='.', help='Root mit Markdown')
+    ap.add_argument('--out-dir', default='site', help='Output-Verzeichnis')
+    ap.add_argument('--base-url', default='', help='Basis-URL')
     args = ap.parse_args()
 
     content_root = Path(args.content_root).resolve()
@@ -288,100 +209,64 @@ def main():
         shutil.rmtree(out_root)
     out_root.mkdir(parents=True, exist_ok=True)
 
-    exclude_globs = [e.strip() for e in args.exclude.split(',') if e.strip()]
+    # Output-Verzeichnis ausschließen
+    exclude_globs = [str(out_root.relative_to(content_root))] if out_root.is_relative_to(content_root) else []
 
-    # Alle Nicht-Markdown-Assets kopieren
-    all_files = [p for p in content_root.rglob('*') if not should_exclude(p.relative_to(content_root), exclude_globs)]
-    for src in all_files:
+    # Assets kopieren
+    for src in content_root.rglob('*'):
         if src.is_dir() or src.suffix.lower() == '.md':
+            continue
+        if src.is_relative_to(out_root):
             continue
         rel = src.relative_to(content_root)
         dst = out_root / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(src, dst)
+        if src != dst:
+            shutil.copy2(src, dst)
 
-    # Markdown-Seiten bauen
-    md_files = [p for p in content_root.rglob('*.md') if not should_exclude(p.relative_to(content_root), exclude_globs)]
+    md_files = [p for p in content_root.rglob('*.md') if not p.is_relative_to(out_root)]
     sitemap_entries = []
-
-    by_dir = {}
-    for p in sorted(md_files):
-        by_dir.setdefault(p.parent, []).append(p)
 
     for md_path in sorted(md_files):
         rel = md_path.relative_to(content_root)
         text = md_path.read_text(encoding='utf-8')
         fm, body_md = load_frontmatter_and_body(text)
         title = fm.get('title') or rel.stem.replace('-',' ').title()
-        description = fm.get('description') or fm.get('meta_description') or ''
+        description = fm.get('description') or ''
 
-        lang = rel.parts[0] if len(rel.parts) > 0 and rel.parts[0] in ('de','en') else 'de'
+        lang = rel.parts[0] if len(rel.parts)>0 and rel.parts[0] in ('de','en') else 'de'
         body_md = rewrite_md_links_in_markdown(body_md, lang_prefix=lang)
 
         name_low = md_path.name.lower()
         is_index = name_low in ('readme.md','_index.md','index.md')
-        moved_down = not is_index  # non-index pages werden nach /<stem>/index.html gelegt
+        moved_down = not is_index
 
-        # Relative Asset-Referenzen anpassen (..)
-        body_md = adjust_relative_assets_in_markdown(body_md, moved_down=moved_down)
+        body_md = adjust_relative_assets_in_markdown(body_md, moved_down)
 
         if is_index:
-            out_dir = out_root.joinpath(rel.parent)
-            out_file = out_dir.joinpath('index.html')
+            out_dir = out_root / rel.parent
+            out_file = out_dir / 'index.html'
             canonical_path = str(rel.parent).replace('\\','/') + '/'
         else:
-            out_dir = out_root.joinpath(rel.parent, rel.stem)
-            out_file = out_dir.joinpath('index.html')
+            out_dir = out_root / rel.parent / rel.stem
+            out_file = out_dir / 'index.html'
             canonical_path = str(Path(rel.parent, rel.stem)).replace('\\','/') + '/'
 
-        rel_parts = [p for p in canonical_path.strip('/').split('/') if p]
-        breadcrumbs_html = make_breadcrumbs(rel_parts) if rel_parts else ''
-
+        breadcrumbs_html = make_breadcrumbs([p for p in canonical_path.strip('/').split('/') if p])
         body_html = md_to_html(body_md)
-        body_html = sanitize_internal_links_in_html(body_html, moved_down=moved_down)
+        body_html = sanitize_internal_links_in_html(body_html, moved_down)
 
-        if is_index:
-            children = collect_children(md_files, md_path.parent)
-            if children:
-                items = '\n'.join(f'<li><a href="{quote(url)}">{t}</a></li>' for t, url in children)
-                body_html += f'\n<hr/>\n<ul class="index">\n{items}\n</ul>\n'
-
-        # (optional) einfache Prev/Next
-        pager_html = ''
-        siblings = by_dir.get(md_path.parent, [])
-        if len(siblings) > 1 and md_path in siblings:
-            i = siblings.index(md_path)
-            prev_html = next_html = ''
-            if i > 0:
-                p = siblings[i-1]
-                prev_title = load_frontmatter_and_body(p.read_text(encoding='utf-8'))[0].get('title') or p.stem.replace('-',' ').title()
-                prev_url = '../' + ('' if p.name.lower() in ('readme.md','_index.md','index.md') else p.stem + '/')
-                prev_html = f'<a href="{prev_url}">&larr; {prev_title}</a>'
-            if i < len(siblings)-1:
-                n = siblings[i+1]
-                next_title = load_frontmatter_and_body(n.read_text(encoding='utf-8'))[0].get('title') or n.stem.replace('-',' ').title()
-                next_url = '../' + ('' if n.name.lower() in ('readme.md','_index.md','index.md') else n.stem + '/')
-                next_html = f'<a style="margin-left:auto" href="{next_url}">{next_title} &rarr;</a>'
-            if prev_html or next_html:
-                pager_html = f'<div class="pager">{prev_html}{next_html}</div>'
-
-        canonical = f"{args.base_url.rstrip('/')}/{canonical_path.lstrip('/')}" if args.base_url else canonical_path
-        try:
-            jsonld = make_jsonld(fm, title, description, canonical)
-        except Exception:
-            jsonld = {}
-
-        html = render_page(title, description, body_html, breadcrumbs_html, args.base_url or '', canonical_path, fm, jsonld, pager_html)
-        write_file(out_file, html)
+        html = render_page(title, description, body_html, breadcrumbs_html, args.base_url or '', canonical_path, fm, {}, '')
+        out_file.parent.mkdir(parents=True, exist_ok=True)
+        out_file.write_text(html, encoding='utf-8')
 
         lastmod = datetime.fromtimestamp(md_path.stat().st_mtime, tz=timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
         sitemap_entries.append((canonical_path, lastmod, bool(fm.get('noindex'))))
 
-    if args.sitemap and args.base_url:
+    if args.base_url:
         build_sitemap(sitemap_entries, out_root / 'sitemap.xml', args.base_url)
 
-    print(f'[build_site] Built HTML into: {out_root}')
-    return 0
+    print(f"[build_site] Fertig: {out_root}")
 
 if __name__ == '__main__':
     sys.exit(main())
