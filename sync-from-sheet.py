@@ -5,11 +5,16 @@ Generates Markdown files (DE/EN) from a Google Sheet CSV (SSOT) and produces
 produkte.de.json / produkte.en.json with RELATIVE paths (repo-root relative).
 Designed to run locally and in GitHub Actions (daily).
 
-Dependencies: pandas, requests
+Changes (2025-09-07):
+- NEW: normalize_root_links(md, lang) → wandelt root-absolute, interne Links
+  in RELATIVE Links um (z. B. ](/oeffentlich/x) → ](oeffentlich/x), ](/de/x) → ](x)).
+- NEW: Patch vorhandene Sprach-Landingpages (de/index.md, en/index.md) am Ende
+  mit derselben Logik (Falls vorhanden).
 """
 
 import os
 import json
+import re
 import pandas as pd
 import requests
 from datetime import datetime
@@ -17,6 +22,72 @@ from io import BytesIO
 # ===== ROBUST CSV FETCH =====
 import time
 from urllib.parse import quote
+
+# ---------- Link-Normalisierung ----------
+
+MD_LINK_RE = re.compile(r'(\[([^\]]+)\]\(([^)]+)\))')
+
+def _is_external(url: str) -> bool:
+    u = url.strip().lower()
+    return (
+        u.startswith('http://') or
+        u.startswith('https://') or
+        u.startswith('mailto:') or
+        u.startswith('tel:') or
+        u.startswith('data:') or
+        u.startswith('#')  # Anker
+    )
+
+def _to_relative_from_lang_root(url: str, lang: str) -> str:
+    """
+    Wandelt *interne* root-absolute URLs in relative Pfade um,
+    aus Sicht einer Markdown-Datei unter <lang>/... (z. B. de/...):
+    - /wissen/de/foo/bar/  -> foo/bar/
+    - /wissen/en/foo/      -> foo/
+    - /wissen/foo/         -> foo/           (fehlendes Lang-Präfix wird entfernt)
+    - /de/foo/             -> foo/
+    - /en/foo/             -> foo/
+    - /foo/                -> foo/
+    - foo/                 -> foo/ (unverändert)
+    Externe Schemata werden hier nicht aufgerufen.
+    """
+    u = url.strip()
+    low = u.lower()
+
+    # Bereits relativ
+    if not u.startswith('/'):
+        return u
+
+    # /wissen/<lang>/
+    if low.startswith('/wissen/de/') or low.startswith('/wissen/en/'):
+        return u.split('/', 4)[4] if len(u.split('/', 4)) >= 5 else ''
+
+    # /wissen/ (ohne Sprache)
+    if low.startswith('/wissen/'):
+        return u.split('/wissen/', 1)[1].lstrip('/')
+
+    # /de/ oder /en/
+    if low.startswith('/de/') or low.startswith('/en/'):
+        return u.split('/', 2)[2] if len(u.split('/', 2)) >= 3 else ''
+
+    # sonst irgendein Rootpfad → relativ machen
+    return u.lstrip('/')
+
+def normalize_root_links(md_text: str, lang: str) -> str:
+    """
+    Ersetzt in Markdown-Text alle *internen* root-Links durch relative Pfade.
+    Das vermeidet 404 (/wissen/oeffentlich/...) und hält die Links sprachsicher,
+    weil sie relativ zu <lang>/... aufgelöst werden.
+    """
+    def _repl(m):
+        full, text, url = m.group(0), m.group(2), m.group(3).strip()
+        if _is_external(url):
+            return full
+        new_url = _to_relative_from_lang_root(url, lang)
+        return f'[{text}]({new_url})'
+    return MD_LINK_RE.sub(_repl, md_text)
+
+# ---------- CSV-Fetch ----------
 
 def fetch_sheet_csv(spreadsheet_id=None, sheet_name=None, gid=None, direct_url=None) -> str:
     """
@@ -53,7 +124,6 @@ def fetch_sheet_csv(spreadsheet_id=None, sheet_name=None, gid=None, direct_url=N
             time.sleep(1.2 * attempt)
     raise RuntimeError(f"CSV-Download fehlgeschlagen: {last_err}")
 
-
 # ===== FIXED METADATA =====
 author = "Tobias Klaus"
 author_url = "https://www.vertaefelungen.de/de/content/4-uber-uns"
@@ -89,13 +159,13 @@ SHEET_GID  = os.getenv("SHEET_GID", "").strip()
 SHEET_NAME = os.getenv("SHEET_NAME", "").strip()
 DIRECT_URL = os.getenv("SHEET_CSV_URL", "").strip()
 
+from io import StringIO
 csv_text = fetch_sheet_csv(
     spreadsheet_id=SHEET_ID or None,
     sheet_name=SHEET_NAME or None,
     gid=SHEET_GID or None,
     direct_url=DIRECT_URL or None
 )
-from io import StringIO
 csv_bytes = StringIO(csv_text)
 df = pd.read_csv(csv_bytes)
 df = df.fillna("")
@@ -154,6 +224,10 @@ def _short_summary(text, limit=240):
     s = " ".join(str(text).split())
     return s[:limit]
 
+def _normalize_md_block(md: str, lang: str) -> str:
+    """Wendet normalize_root_links() auf einen Markdown-Block an."""
+    return normalize_root_links(md or "", lang=lang)
+
 def build_content(row, lang="de"):
     if lang == "de":
         slug = row.get("slug_de", "")
@@ -196,7 +270,9 @@ def build_content(row, lang="de"):
 
     beschreibung_text = ""
     if pd.notna(beschreibung):
-        beschreibung_text = str(beschreibung).replace("\n", " ")
+        # WICHTIG: Links innerhalb der Beschreibung auf relativ normieren
+        beschreibung_text = _normalize_md_block(str(beschreibung).replace("\n", " "), lang)
+
     meta_title_text = "" if pd.isna(meta_title) else str(meta_title)
     meta_description_text = "" if pd.isna(meta_description) else str(meta_description)
 
@@ -245,7 +321,8 @@ def build_content(row, lang="de"):
     body_parts = []
     body_parts.append(f"# {titel}")
     body_parts.append("")
-    body_parts.append(str(beschreibung if pd.notna(beschreibung) else ""))
+    # Beschreibung ist schon normalisiert
+    body_parts.append(beschreibung_text)
     body_parts.append("")
     body_parts.append("## Technische Daten")
     body_parts.append("")
@@ -278,7 +355,11 @@ def build_content(row, lang="de"):
     body_parts.append(", ".join(tags) if tags else "_keine Tags hinterlegt_")
     body_parts.append("")
 
-    content = yaml_block + "\n\n" + "\n".join(body_parts)
+    # Gesamter Body nochmal normieren (falls in Freitext weitere Links auftauchen)
+    body_md = "\n".join(body_parts)
+    body_md = normalize_root_links(body_md, lang)
+
+    content = yaml_block + "\n\n" + body_md
 
     json_item = {
         "path": "",
@@ -286,7 +367,7 @@ def build_content(row, lang="de"):
         "category": str(kategorie or "").strip(),
         "title": str(titel or "").strip(),
         "has_yaml": True,
-        "summary": _short_summary(beschreibung),
+        "summary": _short_summary(beschreibung_text),
         "images": bilder,
         "images_alt": bilder_alt,
         "author": author,
@@ -295,7 +376,7 @@ def build_content(row, lang="de"):
         "source": source_url,
         "last_updated": last_updated
     }
-    return content, titel, beschreibung, meta_title_text, json_item
+    return content, titel, beschreibung_text, meta_title_text, json_item
 
 catalog_de = []
 catalog_en = []
@@ -333,6 +414,28 @@ def write_md_files(export_col, slug_col, lang):
 # Generate .md and collect items
 write_md_files(COL_EXPORT_DE, COL_SLUG_DE, lang="de")
 write_md_files(COL_EXPORT_EN, COL_SLUG_EN, lang="en")
+
+# ----- Landingpages (de/en) nachträglich patchen: Links relativ machen -----
+
+def patch_language_index(lang: str):
+    idx_path = os.path.join(lang, "index.md")
+    if not os.path.isfile(idx_path):
+        return
+    try:
+        with open(idx_path, "r", encoding="utf-8") as f:
+            txt = f.read()
+        new_txt = normalize_root_links(txt, lang=lang)
+        if new_txt != txt:
+            with open(idx_path, "w", encoding="utf-8") as f:
+                f.write(new_txt)
+            print(f"{idx_path}: Links auf relative Pfade normalisiert.")
+        else:
+            print(f"{idx_path}: keine Link-Anpassungen nötig.")
+    except Exception as e:
+        print(f"Warnung: konnte {idx_path} nicht patchen: {e}")
+
+patch_language_index("de")
+patch_language_index("en")
 
 # Write JSON catalogs
 os.makedirs(OUTPUT_DIR, exist_ok=True)
