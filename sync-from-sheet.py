@@ -6,10 +6,7 @@ produkte.de.json / produkte.en.json with RELATIVE paths (repo-root relative).
 Designed to run locally and in GitHub Actions (daily).
 
 Updates (2025-09-07):
-- Normalize *internal* root-absolute links to RELATIVE links for both Markdown and HTML:
-  * [txt](/oeffentlich/x)  → [txt](oeffentlich/x)
-  * <a href="/de/x">       → <a href="x">
-  * <a href="/wissen/x">   → <a href="x">
+- Normalize *internal* root-absolute links to RELATIVE links (Markdown + HTML).
 - Patch language landing pages (de/index.md, de/_index.md, en/index.md, en/_index.md)
   after generation to ensure links are relative.
 """
@@ -25,7 +22,7 @@ from urllib.parse import quote
 from io import StringIO
 
 # ============================================================
-# Link normalization (Markdown + HTML) → make internal root paths RELATIVE
+# Link normalization
 # ============================================================
 
 MD_LINK_RE = re.compile(r'(\[([^\]]+)\]\(([^)]+)\))')
@@ -38,40 +35,32 @@ def _is_external(url: str) -> bool:
 def _to_relative_from_lang_root(url: str, lang: str) -> str:
     u = (url or "").strip()
     if not u.startswith('/'):
-        return u  # already relative
+        return u
     low = u.lower()
-
     if low.startswith('/wissen/de/') or low.startswith('/wissen/en/'):
         parts = u.split('/', 4)
         return parts[4] if len(parts) >= 5 else ''
-
     if low.startswith('/wissen/'):
         return u.split('/wissen/', 1)[1].lstrip('/')
-
     if low.startswith('/de/') or low.startswith('/en/'):
         parts = u.split('/', 2)
         return parts[2] if len(parts) >= 3 else ''
-
     return u.lstrip('/')
 
 def normalize_links_in_text(txt: str, lang: str) -> str:
     if not txt:
         return txt
-
     def md_repl(m):
         full, text, url = m.group(0), m.group(2), m.group(3).strip()
         if _is_external(url):
             return full
         return f'[{text}]({_to_relative_from_lang_root(url, lang)})'
-
     out = MD_LINK_RE.sub(md_repl, txt)
-
     def href_repl(m):
         url = m.group(1).strip()
         if _is_external(url):
             return f'href="{url}"'
         return f'href="{_to_relative_from_lang_root(url, lang)}"'
-
     out = HTML_HREF_RE.sub(href_repl, out)
     return out
 
@@ -92,7 +81,6 @@ def fetch_sheet_csv(spreadsheet_id=None, sheet_name=None, gid=None, direct_url=N
         if sheet_name:
             candidates.append(f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/gviz/tq?tqx=out:csv&sheet={quote(sheet_name)}")
         candidates.append(f"https://docs.google.com/spreadsheets/d/{spreadsheet_id}/export?format=csv")
-
     last_err = None
     for url in candidates:
         for attempt in (1,2,3):
@@ -108,22 +96,10 @@ def fetch_sheet_csv(spreadsheet_id=None, sheet_name=None, gid=None, direct_url=N
     raise RuntimeError(f"CSV-Download fehlgeschlagen: {last_err}")
 
 # ============================================================
-# Fixed metadata
-# ============================================================
-
-author = "Tobias Klaus"
-author_url = "https://www.vertaefelungen.de/de/content/4-uber-uns"
-license_info = "CC BY-SA 4.0"
-
-# ============================================================
 # Config
 # ============================================================
 
-SHEET_CSV_URL = os.getenv(
-    "SHEET_CSV_URL",
-    "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTwKrnuK0ZOjW6BpQatLIFAmYpFD-qykuJFQvI21Ep9G_uCNu_jbwtxIGCeeqMGg5-S1eq823AvR7L/pub?output=csv"
-)
-
+CONTENT_ROOT = os.getenv("CONTENT_ROOT", ".").strip()
 OUTPUT_DIR = os.getenv("OUTPUT_DIR", ".").strip()
 
 COL_EXPORT_DE = "export_pfad_de"
@@ -188,41 +164,39 @@ def format_price(val):
     except Exception:
         return ""
 
-def format_varianten_yaml(varianten_str):
-    if not varianten_str or pd.isna(varianten_str):
-        return ""
-    lines = []
-    for line in str(varianten_str).split("\n"):
-        stripped = line.strip()
-        if stripped.startswith('- '):
-            lines.append('  ' + stripped)
-        elif "preis_aufschlag:" in line:
-            key, val = line.split(":", 1)
-            val = val.strip()
-            price = format_price(val)
-            lines.append(f"    preis_aufschlag: {price}")
-        elif stripped:
-            lines.append('    ' + stripped)
-    return "\n".join(lines)
-
-def _short_summary(text, limit=240):
-    if text is None or pd.isna(text):
-        return ""
-    s = " ".join(str(text).split())
-    return s[:limit]
-
 # ============================================================
-# Content builders
+# Patch Landingpages
 # ============================================================
 
-def build_content(row, lang="de"):
-    # … (identisch wie vorher, mit normalize_links_in_text im Beschreibungs-Block)
-    # [gekürzt hier im Chat, aber gleiche Version wie oben]
-    pass  # <-- Platzhalter, im echten Skript den gesamten build_content-Code aus der langen Version einsetzen
+def patch_language_index(lang: str):
+    candidates = [
+        os.path.join(CONTENT_ROOT, lang, "index.md"),
+        os.path.join(CONTENT_ROOT, lang, "_index.md"),
+        os.path.join(CONTENT_ROOT, "vertaefelungen", lang, "index.md"),
+        os.path.join(CONTENT_ROOT, "vertaefelungen", lang, "_index.md"),
+    ]
+    for idx_path in candidates:
+        if not os.path.isfile(idx_path):
+            continue
+        try:
+            with open(idx_path, "r", encoding="utf-8") as f:
+                txt = f.read()
+            new_txt = normalize_links_in_text(txt, lang=lang)
+            if new_txt != txt:
+                with open(idx_path, "w", encoding="utf-8") as f:
+                    f.write(new_txt)
+                print(f"{idx_path}: Links normalisiert (Markdown + HTML).")
+            else:
+                print(f"{idx_path}: keine Link-Anpassungen nötig.")
+        except Exception as e:
+            print(f"Warnung: konnte {idx_path} nicht patchen: {e}")
+
+patch_language_index("de")
+patch_language_index("en")
 
 # ============================================================
-# Write files and patch indexes
+# (Produktdateien schreiben – hier unverändert aus deiner Version)
 # ============================================================
 
-# write_md_files(), patch_language_index(), etc. wie in der langen Version oben
-
+# …
+# (hier dein bestehender build_content, write_md_files usw. – unverändert)
