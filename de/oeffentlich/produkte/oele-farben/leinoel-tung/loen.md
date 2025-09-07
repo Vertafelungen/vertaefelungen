@@ -11,7 +11,7 @@ meta_description: "LeinÃ¶l â kaltgepresstes, reines HolzÃ¶l fÃ¼r Inne
 bilder:
   - loen.png
 bilder_alt:
-  - ""
+  - "Reines LeinÃ¶l ohne Sikkativ 1 Liter Holzgrundierung natÃ¼rlich gereinigt niedrig SÃ¤uregehalt tief eindringend"
 price: "12,61 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -35,13 +35,7 @@ last_updated: "2025-09-01"
 
 # Reines LeinÃ¶l, ohne Sikkativ
 
-Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ.
-Zur ersten Grundierung von rohem Holz. Reines LeinÃ¶l hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm.
-Trocknungsdauer bis zu 2 Wochen. LeinÃ¶l feuert das Holz an, die Maserung tritt deutlicher hervor.
-
-LeinÃ¶l ist in Innenbereichen gegenÃ¼ber jeder kÃ¼nstlich hergestellten Grundierung zu bevorzugen.
-Es ist 100% natÃ¼rlich und hat sich traditionell bewÃ¤hrt.
-LeinÃ¶l hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
+Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines LeinÃ¶l hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Trocknungsdauer bis zu 2 Wochen. LeinÃ¶l feuert das Holz an, die Maserung tritt deutlicher hervor.  LeinÃ¶l ist in Innenbereichen gegenÃ¼ber jeder kÃ¼nstlich hergestellten Grundierung zu bevorzugen. Es ist 100% natÃ¼rlich und hat sich traditionell bewÃ¤hrt. LeinÃ¶l hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
 
 ## Technische Daten
 
@@ -64,7 +58,7 @@ LeinÃ¶l hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe
 
 ## Bilder
 
-![](loen.png)
+![Reines LeinÃ¶l ohne Sikkativ 1 Liter Holzgrundierung natÃ¼rlich gereinigt niedrig SÃ¤uregehalt tief eindringend](loen.png)
 
 ## SEO-Metadaten
 

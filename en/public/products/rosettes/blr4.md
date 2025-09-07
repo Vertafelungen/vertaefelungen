@@ -32,10 +32,7 @@ last_updated: "2025-09-01"
 
 # Ventilation Rosette 4
 
-Elegant ventilation rosette based on the original design.
-Milled brass, smoothed surface
-Diameter 45 mm
-Hight approx. 4 mm
+Elegant ventilation rosette based on the original design. Milled brass, smoothed surface Diameter 45 mm Hight approx. 4 mm
 
 ## Technische Daten
 

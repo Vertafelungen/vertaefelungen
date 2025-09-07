@@ -32,11 +32,7 @@ last_updated: "2025-09-01"
 
 # LÃ¼ftungsrosette 4
 
-FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen.
-Messing gefrÃ¤st, OberflÃ¤che geschlichtet
-
-Durchmesser 45 mm
-HÃ¶he ca. 4 mm
+FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet  Durchmesser 45 mm HÃ¶he ca. 4 mm
 
 ## Technische Daten
 

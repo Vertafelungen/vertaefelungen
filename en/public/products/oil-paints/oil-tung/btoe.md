@@ -31,9 +31,7 @@ last_updated: "2025-09-01"
 
 # Balsamic turpentine oil
 
-Balsamic turpentine oil is a natural solvent that is obtained by repeated distillation (recification) of coniferous wood resins.
-Linseed oil varnish can be diluted with balsamic turpentine oil in a ratio of 1:1 to half oil. This allows the quick-drying varnish to penetrate deeper into the wood.
-Balsamic turpentine oil is used to dilute linseed oil paints.
+Balsamic turpentine oil is a natural solvent that is obtained by repeated distillation (recification) of coniferous wood resins. Linseed oil varnish can be diluted with balsamic turpentine oil in a ratio of 1:1 to half oil. This allows the quick-drying varnish to penetrate deeper into the wood. Balsamic turpentine oil is used to dilute linseed oil paints.
 
 ## Technische Daten
 

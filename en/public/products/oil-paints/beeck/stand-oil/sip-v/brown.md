@@ -13,7 +13,7 @@ bilder:
   - braun-farbfaecher.png
   - sip_gebinde.png
 bilder_alt:
-  - ""
+  - "Beeck Interior Stand-Oil Paint Pro Brown satin matte for indoor wood Opaque linseed oil paint for doors paneling heritage"
   - ""
   - ""
 price: "57,15 €"
@@ -43,11 +43,7 @@ last_updated: "2025-09-01"
 
 # Brown - BEECK Interior Stand-Oil Paint PRO
 
-Beeck Interior Stand-Oil Paint PRO
-Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
-
-Intended use
-Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
+Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.  Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 
 ## Technische Daten
 
@@ -74,7 +70,7 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](braun.png)
+![Beeck Interior Stand-Oil Paint Pro Brown satin matte for indoor wood Opaque linseed oil paint for doors paneling heritage](braun.png)
 ![](braun-farbfaecher.png)
 ![](sip_gebinde.png)
 

@@ -11,7 +11,7 @@ meta_description: "Linseed oil â cold-pressed, pure wood oil for interior &
 bilder:
   - loen.png
 bilder_alt:
-  - ""
+  - "Pure linseed oil without siccative 1 liter wood primer natural purified low acid content deep penetrating"
 price: "12,61 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -35,13 +35,7 @@ last_updated: "2025-09-01"
 
 # Pur Linseed Oil
 
-Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
-For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.
-Drying time up to 2 weeks. Linseed oil fires the wood, the grain becomes more prominent.
-
-Linseed oil is preferable to any artificially produced wood preservative and primer in interior areas.
-It is 100% natural and has proven itself traditionally.
-Linseed oil has a strong, typical odour at first, but this fades over the course of weeks.
+Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative. For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process. Drying time up to 2 weeks. Linseed oil fires the wood, the grain becomes more prominent.  Linseed oil is preferable to any artificially produced wood preservative and primer in interior areas. It is 100% natural and has proven itself traditionally. Linseed oil has a strong, typical odour at first, but this fades over the course of weeks.
 
 ## Technische Daten
 
@@ -64,7 +58,7 @@ Linseed oil has a strong, typical odour at first, but this fades over the course
 
 ## Bilder
 
-![](loen.png)
+![Pure linseed oil without siccative 1 liter wood primer natural purified low acid content deep penetrating](loen.png)
 
 ## SEO-Metadaten
 

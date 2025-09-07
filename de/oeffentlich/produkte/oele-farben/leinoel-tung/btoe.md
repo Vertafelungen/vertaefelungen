@@ -11,7 +11,7 @@ meta_description: "BalsamterpentinÃ¶l â natÃ¼rliches LÃ¶semittel zum 
 bilder:
   - btoe.png
 bilder_alt:
-  - ""
+  - "BalsamterpentinÃ¶l 1 Liter natÃ¼rlich LÃ¶sungsmittel destilliert Nadelholzharz VerdÃ¼nner LeinÃ¶lfarbe HalbÃ¶l"
 price: "13,45 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -31,9 +31,7 @@ last_updated: "2025-09-01"
 
 # BalsamterpentinÃ¶l
 
-BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.
-LeinÃ¶lfirnis kann mit BalsamterpentinÃ¶l im VerhÃ¤ltnis 1:1 zu HalbÃ¶l verdÃ¼nnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen.
-BalsamterpentinÃ¶l wird zum VerdÃ¼nnen von LeinÃ¶lfarben verwendet.
+BalsamterpentinÃ¶l ist ein natÃ¼rliches LÃ¶sungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird. LeinÃ¶lfirnis kann mit BalsamterpentinÃ¶l im VerhÃ¤ltnis 1:1 zu HalbÃ¶l verdÃ¼nnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen. BalsamterpentinÃ¶l wird zum VerdÃ¼nnen von LeinÃ¶lfarben verwendet.
 
 ## Technische Daten
 
@@ -52,7 +50,7 @@ BalsamterpentinÃ¶l wird zum VerdÃ¼nnen von LeinÃ¶lfarben verwendet.
 
 ## Bilder
 
-![](btoe.png)
+![BalsamterpentinÃ¶l 1 Liter natÃ¼rlich LÃ¶sungsmittel destilliert Nadelholzharz VerdÃ¼nner LeinÃ¶lfarbe HalbÃ¶l](btoe.png)
 
 ## SEO-Metadaten
 

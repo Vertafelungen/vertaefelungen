@@ -11,7 +11,7 @@ meta_description: "Citrusterpene â natÃ¼rliches OrangenÃ¶l-LÃ¶semitte
 bilder:
   - ctp.png
 bilder_alt:
-  - ""
+  - "Citrusterpene 1 Liter Orange VerdÃ¼nner Ã¶kologisch Holzanstrich CO2-neutral Orangenschale destilliert LÃ¶sungsmittel"
 price: "20,17 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -50,7 +50,7 @@ Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nnen von Farben und zum 
 
 ## Bilder
 
-![](ctp.png)
+![Citrusterpene 1 Liter Orange VerdÃ¼nner Ã¶kologisch Holzanstrich CO2-neutral Orangenschale destilliert LÃ¶sungsmittel](ctp.png)
 
 ## SEO-Metadaten
 

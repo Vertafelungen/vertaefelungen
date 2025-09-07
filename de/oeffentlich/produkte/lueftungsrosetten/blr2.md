@@ -36,11 +36,7 @@ last_updated: "2025-09-01"
 
 # LÃ¼ftungsrosette 2
 
-LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen.
-Messingguss, poliert
-
-Durchmesser ca. 42 mm
-Hohe ca. 3 mm
+LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 42 mm Hohe ca. 3 mm
 
 ## Technische Daten
 

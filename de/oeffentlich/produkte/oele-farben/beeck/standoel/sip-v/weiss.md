@@ -13,7 +13,7 @@ bilder:
   - weiss-farbfaecher.png
   - sip_gebinde.png
 bilder_alt:
-  - ""
+  - "BEECK StandÃ¶linnenfarbe PRO WeiÃ seidenmatt LeinÃ¶lfarbe deckend Innenbereich Holzlackierung denkmalgerecht"
   - ""
   - ""
 price: "41,50 €"
@@ -43,11 +43,7 @@ last_updated: "2025-09-01"
 
 # WeiÃ - BEECK StandÃ¶linnenfarbe PRO
 
-BEECK StandÃ¶linnenfarbe PRO
-Volltonfarbe, deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
-
-Verwendungszweck
-LeinÃ¶l-StandÃ¶lfarben sind fÃ¼r farbige Holz-Behandlungen im Innenbereich gedacht, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
+BEECK StandÃ¶linnenfarbe PRO Volltonfarbe, deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarben sind fÃ¼r farbige Holz-Behandlungen im Innenbereich gedacht, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
 
 ## Technische Daten
 
@@ -74,7 +70,7 @@ LeinÃ¶l-StandÃ¶lfarben sind fÃ¼r farbige Holz-Behandlungen im Innenbereich
 
 ## Bilder
 
-![](weiss.png)
+![BEECK StandÃ¶linnenfarbe PRO WeiÃ seidenmatt LeinÃ¶lfarbe deckend Innenbereich Holzlackierung denkmalgerecht](weiss.png)
 ![](weiss-farbfaecher.png)
 ![](sip_gebinde.png)
 

@@ -13,7 +13,7 @@ bilder:
   - oxidrot-farbfaecher.png
   - sip_gebinde.png
 bilder_alt:
-  - ""
+  - "BEECK StandÃ¶linnenfarbe PRO Oxidrot seidenmatt LeinÃ¶lfarbe deckend Innenbereich Holzlackierung denkmalgerecht rostrot"
   - ""
   - ""
 price: "57,15 €"
@@ -43,11 +43,7 @@ last_updated: "2025-09-01"
 
 # Oxidrot - BEECK StandÃ¶linnenfarbe PRO
 
-BEECK StandÃ¶linnenfarbe PRO
-Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
-
-Verwendungszweck
-LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
+BEECK StandÃ¶linnenfarbe PRO Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
 
 ## Technische Daten
 
@@ -74,7 +70,7 @@ LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ�
 
 ## Bilder
 
-![](oxidrot.png)
+![BEECK StandÃ¶linnenfarbe PRO Oxidrot seidenmatt LeinÃ¶lfarbe deckend Innenbereich Holzlackierung denkmalgerecht rostrot](oxidrot.png)
 ![](oxidrot-farbfaecher.png)
 ![](sip_gebinde.png)
 

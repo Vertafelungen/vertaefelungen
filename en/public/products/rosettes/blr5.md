@@ -32,11 +32,7 @@ last_updated: "2025-09-01"
 
 # Ventilation Rosette 5
 
-Elegant ventilation rosette based on the original design.
-Cast brass, polished
-
-Diameter approx. 58 mm
-Hight approx 13 mm
+Elegant ventilation rosette based on the original design. Cast brass, polished  Diameter approx. 58 mm Hight approx 13 mm
 
 ## Technische Daten
 

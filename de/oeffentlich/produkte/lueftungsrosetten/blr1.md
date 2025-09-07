@@ -36,11 +36,7 @@ last_updated: "2025-09-01"
 
 # LÃ¼ftungsrosette 1
 
-FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, Abguss einer Originalvorlage,
-Messingguss, poliert
-
-Durchmesser ca. 52 mm
-HÃ¶he ca. 5 mm
+FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, Abguss einer Originalvorlage, Messingguss, poliert  Durchmesser ca. 52 mm HÃ¶he ca. 5 mm
 
 ## Technische Daten
 

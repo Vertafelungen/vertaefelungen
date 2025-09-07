@@ -11,7 +11,7 @@ meta_description: "Tung oil natural â pure, hardening wood oil for high-str
 bilder:
   - toen.png
 bilder_alt:
-  - ""
+  - "Tung oil natural 1 liter without siccative wood oil Vernicia fordii hardwood impregnation interior exterior Chinese"
 price: "21,01 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -33,11 +33,7 @@ last_updated: "2025-09-01"
 
 # Tung oil natural
 
-Natural Tung Oil contains no siccatives. It polymerises in a similar way to linseed oil, but dries faster and forms a hard, matt surface. If wood is treated exclusively with Tung Oil Natural, the natural wood colour is essentially retained. It is very suitable for impregnating hardwood and as a surface coating on linseed oil paints. It can be used indoors and outdoors.
-
-Tung oil natural is obtained from the nuts of the wood oil tree (Vernicia fordii) in Asia, the USA and South America. The oil was historically referred to as "wood oil" or "Chinese wood oil" and is the binding agent for Chinese and Japanese wood and paper paintings.
-
-It is registered in the CAS database under the name "wood oil"
+Natural Tung Oil contains no siccatives. It polymerises in a similar way to linseed oil, but dries faster and forms a hard, matt surface. If wood is treated exclusively with Tung Oil Natural, the natural wood colour is essentially retained. It is very suitable for impregnating hardwood and as a surface coating on linseed oil paints. It can be used indoors and outdoors.  Tung oil natural is obtained from the nuts of the wood oil tree (Vernicia fordii) in Asia, the USA and South America. The oil was historically referred to as "wood oil" or "Chinese wood oil" and is the binding agent for Chinese and Japanese wood and paper paintings.  It is registered in the CAS database under the name "wood oil"
 
 ## Technische Daten
 
@@ -58,7 +54,7 @@ It is registered in the CAS database under the name "wood oil"
 
 ## Bilder
 
-![](toen.png)
+![Tung oil natural 1 liter without siccative wood oil Vernicia fordii hardwood impregnation interior exterior Chinese](toen.png)
 
 ## SEO-Metadaten
 

@@ -13,7 +13,7 @@ bilder:
   - ultrablau-farbfaecher.png
   - sip_gebinde.png
 bilder_alt:
-  - ""
+  - "Beeck Interior Stand-Oil Paint Pro ultramarine blue semi-matte linseed paint opaque interior wood coating heritage deep blue"
   - ""
   - ""
 price: "57,15 €"
@@ -43,11 +43,7 @@ last_updated: "2025-09-01"
 
 # Ultra Blue - BEECK Interior Stand-Oil Paint PRO
 
-Beeck Interior Stand-Oil Paint PRO
-Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
-
-Intended use
-Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
+Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.  Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 
 ## Technische Daten
 
@@ -74,7 +70,7 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](ultrablau.png)
+![Beeck Interior Stand-Oil Paint Pro ultramarine blue semi-matte linseed paint opaque interior wood coating heritage deep blue](ultrablau.png)
 ![](ultrablau-farbfaecher.png)
 ![](sip_gebinde.png)
 

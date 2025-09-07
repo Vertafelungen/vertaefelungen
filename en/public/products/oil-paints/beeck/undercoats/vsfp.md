@@ -11,7 +11,7 @@ meta_description: "BEECK Undercoat Pro, opaque white, filling, fast-drying prime
 bilder:
   - vsfp.png
 bilder_alt:
-  - ""
+  - "BEECK primer paint PRO white matt oil based undercoat bonding ground for linseed oil paints wood metal indoor outdoor"
 price: "30,60 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -33,11 +33,7 @@ last_updated: "2025-09-01"
 
 # BEECK Undercoat PRO
 
-Beeck Interior Stand-Oil Paint PRO
-Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
-
-Intended use
-Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
+Beeck Interior Stand-Oil Paint PRO Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.  Intended use Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
 
 ## Technische Daten
 
@@ -58,7 +54,7 @@ Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, 
 
 ## Bilder
 
-![](vsfp.png)
+![BEECK primer paint PRO white matt oil based undercoat bonding ground for linseed oil paints wood metal indoor outdoor](vsfp.png)
 
 ## SEO-Metadaten
 

@@ -11,7 +11,7 @@ meta_description: "LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ¼r 
 bilder:
   - loef.png
 bilder_alt:
-  - ""
+  - "LeinÃ¶lfirnis mit Sikkativ 1 Liter schnelltrocknend Endbehandlung Innenbereich 24 Stunden Trocknung natÃ¼rlich"
 price: "13,45 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -35,8 +35,7 @@ last_updated: "2025-09-01"
 
 # LeinÃ¶lfirnis
 
-LeinÃ¶lfirnis mit Sikkativen.
-Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
+LeinÃ¶lfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
 
 ## Technische Daten
 
@@ -59,7 +58,7 @@ Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bi
 
 ## Bilder
 
-![](loef.png)
+![LeinÃ¶lfirnis mit Sikkativ 1 Liter schnelltrocknend Endbehandlung Innenbereich 24 Stunden Trocknung natÃ¼rlich](loef.png)
 
 ## SEO-Metadaten
 

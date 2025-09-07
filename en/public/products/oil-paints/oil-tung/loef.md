@@ -11,7 +11,7 @@ meta_description: "Boiled linseed oil â oxidatively drying wood oil for pri
 bilder:
   - loef.png
 bilder_alt:
-  - ""
+  - "Linseed oil varnish with siccative 1 liter quick-drying final treatment interior 24 hours drying natural"
 price: "13,45 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -35,8 +35,7 @@ last_updated: "2025-09-01"
 
 # Linseed Oil Varnish
 
-Linseed oil varnish with siccatives.
-For interior use as a quick-drying finish with a drying time of up to 24 hours.
+Linseed oil varnish with siccatives. For interior use as a quick-drying finish with a drying time of up to 24 hours.
 
 ## Technische Daten
 
@@ -59,7 +58,7 @@ For interior use as a quick-drying finish with a drying time of up to 24 hours.
 
 ## Bilder
 
-![](loef.png)
+![Linseed oil varnish with siccative 1 liter quick-drying final treatment interior 24 hours drying natural](loef.png)
 
 ## SEO-Metadaten
 

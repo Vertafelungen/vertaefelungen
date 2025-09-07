@@ -11,7 +11,7 @@ meta_description: "Citrus terpenes â natural orange oil solvent for thinnin
 bilder:
   - ctp.png
 bilder_alt:
-  - ""
+  - "Citrus terpenes 1 liter orange thinner ecological wood coating CO2-neutral orange peel distilled solvent"
 price: "20,17 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -50,7 +50,7 @@ Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and 
 
 ## Bilder
 
-![](ctp.png)
+![Citrus terpenes 1 liter orange thinner ecological wood coating CO2-neutral orange peel distilled solvent](ctp.png)
 
 ## SEO-Metadaten
 

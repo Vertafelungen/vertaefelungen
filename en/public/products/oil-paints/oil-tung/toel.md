@@ -11,7 +11,7 @@ meta_description: "7Tung oil natural â pure, hardening wood oil for high-st
 bilder:
   - toel.png
 bilder_alt:
-  - ""
+  - "Tung wood oil varnish 1 liter tung oil varnish linseed interior exterior UV-resistant quick-drying hard-dry oil final varnish"
 price: "22,69 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -35,13 +35,7 @@ last_updated: "2025-09-01"
 
 # Tung oil varnish
 
-Tung oil boiled with linseed oil, linseed oil stand oil and siccatives.
-
-For interior and exterior use.
-
-Â 
-
-TUNG wood oil varnish dries significantly faster and harder than a linseed oil varnish. The surface is initially matt glossy. It is used as a finishing varnish on linseed oil primers, as it swells less with water and has better UV resistance than a linseed oil varnish. It is very suitable for maintaining all types of hardwoods. The formerly well-known Eburit hard drying oil is based on the same ingredients as our wood oil varnish.
+Tung oil boiled with linseed oil, linseed oil stand oil and siccatives.  For interior and exterior use.  Â   TUNG wood oil varnish dries significantly faster and harder than a linseed oil varnish. The surface is initially matt glossy. It is used as a finishing varnish on linseed oil primers, as it swells less with water and has better UV resistance than a linseed oil varnish. It is very suitable for maintaining all types of hardwoods. The formerly well-known Eburit hard drying oil is based on the same ingredients as our wood oil varnish.
 
 ## Technische Daten
 
@@ -64,7 +58,7 @@ TUNG wood oil varnish dries significantly faster and harder than a linseed oil v
 
 ## Bilder
 
-![](toel.png)
+![Tung wood oil varnish 1 liter tung oil varnish linseed interior exterior UV-resistant quick-drying hard-dry oil final varnish](toel.png)
 
 ## SEO-Metadaten
 
