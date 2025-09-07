@@ -27,23 +27,26 @@ jobs:
         env:
           SHEET_ID: ${{ secrets.SHEET_ID }}
           SHEET_GID: ${{ secrets.SHEET_GID }}
-          # Falls deine Inhalte in einem Unterordner liegen, hier setzen:
-          # CONTENT_ROOT: vertaefelungen
+          # Falls Inhalte in einem Unterordner liegen:
+          # CONTENT_ROOT: .
         run: python sync-from-sheet.py
 
       - name: Commit and push changes (MD + JSON)
+        shell: bash
         run: |
-          set -e
+          set -euo pipefail
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          # JSON
-          git add produkte.de.json produkte.en.json || true
-          # Markdown in Standardpfaden
-          git add de/**/*.md en/**/*.md 2>/dev/null || true
-          # Markdown falls Content in Unterordner liegt
-          git add vertaefelungen/de/**/*.md vertaefelungen/en/**/*.md 2>/dev/null || true
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto-sync from Google Sheet: update MD & JSON"
-            git push
-          else
+
+          # Nur die Dateien, die wir erzeugen/ändern
+          git add -A
+          # Alternativ enger fassen:
+          # git add produkte.de.json produkte.en.json || true
+          # git add de/**/*.md en/**/*.md 2>/dev/null || true
+
+          if git diff --cached --quiet; then
             echo "Keine Änderungen – nichts zu committen."
+          else
+            git commit -m "Auto-sync from Google Sheet: update MD and JSON"
+            git push
+          fi
