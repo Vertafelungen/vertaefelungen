@@ -1,10 +1,8 @@
-
 name: Sync from Google Sheet
 
 on:
   schedule:
-    # 03:00 UTC ≙ 05:00 Europe/Berlin (Sommerzeit)
-    - cron: "0 3 * * *"
+    - cron: "0 3 * * *"   # 03:00 UTC
   workflow_dispatch:
 
 permissions:
@@ -15,20 +13,37 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
-        with: { python-version: '3.11' }
-      - run: |
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
           python -m pip install --upgrade pip
           pip install pandas requests
-      - name: Generate produkte.{de,en}.json
+
+      - name: Generate Markdown & produkte.{de,en}.json
         env:
           SHEET_ID: ${{ secrets.SHEET_ID }}
           SHEET_GID: ${{ secrets.SHEET_GID }}
+          # Falls deine Inhalte in einem Unterordner liegen, hier setzen:
+          # CONTENT_ROOT: vertaefelungen
         run: python sync-from-sheet.py
-      - name: Commit and push changes
+
+      - name: Commit and push changes (MD + JSON)
         run: |
-          git config user.name "github-actions[bot]"
+          set -e
+          git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add produkte.de.json produkte.en.json
-          git diff --cached --quiet || git commit -m "Auto-sync from Google Sheet (md/json)"
-          git push
+          # JSON
+          git add produkte.de.json produkte.en.json || true
+          # Markdown in Standardpfaden
+          git add de/**/*.md en/**/*.md 2>/dev/null || true
+          # Markdown falls Content in Unterordner liegt
+          git add vertaefelungen/de/**/*.md vertaefelungen/en/**/*.md 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-sync from Google Sheet: update MD & JSON"
+            git push
+          else
+            echo "Keine Änderungen – nichts zu committen."
