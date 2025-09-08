@@ -2,16 +2,18 @@
 # -*- coding: utf-8 -*-
 """
 Static Markdown → HTML Builder für /wissen
-Version: 2025-09-08 18:05 (Europe/Berlin)
+Version: 2025-09-08 18:25 (Europe/Berlin)
 
-Neu ggü. 17:35:
-- Nachpolitur 'finalize_root_links()': fängt verbleibende href/src="/wissen/..." ohne Sprachpräfix
-  (case-insensitive, whitespace-tolerant, single/double/unquoted) und setzt sie auf /wissen/<lang>/...
-- Validator im Workflow kann dadurch strenger bleiben.
+Änderungen:
+- CLI-Argumente: --base-url, --content-root, --out-dir
+- Sprachsichere Link-Umschreibung auf /wissen/<lang>/...
+- Pretty-URLs, Sitemap, robots.txt, version.json
+- Root-Redirect (index.html → /wissen/de/)
+- finalize_root_links(): Sonderfall für href="/wissen/" → /wissen/<lang>/
 """
 
 from __future__ import annotations
-import argparse, html, json, os, re, shutil, sys
+import argparse, html, json, re, shutil, sys
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 
@@ -21,7 +23,8 @@ except Exception:
     print("[build_site] Hinweis: 'markdown' wird in der Action installiert.", file=sys.stderr)
 
 _EXTERNAL_SCHEMES = ("http://", "https://", "mailto:", "tel:", "ftp://", "ftps://")
-# tolerant: href|src = optional spaces, optional quotes, any URL chars bis zum schließenden Quote/Whitespace/>, case-insensitive
+
+# href|src tolerant: Quotes optional, whitespace tolerant
 _HREF_RE = re.compile(r'''(?P<attr>\b(?:href|src)\s*=\s*)(?P<q>["']?)(?P<url>[^"'\s>]+)(?P=q)''', re.IGNORECASE)
 
 def is_external(url: str) -> bool:
@@ -65,36 +68,30 @@ def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePo
             return f'{attr}{q}{u}{q}'
         low = u.lower()
 
-        # korrekt -> lassen
         if low.startswith(f"/wissen/{lang}/"):
             return f'{attr}{q}{u}{q}'
 
-        # /wissen/ ohne Sprachpräfix -> ergänzen
         if low.startswith("/wissen/") and not low.startswith(f"/wissen/{lang}/"):
             rest = u.split("/wissen/", 1)[1].lstrip("/")
             tail = "" if (not rest or rest.endswith("/")) else "/"
             return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
 
-        # /de/... oder /en/... direkt unter Root -> in /wissen/<lang>/...
         if low.startswith("/de/") or low.startswith("/en/"):
             rest = u.split("/", 2)[2] if u.count("/") >= 2 else ""
             tail = "" if (not rest or rest.endswith("/")) else "/"
             return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
 
-        # Root-absolute interne Pfade -> /wissen/<lang>/...
         if low.startswith("/"):
             rest = u.lstrip("/")
             tail = "" if rest.endswith("/") else "/"
             return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
 
-        # Relativpfade -> auflösen
         resolved = _resolve_relative(u, current_doc_rel_dir)
         return f'{attr}{q}{_to_wissen_abs(lang, resolved)}{q}'
 
     return _HREF_RE.sub(repl, html_text)
 
-# --- NEU: Nachpolitur, falls irgendwas durchgerutscht ist ---------------------
-# fängt ALLE Formen von href/src="/wissen/..." ohne Sprachpräfix ein
+# --- Nachpolitur: Root-/wissen/ Links ----------------------------------------
 _ROOT_WISSEN_FIX = re.compile(
     r'''(?P<attr>\b(?:href|src)\s*=\s*)(?P<q>["']?)(?P<lead>\s*/\s*wissen\s*/\s*)(?P<rest>[^"'\s>]*)\s*(?P=q)''',
     re.IGNORECASE
@@ -109,7 +106,6 @@ def finalize_root_links(html_text: str, lang: str) -> str:
         if not rest:
             return f'{attr}{q}/wissen/{lang}/{q}'
 
-        # wenn bereits de/ oder en/ am Anfang -> nichts tun
         if rest.lower().startswith(("de/", "en/")):
             return f'{attr}{q}/wissen/{rest}{q}'
 
@@ -117,7 +113,7 @@ def finalize_root_links(html_text: str, lang: str) -> str:
         return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
 
     return _ROOT_WISSEN_FIX.sub(repl, html_text)
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 def render_markdown(md_text: str) -> str:
     try:
@@ -165,8 +161,8 @@ def copy_assets(assets_dir: Path, out_root: Path):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--base-url", default="https://www.vertaefelungen.de/wissen", type=str)
-    ap.add_argument("--content-root", default=".", type=str, help="Repo-Root, das de/ und en/ enthält")
-    ap.add_argument("--out-dir", default="site", type=str, help="Ausgabeverzeichnis")
+    ap.add_argument("--content-root", default=".", type=str)
+    ap.add_argument("--out-dir", default="site", type=str)
     args = ap.parse_args()
 
     repo_root = Path(args.content_root).resolve()
@@ -188,7 +184,6 @@ def main():
 
             current_rel_dir = PurePosixPath(str(src_path.relative_to(lang_root).parent).replace("\\","/"))
             rewritten = rewrite_links_in_html(html_body, lang=lang, current_doc_rel_dir=current_rel_dir)
-            # --- Nachpolitur ---
             rewritten = finalize_root_links(rewritten, lang=lang)
 
             doc_html = write_html_document(rewritten, title="Wissen")
