@@ -3,7 +3,7 @@
 
 """
 Static Markdown → HTML Builder für /wissen
-Version: 2025-09-08 00:30 (Europe/Berlin)
+Version: 2025-09-08 14:00 (Europe/Berlin)
 
 Änderungen in dieser Version:
 - Asset-Kopie HART gehärtet: .git, .github, scripts, tools, de, en usw. werden NICHT nach site/ kopiert.
