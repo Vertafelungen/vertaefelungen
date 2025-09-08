@@ -1,12 +1,11 @@
 name: Build & Deploy Wissen
-# Version: 2025-09-08 18:40 (Europe/Berlin)
+# Version: 2025-09-08 19:05 (Europe/Berlin)
 # Inhalte:
 # - Build aus de/, en/ → site/
-# - Sprachsicherer Link-Validator (blockt /wissen/ ohne /de/|/en/)
+# - Sprachsicherer Link-Validator (blockt /wissen/ ohne zulässiges Sprachpräfix)
 # - SFTP-Deploy nach /wissen/ (IONOS-kompatibel)
 # - Post-Deploy Check per HTTP
-# Anforderungen an Secrets:
-#   SFTP_HOST, SFTP_USER, SFTP_PASS, SFTP_PORT (meist 22)
+# Secrets: SFTP_HOST, SFTP_USER, SFTP_PASS, SFTP_PORT (meist 22)
 
 on:
   push:
@@ -54,22 +53,27 @@ jobs:
           test -f site/sitemap.xml
           test -f site/robots.txt
           # Build-Marker
-          jq -n --arg sha "$GIT_SHA" --arg now "$(date -u +%FT%TZ)" \
-            '{commit:$sha, built_at:$now}' > site/version.json
+          python - << 'PY'
+          import json, os, time
+          d={"commit": os.getenv("GIT_SHA"), "built_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
+          open("site/version.json","w",encoding="utf-8").write(json.dumps(d,ensure_ascii=False,indent=2))
+          PY
           echo "ok" > site/deploy-check.txt
 
       - name: Validate links
         shell: bash
         run: |
           set -euo pipefail
-          # 1) Keine Git-/Workflow-/Script-Artefakte in site/
+          # 1) Unerwünschte Ordner in site/ blocken
           if find site -type d -name ".git" -print -quit | grep -q .; then
             echo "ERROR: '.git' directory found in site/"; exit 1; fi
           if find site -path "site/.github" -o -path "site/scripts" -o -path "site/tools" -print -quit | grep -q .; then
             echo "ERROR: unexpected folders (.github/scripts/tools) in site/"; exit 1; fi
 
           # 2) Sprachlose /wissen/-Links finden (href|src, quotes optional, case-insensitive, PCRE)
-          BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!de/|en/)' site || true)
+          #    Hier Sprachen zentral erweitern: z.B. ALLOWED="de|en|fr"
+          ALLOWED="de|en"
+          BAD=$(grep -RHoP "(?i)\\b(?:href|src)\\s*=\\s*(?:\"|\\x27)?/wissen/(?!${ALLOWED}/)" site || true)
           if [ -n "$BAD" ]; then
             echo "ERROR: Found links without language prefix (first 20):"
             echo "$BAD" | head -n 20
@@ -88,8 +92,7 @@ jobs:
               for u in href.findall(t):
                   rel=u.split("/wissen/",1)[1]
                   p=root/rel.strip("/")
-                  if not str(p).endswith(".html"):
-                      p=p/"index.html"
+                  if not str(p).endswith(".html"): p=p/"index.html"
                   if not p.exists():
                       missing.append((str(f),u,str(p)))
           if missing:
@@ -110,7 +113,6 @@ jobs:
           local_path: site/*
           remote_path: /wissen/
           sftp_only: true
-          # Sichere Excludes (schützen, falls jemand site/ versehentlich verschmutzt)
           exclude: |
             .git/
             **/.git/**
