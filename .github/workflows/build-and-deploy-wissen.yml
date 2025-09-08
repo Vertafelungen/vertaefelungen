@@ -48,17 +48,41 @@ jobs:
           python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
           echo "{\"commit\": \"$GITHUB_SHA\", \"built_at\": \"$(date -u +%FT%TZ)\"}" > site/version.json
           echo "ok" > site/deploy-check.txt
-
+          
       - name: Validate links
         shell: bash
         run: |
           set -euo pipefail
+          # 1) Keine .git-Artefakte
           if find site -type d -name ".git" -print -quit | grep -q .; then
             echo "ERROR: '.git' directory found in site/"; exit 1; fi
-          BAD=$(grep -RHoP 'href="/wissen/(?!de/|en/)' site || true)
+          # 2) Sprachlose /wissen/-Links finden (PCRE, beide Quote-Varianten + unquoted)
+          BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!de/|en/)' site || true)
           if [ -n "$BAD" ]; then
-            echo "ERROR: Found links without language prefix:"; echo "$BAD"; exit 1; fi
-          echo "OK: site/ is clean and language-prefixed."
+            echo "ERROR: Found links without language prefix (first 20):"
+            echo "$BAD" | head -n 20
+            exit 1
+          fi
+          # 3) Existenz interner Ziele prüfen
+          python - << 'PY'
+          import re, sys
+          from pathlib import Path
+          root = Path("site")
+          href = re.compile(r'(?i)(?:href|src)=["\'](/wissen/(?:de|en)/[^"\']*)["\']')
+          missing=[]
+          for f in root.rglob("*.html"):
+              t=f.read_text(errors="ignore")
+              for u in href.findall(t):
+                  rel=u.split("/wissen/",1)[1]
+                  p=root/rel.strip("/")
+                  if not str(p).endswith(".html"): p=p/"index.html"
+                  if not p.exists(): missing.append((str(f),u,str(p)))
+          if missing:
+              print("FEHLER: 404-Risiko (erste 20):")
+              for a,b,c in missing[:20]: print(" -",a,"→",b," (expected:",c,")")
+              sys.exit(1)
+          print("Validator OK.")
+          PY
 
       - name: Deploy to /wissen (SFTP)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
