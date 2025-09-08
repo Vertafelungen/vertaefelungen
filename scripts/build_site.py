@@ -3,23 +3,12 @@
 
 """
 Static Markdown → HTML Builder für /wissen
-Version: 2025-09-08 12:27 (Europe/Berlin)
+Version: 2025-09-08 00:30 (Europe/Berlin)
 
 Änderungen in dieser Version:
-- Markdown-Linkparser unterstützt optionalen Titel: [Text](/pfad "Titel")
-- HTML-Rewriter ist robust gegen:
-  * einfache/doppelte Anführungszeichen ('…' / "…")
-  * Groß-/Kleinschreibung (HREF/href, SRC/src)
-  * optionale Leerzeichen um '='
-  * unquoted href=/pfad
-- Root-absolute Links ohne Sprachpräfix werden zu /wissen/<lang>/… normalisiert
-- .md-Ziele werden zu Pretty-URLs
-
-Funktional:
-- Sprachsensitive Pretty-URLs (README/_index/index → /pfad/)
-- UTF-8 <meta charset> + viewport
-- sitemap.xml, wenn --base-url gesetzt
-- Weiterleitung /wissen/ → /wissen/de/
+- Asset-Kopie HART gehärtet: .git, .github, scripts, tools, de, en usw. werden NICHT nach site/ kopiert.
+- Verhindert, dass .git-Objekte auf den Server deployt werden (Ursache deiner Permission-Fehler).
+- (Beibehalt) Robuster Link-Rewriter (Markdown & HTML) inkl. optionalem Titel, Quotes, Case, unquoted href.
 """
 
 import argparse
@@ -40,7 +29,6 @@ MD_EXTENSIONS = ['extra', 'meta', 'sane_lists', 'toc']
 FRONTMATTER_RE = re.compile(r'^\s*---\s*\n(.*?)\n---\s*\n', re.DOTALL)
 
 def load_frontmatter_and_body(text: str):
-    """Liest YAML-Frontmatter (optional) und gibt (dict, body_md) zurück."""
     m = FRONTMATTER_RE.match(text)
     if m:
         fm_text = m.group(1)
@@ -58,13 +46,6 @@ def md_to_html(md_text: str) -> str:
 # ---------- URL/Link Utilities ----------
 
 def _md_target_to_pretty(target: str) -> str:
-    """
-    Wandelt Markdown-Link-Ziele, die auf .md enden, in „Pretty-URLs“ um:
-    - foo/bar/README.md → foo/bar/
-    - foo/bar/_index.md → foo/bar/
-    - foo/bar/index.md → foo/bar/
-    - foo/bar/beitrag.md → foo/bar/beitrag/
-    """
     clean = target.split('#')[0]
     frag = '' if '#' not in target else '#' + target.split('#', 1)[1]
     if clean.endswith('.md'):
@@ -82,153 +63,82 @@ def _md_target_to_pretty(target: str) -> str:
     return target
 
 def _add_lang_and_wissen_prefix(url: str, lang: str) -> str:
-    """
-    Ergänzt Sprach- und /wissen/-Präfixe für root-relative Pfade:
-    - /wissen/oeffentlich/... → /wissen/<lang>/oeffentlich/...
-    - /oeffentlich/...        → /wissen/<lang>/oeffentlich/...
-    - /de/... /en/...         → /wissen/de/... / /wissen/en/...
-    - Externe/Datenschemata und relative Pfade bleiben unverändert.
-    """
     u = (url or '').strip()
     low = u.lower()
     if low.startswith(('http://', 'https://', 'mailto:', 'tel:', 'data:', '#')):
         return u
-
-    # Bereits korrekt mit Sprache?
     if low.startswith('/wissen/de/') or low.startswith('/wissen/en/'):
         return u
-
-    # /wissen/... ohne Sprache → Sprache einfügen
     if low.startswith('/wissen/'):
         tail = u.split('/wissen/', 1)[1].lstrip('/')
         return f'/wissen/{lang}/{tail}'
-
-    # /de/... /en/... → unter /wissen einhängen (Sprache beibehalten)
     if low.startswith('/de/') or low.startswith('/en/'):
         return '/wissen' + u
-
-    # Sonstiger Rootpfad → /wissen/<lang>/...
     if u.startswith('/'):
         return f'/wissen/{lang}/{u.lstrip("/")}'
-
-    # relativ → bleibt relativ
     return u
 
-# Markdown: [text](URL "optional title") – URL und optionaler Titel separat erfassen
 MD_LINK_WITH_OPT_TITLE = re.compile(
-    r'\[([^\]]+)\]\(\s*'              # [text](
-    r'(?P<url>/[^)\s]+|[^)\s][^)]*)'  # URL (absolut /… oder relativ)
-    r'(?:\s+"(?P<title>[^"]*)")?'     # optionaler "title"
-    r'\s*\)'                          # )
+    r'\[([^\]]+)\]\(\s*'
+    r'(?P<url>/[^)\s]+|[^)\s][^)]*)'
+    r'(?:\s+"(?P<title>[^"]*)")?'
+    r'\s*\)'
 )
 
 def rewrite_md_links_in_markdown(markdown_text: str, lang_prefix: str) -> str:
-    """
-    1) Root-absolute Markdown-Links → /wissen/<lang>/...
-    2) .md-Ziele in Pretty-URLs konvertieren.
-    3) Optionalen Linktitel ("title") erhalten.
-    """
     def repl(m):
         text  = m.group(1)
         url   = (m.group('url') or '').strip()
-        title = m.group('title')  # kann None sein
-
-        # Externe/Anker/E-Mail nicht anfassen
+        title = m.group('title')
         if url.lower().startswith(('http://','https://','mailto:','tel:','#','data:')):
             new_url = url
         else:
-            # Root-absolute → /wissen/<lang>/..., relative bleibt relativ
             new_url = _add_lang_and_wissen_prefix(url, lang_prefix)
-            # .md-Ziele auf Pretty-URLs
             new_url = _md_target_to_pretty(new_url)
-
-        if title is not None:
-            return f'[{text}]({new_url} "{title}")'
-        return f'[{text}]({new_url})'
-
+        return f'[{text}]({new_url} "{title}")' if title is not None else f'[{text}]({new_url})'
     return MD_LINK_WITH_OPT_TITLE.sub(repl, markdown_text)
 
 def adjust_relative_assets_in_markdown(md_text: str, moved_down: bool) -> str:
-    """
-    Wenn eine Seite von foo.md → foo/index.html „tiefer“ verschoben wird,
-    müssen relative Asset-Pfade (Bilder, PDFs, …) ggf. um '../' ergänzt werden.
-    """
     if not moved_down:
         return md_text
-
     def fix(u: str) -> str:
         low = u.lower().strip()
-        if low.startswith(('http://', 'https://', 'mailto:', 'tel:', 'data:', '/')):
-            return u
-        if low.endswith('.md'):
-            return u
-        if u.startswith('../'):
-            return u
+        if low.startswith(('http://', 'https://', 'mailto:', 'tel:', 'data:', '/')): return u
+        if low.endswith('.md'): return u
+        if u.startswith('../'): return u
         return '../' + u
-
-    # Bilder ![alt](url)
     img_re = re.compile(r'(!\[[^\]]*\]\(([^)]+)\))')
-    def img_sub(m):
-        full, url = m.group(0), m.group(2)
-        return full.replace(url, fix(url), 1)
-    md_text = img_re.sub(img_sub, md_text)
-
-    # Normale Links [text](url) (Assets)
+    md_text = img_re.sub(lambda m: m.group(0).replace(m.group(2), fix(m.group(2)), 1), md_text)
     a_re = re.compile(r'(\[[^\]]+\]\(([^)]+)\))')
-    def a_sub(m):
-        full, url = m.group(0), m.group(2)
-        return full.replace(url, fix(url), 1)
-    return a_re.sub(a_sub, md_text)
+    return a_re.sub(lambda m: m.group(0).replace(m.group(2), fix(m.group(2)), 1), md_text)
 
 def _rewrite_attr_quotes(html: str, attr: str, lang_prefix: str, moved_down: bool) -> str:
-    """
-    Rewriter für HTML-Attribute (href/src), robust gegen:
-    - einfache/doppelte Anführungszeichen
-    - Groß-/Kleinschreibung (HREF/href)
-    - optionale Leerzeichen um '='
-    """
-    # (?i) via re.IGNORECASE –  attr \s* = \s* (["']) (.*?) \1
     pattern = re.compile(rf'{attr}\s*=\s*([\'"])(.*?)\1', re.IGNORECASE)
-
     def repl(m):
         quote_ch = m.group(1)
         url = (m.group(2) or '').strip()
         low = url.lower()
-
-        # externe/anker unangetastet
         if low.startswith(('http://','https://','mailto:','tel:', '#', 'data:')):
             new = url
         else:
             new = _add_lang_and_wissen_prefix(url, lang_prefix)
             if attr.lower() == 'href':
                 new = _md_target_to_pretty(new)
-            # moved_down: relative src ggf. um '../' ergänzen
             if moved_down and attr.lower() == 'src':
                 if not new.startswith(('/', 'http://', 'https://', 'data:', 'mailto:', 'tel:', '#')) and not new.startswith('../'):
                     new = '../' + new
-
-        # Attributname wie übergeben zurückschreiben (z. B. 'href' oder 'src')
         return f'{attr}={quote_ch}{new}{quote_ch}'
-
     return pattern.sub(repl, html)
 
 def sanitize_internal_links_in_html(html: str, moved_down: bool, lang_prefix: str = 'de'):
-    """
-    Absicherung auf HTML-Ebene (falls HTML im Markdown steckt):
-    - href: Root-Links → /wissen/<lang>/..., .md → pretty (unterstützt "…" und '…')
-    - src : Root-Links → /wissen/<lang>/..., moved_down berücksichtigt relative Pfade
-    - robust gegen HREF/href, Leerzeichen und unquoted href=/pfad
-    """
     html = _rewrite_attr_quotes(html, 'href', lang_prefix, moved_down)
     html = _rewrite_attr_quotes(html, 'src',  lang_prefix, moved_down)
-
-    # Bonus: seltene Fälle ohne Quotes (nur root-absolute href)
-    def repl_noquote(m):
-        url = (m.group(1) or '').strip()
-        new = _md_target_to_pretty(_add_lang_and_wissen_prefix(url, lang_prefix))
-        return f'href="{new}"'
-    html = re.sub(r'(?i)href\s*=\s*(/[^\'"\s>]+)', repl_noquote, html)
-
+    # unquoted href=/pfad
+    html = re.sub(
+        r'(?i)href\s*=\s*(/[^\'"\s>]+)',
+        lambda m: f'href="{_md_target_to_pretty(_add_lang_and_wissen_prefix(m.group(1), lang_prefix))}"',
+        html
+    )
     return html
 
 # ---------- Rendering ----------
@@ -304,18 +214,13 @@ def build_sitemap(entries, out_path: Path, base_url: str):
     lines.append('</urlset>')
     out_path.write_text('\n'.join(lines), encoding='utf-8')
 
-def should_exclude(path: Path, exclude_globs):
-    s = str(path)
-    for g in exclude_globs:
-        if path.match(g) or s.startswith(g + '/'):
-            return True
-    return False
-
-def write_file(path: Path, content: str):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(content, encoding='utf-8')
-
 # ---------- Main ----------
+
+ASSET_TOPLEVEL_ALLOW = {
+    # nur diese Top-Level-Verzeichnisse/Dateien werden 1:1 kopiert
+    "assets", "bilder", "static", "docs"  # erweitern falls nötig
+}
+ASSET_DENY_PREFIX = {".git", ".github", "scripts", "tools", "de", "en", "site"}  # nie kopieren
 
 def main():
     ap = argparse.ArgumentParser()
@@ -330,21 +235,35 @@ def main():
         shutil.rmtree(out_root)
     out_root.mkdir(parents=True, exist_ok=True)
 
-    # Assets 1:1 kopieren (alles außer .md und Outdir)
+    # Assets 1:1 kopieren – aber NUR whitelisted Top-Level, keine .git/.github/scripts/tools/de/en/site
     for src in content_root.rglob('*'):
-        if src.is_dir() or src.suffix.lower() == '.md':
+        if src.is_dir():
+            continue
+        if src.suffix.lower() == '.md':
             continue
         try:
             if src.is_relative_to(out_root):
                 continue
         except AttributeError:
             pass
+
         rel = src.relative_to(content_root)
+        top = rel.parts[0] if rel.parts else ''
+        if top in ASSET_DENY_PREFIX:
+            continue
+        if top not in ASSET_TOPLEVEL_ALLOW and len(rel.parts) > 0:
+            # nur whitelisted Toplevel kopieren
+            continue
+        # keine versteckten .git-Dateien irgendwo tiefer
+        if any(part.startswith('.git') for part in rel.parts):
+            continue
+
         dst = out_root / rel
         dst.parent.mkdir(parents=True, exist_ok=True)
         if src != dst:
             shutil.copy2(src, dst)
 
+    # Markdown-Dateien verarbeiten
     md_files = [p for p in content_root.rglob('*.md') if not p.is_relative_to(out_root)]
     sitemap_entries = []
 
@@ -355,21 +274,16 @@ def main():
         title = fm.get('title') or rel.stem.replace('-', ' ').title()
         description = fm.get('description') or ''
 
-        # Sprache aus Pfad ableiten (de/en), default de
         lang = rel.parts[0] if len(rel.parts) > 0 and rel.parts[0] in ('de', 'en') else 'de'
 
-        # Root-Links umbiegen, .md → pretty
         body_md = rewrite_md_links_in_markdown(body_md, lang_prefix=lang)
 
-        # moved_down: alles außer Index-Dateien
         name_low = md_path.name.lower()
         is_index = name_low in ('readme.md', '_index.md', 'index.md')
         moved_down = not is_index
 
-        # relative Asset-Pfade korrigieren, wenn moved_down
         body_md = adjust_relative_assets_in_markdown(body_md, moved_down)
 
-        # Zielpfad + Canonical bestimmen
         if is_index:
             out_file = out_root / rel.parent / 'index.html'
             canonical_path = str(Path(rel.parent)).replace('\\', '/') + '/'
@@ -378,7 +292,6 @@ def main():
             out_file = out_dir / 'index.html'
             canonical_path = str(Path(rel.parent, rel.stem)).replace('\\', '/') + '/'
 
-        # Rendern
         breadcrumbs_html = make_breadcrumbs([p for p in canonical_path.strip('/').split('/') if p])
         body_html = md_to_html(body_md)
         body_html = sanitize_internal_links_in_html(body_html, moved_down, lang_prefix=lang)
@@ -390,11 +303,9 @@ def main():
         lastmod = datetime.fromtimestamp(md_path.stat().st_mtime, tz=timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
         sitemap_entries.append((canonical_path, lastmod, bool(fm.get('noindex'))))
 
-    # sitemap.xml (nur, wenn base-url übergeben)
     if args.base_url:
         build_sitemap(sitemap_entries, out_root / 'sitemap.xml', args.base_url)
 
-    # Redirect /wissen/ → /wissen/de/
     root_index = out_root / 'index.html'
     root_index.write_text(
         '<!doctype html><meta charset="utf-8">'
