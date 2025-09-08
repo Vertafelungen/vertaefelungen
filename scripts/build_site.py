@@ -9,7 +9,7 @@ Static Markdown → HTML Builder für /wissen
   * /wissen/... ohne Sprache → /wissen/<lang>/...
   * /de/... /en/... → /wissen/de/... / /wissen/en/...
   * .md-Targets werden zu Pretty-URLs
-- HTML-Sanitizer für href/src (falls HTML im Markdown steckt)
+- HTML-Sanitizer für href/src (falls HTML im Markdown steckt; "…" und '…')
 - UTF-8 <meta charset> + viewport
 - sitemap.xml, wenn --base-url gesetzt
 - Weiterleitung /wissen/ → /wissen/de/
@@ -74,9 +74,6 @@ def _md_target_to_pretty(target: str) -> str:
         return base + frag
     return target
 
-# Root-relative URLs: (.../link)
-ABS_URL_RE = re.compile(r'\((/[^)]+)\)')
-
 def _add_lang_and_wissen_prefix(url: str, lang: str) -> str:
     """
     Ergänzt Sprach- und /wissen/-Präfixe für root-relative Pfade:
@@ -84,13 +81,14 @@ def _add_lang_and_wissen_prefix(url: str, lang: str) -> str:
     - /oeffentlich/...        → /wissen/<lang>/oeffentlich/...
     - /de/... /en/...         → /wissen/de/... / /wissen/en/...
     - Externe/Datenschemata bleiben unverändert.
+    - Relative Pfade bleiben relativ.
     """
-    u = url.strip()
+    u = (url or '').strip()
     low = u.lower()
-    if low.startswith(('http://', 'https://', 'mailto:', 'tel:', 'data:')):
+    if low.startswith(('http://', 'https://', 'mailto:', 'tel:', 'data:', '#')):
         return u
 
-    # Bereits korrekt?
+    # Bereits korrekt mit Sprache?
     if low.startswith('/wissen/de/') or low.startswith('/wissen/en/'):
         return u
 
@@ -99,7 +97,7 @@ def _add_lang_and_wissen_prefix(url: str, lang: str) -> str:
         tail = u.split('/wissen/', 1)[1].lstrip('/')
         return f'/wissen/{lang}/{tail}'
 
-    # /de/... /en/... → unter /wissen einhängen
+    # /de/... /en/... → unter /wissen einhängen (Sprache beibehalten)
     if low.startswith('/de/') or low.startswith('/en/'):
         return '/wissen' + u
 
@@ -110,26 +108,39 @@ def _add_lang_and_wissen_prefix(url: str, lang: str) -> str:
     # relativ → bleibt relativ
     return u
 
+# Markdown: [text](URL "optional title") – URL und optionaler Titel separat erfassen
+MD_LINK_WITH_OPT_TITLE = re.compile(
+    r'\[([^\]]+)\]\(\s*'              # [text](
+    r'(?P<url>/[^)\s]+|[^)\s][^)]*)'  # URL (absolut /… oder relativ)
+    r'(?:\s+"(?P<title>[^"]*)")?'     # optionaler "title"
+    r'\s*\)'                          # )
+)
+
 def rewrite_md_links_in_markdown(markdown_text: str, lang_prefix: str) -> str:
     """
-    1) Root-Links (/) auf /wissen/<lang>/... umbiegen.
+    1) Root-absolute Markdown-Links → /wissen/<lang>/...
     2) .md-Ziele in Pretty-URLs konvertieren.
+    3) Optionalen Linktitel ("title") erhalten.
     """
-    # 1) Root-Links korrigieren
-    def fix_abs(m):
-        url = m.group(1)
-        return '(' + _add_lang_and_wissen_prefix(url, lang_prefix) + ')'
-    md = ABS_URL_RE.sub(fix_abs, markdown_text)
-
-    # 2) .md → pretty (auch für bereits umgebogene root-Links)
-    link_re = re.compile(r'(\[([^\]]+)\]\(([^)]+)\))')
     def repl(m):
-        full, text, url = m.group(0), m.group(2), m.group(3).strip()
-        if url.lower().startswith(('http://', 'https://', 'mailto:', 'tel:', 'data:')):
-            return full
-        new_url = _md_target_to_pretty(url)
-        return f'[{text}]({new_url})' if new_url != url else full
-    return link_re.sub(repl, md)
+        text  = m.group(1)
+        url   = (m.group('url') or '').strip()
+        title = m.group('title')  # kann None sein
+
+        # Externe/Anker/E-Mail nicht anfassen
+        if url.lower().startswith(('http://','https://','mailto:','tel:','#','data:')):
+            new_url = url
+        else:
+            # Root-absolute → /wissen/<lang>/..., relative bleibt relativ
+            new_url = _add_lang_and_wissen_prefix(url, lang_prefix)
+            # .md-Ziele auf Pretty-URLs
+            new_url = _md_target_to_pretty(new_url)
+
+        if title is not None:
+            return f'[{text}]({new_url} "{title}")'
+        return f'[{text}]({new_url})'
+
+    return MD_LINK_WITH_OPT_TITLE.sub(repl, markdown_text)
 
 def adjust_relative_assets_in_markdown(md_text: str, moved_down: bool) -> str:
     """
@@ -163,40 +174,41 @@ def adjust_relative_assets_in_markdown(md_text: str, moved_down: bool) -> str:
         return full.replace(url, fix(url), 1)
     return a_re.sub(a_sub, md_text)
 
+def _rewrite_attr_quotes(html: str, attr: str, lang_prefix: str, moved_down: bool) -> str:
+    """
+    Rewriter für HTML-Attribute (href/src) mit Erhalt des Original-Anführungszeichens.
+    attr: 'href' oder 'src'
+    """
+    # attr=(["'])(.*?)\1  → \1 ist das Quote-Zeichen, \2 die URL
+    pattern = re.compile(rf'{attr}=([\'"])(.*?)\1')
+
+    def repl(m):
+        quote_ch = m.group(1)
+        url = (m.group(2) or '').strip()
+        low = url.lower()
+        # externe und Anker unangetastet
+        if low.startswith(('http://','https://','mailto:','tel:','#','data:')):
+            new = url
+        else:
+            new = _add_lang_and_wissen_prefix(url, lang_prefix)
+            if attr == 'href':
+                new = _md_target_to_pretty(new)
+            # moved_down: relative src ggf. um '../' ergänzen
+            if moved_down and attr == 'src':
+                if not new.startswith(('/', 'http://', 'https://', 'data:', 'mailto:', 'tel:', '#')) and not new.startswith('../'):
+                    new = '../' + new
+        return f'{attr}={quote_ch}{new}{quote_ch}'
+
+    return pattern.sub(repl, html)
+
 def sanitize_internal_links_in_html(html: str, moved_down: bool, lang_prefix: str = 'de'):
     """
     Absicherung auf HTML-Ebene (falls HTML im Markdown steckt):
-    - href: Root-Links → /wissen/<lang>/..., .md → pretty
-    - src : Root-Links → /wissen/<lang>/...
-    - moved_down: relative Asset-Pfade um '../' ergänzen
+    - href: Root-Links → /wissen/<lang>/..., .md → pretty (unterstützt "…" und '…')
+    - src : Root-Links → /wissen/<lang>/..., moved_down berücksichtigt relative Pfade
     """
-    def repl_href(match):
-        href = match.group(1).strip()
-        if href.lower().startswith(('http://', 'https://', 'mailto:', 'tel:', 'data:')):
-            return f'href="{href}"'
-        href = _add_lang_and_wissen_prefix(href, lang_prefix)
-        href = _md_target_to_pretty(href)
-        return f'href="{href}"'
-    html = re.sub(r'href="([^"]+)"', repl_href, html)
-
-    def repl_src(match):
-        src = match.group(1).strip()
-        if src.lower().startswith(('http://', 'https://', 'data:', 'mailto:', 'tel:')):
-            return f'src="{src}"'
-        return f'src="{_add_lang_and_wissen_prefix(src, lang_prefix)}"'
-    html = re.sub(r'src="([^"]+)"', repl_src, html)
-
-    # moved_down: relative src um '../' ergänzen (nach Prefixing)
-    if moved_down:
-        def prefix_rel(p):
-            low = p.lower()
-            if low.startswith(('http://', 'https://', 'data:', 'mailto:', 'tel:', '/')):
-                return p
-            if p.startswith('../'):
-                return p
-            return '../' + p
-        html = re.sub(r'src="([^"]+)"', lambda m: f'src="{prefix_rel(m.group(1))}"', html)
-
+    html = _rewrite_attr_quotes(html, 'href', lang_prefix, moved_down)
+    html = _rewrite_attr_quotes(html, 'src',  lang_prefix, moved_down)
     return html
 
 # ---------- Rendering ----------
@@ -306,7 +318,6 @@ def main():
             if src.is_relative_to(out_root):
                 continue
         except AttributeError:
-            # Python<3.9 Fallback (not likely here)
             pass
         rel = src.relative_to(content_root)
         dst = out_root / rel
