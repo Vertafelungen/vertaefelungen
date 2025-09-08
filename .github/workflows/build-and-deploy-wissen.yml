@@ -1,12 +1,5 @@
-# .github/workflows/build-and-deploy-wissen.yml
-# Version: 2025-09-08 14:32 (Europe/Berlin)
-# Änderungen:
-# - Deploy-Garde: keine .git/.github/scripts/tools in Upload
-# - local_path auf "site/*" (statt "site/.") -> verhindert versteckte/sonderbare Pfade
-# - Validator-Step: bricht ab, wenn href="/wissen/..." ohne /de/ oder /en/ vorkommt
-# - Mini-Check: falls doch eine .git-Struktur in site/ landen würde -> Fehler
-
 name: Build & Deploy Wissen
+# Version: 2025-09-08 16:45 (Europe/Berlin)
 
 on:
   push:
@@ -15,7 +8,6 @@ on:
       - 'de/**'
       - 'en/**'
       - 'assets/**'
-      - 'bilder/**'
       - 'scripts/build_site.py'
       - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_dispatch: {}
@@ -30,103 +22,83 @@ concurrency:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Install dependencies
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install markdown PyYAML
+          pip install markdown
 
-      - name: Build site (pretty URLs + markers)
-        env:
-          BASE_URL: "https://www.vertaefelungen.de/wissen"
-          GITHUB_SHA: ${{ github.sha }}
+      - name: Build site
         run: |
-          set -euo pipefail
-          python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
-          echo "{\"commit\": \"$GITHUB_SHA\", \"built_at\": \"$(date -u +%FT%TZ)\"}" > site/version.json
-          echo "ok" > site/deploy-check.txt
-          find site -maxdepth 2 -type f | sort | head -n 50
+          python scripts/build_site.py --base-url https://www.vertaefelungen.de/wissen
+          test -f site/index.html
+          test -f site/sitemap.xml
+          test -f site/robots.txt
+          test -f site/version.json
 
-      - name: Validate built site (no stray .git; language prefix)
-        shell: bash
+      - name: Validate links (block /wissen/ ohne Sprachpräfix, prüfe Ziel-Existenz)
         run: |
-          set -euo pipefail
-          # 1) Keine .git-Inhalte im Build
-          if find site -type d -name ".git" -print -quit | grep -q .; then
-            echo "ERROR: '.git' directory found in site/ – aborting."
-            exit 1
-          fi
-          if find site -type f -path "*/.git/*" -print -quit | grep -q .; then
-            echo "ERROR: files from .git detected in site/ – aborting."
-            exit 1
-          fi
-          # 2) Links innerhalb /wissen/ müssen /de/ oder /en/ enthalten
-          BAD=$(grep -RHoE 'href="/wissen/(?!de/|en/)' site || true)
-          if [ -n "$BAD" ]; then
-            echo "ERROR: Found links without language prefix:"
-            echo "$BAD"
-            exit 1
-          fi
-          echo "OK: site/ is clean and language-prefixed."
+          python - << 'PY'
+          import re, sys, json
+          from pathlib import Path
+          root = Path("site")
+          html_files = list(root.rglob("*.html"))
+          bad = []
+          missing = []
+          href_re = re.compile(r'''(?:href|src)\s*=\s*["']([^"'#]+)["']''', re.IGNORECASE)
+          for f in html_files:
+              text = f.read_text(errors="ignore")
+              for url in href_re.findall(text):
+                  if url.startswith("/wissen/") and not (url.startswith("/wissen/de/") or url.startswith("/wissen/en/")):
+                      bad.append((str(f), url))
+                  # Existenzprüfung nur für interne /wissen/<lang>/... Pretty-URLs
+                  if url.startswith("/wissen/de/") or url.startswith("/wissen/en/"):
+                      parts = url.split("/wissen/",1)[1]  # <lang>/...
+                      # Map auf site/<lang>/.../index.html
+                      p = root / parts.strip("/")
+                      if not str(p).endswith(".html"):
+                          p = p / "index.html"
+                      if not p.exists():
+                          missing.append((str(f), url, str(p)))
+          if bad:
+              print("FEHLER: Links ohne Sprachpräfix gefunden:")
+              for f,u in bad[:50]:
+                  print(" -", f, "→", u)
+              sys.exit(1)
+          if missing:
+              print("FEHLER: Interne Ziele fehlen (404-Risiko):")
+              for f,u,p in missing[:50]:
+                  print(" -", f, "→", u, " (erwartet:", p, ")")
+              sys.exit(1)
+          print("Validator OK.")
+          PY
 
-      - name: Deploy to /wissen (docroot)
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      - name: Deploy via FTP (IONOS)
+        uses: SamKirkland/FTP-Deploy-Action@v4
         with:
-          server:      ${{ secrets.SFTP_HOST }}
-          port:        22
-          username:    ${{ secrets.SFTP_USER }}
-          password:    ${{ secrets.SFTP_PASSWORD }}
-          # Wichtig: kein "site/." mehr – nur Inhalte hochladen
-          local_path:  "site/*"
-          remote_path: "/wissen"
-          sftp_only:   true
-          # zusätzliche Sicherheit: nie .git, Skripte o. ä. hochladen
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASS }}
+          protocol: ftps
+          timeout: 600000
+          local-dir: site/
+          server-dir: /wissen/
           exclude: |
-            .git/
-            **/.git/**
-            .github/
+            **/.git*
             **/.github/**
             scripts/**
             tools/**
             **/*.map
 
-      - name: Deploy to /holzvertaefelung-store/wissen (alt)
-        continue-on-error: true
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server:      ${{ secrets.SFTP_HOST }}
-          port:        22
-          username:    ${{ secrets.SFTP_USER }}
-          password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  "site/*"
-          remote_path: "/holzvertaefelung-store/wissen"
-          sftp_only:   true
-          exclude: |
-            .git/
-            **/.git/**
-            .github/
-            **/.github/**
-            scripts/**
-            tools/**
-            **/*.map
-
-      - name: Verify deploy via HTTP (version.json)
+      - name: Verify deploy via HTTP
         run: |
-          set -euo pipefail
-          URL="https://www.vertaefelungen.de/wissen/version.json"
-          echo "Checking $URL"
-          if curl -fsS "$URL" ; then
-            echo "Deploy verified at /wissen"
-            exit 0
-          fi
-          echo "Primary path not live; checking fallback…"
-          curl -fsS "$URL?cache=$(date +%s)" || exit 1
+          curl -fsS https://www.vertaefelungen.de/wissen/version.json || \
+          curl -fsS "https://www.vertaefelungen.de/wissen/version.json?cache=$(date +%s)"
