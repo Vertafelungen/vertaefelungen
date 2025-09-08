@@ -1,10 +1,12 @@
-# .github/workflows/build-and-deploy-wissen.yml
-# Version: 2025-09-08 17:30 (Europe/Berlin)
-# Änderungen ggü. deiner Datei:
-# - Validator: grep -P statt -E
-# - Rest identisch, SFTP-Action bleibt
-
 name: Build & Deploy Wissen
+# Version: 2025-09-08 18:40 (Europe/Berlin)
+# Inhalte:
+# - Build aus de/, en/ → site/
+# - Sprachsicherer Link-Validator (blockt /wissen/ ohne /de/|/en/)
+# - SFTP-Deploy nach /wissen/ (IONOS-kompatibel)
+# - Post-Deploy Check per HTTP
+# Anforderungen an Secrets:
+#   SFTP_HOST, SFTP_USER, SFTP_PASS, SFTP_PORT (meist 22)
 
 on:
   push:
@@ -44,26 +46,37 @@ jobs:
       - name: Build site
         env:
           BASE_URL: https://www.vertaefelungen.de/wissen
+          GIT_SHA: ${{ github.sha }}
         run: |
+          set -euo pipefail
           python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
-          echo "{\"commit\": \"$GITHUB_SHA\", \"built_at\": \"$(date -u +%FT%TZ)\"}" > site/version.json
+          test -f site/index.html
+          test -f site/sitemap.xml
+          test -f site/robots.txt
+          # Build-Marker
+          jq -n --arg sha "$GIT_SHA" --arg now "$(date -u +%FT%TZ)" \
+            '{commit:$sha, built_at:$now}' > site/version.json
           echo "ok" > site/deploy-check.txt
-          
+
       - name: Validate links
         shell: bash
         run: |
           set -euo pipefail
-          # 1) Keine .git-Artefakte
+          # 1) Keine Git-/Workflow-/Script-Artefakte in site/
           if find site -type d -name ".git" -print -quit | grep -q .; then
             echo "ERROR: '.git' directory found in site/"; exit 1; fi
-          # 2) Sprachlose /wissen/-Links finden (PCRE, beide Quote-Varianten + unquoted)
+          if find site -path "site/.github" -o -path "site/scripts" -o -path "site/tools" -print -quit | grep -q .; then
+            echo "ERROR: unexpected folders (.github/scripts/tools) in site/"; exit 1; fi
+
+          # 2) Sprachlose /wissen/-Links finden (href|src, quotes optional, case-insensitive, PCRE)
           BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!de/|en/)' site || true)
           if [ -n "$BAD" ]; then
             echo "ERROR: Found links without language prefix (first 20):"
             echo "$BAD" | head -n 20
             exit 1
           fi
-          # 3) Existenz interner Ziele prüfen
+
+          # 3) Existenz interner Ziele prüfen (mappe Pretty-URL → index.html)
           python - << 'PY'
           import re, sys
           from pathlib import Path
@@ -75,11 +88,14 @@ jobs:
               for u in href.findall(t):
                   rel=u.split("/wissen/",1)[1]
                   p=root/rel.strip("/")
-                  if not str(p).endswith(".html"): p=p/"index.html"
-                  if not p.exists(): missing.append((str(f),u,str(p)))
+                  if not str(p).endswith(".html"):
+                      p=p/"index.html"
+                  if not p.exists():
+                      missing.append((str(f),u,str(p)))
           if missing:
               print("FEHLER: 404-Risiko (erste 20):")
-              for a,b,c in missing[:20]: print(" -",a,"→",b," (expected:",c,")")
+              for a,b,c in missing[:20]:
+                  print(" -",a,"→",b," (expected:",c,")")
               sys.exit(1)
           print("Validator OK.")
           PY
@@ -94,6 +110,7 @@ jobs:
           local_path: site/*
           remote_path: /wissen/
           sftp_only: true
+          # Sichere Excludes (schützen, falls jemand site/ versehentlich verschmutzt)
           exclude: |
             .git/
             **/.git/**
@@ -105,5 +122,6 @@ jobs:
 
       - name: Verify deploy via HTTP
         run: |
+          set -euo pipefail
           curl -fsS https://www.vertaefelungen.de/wissen/version.json || \
           curl -fsS "https://www.vertaefelungen.de/wissen/version.json?cache=$(date +%s)"
