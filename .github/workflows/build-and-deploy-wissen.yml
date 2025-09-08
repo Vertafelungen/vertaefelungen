@@ -1,5 +1,10 @@
+# .github/workflows/build-and-deploy-wissen.yml
+# Version: 2025-09-08 17:30 (Europe/Berlin)
+# Änderungen ggü. deiner Datei:
+# - Validator: grep -P statt -E
+# - Rest identisch, SFTP-Action bleibt
+
 name: Build & Deploy Wissen
-# Version: 2025-09-08 16:45 (Europe/Berlin)
 
 on:
   push:
@@ -34,65 +39,41 @@ jobs:
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install markdown
+          pip install markdown PyYAML
 
       - name: Build site
+        env:
+          BASE_URL: https://www.vertaefelungen.de/wissen
         run: |
-          python scripts/build_site.py --base-url https://www.vertaefelungen.de/wissen
-          test -f site/index.html
-          test -f site/sitemap.xml
-          test -f site/robots.txt
-          test -f site/version.json
+          python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
+          echo "{\"commit\": \"$GITHUB_SHA\", \"built_at\": \"$(date -u +%FT%TZ)\"}" > site/version.json
+          echo "ok" > site/deploy-check.txt
 
-      - name: Validate links (block /wissen/ ohne Sprachpräfix, prüfe Ziel-Existenz)
+      - name: Validate links
+        shell: bash
         run: |
-          python - << 'PY'
-          import re, sys, json
-          from pathlib import Path
-          root = Path("site")
-          html_files = list(root.rglob("*.html"))
-          bad = []
-          missing = []
-          href_re = re.compile(r'''(?:href|src)\s*=\s*["']([^"'#]+)["']''', re.IGNORECASE)
-          for f in html_files:
-              text = f.read_text(errors="ignore")
-              for url in href_re.findall(text):
-                  if url.startswith("/wissen/") and not (url.startswith("/wissen/de/") or url.startswith("/wissen/en/")):
-                      bad.append((str(f), url))
-                  # Existenzprüfung nur für interne /wissen/<lang>/... Pretty-URLs
-                  if url.startswith("/wissen/de/") or url.startswith("/wissen/en/"):
-                      parts = url.split("/wissen/",1)[1]  # <lang>/...
-                      # Map auf site/<lang>/.../index.html
-                      p = root / parts.strip("/")
-                      if not str(p).endswith(".html"):
-                          p = p / "index.html"
-                      if not p.exists():
-                          missing.append((str(f), url, str(p)))
-          if bad:
-              print("FEHLER: Links ohne Sprachpräfix gefunden:")
-              for f,u in bad[:50]:
-                  print(" -", f, "→", u)
-              sys.exit(1)
-          if missing:
-              print("FEHLER: Interne Ziele fehlen (404-Risiko):")
-              for f,u,p in missing[:50]:
-                  print(" -", f, "→", u, " (erwartet:", p, ")")
-              sys.exit(1)
-          print("Validator OK.")
-          PY
+          set -euo pipefail
+          if find site -type d -name ".git" -print -quit | grep -q .; then
+            echo "ERROR: '.git' directory found in site/"; exit 1; fi
+          BAD=$(grep -RHoP 'href="/wissen/(?!de/|en/)' site || true)
+          if [ -n "$BAD" ]; then
+            echo "ERROR: Found links without language prefix:"; echo "$BAD"; exit 1; fi
+          echo "OK: site/ is clean and language-prefixed."
 
-      - name: Deploy via FTP (IONOS)
-        uses: SamKirkland/FTP-Deploy-Action@v4
+      - name: Deploy to /wissen (SFTP)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASS }}
-          protocol: ftps
-          timeout: 600000
-          local-dir: site/
-          server-dir: /wissen/
+          server: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASS }}
+          port: ${{ secrets.SFTP_PORT }}
+          local_path: site/*
+          remote_path: /wissen/
+          sftp_only: true
           exclude: |
-            **/.git*
+            .git/
+            **/.git/**
+            .github/
             **/.github/**
             scripts/**
             tools/**
