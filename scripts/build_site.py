@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Static Markdown → HTML Builder für /wissen
-Version: 2025-09-08 18:25 (Europe/Berlin)
+Version: 2025-09-08 20:32 (Europe/Berlin)
 
 Änderungen:
 - CLI-Argumente: --base-url, --content-root, --out-dir
