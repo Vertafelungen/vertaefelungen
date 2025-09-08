@@ -104,11 +104,18 @@ def finalize_root_links(html_text: str, lang: str) -> str:
     def repl(m: re.Match) -> str:
         attr, q = m.group("attr"), m.group("q") or '"'
         rest = (m.group("rest") or "").lstrip("/")
+
+        # Sonderfall: Root-Link "/wissen/" oder "/wissen"
+        if not rest:
+            return f'{attr}{q}/wissen/{lang}/{q}'
+
         # wenn bereits de/ oder en/ am Anfang -> nichts tun
         if rest.lower().startswith(("de/", "en/")):
             return f'{attr}{q}/wissen/{rest}{q}'
-        tail = "" if (not rest or rest.endswith("/")) else "/"
+
+        tail = "" if rest.endswith("/") else "/"
         return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
+
     return _ROOT_WISSEN_FIX.sub(repl, html_text)
 # -----------------------------------------------------------------------------
 
