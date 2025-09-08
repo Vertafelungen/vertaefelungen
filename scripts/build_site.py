@@ -3,13 +3,20 @@
 
 """
 Static Markdown → HTML Builder für /wissen
+Version: 2025-09-08 12:27 (Europe/Berlin)
+
+Änderungen in dieser Version:
+- Markdown-Linkparser unterstützt optionalen Titel: [Text](/pfad "Titel")
+- HTML-Rewriter ist robust gegen:
+  * einfache/doppelte Anführungszeichen ('…' / "…")
+  * Groß-/Kleinschreibung (HREF/href, SRC/src)
+  * optionale Leerzeichen um '='
+  * unquoted href=/pfad
+- Root-absolute Links ohne Sprachpräfix werden zu /wissen/<lang>/… normalisiert
+- .md-Ziele werden zu Pretty-URLs
+
+Funktional:
 - Sprachsensitive Pretty-URLs (README/_index/index → /pfad/)
-- Robuster Link-Rewriter:
-  * Root-Links wie /oeffentlich/... werden zu /wissen/<lang>/oeffentlich/...
-  * /wissen/... ohne Sprache → /wissen/<lang>/...
-  * /de/... /en/... → /wissen/de/... / /wissen/en/...
-  * .md-Targets werden zu Pretty-URLs
-- HTML-Sanitizer für href/src (falls HTML im Markdown steckt; "…" und '…')
 - UTF-8 <meta charset> + viewport
 - sitemap.xml, wenn --base-url gesetzt
 - Weiterleitung /wissen/ → /wissen/de/
@@ -80,8 +87,7 @@ def _add_lang_and_wissen_prefix(url: str, lang: str) -> str:
     - /wissen/oeffentlich/... → /wissen/<lang>/oeffentlich/...
     - /oeffentlich/...        → /wissen/<lang>/oeffentlich/...
     - /de/... /en/...         → /wissen/de/... / /wissen/en/...
-    - Externe/Datenschemata bleiben unverändert.
-    - Relative Pfade bleiben relativ.
+    - Externe/Datenschemata und relative Pfade bleiben unverändert.
     """
     u = (url or '').strip()
     low = u.lower()
@@ -176,39 +182,12 @@ def adjust_relative_assets_in_markdown(md_text: str, moved_down: bool) -> str:
 
 def _rewrite_attr_quotes(html: str, attr: str, lang_prefix: str, moved_down: bool) -> str:
     """
-    Rewriter für HTML-Attribute (href/src) mit Erhalt des Original-Anführungszeichens.
-    attr: 'href' oder 'src'
-    """
-    # attr=(["'])(.*?)\1  → \1 ist das Quote-Zeichen, \2 die URL
-    pattern = re.compile(rf'{attr}=([\'"])(.*?)\1')
-
-    def repl(m):
-        quote_ch = m.group(1)
-        url = (m.group(2) or '').strip()
-        low = url.lower()
-        # externe und Anker unangetastet
-        if low.startswith(('http://','https://','mailto:','tel:','#','data:')):
-            new = url
-        else:
-            new = _add_lang_and_wissen_prefix(url, lang_prefix)
-            if attr == 'href':
-                new = _md_target_to_pretty(new)
-            # moved_down: relative src ggf. um '../' ergänzen
-            if moved_down and attr == 'src':
-                if not new.startswith(('/', 'http://', 'https://', 'data:', 'mailto:', 'tel:', '#')) and not new.startswith('../'):
-                    new = '../' + new
-        return f'{attr}={quote_ch}{new}{quote_ch}'
-
-    return pattern.sub(repl, html)
-
-def _rewrite_attr_quotes(html: str, attr: str, lang_prefix: str, moved_down: bool) -> str:
-    """
     Rewriter für HTML-Attribute (href/src), robust gegen:
     - einfache/doppelte Anführungszeichen
     - Groß-/Kleinschreibung (HREF/href)
     - optionale Leerzeichen um '='
     """
-    # attr \s* = \s* (["']) (.*?) \1   — case-insensitive
+    # (?i) via re.IGNORECASE –  attr \s* = \s* (["']) (.*?) \1
     pattern = re.compile(rf'{attr}\s*=\s*([\'"])(.*?)\1', re.IGNORECASE)
 
     def repl(m):
@@ -217,7 +196,7 @@ def _rewrite_attr_quotes(html: str, attr: str, lang_prefix: str, moved_down: boo
         low = url.lower()
 
         # externe/anker unangetastet
-        if low.startswith(('http://','https://','mailto:','tel:','#','data:')):
+        if low.startswith(('http://','https://','mailto:','tel:', '#', 'data:')):
             new = url
         else:
             new = _add_lang_and_wissen_prefix(url, lang_prefix)
@@ -228,9 +207,7 @@ def _rewrite_attr_quotes(html: str, attr: str, lang_prefix: str, moved_down: boo
                 if not new.startswith(('/', 'http://', 'https://', 'data:', 'mailto:', 'tel:', '#')) and not new.startswith('../'):
                     new = '../' + new
 
-        # Erhalte das originale Attribut (Groß-/Kleinschreibung)
-        attr_name = m.re.pattern.split(r'\s*=\s*')[0].strip('(?i)').split('\\')[0]
-        # aber einfacher: nimm das gewünschte attr nochmal direkt
+        # Attributname wie übergeben zurückschreiben (z. B. 'href' oder 'src')
         return f'{attr}={quote_ch}{new}{quote_ch}'
 
     return pattern.sub(repl, html)
@@ -238,19 +215,17 @@ def _rewrite_attr_quotes(html: str, attr: str, lang_prefix: str, moved_down: boo
 def sanitize_internal_links_in_html(html: str, moved_down: bool, lang_prefix: str = 'de'):
     """
     Absicherung auf HTML-Ebene (falls HTML im Markdown steckt):
-    - href: Root-Links → /wissen/<lang>/..., .md → pretty
+    - href: Root-Links → /wissen/<lang>/..., .md → pretty (unterstützt "…" und '…')
     - src : Root-Links → /wissen/<lang>/..., moved_down berücksichtigt relative Pfade
-    - robust gegen HREF/href, Leerzeichen und '…' / "…"
+    - robust gegen HREF/href, Leerzeichen und unquoted href=/pfad
     """
     html = _rewrite_attr_quotes(html, 'href', lang_prefix, moved_down)
     html = _rewrite_attr_quotes(html, 'src',  lang_prefix, moved_down)
 
-    # Bonus: handle seltene Fälle ohne Quotes (href=/pfad)
-    # nur root-absolute (/) – case-insensitive, optional spaces
+    # Bonus: seltene Fälle ohne Quotes (nur root-absolute href)
     def repl_noquote(m):
         url = (m.group(1) or '').strip()
-        new = _add_lang_and_wissen_prefix(url, lang_prefix)
-        new = _md_target_to_pretty(new)
+        new = _md_target_to_pretty(_add_lang_and_wissen_prefix(url, lang_prefix))
         return f'href="{new}"'
     html = re.sub(r'(?i)href\s*=\s*(/[^\'"\s>]+)', repl_noquote, html)
 
