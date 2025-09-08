@@ -1,3 +1,11 @@
+# .github/workflows/build-and-deploy-wissen.yml
+# Version: 2025-09-08 14:32 (Europe/Berlin)
+# Änderungen:
+# - Deploy-Garde: keine .git/.github/scripts/tools in Upload
+# - local_path auf "site/*" (statt "site/.") -> verhindert versteckte/sonderbare Pfade
+# - Validator-Step: bricht ab, wenn href="/wissen/..." ohne /de/ oder /en/ vorkommt
+# - Mini-Check: falls doch eine .git-Struktur in site/ landen würde -> Fehler
+
 name: Build & Deploy Wissen
 
 on:
@@ -22,6 +30,7 @@ concurrency:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -41,11 +50,33 @@ jobs:
           BASE_URL: "https://www.vertaefelungen.de/wissen"
           GITHUB_SHA: ${{ github.sha }}
         run: |
-          set -e
+          set -euo pipefail
           python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
           echo "{\"commit\": \"$GITHUB_SHA\", \"built_at\": \"$(date -u +%FT%TZ)\"}" > site/version.json
           echo "ok" > site/deploy-check.txt
           find site -maxdepth 2 -type f | sort | head -n 50
+
+      - name: Validate built site (no stray .git; language prefix)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # 1) Keine .git-Inhalte im Build
+          if find site -type d -name ".git" -print -quit | grep -q .; then
+            echo "ERROR: '.git' directory found in site/ – aborting."
+            exit 1
+          fi
+          if find site -type f -path "*/.git/*" -print -quit | grep -q .; then
+            echo "ERROR: files from .git detected in site/ – aborting."
+            exit 1
+          fi
+          # 2) Links innerhalb /wissen/ müssen /de/ oder /en/ enthalten
+          BAD=$(grep -RHoE 'href="/wissen/(?!de/|en/)' site || true)
+          if [ -n "$BAD" ]; then
+            echo "ERROR: Found links without language prefix:"
+            echo "$BAD"
+            exit 1
+          fi
+          echo "OK: site/ is clean and language-prefixed."
 
       - name: Deploy to /wissen (docroot)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
@@ -54,9 +85,19 @@ jobs:
           port:        22
           username:    ${{ secrets.SFTP_USER }}
           password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  "site/."
+          # Wichtig: kein "site/." mehr – nur Inhalte hochladen
+          local_path:  "site/*"
           remote_path: "/wissen"
           sftp_only:   true
+          # zusätzliche Sicherheit: nie .git, Skripte o. ä. hochladen
+          exclude: |
+            .git/
+            **/.git/**
+            .github/
+            **/.github/**
+            scripts/**
+            tools/**
+            **/*.map
 
       - name: Deploy to /holzvertaefelung-store/wissen (alt)
         continue-on-error: true
@@ -66,13 +107,21 @@ jobs:
           port:        22
           username:    ${{ secrets.SFTP_USER }}
           password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  "site/."
+          local_path:  "site/*"
           remote_path: "/holzvertaefelung-store/wissen"
           sftp_only:   true
+          exclude: |
+            .git/
+            **/.git/**
+            .github/
+            **/.github/**
+            scripts/**
+            tools/**
+            **/*.map
 
       - name: Verify deploy via HTTP (version.json)
         run: |
-          set -e
+          set -euo pipefail
           URL="https://www.vertaefelungen.de/wissen/version.json"
           echo "Checking $URL"
           if curl -fsS "$URL" ; then
