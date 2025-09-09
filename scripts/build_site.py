@@ -2,19 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 Static Markdown → HTML Builder für /wissen
-Version: 2025-09-09 10:30 (Europe/Berlin)
+Version: 2025-09-09 11:40 (Europe/Berlin)
 
-Features:
-- CLI-Argumente: --base-url, --content-root, --out-dir
-- Sprachsichere Link-Rewrites auf /wissen/<lang>/...
-- Pretty-URLs (Ordner + index.html), Sitemap, robots.txt, version.json
-- Root-Redirect (index.html → /wissen/de/)
-- Harte Nachpolitur gegen href/src="/wissen/" ohne Sprachpräfix
-- NEU: Alias-Redirects, z. B.:
-    de: /oeffentlich/faq/<slug>/  → /oeffentlich/faq/themen/<slug>/
-    en: /public/faq/<slug>/       → /public/faq/topics/<slug>/   (falls vorhanden)
-
-Abhängigkeiten: markdown
+Änderungen ggü. vorher:
+- Kein Slash mehr hinter Asset-Pfaden (png/jpg/svg/css/js/pdf/…).
+- Sprachpräfix-Schutz + Root-/wissen/-Fix + Safety-Pass bleiben.
+- Alias-Redirects für kurze FAQ-URLs bleiben.
 """
 
 from __future__ import annotations
@@ -27,19 +20,26 @@ try:
 except Exception:
     print("[build_site] Hinweis: 'markdown' wird in der Action installiert.", file=sys.stderr)
 
-# ----------------------------- Link-Rewriting -------------------------------
+# ----------------------------- Hilfsfunktionen ------------------------------
 
 _EXTERNAL_SCHEMES = ("http://", "https://", "mailto:", "tel:", "ftp://", "ftps://")
 
-# Toleranter href/src-Matcher (Quotes optional, case-insensitive)
+# href/src-Attribute tolerant matchen (Quotes optional, case-insensitive)
 _ATTR_RE = re.compile(r'''(?P<attr>\b(?:href|src)\s*=\s*)(?P<q>["']?)(?P<url>[^"'\s>]+)(?P=q)''',
                       re.IGNORECASE)
+
+# Erkennen, ob ein Pfad wie eine Datei mit Endung aussieht
+_ASSET_EXT = re.compile(r"""\.[A-Za-z0-9]{1,8}(?:[?#].*)?$""")
 
 def is_external(url: str) -> bool:
     u = url.strip()
     if not u or u.startswith("#"):
         return True
     return u.lower().startswith(_EXTERNAL_SCHEMES)
+
+def looks_like_file(path: str) -> bool:
+    """True wenn path eine Dateiendung hat (png, html, css, pdf, …)."""
+    return bool(_ASSET_EXT.search(path))
 
 def _strip_md_and_index(p: PurePosixPath) -> PurePosixPath:
     n = p.name.lower()
@@ -64,9 +64,12 @@ def _resolve_relative(target_raw: str, current_dir_rel: PurePosixPath) -> PurePo
 def _to_wissen_abs(lang: str, target_rel_to_lang: PurePosixPath) -> str:
     pretty = _strip_md_and_index(target_rel_to_lang)
     s = f"/wissen/{lang}/{pretty.as_posix().lstrip('/')}"
-    if not s.endswith("/"):
+    # Slash nur für "seitenartige" Ziele ohne Dateiendung
+    if not looks_like_file(s) and not s.endswith("/"):
         s += "/"
     return s
+
+# ----------------------------- Rewriter-Pässe -------------------------------
 
 def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePosixPath) -> str:
     """Pass 1: sprachbewusste Normalisierung interner Links."""
@@ -77,27 +80,34 @@ def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePo
             return f'{attr}{q}{u}{q}'
         low = u.lower()
 
-        # schon korrekt
+        # Helper: füge ggf. Slash nur bei Seitenpfaden hinzu
+        def join_lang(rest: str) -> str:
+            rest_clean = rest.lstrip("/")
+            # Für Dateipfade KEIN Schluss-Slash
+            if looks_like_file(rest_clean):
+                tail = ""
+            else:
+                tail = "" if rest_clean.endswith("/") else "/"
+            return f'/wissen/{lang}/{rest_clean}{tail}'
+
+        # bereits korrekt
         if low.startswith(f"/wissen/{lang}/"):
             return f'{attr}{q}{u}{q}'
 
         # /wissen/ ohne Sprachpräfix → ergänzen
         if low.startswith("/wissen/") and not low.startswith(f"/wissen/{lang}/"):
-            rest = u.split("/wissen/", 1)[1].lstrip("/")
-            tail = "" if (not rest or rest.endswith("/")) else "/"
-            return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
+            rest = u.split("/wissen/", 1)[1]
+            return f'{attr}{q}{join_lang(rest)}{q}'
 
         # /de/... oder /en/... unter Root → in /wissen/<lang>/...
         if low.startswith("/de/") or low.startswith("/en/"):
             rest = u.split("/", 2)[2] if u.count("/") >= 2 else ""
-            tail = "" if (not rest or rest.endswith("/")) else "/"
-            return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
+            return f'{attr}{q}{join_lang(rest)}{q}'
 
         # sonstige Root-internen Pfade → /wissen/<lang>/...
         if low.startswith("/"):
             rest = u.lstrip("/")
-            tail = "" if rest.endswith("/") else "/"
-            return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
+            return f'{attr}{q}{join_lang(rest)}{q}'
 
         # Relativpfade → gegen aktuelles Verzeichnis
         resolved = _resolve_relative(u, current_doc_rel_dir)
@@ -116,13 +126,16 @@ def finalize_root_links(html_text: str, lang: str) -> str:
         attr, q = m.group("attr"), m.group("q") or '"'
         rest = (m.group("rest") or "").lstrip("/")
 
-        if not rest:  # /wissen/ → /wissen/<lang>/
+        # /wissen/ → /wissen/<lang>/
+        if not rest:
             return f'{attr}{q}/wissen/{lang}/{q}'
 
+        # bereits sprachpräfixiert
         if rest.lower().startswith(("de/", "en/")):
             return f'{attr}{q}/wissen/{rest}{q}'
 
-        tail = "" if rest.endswith("/") else "/"
+        # nur bei Seitenpfaden Slash anhängen
+        tail = "" if (looks_like_file(rest) or rest.endswith("/")) else "/"
         return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
     return _ROOT_WISSEN_FIX.sub(repl, html_text)
 
@@ -162,49 +175,34 @@ def out_path_for(out_root: Path, lang: str, lang_root: Path, src_path: Path) -> 
 # -------------------------- Alias-Redirects ----------------------------------
 
 def write_redirect_index(to_url_abs: str) -> str:
-    """Kleine Redirect-Seite (Meta-Refresh + Canonical)."""
     return (
         '<!doctype html><meta charset="utf-8">'
         f'<meta http-equiv="refresh" content="0; url={html.escape(to_url_abs)}">'
-        f'<link rel="canonical" href="{html.escape(to_url_abs)}">'
-        "Weiterleitung …"
+        f'<link rel="canonical" href="{html.escape(to_url_abs)}">Weiterleitung …'
     )
 
 def create_alias_redirects(out_root: Path, base_url: str) -> list[str]:
-    """
-    Erzeugt zusätzliche Alias-Pfade als HTML-Redirects.
-    Gibt eine Liste neuer (alias-)Pfad-URLs relativ zu out_root zurück (für Sitemap optional).
-    """
     added: list[str] = []
-
-    # Konfiguration: (lang, source_base, alias_base)
-    # Beispiel: de: /oeffentlich/faq/themen/<slug>/  ← echte Inhalte
-    #           de: /oeffentlich/faq/<slug>/         ← Alias darauf
     rules = [
         ("de", "oeffentlich/faq/themen", "oeffentlich/faq"),
         ("en", "public/faq/topics", "public/faq"),
     ]
-
     for lang, src_base, alias_base in rules:
         src_dir = out_root / lang / src_base
         alias_dir = out_root / lang / alias_base
         if not src_dir.is_dir():
             continue
-
         for child in src_dir.iterdir():
             if not child.is_dir():
                 continue
-            slug = child.name  # <slug>
+            slug = child.name
             target_abs = f"/wissen/{lang}/{src_base}/{slug}/"
-
             alias_target_dir = alias_dir / slug
             alias_index = alias_target_dir / "index.html"
             if not alias_index.exists():
                 alias_target_dir.mkdir(parents=True, exist_ok=True)
                 alias_index.write_text(write_redirect_index(target_abs), encoding="utf-8")
-                # Für die (optionale) Sitemap:
                 added.append(f"{lang}/{alias_base}/{slug}/index.html")
-
     return added
 
 # ------------------------------- Sitemap etc. --------------------------------
@@ -247,23 +245,19 @@ def main():
     lang_dirs = {lang: repo_root / lang for lang in ("de", "en")}
     assets_dir = repo_root / "assets"
 
-    if out_root.exists():
-        shutil.rmtree(out_root)
+    if out_root.exists(): shutil.rmtree(out_root)
     out_root.mkdir(parents=True, exist_ok=True)
     copy_assets(assets_dir, out_root)
 
     sitemap_entries: list[str] = []
 
     for lang, lang_root in lang_dirs.items():
-        if not lang_root.is_dir():
-            continue
+        if not lang_root.is_dir(): continue
         for src_path in lang_root.rglob("*.md"):
             md = src_path.read_text(encoding="utf-8")
             html_body = render_markdown(md)
 
-            current_rel_dir = PurePosixPath(
-                str(src_path.relative_to(lang_root).parent).replace("\\", "/")
-            )
+            current_rel_dir = PurePosixPath(str(src_path.relative_to(lang_root).parent).replace("\\","/"))
             # Rewriter-Kaskade
             rewritten = rewrite_links_in_html(html_body, lang=lang, current_doc_rel_dir=current_rel_dir)
             rewritten = finalize_root_links(rewritten, lang=lang)
@@ -274,10 +268,10 @@ def main():
             out_file.parent.mkdir(parents=True, exist_ok=True)
             out_file.write_text(doc_html, encoding="utf-8")
 
-            rel_url = str(out_file.relative_to(out_root)).replace("\\", "/")
+            rel_url = str(out_file.relative_to(out_root)).replace("\\","/")
             sitemap_entries.append(rel_url)
 
-    # Alias-Redirects erzeugen (behebt die Validator-Fehler aus /faq/)
+    # Alias-Redirects (kurze FAQ-URLs bereitstellen)
     sitemap_entries += create_alias_redirects(out_root, args.base_url)
 
     build_sitemap(sitemap_entries, out_root / "sitemap.xml", args.base_url)
