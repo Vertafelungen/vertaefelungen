@@ -1,11 +1,5 @@
 name: Build & Deploy Wissen
-# Version: 2025-09-08 19:05 (Europe/Berlin)
-# Inhalte:
-# - Build aus de/, en/ → site/
-# - Sprachsicherer Link-Validator (blockt /wissen/ ohne zulässiges Sprachpräfix)
-# - SFTP-Deploy nach /wissen/ (IONOS-kompatibel)
-# - Post-Deploy Check per HTTP
-# Secrets: SFTP_HOST, SFTP_USER, SFTP_PASS, SFTP_PORT (meist 22)
+# Version: 2025-09-08 19:55 (Europe/Berlin)
 
 on:
   push:
@@ -64,23 +58,24 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          # 1) Unerwünschte Ordner in site/ blocken
+          # 1) Keine Altlasten in site/
           if find site -type d -name ".git" -print -quit | grep -q .; then
             echo "ERROR: '.git' directory found in site/"; exit 1; fi
           if find site -path "site/.github" -o -path "site/scripts" -o -path "site/tools" -print -quit | grep -q .; then
             echo "ERROR: unexpected folders (.github/scripts/tools) in site/"; exit 1; fi
 
-          # 2) Sprachlose /wissen/-Links finden (href|src, quotes optional, case-insensitive, PCRE)
-          #    Hier Sprachen zentral erweitern: z.B. ALLOWED="de|en|fr"
+          # 2) Sprachlose /wissen/-Links finden (href|src, PCRE)
+          #    Erlaube Sprachpräfixe und statische Root-Ressourcen (assets|sitemap.xml|robots.txt|version.json)
           ALLOWED="de|en"
-          BAD=$(grep -RHoP "(?i)\\b(?:href|src)\\s*=\\s*(?:\"|\\x27)?/wissen/(?!${ALLOWED}/)" site || true)
+          EXCEPT="assets/|sitemap\\.xml\\b|robots\\.txt\\b|version\\.json\\b"
+          BAD=$(grep -RHoP "(?i)\\b(?:href|src)\\s*=\\s*(?:\"|\\x27)?/wissen/(?!(${ALLOWED})/|(${EXCEPT}))" site || true)
           if [ -n "$BAD" ]; then
             echo "ERROR: Found links without language prefix (first 20):"
             echo "$BAD" | head -n 20
             exit 1
           fi
 
-          # 3) Existenz interner Ziele prüfen (mappe Pretty-URL → index.html)
+          # 3) Existenz interner Ziele prüfen (nur sprachpräfixierte Seiten)
           python - << 'PY'
           import re, sys
           from pathlib import Path
@@ -93,8 +88,7 @@ jobs:
                   rel=u.split("/wissen/",1)[1]
                   p=root/rel.strip("/")
                   if not str(p).endswith(".html"): p=p/"index.html"
-                  if not p.exists():
-                      missing.append((str(f),u,str(p)))
+                  if not p.exists(): missing.append((str(f),u,str(p)))
           if missing:
               print("FEHLER: 404-Risiko (erste 20):")
               for a,b,c in missing[:20]:
@@ -113,6 +107,8 @@ jobs:
           local_path: site/*
           remote_path: /wissen/
           sftp_only: true
+          # Setze 'delete_remote_files: true' einmalig, um Altlasten (.git/.github/scripts/tools) zu entfernen.
+          # delete_remote_files: true
           exclude: |
             .git/
             **/.git/**
