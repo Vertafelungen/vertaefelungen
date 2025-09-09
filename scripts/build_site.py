@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 """
 Static Markdown → HTML Builder für /wissen
-Version: 2025-09-09 17:45 (Europe/Berlin)
+Version: 2025-09-09 12:55 (Europe/Berlin)
 
-Änderungen:
-- Asset-Links (Dateiendung) werden nicht mehr unnötig nach /wissen/<lang>/… umgeschrieben,
-  wenn sie relativ sind – sie bleiben relativ.
-- Alle Nicht-Markdown-Dateien aus de/ und en/ werden 1:1 nach site/<lang>/… kopiert.
-- Kein Slash am Ende von Dateipfaden; Root-/wissen/-Fix + Safety-Pass beibehalten.
-- Alias-Redirects: de:/oeffentlich/faq/<slug>/ → /oeffentlich/faq/themen/<slug>/,
-                   en:/public/faq/<slug>/      → /public/faq/topics/<slug>/.
+Neu in dieser Version:
+- Asset-Links (Dateiendung) bleiben relativ; nur Seiten-Links werden auf /wissen/<lang>/… normalisiert.
+- Kopiert alle Nicht-Markdown-Dateien aus de/ und en/ 1:1 nach site/<lang>/…
+- Erzeugt automatisch Pretty-URL-ALIASSE für fehlende Produkt-Variantenslugs:
+  z.B. site/de/.../p0009-1-1-1-c/index.html → Redirect auf /wissen/de/.../p0009/
+- Root-/wissen/-Fix, kein Slash an Dateipfaden, Alias-Redirects für FAQ-Kurzpfade,
+  Sitemap/robots/version & Root-Redirect bleiben.
 """
 
 from __future__ import annotations
@@ -29,6 +29,11 @@ _EXTERNAL_SCHEMES = ("http://", "https://", "mailto:", "tel:", "ftp://", "ftps:/
 _ATTR_RE = re.compile(r'''(?P<attr>\b(?:href|src)\s*=\s*)(?P<q>["']?)(?P<url>[^"'\s>]+)(?P=q)''',
                       re.IGNORECASE)
 _ASSET_EXT = re.compile(r"""\.[A-Za-z0-9]{1,8}(?:[?#].*)?$""")  # .png .jpg .css .js .pdf …
+
+# Produkt-Slug-Erkennung
+# Basis: p0009  — Varianten: p0009-1-1-1-c etc.
+_BASE_PROD_RE = re.compile(r"""(^|/)p(\d{4,})(/|$)""")
+_VARIANT_PROD_RE = re.compile(r"""(^|/)p(\d{4,})(-[^/]+)+(/)?$""")
 
 def is_external(url: str) -> bool:
     u = url.strip()
@@ -64,7 +69,7 @@ def _resolve_relative(target_raw: str, current_dir_rel: PurePosixPath) -> PurePo
     return PurePosixPath(*parts)
 
 def _to_wissen_abs(lang: str, target_rel_to_lang: PurePosixPath) -> str:
-    """Aus einem Pfad relativ zu <lang>-Root eine hübsche absolute Wissen-URL machen."""
+    """Aus Pfad relativ zu <lang>-Root eine hübsche absolute Wissen-URL machen."""
     pretty = _strip_md_and_index(target_rel_to_lang)
     s = f"/wissen/{lang}/{pretty.as_posix().lstrip('/')}"
     if not looks_like_file(s) and not s.endswith("/"):
@@ -78,10 +83,8 @@ def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePo
     Pass 1:
     - Seitenlinks → /wissen/<lang>/…
     - Asset-Links (Dateien mit Endung):
-        * Relativ (z. B. "bild.png", "../img/a.jpg") → UNVERÄNDERT lassen (weiter relativ).
-        * Root-absolute ohne Sprachpräfix ("/wissen/...") → Sprachpräfix ergänzen.
-        * Root-absolute "/de/..."/"/en/..." → nach /wissen/<lang>/… (bleibt absolute URL).
-        * Sonstige root-absolute "/" → nach /wissen/<lang>/… (absolute URL).
+        * Relativ (z. B. "bild.png", "../img/a.jpg") → UNVERÄNDERT (Validator erwartet relative Einbindung).
+        * Root-absolute ("/…") → /wissen/<lang>/… mit korrekt gesetztem Slash/ohne bei Dateien.
     """
     def repl(m: re.Match) -> str:
         attr, q, url = m.group("attr"), (m.group("q") or '"'), m.group("url")
@@ -92,7 +95,6 @@ def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePo
         if is_external(u) or u.startswith("#"):
             return f'{attr}{q}{u}{q}'
 
-        # Helfer: baut /wissen/<lang>/…-URL und hängt Slash nur bei Seitenpfaden an
         def join_lang(rest: str) -> str:
             rest_clean = rest.lstrip("/")
             if looks_like_file(rest_clean):
@@ -107,25 +109,24 @@ def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePo
         if low.startswith(f"/wissen/{lang}/"):
             return f'{attr}{q}{u}{q}'
 
-        # Root-absolute /wissen/… OHNE korrekten Sprachpräfix → Präfix ergänzen
+        # Root-absolute /wissen/… ohne korrektes Präfix → ergänzen
         if low.startswith("/wissen/") and not low.startswith(f"/wissen/{lang}/"):
             rest = u.split("/wissen/", 1)[1]
-            # Asset: absolute Pfade bleiben absolut, Seiten bekommen evtl. Slash
             return f'{attr}{q}{join_lang(rest)}{q}'
 
-        # Root-absolute /de/... oder /en/... → nach /wissen/<lang>/…
+        # Root-absolute /de/...|/en/... → /wissen/<lang>/…
         if low.startswith("/de/") or low.startswith("/en/"):
             rest = u.split("/", 2)[2] if u.count("/") >= 2 else ""
             return f'{attr}{q}{join_lang(rest)}{q}'
 
-        # Sonstige Root-absolute "/" → nach /wissen/<lang>/…
+        # Sonstige Root-absolute "/" → /wissen/<lang>/…
         if low.startswith("/"):
             rest = u.lstrip("/")
             return f'{attr}{q}{join_lang(rest)}{q}'
 
         # *** Relativpfade ***
-        # Asset relativ? → unverändert lassen (Validator erwartet relative Einbindung)
         if is_file_like:
+            # Assets relativ bleiben relativ
             return f'{attr}{q}{u}{q}'
 
         # Seiten relativ → auf /wissen/<lang>/… normalisieren
@@ -134,7 +135,7 @@ def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePo
 
     return _ATTR_RE.sub(repl, html_text)
 
-# Pass 2: verbleibende /wissen/-Root-Links ohne Sprachpräfix sicher reparieren
+# Pass 2: verbleibende /wissen/-Root-Links ohne Sprachpräfix reparieren
 _ROOT_WISSEN_FIX = re.compile(
     r'''(?P<attr>\b(?:href|src)\s*=\s*)(?P<q>["']?)\s*/\s*wissen\s*/\s*(?P<rest>[^"'\s>]*)\s*(?P=q)''',
     re.IGNORECASE
@@ -145,20 +146,17 @@ def finalize_root_links(html_text: str, lang: str) -> str:
         attr, q = m.group("attr"), (m.group("q") or '"')
         rest = (m.group("rest") or "").lstrip("/")
 
-        # /wissen/ → /wissen/<lang>/
         if not rest:
             return f'{attr}{q}/wissen/{lang}/{q}'
 
-        # Bereits sprachpräfixiert
         if rest.lower().startswith(("de/", "en/")):
             return f'{attr}{q}/wissen/{rest}{q}'
 
-        # Slash nur bei Seitenpfaden
         tail = "" if (looks_like_file(rest) or rest.endswith("/")) else "/"
         return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
     return _ROOT_WISSEN_FIX.sub(repl, html_text)
 
-# Pass 3: harte Absicherung gegen wörtliche Reste
+# Pass 3: harte Absicherung
 def extra_safety_pass(html_text: str, lang: str) -> str:
     html_text = html_text.replace('href="/wissen/"', f'href="/wissen/{lang}/"')
     html_text = html_text.replace("href='/wissen/'", f"href='/wissen/{lang}/'")
@@ -200,7 +198,8 @@ def write_redirect_index(to_url_abs: str) -> str:
         f'<link rel="canonical" href="{html.escape(to_url_abs)}">Weiterleitung …'
     )
 
-def create_alias_redirects(out_root: Path) -> list[str]:
+def create_faq_alias_redirects(out_root: Path) -> list[str]:
+    """Kurze FAQ-URLs → Themen-Ordner."""
     added: list[str] = []
     rules = [
         ("de", "oeffentlich/faq/themen", "oeffentlich/faq"),
@@ -223,6 +222,53 @@ def create_alias_redirects(out_root: Path) -> list[str]:
                 alias_index.write_text(write_redirect_index(target_abs), encoding="utf-8")
                 added.append(f"{lang}/{alias_base}/{slug}/index.html")
     return added
+
+def create_missing_variant_aliases(out_root: Path) -> list[str]:
+    """
+    Sucht in allen HTML-Dateien nach Links auf Varianten-Slugs (pNNNN-.../).
+    Falls es keine Seite site/<lang>/.../<variant>/index.html gibt, wird ein
+    Redirect dorthin erzeugt, der auf die Basis pNNNN/ verweist.
+    """
+    created: list[str] = []
+
+    def ensure_alias(lang: str, base_dir: Path, variant_dir: Path):
+        alias_index = variant_dir / "index.html"
+        if alias_index.exists():
+            return
+        # Ziel: Basis-Seite (Pretty URL)
+        rel_from_lang = variant_dir.relative_to(out_root / lang)
+        target_abs = f"/wissen/{lang}/{rel_from_lang.as_posix().rsplit('/', 1)[0]}/"
+        # base_dir ist der pNNNN-Ordner
+        target_abs = f"/wissen/{lang}/{base_dir.relative_to(out_root / lang).as_posix().rstrip('/')}/"
+        variant_dir.mkdir(parents=True, exist_ok=True)
+        alias_index.write_text(write_redirect_index(target_abs), encoding="utf-8")
+        created.append(str(alias_index.relative_to(out_root)))
+
+    for html_file in out_root.rglob("*.html"):
+        text = html_file.read_text(errors="ignore")
+        for m in re.finditer(r'href=["\'](/wissen/(de|en)/[^"\']+)["\']', text, flags=re.IGNORECASE):
+            url = m.group(1)
+            # Nur Varianten-Pattern zulassen
+            if not _VARIANT_PROD_RE.search(url.split("/wissen/",1)[1]):
+                continue
+            # Zielpfad unter site/
+            rel = url.split("/wissen/", 1)[1].lstrip("/")
+            lang = rel.split("/", 1)[0]
+            rest = rel.split("/", 1)[1] if "/" in rel else ""
+            target_dir = out_root / lang / rest.strip("/")
+            # base_dir = …/pNNNN
+            parts = target_dir.parts
+            # finde pNNNN-Teil
+            base_dir = None
+            for i in range(len(parts)):
+                if re.fullmatch(r"p\d{4,}", parts[i] or ""):
+                    base_dir = Path(*parts[: i + 1])
+            if base_dir is None:
+                continue
+            # Variante ist target_dir; Basis ist base_dir
+            ensure_alias(lang, base_dir, target_dir)
+
+    return created
 
 # ------------------------ Assets aus de/ und en/ kopieren --------------------
 
@@ -320,8 +366,10 @@ def main():
         if lang_root.is_dir():
             copy_language_assets(lang, lang_root, out_root)
 
-    # 3) Alias-Redirects erzeugen (kurze FAQ-URLs bereitstellen)
-    sitemap_entries += create_alias_redirects(out_root)
+    # 3) Alias-Redirects erzeugen
+    sitemap_entries += create_faq_alias_redirects(out_root)
+    created_variants = create_missing_variant_aliases(out_root)
+    sitemap_entries += created_variants
 
     # 4) Sitemap/robots/version + Root-Redirect
     build_sitemap(sitemap_entries, out_root / "sitemap.xml", args.base_url)
@@ -335,6 +383,7 @@ def main():
             "out_dir": str(out_root),
             "content_root": str(repo_root),
             "pages": len(sitemap_entries),
+            "created_variant_aliases": created_variants,
         }, ensure_ascii=False, indent=2),
         encoding="utf-8"
     )
