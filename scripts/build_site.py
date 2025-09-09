@@ -2,15 +2,15 @@
 # -*- coding: utf-8 -*-
 """
 Static Markdown → HTML Builder für /wissen
-Version: 2025-09-09 12:55 (Europe/Berlin)
+Version: 2025-09-09 13:10 (Europe/Berlin)
 
-Neu in dieser Version:
-- Asset-Links (Dateiendung) bleiben relativ; nur Seiten-Links werden auf /wissen/<lang>/… normalisiert.
+Änderungen ggü. früher:
+- Asset-Links (Dateiendung) bleiben relativ; nur Seiten-Links → /wissen/<lang>/…
 - Kopiert alle Nicht-Markdown-Dateien aus de/ und en/ 1:1 nach site/<lang>/…
-- Erzeugt automatisch Pretty-URL-ALIASSE für fehlende Produkt-Variantenslugs:
-  z.B. site/de/.../p0009-1-1-1-c/index.html → Redirect auf /wissen/de/.../p0009/
-- Root-/wissen/-Fix, kein Slash an Dateipfaden, Alias-Redirects für FAQ-Kurzpfade,
-  Sitemap/robots/version & Root-Redirect bleiben.
+- FIX: Alias-Generator für Varianten-Slugs (pNNNN-…): erzeugt fehlende
+  site/<lang>/…/pNNNN-…/index.html als Redirect auf die Basisseite …/pNNNN/
+- Root-/wissen/-Fix, kein Slash an Dateipfaden, FAQ-Alias-Redirects,
+  Sitemap/robots/version & Root-Redirect bleiben erhalten.
 """
 
 from __future__ import annotations
@@ -31,9 +31,8 @@ _ATTR_RE = re.compile(r'''(?P<attr>\b(?:href|src)\s*=\s*)(?P<q>["']?)(?P<url>[^"
 _ASSET_EXT = re.compile(r"""\.[A-Za-z0-9]{1,8}(?:[?#].*)?$""")  # .png .jpg .css .js .pdf …
 
 # Produkt-Slug-Erkennung
-# Basis: p0009  — Varianten: p0009-1-1-1-c etc.
-_BASE_PROD_RE = re.compile(r"""(^|/)p(\d{4,})(/|$)""")
-_VARIANT_PROD_RE = re.compile(r"""(^|/)p(\d{4,})(-[^/]+)+(/)?$""")
+_BASE_ONLY_RE    = re.compile(r"""^p(\d{4,})$""")          # p0009
+_VARIANT_SLUG_RE = re.compile(r"""^p(\d{4,})-[^/]+$""")    # p0009-1-1-1-c
 
 def is_external(url: str) -> bool:
     u = url.strip()
@@ -80,7 +79,6 @@ def _to_wissen_abs(lang: str, target_rel_to_lang: PurePosixPath) -> str:
 
 def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePosixPath) -> str:
     """
-    Pass 1:
     - Seitenlinks → /wissen/<lang>/…
     - Asset-Links (Dateien mit Endung):
         * Relativ (z. B. "bild.png", "../img/a.jpg") → UNVERÄNDERT (Validator erwartet relative Einbindung).
@@ -91,7 +89,6 @@ def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePo
         u = url.strip()
         low = u.lower()
 
-        # Externes oder Anker → unverändert
         if is_external(u) or u.startswith("#"):
             return f'{attr}{q}{u}{q}'
 
@@ -105,31 +102,24 @@ def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePo
 
         is_file_like = looks_like_file(u)
 
-        # Bereits korrekt /wissen/<lang>/…
         if low.startswith(f"/wissen/{lang}/"):
             return f'{attr}{q}{u}{q}'
 
-        # Root-absolute /wissen/… ohne korrektes Präfix → ergänzen
         if low.startswith("/wissen/") and not low.startswith(f"/wissen/{lang}/"):
             rest = u.split("/wissen/", 1)[1]
             return f'{attr}{q}{join_lang(rest)}{q}'
 
-        # Root-absolute /de/...|/en/... → /wissen/<lang>/…
         if low.startswith("/de/") or low.startswith("/en/"):
             rest = u.split("/", 2)[2] if u.count("/") >= 2 else ""
             return f'{attr}{q}{join_lang(rest)}{q}'
 
-        # Sonstige Root-absolute "/" → /wissen/<lang>/…
         if low.startswith("/"):
             rest = u.lstrip("/")
             return f'{attr}{q}{join_lang(rest)}{q}'
 
-        # *** Relativpfade ***
         if is_file_like:
-            # Assets relativ bleiben relativ
             return f'{attr}{q}{u}{q}'
 
-        # Seiten relativ → auf /wissen/<lang>/… normalisieren
         resolved = _resolve_relative(u, current_doc_rel_dir)
         return f'{attr}{q}{_to_wissen_abs(lang, resolved)}{q}'
 
@@ -225,48 +215,48 @@ def create_faq_alias_redirects(out_root: Path) -> list[str]:
 
 def create_missing_variant_aliases(out_root: Path) -> list[str]:
     """
-    Sucht in allen HTML-Dateien nach Links auf Varianten-Slugs (pNNNN-.../).
-    Falls es keine Seite site/<lang>/.../<variant>/index.html gibt, wird ein
-    Redirect dorthin erzeugt, der auf die Basis pNNNN/ verweist.
+    Durchsucht alle HTML-Dateien nach Links auf Varianten-Slugs (…/pNNNN-…/).
+    Falls es die Zielseite site/<lang>/…/pNNNN-…/index.html nicht gibt,
+    wird sie als Redirect auf die Basisseite …/pNNNN/ erzeugt.
     """
     created: list[str] = []
 
-    def ensure_alias(lang: str, base_dir: Path, variant_dir: Path):
-        alias_index = variant_dir / "index.html"
-        if alias_index.exists():
-            return
-        # Ziel: Basis-Seite (Pretty URL)
-        rel_from_lang = variant_dir.relative_to(out_root / lang)
-        target_abs = f"/wissen/{lang}/{rel_from_lang.as_posix().rsplit('/', 1)[0]}/"
-        # base_dir ist der pNNNN-Ordner
-        target_abs = f"/wissen/{lang}/{base_dir.relative_to(out_root / lang).as_posix().rstrip('/')}/"
-        variant_dir.mkdir(parents=True, exist_ok=True)
-        alias_index.write_text(write_redirect_index(target_abs), encoding="utf-8")
-        created.append(str(alias_index.relative_to(out_root)))
-
     for html_file in out_root.rglob("*.html"):
         text = html_file.read_text(errors="ignore")
-        for m in re.finditer(r'href=["\'](/wissen/(de|en)/[^"\']+)["\']', text, flags=re.IGNORECASE):
-            url = m.group(1)
-            # Nur Varianten-Pattern zulassen
-            if not _VARIANT_PROD_RE.search(url.split("/wissen/",1)[1]):
-                continue
-            # Zielpfad unter site/
-            rel = url.split("/wissen/", 1)[1].lstrip("/")
+
+        # alle absoluten Wissen-Links abholen
+        for m in re.finditer(r'href=["\'](/wissen/(de|en)/[^"\']+/p\d{4}[^"\']*/)["\']', text, flags=re.IGNORECASE):
+            url = m.group(1)  # /wissen/de/.../p0009-1-1-1-c/
+            rel = url.split("/wissen/", 1)[1].lstrip("/")     # de/.../p0009-1-1-1-c/
             lang = rel.split("/", 1)[0]
             rest = rel.split("/", 1)[1] if "/" in rel else ""
-            target_dir = out_root / lang / rest.strip("/")
-            # base_dir = …/pNNNN
-            parts = target_dir.parts
-            # finde pNNNN-Teil
-            base_dir = None
-            for i in range(len(parts)):
-                if re.fullmatch(r"p\d{4,}", parts[i] or ""):
-                    base_dir = Path(*parts[: i + 1])
-            if base_dir is None:
+
+            # Zielordner für die Variante
+            variant_dir = (out_root / lang / rest).resolve().parent  # strip trailing /
+            # Letztes Segment ist der Variant-Slug
+            variant_slug = variant_dir.name
+
+            # Nur echte Varianten pNNNN-... berücksichtigen
+            vm = _VARIANT_SLUG_RE.match(variant_slug)
+            if not vm:
                 continue
-            # Variante ist target_dir; Basis ist base_dir
-            ensure_alias(lang, base_dir, target_dir)
+            base_slug = f"p{vm.group(1)}"                       # p0009
+            base_dir  = variant_dir.parent / base_slug          # …/p0009
+
+            # Alias-Datei, falls noch nicht vorhanden
+            alias_index = variant_dir / "index.html"
+            if alias_index.exists():
+                continue
+
+            # Basisseite muss existieren (wird im Build erzeugt)
+            if not base_dir.is_dir():
+                # wenn nicht vorhanden, nicht anlegen um falsche Ziele zu vermeiden
+                continue
+
+            target_abs = f"/wissen/{lang}/{base_dir.relative_to(out_root / lang).as_posix().rstrip('/')}/"
+            variant_dir.mkdir(parents=True, exist_ok=True)
+            alias_index.write_text(write_redirect_index(target_abs), encoding="utf-8")
+            created.append(str(alias_index.relative_to(out_root)))
 
     return created
 
