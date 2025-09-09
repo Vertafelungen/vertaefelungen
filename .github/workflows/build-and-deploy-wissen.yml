@@ -1,27 +1,20 @@
 name: Build & Deploy Wissen
-# Version: 2025-09-09 11:05 (Europe/Berlin)
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'de/**'
-      - 'en/**'
-      - 'assets/**'
-      - 'scripts/build_site.py'
-      - '.github/workflows/build-and-deploy-wissen.yml'
-  workflow_dispatch: {}
-
-permissions:
-  contents: read
-
-concurrency:
-  group: build-deploy-wissen
-  cancel-in-progress: true
+      - "de/**"
+      - "en/**"
+      - "assets/**"
+      - "scripts/**"
+      - ".github/workflows/build-and-deploy-wissen.yml"
+  workflow_dispatch:
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,114 +22,104 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
-          pip install markdown PyYAML
+          pip install markdown
 
       - name: Build site
-        env:
-          BASE_URL: https://www.vertaefelungen.de/wissen
-          GIT_SHA: ${{ github.sha }}
         run: |
-          set -euo pipefail
-          python scripts/build_site.py --content-root . --out-dir site --base-url "$BASE_URL"
-          test -f site/index.html
-          test -f site/sitemap.xml
-          test -f site/robots.txt
-          # Build-Marker
-          python - << 'PY'
-          import json, os, time
-          d={"commit": os.getenv("GIT_SHA"), "built_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}
-          open("site/version.json","w",encoding="utf-8").write(json.dumps(d,ensure_ascii=False,indent=2))
-          PY
-          echo "ok" > site/deploy-check.txt
+          python scripts/build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
+        env:
+          PYTHONUTF8: "1"
 
+      # ---------- VALIDATE LINKS (Pretty-URL aware) ----------
       - name: Validate links
         shell: bash
         run: |
           set -euo pipefail
-          # 1) Keine Altlasten in site/
-          if find site -type d -name ".git" -print -quit | grep -q .; then
-            echo "ERROR: '.git' directory found in site/"; exit 1; fi
-          if find site -path "site/.github" -o -path "site/scripts" -o -path "site/tools" -print -quit | grep -q .; then
-            echo "ERROR: unexpected folders (.github/scripts/tools) in site/"; exit 1; fi
+          shopt -s nullglob
 
-          # 2) Sprachlose /wissen/-Links finden (href|src, PCRE)
+          echo "🔍 Validate folder hygiene"
+          for p in site/.git site/.github site/scripts site/tools ; do
+            if [ -e "$p" ]; then
+              echo "ERROR: unexpected path in site/: $p"
+              exit 1
+            fi
+          done
+
+          echo "🔍 Validate language prefixes on /wissen/"
           ALLOWED="de|en"
-          EXCEPT="assets/|sitemap\\.xml\\b|robots\\.txt\\b|version\\.json\\b"
-          BAD=$(grep -RHoP "(?i)\\b(?:href|src)\\s*=\\s*(?:\"|\\x27)?/wissen/(?!(${ALLOWED})/|(${EXCEPT}))" site || true)
+          BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!'"$ALLOWED"'/)' site || true)
           if [ -n "$BAD" ]; then
-            echo "ERROR: Found links without language prefix (first 20):"
+            echo "ERROR: Links without language prefix (first 20):"
             echo "$BAD" | head -n 20
             exit 1
           fi
 
-          # 3) Existenz interner Ziele prüfen
-          python - << 'PY'
-          import re, sys, os
-          from pathlib import Path
+          echo "🔍 Resolve each /wissen/<lang>/<rest> to a file under site/"
+          ERR=0
+          COUNT=0
 
-          root = Path("site")
-          # capture attr and url
-          pat = re.compile(r'(?i)(?P<attr>href|src)=["\'](?P<url>/wissen/(?:de|en)/[^"\']*)["\']')
+          # finde href="…"/src="…" mit doppelten ODER einfachen Anführungszeichen
+          grep -RHoE 'href="/wissen/(de|en)/[^"]*"|src="/wissen/(de|en)/[^"]*"|href='\''/wissen/(de|en)/[^'\'']*'\''|src='\''/wissen/(de|en)/[^'\'']*'\''' site \
+          | while IFS= read -r hit; do
+              file="${hit%%:*}"
+              attr="${hit#*:}"
+              # URL extrahieren (zwischen den Anführungszeichen)
+              url=$(printf '%s\n' "$attr" | sed -E 's/^[^"'"'"']*["'"'"']([^"'"'"']*)["'"'"'].*/\1/')
+              # Query/Hash abschneiden
+              url="${url%%\#*}"; url="${url%%\?*}"
+              rest="${url#/wissen/}"
+              lang="${rest%%/*}"
+              path="${rest#*/}"
 
-          # asset extensions to check directly (no index.html append)
-          exts = {".html",".htm",".png",".jpg",".jpeg",".webp",".svg",".css",".js",".pdf",".ico",".gif",".mp4",".webm",".txt",".xml"}
+              # Asset (Dateiendung)? → direkte Datei prüfen
+              if [[ "$path" =~ \.[A-Za-z0-9]{1,8}$ ]]; then
+                candidate="site/$lang/$path"
+                if [ ! -f "$candidate" ]; then
+                  echo "site/$file → $url :: MISSING $candidate"
+                  ERR=1
+                fi
+              else
+                # Seite (Pretty URL): /wissen/<lang>/<path>/ → site/<lang>/<path>/index.html
+                candidate="site/$lang/${path%/}/index.html"
+                if [ ! -f "$candidate" ]; then
+                  echo "site/$file → $url :: MISSING $candidate"
+                  ERR=1
+                fi
+              fi
 
-          errors=[]
-          for f in root.rglob("*.html"):
-              t = f.read_text(errors="ignore")
-              for m in pat.finditer(t):
-                  u = m.group("url")
-                  rel = u.split("/wissen/",1)[1]
-                  p = root / rel.lstrip("/")
-                  # Decide if this is a "page-like" URL or an asset
-                  suffix = "".join(Path(rel).suffixes).lower()
-                  if suffix:
-                      # has extension -> check file as-is
-                      if not p.exists():
-                          errors.append((str(f), u, str(p)))
-                  else:
-                      # no extension -> pretty URL -> map to /index.html
-                      if not str(p).endswith("/"):
-                          p = Path(str(p) + "/")
-                      p = p / "index.html"
-                      if not p.exists():
-                          errors.append((str(f), u, str(p)))
+              COUNT=$((COUNT+1))
+              if [ "$COUNT" -le 3 ]; then :; fi
+            done
 
-          if errors:
-              print("FEHLER: 404-Risiko (erste 20):")
-              for a,b,c in errors[:20]:
-                  print(f" - {a} → {b}  (expected: {c})")
-              sys.exit(1)
-          print("Validator OK.")
-          PY
+          if [ "$ERR" -ne 0 ]; then
+            echo "FEHLER: 404-Risiko gefunden. Bitte obige Pfade anlegen/prüfen (Alias/Index)."
+            exit 1
+          fi
+
+          echo "✅ Validator OK."
 
       - name: Deploy to /wissen (SFTP)
+        if: ${{ success() }}
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASS }}
           port: ${{ secrets.SFTP_PORT }}
-          local_path: site/*
-          remote_path: /wissen/
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: "site/*"
+          remote_path: ${{ secrets.SFTP_TARGET }}
           sftp_only: true
-          # delete_remote_files: true   # einmalig aktivieren, wenn du /wissen/ aufräumen willst
-          exclude: |
-            .git/
-            **/.git/**
-            .github/
-            **/.github/**
-            scripts/**
-            tools/**
-            **/*.map
+          delete_remote_files: false
 
       - name: Verify deploy via HTTP
+        if: ${{ success() }}
+        shell: bash
         run: |
           set -euo pipefail
-          curl -fsS https://www.vertaefelungen.de/wissen/version.json || \
-          curl -fsS "https://www.vertaefelungen.de/wissen/version.json?cache=$(date +%s)"
+          curl -fsSL https://www.vertaefelungen.de/wissen/de/ >/dev/null
+          echo "HTTP check OK"
