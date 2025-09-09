@@ -2,15 +2,12 @@
 # -*- coding: utf-8 -*-
 """
 Static Markdown → HTML Builder für /wissen
-Version: 2025-09-09 13:10 (Europe/Berlin)
+Version: 2025-09-09 13:35 (Europe/Berlin)
 
-Änderungen ggü. früher:
-- Asset-Links (Dateiendung) bleiben relativ; nur Seiten-Links → /wissen/<lang>/…
-- Kopiert alle Nicht-Markdown-Dateien aus de/ und en/ 1:1 nach site/<lang>/…
-- FIX: Alias-Generator für Varianten-Slugs (pNNNN-…): erzeugt fehlende
-  site/<lang>/…/pNNNN-…/index.html als Redirect auf die Basisseite …/pNNNN/
-- Root-/wissen/-Fix, kein Slash an Dateipfaden, FAQ-Alias-Redirects,
-  Sitemap/robots/version & Root-Redirect bleiben erhalten.
+Neu/Changed:
+- Rewriter-Schutz: Auch HTML-Quellen aus de/ & en/ werden verarbeitet (nicht roh kopiert).
+- Asset-Kopierer ignoriert .html, damit alle HTMLs durch den Link-Fix laufen.
+- Alias-Generator für Varianten-Slugs (pNNNN-…) -> Redirect auf Basisseite bleibt aktiv.
 """
 
 from __future__ import annotations
@@ -30,9 +27,8 @@ _ATTR_RE = re.compile(r'''(?P<attr>\b(?:href|src)\s*=\s*)(?P<q>["']?)(?P<url>[^"
                       re.IGNORECASE)
 _ASSET_EXT = re.compile(r"""\.[A-Za-z0-9]{1,8}(?:[?#].*)?$""")  # .png .jpg .css .js .pdf …
 
-# Produkt-Slug-Erkennung
-_BASE_ONLY_RE    = re.compile(r"""^p(\d{4,})$""")          # p0009
-_VARIANT_SLUG_RE = re.compile(r"""^p(\d{4,})-[^/]+$""")    # p0009-1-1-1-c
+_BASE_ONLY_RE    = re.compile(r"""^p(\d{4,})$""")
+_VARIANT_SLUG_RE = re.compile(r"""^p(\d{4,})-[^/]+$""")
 
 def is_external(url: str) -> bool:
     u = url.strip()
@@ -41,7 +37,6 @@ def is_external(url: str) -> bool:
     return u.lower().startswith(_EXTERNAL_SCHEMES)
 
 def looks_like_file(path: str) -> bool:
-    """Heuristik: hat der Pfad eine Dateiendung?"""
     return bool(_ASSET_EXT.search(path))
 
 def _strip_md_and_index(p: PurePosixPath) -> PurePosixPath:
@@ -68,7 +63,6 @@ def _resolve_relative(target_raw: str, current_dir_rel: PurePosixPath) -> PurePo
     return PurePosixPath(*parts)
 
 def _to_wissen_abs(lang: str, target_rel_to_lang: PurePosixPath) -> str:
-    """Aus Pfad relativ zu <lang>-Root eine hübsche absolute Wissen-URL machen."""
     pretty = _strip_md_and_index(target_rel_to_lang)
     s = f"/wissen/{lang}/{pretty.as_posix().lstrip('/')}"
     if not looks_like_file(s) and not s.endswith("/"):
@@ -80,9 +74,9 @@ def _to_wissen_abs(lang: str, target_rel_to_lang: PurePosixPath) -> str:
 def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePosixPath) -> str:
     """
     - Seitenlinks → /wissen/<lang>/…
-    - Asset-Links (Dateien mit Endung):
-        * Relativ (z. B. "bild.png", "../img/a.jpg") → UNVERÄNDERT (Validator erwartet relative Einbindung).
-        * Root-absolute ("/…") → /wissen/<lang>/… mit korrekt gesetztem Slash/ohne bei Dateien.
+    - Asset-Links mit Dateiendung:
+      * relative bleiben relativ
+      * root-absolute werden auf /wissen/<lang>/… normalisiert
     """
     def repl(m: re.Match) -> str:
         attr, q, url = m.group("attr"), (m.group("q") or '"'), m.group("url")
@@ -125,7 +119,7 @@ def rewrite_links_in_html(html_text: str, lang: str, current_doc_rel_dir: PurePo
 
     return _ATTR_RE.sub(repl, html_text)
 
-# Pass 2: verbleibende /wissen/-Root-Links ohne Sprachpräfix reparieren
+# /wissen/ ohne Sprachpräfix reparieren (auch ohne/mit Quotes)
 _ROOT_WISSEN_FIX = re.compile(
     r'''(?P<attr>\b(?:href|src)\s*=\s*)(?P<q>["']?)\s*/\s*wissen\s*/\s*(?P<rest>[^"'\s>]*)\s*(?P=q)''',
     re.IGNORECASE
@@ -146,10 +140,12 @@ def finalize_root_links(html_text: str, lang: str) -> str:
         return f'{attr}{q}/wissen/{lang}/{rest}{tail}{q}'
     return _ROOT_WISSEN_FIX.sub(repl, html_text)
 
-# Pass 3: harte Absicherung
 def extra_safety_pass(html_text: str, lang: str) -> str:
+    # häufige Sonderfälle explizit
     html_text = html_text.replace('href="/wissen/"', f'href="/wissen/{lang}/"')
     html_text = html_text.replace("href='/wissen/'", f"href='/wissen/{lang}/'")
+    html_text = html_text.replace('src="/wissen/"',  f'src="/wissen/{lang}/"')
+    html_text = html_text.replace("src='/wissen/'",  f"src='/wissen/{lang}/'")
     return html_text
 
 # ------------------------------ Rendering ------------------------------------
@@ -189,7 +185,6 @@ def write_redirect_index(to_url_abs: str) -> str:
     )
 
 def create_faq_alias_redirects(out_root: Path) -> list[str]:
-    """Kurze FAQ-URLs → Themen-Ordner."""
     added: list[str] = []
     rules = [
         ("de", "oeffentlich/faq/themen", "oeffentlich/faq"),
@@ -214,43 +209,26 @@ def create_faq_alias_redirects(out_root: Path) -> list[str]:
     return added
 
 def create_missing_variant_aliases(out_root: Path) -> list[str]:
-    """
-    Durchsucht alle HTML-Dateien nach Links auf Varianten-Slugs (…/pNNNN-…/).
-    Falls es die Zielseite site/<lang>/…/pNNNN-…/index.html nicht gibt,
-    wird sie als Redirect auf die Basisseite …/pNNNN/ erzeugt.
-    """
     created: list[str] = []
 
     for html_file in out_root.rglob("*.html"):
         text = html_file.read_text(errors="ignore")
-
-        # alle absoluten Wissen-Links abholen
         for m in re.finditer(r'href=["\'](/wissen/(de|en)/[^"\']+/p\d{4}[^"\']*/)["\']', text, flags=re.IGNORECASE):
             url = m.group(1)  # /wissen/de/.../p0009-1-1-1-c/
             rel = url.split("/wissen/", 1)[1].lstrip("/")     # de/.../p0009-1-1-1-c/
             lang = rel.split("/", 1)[0]
             rest = rel.split("/", 1)[1] if "/" in rel else ""
-
-            # Zielordner für die Variante
-            variant_dir = (out_root / lang / rest).resolve().parent  # strip trailing /
-            # Letztes Segment ist der Variant-Slug
+            variant_dir = (out_root / lang / rest).resolve().parent
             variant_slug = variant_dir.name
 
-            # Nur echte Varianten pNNNN-... berücksichtigen
             vm = _VARIANT_SLUG_RE.match(variant_slug)
             if not vm:
                 continue
-            base_slug = f"p{vm.group(1)}"                       # p0009
-            base_dir  = variant_dir.parent / base_slug          # …/p0009
+            base_slug = f"p{vm.group(1)}"
+            base_dir  = variant_dir.parent / base_slug
 
-            # Alias-Datei, falls noch nicht vorhanden
             alias_index = variant_dir / "index.html"
-            if alias_index.exists():
-                continue
-
-            # Basisseite muss existieren (wird im Build erzeugt)
-            if not base_dir.is_dir():
-                # wenn nicht vorhanden, nicht anlegen um falsche Ziele zu vermeiden
+            if alias_index.exists() or not base_dir.is_dir():
                 continue
 
             target_abs = f"/wissen/{lang}/{base_dir.relative_to(out_root / lang).as_posix().rstrip('/')}/"
@@ -260,18 +238,44 @@ def create_missing_variant_aliases(out_root: Path) -> list[str]:
 
     return created
 
+# ---------------------- HTML-Quellen aus de/ & en/ verarbeiten ---------------
+
+def process_source_html(lang: str, lang_root: Path, out_root: Path) -> list[str]:
+    """
+    Nimmt .html-Dateien direkt aus dem Content (de/, en/), rewritet /wissen/-Links
+    und legt sie unter site/<lang>/<rel> ab. (Kein Roh-Kopieren mehr.)
+    """
+    written: list[str] = []
+    for src in lang_root.rglob("*.html"):
+        rel = src.relative_to(lang_root)
+        text = src.read_text(encoding="utf-8", errors="ignore")
+
+        # wir fixen ausschließlich /wissen/-Themen (kein aggressiver Umbau)
+        fixed = finalize_root_links(text, lang)
+        fixed = extra_safety_pass(fixed, lang)
+
+        dst = out_root / lang / rel
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_text(fixed, encoding="utf-8")
+        written.append(str(dst.relative_to(out_root)))
+    return written
+
 # ------------------------ Assets aus de/ und en/ kopieren --------------------
 
 _IGNORE_NAMES = {".DS_Store", "Thumbs.db"}
 
 def copy_language_assets(lang: str, lang_root: Path, out_root: Path) -> None:
-    """Kopiert alle Nicht-Markdown-Dateien aus lang_root nach site/<lang>/… (Struktur beibehalten)."""
+    """
+    Kopiert alle Nicht-Markdown- und Nicht-HTML-Dateien aus lang_root nach site/<lang>/…
+    HTMLs werden separat durch process_source_html() verarbeitet.
+    """
     for src in lang_root.rglob("*"):
         if not src.is_file():
             continue
         if src.name in _IGNORE_NAMES:
             continue
-        if src.suffix.lower() == ".md":
+        suf = src.suffix.lower()
+        if suf in (".md", ".html"):
             continue
         rel = src.relative_to(lang_root)
         dst = out_root / lang / rel
@@ -311,8 +315,8 @@ def copy_assets_dir(assets_dir: Path, out_root: Path) -> None:
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--base-url", default="https://www.vertaefelungen.de/wissen", type=str)
-    ap.add_argument("--content-root", default=".", type=str, help="Repo-Root mit de/ und en/")
-    ap.add_argument("--out-dir", default="site", type=str, help="Ausgabeverzeichnis")
+    ap.add_argument("--content-root", default=".", type=str)
+    ap.add_argument("--out-dir", default="site", type=str)
     args = ap.parse_args()
 
     repo_root = Path(args.content_root).resolve()
@@ -327,7 +331,7 @@ def main():
 
     sitemap_entries: list[str] = []
 
-    # 1) HTML aus Markdown bauen
+    # 1) Markdown → HTML
     for lang, lang_root in lang_dirs.items():
         if not lang_root.is_dir():
             continue
@@ -338,7 +342,6 @@ def main():
             current_rel_dir = PurePosixPath(
                 str(src_path.relative_to(lang_root).parent).replace("\\", "/")
             )
-            # Rewriter-Kaskade
             rewritten = rewrite_links_in_html(html_body, lang=lang, current_doc_rel_dir=current_rel_dir)
             rewritten = finalize_root_links(rewritten, lang=lang)
             rewritten = extra_safety_pass(rewritten, lang=lang)
@@ -351,17 +354,22 @@ def main():
             rel_url = str(out_file.relative_to(out_root)).replace("\\", "/")
             sitemap_entries.append(rel_url)
 
-    # 2) Nicht-MD-Assets kopieren
+    # 2) HTML-Quellen verarbeiten (Fix für nacktes /wissen/)
+    for lang, lang_root in lang_dirs.items():
+        if lang_root.is_dir():
+            sitemap_entries += process_source_html(lang, lang_root, out_root)
+
+    # 3) Nicht-HTML-Assets kopieren
     for lang, lang_root in lang_dirs.items():
         if lang_root.is_dir():
             copy_language_assets(lang, lang_root, out_root)
 
-    # 3) Alias-Redirects erzeugen
+    # 4) Alias-Redirects
     sitemap_entries += create_faq_alias_redirects(out_root)
     created_variants = create_missing_variant_aliases(out_root)
     sitemap_entries += created_variants
 
-    # 4) Sitemap/robots/version + Root-Redirect
+    # 5) Sitemap/robots/version + Root-Redirect
     build_sitemap(sitemap_entries, out_root / "sitemap.xml", args.base_url)
     write_robots(out_root / "robots.txt", args.base_url)
 
@@ -371,7 +379,6 @@ def main():
             "builder": "build_site.py",
             "base_url": args.base_url,
             "out_dir": str(out_root),
-            "content_root": str(repo_root),
             "pages": len(sitemap_entries),
             "created_variant_aliases": created_variants,
         }, ensure_ascii=False, indent=2),
