@@ -30,10 +30,34 @@ jobs:
           pip install markdown
 
       - name: Build site
-        run: |
-          python scripts/build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
         env:
           PYTHONUTF8: "1"
+        run: |
+          python scripts/build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
+
+      # --- ROBUSTE NORMALISIERUNG: fügt fehlende Sprachpräfixe nach dem Build ein ---
+      - name: Normalize /wissen/ prefixes per language (post-build, PCRE)
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          normalize_lang () {
+            local L="$1"
+            local D="site/$L"
+            [ -d "$D" ] || return 0
+
+            # Korrigiert JEDE Stelle mit href|src="/wissen/(NICHT de/|en/...)"
+            # Behandelt auch einfache und doppelte Quotes
+            mapfile -t FILES < <(find "$D" -type f -name "*.html")
+            if [ "${#FILES[@]}" -gt 0 ]; then
+              printf '🔧 Normalizing /wissen/ → /wissen/%s/ (PCRE) in %s files\n' "$L" "${#FILES[@]}"
+              # perl mit Lookahead für sauberes „nicht de|en“
+              perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' "${FILES[@]}"
+            fi
+          }
+
+          normalize_lang de
+          normalize_lang en
 
       # ---------- VALIDATE LINKS (Pretty-URL aware) ----------
       - name: Validate links
@@ -61,43 +85,30 @@ jobs:
 
           echo "🔍 Resolve each /wissen/<lang>/<rest> to a file under site/"
           ERR=0
-          COUNT=0
 
-          # finde href="…"/src="…" mit doppelten ODER einfachen Anführungszeichen
           grep -RHoE 'href="/wissen/(de|en)/[^"]*"|src="/wissen/(de|en)/[^"]*"|href='\''/wissen/(de|en)/[^'\'']*'\''|src='\''/wissen/(de|en)/[^'\'']*'\''' site \
           | while IFS= read -r hit; do
               file="${hit%%:*}"
               attr="${hit#*:}"
-              # URL extrahieren (zwischen den Anführungszeichen)
               url=$(printf '%s\n' "$attr" | sed -E 's/^[^"'"'"']*["'"'"']([^"'"'"']*)["'"'"'].*/\1/')
-              # Query/Hash abschneiden
               url="${url%%\#*}"; url="${url%%\?*}"
               rest="${url#/wissen/}"
               lang="${rest%%/*}"
               path="${rest#*/}"
 
-              # Asset (Dateiendung)? → direkte Datei prüfen
               if [[ "$path" =~ \.[A-Za-z0-9]{1,8}$ ]]; then
                 candidate="site/$lang/$path"
-                if [ ! -f "$candidate" ]; then
-                  echo "site/$file → $url :: MISSING $candidate"
-                  ERR=1
-                fi
               else
-                # Seite (Pretty URL): /wissen/<lang>/<path>/ → site/<lang>/<path>/index.html
                 candidate="site/$lang/${path%/}/index.html"
-                if [ ! -f "$candidate" ]; then
-                  echo "site/$file → $url :: MISSING $candidate"
-                  ERR=1
-                fi
               fi
-
-              COUNT=$((COUNT+1))
-              if [ "$COUNT" -le 3 ]; then :; fi
+              if [ ! -f "$candidate" ]; then
+                echo "MISSING $candidate  (from: $file → $url)"
+                ERR=1
+              fi
             done
 
           if [ "$ERR" -ne 0 ]; then
-            echo "FEHLER: 404-Risiko gefunden. Bitte obige Pfade anlegen/prüfen (Alias/Index)."
+            echo "FEHLER: 404-Risiko gefunden. Siehe MISSING-Zeilen oben."
             exit 1
           fi
 
