@@ -35,24 +35,23 @@ jobs:
         run: |
           python scripts/build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
 
-      # --- ROBUSTE NORMALISIERUNG: fügt fehlende Sprachpräfixe nach dem Build ein ---
+      # --- FIX: POSIX-kompatible Normalisierung ohne mapfile / Prozesssubstitution ---
       - name: Normalize /wissen/ prefixes per language (post-build, PCRE)
         shell: bash
         run: |
           set -euo pipefail
 
           normalize_lang () {
-            local L="$1"
-            local D="site/$L"
+            L="$1"
+            D="site/$L"
             [ -d "$D" ] || return 0
 
-            # Korrigiert JEDE Stelle mit href|src="/wissen/(NICHT de/|en/...)"
-            # Behandelt auch einfache und doppelte Quotes
-            mapfile -t FILES < <(find "$D" -type f -name "*.html")
-            if [ "${#FILES[@]}" -gt 0 ]; then
-              printf '🔧 Normalizing /wissen/ → /wissen/%s/ (PCRE) in %s files\n' "$L" "${#FILES[@]}"
-              # perl mit Lookahead für sauberes „nicht de|en“
-              perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' "${FILES[@]}"
+            # Alle .html-Dateien sammeln und per perl (PCRE) nacktes /wissen/ → /wissen/<lang>/ korrigieren
+            # -0: null-separiert, um Sonderzeichen/Spaces sicher zu verarbeiten
+            if find "$D" -type f -name '*.html' -print0 | grep -q .; then
+              echo "🔧 Normalizing /wissen/ → /wissen/$L/ (PCRE)"
+              find "$D" -type f -name '*.html' -print0 \
+                | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
             fi
           }
 
