@@ -35,28 +35,22 @@ jobs:
         run: |
           python scripts/build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
 
-      # --- FIX: POSIX-kompatible Normalisierung ohne mapfile / Prozesssubstitution ---
+      # --- ROBUST: Prefix-Normalisierung ohne Funktionssyntax/Process Substitution ---
       - name: Normalize /wissen/ prefixes per language (post-build, PCRE)
         shell: bash
         run: |
           set -euo pipefail
-
-          normalize_lang () {
-            L="$1"
+          for L in de en; do
             D="site/$L"
-            [ -d "$D" ] || return 0
-
-            # Alle .html-Dateien sammeln und per perl (PCRE) nacktes /wissen/ → /wissen/<lang>/ korrigieren
-            # -0: null-separiert, um Sonderzeichen/Spaces sicher zu verarbeiten
+            [ -d "$D" ] || continue
+            # Gibt es überhaupt HTML-Dateien?
             if find "$D" -type f -name '*.html' -print0 | grep -q .; then
               echo "🔧 Normalizing /wissen/ → /wissen/$L/ (PCRE)"
+              # Null-separiert, damit Dateinamen mit Leerzeichen/Sonderzeichen sicher sind
               find "$D" -type f -name '*.html' -print0 \
-                | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
+                | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["'"'"'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
             fi
-          }
-
-          normalize_lang de
-          normalize_lang en
+          done
 
       # ---------- VALIDATE LINKS (Pretty-URL aware) ----------
       - name: Validate links
