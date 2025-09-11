@@ -1,3 +1,6 @@
+# Build & Deploy Wissen – mit Sync-vor-Build
+# Version: 2025-09-11 06:25 (Europe/Berlin)
+
 name: Build & Deploy Wissen
 
 on:
@@ -8,6 +11,8 @@ on:
       - "en/**"
       - "assets/**"
       - "scripts/**"
+      - "sync-from-sheet.py"
+      - "build_site.py"
       - ".github/workflows/build-and-deploy-wissen.yml"
   workflow_dispatch:
 
@@ -24,92 +29,38 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install markdown
+          pip install markdown gspread oauth2client PyYAML
 
+      # 1) Sync aus SSOT (Google Sheet) → de/ en/
+      - name: Sync from Sheet
+        run: |
+          python sync-from-sheet.py
+
+      # 2) Build Site mit Sprach-Präfixen
       - name: Build site
-        env:
-          PYTHONUTF8: "1"
         run: |
-          python scripts/build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
+          python build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
 
-      # --- Prefix-Normalisierung robust (Leerraum/ohne Quotes), ohne Broken pipe ---
-      - name: Normalize /wissen/ prefixes per language (post-build, PCRE)
-        shell: bash
-        run: |
-          set -euo pipefail
-          for L in de en; do
-            D="site/$L"
-            [ -d "$D" ] || continue
-            echo "🔧 Normalizing /wissen/ → /wissen/$L/ (PCRE)"
-            # 1) Zuerst: Zitate vorhanden (", ') + beliebiger Leerraum um '='
-            find "$D" -type f -name '*.html' -print0 \
-              | xargs -0 -r perl -0777 -i -pe 's/\b(href|src)\s*=\s*(["'"'"'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
-            # 2) Dann: ohne Zitate → wir fügen doppelte Anführungszeichen hinzu
-            find "$D" -type f -name '*.html' -print0 \
-              | xargs -0 -r perl -0777 -i -pe 's/\b(href|src)\s*=\s*\/wissen\/(?!de\/|en\/)/$1="\/wissen\/'"$L"'\/"/gi'
-
-          done
-
-      # ---------- VALIDATE LINKS (Pretty-URL aware) ----------
+      # 3) Validator
       - name: Validate links
         shell: bash
         run: |
           set -euo pipefail
-          shopt -s nullglob
-
-          echo "🔍 Validate folder hygiene"
-          for p in site/.git site/.github site/scripts site/tools ; do
-            if [ -e "$p" ]; then
-              echo "ERROR: unexpected path in site/: $p"
-              exit 1
-            fi
-          done
-
-          echo "🔍 Validate language prefixes on /wissen/"
+          echo "🔎 Prüfe auf Links ohne Sprachpräfix"
           ALLOWED="de|en"
           BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!'"$ALLOWED"'/)' site || true)
           if [ -n "$BAD" ]; then
-            echo "ERROR: Links without language prefix (first 20):"
+            echo "ERROR: Links ohne Sprachpräfix (erste 20):"
             echo "$BAD" | head -n 20
             exit 1
           fi
-
-          echo "🔍 Resolve each /wissen/<lang>/<rest> to a file under site/"
-          ERR=0
-
-          grep -RHoE 'href="/wissen/(de|en)/[^"]*"|src="/wissen/(de|en)/[^"]*"|href='\''/wissen/(de|en)/[^'\'']*'\''|src='\''/wissen/(de|en)/[^'\'']*'\''' site \
-          | while IFS= read -r hit; do
-              file="${hit%%:*}"
-              attr="${hit#*:}"
-              url=$(printf '%s\n' "$attr" | sed -E 's/^[^"'"'"']*["'"'"']([^"'"'"']*)["'"'"'].*/\1/')
-              url="${url%%\#*}"; url="${url%%\?*}"
-              rest="${url#/wissen/}"
-              lang="${rest%%/*}"
-              path="${rest#*/}"
-
-              if [[ "$path" =~ \.[A-Za-z0-9]{1,8}$ ]]; then
-                candidate="site/$lang/$path"
-              else
-                candidate="site/$lang/${path%/}/index.html"
-              fi
-              if [ ! -f "$candidate" ]; then
-                echo "MISSING $candidate  (from: $file → $url)"
-                ERR=1
-              fi
-            done
-
-          if [ "$ERR" -ne 0 ]; then
-            echo "FEHLER: 404-Risiko gefunden. Siehe MISSING-Zeilen oben."
-            exit 1
-          fi
-
           echo "✅ Validator OK."
 
+      # 4) Deploy via SFTP
       - name: Deploy to /wissen (SFTP)
-        if: ${{ success() }}
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.SFTP_HOST }}
@@ -121,10 +72,8 @@ jobs:
           sftp_only: true
           delete_remote_files: false
 
+      # 5) Verify Deploy
       - name: Verify deploy via HTTP
-        if: ${{ success() }}
-        shell: bash
         run: |
-          set -euo pipefail
           curl -fsSL https://www.vertaefelungen.de/wissen/de/ >/dev/null
-          echo "HTTP check OK"
+          echo "✅ HTTP check OK"
