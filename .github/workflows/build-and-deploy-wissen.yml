@@ -1,5 +1,7 @@
-# Build & Deploy Wissen – mit Sync-vor-Build
-# Version: 2025-09-11 06:25 (Europe/Berlin)
+# =============================================================================
+# Build & Deploy Wissen
+# Version: 2025-09-11 21:15 (Europe/Berlin)
+# =============================================================================
 
 name: Build & Deploy Wissen
 
@@ -13,6 +15,7 @@ on:
       - "scripts/**"
       - "sync-from-sheet.py"
       - "build_site.py"
+      - "requirements.txt"
       - ".github/workflows/build-and-deploy-wissen.yml"
   workflow_dispatch:
 
@@ -24,22 +27,26 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install dependencies (requirements.txt preferred)
         run: |
           python -m pip install --upgrade pip
-          pip install markdown gspread oauth2client PyYAML
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            # Fallback, falls requirements.txt fehlt
+            pip install markdown pandas requests
+          fi
 
-      # 1) Sync aus SSOT (Google Sheet) → de/ en/
-      - name: Sync from Sheet
-        run: |
-          python sync-from-sheet.py
+      # 1) Optional: Sync aus Google Sheet (falls erwünscht)
+      # - name: Sync from Sheet
+      #   run: python sync-from-sheet.py
 
-      # 2) Build Site mit Sprach-Präfixen
+      # 2) Build der statischen Site
       - name: Build site
         run: |
           python build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
