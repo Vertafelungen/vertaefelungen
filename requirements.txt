@@ -1,5 +1,12 @@
-# Minimal set for build_site.py + sync-from-sheet.py
+# =============================================================================
+# requirements.txt
+# Version: 2025-09-11 21:25 (Europe/Berlin)
+# Zweck: Abhängigkeiten für sync-from-sheet.py und build_site.py
+# =============================================================================
 
+# Für build_site.py
 markdown>=3.6
+
+# Für sync-from-sheet.py
 pandas>=2.2
 requests>=2.31
