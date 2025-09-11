@@ -1,52 +1,84 @@
-name: Sync from Google Sheet
+# .github/workflows/sync-from-sheet.yml
+# Version: 2025-09-11 07:00 (Europe/Berlin)
+# Purpose: Pull data from Google Sheet -> generate Markdown + JSON via sync-from-sheet.py
+# Notes:
+# - Install Python deps (either from requirements.txt or fallback to explicit list)
+# - Commit changed files created by sync-from-sheet.py
+
+name: Sync from Sheet
 
 on:
-  schedule:
-    - cron: "0 3 * * *"   # 03:00 UTC
   workflow_dispatch:
-
-permissions:
-  contents: write
+  schedule:
+    - cron: "17 3 * * *"           # täglich 03:17 UTC (anpassen/entfernen, falls nicht gewünscht)
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install pandas requests
-
-      - name: Generate Markdown & produkte.{de,en}.json
-        env:
-          SHEET_ID: ${{ secrets.SHEET_ID }}
-          SHEET_GID: ${{ secrets.SHEET_GID }}
-          # Falls Inhalte in einem Unterordner liegen:
-          # CONTENT_ROOT: .
-        run: python sync-from-sheet.py
-
-      - name: Commit and push changes (MD + JSON)
+      - name: Install dependencies (requirements.txt preferred)
         shell: bash
         run: |
           set -euo pipefail
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          # Nur die Dateien, die wir erzeugen/ändern
-          git add -A
-          # Alternativ enger fassen:
-          # git add produkte.de.json produkte.en.json || true
-          # git add de/**/*.md en/**/*.md 2>/dev/null || true
-
-          if git diff --cached --quiet; then
-            echo "Keine Änderungen – nichts zu committen."
+          if [[ -f requirements.txt ]]; then
+            echo "Installing from requirements.txt…"
+            python -m pip install --upgrade pip
+            pip install -r requirements.txt
           else
-            git commit -m "Auto-sync from Google Sheet: update MD and JSON"
+            echo "No requirements.txt found – installing explicit deps…"
+            python -m pip install --upgrade pip
+            # gspread + its auth stack; add requests/PyYAML if your script uses them
+            pip install \
+              gspread \
+              google-auth \
+              google-auth-oauthlib \
+              google-auth-httplib2 \
+              requests \
+              PyYAML \
+              pandas
+          fi
+          python -c "import sys; print('Python:', sys.version)"
+          python -c "import pkgutil; print('gspread installed?:', bool(pkgutil.find_loader('gspread')))"
+
+      # Falls dein Script Service-Account-Creds aus einem Secret zieht, stelle
+      # das Secret hier zur Verfügung (Beispiel: GOOGLE_SERVICE_ACCOUNT_JSON):
+      # - name: Write Google service account credentials (optional)
+      #   if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
+      #   env:
+      #     GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      #   run: |
+      #     echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > service_account.json
+
+      - name: Generate Markdown & produkte.{de,en}.json
+        shell: bash
+        run: |
+          set -euo pipefail
+          python sync-from-sheet.py
+
+      - name: Commit and push changes (MD + JSON)
+        shell: bash
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          set -euo pipefail
+          git status --porcelain
+          if [[ -n "$(git status --porcelain)" ]]; then
+            TS="$(date -u +'%Y-%m-%d %H:%M:%S UTC')"
+            git add -A
+            git commit -m "sync-from-sheet: update content ($TS)"
             git push
+          else
+            echo "No content changes."
           fi
