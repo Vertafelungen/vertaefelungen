@@ -1,6 +1,6 @@
 # =============================================================================
 # Build & Deploy Wissen
-# Version: 2025-09-11 08:22 (Europe/Berlin)
+# Version: 2025-09-11 10:00 (Europe/Berlin)
 # =============================================================================
 
 name: Build & Deploy Wissen
@@ -27,36 +27,32 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies (requirements.txt preferred)
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            # Fallback, falls requirements.txt fehlt
-            pip install markdown pandas requests
-          fi
+          pip install -r requirements.txt
 
-      # 1) Optional: Sync aus Google Sheet (falls erwünscht)
+      # Falls du den Sync im selben Lauf machen willst, diesen Schritt aktivieren:
       # - name: Sync from Sheet
+      #   env:
+      #     GOOGLE_APPLICATION_CREDENTIALS: service-account.json
+      #     SHEET_KEY: ${{ secrets.SHEET_KEY }}
       #   run: python sync-from-sheet.py
 
-      # 2) Build der statischen Site
       - name: Build site
         run: |
           python build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
 
-      # 3) Validator
       - name: Validate links
         shell: bash
         run: |
           set -euo pipefail
-          echo "🔎 Prüfe auf Links ohne Sprachpräfix"
+          echo "🔎 Prüfe auf /wissen/-Links ohne Sprachpräfix"
           ALLOWED="de|en"
           BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!'"$ALLOWED"'/)' site || true)
           if [ -n "$BAD" ]; then
@@ -64,9 +60,13 @@ jobs:
             echo "$BAD" | head -n 20
             exit 1
           fi
+          # Hygiene: keine .git/.github/scripts/tools in site/
+          if find site -path "site/.git" -o -path "site/.github" -o -path "site/scripts" -o -path "site/tools" -print -quit | grep -q .; then
+            echo "ERROR: Unerwartete Ordner in site/ gefunden (.git/.github/scripts/tools)."
+            exit 1
+          fi
           echo "✅ Validator OK."
 
-      # 4) Deploy via SFTP
       - name: Deploy to /wissen (SFTP)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -79,7 +79,6 @@ jobs:
           sftp_only: true
           delete_remote_files: false
 
-      # 5) Verify Deploy
       - name: Verify deploy via HTTP
         run: |
           curl -fsSL https://www.vertaefelungen.de/wissen/de/ >/dev/null
