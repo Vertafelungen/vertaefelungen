@@ -1,9 +1,5 @@
-# requirements.txt
-# Version: 2025-09-09 22:45 (Europe/Berlin)
-gspread>=6.0.0
-google-auth>=2.30.0
-google-auth-oauthlib>=1.2.0
-google-auth-httplib2>=0.2.0
-requests>=2.32.0
-PyYAML>=6.0.1
-pandas>=2.2.2
+# Minimal set for build_site.py + sync-from-sheet.py
+
+markdown>=3.6
+pandas>=2.2
+requests>=2.31
