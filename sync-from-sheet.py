@@ -1,96 +1,112 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Sync aus Google Sheet → Markdown (DE/EN) + produkte.<lang>.json
-Version: 2025-09-08 16:45 (Europe/Berlin)
+sync-from-sheet.py
+Version: 2025-09-11 06:25 (Europe/Berlin)
 
-Wesentliche Änderung:
-- Link-Normalisierung erzeugt konsequent SPRACHRELATIVE Links.
-  Beispiele (für lang='de'):
-    /wissen/de/foo/bar      -> foo/bar
-    /de/foo/bar             -> foo/bar
-    ../foo/bar              -> ../foo/bar (belassen)
-    /wissen/foo/bar (ohne Sprachpräfix) -> foo/bar (Warnung im Log)
-    Absolute externe Links (https, mailto, tel) bleiben unverändert.
-
-Damit erhält der Builder genug Kontext, um nach /wissen/<lang>/... zu rewriten.
+Sync aus Google Sheet → Markdown-Dateien (de/, en/).
+Normalisiert alle internen Links auf /wissen/<lang>/…,
+sodass keine sprachlosen /wissen/-Links mehr entstehen.
 """
 
-from __future__ import annotations
-import os
 import re
-import json
-from datetime import datetime
+import os
+import gspread
+from oauth2client.service_account import ServiceAccountCredentials
+from pathlib import Path
+import yaml
 
-LANG_ROOT = os.getcwd()  # wird im Repo-Kontext aufgerufen
-OUTPUT_DIR = "."
+# ----------------------------------------------------------
+# Google Sheets Zugriff
+# ----------------------------------------------------------
+SCOPE = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+CREDS_FILE = os.environ.get("GOOGLE_APPLICATION_CREDENTIALS", "service-account.json")
+SHEET_KEY = os.environ.get("SHEET_KEY")
 
-EXTERNAL = ("http://", "https://", "mailto:", "tel:", "ftp://", "ftps://")
+if not SHEET_KEY:
+    raise SystemExit("❌ Bitte die Umgebungsvariable SHEET_KEY setzen.")
 
-def to_lang_relative(u: str, lang: str) -> str:
-    s = u.strip()
-    low = s.lower()
-    if not s or s.startswith("#") or low.startswith(EXTERNAL):
-        return s
+creds = ServiceAccountCredentials.from_json_keyfile_name(CREDS_FILE, SCOPE)
+gc = gspread.authorize(creds)
+sheet = gc.open_by_key(SHEET_KEY).sheet1
 
-    # /wissen/<lang>/...
-    pfx = f"/wissen/{lang}/"
-    if low.startswith(pfx):
-        return s[len(pfx):]
+# ----------------------------------------------------------
+# Hilfsfunktionen
+# ----------------------------------------------------------
+def to_lang_relative(url: str, lang: str) -> str:
+    """Macht aus /wissen/... → pfad relativ mit Sprachcode."""
+    if not url:
+        return url
+    u = url.strip()
+    if u.startswith("http://") or u.startswith("https://") or u.startswith("mailto:"):
+        return u
+    # /wissen/de/... → strip /wissen/de/
+    if u.startswith(f"/wissen/{lang}/"):
+        return u.split(f"/wissen/{lang}/", 1)[1]
+    # /de/... oder /en/... → strip
+    if u.startswith(f"/{lang}/"):
+        return u.split(f"/{lang}/", 1)[1]
+    # /wissen/... ohne Sprachpräfix → strip /wissen/
+    if u.startswith("/wissen/"):
+        return u.split("/wissen/", 1)[1]
+    return u.lstrip("/")
 
-    # /de/... oder /en/...
-    if low.startswith("/de/") or low.startswith("/en/"):
-        return s.split("/", 2)[2] if s.count("/") >= 2 else ""
+def normalize_links(text: str, lang: str) -> str:
+    """Korrigiert href/src und Markdown-Links auf /wissen/<lang>/…"""
+    if not text:
+        return text
+    # href/src mit oder ohne Quotes
+    text = re.sub(
+        r'\b(href|src)\s*=\s*(["\'])/wissen/(?!de/|en/)',
+        rf'\1=\2/wissen/{lang}/',
+        text,
+        flags=re.I,
+    )
+    text = re.sub(
+        r'\b(href|src)\s*=\s*/wissen/(?!de/|en/)',
+        rf'\1="/wissen/{lang}/',
+        text,
+        flags=re.I,
+    )
+    # Markdown-Links [text](/wissen/…)
+    text = re.sub(
+        r'\]\(\s*/wissen/(?!de/|en/)',
+        f'](/wissen/{lang}/',
+        text,
+        flags=re.I,
+    )
+    return text
 
-    # /wissen/... (ohne Sprachpräfix)
-    if low.startswith("/wissen/"):
-        rest = s.split("/wissen/", 1)[1].lstrip("/")
-        print(f"[sync] WARN: Root-Link ohne Sprachpräfix gefunden: {u} -> {rest}")
-        return rest
+# ----------------------------------------------------------
+# Hauptlogik
+# ----------------------------------------------------------
+def main():
+    rows = sheet.get_all_records()
+    for row in rows:
+        slug = row.get("slug")
+        lang = row.get("lang")  # "de" oder "en"
+        export_pfad = row.get(f"export_pfad_{lang}")
+        titel = row.get(f"titel_{lang}")
+        beschreibung = row.get(f"beschreibung_md_{lang}")
 
-    # Root-absolute interne Pfade "/foo/bar"
-    if s.startswith("/"):
-        return s.lstrip("/")
+        if not slug or not export_pfad:
+            continue
 
-    # Relativpfade belassen
-    return s
+        rel_path = Path(lang) / export_pfad / f"{slug}.md"
+        rel_path.parent.mkdir(parents=True, exist_ok=True)
 
-_LINK_ATTR_RE = re.compile(r'''(?P<attr>\b(?:href|src)\s*=\s*)(?P<q>["']?)(?P<url>[^"'\s>]+)(?P=q)''', re.IGNORECASE)
+        # Body vorbereiten
+        body = normalize_links(beschreibung, lang)
 
-def normalize_links_in_text(txt: str, lang: str) -> str:
-    def repl(m: re.Match) -> str:
-        attr, q, url = m.group("attr"), m.group("q") or '"', m.group("url")
-        return f'{attr}{q}{to_lang_relative(url, lang)}{q}'
-    return _LINK_ATTR_RE.sub(repl, txt)
+        content = {
+            "titel": titel,
+            "slug": slug,
+            "export_pfad": export_pfad,
+        }
 
-# -------------------------------------------------------------------
-# ... Hier folgt unveränderter Code deiner CSV/Sheets-Verarbeitung ...
-# -------------------------------------------------------------------
+        md_text = "---\n" + yaml.dump(content, allow_unicode=True) + "---\n\n" + (body or "")
+        rel_path.write_text(md_text, encoding="utf-8")
+        print(f"✅ geschrieben: {rel_path}")
 
-# (DEIN BESTEHENDER CODE) – Platzhalter:
-catalog_de = []
-catalog_en = []
-
-# Beispiel: Spracheinträge nachbearbeiten (Landing Pages)
-for lang in ("de", "en"):
-    for candidate in (f"{lang}/index.md", f"{lang}/_index.md"):
-        if os.path.isfile(candidate):
-            with open(candidate, "r", encoding="utf-8") as f:
-                txt = f.read()
-            new_txt = normalize_links_in_text(txt, lang)
-            if new_txt != txt:
-                with open(candidate, "w", encoding="utf-8") as f:
-                    f.write(new_txt)
-                print(f"[sync] {candidate}: Links normalisiert.")
-            else:
-                print(f"[sync] {candidate}: keine Anpassungen nötig.")
-
-# JSON schreiben
-os.makedirs(OUTPUT_DIR, exist_ok=True)
-produkte_de = {"language": "de", "generated": datetime.now().isoformat(), "items": catalog_de}
-produkte_en = {"language": "en", "generated": datetime.now().isoformat(), "items": catalog_en}
-with open(os.path.join(OUTPUT_DIR, "produkte.de.json"), "w", encoding="utf-8") as f:
-    json.dump(produkte_de, f, ensure_ascii=False, indent=2)
-with open(os.path.join(OUTPUT_DIR, "produkte.en.json"), "w", encoding="utf-8") as f:
-    json.dump(produkte_en, f, ensure_ascii=False, indent=2)
-print("[sync] produkte.de.json und produkte.en.json geschrieben.")
+if __name__ == "__main__":
+    main()
