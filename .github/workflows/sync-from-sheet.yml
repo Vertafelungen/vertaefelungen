@@ -1,15 +1,19 @@
 # .github/workflows/sync-from-sheet.yml
-# Updated: 2025-09-11 (Europe/Berlin)
-#
-# Zweck: Google Sheet -> JSON/Markdown synchronisieren
+# ------------------------------------------------------------
+# Sync from Google Sheet → erzeugt Markdown + produkte.{de,en}.json
+# Version: 2025-09-13 (Bitte Zeit ggf. lokal ergänzen)
+# ------------------------------------------------------------
 
 name: Sync from Sheet
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: {}
+  # optional: zeitgesteuert
+  # schedule:
+  #   - cron: "17 */6 * * *"   # alle 6h
 
 permissions:
-  contents: write
+  contents: write   # für Commit/Push der erzeugten Dateien
 
 jobs:
   sync:
@@ -26,42 +30,49 @@ jobs:
 
       - name: Install dependencies (requirements.txt preferred)
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          set -euo pipefail
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            # Fallback – sollte normalerweise nicht nötig sein
+            pip install gspread oauth2client PyYAML markdown
+          fi
 
-      # WICHTIG: Secrets nie direkt in der IF-Bedingung prüfen.
-      # Wir spiegeln das Secret in env und prüfen dann auf env.*.
+      # Service-Account nur schreiben, wenn Secret gesetzt ist
       - name: Write Google service account (if provided)
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
         run: |
+          set -euo pipefail
           echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > service-account.json
-          echo "Wrote service-account.json"
+          echo "service-account.json written."
 
+      # Wichtig: SHEET_ID → SHEET_KEY mappen, damit dein Script weiter funktioniert
       - name: Generate Markdown & produkte.{de,en}.json
         env:
-          # Manche Bibliotheken lesen GOOGLE_APPLICATION_CREDENTIALS aus.
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/service-account.json
+          SHEET_KEY: ${{ secrets.SHEET_ID }}          # Mapping!
+          SHEET_GID: ${{ secrets.SHEET_GID }}
+          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: |
           set -euo pipefail
-          # Falls das Script im Repo-Root liegt:
+          if [ -z "${SHEET_KEY:-}" ] && [ -z "${SHEET_CSV_URL:-}" ]; then
+            echo "SHEET_KEY (oder SHEET_CSV_URL) muss gesetzt sein." >&2
+            exit 1
+          fi
           python sync-from-sheet.py
 
-      # Optional: Änderungen automatisch committen & pushen.
-      # Das [skip ci] im Commit-Text verhindert, dass andere Workflows in eine Schleife geraten.
       - name: Commit and push changes (MD + JSON)
-        env:
-          GIT_AUTHOR_NAME: github-actions[bot]
-          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
-          GIT_COMMITTER_NAME: github-actions[bot]
-          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
         run: |
           set -euo pipefail
-          git status --porcelain
-          if [ -n "$(git status --porcelain)" ]; then
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Nur committen, wenn es Änderungen gibt
+          if ! git diff --quiet; then
             git add -A
-            git commit -m "Sync from Google Sheet [skip ci]"
+            git commit -m "chore(sync): update content & produkte JSONs"
             git push
           else
             echo "No changes to commit."
