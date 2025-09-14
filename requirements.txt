@@ -1,13 +1,13 @@
-# =============================================================================
 # requirements.txt
-# Version: 2025-09-11 10:00 (Europe/Berlin)
-# Zweck: Abhängigkeiten für sync-from-sheet.py und build_site.py
-# =============================================================================
+# Version: 2025-09-14 08:35 (Europe/Berlin)
+# Zweck: Abhängigkeiten für Wissensdatenbank (Build & Sync)
 
-# Für build_site.py (Markdown-Render)
+# Markdown-Rendering für build_site.py
 markdown>=3.6
 
-# Für sync-from-sheet.py (Google Sheets + YAML)
-gspread==5.12.0
-oauth2client==4.1.3
+# YAML-Frontmatter & JSON-LD
 PyYAML>=6.0.1
+
+# CSV/Sheets-Sync (statt gspread)
+pandas>=2.2
+requests>=2.32
