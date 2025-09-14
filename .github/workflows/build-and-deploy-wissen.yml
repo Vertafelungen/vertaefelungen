@@ -1,70 +1,97 @@
-# =============================================================================
-# Build & Deploy Wissen
-# Version: 2025-09-11 10:00 (Europe/Berlin)
-# =============================================================================
+# .github/workflows/build-and-deploy-wissen.yml
+# Version: 2025-09-14 09:50 (Europe/Berlin)
+# Zweck: Statische Wissensseite bauen, validieren und nach /wissen deployen
 
 name: Build & Deploy Wissen
 
 on:
+  workflow_dispatch:
   push:
     branches: [ main ]
+    # Nur inhaltlich relevante Änderungen triggern den Build
     paths:
       - "de/**"
       - "en/**"
       - "assets/**"
-      - "scripts/**"
-      - "sync-from-sheet.py"
       - "build_site.py"
       - "requirements.txt"
-      - ".github/workflows/build-and-deploy-wissen.yml"
-  workflow_dispatch:
+
+concurrency:
+  group: build-and-deploy-wissen
+  cancel-in-progress: true
 
 jobs:
   build-deploy:
+    # Keine Builds auf Bot-Commits oder Commits mit [skip ci]
+    if: github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
+    env:
+      PYTHONUTF8: "1"   # sichert UTF-8-IO in Python
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
+      - name: Install dependencies (requirements.txt)
         run: |
+          set -euo pipefail
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-      # Falls du den Sync im selben Lauf machen willst, diesen Schritt aktivieren:
-      # - name: Sync from Sheet
-      #   env:
-      #     GOOGLE_APPLICATION_CREDENTIALS: service-account.json
-      #     SHEET_KEY: ${{ secrets.SHEET_KEY }}
-      #   run: python sync-from-sheet.py
+          python - << 'PY'
+import sys
+import pkgutil
+print("Python:", sys.version)
+print("markdown?", bool(pkgutil.find_loader("markdown")))
+print("yaml?", bool(pkgutil.find_loader("yaml")))
+PY
 
       - name: Build site
         run: |
+          set -euo pipefail
           python build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
 
-      - name: Validate links
-        shell: bash
+      # Safety-Pass: fehlende Sprachpräfixe /wissen/ → /wissen/<lang>/ ergänzen
+      - name: Normalize /wissen/ prefixes per language (post-build, PCRE)
         run: |
           set -euo pipefail
-          echo "🔎 Prüfe auf /wissen/-Links ohne Sprachpräfix"
+          fix_lang () {
+            L="$1"
+            D="site/$L"
+            [ -d "$D" ] || return 0
+            FILES="$(find "$D" -type f -name "*.html")"
+            [ -n "$FILES" ] || return 0
+            echo "🔧 Normalizing /wissen/ → /wissen/$L/ in $D"
+            # Quotes & no-quotes Varianten
+            perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' $FILES
+            perl -0777 -i -pe 's/\b(href|src)=\/wissen\/(?!de\/|en\/)/$1=\/wissen\/'"$L"'\//gi' $FILES
+          }
+          fix_lang de
+          fix_lang en
+
+      # Validator: 1) sprachlose /wissen/-Links  2) Hygiene in site/
+      - name: Validate output
+        run: |
+          set -euo pipefail
+          echo "🔎 Prüfe /wissen/-Links ohne Sprachpräfix"
           ALLOWED="de|en"
           BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!'"$ALLOWED"'/)' site || true)
           if [ -n "$BAD" ]; then
-            echo "ERROR: Links ohne Sprachpräfix (erste 20):"
+            echo "ERROR: Links ohne Sprachpräfix gefunden (erste 20):"
             echo "$BAD" | head -n 20
             exit 1
           fi
-          # Hygiene: keine .git/.github/scripts/tools in site/
+
+          echo "🔎 Hygiene: verbotene Ordner in site/"
           if find site -path "site/.git" -o -path "site/.github" -o -path "site/scripts" -o -path "site/tools" -print -quit | grep -q .; then
-            echo "ERROR: Unerwartete Ordner in site/ gefunden (.git/.github/scripts/tools)."
+            echo "ERROR: Unerwartete Ordner in site/ (.git/.github/scripts/tools)."
             exit 1
           fi
+
           echo "✅ Validator OK."
 
       - name: Deploy to /wissen (SFTP)
@@ -75,11 +102,12 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: "site/*"
-          remote_path: ${{ secrets.SFTP_TARGET }}
+          remote_path: ${{ secrets.SFTP_TARGET }}   # z. B. /wissen
           sftp_only: true
-          delete_remote_files: false
+          delete_remote_files: true                 # entfernt Zombie-HTMLs
 
       - name: Verify deploy via HTTP
         run: |
+          set -euo pipefail
           curl -fsSL https://www.vertaefelungen.de/wissen/de/ >/dev/null
           echo "✅ HTTP check OK"
