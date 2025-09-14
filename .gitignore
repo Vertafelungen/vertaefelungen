@@ -1,0 +1,9 @@
+# Build artefacts
+/site/
+/wissen/
+/*.jsonld
+/service-account.json
+
+# OS / editors
+.DS_Store
+*.swp
