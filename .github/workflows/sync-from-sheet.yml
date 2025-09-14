@@ -1,79 +1,81 @@
 # .github/workflows/sync-from-sheet.yml
-# ------------------------------------------------------------
-# Sync from Google Sheet → erzeugt Markdown + produkte.{de,en}.json
-# Version: 2025-09-13 (Bitte Zeit ggf. lokal ergänzen)
-# ------------------------------------------------------------
+# Version: 2025-09-14 08:47 (Europe/Berlin)
+#
+# Zweck:
+# - Synchronisiert Inhalte aus Google Sheet → Markdown (de/, en/) und produkte.json
+# - Stellt sicher, dass alle Links und Inhalte UTF-8-korrekt ins Repo geschrieben werden
+# - Commit & Push mit [skip ci], um Build-Endlosschleifen zu vermeiden
 
 name: Sync from Sheet
 
 on:
-  workflow_dispatch: {}
-  # optional: zeitgesteuert
-  # schedule:
-  #   - cron: "17 */6 * * *"   # alle 6h
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"   # täglich um 03:17 UTC (04:17/05:17 CET/CEST)
 
 permissions:
-  contents: write   # für Commit/Push der erzeugten Dateien
+  contents: write
 
 jobs:
   sync:
     runs-on: ubuntu-latest
+    concurrency:
+      group: sync-from-sheet
+      cancel-in-progress: true
+
+    env:
+      SHEET_ID: ${{ secrets.SHEET_ID }}
+      SHEET_GID: ${{ secrets.SHEET_GID }}
+      SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install dependencies (requirements.txt preferred)
+      - name: Install dependencies
         run: |
           set -euo pipefail
+          python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then
             pip install -r requirements.txt
           else
-            # Fallback – sollte normalerweise nicht nötig sein
-            pip install gspread oauth2client PyYAML markdown
+            echo "❌ requirements.txt fehlt. Bitte im Repo-Root bereitstellen."
+            exit 1
           fi
 
-      # Service-Account nur schreiben, wenn Secret gesetzt ist
       - name: Write Google service account (if provided)
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
         run: |
-          set -euo pipefail
           echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > service-account.json
-          echo "service-account.json written."
+          echo "✅ service-account.json geschrieben."
 
-      # Wichtig: SHEET_ID → SHEET_KEY mappen, damit dein Script weiter funktioniert
-      - name: Generate Markdown & produkte.{de,en}.json
-        env:
-          SHEET_KEY: ${{ secrets.SHEET_ID }}          # Mapping!
-          SHEET_GID: ${{ secrets.SHEET_GID }}
-          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+      - name: Run sync-from-sheet.py
         run: |
           set -euo pipefail
-          if [ -z "${SHEET_KEY:-}" ] && [ -z "${SHEET_CSV_URL:-}" ]; then
-            echo "SHEET_KEY (oder SHEET_CSV_URL) muss gesetzt sein." >&2
+          if [ -z "${SHEET_ID:-}" ] || [ -z "${SHEET_GID:-}" ]; then
+            echo "❌ SHEET_ID oder SHEET_GID fehlt (Repo-Secrets)."
             exit 1
           fi
           python sync-from-sheet.py
 
-      - name: Commit and push changes (MD + JSON)
+      - name: Commit and push changes
         run: |
           set -euo pipefail
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          # Nur committen, wenn es Änderungen gibt
           if ! git diff --quiet; then
+            TS="$(date +'%Y-%m-%d %H:%M:%S %Z')"
             git add -A
-            git commit -m "chore(sync): update content & produkte JSONs"
+            git commit -m "chore(sync): update content from Sheet ($TS) [skip ci]"
             git push
           else
-            echo "No changes to commit."
+            echo "ℹ️ Keine Änderungen zu committen."
           fi
