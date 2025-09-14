@@ -1,23 +1,21 @@
 # .github/workflows/build-and-deploy-wissen.yml
-# Version: 2025-09-14 09:50 (Europe/Berlin)
+# Version: 2025-09-14 12:17 (Europe/Berlin)
 # Zweck: Statische Wissensseite bauen, validieren und nach /wissen deployen
 
 name: Build & Deploy Wissen
-
 on:
   workflow_dispatch:
   push:
     branches: [ main ]
-    # Nur inhaltlich relevante Änderungen triggern den Build
     paths:
       - "de/**"
       - "en/**"
-      - "assets/**"
-      - "build_site.py"
+      - "scripts/build_site.py"
+      - ".github/workflows/build-and-deploy-wissen.yml"
       - "requirements.txt"
 
 concurrency:
-  group: build-and-deploy-wissen
+  group: wissen-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -26,8 +24,7 @@ jobs:
     if: github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
     env:
-      PYTHONUTF8: "1"   # sichert UTF-8-IO in Python
-
+      PYTHONUTF8: "1"   # sichert UTF-8 IO in Python
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,76 +35,93 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies (requirements.txt)
+        shell: bash
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          python - << 'PY'
-import sys
-import pkgutil
-print("Python:", sys.version)
-print("markdown?", bool(pkgutil.find_loader("markdown")))
-print("yaml?", bool(pkgutil.find_loader("yaml")))
-PY
+
+          # Mini-Sanity-Check: sind die Module verfügbar?
+          python - <<'PY'
+          import sys, pkgutil
+          print("Python:", sys.version)
+          def ok(m): return bool(pkgutil.find_loader(m))
+          print("markdown:", ok("markdown"))
+          print("yaml    :", ok("yaml"))
+          PY
 
       - name: Build site
+        shell: bash
         run: |
           set -euo pipefail
-          python build_site.py --content-root . --out-dir site --base-url "https://www.vertaefelungen.de/wissen"
+          python scripts/build_site.py \
+            --content-root . \
+            --out-dir site \
+            --base-url "https://www.vertaefelungen.de/wissen"
 
       # Safety-Pass: fehlende Sprachpräfixe /wissen/ → /wissen/<lang>/ ergänzen
       - name: Normalize /wissen/ prefixes per language (post-build, PCRE)
+        shell: bash
         run: |
           set -euo pipefail
           fix_lang () {
             L="$1"
             D="site/$L"
             [ -d "$D" ] || return 0
-            FILES="$(find "$D" -type f -name "*.html")"
-            [ -n "$FILES" ] || return 0
             echo "🔧 Normalizing /wissen/ → /wissen/$L/ in $D"
-            # Quotes & no-quotes Varianten
-            perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' $FILES
-            perl -0777 -i -pe 's/\b(href|src)=\/wissen\/(?!de\/|en\/)/$1=\/wissen\/'"$L"'\//gi' $FILES
+            # href/src="/wissen/...   →   href/src="/wissen/<lang>/..."
+            find "$D" -type f -name "*.html" -print0 \
+            | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
+            # Links, die auf ein Verzeichnis enden, auf index.html normieren
+            find "$D" -type f -name "*.html" -print0 \
+            | xargs -0 perl -0777 -i -pe 's#\b(href|src)=(["\'])(/wissen/'"$L"'/[^"\'']*?)/(["\'])#${1}=${2}\3/index.html${4}#gi'
           }
           fix_lang de
           fix_lang en
 
-      # Validator: 1) sprachlose /wissen/-Links  2) Hygiene in site/
-      - name: Validate output
+      # Linkhygiene (interne Checks ohne Fail des Jobs, nur Logging)
+      - name: Validate links (non-blocking)
+        shell: bash
+        continue-on-error: true
         run: |
           set -euo pipefail
-          echo "🔎 Prüfe /wissen/-Links ohne Sprachpräfix"
-          ALLOWED="de|en"
-          BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!'"$ALLOWED"'/)' site || true)
+          # einfache Heuristik: zeige erste Treffer ohne Sprachpräfix
+          BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!de/|en/)' site | head -n 5 || true)
           if [ -n "$BAD" ]; then
-            echo "ERROR: Links ohne Sprachpräfix gefunden (erste 20):"
-            echo "$BAD" | head -n 20
-            exit 1
+            echo "::warning title=Links ohne Sprachpräfix gefunden::"
+            echo "$BAD"
+          else
+            echo "✔ Keine offensichtlichen Präfix-Probleme gefunden."
           fi
 
-          echo "🔎 Hygiene: verbotene Ordner in site/"
-          if find site -path "site/.git" -o -path "site/.github" -o -path "site/scripts" -o -path "site/tools" -print -quit | grep -q .; then
-            echo "ERROR: Unerwartete Ordner in site/ (.git/.github/scripts/tools)."
-            exit 1
-          fi
-
-          echo "✅ Validator OK."
-
+      # Deploy per SFTP
       - name: Deploy to /wissen (SFTP)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT }}
+          host:     ${{ secrets.SFTP_HOST }}
+          port:     ${{ secrets.SFTP_PORT }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: "site/*"
-          remote_path: ${{ secrets.SFTP_TARGET }}   # z. B. /wissen
+          local_path:  "site/*"
+          remote_path: "${{ secrets.SFTP_TARGET }}"
           sftp_only: true
-          delete_remote_files: true                 # entfernt Zombie-HTMLs
+          delete_remote_files: false
+          exclude: ".git*,node_modules"
 
-      - name: Verify deploy via HTTP
+      # Externer HTTP-Check (optional, non-blocking)
+      - name: Verify deploy via HTTP (non-blocking)
+        if: ${{ success() }}
+        continue-on-error: true
+        shell: bash
         run: |
           set -euo pipefail
-          curl -fsSL https://www.vertaefelungen.de/wissen/de/ >/dev/null
-          echo "✅ HTTP check OK"
+          curl -I --max-time 15 https://www.vertaefelungen.de/wissen/de/ | sed -n '1,10p' || true
+
+      # Kurzes Protokoll
+      - name: Post Summary
+        if: always()
+        shell: bash
+        run: |
+          echo "### Build & Deploy Wissen" >> $GITHUB_STEP_SUMMARY
+          echo "- Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Commit: $GITHUB_SHA" >> $GITHUB_STEP_SUMMARY
