@@ -2,217 +2,210 @@
 # -*- coding: utf-8 -*-
 """
 sync-from-sheet.py
-Version: 2025-09-14 10:30 (Europe/Berlin)
+Version: 2025-09-14 14:10 (Europe/Berlin)
 
-Zweck
-- Liest Content aus einem Google Sheet (CSV-Export) via requests/pandas
-- Schreibt Markdown-Dateien in de/ und en/ (UTF-8) mit YAML-Frontmatter
-- Normalisiert interne Links auf /wissen/<lang>/… (href/src & Markdown-Links)
-- Erzeugt zwei Index-Dateien: produkte.de.json und produkte.en.json
+Zweck:
+- CSV aus Google Sheets laden (via SHEET_CSV_URL ODER SHEET_ID + SHEET_GID)
+- Aus jeder Zeile Markdown-Seiten (de/en) mit sauberem YAML-Frontmatter erzeugen
+- Produkte-JSON (de/en) für Tools exportieren
 
-Erwartete Umgebungsvariablen (über GitHub Actions gesetzt):
-- SHEET_ID        : Google Sheet ID (Pflicht, wenn SHEET_CSV_URL fehlt)
-- SHEET_GID       : Tabellen-GID (Pflicht, wenn SHEET_CSV_URL fehlt)
-- SHEET_CSV_URL   : optional komplette CSV-URL (überschreibt SHEET_ID/GID)
-- GOOGLE_SERVICE_ACCOUNT_JSON : optional (nicht benötigt für CSV)
-
-Erwartete Spalten (robust; fehlende werden toleriert):
-- slug                         (z. B. p0001)
-- lang                         ("de" oder "en") – optional; siehe unten
-- export_pfad_de, export_pfad_en
-- titel_de, titel_en
-- beschreibung_md_de, beschreibung_md_en
-- description_de, description_en            (optional; Meta-Description)
-- jsonld_de, jsonld_en                      (optional; JSON-String pro Seite)
-- is_product / typ                          (optional: Kennzeichen für Produkte)
+Abhängigkeiten (siehe requirements.txt):
+- pandas>=2.2
+- requests>=2.32
+- PyYAML>=6.0.1
 """
 
 from __future__ import annotations
 
-import json
 import os
-import re
+import sys
+import json
+import unicodedata
 from pathlib import Path
-from typing import Dict, Any, List, Optional
+from typing import Any, Dict, List, Optional
 
 import pandas as pd
 import requests
 import yaml
 
 
-# -----------------------------------------------------------------------------
-# Konfiguration & Hilfsfunktionen
-# -----------------------------------------------------------------------------
+# ------------------------------------------------------------
+# Utils
+# ------------------------------------------------------------
 
-CSV_TIMEOUT = 30  # Sekunden
-
-
-def csv_url_from_env() -> str:
-    """Ermittelt die CSV-Export-URL aus Umgebungsvariablen."""
-    direct = os.environ.get("SHEET_CSV_URL", "").strip()
-    if direct:
-        return direct
-    sheet_id = os.environ.get("SHEET_ID", "").strip()
-    gid = os.environ.get("SHEET_GID", "").strip()
-    if not sheet_id or not gid:
-        raise SystemExit(
-            "❌ SHEET_ID und/oder SHEET_GID fehlen. Setze entweder SHEET_CSV_URL "
-            "oder beide Variablen SHEET_ID und SHEET_GID."
-        )
-    return f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
+ROOT = Path(__file__).resolve().parent
+SITE_DE = ROOT / "de"
+SITE_EN = ROOT / "en"
+TOOLS_DIR = ROOT / "tools"
 
 
-# Links normalisieren: /wissen/ → /wissen/<lang>/ …
-_HREF_SRC_QUOTED = re.compile(r'\b(href|src)\s*=\s*(["\'])/wissen/(?!de/|en/)', re.I)
-_HREF_SRC_BARE = re.compile(r'\b(href|src)\s*=\s*/wissen/(?!de/|en/)', re.I)
-_MD_WISSEN = re.compile(r'\]\(\s*/wissen/(?!de/|en/)', re.I)
-
-
-def normalize_links(text: str, lang: str) -> str:
-    """Korrigiert href/src + Markdown-Links auf /wissen/<lang>/…"""
-    if not text:
-        return text
-    t = _HREF_SRC_QUOTED.sub(rf'\1=\2/wissen/{lang}/', text)
-    t = _HREF_SRC_BARE.sub(rf'\1="/wissen/{lang}/', t)
-    t = _MD_WISSEN.sub(f'](/wissen/{lang}/', t)
-    return t
+def nfc(s: Any) -> str:
+    """Unicode-NFC-Normalisierung + trim, robust gegen None."""
+    if s is None:
+        return ""
+    if not isinstance(s, str):
+        s = str(s)
+    return unicodedata.normalize("NFC", s).strip()
 
 
 def ensure_dir(p: Path) -> None:
-    p.parent.mkdir(parents=True, exist_ok=True)
+    p.mkdir(parents=True, exist_ok=True)
 
 
-def safe_json_loads(s: str) -> Optional[Any]:
-    s = (s or "").strip()
-    if not s:
-        return None
-    try:
-        return json.loads(s)
-    except Exception:
-        # Falls im Sheet versehentlich Single-Quotes verwendet wurden
-        try:
-            return json.loads(s.replace("'", '"'))
-        except Exception:
-            return None
+def read_csv_from_google() -> pd.DataFrame:
+    """
+    CSV laden:
+      - bevorzugt SHEET_CSV_URL
+      - sonst aus SHEET_ID + SHEET_GID zusammenbauen
+    """
+    csv_url = os.getenv("SHEET_CSV_URL", "").strip()
+    sheet_id = os.getenv("SHEET_ID", "").strip()
+    gid = os.getenv("SHEET_GID", "").strip()
 
+    if not csv_url:
+        if not sheet_id or not gid:
+            print("❌ Weder SHEET_CSV_URL noch (SHEET_ID + SHEET_GID) gesetzt.", file=sys.stderr)
+            sys.exit(1)
+        csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
 
-# -----------------------------------------------------------------------------
-# Datenzugriff
-# -----------------------------------------------------------------------------
+    print(f"📥 Lade CSV aus: {csv_url}")
 
-def load_sheet_df() -> pd.DataFrame:
-    url = csv_url_from_env()
-    print(f"📥 Lade CSV aus: {url}")
-    resp = requests.get(url, timeout=CSV_TIMEOUT)
-    if resp.status_code != 200:
-        raise SystemExit(f"❌ CSV-Download fehlgeschlagen (HTTP {resp.status_code})")
-    content = resp.content  # bytes
-    # pandas erkennt UTF-8 in der Regel automatisch; wir zwingen es explizit
-    df = pd.read_csv(pd.io.common.BytesIO(content), dtype=str, keep_default_na=False, encoding="utf-8")
-    print(f"✅ CSV geladen: {len(df)} Zeilen, {len(df.columns)} Spalten")
+    # Direkt mit pandas lesen (requests-Header sind normalerweise nicht notwendig)
+    df = pd.read_csv(csv_url, dtype=str, keep_default_na=False, encoding="utf-8")
+    # Alle Spalten und Werte nfc-normalisieren
+    df.columns = [nfc(c) for c in df.columns]
+    for c in df.columns:
+        df[c] = df[c].map(nfc)
+    print(f"✅ CSV geladen: {len(df):d} Zeilen, {len(df.columns):d} Spalten")
     return df
 
 
-# -----------------------------------------------------------------------------
-# Hauptlogik
-# -----------------------------------------------------------------------------
+def first_nonempty(d: Dict[str, str], keys: List[str], default: str = "") -> str:
+    for k in keys:
+        v = d.get(k, "")
+        if v:
+            return v
+    return default
 
-def row_to_page_payload(row: Dict[str, str], lang: str) -> Optional[Dict[str, Any]]:
+
+def build_frontmatter(row: Dict[str, str], lang: str) -> Dict[str, Any]:
     """
-    Baut den Payload für eine Sprach-Seite aus einer Zeile.
-    Funktioniert sowohl mit Zeilen pro Item (ohne "lang"-Spalte) als auch mit
-    Zeilen pro Sprache (mit "lang").
+    Erzeuge YAML-Frontmatter. Greift flexibel auf gängige Spalten zu.
     """
-    lang = lang.lower()
-    slug = (row.get("slug") or "").strip()
-    if not slug:
-        return None
+    if lang not in ("de", "en"):
+        raise ValueError("lang must be 'de' or 'en'")
 
-    # Wenn die Zeile explizit eine Sprache trägt, nur diese akzeptieren
-    row_lang = (row.get("lang") or "").strip().lower()
-    if row_lang in ("de", "en") and row_lang != lang:
-        return None
+    title = first_nonempty(
+        row,
+        [f"meta_title_{lang}", f"title_{lang}", "title"],
+        default=""
+    )
 
-    titel = (row.get(f"titel_{lang}") or "").strip()
-    export_pfad = (row.get(f"export_pfad_{lang}") or "").strip()
-    beschreibung_md = (row.get(f"beschreibung_md_{lang}") or "").strip()
-    meta_desc = (row.get(f"description_{lang}") or "").strip()
-    jsonld_str = row.get(f"jsonld_{lang}") or ""
+    description = first_nonempty(
+        row,
+        [f"meta_description_{lang}", f"description_{lang}", "description"],
+        default=""
+    )
 
-    if not export_pfad:
-        # ohne Zielordner keine Seite
-        return None
-
-    body = normalize_links(beschreibung_md, lang)
-    jsonld = safe_json_loads(jsonld_str)
-
-    fm = {
-        "titel": titel or slug,
-        "slug": slug,
-        "export_pfad": export_pfad,
+    fm: Dict[str, Any] = {
+        "lang": lang,
+        "title": title,
+        "description": description,
     }
-    if meta_desc:
-        fm["description"] = meta_desc
-    if jsonld is not None:
-        fm["jsonld"] = jsonld
 
-    return {"frontmatter": fm, "body": body, "lang": lang}
+    # Optional: ein paar häufige Felder durchreichen, falls im Sheet vorhanden
+    for key in ("kategorie_raw", "bilder_liste", "bilder_alt_de", "bilder_alt_en"):
+        if key in row and row[key]:
+            fm[key] = row[key]
+
+    return fm
 
 
-def write_markdown(payload: Dict[str, Any]) -> Path:
-    lang = payload["lang"]
-    fm = payload["frontmatter"]
-    body = payload["body"] or ""
-    export_pfad = fm["export_pfad"]
-    slug = fm["slug"]
+def write_markdown(lang: str, export_path: str, frontmatter: Dict[str, Any], body: str = "") -> Path:
+    """
+    Schreibt eine Datei <lang>/<export_path>/index.md mit YAML-Frontmatter.
+    Achtung: export_path kommt sheet-seitig ohne führenden Slash (z. B. 'oeffentlich/produkte/...').
+    """
+    base = SITE_DE if lang == "de" else SITE_EN
+    out_dir = base / export_path.strip("/")
 
-    out_md = Path(lang) / export_pfad / f"{slug}.md"
-    ensure_dir(out_md)
+    ensure_dir(out_dir)
+    out_file = out_dir / "index.md"
 
-    front = yaml.dump(fm, allow_unicode=True, sort_keys=False).strip()
-    md_text = f"---\n{front}\n---\n\n{body.strip()}\n"
-    out_md.write_text(md_text, encoding="utf-8")
-    print(f"📝 geschrieben: {out_md}")
-    return out_md
+    # YAML sicher erzeugen
+    yaml_text = yaml.safe_dump(frontmatter, sort_keys=False, allow_unicode=True).strip()
+    content = f"---\n{yaml_text}\n---\n\n{body.strip()}\n"
 
+    out_file.write_text(content, encoding="utf-8")
+    return out_file
+
+
+def add_to_catalog(catalog: List[Dict[str, Any]], lang: str, export_path: str, fm: Dict[str, Any]) -> None:
+    """
+    Fügt einen Katalogeintrag für die JSON-Exports hinzu.
+    """
+    catalog.append({
+        "lang": lang,
+        "path": f"{lang}/{export_path.strip('/')}/",
+        "title": fm.get("title", ""),
+        "description": fm.get("description", ""),
+        "category": fm.get("kategorie_raw", ""),
+    })
+
+
+def write_catalogs_json(prod_de: List[Dict[str, Any]], prod_en: List[Dict[str, Any]]) -> None:
+    ensure_dir(TOOLS_DIR)
+    (TOOLS_DIR / "produkte.de.json").write_text(json.dumps(prod_de, ensure_ascii=False, indent=2), encoding="utf-8")
+    (TOOLS_DIR / "produkte.en.json").write_text(json.dumps(prod_en, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+# ------------------------------------------------------------
+# Main
+# ------------------------------------------------------------
 
 def main() -> None:
-    df = load_sheet_df()
+    df = read_csv_from_google()
 
-    # Sammeln für Index-JSONs
-    index_by_lang: Dict[str, List[Dict[str, Any]]] = {"de": [], "en": []}
+    # records: Liste[Dict[str, str]]
+    records: List[Dict[str, str]] = df.fillna("").to_dict(orient="records")
 
-    # Pro Zeile ggf. für beide Sprachen generieren
-    for _, r in df.fillna("").to_dict(orient="records"):
-        # erst DE
-        de_payload = row_to_page_payload(r, "de")
-        if de_payload:
-            write_markdown(de_payload)
-            index_by_lang["de"].append({
-                "slug": de_payload["frontmatter"]["slug"],
-                "titel": de_payload["frontmatter"].get("titel"),
-                "export_pfad": de_payload["frontmatter"]["export_pfad"],
-                "description": de_payload["frontmatter"].get("description", ""),
-            })
-        # dann EN
-        en_payload = row_to_page_payload(r, "en")
-        if en_payload:
-            write_markdown(en_payload)
-            index_by_lang["en"].append({
-                "slug": en_payload["frontmatter"]["slug"],
-                "titel": en_payload["frontmatter"].get("titel"),
-                "export_pfad": en_payload["frontmatter"]["export_pfad"],
-                "description": en_payload["frontmatter"].get("description", ""),
-            })
+    products_de: List[Dict[str, Any]] = []
+    products_en: List[Dict[str, Any]] = []
 
-    # Index-JSONs schreiben (für nachgelagerte Prozesse/Analysen)
-    for lang in ("de", "en"):
-        out_json = Path(f"produkte.{lang}.json")
-        out_json.write_text(json.dumps(index_by_lang[lang], ensure_ascii=False, indent=2), encoding="utf-8")
-        print(f"📦 Index geschrieben: {out_json} ({len(index_by_lang[lang])} Einträge)")
+    for row in records:  # <-- WICHTIG: kein Unpacking mehr!
+        # Export-Pfade aus dem Sheet (siehe Screenshots: export_pfad_de/export_pfad_en)
+        path_de = first_nonempty(row, ["export_pfad_de", "exportpfad_de", "pfad_de"]).strip("/")
+        path_en = first_nonempty(row, ["export_pfad_en", "exportpfad_en", "pfad_en"]).strip("/")
 
-    print("✅ Sync abgeschlossen.")
+        # Wenn keine Export-Pfade vorhanden sind, überspringen
+        if not path_de and not path_en:
+            # Optional: Log
+            # print("⚠️  Zeile ohne export_pfad_de/en – wird übersprungen.")
+            continue
+
+        # Frontmatter DE
+        if path_de:
+            fm_de = build_frontmatter(row, "de")
+            md_de = write_markdown("de", path_de, fm_de, body="")
+            add_to_catalog(products_de, "de", path_de, fm_de)
+            # Optionales Log:
+            # print(f"📝 de: {md_de}")
+
+        # Frontmatter EN
+        if path_en:
+            fm_en = build_frontmatter(row, "en")
+            md_en = write_markdown("en", path_en, fm_en, body="")
+            add_to_catalog(products_en, "en", path_en, fm_en)
+            # Optionales Log:
+            # print(f"📝 en: {md_en}")
+
+    write_catalogs_json(products_de, products_en)
+    print(f"✅ Markdown & JSON erzeugt: {len(products_de)} (de), {len(products_en)} (en)")
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as exc:
+        print(f"❌ Fehler: {exc}", file=sys.stderr)
+        sys.exit(1)
