@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 build_site.py
-Version: 2025-09-14 14:45 (Europe/Berlin)
+Version: 2025-09-14 08:45 (Europe/Berlin)
 
 Zweck:
 - Rendert Markdown-Dateien (de/, en/) zu HTML (site/)
