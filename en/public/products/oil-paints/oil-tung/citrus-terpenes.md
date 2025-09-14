@@ -1,4 +1,4 @@
----
+***
 title: "Citrus Terpenes"
 description: "Natural orange terpenes from untreated citrus peel – high-solvency cleaner and thinner for resins and oil mixtures. Strong effect, pleasant scent, biodegradable."
 seo_title: "Citrus Terpenes – Natural Orange Cleaner & Resin Thinner | Vertäfelung & Lambris"
@@ -33,7 +33,7 @@ variants:
     sku: "CIT 20"
     availability: "3–5 Tage Lieferzeit"
     price: 18.55
----
+***
 
 ## Description
 Citrus terpenes are natural solvents extracted from untreated orange peels. They offer excellent cleaning and degreasing properties, and are ideal for dissolving resins and thinning natural oil-based products. Fully evaporates with a pleasant citrus scent.

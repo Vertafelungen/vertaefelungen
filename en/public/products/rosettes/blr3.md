@@ -1,4 +1,4 @@
----
+***
 slug: "blr3"
 product_id: "60"
 reference: "BLR 3"
@@ -32,7 +32,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/en/ventilation-rosettes/60-ventilation-rosette-3.html"
 last_updated: "2025-09-01"
----
+***
 
 # Ventilation Rosette 3
 

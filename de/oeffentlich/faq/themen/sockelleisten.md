@@ -1,4 +1,4 @@
----
+***
 title: "Fußleisten und Sockelleisten: Formen, Funktion, Restaurierung"
 slug: "faq-fussleisten-sockelleisten"
 kategorie: "FAQ"
@@ -8,13 +8,13 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "de"
 beschreibung: "FAQ zu Fußleisten und Sockelleisten: typische Profile, Verwendung, Materialien, Montage und Restaurierung im Altbau."
----
+***
 
 # FAQ: Fußleisten – Sockelleisten
 ## 1. Was sind Fußleisten und Sockelleisten?
 Fußleisten (auch Sockelleisten genannt) sind horizontale Leisten aus Holz, die den Übergang zwischen Wand und Boden abdecken. Sie schützen die Wand vor Stößen und Verschmutzung und sorgen für einen sauberen Abschluss des Bodenbelags.
 
----
+***
 
 ## 2. Welche Profile und Bauformen sind typisch?
 - **Gerade Leisten:** schlicht, rechteckig oder leicht gefast
@@ -25,12 +25,12 @@ Fußleisten (auch Sockelleisten genannt) sind horizontale Leisten aus Holz, die 
 
 - **Individuelle Sonderprofile:** nach Vorlage oder Anpassung an vorhandene Leisten
 
----
+***
 
 ## 3. Welche Hölzer werden verwendet?
 Meist kommen Kiefer, Fichte, Eiche, Buche oder Linde zum Einsatz. Im Denkmalschutz wird auf das ursprüngliche Material und Faserbild geachtet.
 
----
+***
 
 ## 4. Wo werden Sockelleisten eingesetzt?
 - Im gesamten Wohnbereich, Fluren, Treppenhäusern und öffentlichen Gebäuden
@@ -39,7 +39,7 @@ Meist kommen Kiefer, Fichte, Eiche, Buche oder Linde zum Einsatz. Im Denkmalschu
 
 - Zur optischen Gliederung und als Stilmerkmal historischer Interieurs
 
----
+***
 
 ## 5. Wie werden Sockelleisten montiert?
 - Genagelt, geschraubt oder geklebt – abhängig von Wandmaterial und Anspruch
@@ -50,7 +50,7 @@ Meist kommen Kiefer, Fichte, Eiche, Buche oder Linde zum Einsatz. Im Denkmalschu
 
 - Oberfläche meist roh, geölt, gewachst oder lackiert
 
----
+***
 
 ## 6. Was ist bei Restaurierung und Nachfertigung zu beachten?
 - Profilgenaue Nachfertigung anhand des Bestands (Schablonen, Muster)
@@ -59,6 +59,6 @@ Meist kommen Kiefer, Fichte, Eiche, Buche oder Linde zum Einsatz. Im Denkmalschu
 
 - Schonende Demontage bei Sanierung, Reversibilität im Denkmalschutz
 
----
+***
 
 *Fragen zu Fußleisten oder individuellem Zuschnitt? Wir beraten gern zur Auswahl, Nachfertigung und Montage!*

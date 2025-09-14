@@ -1,4 +1,4 @@
----
+***
 title: "Beeck Standölinnenfarbe Pro: FAQ"
 slug: "faq-beeck-standoelinnenfarbe-pro"
 kategorie: "FAQ"
@@ -8,28 +8,28 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "de"
 beschreibung: "Häufig gestellte Fragen zur hochwertigen Leinöl‑Standölfarbe Beeck Standölinnenfarbe Pro – Eigenschaften, Anwendung, Farbtonoptionen."
----
+***
 
 # FAQ: Beeck Standölinnenfarbe Pro
 ## 1. Was ist Beeck Standölinnenfarbe Pro und wozu wird sie verwendet?
 Beeck Standölinnenfarbe Pro ist eine deckend pigmentierte Leinöl‑Standölfarbe in **Malerqualität** für den Innenbereich – ideal für Türen, Möbel, Wand- und Deckenverkleidungen. Sie vernetzt durch oxidative Trocknung zu einem **diffusionsfähigen**, wasserfesten Öllackfilm mit seidenglänzender oder seidenmatter Oberfläche ([beeck.com](https://www.beeck.com/de/produkte/bmf-produkt.php?p=standoelinnenfarbe-pro-neu-2019)).
 
----
+***
 
 ## 2. Warum gilt Beeck als hochwertige, traditionelle Marke im Holzschutz?
 Beeck steht seit 1894 für natürliche, leistungsstarke Anstrichsysteme. Die Produkte werden von Fachleuten aus Malerhandwerk, Möbelbau und Restaurierung geschätzt, da sie denkmalgerecht, malergerecht und intensiv getestet sind. Beeck bleibt konsequent bei pflanzlichen Rezepturen ohne synthetische Harze – bewährt in der Denkmalpflege und für moderne Restaurierungen gleichermaßen ([beeck.com](https://www.beeck.com/bfw-files/beeck--id2-910.pdf)).
 
----
+***
 
 ## 3. Für wen ist Standölinnenfarbe Pro primär geeignet?
 Die Farbe richtet sich an anspruchsvolle Anwender wie Restauratoren, Handwerker und Malerbetriebe, die Wert auf **hochwertige, nachhaltige Qualität, denkmalgerechte Verarbeitung** und dauerhafte Farbergebnisse legen.
 
----
+***
 
 ## 4. In welchen Farbvarianten ist die Farbe erhältlich?
 Beeck Standölinnenfarbe Pro ist lieferbar als **Volltonfarben** und **Mischtonfarben**, basierend auf der Beeck‑Farbkarte. Sie kann auch nach **RAL, NCS** oder spezialisierten Vorlagen (z. B. Farrow & Ball) gemischt werden, um höchstmögliche Farbpräzision zu erreichen ([beeck.com](https://www.beeck.com/de/produkte/bmf-produkt.php?p=standoelinnenfarbe-pro-neu-2019)).
 
----
+***
 
 ## 5. Welche Eigenschaften zeichnen die Farbe aus?
 - **Glanzgrad**: seidenmatt oder seidenglänzend  
@@ -40,12 +40,12 @@ Beeck Standölinnenfarbe Pro ist lieferbar als **Volltonfarben** und **Mischto
 
 - Haftfest, spannungsarm, überspannbare Schichten – ideal im Denkmalschutzbereich ([beeck.com](https://www.beeck.com/de/produkte/bmf-produkt.php?p=standoelinnenfarbe-pro-neu-2019))
 
----
+***
 
 ## 6. Wie riecht die Farbe beim Verarbeiten?
 Der typische Geruch ist mild, ölig und leicht nussig – charakteristisch für Leinöl‑Standölfarben. Er verflüchtigt sich nach dem Trocknen rasch und ist nicht störend. Dieses natürliche Geruchsprofil unterscheidet sich von synthetischen Lacken deutlich.
 
----
+***
 
 ## 7. Anwendungshinweise in Kürze
 1. Untergrund sauber, trocken, tragfähig vorbereiten  
@@ -58,7 +58,7 @@ Der typische Geruch ist mild, ölig und leicht nussig – charakteristisch für 
 
 5. Farbe ist praktisch unbegrenzt überstreichbar ohne das Ablösen alter Anstriche zu erzwingen ([beeck.com](https://www.beeck.com/de/produkte/bmf-produkt.php?p=vorstreichfarbe))
 
----
+***
 
 ## 8. Vorteile und mögliche Einschränkungen
 **Vorteile:**
@@ -79,6 +79,6 @@ Der typische Geruch ist mild, ölig und leicht nussig – charakteristisch für 
 
 - Verarbeitung erfordert mehr fachliches Wissen (Trocknungszeiten, Schichtstärken)
 
----
+***
 
 *Weitere Fragen? Ich unterstütze gern mit technischen Merkblättern, Verarbeitungstipps oder Ausschreibungstexten.*

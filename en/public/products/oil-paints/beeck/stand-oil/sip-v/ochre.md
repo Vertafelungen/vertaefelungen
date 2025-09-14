@@ -1,4 +1,4 @@
----
+***
 slug: "ochre"
 product_id: "104"
 reference: "Beeck SIP Ocker"
@@ -39,7 +39,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/104-425-ochre.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin"
 last_updated: "2025-09-01"
----
+***
 
 # Ochre Yellow - BEECK Interior Stand-Oil Paint PRO
 

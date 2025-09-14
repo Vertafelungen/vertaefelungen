@@ -1,4 +1,4 @@
----
+***
 slug: "lindgruen"
 product_id: "113"
 reference: "Beeck SIP LindgrÃ¼n"
@@ -67,7 +67,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro-mischtoene/113-504-klassikgruen.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt/73-klassikgrun-klassikgrun_01"
 last_updated: "2025-08-20"
----
+***
 
 # LindgrÃ¼n - BEECK StandÃ¶linnenfarbe PRO
 

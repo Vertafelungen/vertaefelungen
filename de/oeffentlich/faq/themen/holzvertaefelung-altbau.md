@@ -1,4 +1,4 @@
----
+***
 title: "Holzvertäfelung im Altbau: Herkunft, Funktion, Stilkunde, Restaurierung"
 slug: "faq-holzvertaefelung-altbau"
 kategorie: "FAQ"
@@ -8,13 +8,13 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "de"
 beschreibung: "Umfassende FAQ zu Holzvertäfelungen im Altbau: Herkunft, Funktion, Stilkunde, Restaurierung, Bauformen und Besonderheiten."
----
+***
 
 # FAQ: Holzvertäfelung im Altbau
 ## 1. Was versteht man unter Holzvertäfelung im Altbau?
 Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Decken) mit Paneelen, Rahmenfüllungen oder Profilbrettern aus Massivholz. In Altbauten – insbesondere im Gründerzeit- und Jugendstil – prägen sie als gestalterisches und schützendes Element das Raumbild.
 
----
+***
 
 ## 2. Welche Funktionen hatten Vertäfelungen ursprünglich?
 - **Schutz:** Vor Kälte, Feuchtigkeit, Beschädigung der Wandoberfläche
@@ -25,7 +25,7 @@ Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Deck
 
 - **Integration:** Verbergen von Installationen, Integration von Türen und Heizkörperverkleidungen
 
----
+***
 
 ## 3. Welche typischen Bauformen gibt es?
 - **Brüstungshoch** (ca. 1 m): meist unter Fenstern, als Sitzbank-Verkleidung oder Wandabschluss
@@ -44,7 +44,7 @@ Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Deck
 
 - **Profilierte Leisten und Bekleidungen:** zur Gliederung, als Zierabschluss, für Türen
 
----
+***
 
 ## 4. In welchen Stilepochen waren Vertäfelungen besonders verbreitet?
 - **Barock, Rokoko:** aufwändige, oft plastische Schnitzereien und Vergoldungen
@@ -57,7 +57,7 @@ Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Deck
 
 - **Bauhaus/1920er:** geometrische, zurückhaltende Paneele und Furnierarbeiten
 
----
+***
 
 ## 5. Wie erkennt man eine historische Vertäfelung?
 - Massivholz (Kiefer, Eiche, Nadelhölzer), aufwändige Profilierung und Füllungsbauweise
@@ -66,7 +66,7 @@ Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Deck
 
 - Alte Befestigungstechniken (Holzdübel, Holznägel, verdeckte Verschraubung)
 
----
+***
 
 ## 6. Was sind die wichtigsten Aspekte bei Restaurierung und Nachfertigung?
 - **Bestandsaufnahme:** Originale Maße, Profile, Holzarten dokumentieren
@@ -79,7 +79,7 @@ Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Deck
 
 - **Dokumentation:** Jedes Arbeitsschritt sollte nachvollziehbar bleiben (Fotodokumentation)
 
----
+***
 
 ## 7. Gibt es Besonderheiten im Altbau?
 - Unregelmäßige Wandverläufe, Setzungen, alte Putzschichten und Installationen
@@ -88,7 +88,7 @@ Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Deck
 
 - Oft komplexe Integration in bestehende Raumstrukturen (Türen, Heizkörper, Fensterbänke)
 
----
+***
 
 ## 8. Wie erfolgt die Pflege und Erhaltung von Vertäfelungen?
 - Regelmäßiges, schonendes Reinigen (trocken, nebelfeucht)
@@ -99,6 +99,6 @@ Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Deck
 
 - Keine aggressiven Reinigungsmittel oder zu starke Schleifarbeiten!
 
----
+***
 
 *Fragen zur Holzvertäfelung im Altbau? Wir beraten gerne zur Bestandsaufnahme, Nachfertigung und nachhaltigen Restaurierung.*

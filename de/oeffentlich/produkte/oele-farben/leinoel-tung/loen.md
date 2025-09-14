@@ -1,4 +1,4 @@
----
+***
 slug: "loen"
 product_id: "61"
 reference: "LÃN"
@@ -31,7 +31,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/61-322-leinol.html#/63-1_25_5_10_20_liter-1_liter"
 last_updated: "2025-09-01"
----
+***
 
 # Reines LeinÃ¶l, ohne Sikkativ
 

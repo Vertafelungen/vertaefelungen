@@ -1,4 +1,4 @@
----
+***
 slug: "blr4"
 product_id: "70"
 reference: "BLR 4"
@@ -28,7 +28,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/de/lueftungsrosetten/70-lueftungsrosette-4.html"
 last_updated: "2025-09-01"
----
+***
 
 # LÃ¼ftungsrosette 4
 

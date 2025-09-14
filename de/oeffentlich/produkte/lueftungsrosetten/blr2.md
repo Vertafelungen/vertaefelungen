@@ -1,4 +1,4 @@
----
+***
 slug: "blr2"
 product_id: "72"
 reference: "BLR 2"
@@ -32,7 +32,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/de/lueftungsrosetten/72-lueftungsrosette-3.html"
 last_updated: "2025-09-01"
----
+***
 
 # LÃ¼ftungsrosette 2
 

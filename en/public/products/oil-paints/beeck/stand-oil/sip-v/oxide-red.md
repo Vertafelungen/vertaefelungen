@@ -1,4 +1,4 @@
----
+***
 slug: "oxide-red"
 product_id: "105"
 reference: "Beek SIP Oxidrot"
@@ -39,7 +39,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/105-431-oxid-red.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin"
 last_updated: "2025-09-01"
----
+***
 
 # Oxide Red - BEECK Interior Stand-Oil Paint PRO
 

@@ -1,4 +1,4 @@
----
+***
 title: "Lieferung: Versand & Montage"
 slug: "faq-lieferung"
 kategorie: "FAQ"
@@ -8,7 +8,7 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "de"
 beschreibung: "Antworten auf häufig gestellte Fragen zur Lieferung, Verpackung und Montage von Vertäfelungen."
----
+***
 
 # FAQ: Lieferung
 ## 1. Wann erfolgt die Lieferung?
@@ -43,6 +43,6 @@ beschreibung: "Antworten auf häufig gestellte Fragen zur Lieferung, Verpackung 
 
 - Die Gefahr geht mit der Übergabe am Erfüllungsort auf dich über – je nach Vereinbarung frei Bordsteinkante oder frei LKW.
 
----
+***
 
 *Fragen offen? Gern ergänzen wir weitere Punkte oder passe das FAQ an deine Bedürfnisse an!*

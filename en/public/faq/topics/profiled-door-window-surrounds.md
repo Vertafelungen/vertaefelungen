@@ -1,4 +1,4 @@
----
+***
 title: "Profiled Door and Window Surrounds: Types, Function, Restoration"
 slug: "faq-profiled-door-window-surrounds-en"
 kategorie: "FAQ"
@@ -8,13 +8,13 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "en"
 beschreibung: "FAQ about profiled door and window surrounds: forms, use, manufacture and special features in historic interiors."
----
+***
 
 # FAQ: Profiled Door and Window Surrounds
 ## 1. What are profiled door and window surrounds?
 Profiled door and window surrounds are decorative mouldings and casings made of wood, framing interior doors and windows. They serve both as a decorative element and to protect the reveal edges.
 
----
+***
 
 ## 2. What forms and profiles are typical?
 - **Simple casings:** Straight or chamfered
@@ -25,7 +25,7 @@ Profiled door and window surrounds are decorative mouldings and casings made of 
 
 - **Complex surrounds:** With plinth blocks, pediments, overdoor mouldings
 
----
+***
 
 ## 3. What are their functions?
 - Conceal joints between wall and frame
@@ -36,7 +36,7 @@ Profiled door and window surrounds are decorative mouldings and casings made of 
 
 - Emphasise the building’s period and style
 
----
+***
 
 ## 4. Where are profiled surrounds most commonly found?
 - In historic buildings (Wilhelminian, Art Nouveau, Baroque, Classicism)
@@ -45,7 +45,7 @@ Profiled door and window surrounds are decorative mouldings and casings made of 
 
 - As highlights in corridors, salons, libraries and stairwells
 
----
+***
 
 ## 5. How are the profiles manufactured?
 - Based on historic originals using a moulder, router or hand plane
@@ -54,7 +54,7 @@ Profiled door and window surrounds are decorative mouldings and casings made of 
 
 - Creation of templates, sample profiles and, where required, carvings
 
----
+***
 
 ## 6. What to consider in restoration and reproduction?
 - Precise survey and documentation of existing profiles
@@ -65,7 +65,7 @@ Profiled door and window surrounds are decorative mouldings and casings made of 
 
 - Coordination with heritage authorities in listed buildings
 
----
+***
 
 ## 7. Installation tips
 - Accurate fitting to wall and frame, especially in old buildings
@@ -74,6 +74,6 @@ Profiled door and window surrounds are decorative mouldings and casings made of 
 
 - Carefully sealed joints; ensure proper drying and room climate
 
----
+***
 
 *Questions about profiled door and window surrounds? We are happy to advise on selection, reproduction and period-appropriate integration!*

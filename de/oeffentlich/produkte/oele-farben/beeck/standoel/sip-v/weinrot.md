@@ -1,4 +1,4 @@
----
+***
 slug: "weinrot"
 product_id: "107"
 reference: "Beeck SIP Weinrot"
@@ -39,7 +39,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/107-443-weinrot.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt"
 last_updated: "2025-09-01"
----
+***
 
 # Weinrot - BEECK StandÃ¶linnenfarbe PRO
 

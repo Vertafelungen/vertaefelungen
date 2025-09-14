@@ -1,4 +1,4 @@
----
+***
 title: "Linseed Varnish (with Driers)"
 description: "Boiled linseed oil with added driers for faster curing. Ideal for highly absorbent interior woods and as a penetrating primer."
 seo_title: "Linseed Varnish – Faster Drying for Interior Wood | Vertäfelung & Lambris"
@@ -33,7 +33,7 @@ variants:
     sku: "LÖF 20"
     availability: "3–5 Tage Lieferzeit"
     price: 13.91
----
+***
 
 ## Description
 This linseed varnish contains added driers to reduce drying time while preserving the deep-penetrating characteristics of raw linseed oil. Suitable for highly absorbent wooden surfaces indoors.

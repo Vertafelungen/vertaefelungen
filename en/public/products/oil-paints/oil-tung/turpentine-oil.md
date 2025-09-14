@@ -1,4 +1,4 @@
----
+***
 title: "Turpentine Oil (Balsamic)"
 description: "Gently distilled turpentine oil from pine resin – ideal for thinning oils and making natural resin mixtures. High-purity, pleasant scent, evaporates without residue."
 seo_title: "Balsamic Turpentine Oil – Natural Thinner for Oils & Resins | Vertäfelung & Lambris"
@@ -33,7 +33,7 @@ variants:
     sku: "BTO 20"
     availability: "3–5 Tage Lieferzeit"
     price: 16.75
----
+***
 
 ## Description
 This turpentine oil is gently distilled from pine resin and serves as a natural thinner for oils, varnishes, and resin mixtures. It evaporates cleanly and has a pleasant scent.

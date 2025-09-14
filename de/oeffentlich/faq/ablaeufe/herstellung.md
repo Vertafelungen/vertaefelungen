@@ -1,4 +1,4 @@
----
+***
 title: "Herstellung: Prozess & Nachhaltigkeit"
 slug: "faq-herstellung"
 kategorie: "FAQ"
@@ -8,7 +8,7 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "de"
 beschreibung: "Antworten auf häufige Fragen zum Herstellungsprozess von Vertäfelungen – von Vermessung über Fertigung bis zur Nachhaltigkeit."
----
+***
 
 # FAQ: Herstellung
 ## 1. Wie entsteht eine historische Vertäfelung?
@@ -36,6 +36,6 @@ beschreibung: "Antworten auf häufige Fragen zum Herstellungsprozess von Vertäf
 ## 7. Ist jede Neuanfertigung Einzelanfertigung?
 - Ja – jedes Stück ist individuell nach Ihrem Raum zugeschnitten und exakt geplant; egal ob Repliken historischer Vorlagen oder einfache Modelle gleicher Qualitätsanspruch.
 
----
+***
 
 *Noch Fragen?* Kontaktiere uns gern – wir helfen jederzeit weiter!

@@ -20,6 +20,6 @@ Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 - [tr17](./tr17.md): 
 - [tr18](./tr18.md): 
 
----
+***
 
 Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

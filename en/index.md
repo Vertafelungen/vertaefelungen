@@ -1,7 +1,7 @@
 # Knowledge Base – Wall Panelling & Lambris
 This collection provides in-depth knowledge on historical wall panelling, materials, finishes, and accessories. It supports planning, restoration, and interpretation of historic interiors.
 
----
+***
 
 ## 🪵 Wood Panelling – Basics
 Historical, stylistic, and constructive foundations of wall panelling in heritage buildings.
@@ -14,7 +14,7 @@ Historical, stylistic, and constructive foundations of wall panelling in heritag
 
 - [FAQ on wood panelling](../general-information/faq-panelling.md)
 
----
+***
 
 ## 🏛️ Documented Examples
 Digitized models and references from actual historic interiors – useful for reconstruction and inspiration.
@@ -25,7 +25,7 @@ Digitized models and references from actual historic interiors – useful for re
 - [Full-height panelling](../public/products/high-wainscoting/README.md)  
   Panelling covering entire walls – found in salons, offices, or ceremonial rooms.
 
----
+***
 
 ## 🪚 Moldings & Accessories
 Functional and decorative components for panelling transitions and design.
@@ -36,7 +36,7 @@ Functional and decorative components for panelling transitions and design.
 
 - [Ventilation grilles](../public/products/accessories/ventilation-grilles.md)
 
----
+***
 
 ## 🌿 Natural Finishes
 Surface treatments for historical wood – reversible and conservation-grade.
@@ -45,7 +45,7 @@ Surface treatments for historical wood – reversible and conservation-grade.
 
 - [Tung oil – water-repellent and robust](../public/products/oilandpaint/tung-oil.md)
 
----
+***
 
 ## 📚 Glossary
 Short definitions of important restoration and design terms.

@@ -1,4 +1,4 @@
----
+***
 slug: "oxide-green"
 product_id: "112"
 reference: "Beeck SIP KlassikgrÃ¼n"
@@ -67,7 +67,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro-mischtoene/112-486-oxidgreen.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin/73-classic_green-classic_green_01"
 last_updated: "2025-08-20"
----
+***
 
 # Oxide Green - BEECK Interior Stand-Oil Paint PRO
 

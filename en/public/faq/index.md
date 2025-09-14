@@ -1,4 +1,4 @@
----
+***
 title: "FAQ: Overview"
 slug: "faq-index-en"
 kategorie: "FAQ"
@@ -8,12 +8,12 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "en"
 beschreibung: "Thematic overview and navigation to the main FAQ sections on panelling, mouldings, wood finishes and restoration."
----
+***
 
 # FAQ: Overview & Navigation
 Welcome to the FAQ collection for all questions about wood panelling, profiled mouldings, surfaces and restoration. Select a topic:
 
----
+***
 
 ## Topics overview
 - [Planning & Ordering](planning-ordering.md)
@@ -40,6 +40,6 @@ Welcome to the FAQ collection for all questions about wood panelling, profiled m
 
 - [Product FAQ P0003 (Morris Room, Victoria & Albert Museum)](p0003-green-dining-room.md)
 
----
+***
 
 For further advice or individual queries, please contact us!

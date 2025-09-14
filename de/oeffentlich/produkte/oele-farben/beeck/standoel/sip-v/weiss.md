@@ -1,4 +1,4 @@
----
+***
 slug: "weiss"
 product_id: "94"
 reference: "Beeck SIP WeiÃ"
@@ -39,7 +39,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/94-383-weiss.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt"
 last_updated: "2025-09-01"
----
+***
 
 # WeiÃ - BEECK StandÃ¶linnenfarbe PRO
 

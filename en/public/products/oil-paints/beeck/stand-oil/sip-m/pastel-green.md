@@ -1,4 +1,4 @@
----
+***
 slug: "pastel-green"
 product_id: "113"
 reference: "Beeck SIP LindgrÃ¼n"
@@ -67,7 +67,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro-mischtoene/113-504-oxidgreen.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin/73-classic_green-classic_green_01"
 last_updated: "2025-08-20"
----
+***
 
 # Pastel Green - BEECK Interior Stand-Oil Paint PRO
 

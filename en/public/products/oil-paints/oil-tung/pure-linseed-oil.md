@@ -1,4 +1,4 @@
----
+***
 title: "Pure Linseed Oil, No Driers"
 description: "Refined linseed oil with low acidity, free from suspended solids and mucilage, without added driers. Ideal for first priming of raw wood with high penetration depth."
 seo_title: "Pure Linseed Oil Without Driers – Wood Primer | Vertäfelung & Lambris"
@@ -33,7 +33,7 @@ variants:
     sku: "LÖN 20"
     availability: "3–5 Tage Lieferzeit"
     price: 12.61
----
+***
 
 ## Description
 Refined linseed oil with low acidity, free from suspended solids and mucilage, without added driers. Ideal for first priming of raw wood with high penetration depth.

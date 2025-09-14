@@ -1,4 +1,4 @@
----
+***
 slug: "ocker"
 product_id: "104"
 reference: "Beeck SIP Ocker"
@@ -39,7 +39,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/104-425-ocker.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt"
 last_updated: "2025-09-01"
----
+***
 
 # Ockergelb - BEECK StandÃ¶linnenfarbe PRO
 

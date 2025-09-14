@@ -12,6 +12,6 @@ Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
 - [sl0007-ie](./sl0007-ie.md): 
 - [sl0007](./sl0007.md): 
 
----
+***
 
 Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris

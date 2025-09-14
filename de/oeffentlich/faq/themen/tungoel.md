@@ -1,4 +1,4 @@
----
+***
 title: "Tungöl als Holzschutzmittel"
 slug: "faq-tungoel"
 kategorie: "FAQ"
@@ -8,13 +8,13 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "de"
 beschreibung: "FAQ zu Tungöl als Holzschutzmittel, inklusive Unterschiede zwischen Tungöl Natur und Tungöl-Holzlack, Eigenschaften und Geruch."
----
+***
 
 # FAQ: Tungöl als Holzschutzmittel in der Denkmalpflege
 ## 1. Was ist Tungöl und wofür wird es verwendet?
 Tungöl (auch Chinesisches Holzöl, gewonnen aus den Samen des Tungbaums, Aleurites fordii) ist ein traditionelles Naturöl zur Imprägnierung und Oberflächenbehandlung von Holz. Es dringt tief ein, polymerisiert (härtet) gut aus und bildet einen elastischen, wasserabweisenden Schutzfilm – beliebt für Möbel, Fußböden, Holzverkleidungen und im Denkmalschutz.
 
----
+***
 
 ## 2. Was ist der Unterschied zwischen Tungöl Natur und Tungöl-Holzlack?
 **Tungöl Natur (reines Tungöl):**
@@ -33,14 +33,14 @@ Tungöl (auch Chinesisches Holzöl, gewonnen aus den Samen des Tungbaums, Aleuri
 
 - Wird eingesetzt, wenn schnellere Durchhärtung und mehr Beständigkeit gewünscht sind, etwa für Böden, Arbeitsplatten oder Außenflächen.
 
----
+***
 
 ## 3. Wie riecht Tungöl?
 Reines Tungöl hat einen mild-nussigen, leicht „herben“ Geruch, der oft als weniger aufdringlich als Leinöl wahrgenommen wird.  
 Beim Trocknen (Oxidation) entwickelt sich ein dezenter, holzig-natürlicher Duft, der nach der Aushärtung nahezu verschwindet.  
 Modifizierte Tungöl-Lacke können durch zugesetzte Sikkative oder Lösungsmittel einen etwas stärkeren, chemischen Eigengeruch aufweisen, der sich aber meist nach wenigen Tagen verflüchtigt.
 
----
+***
 
 ## 4. Was sind die Vorteile und Nachteile von Tungöl?
 **Vorteile:**
@@ -65,12 +65,12 @@ Modifizierte Tungöl-Lacke können durch zugesetzte Sikkative oder Lösungsmitte
 
 - Lackiertes (modifiziertes) Tungöl ist nicht immer rückstandsfrei renovierbar
 
----
+***
 
 ## 5. Gibt es Unterschiede zu anderen Ölen?
 Tungöl härtet vollständiger und schneller aus als Leinöl, ist wasserbeständiger und bildet einen härteren, aber dennoch elastischen Schutzfilm. Es bleibt weniger „klebrig“ und zeigt geringere Neigung zur Vergilbung.
 
----
+***
 
 ## 6. Wie wird Tungöl auf Holz angewendet?
 1. Holz fein schleifen, trocken und sauber halten.
@@ -83,7 +83,7 @@ Tungöl härtet vollständiger und schneller aus als Leinöl, ist wasserbeständ
 
 5. Modifizierte Lacke wie eine Lasur verarbeiten; auf gute Belüftung achten.
 
----
+***
 
 ## 7. Sicherheits- und Umweltaspekte
 - Tungöl ist ungiftig und lebensmittelecht (nur reines Öl!).
@@ -92,6 +92,6 @@ Tungöl härtet vollständiger und schneller aus als Leinöl, ist wasserbeständ
 
 - Modifizierte Lacke können geringe Mengen Lösungsmittel oder Trockner enthalten.
 
----
+***
 
 *Weitere Fragen? Kontaktiere uns gern für technische Datenblätter oder Beratung zu deinem Projekt!*

@@ -1,4 +1,4 @@
----
+***
 title: "Leinöl als Holzschutzmittel"
 slug: "faq-leinoel"
 kategorie: "FAQ"
@@ -8,13 +8,13 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "de"
 beschreibung: "Umfassende FAQ zu Leinöl als Holzschutzmittel, inklusive Unterschiede zwischen Leinöl Natur und Leinölfirnis, typische Eigenschaften und Geruch."
----
+***
 
 # FAQ: Leinöl als Holzschutzmittel in der Denkmalpflege
 ## 1. Was ist Leinöl und wofür wird es verwendet?
 Leinöl ist ein natürliches Öl, das durch Kalt- oder Warmpressung aus den Samen des Flachses (Linum usitatissimum) gewonnen wird. Es wird seit Jahrhunderten zur Imprägnierung und Oberflächenbehandlung von Holz, aber auch als Bindemittel in Farben, Lacken und Kitten eingesetzt. Besonders im Bereich der Denkmalpflege ist Leinöl wegen seiner ausgezeichneten Holzschutzwirkung, Diffusionsoffenheit und natürlichen Zusammensetzung beliebt.
 
----
+***
 
 ## 2. Was ist der Unterschied zwischen Leinöl Natur und Leinölfirnis?
 **Leinöl Natur (rohes Leinöl):**
@@ -33,14 +33,14 @@ Leinöl ist ein natürliches Öl, das durch Kalt- oder Warmpressung aus den Same
 
 - Für Anstriche, als Grundierung und in Kombination mit Farbpigmenten wird meist Firnis eingesetzt, da er schneller durchhärtet.
 
----
+***
 
 ## 3. Wie riecht Leinöl?
 Frisches, kaltgepresstes Leinöl hat einen mild-nussigen, leicht „grünen“ Geruch, der oft als angenehm empfunden wird.  
 Leinölfirnis oder Leinöl, das beim Trocknen oxidiert, kann je nach Produkt und Verarbeitung einen etwas intensiveren, leicht „wärmenden“, an Heu, Getreide oder Stroh erinnernden Duft entwickeln.  
 Achtung: Bei zu dicker Schicht oder schlechter Belüftung kann der Geruch penetrant werden und mehrere Tage bis Wochen anhalten, bis das Öl durchgehärtet ist. Alte oder schlecht gelagerte Leinölprodukte können ranzig riechen.
 
----
+***
 
 ## 4. Was sind die Vorteile und Nachteile von Leinöl als Holzschutz?
 **Vorteile:**
@@ -65,7 +65,7 @@ Achtung: Bei zu dicker Schicht oder schlechter Belüftung kann der Geruch penetr
 
 - Nachträgliche Reinigung und Pflege erforderlich
 
----
+***
 
 ## 5. Welche Normen und Richtlinien sind für Leinöl in der Denkmalpflege relevant?
 - **WTA-Merkblätter** (z. B. WTA 2-10-12/D)
@@ -76,7 +76,7 @@ Achtung: Bei zu dicker Schicht oder schlechter Belüftung kann der Geruch penetr
 
 - Viele Restauratoren und Fachbetriebe orientieren sich an diesen Vorgaben für Materialauswahl und Verarbeitung.
 
----
+***
 
 ## 6. Wie wird Leinöl auf Holz angewendet?
 1. Oberfläche sauber, trocken und staubfrei vorbereiten.
@@ -89,7 +89,7 @@ Achtung: Bei zu dicker Schicht oder schlechter Belüftung kann der Geruch penetr
 
 5. Holz nach der Endbehandlung gut belüften und trocknen lassen (bei Leinölfirnis 1–2 Tage, bei Leinöl Natur mehrere Tage).
 
----
+***
 
 ## 7. Gibt es Sicherheits- und Umweltaspekte?
 - Leinöl selbst ist ungiftig, aber ölgetränkte Lappen sind **selbstentzündlich**! Immer ausgebreitet trocknen oder in Wasser lagern.
@@ -98,6 +98,6 @@ Achtung: Bei zu dicker Schicht oder schlechter Belüftung kann der Geruch penetr
 
 - Für den Kontakt mit Lebensmitteln (z. B. Arbeitsplatten) nur reines, kaltgepresstes Leinöl verwenden.
 
----
+***
 
 *Weitere Fragen? Kontaktieren Sie uns gern für individuelle Beratung und technische Merkblätter!*

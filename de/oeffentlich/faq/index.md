@@ -1,4 +1,4 @@
----
+***
 title: "FAQ: Übersicht"
 slug: "faq-index"
 kategorie: "FAQ"
@@ -8,12 +8,12 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "de"
 beschreibung: "Thematische Übersicht und Navigation zu den wichtigsten FAQ-Bereichen rund um Vertäfelungen, Leisten, Holzschutz und Restaurierung."
----
+***
 
 # FAQ: Übersicht und Navigation
 Willkommen in der FAQ-Sammlung zu allen Fragen rund um Holzvertäfelung, Profilleisten, Oberflächen und Restaurierung. Wähle einen Themenbereich aus:
 
----
+***
 
 ## Themenübersicht
 - [Planung & Bestellung](planung-bestellung.md)
@@ -38,6 +38,6 @@ Willkommen in der FAQ-Sammlung zu allen Fragen rund um Holzvertäfelung, Profill
 
 - [Restaurierung / Reproduktion historischer Vertäfelungen und Holzleisten](restaurierung-reproduktion-vertaefelungen-holzleisten.md)
 
----
+***
 
 Für weiterführende Beratung oder individuelle Fragen stehen wir gern zur Verfügung!

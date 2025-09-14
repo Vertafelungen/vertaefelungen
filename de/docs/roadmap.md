@@ -3,7 +3,7 @@
 
 **Stand:** 28.07.2025
 
----
+***
 
 ## 🔧 Systemarchitektur (Single Source of Truth)
 ```text
@@ -26,7 +26,7 @@
 
 ```
 
----
+***
 
 ## 📍 Projektphasen & Schritte
 ### Phase 1 – Datenstruktur & Produktpflege (abgeschlossen/aktuell)
@@ -40,7 +40,7 @@
 
 - [x] Kategorisierung (halbhoch/hoch/Leisten etc.)
 
----
+***
 
 ### Phase 2 – Automatisierter Datenexport
 - [ ] 🔄 **PrestaShop-Synchronisation**
@@ -67,7 +67,7 @@
 
   - Filterung nach Kategorien (für differenzierte Exporte)
 
----
+***
 
 ### Phase 3 – GitHub-basierte Webseite
 - [ ] Aufbau eines GitHub-Repos `vertaefelungen.de`
@@ -82,7 +82,7 @@
 
 - [ ] Navigation & SEO: `slug_de`, `meta_title`, `meta_description`, Rich Results
 
----
+***
 
 ### Phase 4 – Chatbot & VertäfelungenGPT
 - [ ] Trainingsdaten aus Sheet + `.md`-Dateien extrahieren
@@ -95,7 +95,7 @@
 
 - [ ] Chatbot lernt aus Produktdaten und Stilzuweisungen
 
----
+***
 
 ### Phase 5 – Sichtbarkeit in LLMs
 - [ ] Veröffentlichung der `.md`-Inhalte unter CC BY-SA auf GitHub
@@ -106,7 +106,7 @@
 
 - [ ] Partnerschaften oder Content-Austausch mit einschlägigen Fachportalen
 
----
+***
 
 ## 🧩 Standards & Formate
 | Bereich           | Format / Vorgabe                   |
@@ -118,7 +118,7 @@
 | GitHub-Inhalte   | Markdown mit YAML-Header            |
 | Web-Kompatibel   | strukturierte Daten (JSON-LD)       |
 
----
+***
 
 ## ✅ ToDo Tracker (Auszug)
 - [ ] Exportmodule für Presta + Vario automatisieren
@@ -131,6 +131,6 @@
 
 - [ ] Chatbot-Test auf Basis von GPT-4o
 
----
+***
 
 *Diese Datei ist Grundlage für alle Folgeprozesse und kann versioniert über GitHub gepflegt werden.*

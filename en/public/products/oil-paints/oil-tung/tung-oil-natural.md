@@ -1,4 +1,4 @@
----
+***
 title: "Tung Oil, Natural"
 description: "Pure, cold-pressed tung oil (Chinese wood oil) for priming and finishing wood surfaces. Deep penetration, highly weather-resistant, fully polymerizes on exposure to air."
 seo_title: "Natural Tung Oil – Deep Penetrating & Water Resistant | Vertäfelung & Lambris"
@@ -33,7 +33,7 @@ variants:
     sku: "TUN 20"
     availability: "3–5 Tage Lieferzeit"
     price: 24.45
----
+***
 
 ## Description
 Tung oil – also known as Chinese wood oil – is a plant-based oil that penetrates deep into the wood, cures by oxidation, and forms a tough, water-resistant yet breathable finish. It’s ideal for wood subject to heavy use, both indoors and outdoors.

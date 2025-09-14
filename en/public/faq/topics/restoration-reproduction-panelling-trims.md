@@ -1,4 +1,4 @@
----
+***
 title: "Restoration & Reproduction of Historic Panelling and Wood Trims"
 slug: "faq-restoration-reproduction-panelling-trims-en"
 kategorie: "FAQ"
@@ -8,13 +8,13 @@ letzte_aenderung: "2025-07-28"
 sichtbar: true
 sprachversion: "en"
 beschreibung: "FAQ on the restoration and authentic reproduction of historic wood panelling and trims: methods, materials, challenges and special aspects."
----
+***
 
 # FAQ: Restoration & Reproduction of Historic Panelling and Wood Trims
 ## 1. What does restoration and reproduction mean for historic panelling and trims?
 Restoration means the careful repair, preservation and completion of original elements while respecting the historic fabric. Reproduction refers to the faithful manufacture of new parts based on historic models to replace missing or destroyed features.
 
----
+***
 
 ## 2. What is the typical restoration process?
 - **Survey:** Careful documentation of measurements, profiles, wood species and damage (photos, drawings, templates)
@@ -27,7 +27,7 @@ Restoration means the careful repair, preservation and completion of original el
 
 - **Prevention:** Protect against moisture, pests, misuse
 
----
+***
 
 ## 3. What are common challenges in reproduction?
 - Sourcing matching wood species (e.g. slow-grown pine, oak)
@@ -40,7 +40,7 @@ Restoration means the careful repair, preservation and completion of original el
 
 - Traditional craft: use of historic tools and techniques
 
----
+***
 
 ## 4. What should be considered when fitting reproductions?
 - Reversible fixing and minimally invasive installation
@@ -49,7 +49,7 @@ Restoration means the careful repair, preservation and completion of original el
 
 - Marking or documenting any new elements
 
----
+***
 
 ## 5. Which materials and finishes are preferred?
 - Solid wood of the same type and quality as the original
@@ -58,7 +58,7 @@ Restoration means the careful repair, preservation and completion of original el
 
 - Avoid modern synthetic varnishes or unsuitable coatings
 
----
+***
 
 ## 6. How is authenticity of reproduction ensured?
 - Accurate transfer of measurements and profiles, full documentation and material evidence
@@ -67,6 +67,6 @@ Restoration means the careful repair, preservation and completion of original el
 
 - Each new part should be individually labelled (inventory, numbering)
 
----
+***
 
 *Questions about restoration or reproduction? We are happy to advise on feasibility, costs, material choice and conservation approvals!*

@@ -1,4 +1,4 @@
----
+***
 slug: "ultra-blue"
 product_id: "106"
 reference: "Beek SIP Ultrablau"
@@ -39,7 +39,7 @@ author_url: "https://www.vertaefelungen.de/de/content/4-uber-uns"
 license: "CC BY-SA 4.0"
 source: "https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/106-437-ultra-blue.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin"
 last_updated: "2025-09-01"
----
+***
 
 # Ultra Blue - BEECK Interior Stand-Oil Paint PRO
 
