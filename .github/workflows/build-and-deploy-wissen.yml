@@ -48,13 +48,13 @@ jobs:
 
           # Mini-Sanity-Check: sind die Module verfügbar?
           python - <<'PY'
-import sys, pkgutil
-print("Python:", sys.version)
-def ok(m):
-    return bool(pkgutil.find_loader(m))
-print("markdown:", ok("markdown"))
-print("yaml    :", ok("yaml"))
-PY
+          import sys, pkgutil
+          print("Python:", sys.version)
+          def ok(m):
+            return bool(pkgutil.find_loader(m))
+          print("markdown:", ok("markdown"))
+          print("yaml    :", ok("yaml"))
+          PY
 
       - name: Build site
         shell: bash
