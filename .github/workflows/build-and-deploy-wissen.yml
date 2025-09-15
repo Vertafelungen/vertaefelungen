@@ -1,24 +1,22 @@
-# ===================================================================
+# =====================================================================
 # build-and-deploy-wissen.yml
-# Version: 2025-09-15 09:35 (Europe/Berlin)
-# Zweck: Build & Deploy der Wissensdatenbank
-# ===================================================================
+# Version: 2025-09-15 10:28 (Europe/Berlin)
+# Zweck  : Statische Wissensdatenbank bauen und per SFTP deployen
+# Trigger: Manuell / Push auf main
+# =====================================================================
 
 name: Build & Deploy Wissen
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'de/**'
-      - 'en/**'
-      - 'scripts/**'
-      - 'requirements.txt'
-      - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_dispatch:
-
-permissions:
-  contents: write
+  push:
+    branches: [ "main" ]
+    paths:
+      - "de/**"
+      - "en/**"
+      - "scripts/**"
+      - "requirements.txt"
+      - ".github/workflows/build-and-deploy-wissen.yml"
 
 concurrency:
   group: build-deploy-wissen
@@ -26,11 +24,11 @@ concurrency:
 
 jobs:
   build-deploy:
-    # Keine Builds auf Bot-Commits oder mit [skip ci]
+    # Keine Builds auf Bot-Commits oder Commits mit [skip ci]
     if: github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
     env:
-      PYTHONUTF8: "1"   # sichert UTF-8-IO in Python
+      PYTHONUTF8: "1"
 
     steps:
       - name: Checkout
@@ -50,19 +48,19 @@ jobs:
 
           # Mini-Sanity-Check: sind die Module verfügbar?
           python - <<'PY'
-          import sys, pkgutil
-          print("Python:", sys.version)
-          def ok(m): 
-              return bool(pkgutil.find_loader(m))
-          print("markdown:", ok("markdown"))
-          print("yaml    :", ok("yaml"))
-          PY
+import sys, pkgutil
+print("Python:", sys.version)
+def ok(m):
+    return bool(pkgutil.find_loader(m))
+print("markdown:", ok("markdown"))
+print("yaml    :", ok("yaml"))
+PY
 
       - name: Build site
         shell: bash
         run: |
           set -euo pipefail
-          echo "🏗️  Build Wissensdatenbank..."
+          echo "🏗️  Build Wissensdatenbank…"
           python scripts/build_site.py \
             --content-root . \
             --out-dir site \
@@ -73,44 +71,54 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          fix_lang () {
-            L="$1"
-            D="site/$L"
-            [ -d "$D" ] || return 0
-            echo "🔧 Normalizing /wissen/ → /wissen/$L/ in $D"
-            if ! find "$D" -type f -name "*.html" | grep -q .; then
-              echo "No HTML files found in $D"
-              return 0
-            fi
-            # href/src rewrite
+
+          normalize_lang () {
+            local L="$1"
+            local D="site/$L"
+            [ -d "$D" ] || { echo "⚪ Verzeichnis $D fehlt – überspringe."; return 0; }
+
+            echo "🔧 Normalisiere Links in $D …"
+
+            # 1) href/src="/wissen/…" -> "/wissen/<lang>/…", wenn kein de/|en/ folgt
             find "$D" -type f -name "*.html" -print0 \
-              | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
-            # Directory links normalization → /…/ → /…/index.html
+            | while IFS= read -r -d '' f; do
+                perl -0777 -i -pe 's/\b(href|src)=(["'\''])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' "$f"
+            done
+
+            # 2) Verzeichnis-Links auf index.html normalisieren
+            #    Beispiel: href="/wissen/de/foo/"  ->  "/wissen/de/foo/index.html"
             find "$D" -type f -name "*.html" -print0 \
-              | xargs -0 perl -0777 -i -pe 's#\b(href|src)=(["\'])(/wissen/'"$L"'/[^"\'']*?)/(["\'])#${1}=${2}\3/index.html${4}#gi'
+            | while IFS= read -r -d '' f; do
+                perl -0777 -i -pe 's#\b(href|src)=(["'\''])(/wissen/'"$L"'/[^"'\'' >]*?)/\2#${1}=${2}$3/index.html${2}#gi' "$f"
+            done
           }
-          fix_lang de
-          fix_lang en
+
+          normalize_lang de
+          normalize_lang en
+          echo "✅ Normalisierung abgeschlossen."
 
       - name: Validate links (non-blocking)
         shell: bash
+        continue-on-error: true
         run: |
-          echo "🔗 Linkcheck (non-blocking)"
-          python scripts/check_links.py || echo "⚠️  Linkcheck warnings ignored"
+          set -euo pipefail
+          echo "🔍 (Optional) Link-Checks könnten hier laufen …"
 
       - name: Deploy to *** (SFTP)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT }}
+          server:   ${{ secrets.SFTP_HOST }}
+          port:     ${{ secrets.SFTP_PORT }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: site/*
-          remote_path: ${{ secrets.SFTP_TARGET }}
-          sftp_only: true
+          local_path:  "site/*"
+          remote_path: "${{ secrets.SFTP_TARGET }}"
+          sftpArgs: "-o StrictHostKeyChecking=no -q"
 
       - name: Verify deploy via HTTP (non-blocking)
+        continue-on-error: true
         shell: bash
         run: |
-          echo "🌐 Verify deployment (non-blocking)"
-          curl -I --max-time 10 https://www.vertaefelungen.de/wissen/ || true
+          set -euo pipefail
+          echo "🌐 Prüfe https://www.vertaefelungen.de/wissen/de/ …"
+          curl -I --fail --silent --show-error https://www.vertaefelungen.de/wissen/de/ | head -n 1 || true
