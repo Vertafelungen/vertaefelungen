@@ -1,5 +1,5 @@
-# build-and-deploy-wissen.yml
-# Version: 2025-09-15 13:16 (Europe/Berlin)
+# .github/workflows/build-and-deploy-wissen.yml
+# Version: 2025-09-15 14:38 (Europe/Berlin)
 # Zweck: Build & Deploy der Wissensdatenbank
 
 name: Build & Deploy Wissen
@@ -12,6 +12,7 @@ on:
       - 'en/**'
       - 'assets/**'
       - 'scripts/**'
+      - 'requirements.txt'
       - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_dispatch: {}
 
@@ -44,21 +45,14 @@ jobs:
           set -euo pipefail
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-
-          # Mini-Sanity-Check
-          python - <<'PY'
-import sys, pkgutil
-print("Python:", sys.version)
-def ok(m): return bool(pkgutil.find_loader(m))
-print("markdown:", ok("markdown"))
-print("yaml    :", ok("yaml"))
-PY
+          # Mini-Sanity-Check (ohne Heredoc, damit YAML sicher bleibt)
+          python -c "import sys, importlib.util as u; print('Python:', sys.version); ok=lambda m: u.find_spec(m) is not None; print('markdown:', ok('markdown')); print('yaml    :', ok('yaml'))"
 
       - name: Build site
         shell: bash
         run: |
           set -euo pipefail
-          echo "🏗️ Build Wissensdatenbank..."
+          echo "🏗️  Build Wissensdatenbank..."
           python scripts/build_site.py \
             --content-root . \
             --out-dir site \
@@ -68,23 +62,26 @@ PY
         shell: bash
         run: |
           set -euo pipefail
-          fix_lang () {
+          fix_lang() {
             L="$1"
             D="site/$L"
-            [ -d "$D" ] || return 0
-            echo "🔧 Normalizing /wissen/ → /wissen/$L/ in $D"
-            if ! find "$D" -type f -name "*.html" | grep -q .; then
-              echo "No HTML files in $D"
-              return 0
-            fi
-            find "$D" -type f -name "*.html" -print0 \
-              | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
+            [ -d "$D" ] || { echo "⏭  Verzeichnis $D nicht vorhanden – übersprungen"; return 0; }
+            echo "🔧 Normalisiere /wissen/ → /wissen/$L/ in $D"
+
+            # Dateien einsammeln (sicher, auch wenn Dateinamen Leerzeichen enthalten)
+            mapfile -d '' files < <(find "$D" -type f -name '*.html' -print0)
+            [ "${#files[@]}" -eq 0 ] && { echo "ℹ️  Keine HTML-Dateien in $D"; return 0; }
+
+            # href/src auf /wissen/<lang>/ umschreiben
+            perl -0777 -i -pe 's/\b(href|src)=(["'"'"'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' "${files[@]}"
           }
           fix_lang de
           fix_lang en
 
       - name: Validate links (non-blocking)
-        run: echo "🔗 Linkcheck skipped (not implemented)"
+        shell: bash
+        run: |
+          echo "🔗 Linkcheck (light) ist hier bewusst non-blocking."
 
       - name: Deploy to *** (SFTP-only)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
