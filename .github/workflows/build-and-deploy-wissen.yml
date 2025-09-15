@@ -1,27 +1,36 @@
+# ===================================================================
+# build-and-deploy-wissen.yml
+# Version: 2025-09-15 08:35 (Europe/Berlin)
+# Zweck: Build & Deploy der Wissensdatenbank
+# ===================================================================
+
 name: Build & Deploy Wissen
 
 on:
-  workflow_dispatch:
   push:
     branches: [ main ]
     paths:
-      - "de/**"
-      - "en/**"
-      - "scripts/**"
-      - "requirements.txt"
-      - ".github/workflows/build-and-deploy-wissen.yml"
+      - 'de/**'
+      - 'en/**'
+      - 'scripts/**'
+      - 'requirements.txt'
+      - '.github/workflows/build-and-deploy-wissen.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 concurrency:
-  group: build-deploy-wissen-${{ github.ref }}
+  group: build-deploy-wissen
   cancel-in-progress: true
 
 jobs:
   build-deploy:
-    # Keine Builds für Bot-Commits oder wenn [skip ci] im Commit
+    # Keine Builds auf Bot-Commits oder mit [skip ci]
     if: github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
     env:
-      PYTHONUTF8: "1"  # sichert UTF-8 IO in Python
+      PYTHONUTF8: "1"   # sichert UTF-8-IO in Python
 
     steps:
       - name: Checkout
@@ -52,7 +61,7 @@ PY
         shell: bash
         run: |
           set -euo pipefail
-          # Passt Pfade/URL nach Bedarf an
+          echo "🏗️ Build Wissensdatenbank..."
           python scripts/build_site.py \
             --content-root . \
             --out-dir site \
@@ -63,60 +72,44 @@ PY
         shell: bash
         run: |
           set -euo pipefail
-
           fix_lang () {
-            local L="$1"
-            local D="site/$L"
-            [[ -d "$D" ]] || { echo "skip $D (does not exist)"; return 0; }
-
+            L="$1"
+            D="site/$L"
+            [ -d "$D" ] || return 0
             echo "🔧 Normalizing /wissen/ → /wissen/$L/ in $D"
-
-            # Falls keine .html Dateien existieren: sauber beenden
-            if ! find "$D" -type f -name "*.html" -print -quit | grep -q .; then
-              echo "no html files in $D"
+            if ! find "$D" -type f -name "*.html" | grep -q .; then
+              echo "No HTML files found in $D"
               return 0
             fi
-
-            # 1) fehlende Sprach-Prefixe in href/src ergänzen
+            # href/src rewrite
             find "$D" -type f -name "*.html" -print0 \
               | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
-
-            # 2) Ordner-Links auf /index.html normalisieren (optional)
+            # Directory links normalization
             find "$D" -type f -name "*.html" -print0 \
-              | xargs -0 perl -0777 -i -pe 's#\b(href|src)=(["\'])(/wissen/'"$L"'/[^"'\''>]*?)/(["\'])#${1}=${2}\3/index.html${4}#gi'
+              | xargs -0 perl -0777 -i -pe 's#\b(href|src)=(["\'])(/wissen/'"$L"'/[^"\'']*?)/(["\'])#${1}=${2}\3/index.html${4}#gi'
           }
-
           fix_lang de
           fix_lang en
 
-      # Leichtes Link-Checking (nicht blockierend)
       - name: Validate links (non-blocking)
         shell: bash
-        continue-on-error: true
         run: |
-          set -euo pipefail
-          python scripts/check_links.py site || true
+          echo "🔗 Linkcheck (non-blocking)"
+          python scripts/check_links.py || echo "⚠️ Linkcheck warnings ignored"
 
-      # Deploy per SFTP
-      - name: Deploy to ** (SFTP)
+      - name: Deploy to *** (SFTP)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server:     ${{ secrets.SFTP_HOST }}
-          port:       ${{ secrets.SFTP_PORT }}
-          username:   ${{ secrets.SFTP_USER }}
-          password:   ${{ secrets.SFTP_PASSWORD }}
-          local_path: "site/*"
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: site/*
           remote_path: ${{ secrets.SFTP_TARGET }}
           sftp_only: true
-          delete_remote_files: false
-          # Beispiel für SSH-Key (optional):
-          # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # Schneller, nicht blockierender Smoke-Test
       - name: Verify deploy via HTTP (non-blocking)
-        continue-on-error: true
         shell: bash
         run: |
-          set -euo pipefail
-          echo "Checking https://www.vertaefelungen.de/wissen/de/"
-          curl -I --max-time 10 https://www.vertaefelungen.de/wissen/de/ || true
+          echo "🌐 Verify deployment (non-blocking)"
+          curl -I --max-time 10 https://www.vertaefelungen.de/wissen/ || true
