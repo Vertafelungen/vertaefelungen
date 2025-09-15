@@ -56,7 +56,7 @@ jobs:
           python scripts/build_site.py \
             --content-root . \
             --out-dir site \
-            --base-url "https://www.vertaefelungen.de/wissen"
+            --base-url "/wissen"
 
       - name: Normalize /***/ prefixes per language (post-build, PCRE)
         shell: bash
