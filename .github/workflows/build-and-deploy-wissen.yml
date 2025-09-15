@@ -1,8 +1,5 @@
-# .github/workflows/build-and-deploy-wissen.yml
-# Version: 2025-09-14 12:17 (Europe/Berlin)
-# Zweck: Statische Wissensseite bauen, validieren und nach /wissen deployen
-
 name: Build & Deploy Wissen
+
 on:
   workflow_dispatch:
   push:
@@ -10,21 +7,22 @@ on:
     paths:
       - "de/**"
       - "en/**"
-      - "scripts/build_site.py"
-      - ".github/workflows/build-and-deploy-wissen.yml"
+      - "scripts/**"
       - "requirements.txt"
+      - ".github/workflows/build-and-deploy-wissen.yml"
 
 concurrency:
-  group: wissen-${{ github.ref }}
+  group: build-deploy-wissen-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build-deploy:
-    # Keine Builds auf Bot-Commits oder Commits mit [skip ci]
+    # Keine Builds für Bot-Commits oder wenn [skip ci] im Commit
     if: github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
     env:
-      PYTHONUTF8: "1"   # sichert UTF-8 IO in Python
+      PYTHONUTF8: "1"  # sichert UTF-8 IO in Python
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,85 +41,82 @@ jobs:
 
           # Mini-Sanity-Check: sind die Module verfügbar?
           python - <<'PY'
-          import sys, pkgutil
-          print("Python:", sys.version)
-          def ok(m): return bool(pkgutil.find_loader(m))
-          print("markdown:", ok("markdown"))
-          print("yaml    :", ok("yaml"))
-          PY
+import sys, pkgutil
+print("Python:", sys.version)
+def ok(m): return bool(pkgutil.find_loader(m))
+print("markdown:", ok("markdown"))
+print("yaml    :", ok("yaml"))
+PY
 
       - name: Build site
         shell: bash
         run: |
           set -euo pipefail
+          # Passt Pfade/URL nach Bedarf an
           python scripts/build_site.py \
             --content-root . \
             --out-dir site \
             --base-url "https://www.vertaefelungen.de/wissen"
 
-      # Safety-Pass: fehlende Sprachpräfixe /wissen/ → /wissen/<lang>/ ergänzen
-      - name: Normalize /wissen/ prefixes per language (post-build, PCRE)
+      # Safety-Pass: fehlende Sprachpräfixe /wissen/* ergänzen
+      - name: Normalize /***/ prefixes per language (post-build, PCRE)
         shell: bash
         run: |
           set -euo pipefail
+
           fix_lang () {
-            L="$1"
-            D="site/$L"
-            [ -d "$D" ] || return 0
+            local L="$1"
+            local D="site/$L"
+            [[ -d "$D" ]] || { echo "skip $D (does not exist)"; return 0; }
+
             echo "🔧 Normalizing /wissen/ → /wissen/$L/ in $D"
-            # href/src="/wissen/...   →   href/src="/wissen/<lang>/..."
+
+            # Falls keine .html Dateien existieren: sauber beenden
+            if ! find "$D" -type f -name "*.html" -print -quit | grep -q .; then
+              echo "no html files in $D"
+              return 0
+            fi
+
+            # 1) fehlende Sprach-Prefixe in href/src ergänzen
             find "$D" -type f -name "*.html" -print0 \
-            | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
-            # Links, die auf ein Verzeichnis enden, auf index.html normieren
+              | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
+
+            # 2) Ordner-Links auf /index.html normalisieren (optional)
             find "$D" -type f -name "*.html" -print0 \
-            | xargs -0 perl -0777 -i -pe 's#\b(href|src)=(["\'])(/wissen/'"$L"'/[^"\'']*?)/(["\'])#${1}=${2}\3/index.html${4}#gi'
+              | xargs -0 perl -0777 -i -pe 's#\b(href|src)=(["\'])(/wissen/'"$L"'/[^"'\''>]*?)/(["\'])#${1}=${2}\3/index.html${4}#gi'
           }
+
           fix_lang de
           fix_lang en
 
-      # Linkhygiene (interne Checks ohne Fail des Jobs, nur Logging)
+      # Leichtes Link-Checking (nicht blockierend)
       - name: Validate links (non-blocking)
         shell: bash
         continue-on-error: true
         run: |
           set -euo pipefail
-          # einfache Heuristik: zeige erste Treffer ohne Sprachpräfix
-          BAD=$(grep -RHoP '(?i)\b(?:href|src)\s*=\s*(?:"|\x27)?/wissen/(?!de/|en/)' site | head -n 5 || true)
-          if [ -n "$BAD" ]; then
-            echo "::warning title=Links ohne Sprachpräfix gefunden::"
-            echo "$BAD"
-          else
-            echo "✔ Keine offensichtlichen Präfix-Probleme gefunden."
-          fi
+          python scripts/check_links.py site || true
 
       # Deploy per SFTP
-      - name: Deploy to /wissen (SFTP)
+      - name: Deploy to ** (SFTP)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          host:     ${{ secrets.SFTP_HOST }}
-          port:     ${{ secrets.SFTP_PORT }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          local_path:  "site/*"
-          remote_path: "${{ secrets.SFTP_TARGET }}"
+          server:     ${{ secrets.SFTP_HOST }}
+          port:       ${{ secrets.SFTP_PORT }}
+          username:   ${{ secrets.SFTP_USER }}
+          password:   ${{ secrets.SFTP_PASSWORD }}
+          local_path: "site/*"
+          remote_path: ${{ secrets.SFTP_TARGET }}
           sftp_only: true
           delete_remote_files: false
-          exclude: ".git*,node_modules"
+          # Beispiel für SSH-Key (optional):
+          # ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-      # Externer HTTP-Check (optional, non-blocking)
+      # Schneller, nicht blockierender Smoke-Test
       - name: Verify deploy via HTTP (non-blocking)
-        if: ${{ success() }}
         continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
-          curl -I --max-time 15 https://www.vertaefelungen.de/wissen/de/ | sed -n '1,10p' || true
-
-      # Kurzes Protokoll
-      - name: Post Summary
-        if: always()
-        shell: bash
-        run: |
-          echo "### Build & Deploy Wissen" >> $GITHUB_STEP_SUMMARY
-          echo "- Status: ${{ job.status }}" >> $GITHUB_STEP_SUMMARY
-          echo "- Commit: $GITHUB_SHA" >> $GITHUB_STEP_SUMMARY
+          echo "Checking https://www.vertaefelungen.de/wissen/de/"
+          curl -I --max-time 10 https://www.vertaefelungen.de/wissen/de/ || true
