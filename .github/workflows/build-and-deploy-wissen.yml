@@ -1,6 +1,6 @@
 # ===================================================================
 # build-and-deploy-wissen.yml
-# Version: 2025-09-15 08:35 (Europe/Berlin)
+# Version: 2025-09-15 09:35 (Europe/Berlin)
 # Zweck: Build & Deploy der Wissensdatenbank
 # ===================================================================
 
@@ -50,18 +50,19 @@ jobs:
 
           # Mini-Sanity-Check: sind die Module verfügbar?
           python - <<'PY'
-import sys, pkgutil
-print("Python:", sys.version)
-def ok(m): return bool(pkgutil.find_loader(m))
-print("markdown:", ok("markdown"))
-print("yaml    :", ok("yaml"))
-PY
+          import sys, pkgutil
+          print("Python:", sys.version)
+          def ok(m): 
+              return bool(pkgutil.find_loader(m))
+          print("markdown:", ok("markdown"))
+          print("yaml    :", ok("yaml"))
+          PY
 
       - name: Build site
         shell: bash
         run: |
           set -euo pipefail
-          echo "🏗️ Build Wissensdatenbank..."
+          echo "🏗️  Build Wissensdatenbank..."
           python scripts/build_site.py \
             --content-root . \
             --out-dir site \
@@ -84,7 +85,7 @@ PY
             # href/src rewrite
             find "$D" -type f -name "*.html" -print0 \
               | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
-            # Directory links normalization
+            # Directory links normalization → /…/ → /…/index.html
             find "$D" -type f -name "*.html" -print0 \
               | xargs -0 perl -0777 -i -pe 's#\b(href|src)=(["\'])(/wissen/'"$L"'/[^"\'']*?)/(["\'])#${1}=${2}\3/index.html${4}#gi'
           }
@@ -95,7 +96,7 @@ PY
         shell: bash
         run: |
           echo "🔗 Linkcheck (non-blocking)"
-          python scripts/check_links.py || echo "⚠️ Linkcheck warnings ignored"
+          python scripts/check_links.py || echo "⚠️  Linkcheck warnings ignored"
 
       - name: Deploy to *** (SFTP)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
