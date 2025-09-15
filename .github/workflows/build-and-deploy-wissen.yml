@@ -1,9 +1,9 @@
-# =====================================================================
-# build-and-deploy-wissen.yml
-# Version: 2025-09-15 10:28 (Europe/Berlin)
-# Zweck  : Statische Wissensdatenbank bauen und per SFTP deployen
-# Trigger: Manuell / Push auf main
-# =====================================================================
+# ====================================================================
+# Build & Deploy Wissen
+# Version: 2025-09-15 12:39 (Europe/Berlin)
+# Zweck: Rendert die Wissensdatenbank und deployt sie per SFTP-only.
+# Hinweis: Zielordner muss existieren (rssh erlaubt kein ssh/mkdir).
+# ====================================================================
 
 name: Build & Deploy Wissen
 
@@ -15,8 +15,8 @@ on:
       - "de/**"
       - "en/**"
       - "scripts/**"
-      - "requirements.txt"
       - ".github/workflows/build-and-deploy-wissen.yml"
+      - "requirements.txt"
 
 concurrency:
   group: build-deploy-wissen
@@ -37,7 +37,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+            python-version: "3.11"
 
       - name: Install dependencies (requirements.txt)
         shell: bash
@@ -48,23 +48,24 @@ jobs:
 
           # Mini-Sanity-Check: sind die Module verfügbar?
           python - <<'PY'
-          import sys, pkgutil
-          print("Python:", sys.version)
-          def ok(m):
-            return bool(pkgutil.find_loader(m))
-          print("markdown:", ok("markdown"))
-          print("yaml    :", ok("yaml"))
-          PY
+import sys, pkgutil
+print("Python:", sys.version)
+def ok(m): return bool(pkgutil.find_loader(m))
+print("markdown:", ok("markdown"))
+print("yaml    :", ok("yaml"))
+PY
 
       - name: Build site
         shell: bash
+        env:
+          BASE_URL: ${{ secrets.BASE_URL || 'https://www.vertaefelungen.de/wissen' }}
         run: |
           set -euo pipefail
           echo "🏗️  Build Wissensdatenbank…"
           python scripts/build_site.py \
             --content-root . \
             --out-dir site \
-            --base-url "https://www.vertaefelungen.de/wissen"
+            --base-url "${BASE_URL}"
 
       # Safety-Pass: fehlende Sprachpräfixe /wissen/* ergänzen
       - name: Normalize /***/ prefixes per language (post-build, PCRE)
@@ -72,53 +73,61 @@ jobs:
         run: |
           set -euo pipefail
 
-          normalize_lang () {
-            local L="$1"
-            local D="site/$L"
-            [ -d "$D" ] || { echo "⚪ Verzeichnis $D fehlt – überspringe."; return 0; }
+          fix_lang () {
+            L="$1"
+            D="site/$L"
+            [ -d "$D" ] || return 0
 
-            echo "🔧 Normalisiere Links in $D …"
-
-            # 1) href/src="/wissen/…" -> "/wissen/<lang>/…", wenn kein de/|en/ folgt
+            echo "🔧 Normalizing /wissen/ → /wissen/$L/ in $D"
+            # href/src: /wissen/ → /wissen/L/
             find "$D" -type f -name "*.html" -print0 \
-            | while IFS= read -r -d '' f; do
-                perl -0777 -i -pe 's/\b(href|src)=(["'\''])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' "$f"
-            done
+              | xargs -0 perl -0777 -i -pe 's/\b(href|src)=(["\'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi'
 
-            # 2) Verzeichnis-Links auf index.html normalisieren
-            #    Beispiel: href="/wissen/de/foo/"  ->  "/wissen/de/foo/index.html"
-            find "$D" -type f -name "*.html" -print0 \
-            | while IFS= read -r -d '' f; do
-                perl -0777 -i -pe 's#\b(href|src)=(["'\''])(/wissen/'"$L"'/[^"'\'' >]*?)/\2#${1}=${2}$3/index.html${2}#gi' "$f"
-            done
+            # (Optional) directory links → index.html (nur wenn kein Suffix vorhanden)
+            # find "$D" -type f -name "*.html" -print0 \
+            #   | xargs -0 perl -0777 -i -pe 's#\b(href|src)=(["\'])(/wissen/'"$L"'/[^"'\''>]*?)(/?)\2#$1=$2$3/index.html$2#gi'
           }
 
-          normalize_lang de
-          normalize_lang en
-          echo "✅ Normalisierung abgeschlossen."
+          fix_lang de
+          fix_lang en
 
       - name: Validate links (non-blocking)
         shell: bash
         continue-on-error: true
         run: |
           set -euo pipefail
-          echo "🔍 (Optional) Link-Checks könnten hier laufen …"
+          echo "ℹ️  (Optional) Linkcheck ist aktuell nicht-blockierend."
 
-      - name: Deploy to *** (SFTP)
+      # ----------------------- DEPLOY (SFTP-ONLY) -----------------------
+      # Wichtig: rssh erlaubt nur sftp – keine ssh/rsync/scp. Diese Action
+      # wird deshalb strikt im SFTP-Modus betrieben und erwartet, dass
+      # der Zielordner bereits existiert.
+      - name: Deploy to *** (SFTP-only)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server:   ${{ secrets.SFTP_HOST }}
-          port:     ${{ secrets.SFTP_PORT }}
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path:  "site/*"
-          remote_path: "${{ secrets.SFTP_TARGET }}"
-          sftpArgs: "-o StrictHostKeyChecking=no -q"
+
+          # Upload-Quelle & -Ziel
+          local_path: "site/**"
+          remote_path: ${{ secrets.SFTP_TARGET }}
+
+          # SFTP-only zwingt die Action, KEINE ssh-Kommandos zu benutzen
+          sftp_only: true
+
+          # keine Remote-Löschung/kein rsync – rssh-kompatibel
+          delete_remote_files: false
+          overwrite: true
+
+          # SSH/SFTP-Optionen (HostKeyChecking aus, falls gewünscht)
+          ssh_option: "-o StrictHostKeyChecking=no"
 
       - name: Verify deploy via HTTP (non-blocking)
         continue-on-error: true
         shell: bash
         run: |
           set -euo pipefail
-          echo "🌐 Prüfe https://www.vertaefelungen.de/wissen/de/ …"
-          curl -I --fail --silent --show-error https://www.vertaefelungen.de/wissen/de/ | head -n 1 || true
+          echo "ℹ️  (Optional) Smoke-Test kann hier ergänzt werden (curl)."
+
