@@ -1,10 +1,6 @@
 # .github/workflows/sync-from-sheet.yml
-# Version: 2025-09-20 08:31 (Europe/Berlin)
+# Version: 2025-09-20 09:04 (Europe/Berlin)
 #
-# Zweck:
-# - Synchronisiert Inhalte aus Google Sheet → Markdown (de/, en/) und produkte.json
-# - Stellt sicher, dass alle Links und Inhalte UTF-8-korrekt ins Repo geschrieben werden
-# - Commit & Push mit [skip ci], um Build-Endlosschleifen zu vermeiden
 
 name: Sync from Sheet
 
@@ -23,8 +19,8 @@ jobs:
       group: sync-from-sheet
       cancel-in-progress: true
 
-    # ⬇️ Secrets exakt wie in deinem Repo gemappt
     env:
+      # Secrets exakt wie in deinem Repo (Screenshot)
       GSHEET_ID:       ${{ secrets.SHEET_ID }}
       GSHEET_GID:      ${{ secrets.SHEET_GID }}
       GSHEET_CSV_URL:  ${{ secrets.SHEET_CSV_URL }}
@@ -45,7 +41,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run sync-from-sheet.py (unverändert lassen)
+      - name: Run sync-from-sheet.py
         run: |
           set -euo pipefail
           python sync-from-sheet.py
