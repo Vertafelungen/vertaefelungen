@@ -1,81 +1,55 @@
 # .github/workflows/sync-from-sheet.yml
-# Version: 2025-09-14 08:47 (Europe/Berlin)
+# Version: 2025-09-20 07:55 (Europe/Berlin)
 #
 # Zweck:
 # - Synchronisiert Inhalte aus Google Sheet → Markdown (de/, en/) und produkte.json
 # - Stellt sicher, dass alle Links und Inhalte UTF-8-korrekt ins Repo geschrieben werden
 # - Commit & Push mit [skip ci], um Build-Endlosschleifen zu vermeiden
 
-name: Sync from Sheet
+name: Synchronize Content from Google Sheet
 
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "17 3 * * *"   # täglich um 03:17 UTC (04:17/05:17 CET/CEST)
-
-permissions:
-  contents: write
+    # Täglich um 02:00 UTC (entspricht 04:00 MEZ) – Zeit bei Bedarf anpassen
+    - cron:  '0 2 * * *'
+  workflow_dispatch:    # Manueller Trigger bei Bedarf
 
 jobs:
-  sync:
+  sync-sheet:
     runs-on: ubuntu-latest
-    concurrency:
-      group: sync-from-sheet
-      cancel-in-progress: true
-
-    env:
-      SHEET_ID: ${{ secrets.SHEET_ID }}
-      SHEET_GID: ${{ secrets.SHEET_GID }}
-      SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
-      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-
+    permissions:
+      contents: write    # Erforderlich, um Änderungen zurück in das Repo zu pushen
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true   # GitHub Token beibehalten, um push zu ermöglichen
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v3
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: |
-          set -euo pipefail
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            echo "❌ requirements.txt fehlt. Bitte im Repo-Root bereitstellen."
-            exit 1
-          fi
+      - name: Install Requirements
+        run: pip install -r requirements.txt
 
-      - name: Write Google service account (if provided)
+      - name: Sync from Google Sheet to Markdown
         env:
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-        if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
-        run: |
-          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > service-account.json
-          echo "✅ service-account.json geschrieben."
+          # Google Sheet-ID und optional GID (Tabellenblatt) als Umgebungsvariablen
+          GSHEET_ID: "${{ secrets.GSHEET_ID }}"
+          GSHEET_GID: "${{ secrets.GSHEET_GID }}"   # Optional: GID des Tabellenblatts (falls nötig)
+          OUTPUT_DIR: "wissen/de"                   # Zielordner für generierte .md (z.B. "wissen/de" für deutsche Inhalte)
+        run: python sync-from-sheet.py
 
-      - name: Run sync-from-sheet.py
+      - name: Commit changes
         run: |
-          set -euo pipefail
-          if [ -z "${SHEET_ID:-}" ] || [ -z "${SHEET_GID:-}" ]; then
-            echo "❌ SHEET_ID oder SHEET_GID fehlt (Repo-Secrets)."
-            exit 1
-          fi
-          python sync-from-sheet.py
-
-      - name: Commit and push changes
-        run: |
-          set -euo pipefail
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet; then
-            TS="$(date +'%Y-%m-%d %H:%M:%S %Z')"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          # Nur committen, wenn es Änderungen gibt
+          if [ -n "$(git status --porcelain)" ]; then
             git add -A
-            git commit -m "chore(sync): update content from Sheet ($TS) [skip ci]"
-            git push
-          else
-            echo "ℹ️ Keine Änderungen zu committen."
+            git commit -m "Update content from Google Sheets"
           fi
+
+      - name: Push changes
+        run: git push
