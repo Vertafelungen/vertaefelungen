@@ -1,5 +1,5 @@
 # scripts/build_site.py
-# Version: 2025-09-20 08:33 (Europe/Berlin)
+# Version: 2025-09-20 09:07 (Europe/Berlin)
 
 from __future__ import annotations
 import argparse, html, re, shutil
@@ -27,9 +27,7 @@ def load_markdown(p: Path) -> str:
 def md_to_html(md_text: str) -> str:
     return markdown.markdown(
         md_text,
-        extensions=[
-            "tables","toc","fenced_code","sane_lists","attr_list","md_in_html"
-        ],
+        extensions=["tables","toc","fenced_code","sane_lists","attr_list","md_in_html"],
         output_format="xhtml"
     )
 
@@ -56,7 +54,6 @@ def wrap_html(title: str, body: str, base_url: str, lang: str) -> str:
 _HREF_RE = re.compile(r'href=(["\'])(.+?)\1', re.IGNORECASE)
 
 def fix_links_in_html(html_text: str, page_src_dir: Path) -> str:
-    # *.md → *.html, endungslose relative Ziele → .html (wenn md/html nebenan existiert)
     def repl(m):
         q, url = m.groups()
         if url.startswith(("http://","https://","#","mailto:","data:")):
