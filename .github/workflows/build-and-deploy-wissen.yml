@@ -1,5 +1,5 @@
 # .github/workflows/build-and-deploy-wissen.yml
-# Version: 2025-09-20 09:06 (Europe/Berlin)
+# Version: 2025-09-20 10:10 (Europe/Berlin)
 # Zweck: Build & Deploy der Wissensdatenbank
 
 name: Build & Deploy Wissen
@@ -45,13 +45,14 @@ jobs:
           set -euo pipefail
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          python -c "import sys, import importlib.util as u; print('Python:', sys.version); print('markdown:', u.find_spec('markdown') is not None); print('yaml:', u.find_spec('yaml') is not None)"
+          # ✅ fixed sanity check
+          python -c "import sys; from importlib import util as u; print('Python:', sys.version); print('markdown:', u.find_spec('markdown') is not None); print('yaml:', u.find_spec('yaml') is not None)"
 
       - name: Build site
         shell: bash
         run: |
           set -euo pipefail
-          echo "🏗️  Build Wissensdatenbank..."
+          echo '🏗️  Build Wissensdatenbank...'
           python scripts/build_site.py --content-root . --out-dir site --base-url "/wissen"
 
       - name: Normalize /wissen prefixes per language (post-build)
