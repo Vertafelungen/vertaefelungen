@@ -20,7 +20,7 @@ except Exception as e:
     sys.exit(1)
 
 csv_data = response.content.decode('utf-8', errors='replace')
-# ⬇️ pandas.compat.StringIO → io.StringIO
+# pandas.compat.StringIO → io.StringIO
 df = pd.read_csv(io.StringIO(csv_data), dtype=str, keep_default_na=False)
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -41,11 +41,15 @@ for _, row in df.iterrows():
     filename = f"{id_val}.md"
     filepath = os.path.join(OUTPUT_DIR, filename)
 
+    # --- YAML-Frontmatter vorbereiten ---
     yaml_lines = ["---", f'id: "{id_val}"']
     if title_val:
-        yaml_lines.append(f'title: "{title_val.replace("\"","\\\"")}"')
+        # WICHTIG: erst escapen, dann im f-String verwenden (keine Backslashes im Ausdruck)
+        safe_title = title_val.replace('"', '\\"')
+        yaml_lines.append(f'title: "{safe_title}"')
     yaml_lines.append("---")
 
+    # --- Markdown-Inhalt ---
     md_lines = []
     if title_val:
         md_lines += [f"# {title_val}", ""]
@@ -56,6 +60,7 @@ for _, row in df.iterrows():
         f.write("\n".join(yaml_lines) + "\n")
         f.write("\n".join(md_lines).rstrip() + "\n")
 
+    # kurzer Auszug für Index
     snippet = (content_val or title_val).replace("\r\n", "\n").replace("\n", " ")
     snippet = snippet[:197] + "..." if len(snippet) > 200 else snippet
     entries.append({"id": id_val, "title": title_val or id_val, "excerpt": snippet})
