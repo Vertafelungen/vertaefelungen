@@ -1,112 +1,125 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-build_site.py
-Version: 2025-09-20 08:01 (Europe/Berlin)
+# scripts/build_site.py
+# Version: 2025-09-20 08:33 (Europe/Berlin)
 
-import os, re, io
-import markdown, yaml
+from __future__ import annotations
+import argparse, html, re, shutil
+from pathlib import Path
+import markdown
 
-BASE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "wissen")
+ASSET_EXT = {".png", ".jpg", ".jpeg", ".svg", ".webp", ".gif", ".css", ".js", ".json"}
 
-# Markdown-Converter initialisieren (mit ein paar Extra-Extensions für erweitertes MD)
-md_converter = markdown.Markdown(extensions=['extra'])
+def try_fix_mojibake(text: str) -> str:
+    if "Ã" in text or "â" in text:
+        try:
+            fixed = text.encode("latin1", errors="ignore").decode("utf-8", errors="ignore")
+            if fixed.count("Ã") < text.count("Ã"):
+                return fixed
+        except Exception:
+            pass
+    return text
 
-for root, dirs, files in os.walk(BASE_DIR):
-    for filename in files:
-        if not filename.lower().endswith(".md"):
-            continue
-        filepath = os.path.join(root, filename)
-        # Markdown-Datei einlesen
-        with open(filepath, "r", encoding="utf-8") as f:
-            text = f.read()
+def load_markdown(p: Path) -> str:
+    raw = p.read_text(encoding="utf-8", errors="replace")
+    raw = html.unescape(raw)     # &auml; → ä etc.
+    raw = try_fix_mojibake(raw)  # WinsstraÃe → Winsstraße (falls nötig)
+    return raw
 
-        # YAML-Frontmatter parsen (falls vorhanden)
-        meta = {}
-        content_md = text
-        if text.strip().startswith("---"):
-            parts = text.split("---", 2)
-            # parts[0] = '' (vor erstem ---), parts[1] = YAML, parts[2] = rest nach zweitem ---
-            if len(parts) >= 3:
-                try:
-                    meta = yaml.safe_load(parts[1]) or {}
-                except Exception as e:
-                    meta = {}
-                content_md = parts[2]
-        content_md = content_md.lstrip("\r\n")  # führende Zeilenumbrüche entfernen
+def md_to_html(md_text: str) -> str:
+    return markdown.markdown(
+        md_text,
+        extensions=[
+            "tables","toc","fenced_code","sane_lists","attr_list","md_in_html"
+        ],
+        output_format="xhtml"
+    )
 
-        # Markdown → HTML konvertieren
-        html_body = md_converter.reset().convert(content_md)
-
-        # HTML-Entities deutscher Umlaute in echte Zeichen umwandeln
-        entity_map = {
-            "&auml;": "ä", "&Auml;": "Ä",
-            "&ouml;": "ö", "&Ouml;": "Ö",
-            "&uuml;": "ü", "&Uuml;": "Ü",
-            "&szlig;": "ß"
-        }
-        for entity, char in entity_map.items():
-            html_body = html_body.replace(entity, char)
-
-        # Häufige UTF-8-Mojibake-Sequenzen reparieren (Ã¶ -> ö usw.)
-        mojibake_map = {
-            "Ã¤": "ä", "Ã„": "Ä",
-            "Ã¶": "ö", "Ã–": "Ö",
-            "Ã¼": "ü", "Ãœ": "Ü"
-        }
-        for bad, good in mojibake_map.items():
-            html_body = html_body.replace(bad, good)
-        if "Ã" in html_body:
-            try:
-                # Allgemeiner Fix: als Latin-1 Bytes interpretieren und in UTF-8 dekodieren
-                html_body = html_body.encode("latin-1").decode("utf-8")
-            except Exception:
-                pass
-
-        # Interne Links von *.md auf *.html ändern
-        html_body = re.sub(r'href="(?!https?://)([^"]+)\.md(#[^"]*)?"',
-                           r'href="\1.html\2"', html_body)
-
-        # Sprache für <html>-Tag bestimmen (aus Pfad: 'de' oder 'en')
-        rel_path = os.path.relpath(root, BASE_DIR)
-        first_dir = rel_path.split(os.sep)[0] if rel_path != "." else ""
-        lang = "de" if first_dir.lower() == "de" else ("en" if first_dir.lower() == "en" else "de")
-
-        # HTML <title> setzen (Titel aus YAML oder aus erster Überschrift)
-        title_text = ""
-        if isinstance(meta.get("title"), str):
-            title_text = meta["title"]
-        if not title_text:
-            # Falls im Markdown eine H1-Überschrift vorhanden ist, deren Text nehmen
-            match = re.search(r'<h1[^>]*>(.*?)</h1>', html_body, flags=re.IGNORECASE)
-            if match:
-                # HTML-Tags aus dem Heading-Text entfernen
-                title_text = re.sub(r'<[^>]+>', '', match.group(1))
-        if not title_text:
-            # Fallback: Dateiname ohne Extension
-            title_text = os.path.splitext(filename)[0]
-
-        # HTML-Grundgerüst zusammenbauen
-        html_content = f"""<!DOCTYPE html>
+def wrap_html(title: str, body: str, base_url: str, lang: str) -> str:
+    return f"""<!DOCTYPE html>
 <html lang="{lang}">
 <head>
-  <meta charset="UTF-8">
-  <title>{title_text}</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<base href="{base_url}/{lang}/">
+<title>{html.escape(title or "")}</title>
+<style>
+  body{{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;margin:2rem;max-width:60rem}}
+  pre,code{{font-family:ui-monospace,SFMono-Regular,Consolas,Menlo,monospace}}
+  img{{max-width:100%;height:auto}}
+  hr{{margin:2rem 0}}
+</style>
 </head>
 <body>
-{html_body}
+{body}
 </body>
-</html>
-"""
+</html>"""
 
-        # Ausgabedateinamen bestimmen (.html, README.md -> index.html)
-        output_name = filename[:-3] + ".html"
-        if filename.lower() == "readme.md":
-            output_name = "index.html"
-        output_path = os.path.join(root, output_name)
+_HREF_RE = re.compile(r'href=(["\'])(.+?)\1', re.IGNORECASE)
 
-        # HTML-Datei speichern (UTF-8)
-        with open(output_path, "w", encoding="utf-8") as f_out:
-            f_out.write(html_content)
-        # Optional: Logging
-        print(f"Converted {filepath} -> {output_path}")
+def fix_links_in_html(html_text: str, page_src_dir: Path) -> str:
+    # *.md → *.html, endungslose relative Ziele → .html (wenn md/html nebenan existiert)
+    def repl(m):
+        q, url = m.groups()
+        if url.startswith(("http://","https://","#","mailto:","data:")):
+            return m.group(0)
+        if url.endswith(".md"):
+            return f'href={q}{url[:-3]}.html{q}'
+        name = Path(url).name
+        if "." not in name and not url.endswith("/"):
+            if (page_src_dir / f"{name}.md").exists() or (page_src_dir / f"{name}.html").exists():
+                return f'href={q}{url}.html{q}'
+        return m.group(0)
+    return _HREF_RE.sub(repl, html_text)
+
+def copy_assets(src_dir: Path, dst_dir: Path) -> None:
+    for p in src_dir.rglob("*"):
+        if p.is_file() and p.suffix.lower() in ASSET_EXT:
+            rel = p.relative_to(src_dir)
+            out = dst_dir / rel
+            out.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(p, out)
+
+def build_lang(content_root: Path, out_root: Path, lang: str, base_url: str):
+    src = content_root / lang
+    if not src.exists():
+        return
+    for md in src.rglob("*.md"):
+        rel = md.relative_to(src)
+        if md.name.lower() == "readme.md":
+            out_rel = rel.parent / "index.html"
+            page_title = rel.parent.name.replace("-", " ").title()
+        else:
+            out_rel = rel.with_suffix(".html")
+            page_title = md.stem
+
+        out = out_root / lang / out_rel
+        out.parent.mkdir(parents=True, exist_ok=True)
+
+        md_text   = load_markdown(md)
+        body_html = md_to_html(md_text)
+        body_html = fix_links_in_html(body_html, md.parent)
+
+        page = wrap_html(page_title, body_html, base_url=base_url, lang=lang)
+        out.write_text(page, encoding="utf-8")
+
+    copy_assets(src, out_root / lang)
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--content-root", required=True)
+    ap.add_argument("--out-dir", required=True)
+    ap.add_argument("--base-url", default="/wissen")
+    args = ap.parse_args()
+
+    content_root = Path(args.content_root).resolve()
+    out_root     = Path(args.out_dir).resolve()
+    if out_root.exists():
+        shutil.rmtree(out_root)
+    out_root.mkdir(parents=True, exist_ok=True)
+
+    for lang in ("de","en"):
+        build_lang(content_root, out_root, lang, base_url=args.base_url)
+
+    print(f"✅ Build abgeschlossen: {out_root}")
+
+if __name__ == "__main__":
+    main()
