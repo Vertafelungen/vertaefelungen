@@ -1,55 +1,65 @@
 # .github/workflows/sync-from-sheet.yml
-# Version: 2025-09-20 07:55 (Europe/Berlin)
+# Version: 2025-09-20 08:31 (Europe/Berlin)
 #
 # Zweck:
 # - Synchronisiert Inhalte aus Google Sheet → Markdown (de/, en/) und produkte.json
 # - Stellt sicher, dass alle Links und Inhalte UTF-8-korrekt ins Repo geschrieben werden
 # - Commit & Push mit [skip ci], um Build-Endlosschleifen zu vermeiden
 
-name: Synchronize Content from Google Sheet
+name: Sync from Sheet
 
 on:
+  workflow_dispatch:
   schedule:
-    # Täglich um 02:00 UTC (entspricht 04:00 MEZ) – Zeit bei Bedarf anpassen
-    - cron:  '0 2 * * *'
-  workflow_dispatch:    # Manueller Trigger bei Bedarf
+    - cron: "17 3 * * *"   # täglich 03:17 UTC
+
+permissions:
+  contents: write
 
 jobs:
-  sync-sheet:
+  sync:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write    # Erforderlich, um Änderungen zurück in das Repo zu pushen
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: true   # GitHub Token beibehalten, um push zu ermöglichen
+    concurrency:
+      group: sync-from-sheet
+      cancel-in-progress: true
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v3
+    # ⬇️ Secrets exakt wie in deinem Repo gemappt
+    env:
+      GSHEET_ID:       ${{ secrets.SHEET_ID }}
+      GSHEET_GID:      ${{ secrets.SHEET_GID }}
+      GSHEET_CSV_URL:  ${{ secrets.SHEET_CSV_URL }}
+      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install Requirements
-        run: pip install -r requirements.txt
-
-      - name: Sync from Google Sheet to Markdown
-        env:
-          # Google Sheet-ID und optional GID (Tabellenblatt) als Umgebungsvariablen
-          GSHEET_ID: "${{ secrets.GSHEET_ID }}"
-          GSHEET_GID: "${{ secrets.GSHEET_GID }}"   # Optional: GID des Tabellenblatts (falls nötig)
-          OUTPUT_DIR: "wissen/de"                   # Zielordner für generierte .md (z.B. "wissen/de" für deutsche Inhalte)
-        run: python sync-from-sheet.py
-
-      - name: Commit changes
+      - name: Install dependencies
         run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          # Nur committen, wenn es Änderungen gibt
-          if [ -n "$(git status --porcelain)" ]; then
-            git add -A
-            git commit -m "Update content from Google Sheets"
-          fi
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: Push changes
-        run: git push
+      - name: Run sync-from-sheet.py (unverändert lassen)
+        run: |
+          set -euo pipefail
+          python sync-from-sheet.py
+
+      - name: Commit and push changes
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            TS="$(date +'%Y-%m-%d %H:%M:%S %Z')"
+            git add -A
+            git commit -m "chore(sync): update content from Sheet ($TS) [skip ci]"
+            git push
+          else
+            echo "ℹ️ Keine Änderungen zu committen."
+          fi
