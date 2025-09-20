@@ -1,42 +1,89 @@
 # .github/workflows/build-and-deploy-wissen.yml
-# Version: 2025-09-20 07:59 (Europe/Berlin)
+# Version: 2025-09-20 08:32 (Europe/Berlin)
 # Zweck: Build & Deploy der Wissensdatenbank
 
-name: Build and Deploy Wissen
+name: Build & Deploy Wissen
 
 on:
   push:
     branches: [ main ]
-  schedule:
-    # Täglich um 02:15 UTC (ca. 15 Minuten nach dem Sheet-Sync) – Zeit bei Bedarf anpassen
-    - cron: '15 2 * * *'
-  workflow_dispatch:
+    paths:
+      - 'de/**'
+      - 'en/**'
+      - 'assets/**'
+      - 'scripts/**'
+      - 'requirements.txt'
+      - '.github/workflows/build-and-deploy-wissen.yml'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-deploy-wissen
+  cancel-in-progress: true
 
 jobs:
   build-deploy:
+    if: github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+    env:
+      PYTHONUTF8: "1"
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - name: Install Requirements
-        run: pip install -r requirements.txt
+      - name: Install dependencies (requirements.txt)
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python - << 'PY'
+import sys, importlib.util as u
+print("Python:", sys.version)
+ok=lambda m: u.find_spec(m) is not None
+print("markdown:", ok('markdown')); print('yaml    :', ok('yaml'))
+PY
 
-      - name: Build static HTML site
-        run: python build_site.py
+      - name: Build site
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "🏗️  Build Wissensdatenbank..."
+          python scripts/build_site.py \
+            --content-root . \
+            --out-dir site \
+            --base-url "/wissen"
 
-      - name: Deploy via SFTP to IONOS
-        uses: matteodf/lftp-upload@v1
+      - name: Normalize /wissen prefixes per language (post-build)
+        shell: bash
+        run: |
+          set -euo pipefail
+          fix_lang() {
+            L="$1"
+            D="site/$L"
+            [ -d "$D" ] || { echo "⏭  $D nicht vorhanden – übersprungen"; return 0; }
+            mapfile -d '' files < <(find "$D" -type f -name '*.html' -print0)
+            [ "${#files[@]}" -eq 0 ] && { echo "ℹ️  Keine HTML-Dateien in $D"; return 0; }
+            perl -0777 -i -pe 's/\b(href|src)=(["'"'"'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' "${files[@]}"
+          }
+          fix_lang de
+          fix_lang en
+
+      - name: Deploy to IONOS (SFTP-only)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          host: "sftp://${{ secrets.SFTP_HOST }}"        # SFTP-Host (Domain) - ohne Port, Standard 22
-          username: "${{ secrets.SFTP_USER }}"
-          password: "${{ secrets.SFTP_PASSWORD }}"
-          localDir: "wissen"       # Ordner mit dem gebauten Inhalt (inkl. Unterordnern de/, en/)
-          remoteDir: "/wissen"     # Zielverzeichnis auf dem Server (Auslieferungsverzeichnis)
-          forceSsl: "false"
-          extraFlags: '-X *.md --delete'
+          server:   ${{ secrets.SFTP_HOST }}
+          port:     ${{ secrets.SFTP_PORT }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: "site/*"
+          remote_path: ${{ secrets.SFTP_TARGET }}
+          sftp_only: true
