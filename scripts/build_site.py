@@ -1,9 +1,10 @@
 # scripts/build_site.py
-# Version: 2025-09-20 09:07 (Europe/Berlin)
+# Version: 2025-09-21 16:33 (Europe/Berlin)
 
 from __future__ import annotations
 import argparse, html, re, shutil
 from pathlib import Path
+import urllib.parse as up
 import markdown
 
 ASSET_EXT = {".png", ".jpg", ".jpeg", ".svg", ".webp", ".gif", ".css", ".js", ".json"}
@@ -51,21 +52,42 @@ def wrap_html(title: str, body: str, base_url: str, lang: str) -> str:
 </body>
 </html>"""
 
-_HREF_RE = re.compile(r'href=(["\'])(.+?)\1', re.IGNORECASE)
+_LINK_RE = re.compile(r'(href|src)=(["\'])(.+?)\2', re.IGNORECASE)
 
-def fix_links_in_html(html_text: str, page_src_dir: Path) -> str:
-    def repl(m):
-        q, url = m.groups()
-        if url.startswith(("http://","https://","#","mailto:","data:")):
-            return m.group(0)
-        if url.endswith(".md"):
-            return f'href={q}{url[:-3]}.html{q}'
-        name = Path(url).name
-        if "." not in name and not url.endswith("/"):
+def fix_links_in_html(html_text: str, page_src_dir: Path, lang: str) -> str:
+    """
+    Normalisiert interne Links:
+      - *.md → *.html
+      - /wissen/... → /wissen/<lang>/...
+      - endungslose relative Ziele → .html, wenn Nachbardatei existiert
+    """
+    def norm(url: str) -> str:
+        if url.startswith(("http://","https://","mailto:","data:","#")):
+            return url
+        parsed = up.urlsplit(url)
+        path = parsed.path or ""
+
+        # 1) .md → .html
+        if path.endswith(".md"):
+            path = path[:-3] + ".html"
+
+        # 2) absolute /wissen/... ohne Sprache → /wissen/<lang>/...
+        if path.startswith("/wissen/") and not path.startswith(("/wissen/de/","/wissen/en/")):
+            path = f"/wissen/{lang}/" + path[len("/wissen/"):]
+
+        # 3) relative, endungslose Ziele → .html, wenn passend vorhanden
+        name = Path(path).name
+        if path and not path.endswith(("/", ".html", ".htm")) and "." not in name:
             if (page_src_dir / f"{name}.md").exists() or (page_src_dir / f"{name}.html").exists():
-                return f'href={q}{url}.html{q}'
-        return m.group(0)
-    return _HREF_RE.sub(repl, html_text)
+                path = f"{path}.html"
+
+        return up.urlunsplit((parsed.scheme, parsed.netloc, path, parsed.query, parsed.fragment))
+
+    def repl(m):
+        attr, q, url = m.groups()
+        return f'{attr}={q}{norm(url)}{q}'
+
+    return _LINK_RE.sub(repl, html_text)
 
 def copy_assets(src_dir: Path, dst_dir: Path) -> None:
     for p in src_dir.rglob("*"):
@@ -93,7 +115,7 @@ def build_lang(content_root: Path, out_root: Path, lang: str, base_url: str):
 
         md_text   = load_markdown(md)
         body_html = md_to_html(md_text)
-        body_html = fix_links_in_html(body_html, md.parent)
+        body_html = fix_links_in_html(body_html, md.parent, lang=lang)
 
         page = wrap_html(page_title, body_html, base_url=base_url, lang=lang)
         out.write_text(page, encoding="utf-8")
