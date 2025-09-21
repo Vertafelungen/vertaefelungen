@@ -1,5 +1,5 @@
 # scripts/build_site.py
-# Version: 2025-09-21 16:33 (Europe/Berlin)
+# Version: 2025-09-21 17:15 (Europe/Berlin)
 
 from __future__ import annotations
 import argparse, html, re, shutil
@@ -21,8 +21,8 @@ def try_fix_mojibake(text: str) -> str:
 
 def load_markdown(p: Path) -> str:
     raw = p.read_text(encoding="utf-8", errors="replace")
-    raw = html.unescape(raw)     # &auml; → ä etc.
-    raw = try_fix_mojibake(raw)  # WinsstraÃe → Winsstraße (falls nötig)
+    raw = html.unescape(raw)
+    raw = try_fix_mojibake(raw)
     return raw
 
 def md_to_html(md_text: str) -> str:
@@ -55,27 +55,23 @@ def wrap_html(title: str, body: str, base_url: str, lang: str) -> str:
 _LINK_RE = re.compile(r'(href|src)=(["\'])(.+?)\2', re.IGNORECASE)
 
 def fix_links_in_html(html_text: str, page_src_dir: Path, lang: str) -> str:
-    """
-    Normalisiert interne Links:
-      - *.md → *.html
-      - /wissen/... → /wissen/<lang>/...
-      - endungslose relative Ziele → .html, wenn Nachbardatei existiert
-    """
+    """Normalisiert interne Links:
+       *.md → *.html,  /wissen/... → /wissen/<lang>/...,  endungslose relative Ziele → .html (falls vorhanden)."""
     def norm(url: str) -> str:
         if url.startswith(("http://","https://","mailto:","data:","#")):
             return url
         parsed = up.urlsplit(url)
         path = parsed.path or ""
 
-        # 1) .md → .html
+        # .md → .html
         if path.endswith(".md"):
             path = path[:-3] + ".html"
 
-        # 2) absolute /wissen/... ohne Sprache → /wissen/<lang>/...
+        # absolute /wissen/... ohne Sprache → /wissen/<lang>/...
         if path.startswith("/wissen/") and not path.startswith(("/wissen/de/","/wissen/en/")):
             path = f"/wissen/{lang}/" + path[len("/wissen/"):]
 
-        # 3) relative, endungslose Ziele → .html, wenn passend vorhanden
+        # relative, endungslose Ziele → .html, wenn passende Datei existiert
         name = Path(path).name
         if path and not path.endswith(("/", ".html", ".htm")) and "." not in name:
             if (page_src_dir / f"{name}.md").exists() or (page_src_dir / f"{name}.html").exists():
