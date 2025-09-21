@@ -1,6 +1,10 @@
 # .github/workflows/sync-from-sheet.yml
-# Version: 2025-09-20 09:04 (Europe/Berlin)
+# Version: 2025-09-21 19:18 (Europe/Berlin)
 #
+# Änderungen:
+# - Führt den Sync zweimal aus: einmal nach wissen/de, einmal nach wissen/en.
+# - Commit & Push erst NACH beiden Sync-Schritten (ein Commit), mit [skip ci].
+# - Secrets bleiben unverändert: SHEET_ID, SHEET_GID, SHEET_CSV_URL, GOOGLE_SERVICE_ACCOUNT_JSON.
 
 name: Sync from Sheet
 
@@ -19,8 +23,8 @@ jobs:
       group: sync-from-sheet
       cancel-in-progress: true
 
+    # Secrets → ENV wie bisher
     env:
-      # Secrets exakt wie in deinem Repo (Screenshot)
       GSHEET_ID:       ${{ secrets.SHEET_ID }}
       GSHEET_GID:      ${{ secrets.SHEET_GID }}
       GSHEET_CSV_URL:  ${{ secrets.SHEET_CSV_URL }}
@@ -39,22 +43,46 @@ jobs:
         run: |
           set -euo pipefail
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            echo "❌ requirements.txt fehlt. Bitte im Repo-Root bereitstellen."
+            exit 1
+          fi
 
-      - name: Run sync-from-sheet.py
+      # Optional: Service-Account-Datei schreiben (falls genutzt)
+      - name: Prepare Google service account (optional)
+        if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
+        run: |
+          printf '%s' "${GOOGLE_SERVICE_ACCOUNT_JSON}" > service-account.json
+          echo "✅ service-account.json geschrieben."
+
+      # === DE-Sync ===
+      - name: Sync DE → wissen/de
+        env:
+          OUTPUT_DIR: wissen/de
         run: |
           set -euo pipefail
           python sync-from-sheet.py
 
-      - name: Commit and push changes
+      # === EN-Sync ===
+      - name: Sync EN → wissen/en
+        env:
+          OUTPUT_DIR: wissen/en
+        run: |
+          set -euo pipefail
+          python sync-from-sheet.py
+
+      # Commit nach beiden Läufen (ein Commit)
+      - name: Commit and push changes (DE+EN)
         run: |
           set -euo pipefail
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if ! git diff --quiet; then
-            TS="$(date +'%Y-%m-%d %H:%M:%S %Z')"
+            TS="$(TZ=Europe/Berlin date +'%Y-%m-%d %H:%M:%S %Z')"
             git add -A
-            git commit -m "chore(sync): update content from Sheet ($TS) [skip ci]"
+            git commit -m "chore(sync): update content (de+en) $TS [skip ci]"
             git push
           else
             echo "ℹ️ Keine Änderungen zu committen."
