@@ -1,5 +1,5 @@
 # .github/workflows/build-and-deploy-wissen.yml
-# Version: 2025-09-21 12:02 (Europe/Berlin)
+# Version: 2025-09-21 12:25 (Europe/Berlin)
 
 name: Build & Deploy Wissen
 
@@ -68,6 +68,31 @@ jobs:
           fix_lang de
           fix_lang en
 
+      # ✅ Debug: Existiert der Zielpfad wirklich (aus Sicht des SFTP-Logins)?
+      - name: Verify remote target via SFTP (ls & pwd)
+        shell: bash
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_TARGET: ${{ secrets.SFTP_TARGET }}
+        run: |
+          set -euo pipefail
+          echo "🔎 Prüfe Remote-Verzeichnis via SFTP (ohne Secrets im Log)..."
+          # Wir verwenden sshpass + sftp im Batch-Modus
+          sudo apt-get update -y >/dev/null
+          sudo apt-get install -y sshpass >/dev/null
+          # PWD + LS
+          SSHPASS="$SFTP_PASSWORD" sshpass -e sftp -P "$SFTP_PORT" -oBatchMode=no -oStrictHostKeyChecking=no "$SFTP_USER@$SFTP_HOST" <<SFTP
+pwd
+ls -la
+cd $SFTP_TARGET
+pwd
+ls -la
+SFTP
+          echo "✅ Remote-Verzeichnis erreichbar: $SFTP_TARGET"
+
       - name: Deploy to IONOS (SFTP-only)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -75,8 +100,8 @@ jobs:
           port:     ${{ secrets.SFTP_PORT }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          # 👉 Quelle ist der ORDNER, kein Wildcard
+          # Quelle ist der ORDNER (kein Wildcard)
           local_path: "site"
-          # 👉 Zielpfad immer mit trailing slash – egal was im Secret steht
-          remote_path: "${{ secrets.SFTP_TARGET }}/"
+          # ⚠️ Kein künstlicher Slash mehr – exakt den Secret-Wert verwenden
+          remote_path: ${{ secrets.SFTP_TARGET }}
           sftp_only: true
