@@ -1,6 +1,5 @@
 # .github/workflows/build-and-deploy-wissen.yml
-# Version: 2025-09-20 10:10 (Europe/Berlin)
-# Zweck: Build & Deploy der Wissensdatenbank
+# Version: 2025-09-21 12:02 (Europe/Berlin)
 
 name: Build & Deploy Wissen
 
@@ -45,7 +44,6 @@ jobs:
           set -euo pipefail
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          # ✅ fixed sanity check
           python -c "import sys; from importlib import util as u; print('Python:', sys.version); print('markdown:', u.find_spec('markdown') is not None); print('yaml:', u.find_spec('yaml') is not None)"
 
       - name: Build site
@@ -77,6 +75,8 @@ jobs:
           port:     ${{ secrets.SFTP_PORT }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: "site/*"
-          remote_path: ${{ secrets.SFTP_TARGET }}
+          # 👉 Quelle ist der ORDNER, kein Wildcard
+          local_path: "site"
+          # 👉 Zielpfad immer mit trailing slash – egal was im Secret steht
+          remote_path: "${{ secrets.SFTP_TARGET }}/"
           sftp_only: true
