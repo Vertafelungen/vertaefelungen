@@ -1,89 +1,53 @@
 # .github/workflows/sync-from-sheet.yml
-# Version: 2025-09-21 19:18 (Europe/Berlin)
-#
-# Änderungen:
-# - Führt den Sync zweimal aus: einmal nach wissen/de, einmal nach wissen/en.
-# - Commit & Push erst NACH beiden Sync-Schritten (ein Commit), mit [skip ci].
-# - Secrets bleiben unverändert: SHEET_ID, SHEET_GID, SHEET_CSV_URL, GOOGLE_SERVICE_ACCOUNT_JSON.
+# Version: 2025-09-21 21:08 (Europe/Berlin)
 
-name: Sync from Sheet
-
+name: Sync Knowledge Base from Google Sheet
 on:
-  workflow_dispatch:
   schedule:
-    - cron: "17 3 * * *"   # täglich 03:17 UTC
+    - cron: "0 3 * * 1"   # z.B. jeden Montag um 03:00 Uhr
+  workflow_dispatch:      # manuelles Triggern möglich
 
 permissions:
-  contents: write
+  contents: write         # Erlaubnis, ins Repo zu schreiben (für commit+push)
 
 jobs:
-  sync:
+  sync-wissen:
     runs-on: ubuntu-latest
-    concurrency:
-      group: sync-from-sheet
-      cancel-in-progress: true
-
-    # Secrets → ENV wie bisher
-    env:
-      GSHEET_ID:       ${{ secrets.SHEET_ID }}
-      GSHEET_GID:      ${{ secrets.SHEET_GID }}
-      GSHEET_CSV_URL:  ${{ secrets.SHEET_CSV_URL }}
-      GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: '3.10'   # gewünschte Python-Version
 
-      - name: Install dependencies
-        run: |
-          set -euo pipefail
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-          else
-            echo "❌ requirements.txt fehlt. Bitte im Repo-Root bereitstellen."
-            exit 1
-          fi
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
 
-      # Optional: Service-Account-Datei schreiben (falls genutzt)
-      - name: Prepare Google service account (optional)
-        if: env.GOOGLE_SERVICE_ACCOUNT_JSON != ''
-        run: |
-          printf '%s' "${GOOGLE_SERVICE_ACCOUNT_JSON}" > service-account.json
-          echo "✅ service-account.json geschrieben."
-
-      # === DE-Sync ===
-      - name: Sync DE → wissen/de
+      # Synchronisation für deutsche Inhalte
+      - name: Sync DE (German content)
         env:
-          OUTPUT_DIR: wissen/de
-        run: |
-          set -euo pipefail
-          python sync-from-sheet.py
+          GSHEET_ID: ${{ secrets.GSHEET_ID }}    # Google Sheet ID als Secret
+          GSHEET_GID: "GID_DE"                   # Google Sheet GID für DE (Tab-ID)
+          OUTPUT_DIR: "wissen/de"
+        run: python sync-from-sheet.py
 
-      # === EN-Sync ===
-      - name: Sync EN → wissen/en
+      # Synchronisation für englische Inhalte
+      - name: Sync EN (English content)
         env:
-          OUTPUT_DIR: wissen/en
-        run: |
-          set -euo pipefail
-          python sync-from-sheet.py
+          GSHEET_ID: ${{ secrets.GSHEET_ID }}
+          GSHEET_GID: "GID_EN"                   # Google Sheet GID für EN (Tab-ID)
+          OUTPUT_DIR: "wissen/en"
+        run: python sync-from-sheet.py
 
-      # Commit nach beiden Läufen (ein Commit)
-      - name: Commit and push changes (DE+EN)
+      - name: Commit and Push changes
+        env:
+          TZ: Europe/Berlin
         run: |
-          set -euo pipefail
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if ! git diff --quiet; then
-            TS="$(TZ=Europe/Berlin date +'%Y-%m-%d %H:%M:%S %Z')"
-            git add -A
-            git commit -m "chore(sync): update content (de+en) $TS [skip ci]"
-            git push
-          else
-            echo "ℹ️ Keine Änderungen zu committen."
-          fi
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add -A
+          timestamp=$(date +"%Y-%m-%d %H:%M")
+          git commit -m "Auto-Sync: Wissensdatenbank Update – Stand $timestamp" || echo "No changes to commit"
+          git push
