@@ -1,5 +1,5 @@
 # sync-from-sheet.py
-# Version: 2025-09-22 11:02 (Europe/Berlin)
+# Version: 2025-09-22 13:46 (Europe/Berlin)
 
 import os, sys, requests, pandas as pd, io
 from pathlib import Path
@@ -69,18 +69,24 @@ for _, row in df.iterrows():
         entries.append({"type": "category", "slug": slug, "title": title or slug, "content": content, "path": relpath})
     else:
         md_path = parent_dir / f"{slug}.md"
+
         yaml = ["---", f'id: "{slug}"']
         if title:
             safe_title = title.replace('"', '\\"')
             yaml.append(f'title: "{safe_title}"')
         yaml.append("---")
+
         body_lines = []
         if title:
             body_lines += [f"# {title}", ""]
         if content:
-            # Hinweis: Inhalt sollte UTF-8 sein; evtl. bereits in Google Sheet korrigiert (Umlaute etc.)
+            # Inhalt sollte UTF-8 sein; ggf. in Google Sheet bereinigen (Umlaute etc.)
             body_lines.append(content.replace("\r\n", "\n").strip())
-        md_path.write_text("\n".join(yaml) + "\n" + "\n".join(body_lines).rstrip() + "\n", encoding="utf-8")
+
+        md_path.write_text(
+            "\n".join(yaml) + "\n" + "\n".join(body_lines).rstrip() + "\n",
+            encoding="utf-8"
+        )
         entries.append({"type": "page", "slug": slug, "title": title or slug, "content": content, "path": relpath})
 
 # Indexseiten generieren (index.md)
@@ -94,6 +100,7 @@ timestamp = "2025-09-22 11:02"
 for parent_path, children in children_map.items():
     target_dir = out_root / parent_path if parent_path else out_root
     index_md = target_dir / "index.md"
+
     if not parent_path:
         # Top-Level Index
         if lang == "de":
@@ -106,23 +113,32 @@ for parent_path, children in children_map.items():
         # Kategorietitel und Intro aus Eintrag holen
         cat_slug   = parent_path.split("/")[-1]
         cat_parent = "/".join(parent_path.split("/")[:-1])
-        cat_entry = next((e for e in entries if e["type"]=="category" and e["slug"]==cat_slug and (e["path"] or "")==cat_parent), None)
+        cat_entry = next(
+            (e for e in entries if e["type"] == "category" and e["slug"] == cat_slug and (e["path"] or "") == cat_parent),
+            None
+        )
         index_title = cat_entry["title"] if cat_entry else parent_path
         intro = (cat_entry["content"] or "") if cat_entry else ""
+
     lines = [f"# {index_title}", ""]
     if intro:
         lines += [intro.strip(), ""]
+
     cats  = [c for c in children if c["type"] == "category"]
     pages = [p for p in children if p["type"] == "page"]
+
     for c in sorted(cats, key=lambda x: x["title"].lower()):
         lines.append(f"- [{c['title']}]({c['slug']}/)")
         if c["content"]:
             lines.append("  " + " ".join(c["content"].split()))
-    for p in sorted(pages, key=lambda x: x["title'].lower()):
+
+    # >>> FIX: hier war das Mischzitat ("title'") und verursachte den SyntaxError
+    for p in sorted(pages, key=lambda x: x["title"].lower()):
         lines.append(f"- [{p['title']}]({p['slug']}.html)")
         if p["content"]:
-            snip = " ".join(p["content'].split())
+            snip = " ".join(p["content"].split())
             lines.append("  " + (snip[:197] + "..." if len(snip) > 200 else snip))
+
     lines += ["", f"<!-- Stand: {timestamp} -->"]
     index_md.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
