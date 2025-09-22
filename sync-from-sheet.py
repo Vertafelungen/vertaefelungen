@@ -1,5 +1,5 @@
 # sync-from-sheet.py
-# Version: 2025-09-21 22:06 (Europe/Berlin)
+# Version: 2025-09-22 08:32 (Europe/Berlin)
 
 import os, sys, requests, pandas as pd, io
 from pathlib import Path
@@ -31,28 +31,27 @@ df = pd.read_csv(io.StringIO(csv_data), dtype=str, keep_default_na=False)
 # Sprache aus OUTPUT_DIR ableiten (z. B. "de" / "en").
 lang = OUTPUT_DIR.rstrip("/").split("/")[-1].lower()
 
-# Wenn ein gemeinsames Sheet genutzt wird, kann optional nach Language gefiltert werden.
+# Falls ein gemeinsames Sheet beide Sprachen enthält:
 if "Language" in df.columns:
     df = df[df["Language"].str.lower() == lang]
 
-# Erwartete Spalten (Namen ggf. an dein Sheet anpassen)
-ID_COL      = next((c for c in df.columns if c.lower() == "id"), "ID")             # slug/Dateiname
+# Erwartete Spalten (ggf. anpassen)
+ID_COL      = next((c for c in df.columns if c.lower() == "id"), "ID")
 TITLE_COL   = next((c for c in df.columns if c.lower() == "title"), "Title")
 CONTENT_COL = next((c for c in df.columns if c.lower() == "content"), "Content")
-PATH_COL    = next((c for c in df.columns if c.lower() == "path"), "Path")         # z. B. "oeffentlich/produkte/..."
-TYPE_COL    = next((c for c in df.columns if c.lower() == "type"), "Type")         # "page" | "category"
+PATH_COL    = next((c for c in df.columns if c.lower() == "path"), "Path")
+TYPE_COL    = next((c for c in df.columns if c.lower() == "type"), "Type")  # "page" | "category"
 
 out_root = Path(OUTPUT_DIR)
 out_root.mkdir(parents=True, exist_ok=True)
 
-# Alle Einträge einsammeln (für Index-Generierung)
 entries = []
 
 for _, row in df.iterrows():
     slug    = str(row.get(ID_COL, "")).strip()
     title   = str(row.get(TITLE_COL, "")).strip()
     content = str(row.get(CONTENT_COL, "")).strip()
-    relpath = str(row.get(PATH_COL, "")).strip()    # Elternpfad (kann leer sein)
+    relpath = str(row.get(PATH_COL, "")).strip()
     etype   = (str(row.get(TYPE_COL, "page")).strip() or "page").lower()
 
     if not slug:
@@ -62,21 +61,23 @@ for _, row in df.iterrows():
     parent_dir.mkdir(parents=True, exist_ok=True)
 
     if etype == "category":
-        # Kategorieordner anlegen; eigentliche index.md generieren wir später gesammelt
+        # Kategorieordner anlegen (index.md wird später generiert)
         (parent_dir / slug).mkdir(parents=True, exist_ok=True)
         entries.append({
             "type": "category",
             "slug": slug,
             "title": title or slug,
             "content": content,
-            "path": relpath  # Elternpfad
+            "path": relpath
         })
     else:
         # Inhaltsseite als Markdown
         md_path = parent_dir / f"{slug}.md"
         yaml = ["---", f'id: "{slug}"']
         if title:
-            yaml.append(f'title: "{title.replace("\"","\\\"")}"')
+            # WICHTIG: erst escapen, dann im f-String verwenden (kein Backslash im Ausdruck)
+            safe_title = title.replace('"', '\\"')
+            yaml.append(f'title: "{safe_title}"')
         yaml.append("---")
 
         body_lines = []
@@ -98,7 +99,6 @@ for _, row in df.iterrows():
         })
 
 # Indexseiten pro Verzeichnis erstellen (index.md statt README.md)
-# children_map ordnet jedem Elternpfad seine direkten Kinder zu
 children_map = {}
 for e in entries:
     parent_key = e["path"] or ""
@@ -110,9 +110,8 @@ for parent_path, children in children_map.items():
     target_dir = out_root / parent_path if parent_path else out_root
     index_md = target_dir / "index.md"
 
-    # Titel/Einleitung für diese Ebene ermitteln
+    # Titel/Einleitung der Ebene
     if not parent_path:
-        # Wurzelebene der Sprache
         if lang == "de":
             index_title = "Wissensdatenbank – Vertäfelung & Lambris"
             intro = "Diese Sammlung bietet umfangreiches Wissen zu historischen Wandvertäfelungen, Materialien, Oberflächen und Zubehör."
@@ -120,10 +119,6 @@ for parent_path, children in children_map.items():
             index_title = "Knowledge Base – Panelling & Wainscoting"
             intro = "A curated knowledge base about historical wood panelling, materials, finishes and accessories."
     else:
-        # Den passenden Kategorie-Eintrag zu diesem Ordner suchen:
-        # parent_path = "oeffentlich/produkte" → slug wäre letzter Ordnername der KIND-Ebene,
-        # aber wir brauchen den Kategorieeintrag, dessen path == parent_path.rsplit("/",1)[0]
-        # und dessen slug == letzter Name von parent_path
         cat_slug   = parent_path.split("/")[-1]
         cat_parent = "/".join(parent_path.split("/")[:-1])
         cat_entry = next(
@@ -137,18 +132,17 @@ for parent_path, children in children_map.items():
     if intro:
         lines += [intro.strip(), ""]
 
-    # Erst Kategorien, dann Seiten ausgeben (optional: alphabetisch)
     cats  = [c for c in children if c["type"] == "category"]
     pages = [p for p in children if p["type"] == "page"]
 
-    # Kategorien verlinken auf Unterordner (→ index.html)
+    # Kategorien (Ordner → index.html)
     for c in sorted(cats, key=lambda x: x["title"].lower()):
         lines.append(f"- [{c['title']}]({c['slug']}/)")
         if c["content"]:
             desc = " ".join(c["content"].split())
             lines.append(f"  {desc}")
 
-    # Seiten verlinken mit .html (keine .md in Links)
+    # Seiten (HTML-Ziel, keine .md)
     for p in sorted(pages, key=lambda x: x["title"].lower()):
         lines.append(f"- [{p['title']}]({p['slug']}.html)")
         if p["content"]:
@@ -158,7 +152,6 @@ for parent_path, children in children_map.items():
             lines.append(f"  {snip}")
 
     lines += ["", f"<!-- Stand: {timestamp} -->"]
-
     index_md.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
 
 print(f"✅ Sync completed for {OUTPUT_DIR} at {timestamp}")
