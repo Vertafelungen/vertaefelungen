@@ -1,53 +1,101 @@
 # .github/workflows/sync-from-sheet.yml
-# Version: 2025-09-21 21:08 (Europe/Berlin)
+# Version: 2025-09-22 09:23 (Europe/Berlin)
 
 name: Sync Knowledge Base from Google Sheet
+
 on:
+  workflow_dispatch:
   schedule:
-    - cron: "0 3 * * 1"   # z.B. jeden Montag um 03:00 Uhr
-  workflow_dispatch:      # manuelles Triggern möglich
+    - cron: "17 3 * * *"   # täglich 03:17 UTC
 
 permissions:
-  contents: write         # Erlaubnis, ins Repo zu schreiben (für commit+push)
+  contents: write
 
 jobs:
   sync-wissen:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'   # gewünschte Python-Version
+          python-version: "3.11"
 
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
 
-      # Synchronisation für deutsche Inhalte
+      # --- kleine Diagnose: zeigen, ob ENV gesetzt werden (ohne Werte zu leaken) ---
+      - name: Diagnose ENV (DE)
+        env:
+          SHEET_ID:      ${{ secrets.SHEET_ID }}
+          SHEET_GID_DE:  ${{ secrets.SHEET_GID_DE }}
+          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+        run: |
+          python - <<'PY'
+          import os
+          def flag(v): 
+              val = os.getenv(v); print(f"{v}: ", "true" if (val and len(val)>0) else "false")
+          for v in ("SHEET_ID","SHEET_GID_DE","SHEET_CSV_URL"):
+              flag(v)
+          PY
+
+      # ---------- Deutsch ----------
       - name: Sync DE (German content)
         env:
-          GSHEET_ID: ${{ secrets.GSHEET_ID }}    # Google Sheet ID als Secret
-          GSHEET_GID: "GID_DE"                   # Google Sheet GID für DE (Tab-ID)
-          OUTPUT_DIR: "wissen/de"
+          # beide Namen setzen, damit das Skript sie sicher findet
+          GSHEET_ID:      ${{ secrets.SHEET_ID }}
+          SHEET_ID:       ${{ secrets.SHEET_ID }}
+          GSHEET_GID:     ${{ secrets.SHEET_GID_DE }}
+          SHEET_GID:      ${{ secrets.SHEET_GID_DE }}
+          GSHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+          SHEET_CSV_URL:  ${{ secrets.SHEET_CSV_URL }}
+          OUTPUT_DIR:     wissen/de
         run: python sync-from-sheet.py
 
-      # Synchronisation für englische Inhalte
+      # --- kleine Diagnose: zeigen, ob ENV gesetzt werden (EN) ---
+      - name: Diagnose ENV (EN)
+        env:
+          SHEET_ID:      ${{ secrets.SHEET_ID }}
+          SHEET_GID_EN:  ${{ secrets.SHEET_GID_EN }}
+          SHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+        run: |
+          python - <<'PY'
+          import os
+          def flag(v):
+              val = os.getenv(v); print(f"{v}: ", "true" if (val and len(val)>0) else "false")
+          for v in ("SHEET_ID","SHEET_GID_EN","SHEET_CSV_URL"):
+              flag(v)
+          PY
+
+      # ---------- Englisch ----------
       - name: Sync EN (English content)
         env:
-          GSHEET_ID: ${{ secrets.GSHEET_ID }}
-          GSHEET_GID: "GID_EN"                   # Google Sheet GID für EN (Tab-ID)
-          OUTPUT_DIR: "wissen/en"
+          GSHEET_ID:      ${{ secrets.SHEET_ID }}
+          SHEET_ID:       ${{ secrets.SHEET_ID }}
+          GSHEET_GID:     ${{ secrets.SHEET_GID_EN }}
+          SHEET_GID:      ${{ secrets.SHEET_GID_EN }}
+          GSHEET_CSV_URL: ${{ secrets.SHEET_CSV_URL }}
+          SHEET_CSV_URL:  ${{ secrets.SHEET_CSV_URL }}
+          OUTPUT_DIR:     wissen/en
         run: python sync-from-sheet.py
 
       - name: Commit and Push changes
         env:
           TZ: Europe/Berlin
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git add -A
-          timestamp=$(date +"%Y-%m-%d %H:%M")
-          git commit -m "Auto-Sync: Wissensdatenbank Update – Stand $timestamp" || echo "No changes to commit"
-          git push
+          set -e
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if ! git diff --quiet; then
+            TS="$(date +'%Y-%m-%d %H:%M:%S %Z')"
+            git add -A
+            git commit -m "chore(sync): Wissen DE+EN aktualisiert – $TS [skip ci]"
+            git push
+          else
+            echo "ℹ️ Keine Änderungen zu committen."
+          fi
