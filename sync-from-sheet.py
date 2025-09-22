@@ -1,28 +1,32 @@
 # sync-from-sheet.py
-# Version: 2025-09-22 08:32 (Europe/Berlin)
+# Version: 2025-09-22 09:21 (Europe/Berlin)
 
 import os, sys, requests, pandas as pd, io
 from pathlib import Path
 
 # --- ENV: sowohl GSHEET_* als auch SHEET_* akzeptieren ---
-SHEET_ID  = os.getenv("GSHEET_ID")  or os.getenv("SHEET_ID")
-SHEET_GID = os.getenv("GSHEET_GID") or os.getenv("SHEET_GID")
-OUTPUT_DIR = os.getenv("OUTPUT_DIR", "wissen/de")  # z.B. "wissen/de" oder "wissen/en"
+SHEET_ID        = os.getenv("GSHEET_ID")        or os.getenv("SHEET_ID")
+SHEET_GID       = os.getenv("GSHEET_GID")       or os.getenv("SHEET_GID")
+SHEET_CSV_URL   = os.getenv("GSHEET_CSV_URL")   or os.getenv("SHEET_CSV_URL")
+OUTPUT_DIR      = os.getenv("OUTPUT_DIR", "wissen/de")  # z.B. "wissen/de" oder "wissen/en"
 
-if not SHEET_ID:
-    sys.stderr.write("Error: Google Sheet ID not provided. Set GSHEET_ID or SHEET_ID.\n")
-    sys.exit(1)
+# ---- CSV-URL bestimmen ----
+if SHEET_CSV_URL:
+    csv_url = SHEET_CSV_URL.strip()
+else:
+    if not SHEET_ID:
+        sys.stderr.write("Error: Google Sheet ID not provided. Set GSHEET_ID/SHEET_ID or GSHEET_CSV_URL/SHEET_CSV_URL.\n")
+        sys.exit(1)
+    csv_url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv"
+    if SHEET_GID:
+        csv_url += f"&gid={SHEET_GID}"
 
-# CSV-Export-URL der Google-Tabelle
-csv_url = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv"
-if SHEET_GID:
-    csv_url += f"&gid={SHEET_GID}"
-
+# ---- CSV holen ----
 try:
     r = requests.get(csv_url, timeout=30)
     r.raise_for_status()
 except Exception as e:
-    sys.stderr.write(f"Error fetching Google Sheet CSV: {e}\n")
+    sys.stderr.write(f"Error fetching Google Sheet CSV from {csv_url}: {e}\n")
     sys.exit(1)
 
 csv_data = r.content.decode("utf-8", errors="replace")
@@ -61,44 +65,24 @@ for _, row in df.iterrows():
     parent_dir.mkdir(parents=True, exist_ok=True)
 
     if etype == "category":
-        # Kategorieordner anlegen (index.md wird später generiert)
         (parent_dir / slug).mkdir(parents=True, exist_ok=True)
-        entries.append({
-            "type": "category",
-            "slug": slug,
-            "title": title or slug,
-            "content": content,
-            "path": relpath
-        })
+        entries.append({"type":"category","slug":slug,"title":title or slug,"content":content,"path":relpath})
     else:
-        # Inhaltsseite als Markdown
         md_path = parent_dir / f"{slug}.md"
         yaml = ["---", f'id: "{slug}"']
         if title:
-            # WICHTIG: erst escapen, dann im f-String verwenden (kein Backslash im Ausdruck)
             safe_title = title.replace('"', '\\"')
             yaml.append(f'title: "{safe_title}"')
         yaml.append("---")
 
         body_lines = []
-        if title:
-            body_lines += [f"# {title}", ""]
-        if content:
-            body_lines.append(content.replace("\r\n", "\n").strip())
+        if title:   body_lines += [f"# {title}", ""]
+        if content: body_lines.append(content.replace("\r\n", "\n").strip())
 
-        with md_path.open("w", encoding="utf-8") as f:
-            f.write("\n".join(yaml) + "\n")
-            f.write("\n".join(body_lines).rstrip() + "\n")
+        md_path.write_text("\n".join(yaml) + "\n" + "\n".join(body_lines).rstrip() + "\n", encoding="utf-8")
+        entries.append({"type":"page","slug":slug,"title":title or slug,"content":content,"path":relpath})
 
-        entries.append({
-            "type": "page",
-            "slug": slug,
-            "title": title or slug,
-            "content": content,
-            "path": relpath
-        })
-
-# Indexseiten pro Verzeichnis erstellen (index.md statt README.md)
+# Indexseiten generieren (index.md)
 children_map = {}
 for e in entries:
     parent_key = e["path"] or ""
@@ -110,7 +94,6 @@ for parent_path, children in children_map.items():
     target_dir = out_root / parent_path if parent_path else out_root
     index_md = target_dir / "index.md"
 
-    # Titel/Einleitung der Ebene
     if not parent_path:
         if lang == "de":
             index_title = "Wissensdatenbank – Vertäfelung & Lambris"
@@ -121,35 +104,26 @@ for parent_path, children in children_map.items():
     else:
         cat_slug   = parent_path.split("/")[-1]
         cat_parent = "/".join(parent_path.split("/")[:-1])
-        cat_entry = next(
-            (e for e in entries if e["type"] == "category" and e["slug"] == cat_slug and (e["path"] or "") == cat_parent),
-            None
-        )
+        cat_entry = next((e for e in entries if e["type"]=="category" and e["slug"]==cat_slug and (e["path"] or "")==cat_parent), None)
         index_title = cat_entry["title"] if cat_entry else parent_path
         intro = (cat_entry["content"] or "") if cat_entry else ""
 
     lines = [f"# {index_title}", ""]
-    if intro:
-        lines += [intro.strip(), ""]
+    if intro: lines += [intro.strip(), ""]
 
     cats  = [c for c in children if c["type"] == "category"]
     pages = [p for p in children if p["type"] == "page"]
 
-    # Kategorien (Ordner → index.html)
     for c in sorted(cats, key=lambda x: x["title"].lower()):
         lines.append(f"- [{c['title']}]({c['slug']}/)")
         if c["content"]:
-            desc = " ".join(c["content"].split())
-            lines.append(f"  {desc}")
+            lines.append("  " + " ".join(c["content"].split()))
 
-    # Seiten (HTML-Ziel, keine .md)
     for p in sorted(pages, key=lambda x: x["title"].lower()):
         lines.append(f"- [{p['title']}]({p['slug']}.html)")
         if p["content"]:
             snip = " ".join(p["content"].split())
-            if len(snip) > 200:
-                snip = snip[:197] + "..."
-            lines.append(f"  {snip}")
+            lines.append("  " + (snip[:197] + "..." if len(snip) > 200 else snip))
 
     lines += ["", f"<!-- Stand: {timestamp} -->"]
     index_md.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
