@@ -1,9 +1,21 @@
-# Build artefacts
-/site/
-/wissen/
-/*.jsonld
-/service-account.json
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
 
-# OS / editors
+# System/IDE
 .DS_Store
-*.swp
+Thumbs.db
+.vscode/
+.idea/
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs/Temp
+*.log
+*.bak

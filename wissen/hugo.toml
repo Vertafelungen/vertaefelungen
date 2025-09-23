@@ -1,0 +1,13 @@
+baseURL = "http://localhost:1315/wissen/"
+title   = "Wissensdatenbank ? Vert?felung & Lambris"
+theme   = "papermod"
+
+defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = true
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 20
+
+[outputs]
+home = ["HTML", "RSS", "JSON"]
