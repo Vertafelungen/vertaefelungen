@@ -22,16 +22,14 @@ jobs:
 
       - name: Sync DE
         env:
-          GSHEET_ID: ${{ secrets.GSHEET_ID }}
-          GSHEET_GID: ${{ secrets.GSHEET_GID_DE }}
+          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
           LANG: de
           CONTENT_DIR: wissen/content/de
         run: python scripts/sync-from-sheet-hugo.py
 
       - name: Sync EN
         env:
-          GSHEET_ID: ${{ secrets.GSHEET_ID }}
-          GSHEET_GID: ${{ secrets.GSHEET_GID_EN }}
+          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
           LANG: en
           CONTENT_DIR: wissen/content/en
         run: python scripts/sync-from-sheet-hugo.py
