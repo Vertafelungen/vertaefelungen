@@ -4,4 +4,4 @@ description: "Kuratierte Inhalte zu Vertäfelungen, Materialien, Oberflächen."
 draft: false
 ---
 
-<!-- Stand: 2025-09-23 19:24 -->
+<!-- Stand: 2025-09-23 20:31 -->
