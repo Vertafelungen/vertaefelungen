@@ -1,4 +1,4 @@
-  name: Sync → Build → Deploy (Hugo / wissen)
+name: Sync → Build → Deploy (Hugo / wissen)
 
 on:
   workflow_dispatch:
@@ -87,6 +87,6 @@ jobs:
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: "public/*"
-          remote_path: "${{ secrets.SFTP_TARGET }}"   # z.B. /kunden/www/vertaefelungen.de/wissen
+          remote_path: "${{ secrets.SFTP_TARGET }}"   # z. B. /kunden/www/vertaefelungen.de/wissen
           delete_remote_files: true
           sftp_only: true
