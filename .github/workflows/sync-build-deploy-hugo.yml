@@ -92,6 +92,6 @@ jobs:
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: "public/*"
-          remote_path: "${{ secrets.SFTP_TARGET }}"   # z. B. /holzvertafelung-store/wissen
+          remote_path: "${{ secrets.SFTP_TARGET }}/"   # trailing slash erzwingt: Ziel ist ein Ordner
           delete_remote_files: true
           sftp_only: true
