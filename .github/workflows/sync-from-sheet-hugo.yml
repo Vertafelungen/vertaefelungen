@@ -1,0 +1,45 @@
+name: Sync Wissen (Sheets → Hugo)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"   # stündlich um :17
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install pandas requests
+
+      - name: Sync DE
+        env:
+          GSHEET_ID: ${{ secrets.GSHEET_ID }}
+          GSHEET_GID: ${{ secrets.GSHEET_GID_DE }}
+          LANG: de
+          CONTENT_DIR: wissen/content/de
+        run: python scripts/sync-from-sheet-hugo.py
+
+      - name: Sync EN
+        env:
+          GSHEET_ID: ${{ secrets.GSHEET_ID }}
+          GSHEET_GID: ${{ secrets.GSHEET_GID_EN }}
+          LANG: en
+          CONTENT_DIR: wissen/content/en
+        run: python scripts/sync-from-sheet-hugo.py
+
+      - name: Commit changes
+        run: |
+          git config user.name  "gh-bot"
+          git config user.email "gh-bot@users.noreply.github.com"
+          git add wissen/content
+          git diff --staged --quiet || git commit -m "content: sync from sheet (Hugo) – $(date -u +'%Y-%m-%d %H:%M')"
+          git push
