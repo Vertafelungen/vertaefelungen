@@ -77,14 +77,19 @@ jobs:
       - name: Build (Hugo → ./public)
         run: hugo --source wissen --destination public --minify
 
+      - name: Verify build output
+        run: |
+          test -d public && echo "public exists" || (echo "public missing" && exit 1)
+          ls -lah public | head -n 50
+
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server:   ${{ secrets.SFTP_HOST }}
-          port:     ${{ secrets.SFTP_PORT || 22 }}
+          port:     22                          # oder: setze ein Secret SFTP_PORT und nutze es hier
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: "public/*"
-          remote_path: "${{ secrets.SFTP_TARGET }}"
+          remote_path: "${{ secrets.SFTP_TARGET }}"   # bei dir: /holzvertafelung-store/wissen
           delete_remote_files: true
           sftp_only: true
