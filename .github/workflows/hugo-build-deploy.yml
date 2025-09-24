@@ -55,7 +55,7 @@ jobs:
           [ -n "${{ secrets.GSHEET_CSV_URL_EN }}" ] || { echo "Missing GSHEET_CSV_URL_EN"; exit 1; }
           [ -n "${{ secrets.SFTP_HOST }}" ] || { echo "Missing SFTP_HOST"; exit 1; }
           [ -n "${{ secrets.SFTP_USER }}" ] || { echo "Missing SFTP_USER"; exit 1; }
-          [ -n "${{ secrets.SFTP_PASS }}" ] || { echo "Missing SFTP_PASS"; exit 1; }
+          [ -n "${{ secrets.SFTP_PASSWORT }}" ] || { echo "Missing SFTP_PASSWORT"; exit 1; }
 
       # ---- Produkte aus Google Sheets in Hugo-Content schreiben ----
       - name: Sync products (DE)
@@ -90,7 +90,7 @@ jobs:
           server:   ${{ secrets.SFTP_HOST }}
           port:     ${{ secrets.SFTP_PORT || 22 }}
           username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASS }}   # <— Passwort statt ssh_private_key
+          password: ${{ secrets.SFTP_PASSWORT }}   # <— Passwort statt ssh_private_key
           sftp_only: true
           local_path: public/**
           remote_path: ${{ env.SFTP_TARGET }}
