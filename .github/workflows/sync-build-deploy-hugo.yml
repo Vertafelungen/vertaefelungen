@@ -1,3 +1,4 @@
+# 22.09.2025 11:02 – Sync → Build → Deploy (Hugo / wissen)
 name: Sync → Build → Deploy (Hugo / wissen)
 
 on:
@@ -74,30 +75,42 @@ jobs:
           hugo-version: "0.146.0"
           extended: true
 
-      - name: Build (Hugo → ${GITHUB_WORKSPACE}/public)
-        run: hugo --source wissen --destination "${GITHUB_WORKSPACE}/public" --minify
+      # ⬇️ Build NICHT ins Repo-Root und NICHT nach 'public', sondern in 'site/'
+      - name: Build (Hugo → ./site)
+        run: hugo --source wissen --destination site --minify
 
       - name: Verify build output
         run: |
-          echo "Listing ./public:"
-          test -d public && ls -lah public || (echo "public missing" && exit 1)
+          echo "Listing ./site:"
+          test -d site && ls -lah site || (echo "site missing" && exit 1)
+          echo "Top-level files in site:"
+          ls -lah site | head -n 50
 
-      # --- Option B: Remote-Ziel prüfen/erstellen + Preflight-Listing ---
+      # Optional: Root-Index prüfen (hilfreich, wenn /wissen → /wissen/de/ leiten soll)
+      - name: Ensure root index exists (informational)
+        run: |
+          if [ ! -f site/index.html ]; then
+            echo "WARN: site/index.html fehlt – /wissen könnte ohne Redirect 404/500 zeigen."
+          fi
+
+      # --- Remote-Verzeichnis sicherstellen + Preflight-Listing ---
       - name: Ensure remote dir exists & preflight ls
         env:
           SFTP_HOST:     ${{ secrets.SFTP_HOST }}
           SFTP_PORT:     ${{ secrets.SFTP_PORT }}
           SFTP_USER:     ${{ secrets.SFTP_USER }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }} # z. B. /holzvertafelung-store/wissen
+          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}   # Muss '/wissen' sein
         run: |
           set -e
           if [ -z "${SFTP_TARGET}" ]; then
             echo "ERROR: SFTP_TARGET is EMPTY"; exit 1
           fi
+
           echo "SFTP_TARGET length: ${#SFTP_TARGET}"
           echo "SFTP_TARGET prefix: ${SFTP_TARGET:0:8}..."
           echo "SFTP_TARGET suffix: ...${SFTP_TARGET: -8}"
+
           case "${SFTP_TARGET}" in
             /*) echo "SFTP_TARGET looks absolute ✓" ;;
             *)  echo "ERROR: SFTP_TARGET must start with '/'" ; exit 1 ;;
@@ -114,20 +127,7 @@ jobs:
           echo "ls -la \"${SFTP_TARGET}\"" \
             | sshpass -p "$SFTP_PASSWORD" sftp -P "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no "$SFTP_USER@$SFTP_HOST"
 
-      # Optionaler einmaliger Cleanup (falls alter /wissen/en/public existiert hat):
-      # - name: Cleanup old nested public (optional, safe)
-      #   if: always()
-      #   env:
-      #     SFTP_HOST:     ${{ secrets.SFTP_HOST }}
-      #     SFTP_PORT:     ${{ secrets.SFTP_PORT }}
-      #     SFTP_USER:     ${{ secrets.SFTP_USER }}
-      #     SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-      #     SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
-      #   run: |
-      #     sshpass -p "$SFTP_PASSWORD" ssh -p "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no \
-      #       "$SFTP_USER@$SFTP_HOST" "rm -rf '${SFTP_TARGET}/en/public' || true"
-
-      # --- Option A: Deploy ohne Wildcard (Quelle ist ein Ordner, nicht viele Dateien) ---
+      # --- Deploy NUR die Inhalte von ./site → /wissen (kein zusätzlicher Ordnername) ---
       - name: Deploy via SFTP (→ /wissen)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -135,7 +135,7 @@ jobs:
           port:     22
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: "public"                         # <- Option A: kein '*'
-          remote_path: "${{ secrets.SFTP_TARGET }}/"   # trailing slash => Ziel ist Ordner
+          local_path: "site/*"                     # Inhalte von site/ hochladen
+          remote_path: "${{ secrets.SFTP_TARGET }}/"  # z. B. /wissen/
           delete_remote_files: true
           sftp_only: true
