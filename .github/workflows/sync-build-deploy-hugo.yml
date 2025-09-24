@@ -84,7 +84,6 @@ jobs:
           echo "Listing ./public:"
           test -d public && ls -lah public || (echo "public missing" && exit 1)
 
-      # 🔎 Sicherer Debug-Step: zeigt, dass SFTP_TARGET gesetzt & plausibel ist
       - name: Show SFTP target (safe) & preflight ls
         env:
           SFTP_HOST:     ${{ secrets.SFTP_HOST }}
@@ -108,8 +107,7 @@ jobs:
           sudo apt-get update -y >/dev/null
           sudo apt-get install -y sshpass >/dev/null
 
-          echo "Preflight remote listing of target directory (secrets will be masked):"
-          # kein Heredoc, damit YAML sauber bleibt
+          echo "Preflight remote listing of target directory (secrets are masked):"
           echo "ls -la \"${SFTP_TARGET}\"" \
             | sshpass -p "$SFTP_PASSWORD" sftp -P "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no "$SFTP_USER@$SFTP_HOST"
 
@@ -121,6 +119,6 @@ jobs:
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: "public/*"
-          remote_path: "${{ secrets.SFTP_TARGET }}/"   # trailing slash erzwingt: Ziel ist ein Ordner
+          remote_path: "${{ secrets.SFTP_TARGET }}/"   # trailing slash erzwingt: Ziel ist Ordner
           delete_remote_files: true
           sftp_only: true
