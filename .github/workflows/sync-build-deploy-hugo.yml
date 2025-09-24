@@ -1,7 +1,3 @@
-# .github/workflows/sync-build-deploy-wissen.yml
-# Version: v2025-09-24 17:45
-# Pipeline: Sync (GS-Sheet) → Build-Fix (index + localhost clean) → Deploy (IONOS /wissen)
-
 name: Sync + Build-Fix + Deploy Wissen
 
 on:
@@ -14,8 +10,7 @@ on:
       - 'assets/**'
       - 'robots.txt'
       - 'sitemap.xml'
-      - 'scripts/**'
-      - 'sync-from-sheet-hugo.py'
+      - 'scripts/sync-from-sheet-hugo.py'
       - '.github/workflows/sync-build-deploy-wissen.yml'
   workflow_dispatch: {}
 
@@ -47,49 +42,24 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      # --- Script autodetect: sucht an beiden typischen Orten und mit beiden Namen ---
-      - name: Detect sync script path
-        id: detect
-        shell: bash
-        run: |
-          set -euo pipefail
-          CANDIDATES=(
-            "scripts/sync-from-sheet-hugo.py"
-            "sync-from-sheet-hugo.py"
-            "scripts/sync-from-sheet.py"
-            "sync-from-sheet.py"
-          )
-          FOUND=""
-          for p in "${CANDIDATES[@]}"; do
-            if [ -f "$p" ]; then FOUND="$p"; break; fi
-          done
-          if [ -z "$FOUND" ]; then
-            echo "❌ Kein Sync-Script gefunden."; ls -la; exit 1
-          fi
-          echo "path=$FOUND" >> "$GITHUB_OUTPUT"
-          echo "✓ Sync-Script: $FOUND"
-
       # --- SYNC aus Google Sheet ---
       - name: Sync from Sheet (DE)
         env:
           LANG: de
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_DE }}
         run: |
-          set -euo pipefail
-          python "${{ steps.detect.outputs.path }}"
+          python scripts/sync-from-sheet-hugo.py
 
       - name: Sync from Sheet (EN)
         env:
           LANG: en
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_EN }}
         run: |
-          set -euo pipefail
-          python "${{ steps.detect.outputs.path }}"
+          python scripts/sync-from-sheet-hugo.py
 
       # --- BUILD-FIX: index.html + localhost-Links bereinigen ---
       - name: Write /wissen/index.html (Redirect → /wissen/de/)
         run: |
-          set -euo pipefail
           mkdir -p wissen
           cat > wissen/index.html <<'HTML'
           <!doctype html>
@@ -136,7 +106,7 @@ jobs:
                               return f'{m.group(1)}"/wissen/"'
                           return m.group(0)
                       txt = base.sub(_fix_base, txt)
-                      # Hostanteile von localhost/127.0.0.1 entfernen (Pfad bleibt)
+                      # Hostanteile entfernen
                       txt = host.sub("", txt)
                       if txt != orig:
                           p.write_text(txt, encoding="utf-8")
@@ -171,9 +141,9 @@ jobs:
           local_path: |
             wissen/**
             de/**
-            en**
+            en/**
             assets/**
             robots.txt
             sitemap.xml
       # Hinweis: CHMOD via SFTP ist auf Shared-Hosting oft nicht möglich.
-      # Falls Rechte falsch sind, im IONOS Webspace-Explorer 644/755 setzen.
+      # Falls Rechte falsch sind, im IONOS Webspace-Explorer manuell 644/755 setzen.
