@@ -79,11 +79,10 @@ jobs:
 
       - name: Verify build output
         run: |
-          echo "Listing wissen/public (if exists):"
-          ls -lah wissen/public 2>/dev/null || true
-          echo "Listing ./public:"
+          echo "Listing ./public (root):"
           test -d public && ls -lah public || (echo "public missing" && exit 1)
 
+      # Optional, aber hilfreich: zeigt an, dass SFTP_TARGET korrekt & erreichbar ist
       - name: Show SFTP target (safe) & preflight ls
         env:
           SFTP_HOST:     ${{ secrets.SFTP_HOST }}
@@ -111,14 +110,14 @@ jobs:
           echo "ls -la \"${SFTP_TARGET}\"" \
             | sshpass -p "$SFTP_PASSWORD" sftp -P "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no "$SFTP_USER@$SFTP_HOST"
 
-      - name: Deploy via SFTP
+      - name: Deploy via SFTP (→ /wissen)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server:   ${{ secrets.SFTP_HOST }}
           port:     22
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: "public/*"
-          remote_path: "${{ secrets.SFTP_TARGET }}/"   # trailing slash erzwingt: Ziel ist Ordner
+          local_path: "public/*"               # Inhalt von ./public
+          remote_path: "${{ secrets.SFTP_TARGET }}/"  # Ziel: /holzvertafelung-store/wissen/
           delete_remote_files: true
           sftp_only: true
