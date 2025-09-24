@@ -79,17 +79,17 @@ jobs:
 
       - name: Verify build output
         run: |
-          echo "Listing ./public (root):"
+          echo "Listing ./public:"
           test -d public && ls -lah public || (echo "public missing" && exit 1)
 
-      # Optional, aber hilfreich: zeigt an, dass SFTP_TARGET korrekt & erreichbar ist
-      - name: Show SFTP target (safe) & preflight ls
+      # --- Option B: Remote-Ziel prüfen/erstellen + Preflight-Listing ---
+      - name: Ensure remote dir exists & preflight ls
         env:
           SFTP_HOST:     ${{ secrets.SFTP_HOST }}
           SFTP_PORT:     ${{ secrets.SFTP_PORT }}
           SFTP_USER:     ${{ secrets.SFTP_USER }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
+          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }} # z. B. /holzvertafelung-store/wissen
         run: |
           set -e
           if [ -z "${SFTP_TARGET}" ]; then
@@ -106,10 +106,28 @@ jobs:
           sudo apt-get update -y >/dev/null
           sudo apt-get install -y sshpass >/dev/null
 
-          echo "Preflight remote listing of target directory (secrets are masked):"
+          echo "Create/ensure target directory exists:"
+          sshpass -p "$SFTP_PASSWORD" ssh -p "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no \
+            "$SFTP_USER@$SFTP_HOST" "mkdir -p '${SFTP_TARGET}' && stat -c %F '${SFTP_TARGET}' || true"
+
+          echo "Preflight: list target directory (masked):"
           echo "ls -la \"${SFTP_TARGET}\"" \
             | sshpass -p "$SFTP_PASSWORD" sftp -P "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no "$SFTP_USER@$SFTP_HOST"
 
+      # Optionaler einmaliger Cleanup (falls alter /wissen/en/public existiert hat):
+      # - name: Cleanup old nested public (optional, safe)
+      #   if: always()
+      #   env:
+      #     SFTP_HOST:     ${{ secrets.SFTP_HOST }}
+      #     SFTP_PORT:     ${{ secrets.SFTP_PORT }}
+      #     SFTP_USER:     ${{ secrets.SFTP_USER }}
+      #     SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+      #     SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
+      #   run: |
+      #     sshpass -p "$SFTP_PASSWORD" ssh -p "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no \
+      #       "$SFTP_USER@$SFTP_HOST" "rm -rf '${SFTP_TARGET}/en/public' || true"
+
+      # --- Option A: Deploy ohne Wildcard (Quelle ist ein Ordner, nicht viele Dateien) ---
       - name: Deploy via SFTP (→ /wissen)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -117,7 +135,7 @@ jobs:
           port:     22
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: "public/*"               # Inhalt von ./public
-          remote_path: "${{ secrets.SFTP_TARGET }}/"  # Ziel: /holzvertafelung-store/wissen/
+          local_path: "public"                         # <- Option A: kein '*'
+          remote_path: "${{ secrets.SFTP_TARGET }}/"   # trailing slash => Ziel ist Ordner
           delete_remote_files: true
           sftp_only: true
