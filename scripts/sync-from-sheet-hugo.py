@@ -1,114 +1,109 @@
-# scripts/sync-from-sheet-hugo.py
-# Version: 2025-09-23 15:10 (Europe/Berlin)
+#!/usr/bin/env python3
+# sync-from-sheet-hugo.py — v2025-09-24 18:30 (Europe/Berlin)
 
-import os, io, re, unicodedata, requests, pandas as pd
+import os, re, unicodedata, requests, pandas as pd
 from pathlib import Path
 from datetime import datetime
 
-LANG        = os.getenv("LANG", "de").lower()          # de | en
-CONTENT_DIR = Path(os.getenv("CONTENT_DIR", f"wissen/content/{LANG}"))
-CSV_URL     = os.getenv("GSHEET_CSV_URL")              # z.B. https://docs.google.com/spreadsheets/d/<ID>/export?format=csv&gid=<GID>
-if not CSV_URL:
-    SHEET_ID = os.getenv("GSHEET_ID")
-    SHEET_GID = os.getenv("GSHEET_GID")
-    if not SHEET_ID:
-        raise SystemExit("Missing GSHEET_CSV_URL or GSHEET_ID(+GID).")
-    CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv"
-    if SHEET_GID:
-        CSV_URL += f"&gid={SHEET_GID}"
+ROOT = Path(__file__).resolve().parents[1]
 
-# erwartete Spalten
-COL_ID      = "ID"         # slug/id, z.B. p0001
-COL_TITLE   = "Title"      # sichtbarer Titel
-COL_CONTENT = "Content"    # Markdown
-COL_PATH    = "Path"       # z.B. "grundlagen" oder "dokumentation/halbhohe"
-COL_TYPE    = "Type"       # "category" | "page"
-COL_LANG    = "Language"   # de|en (optional)
+LANG = os.getenv("LANG", "de").lower()          # de | en
+CSV_URL = os.getenv("GSHEET_CSV_URL", "").strip()
+
+if not CSV_URL:
+    SHEET_ID  = os.getenv("GSHEET_ID", "")
+    SHEET_GID = os.getenv("GSHEET_GID", "")
+    if SHEET_ID:
+        CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/export?format=csv&gid={SHEET_GID}"
+    else:
+        raise SystemExit("Missing GSHEET_CSV_URL (or GSHEET_ID/GID).")
+
+# Spaltennamen (anpassen an dein Sheet)
+COL_ID     = "id"
+COL_TITLE  = "title"
+COL_DESC   = "description"
+COL_PATH   = "path"       # z. B. "grundlagen" oder "dokumentation/halbhohe"
+COL_TYPE   = "type"       # "wissen"|"knowledge" optional
+COL_LANG   = "lang"       # optional
 
 def try_fix_mojibake(text: str) -> str:
-    if text is None:
+    if not isinstance(text, str):
         return ""
-    if any(s in text for s in ("Ã", "â", "Â")):
-        try:
+    try:
+        if any(s in text for s in ("Ã", "�", "¤")):
             fixed = text.encode("latin1", errors="ignore").decode("utf-8", errors="ignore")
-            if fixed.count("Ã") < text.count("Ã"):
-                return fixed
-        except Exception:
-            pass
+            return fixed if fixed.count("�") < text.count("�") else text
+    except Exception:
+        pass
     return text
 
 def slugify(s: str) -> str:
     s = try_fix_mojibake(str(s)).strip().lower()
     s = unicodedata.normalize("NFKD", s)
     s = "".join(ch for ch in s if not unicodedata.combining(ch))
-    s = re.sub(r"[^a-z0-9/_-]+", "-", s).strip("-")
+    s = re.sub(r"[^a-z0-9\-]+", "-", s).strip("-")
     s = re.sub(r"-{2,}", "-", s)
-    return s
-
-def fm(title: str, desc: str = "") -> str:
-    t = (title or "").replace('"', '\\"')
-    d = (desc or "").replace('"', '\\"')
-    return f'---\ntitle: "{t}"\ndescription: "{d}"\ndraft: false\n---\n'
+    return s or "eintrag"
 
 def fetch_df() -> pd.DataFrame:
     r = requests.get(CSV_URL, timeout=30)
     r.raise_for_status()
-    data = r.content.decode("utf-8", errors="replace")
-    df = pd.read_csv(io.StringIO(data), dtype=str, keep_default_na=False)
-    if COL_LANG in df.columns:
-        df = df[df[COL_LANG].str.lower() == LANG]
+    df = pd.read_csv(pd.compat.StringIO(r.text))
+    # Falls Großbuchstaben:
+    df.columns = [c.strip().lower() for c in df.columns]
+    # UTF-8 reparieren
+    for c in df.columns:
+        df[c] = df[c].map(try_fix_mojibake)
     return df
 
-def write(path: Path, text: str):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding="utf-8")
+def out_dir_for_lang() -> Path:
+    if LANG == "de":
+        return ROOT / "content" / "de" / "wissen"
+    return ROOT / "content" / "en" / "knowledge"
+
+def write_md(row: dict):
+    title = row.get(COL_TITLE, "").strip() or row.get(COL_ID, "")
+    desc  = row.get(COL_DESC, "").strip()
+    path  = (row.get(COL_PATH, "") or "").strip().strip("/")
+    slug  = slugify(title)
+    sect  = out_dir_for_lang()
+    target_dir = sect / Path(path)
+    target_dir.mkdir(parents=True, exist_ok=True)
+    out = target_dir / f"{slug}.md"
+
+    now = datetime.now().strftime("%Y-%m-%d %H:%M")
+
+    fm = {
+        "title": title,
+        "description": desc,
+        "slug": slug,
+        "date": now,
+        "draft": False
+    }
+
+    # YAML Frontmatter schreiben
+    lines = ["---"]
+    for k, v in fm.items():
+        v = str(v).replace("\n", " ").strip()
+        lines.append(f"{k}: {v}")
+    lines.append("---\n")
+
+    body = row.get("content", "")
+    md = "\n".join(lines) + (body or "")
+
+    out.write_text(md, encoding="utf-8")
+    return out
 
 def main():
     df = fetch_df()
-    # → Gruppen nach Pfad/Sektion
-    groups = {}
-    for _, row in df.iterrows():
-        etype   = (row.get(COL_TYPE) or "page").strip().lower()
-        title   = try_fix_mojibake(row.get(COL_TITLE, "")).strip()
-        content = try_fix_mojibake(row.get(COL_CONTENT, "")).replace("\r\n","\n").strip()
-        path    = slugify(row.get(COL_PATH, ""))
-        sid     = slugify(row.get(COL_ID, ""))
-        if not sid:
-            continue
-        g = groups.setdefault(path, {"cat": None, "pages": []})
-        if etype == "category":
-            g["cat"] = {"id": (path.split("/")[-1] or "index"), "title": title or path, "content": content}
-        else:
-            g["pages"].append({"id": sid, "title": title or sid, "content": content})
-
-    now = datetime.now().strftime("%Y-%m-%d %H:%M")
-    # Top-Level _index.md (Home der Sprache)
-    top_fm = fm(
-        "Wissensdatenbank – Vertäfelung & Lambris" if LANG=="de" else "Knowledge Base – Panelling & Wainscoting",
-        "Kuratierte Inhalte zu Vertäfelungen, Materialien, Oberflächen." if LANG=="de"
-        else "Curated knowledge about panelling, materials, finishes."
-    )
-    write(CONTENT_DIR / "_index.md", top_fm + f"\n<!-- Stand: {now} -->\n")
-
-    for path, bucket in groups.items():
-        base = CONTENT_DIR / path if path else CONTENT_DIR
-        # Kategorie-Index
-        if path:
-            title = bucket["cat"]["title"] if bucket["cat"] else path
-            desc  = bucket["cat"]["content"] if bucket["cat"] else ""
-            body  = []
-            if bucket["pages"]:
-                body.append("## Inhalte\n")
-                for p in sorted(bucket["pages"], key=lambda x: x["title"].lower()):
-                    body.append(f"- [{p['title']}]({p['id']}/)")
-            write(base / "_index.md", fm(title, "") + "\n".join(body) + f"\n\n<!-- Stand: {now} -->\n")
-
-        # Seiten (Leaf Bundles)
-        for p in bucket["pages"]:
-            leaf = base / p["id"] / "index.md"
-            write(leaf, fm(p["title"]) + "\n" + (p["content"] or "") + f"\n\n<!-- Stand: {now} -->\n")
-
-    print(f"✅ Sync done for {LANG} → {CONTENT_DIR}")
+    # Optional: nach Sprache filtern
+    if COL_LANG in df.columns:
+        df = df[(df[COL_LANG].str.lower() == LANG) | (df[COL_LANG].isna())]
+    written = 0
+    for _, r in df.iterrows():
+        write_md(r.to_dict())
+        written += 1
+    print(f"✓ {written} Dateien nach {out_dir_for_lang()} geschrieben.")
 
 if __name__ == "__main__":
     main()
