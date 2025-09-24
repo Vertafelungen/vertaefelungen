@@ -49,7 +49,7 @@ jobs:
           LANG: de
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_DE }} # oder nutze GSHEET_ID/GSHEET_GID
         run: |
-          python "scripts/sync-from-sheet.py"
+          python "scripts/sync-from-sheet-hugo.py"
 
       # EN
       - name: Sync from Sheet (EN)
@@ -57,7 +57,7 @@ jobs:
           LANG: en
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_EN }} # oder nutze GSHEET_ID/GSHEET_GID
         run: |
-          python "scripts/sync-from-sheet.py"
+          python "scripts/sync-from-sheet-hugo.py"
 
       # --- BUILD-FIX: index.html + localhost-Links bereinigen ---
       - name: Write /wissen/index.html (Redirect → /wissen/de/)
