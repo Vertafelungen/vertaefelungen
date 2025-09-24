@@ -73,7 +73,8 @@ jobs:
           server:   ${{ secrets.SFTP_HOST }}
           port:     ${{ secrets.SFTP_PORT || 22 }}
           username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASS }}
+          password: ${{ secrets.SFTP_PASS }}   # <— Passwort, kein ssh_private_key!
           sftp_only: true
           local_path: public/**
-          remote_path: ${{ env.SFTP_TARGET }}
+          remote_path: /wissen
+
