@@ -4,4 +4,4 @@ description: "Curated knowledge about panelling, materials, finishes."
 draft: false
 ---
 
-<!-- Stand: 2025-09-24 12:57 -->
+<!-- Stand: 2025-09-24 13:38 -->
