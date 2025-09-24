@@ -1,0 +1,2681 @@
+[
+  {
+    "reference": "Beeck SIP Klassikgrün",
+    "name": "Klassikgrün - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Standölfarbe Klassikgrün, deckend, für Holz im Innenbereich",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine reine Leinölfarbe für professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Mischtöne"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/112/1180",
+    "variants": [
+      {
+        "combination_id": 486,
+        "attribute": "0,75 L, seidenmatt, Klassikgrün 01",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 487,
+        "attribute": "0,75 L, seidenmatt, Klassikgrün 02",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 488,
+        "attribute": "0,75 L, seidenmatt, Klassikgrün 03",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 489,
+        "attribute": "0,75 L, seidenglanz, Klassikgrün 01",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 490,
+        "attribute": "0,75 L, seidenglanz, Klassikgrün 02",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 491,
+        "attribute": "0,75 L, seidenglanz, Klassikgrün 03",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 492,
+        "attribute": "2,5 L, seidenmatt, Klassikgrün 01",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 493,
+        "attribute": "2,5 L, seidenmatt, Klassikgrün 02",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 494,
+        "attribute": "2,5 L, seidenmatt, Klassikgrün 03",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 495,
+        "attribute": "2,5 L, seidenglanz, Klassikgrün 01",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 496,
+        "attribute": "2,5 L, seidenglanz, Klassikgrün 02",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 497,
+        "attribute": "2,5 L, seidenglanz, Klassikgrün 03",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 498,
+        "attribute": "10 L, seidenmatt, Klassikgrün 01",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 499,
+        "attribute": "10 L, seidenmatt, Klassikgrün 02",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 500,
+        "attribute": "10 L, seidenmatt, Klassikgrün 03",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 501,
+        "attribute": "10 L, seidenglanz, Klassikgrün 01",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 502,
+        "attribute": "10 L, seidenglanz, Klassikgrün 02",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 503,
+        "attribute": "10 L, seidenglanz, Klassikgrün 03",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 504,
+        "attribute": "0,75 L, seidenmatt, Klassikgrün 01",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 505,
+        "attribute": "0,75 L, seidenmatt, Klassikgrün 02",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 506,
+        "attribute": "0,75 L, seidenmatt, Klassikgrün 03",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 507,
+        "attribute": "0,75 L, seidenglanz, Klassikgrün 01",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 508,
+        "attribute": "0,75 L, seidenglanz, Klassikgrün 02",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 509,
+        "attribute": "0,75 L, seidenglanz, Klassikgrün 03",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 510,
+        "attribute": "2,5 L, seidenmatt, Klassikgrün 01",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 511,
+        "attribute": "2,5 L, seidenmatt, Klassikgrün 02",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 512,
+        "attribute": "2,5 L, seidenmatt, Klassikgrün 03",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 513,
+        "attribute": "2,5 L, seidenglanz, Klassikgrün 01",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 514,
+        "attribute": "2,5 L, seidenglanz, Klassikgrün 02",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 515,
+        "attribute": "2,5 L, seidenglanz, Klassikgrün 03",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 516,
+        "attribute": "10 L, seidenmatt, Klassikgrün 01",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 517,
+        "attribute": "10 L, seidenmatt, Klassikgrün 02",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 518,
+        "attribute": "10 L, seidenmatt, Klassikgrün 03",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 519,
+        "attribute": "10 L, seidenglanz, Klassikgrün 01",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 520,
+        "attribute": "10 L, seidenglanz, Klassikgrün 02",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 521,
+        "attribute": "10 L, seidenglanz, Klassikgrün 03",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0002",
+    "name": "P0002 - Hamburger Michel",
+    "description_short": "<p>Die Turmhalle des Michels ist mit einer knapp 3 Meter hohen Eichenvertäfelung ausgestattet, die aus der Zeit des Wiederaufbaus von 1906-1912 stammt. Die vertikale Kassettierung zieht sich um den ganzen Raum und schafft eine klare, unaufdringliche Gliederung. Die Vertäfelung besteht aus einem deutlichen Sockel- und Kopfbereich mit einer 2-reihigen, senkrecht stehenden Kassettierung, die sich gut an individuelle Raummaße anpassen lässt. Wir fertigen die Vertäfelung originalgetreu in Eiche und auch in Kiefer.</p>",
+    "meta_title": "Vertäfelung Hamburger Michel",
+    "meta_description": "Die Eingangshalle zum Hamburger Michel ist mit einer knapp 3 Meter hoher Eichenvertäfelung ausgestattet, die wir für Ihre Räume originalgetreu reproduzieren.",
+    "categories": [
+      "Artikel",
+      "Hohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/24/699",
+    "variants": [
+      {
+        "combination_id": 255,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 1026790000,
+        "active": false
+      },
+      {
+        "combination_id": 257,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 1758360000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0003",
+    "name": "P0003 - London - V&A - Morris Room",
+    "description_short": "<p>Sir Henry Cole, der Gründungsdirektor des South Kensington Museums, hat gutes Gespür bewiesen, als er 1861 den jungen William Morris mit der Gestaltung des \"Green Dining Room“, dem heutigen „Morris Room“, beauftragte. Morris, später einer der berühmtesten Vertreter der Arts-and-Crafts-Bewegung, schlug einen Entwurf vor, der aus einer Vertäfelung im Stil der elisabethanischen Neorenaissance mit Elementen des Gothic Revival bestand. Morris holte sich zur Ausgestaltung die Hilfe seiner Freunde, den Architekten Philip Webb und den Malers Edward Burne-Jones. Der Originalzustand ist erhalten und für Besucher geöffnet. <br />Das Paneel hat eine Höhe von 214 cm und ist im Original grün gestrichen.</p>",
+    "meta_title": "Vertäfelung von William Morris aus dem „Green Dining Room“",
+    "meta_description": "William Morris entwarf diese Vertäfelung für den Green-Dining-Room im V&A-Museum in London. Wir reproduzieren sie für Sie originalgetreu in Eiche oder Kiefer.",
+    "categories": [
+      "Artikel",
+      "Hohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/27/718",
+    "variants": [
+      {
+        "combination_id": 259,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 1526790000,
+        "active": false
+      },
+      {
+        "combination_id": 261,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 2624140000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0017",
+    "name": "P0017 - Hohes Nadelstreif-Paneel mit Shaker Peg Rail",
+    "description_short": "<p>Diese Vertäfelung sieht super aus und ist unerhört praktisch.<br />Unser Shaker Peg Rail wird genau in der Form hergestellt, wie es im Shaker Museum Enfield vorzufinden ist.<br />Das Peg-Rail ist ein sinnvolle Erfindung, die es ermöglicht, Dinge griffbereit und übersichtlich aufzubewahren. So können Töpfe, Schere, Hundeleine und sogar Stühle einfach an die Wand gehängt werden.<br />Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es für einen farbigen Anstrich vorbereitet werden.<br /><br /></p>",
+    "meta_title": "Hohes Nadelstreifpaneel mit Shaker Peg Rail",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Hohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/47/861",
+    "variants": [
+      {
+        "combination_id": 285,
+        "attribute": "Kiefer",
+        "price_netto": 700000000,
+        "active": false
+      },
+      {
+        "combination_id": 286,
+        "attribute": "Eiche",
+        "price_netto": 1242000000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0013",
+    "name": "P0013 - Berlin - Mommsenstraße",
+    "description_short": "<p>Die Berliner Mommsenstraße liegt zwischen Kantstraße und Kurfürstendamm in einem sehr mondänen, schicken Wohnviertel mit vielen Galerien und Boutiquen. <br />Die hier gezeigte Vertäfelung überzeugt durch ihren gleichmäßigen Rhythmus. Sie lässt sich besonders gut farblich gestalten.</p>",
+    "meta_title": "Hohe Vertäfelung mit doppelreihiger Kassetten",
+    "meta_description": "Das Original dieser hohen Holzvertäfelung stammt aus Berlin Charlottenburg und lässt sich auch farblich gut gestalten.",
+    "categories": [
+      "Artikel",
+      "Hohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/53/881",
+    "variants": [
+      {
+        "combination_id": 291,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 964290000,
+        "active": false
+      },
+      {
+        "combination_id": 293,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 1650130000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0014",
+    "name": "P0014 - Lübeck - Schiffergesellschaft",
+    "description_short": "<p>Die Schiffergesellschaft Lübeck besteht seit 1401. Sie wurde gegründet, um Witwen und Waisen von auf See gebliebenen Seefahrern Speisen und Wohnraum zu gewähren. <br />Der Innenraum ist reich mit Schiffsmodellen und kuriosen Dingen geschmückt, die von Lübecker Kapitänen über die Jahrhunderte auf ihren Fahrten zusammengetragen wurden. Um 1868 wurde beschlossen im Gildesaal einen Restaurantbetrieb einzurichten, der bis heute geöffnet ist.</p>\n<p>Die Vertäfelung der Außenwände des Gildesaals ist typisch für Lübeck. Einen ähnlichen Aufbau mit einem flachen Feld mit Bildschnitzerei oben und 2 stehenden Kassetten unten, gibt es auch in der Jakobi- und in der Aegidienkirche. Jedoch sind die Schnitzereien der Schiffergesellschaft um einiges humorvoller.</p>",
+    "meta_title": "Holzvertäfelung aus der Lübecker Schiffergesellschaft",
+    "meta_description": "Dies ist eine typische Lübecker Vertäfelung mit einer doppelreihigen Kassette und einer Zierschnitzerei darüber. Wir fertigen sie in Eiche oder Kiefer.",
+    "categories": [
+      "Artikel",
+      "Hohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/55/898",
+    "variants": [
+      {
+        "combination_id": 295,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 1276790000,
+        "active": false
+      },
+      {
+        "combination_id": 297,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 2191250000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0009",
+    "name": "P0009 - Nadelstreif & Zierstab",
+    "description_short": "<p>Was wir salop als \"Nadelstreif\" bezeichnen, ist die Kombination von Brett und Zierleiste. Beides sind separate Elemente, die sich mit Nut und Feder verbinden und im Wechsel aneinander reihen. Das Besondere ist, dass es unterschiedliche Zierleisten gibt, die zur Auswahl stehen. Eine klassische Vertäfelung, die sich für Hotellerie und Bauernhaus gleichermaßen eignet. Die Vertäfelung kann pro Laufmeter bestellt werden. Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es für einen farbigen Anstrich vorbereitet werden.</p>",
+    "meta_title": "Nadelstreif und Zierleiste",
+    "meta_description": "Was wir salop als \"Nadelstreif\" bezeichnen, ist eine Vertäfelung aus Brett und Zierleiste. Beides sind separate Elemente, die sich mit Nut und Feder verbinden.",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/21/529",
+    "variants": [
+      {
+        "combination_id": 79,
+        "attribute": "Dreikantstab, Halbhoch – 122 cm, Kiefer",
+        "price_netto": 443100000,
+        "active": false
+      },
+      {
+        "combination_id": 81,
+        "attribute": "Dreikantstab, Halbhoch – 122 cm, Eiche",
+        "price_netto": 711500000,
+        "active": false
+      },
+      {
+        "combination_id": 85,
+        "attribute": "Dreikantstab, Halbhoch  – 147 cm, Kiefer",
+        "price_netto": 500740000,
+        "active": false
+      },
+      {
+        "combination_id": 87,
+        "attribute": "Dreikantstab, Halbhoch  – 147 cm, Eiche",
+        "price_netto": 850740000,
+        "active": false
+      },
+      {
+        "combination_id": 91,
+        "attribute": "Flachstab, Halbhoch – 122 cm, Kiefer",
+        "price_netto": 443100000,
+        "active": false
+      },
+      {
+        "combination_id": 93,
+        "attribute": "Flachstab, Halbhoch – 122 cm, Eiche",
+        "price_netto": 711500000,
+        "active": false
+      },
+      {
+        "combination_id": 97,
+        "attribute": "Flachstab, Halbhoch  – 147 cm, Kiefer",
+        "price_netto": 500740000,
+        "active": false
+      },
+      {
+        "combination_id": 99,
+        "attribute": "Flachstab, Halbhoch  – 147 cm, Eiche",
+        "price_netto": 850740000,
+        "active": false
+      },
+      {
+        "combination_id": 103,
+        "attribute": "Halbhoch – 122 cm, Rundstab, Kiefer",
+        "price_netto": 443100000,
+        "active": false
+      },
+      {
+        "combination_id": 105,
+        "attribute": "Halbhoch – 122 cm, Rundstab, Eiche",
+        "price_netto": 711500000,
+        "active": false
+      },
+      {
+        "combination_id": 109,
+        "attribute": "Halbhoch  – 147 cm, Rundstab, Kiefer",
+        "price_netto": 500740000,
+        "active": false
+      },
+      {
+        "combination_id": 111,
+        "attribute": "Halbhoch  – 147 cm, Rundstab, Eiche",
+        "price_netto": 850740000,
+        "active": false
+      },
+      {
+        "combination_id": 115,
+        "attribute": "Halbhoch – 122 cm, Hohlkehlstab, Kiefer",
+        "price_netto": 443100000,
+        "active": false
+      },
+      {
+        "combination_id": 117,
+        "attribute": "Halbhoch – 122 cm, Hohlkehlstab, Eiche",
+        "price_netto": 711500000,
+        "active": false
+      },
+      {
+        "combination_id": 121,
+        "attribute": "Halbhoch  – 147 cm, Hohlkehlstab, Kiefer",
+        "price_netto": 500740000,
+        "active": false
+      },
+      {
+        "combination_id": 123,
+        "attribute": "Halbhoch  – 147 cm, Hohlkehlstab, Eiche",
+        "price_netto": 850740000,
+        "active": false
+      },
+      {
+        "combination_id": 127,
+        "attribute": "Halbhoch – 122 cm, Kerbstab, Kiefer",
+        "price_netto": 493100000,
+        "active": false
+      },
+      {
+        "combination_id": 129,
+        "attribute": "Halbhoch – 122 cm, Kerbstab, Eiche",
+        "price_netto": 761500000,
+        "active": false
+      },
+      {
+        "combination_id": 133,
+        "attribute": "Halbhoch  – 147 cm, Kerbstab, Kiefer",
+        "price_netto": 550740000,
+        "active": false
+      },
+      {
+        "combination_id": 135,
+        "attribute": "Halbhoch  – 147 cm, Kerbstab, Eiche",
+        "price_netto": 900740000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0001",
+    "name": "P0001 - Berlin - Winsstraße",
+    "description_short": "<p>Der Wins-Kietz im Berliner Prenzlauer Berg ist ein Wohnviertel mit viel Lebensqualität. Das Bild wird von Straßenkaffees, Buch- und Rotweinläden geprägt und gerade die gut erhaltene Altbausubstanz hat einen großen Anteil an der Atmosphäre des Viertels. Die stuckverzierten Entrées sind sehr abwechslungsreich ausgestattet. Man findet Jugendstilfliesen, Marmor und Holzvertäfelungen, wie diese hier. Die Vertäfelung hat im Original eine Höhe von 110 cm und ausladende Profile mit einer langgestreckten Kassette, die sich gut an individuelle Raummaße anpassen lässt. Wir fertigen diese Vertäfelung in Eiche oder Kiefer. Auf Wunsch kann sie für einen farbigen Anstrich vorbereitet werden.</p>",
+    "meta_title": "Klassische Holzvertäfelung - Berlin Winsstraße",
+    "meta_description": "Nach einer Vorlage aus der Berliner Winsstraße. Detailgenaue Reproduktion in Kiefer oder Eiche. Die Vertäfelung wird an Ihre Räume angepasst.",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/23/491",
+    "variants": [
+      {
+        "combination_id": 251,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 526790000,
+        "active": false
+      },
+      {
+        "combination_id": 253,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 892570000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0004",
+    "name": "P0004 - Berlin - Sophienstraße",
+    "description_short": "<p>Die Berliner Sophienstraße hat einen besonders malerischen Kleinstadtcharme und den einzigen erhaltenen barocken Kirchturm Berlins. Von der Sophienstraße gelangt man in die Hackeschen Höfe und in die Sophien-Gips-Höfe. Der Lambris hat eine stehende Kassette, die sich gut an individuelle Raummaße anpassen lässt. Wir fertigen das Paneel in Eiche oder Kiefer. Auf Wunsch kann es für einen farbigen Anstrich vorbereitet werden.</p>",
+    "meta_title": "Klassische Holzvertäfelung - Berlin Sophienstraße",
+    "meta_description": "Detailgenaue Reproduktion einer Vertäfelung aus der Sophienstr. in Berlin-Mitte. Die Gliederung mit stehender Kassette lässt sich gut an Ihre Räume anpassen.",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/31/693",
+    "variants": [
+      {
+        "combination_id": 263,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 518040000,
+        "active": false
+      },
+      {
+        "combination_id": 265,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 829160000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0005",
+    "name": "P0005 - Berlin - Bleibtreustraße",
+    "description_short": "<p>Sehr eindrucksvoll und trotzdem recht einfach aufgebaut.<br />Durch die aneinander gereihten „Fenster“ mit den Dreipassbögen als Abschluss, entsteht eine neogotische Vertäfelung. Solches Interieur verhilft einem gründerzeitlichen Hauseingang zu Ansehen und Würde.</p>",
+    "meta_title": "Vertäfelung aus Berlin Charlottenburg",
+    "meta_description": "Eine beeindruckend schöne Vertäfelung aus der Gründerzeit. Wir reproduzieren sie originalgetreu in Eiche oder Kiefer und passen sie an Ihre Räume an.",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/32/672",
+    "variants": [
+      {
+        "combination_id": 267,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 901790000,
+        "active": false
+      },
+      {
+        "combination_id": 269,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 1541910000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0006",
+    "name": "P0006 - Leipzig - Ludwigstraße",
+    "description_short": "<p>Dieser Lambris aus einem Hauseingang der Leipziger Ludwigstraße (Volkmarsdorf) stammt aus der Bauzeit des Gebäudes von 1884 und hat somit ein Alter von rund 140 Jahren. Diese Zeitspanne überbrückt fünf Generationen.</p>",
+    "meta_title": "Gründerzeitlichen Vertäfelung - Leipzig Volkmarsdorf",
+    "meta_description": "Klassische Holzvertäfelung aus Leipzig von 1884 - detailgenaue Reproduktion für Ihre Räume in Massivholz Eiche oder Kiefer - als DIY-Bausatz oder mit Einbau",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/33/676",
+    "variants": [
+      {
+        "combination_id": 271,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 464290000,
+        "active": false
+      },
+      {
+        "combination_id": 273,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 784350000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0022",
+    "name": "P0022 - Lübeck - Rathaus - Langes Haus",
+    "description_short": "<p>Rathaus Lübeck - Die Zentrale der Hanse. Hier fanden vom 14. - 18. Jh. die Hansetage statt, auf denen das Miteinander geregelt wurden. Noch heute debattiert hier die Bürgerschaft über die aktuellen Themen. Lübeck ist eine sehr stolze Stadt, was sie auch durch ihre Bauten deutlich zeigt. Außen, wie innen. Über die gesamte Länge des Flurs im Obergeschoss und im Langen Haus zieht sich ein Lambris mit Kassettengliederung. Die Profile und Rahmhölzer sind aus Eiche, während die Kassettenfüllungen aus Kiefernholz gemacht sind. Diese Verkleidung ist wahrscheinlich während des Umbaus von 1893 entstanden.</p>",
+    "meta_title": "Holzvertäfelung im Lübecker Rathaus",
+    "meta_description": "Über die gesamte Länge des Flurs im Obergeschoss und im Langen Haus zieht sich diese Vertäfelung. Wir reproduzieren sie an Ihre Räume angepasst.",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/35/807",
+    "variants": [
+      {
+        "combination_id": 275,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 529570000,
+        "active": false
+      },
+      {
+        "combination_id": 277,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 890290000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0010",
+    "name": "P0010 - Rom - Petersdom - Balustrade am Petrusgrab",
+    "description_short": "<p>Die Balustrade, die wir als Vorlage für dieses neue Vertäfelung genommen haben, befindet sich im Zentrum des Petersdoms, direkt vor Berninis Ziborium. Sie umgibt den Treppenabgang zur Vatikanischen Nekropole, in der sich das Grab Petrus befindet.<br />Bei Höhe, Form und Proportionen halten wir uns genau an das Original. Die Farbigkeit der unterschiedlichen Marmorarten können wir auch durch die Verwendung unterschiedlicher Holzarten nachstellen.</p>",
+    "meta_title": "Balustrade vom Petrusgrab im Petersdom in Rom",
+    "meta_description": "Die Originalbalustrade besteht eigentlich aus Buntmarmor. Wir schaffen daraus eine neue Vertäfelung, mit der an die erhabene Atmosphäre erinnert werden kann.",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/38/764",
+    "variants": [
+      {
+        "combination_id": 239,
+        "attribute": "Bausatz, Kiefer",
+        "price_netto": 1526790000,
+        "active": false
+      },
+      {
+        "combination_id": 240,
+        "attribute": "Bausatz, Eiche",
+        "price_netto": 2624140000,
+        "active": false
+      },
+      {
+        "combination_id": 241,
+        "attribute": "Bausatz, Holzarten nach Original",
+        "price_netto": 3126790000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0011",
+    "name": "P0011 - Weimar - Goethehaus am Frauenplan",
+    "description_short": "<p>Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen Bürgertum und einfachem Bauerhaus.</p>",
+    "meta_title": "Goethes Treppengeländer als Holzvertäfelung",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/52/870",
+    "variants": [
+      {
+        "combination_id": 289,
+        "attribute": "Kiefer",
+        "price_netto": 526790000,
+        "active": false
+      },
+      {
+        "combination_id": 290,
+        "attribute": "Eiche",
+        "price_netto": 892570000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0018",
+    "name": "P0018 - Berlin - Invalidenstraße",
+    "description_short": "<p>Vor 130 Jahren befand sich hier die Bäckerei Balzer. Alle Wände sind mit frischen Sommerblumenfliesen und schön profilierten Holzleisten verkleidet und die Brötchen dufteten bestimmt gleich doppelt so gut!<br />Heute gibt´s hier Burger und die Kulisse, nun ja, wirkt etwas ungepflegt. Ich hoffe, dass der nächste Mieter mehr mit diesem Schatz anzufangen weiß.<br />Die Kombination von Vertäfelung und Fliesen findet man öfters in Restaurants und Lebensmittelgeschäften. Fliesen bringen ein weiteres dekoratives Element ins Spiel. Man kann größere Flächen aufziehen und durch Rahmen in Bereiche einteilen.<br />Die in diesem Beispiel eingesetzten Fliesen stammen aus der <span style=\"color:#2445a2;\"><a href=\"https://www.golem-baukeramik.de/Jugendstilfliesen/Wandfliesen/Jugendstilfliesen-Dekor/\" style=\"color:#2445a2;\">GOLEM Manufaktur</a></span>.</p>",
+    "meta_title": "Holzvertäfelung mit Jugendstilfliesen aus Berlin-Mitte",
+    "meta_description": "Eine raumhohe Vertäfelung aus einer ehemaligen Bäckerei mit einer Kombination aus eingesetzten Jugendstilfliesen - mit sehr viel Gestaltungsfreiheit!",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/57/927",
+    "variants": [
+      {
+        "combination_id": 299,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 776790000,
+        "active": false
+      },
+      {
+        "combination_id": 301,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 1325460000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0015",
+    "name": "P0015 - Berlin - Alte Nationalgalerie",
+    "description_short": "<p>Ein gutes Beispiel für eine flache Vertäfelung, die für klare Strukturen sorgt und die ausgestellten Bilder in den Fokus rückt. Der Bereich wirkt wie eine flache Balustrade mit viel Platz, um Bilder in unterschiedlichen Formaten auf Augenhöhe zu hängen.</p>",
+    "meta_title": "Berliner Holzvertäfelung - Alte Nationalgalerie",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Halbhohe Vertäfelungen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/59/959",
+    "variants": [
+      {
+        "combination_id": 303,
+        "attribute": "Kiefer, Bausatz",
+        "price_netto": 464290000,
+        "active": false
+      },
+      {
+        "combination_id": 305,
+        "attribute": "Eiche, Bausatz",
+        "price_netto": 830070000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "P0033",
+    "name": "SL0007 - München - Augustiner Stammhaus - Sockelleiste 450/62",
+    "description_short": "<p>Diese 4-teilige, 45 cm hohe Sockelleiste kommt aus dem Stammhaus der Augustiner Brauerei in der Münchner Innenstadt. Mit ihr sind im 1.OG einige Wohnräume der Brauerfamilie Wagner ausgestattet, die „Wagner Salons“. Die Salons wurden 1896-97 von Emanuel von Seidel in einer Mischung aus zeitgenössischem Jugendstil und elegantem Neobarock umgebaut und neu eingerichtet. 2019 wurden sie umfassend restauriert und sind nun für Gäste geöffnet.</p>",
+    "meta_title": "Sockelleiste aus dem Augustiner Stammhaus in München",
+    "meta_description": "45 cm hohe Sockelleiste aus den Wagner-Salons des Augustiner Stammhauses in München. Wir reproduzieren diese Leiste für Ihre Räume in Eiche oder Kiefer.",
+    "categories": [
+      "Artikel",
+      "Sockelleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/26/736",
+    "variants": [
+      {
+        "combination_id": 150,
+        "attribute": "Kiefer",
+        "price_netto": 79831933,
+        "active": false
+      },
+      {
+        "combination_id": 152,
+        "attribute": "Eiche",
+        "price_netto": 147058824,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "SL0007-IE",
+    "name": "SL0007 - Innenecke",
+    "description_short": "<p>Passende Innenecke für Sockelleiste P0033, sorgt für ein einfaches Verlegen, da keine Gehrungen gesägt werden müssen und betont die Ecken.</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Sockelleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/29/747",
+    "variants": [
+      {
+        "combination_id": 183,
+        "attribute": "Kiefer",
+        "price_netto": 21008403,
+        "active": false
+      },
+      {
+        "combination_id": 184,
+        "attribute": "Eiche",
+        "price_netto": 37815126,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "SL0005",
+    "name": "SL0005 - abgerundete Oberkante 80/16",
+    "description_short": "<p>Schlicht und einfach, mit abgerundeter Oberkante</p>",
+    "meta_title": "Sockelleiste mit abgerundeter Oberkante - Höhe 8 cm",
+    "meta_description": "Schlichte Sockelleiste mit abgerundeter Oberkante - 80/16 - Ausführung in Eiche",
+    "categories": [
+      "Artikel",
+      "Sockelleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/34/830",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 17150000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "SL0007-AE",
+    "name": "SL0007 - Außenecke",
+    "description_short": "<p>Passende Außenecke für Sockelleiste P0033.<br />Sorgt für ein einfaches Verlegen, da keine Gehrungen gesägt werden müssen und kann als seitlicher Abschluß verwendet werden,</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Sockelleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/36/758",
+    "variants": [
+      {
+        "combination_id": 204,
+        "attribute": "Kiefer",
+        "price_netto": 21008403,
+        "active": false
+      },
+      {
+        "combination_id": 205,
+        "attribute": "Eiche",
+        "price_netto": 37815126,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "SL0001",
+    "name": "SL0001 - Hamburger Leiste 170/25",
+    "description_short": "<p>Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen.<br />Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lässt.</p>",
+    "meta_title": "Hamburger Leiste, 17 cm Höhe",
+    "meta_description": "Hamburger oder Berliner Leiste - beides das Gleiche! Wir bieten diese Fußleiste mit einer Höhe von 17 cm.",
+    "categories": [
+      "Artikel",
+      "Sockelleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/40/823",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 35937500,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "SL0002",
+    "name": "SL0002 - Hamburger Leiste 120/18",
+    "description_short": "<p>Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen.<br />Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lässt.</p>",
+    "meta_title": "Hamburger Leiste, 12 cm Höhe",
+    "meta_description": "Hamburger oder Berliner Leiste - beides das Gleiche! Wir bieten diese Fußleiste mit einer Höhe von 12 cm.",
+    "categories": [
+      "Artikel",
+      "Sockelleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/41/825",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 27880000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "SL0003",
+    "name": "SL0003 - Kreuzberger Leiste 165/28",
+    "description_short": "<p>Eine echte Berliner Leiste, die für eine Wohnung in der Adalbertstr. nachgefräst wurde.</p>",
+    "meta_title": "Kreuzberger Leiste, 16,5 cm Höhe",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Sockelleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/42/826",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 35380000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "SL0004",
+    "name": "SL0004 - 2teilige hohe Sockelleiste 175/45",
+    "description_short": "<p>Reich profilierte, hohe Sockelleiste, die aus 2 Teilen zusammengesetzt wird.</p>",
+    "meta_title": "2teilige Hohe Sockelleiste, 17,5 cm Höhe",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Sockelleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/44/829",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 49750000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "SL0006",
+    "name": "SL0006 - mit Karnies 58/18",
+    "description_short": "<p>schlicht, mit Karnies</p>",
+    "meta_title": "Sockelleiste mit Karnies, Höhe 5,8 cm",
+    "meta_description": "Schlichte Fußleiste mit Karnies aus nordischer Kiefer",
+    "categories": [
+      "Artikel",
+      "Sockelleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/45/868",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 6000000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "BLR 3",
+    "name": "Lüftungsrosette 3",
+    "description_short": "<p>Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.<br />Messingguss, poliert</p>\n<p>Durchmesser ca. 36 mm<br />Hohe ca. 3 mm</p>",
+    "meta_title": "",
+    "meta_description": "Lüftungsrosette für Holzvertäfelungen",
+    "categories": [
+      "Artikel",
+      "Lüftungsrosetten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/60/1001",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 49579832,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "BLR 4",
+    "name": "Lüftungsrosette 4",
+    "description_short": "<p>Formschöne Lüftungsrosette für Vertäfelungen.<br />Messing gefräst, Oberfläche geschlichtet</p>\n<p>Durchmesser 45 mm<br />Höhe ca. 4 mm</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Lüftungsrosetten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/70/1006",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 41176471,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "BLR 1",
+    "name": "Lüftungsrosette 1",
+    "description_short": "<p>Formschöne Lüftungsrosette für Vertäfelungen, Abguss einer Originalvorlage,<br />Messingguss, poliert</p>\n<p>Durchmesser ca. 52 mm<br />Höhe ca. 5 mm</p>",
+    "meta_title": "",
+    "meta_description": "Lüftungsrosette für Holzvertäfelungen",
+    "categories": [
+      "Artikel",
+      "Lüftungsrosetten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/71/1009",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 54621849,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "BLR 2",
+    "name": "Lüftungsrosette 2",
+    "description_short": "<p>Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.<br />Messingguss, poliert</p>\n<p>Durchmesser ca. 42 mm<br />Hohe ca. 3 mm</p>",
+    "meta_title": "",
+    "meta_description": "Lüftungsrosette für Holzvertäfelungen",
+    "categories": [
+      "Artikel",
+      "Lüftungsrosetten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/72/1019",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 49579832,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "BLR 5",
+    "name": "Lüftungsrosette 5",
+    "description_short": "<p>Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.<br />Messingguss, poliert</p>\n<p>Durchmesser ca. 58 mm<br />Hohe ca. 13 mm</p>",
+    "meta_title": "",
+    "meta_description": "Lüftungsrosette für Holzvertäfelungen",
+    "categories": [
+      "Artikel",
+      "Lüftungsrosetten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/73/1029",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 54621849,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "BLR 6",
+    "name": "Lüftungsrosette 6",
+    "description_short": "<p>Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.<br />Messingguss, poliert</p>\n<p>Durchmesser ca. 46 mm<br />Hohe ca. 11 mm</p>",
+    "meta_title": "",
+    "meta_description": "Lüftungsrosette für Holzvertäfelungen",
+    "categories": [
+      "Artikel",
+      "Lüftungsrosetten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/74/1035",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 49579832,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "BLR 7",
+    "name": "Lüftungsrosette 7",
+    "description_short": "<p>Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.<br />Messingguss, poliert</p>\n<p>Durchmesser ca. 28 mm<br />Hohe ca. 12 mm</p>",
+    "meta_title": "",
+    "meta_description": "Lüftungsrosette für Holzvertäfelungen",
+    "categories": [
+      "Artikel",
+      "Lüftungsrosetten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/75/1041",
+    "variants": [
+      {
+        "combination_id": "",
+        "attribute": "",
+        "price_netto": 46218487,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 06",
+    "name": "Türbekleidung 06",
+    "description_short": "<p>Tür- und Fensterrahmen TR 06, Maße: 115 x 26 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 115x26 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/114/1197",
+    "variants": [
+      {
+        "combination_id": 522,
+        "attribute": "Kiefer",
+        "price_netto": 46720000,
+        "active": false
+      },
+      {
+        "combination_id": 523,
+        "attribute": "White Wood",
+        "price_netto": 62140000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 07",
+    "name": "Türbekleidung 07",
+    "description_short": "<p>Tür- und Fensterrahmen nach Originalvorlage <br />TR 07, Maße: 143 x 31 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Klassische Türbekleidung 143x31 mm, originalgetreu reproduziert, aus Kiefer oder White Wood, nach Wunschlänge bestellbar, andere Hölzer (zB. Eiche) auf Anfrage.",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/115/1199",
+    "variants": [
+      {
+        "combination_id": 524,
+        "attribute": "Kiefer",
+        "price_netto": 50640000,
+        "active": false
+      },
+      {
+        "combination_id": 525,
+        "attribute": "White Wood",
+        "price_netto": 67360000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 01/160",
+    "name": "Türbekleidung 01 / 160",
+    "description_short": "<p>Tür- und Fensterrahmen TR 01 / 160, Maße: 160 x 24 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 160 x 24 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/116/1204",
+    "variants": [
+      {
+        "combination_id": 526,
+        "attribute": "Kiefer",
+        "price_netto": 50000000,
+        "active": false
+      },
+      {
+        "combination_id": 527,
+        "attribute": "White Wood",
+        "price_netto": 55000000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 01/120",
+    "name": "Türbekleidung 01 / 120",
+    "description_short": "<p>Tür- und Fensterrahmen TR 01 / 120, Maße: 120 x 18 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 120x18 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/117/1203",
+    "variants": [
+      {
+        "combination_id": 528,
+        "attribute": "Kiefer",
+        "price_netto": 50000000,
+        "active": false
+      },
+      {
+        "combination_id": 529,
+        "attribute": "White Wood",
+        "price_netto": 55000000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 01/200",
+    "name": "Türbekleidung 01 / 200",
+    "description_short": "<p>Tür- und Fensterrahmen TR 01 / 200, Maße: 200 x 24 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 200 x 24 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/118/1206",
+    "variants": [
+      {
+        "combination_id": 530,
+        "attribute": "Kiefer",
+        "price_netto": 54000000,
+        "active": false
+      },
+      {
+        "combination_id": 531,
+        "attribute": "White Wood",
+        "price_netto": 59000000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 02",
+    "name": "Türbekleidung 02",
+    "description_short": "<p>Tür- und Fensterrahmen TR 02, Maße: 100 x 17 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 100 x 17 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/119/1208",
+    "variants": [
+      {
+        "combination_id": 532,
+        "attribute": "Kiefer",
+        "price_netto": 24720000,
+        "active": false
+      },
+      {
+        "combination_id": 533,
+        "attribute": "White Wood",
+        "price_netto": 36380000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 03",
+    "name": "Türbekleidung 03",
+    "description_short": "<p>Tür- und Fensterrahmen TR 03, Maße: 160 X 42 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 160 x 42 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/120/1210",
+    "variants": [
+      {
+        "combination_id": 534,
+        "attribute": "Kiefer",
+        "price_netto": 79200000,
+        "active": false
+      },
+      {
+        "combination_id": 535,
+        "attribute": "White Wood",
+        "price_netto": 105340000,
+        "active": false
+      },
+      {
+        "combination_id": 536,
+        "attribute": "Kiefer",
+        "price_netto": 79200000,
+        "active": false
+      },
+      {
+        "combination_id": 537,
+        "attribute": "White Wood",
+        "price_netto": 105340000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 05",
+    "name": "Türbekleidung 05",
+    "description_short": "<p>Tür- und Fensterrahmen TR 05, Maße: 179 x 42 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 179 x 42 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/122/1214",
+    "variants": [
+      {
+        "combination_id": 538,
+        "attribute": "Kiefer",
+        "price_netto": 79200000,
+        "active": false
+      },
+      {
+        "combination_id": 539,
+        "attribute": "White Wood",
+        "price_netto": 105340000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 09",
+    "name": "Türbekleidung 09",
+    "description_short": "<p>Tür- und Fensterrahmen nach Originalvorlage <br />TR 09, Maße: 115 x 26 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 115 x 26 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/123/1216",
+    "variants": [
+      {
+        "combination_id": 540,
+        "attribute": "Kiefer",
+        "price_netto": 35320000,
+        "active": false
+      },
+      {
+        "combination_id": 541,
+        "attribute": "White Wood",
+        "price_netto": 46980000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 11",
+    "name": "Türbekleidung 11",
+    "description_short": "<p>Tür- und Fensterrahmen nach Originalvorlage <br />TR 11, Maße: 118 x 23 mm mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 118 x 23 mm mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/124/1218",
+    "variants": [
+      {
+        "combination_id": 542,
+        "attribute": "Kiefer",
+        "price_netto": 76000000,
+        "active": false
+      },
+      {
+        "combination_id": 543,
+        "attribute": "White Wood",
+        "price_netto": 101080000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 12",
+    "name": "Türbekleidung 12",
+    "description_short": "<p>Tür- und Fensterrahmen nach Originalvorlage <br />TR 12, Maße: 117 x 28 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 117 x 28 mm mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/125/1220",
+    "variants": [
+      {
+        "combination_id": 544,
+        "attribute": "Kiefer",
+        "price_netto": 35320000,
+        "active": false
+      },
+      {
+        "combination_id": 545,
+        "attribute": "White Wood",
+        "price_netto": 46980000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 13",
+    "name": "Türbekleidung 13",
+    "description_short": "<p>Tür- und Fensterrahmen nach Originalvorlage <br />TR 13, Maße: 103 x 23 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 103 x 23 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/126/1222",
+    "variants": [
+      {
+        "combination_id": 546,
+        "attribute": "Kiefer",
+        "price_netto": 41560000,
+        "active": false
+      },
+      {
+        "combination_id": 547,
+        "attribute": "White Wood",
+        "price_netto": 55280000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 14",
+    "name": "Türbekleidung 14",
+    "description_short": "<p>Tür- und Fensterrahmen nach Originalvorlage <br />TR 14, Maße: 118 x 20 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 118 x 20 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/127/1224",
+    "variants": [
+      {
+        "combination_id": 548,
+        "attribute": "Kiefer",
+        "price_netto": 30800000,
+        "active": false
+      },
+      {
+        "combination_id": 549,
+        "attribute": "White Wood",
+        "price_netto": 40960000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 15",
+    "name": "Türbekleidung 15",
+    "description_short": "<p>Tür- und Fensterrahmen nach Originalvorlage <br />TR 15, Maße: 117 x 19 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 117 x 19 mm mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/128/1226",
+    "variants": [
+      {
+        "combination_id": 550,
+        "attribute": "Kiefer",
+        "price_netto": 35320000,
+        "active": false
+      },
+      {
+        "combination_id": 551,
+        "attribute": "White Wood",
+        "price_netto": 46980000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 17",
+    "name": "Türbekleidung 17",
+    "description_short": "<p>Tür- und Fensterrahmen nach Originalvorlage <br />TR 17, Maße: 164 x 58 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 164 x 58 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/129/1228",
+    "variants": [
+      {
+        "combination_id": 552,
+        "attribute": "Kiefer",
+        "price_netto": 271600000,
+        "active": false
+      },
+      {
+        "combination_id": 553,
+        "attribute": "White Wood",
+        "price_netto": 361220000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TR 18",
+    "name": "Türbekleidung 18",
+    "description_short": "<p>Tür- und Fensterrahmen nach Originalvorlage <br />TR 18, Maße: 150 x 40 mm<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "Als Tür- oder Fensterrahmen einsetzbar, Maße: 150 x 40 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage",
+    "categories": [
+      "Artikel",
+      "Türbekleidungen & Fensterrahmen"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/130/1230",
+    "variants": [
+      {
+        "combination_id": 554,
+        "attribute": "Kiefer",
+        "price_netto": 79200000,
+        "active": false
+      },
+      {
+        "combination_id": 555,
+        "attribute": "White Wood",
+        "price_netto": 105340000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 01",
+    "name": "Wandleiste 01",
+    "description_short": "<p>Profilierte Holzleiste 16 x 40 mm<br />In Kiefer oder White Wood, andere Holzarten auf Anfrage</p>\n<p>Die Wandleiste WL 01 besitzt ein klassisch gestaltetes, asymmetrisches Profil im Maß 40 x 16 mm. Der Aufbau kombiniert einen voluminös geschwungene Karnis in der Mittelzone mit fein auslaufenden Profilierungen zur inneren Seite.</p>\n<p>WL 01 eignet sich zur Bildung von feinen Rahmen auf Wandflächen.</p>",
+    "meta_title": "Wandleiste WL 01 – Profilleiste aus Massivholz, 40 x 16 mm",
+    "meta_description": "Klassisch profilierte Wandleiste WL 01 aus Massivholz, 40 x 16 mm. Mit asymmetrischem Profil zur Gliederung von Wandflächen und Rahmenbildung.",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/76/1231",
+    "variants": [
+      {
+        "combination_id": 339,
+        "attribute": "Kiefer",
+        "price_netto": 13900000,
+        "active": false
+      },
+      {
+        "combination_id": 340,
+        "attribute": "White Wood",
+        "price_netto": 18480000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 02",
+    "name": "Wandleiste 02 „Dom-Profil“",
+    "description_short": "<p>„Dom-Profil“ Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab.<br />Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/77/1232",
+    "variants": [
+      {
+        "combination_id": 341,
+        "attribute": "Kiefer",
+        "price_netto": 14360000,
+        "active": false
+      },
+      {
+        "combination_id": 342,
+        "attribute": "White Wood",
+        "price_netto": 19100000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 03",
+    "name": "Wandleiste 03 „Riffelleiste“",
+    "description_short": "<p>Riffelleiste - Massive Holzleiste 10 x 40 mm.<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage.</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/78/1234",
+    "variants": [
+      {
+        "combination_id": 343,
+        "attribute": "Kiefer",
+        "price_netto": 10400000,
+        "active": false
+      },
+      {
+        "combination_id": 344,
+        "attribute": "White Wood",
+        "price_netto": 13840000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 04",
+    "name": "Wandleiste 04 „Rundstableiste“",
+    "description_short": "<p>Rundstableiste - Massive Holzleiste 10 x 40 mm, Rundstableiste.<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/79/1235",
+    "variants": [
+      {
+        "combination_id": 345,
+        "attribute": "Kiefer",
+        "price_netto": 10400000,
+        "active": false
+      },
+      {
+        "combination_id": 346,
+        "attribute": "White Wood",
+        "price_netto": 13840000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 05",
+    "name": "Wandleiste 05 „Hohe Welle“",
+    "description_short": "<p>\"Hohe Welle\" - Massive Holzleiste 20 x 40 mm, nicht symmetrisches Profil mit zentralem Halbrundstab.<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/80/1236",
+    "variants": [
+      {
+        "combination_id": 347,
+        "attribute": "Kiefer",
+        "price_netto": 16600000,
+        "active": false
+      },
+      {
+        "combination_id": 348,
+        "attribute": "White Wood",
+        "price_netto": 22080000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 06",
+    "name": "Wandleiste 06",
+    "description_short": "<p>Holzleiste 15 x 30 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage<br /><br />Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/81/1237",
+    "variants": [
+      {
+        "combination_id": 349,
+        "attribute": "Kiefer",
+        "price_netto": 9440000,
+        "active": false
+      },
+      {
+        "combination_id": 350,
+        "attribute": "White Wood",
+        "price_netto": 12560000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 07",
+    "name": "Wandleiste 07",
+    "description_short": "<p>Holzleiste 15 x 30 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/82/1238",
+    "variants": [
+      {
+        "combination_id": 351,
+        "attribute": "Kiefer",
+        "price_netto": 9440000,
+        "active": false
+      },
+      {
+        "combination_id": 352,
+        "attribute": "White Wood",
+        "price_netto": 12560000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 08",
+    "name": "Wandleiste 08",
+    "description_short": "<p>Holzleiste 18 x 35 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/84/1239",
+    "variants": [
+      {
+        "combination_id": 355,
+        "attribute": "Kiefer",
+        "price_netto": 11800000,
+        "active": false
+      },
+      {
+        "combination_id": 356,
+        "attribute": "White Wood",
+        "price_netto": 15700000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 09",
+    "name": "Wandleiste 09",
+    "description_short": "<p>Profilierte Holzleiste 18 x 40 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/85/1240",
+    "variants": [
+      {
+        "combination_id": 357,
+        "attribute": "Kiefer",
+        "price_netto": 12760000,
+        "active": false
+      },
+      {
+        "combination_id": 358,
+        "attribute": "White Wood",
+        "price_netto": 16980000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 10",
+    "name": "Wandleiste 10",
+    "description_short": "<p>Profilierte Holzleiste 23 x 80 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/86/1241",
+    "variants": [
+      {
+        "combination_id": 359,
+        "attribute": "Kiefer",
+        "price_netto": 20760000,
+        "active": false
+      },
+      {
+        "combination_id": 360,
+        "attribute": "White Wood",
+        "price_netto": 27620000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 11",
+    "name": "Wandleiste 11",
+    "description_short": "<p>Profilierte Holzleiste 32 x 47 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/87/1242",
+    "variants": [
+      {
+        "combination_id": 361,
+        "attribute": "Kiefer",
+        "price_netto": 31300000,
+        "active": false
+      },
+      {
+        "combination_id": 362,
+        "attribute": "White Wood",
+        "price_netto": 41620000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 12",
+    "name": "Wandleiste 12",
+    "description_short": "<p>Profilierte Holzleiste 25 x 43 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/88/1243",
+    "variants": [
+      {
+        "combination_id": 363,
+        "attribute": "Kiefer",
+        "price_netto": 18380000,
+        "active": false
+      },
+      {
+        "combination_id": 364,
+        "attribute": "White Wood",
+        "price_netto": 24440000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 13",
+    "name": "Wandleiste 13",
+    "description_short": "<p>Profilierte Holzleiste 8 x 35 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>\n<p></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/89/1244",
+    "variants": [
+      {
+        "combination_id": 365,
+        "attribute": "Kiefer",
+        "price_netto": 10400000,
+        "active": false
+      },
+      {
+        "combination_id": 366,
+        "attribute": "White Wood",
+        "price_netto": 13840000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 14",
+    "name": "Wandleiste 14",
+    "description_short": "<p>Profilierte Holzleiste 21 x 60 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage<br /><br />Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/90/1245",
+    "variants": [
+      {
+        "combination_id": 367,
+        "attribute": "Kiefer",
+        "price_netto": 31000000,
+        "active": false
+      },
+      {
+        "combination_id": 368,
+        "attribute": "White Wood",
+        "price_netto": 41240000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "WL 15",
+    "name": "Wandleiste 15",
+    "description_short": "<p>Profilierte Holzleiste 25 x 100 mm<br />In Kiefer oder White Wood, andere Holzarten aus Anfrage</p>\n<p>Als Wandleiste zur direkten Montage auf der verputzen Wand.<br />Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Wandleisten"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/91/1246",
+    "variants": [
+      {
+        "combination_id": 369,
+        "attribute": "Kiefer",
+        "price_netto": 39700000,
+        "active": false
+      },
+      {
+        "combination_id": 370,
+        "attribute": "White Wood",
+        "price_netto": 52800000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "LÖN",
+    "name": "Reines Leinöl, ohne Sikkativ",
+    "description_short": "<p>Gereinigtes Leinöl mit niedrigem Säuregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ.<br />Zur ersten Grundierung von rohem Holz. Reines Leinöl hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm.<br />Trocknungsdauer bis zu 2 Wochen. Leinöl feuert das Holz an, die Maserung tritt deutlicher hervor.</p>\n<p>Leinöl ist in Innenbereichen gegenüber jeder künstlich hergestellten Grundierung zu bevorzugen.<br />Es ist 100% natürlich und hat sich traditionell bewährt.<br />Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Leinöl",
+      "Tungöl",
+      "Balsam"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/61/981",
+    "variants": [
+      {
+        "combination_id": 322,
+        "attribute": "1 Liter",
+        "price_netto": 12605042,
+        "active": false
+      },
+      {
+        "combination_id": 323,
+        "attribute": "5 Liter",
+        "price_netto": 57983193,
+        "active": false
+      },
+      {
+        "combination_id": 324,
+        "attribute": "10 Liter",
+        "price_netto": 109243697,
+        "active": false
+      },
+      {
+        "combination_id": 325,
+        "attribute": "20 Liter",
+        "price_netto": 210084034,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "LÖF",
+    "name": "Leinölfirnis",
+    "description_short": "<p>Leinölfirnis mit Sikkativen.<br />Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.<br /><br /></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Leinöl",
+      "Tungöl",
+      "Balsam"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/62/982",
+    "variants": [
+      {
+        "combination_id": 326,
+        "attribute": "1 Liter",
+        "price_netto": 13445378,
+        "active": false
+      },
+      {
+        "combination_id": 327,
+        "attribute": "5 Liter",
+        "price_netto": 63865546,
+        "active": false
+      },
+      {
+        "combination_id": 328,
+        "attribute": "10 Liter",
+        "price_netto": 121848739,
+        "active": false
+      },
+      {
+        "combination_id": 329,
+        "attribute": "20 Liter",
+        "price_netto": 239495798,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "BTÖ",
+    "name": "Balsamterpentinöl",
+    "description_short": "<p>Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.<br />Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen.<br />Balsamterpentinöl wird zum Verdünnen von Leinölfarben verwendet.</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Leinöl",
+      "Tungöl",
+      "Balsam"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/63/983",
+    "variants": [
+      {
+        "combination_id": 312,
+        "attribute": "5 Liter",
+        "price_netto": 63865546,
+        "active": false
+      },
+      {
+        "combination_id": 313,
+        "attribute": "1 Liter",
+        "price_netto": 13445378,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "CTP",
+    "name": "Citrusterpene",
+    "description_short": "<p>Citrusterpene kann wie Balsamterpentinöl zum Verdünnen von Farben und zum Lösen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist für ökologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es während des Wachstums aufgenommen hat.</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Leinöl",
+      "Tungöl",
+      "Balsam"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/64/986",
+    "variants": [
+      {
+        "combination_id": 330,
+        "attribute": "1 Liter",
+        "price_netto": 20168067,
+        "active": false
+      },
+      {
+        "combination_id": 331,
+        "attribute": "5 Liter",
+        "price_netto": 100840336,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TÖL",
+    "name": "Tung Holzöllack",
+    "description_short": "<p style=\"margin:0px;font-style:normal;font-size:10.7px;line-height:normal;font-family:Verdana;\"><span style=\"font-size:10.67px;\">Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen.</span></p>\n<p style=\"margin:0px;font-style:normal;font-size:10.7px;line-height:normal;font-family:Verdana;\"><span style=\"font-size:10.67px;\">Anwendung innen und außen.</span></p>\n<p style=\"margin:0px;font-style:normal;font-size:10.7px;line-height:normal;font-family:Verdana;\"><span style=\"font-size:10.67px;\"> </span></p>\n<p style=\"margin:0px;font-style:normal;font-size:10.7px;line-height:normal;font-family:Verdana;\"><span style=\"font-size:10.67px;\">TUNG Holzöllack trocknet bedeutend schneller und härter als ein Leinölfirnisanstrich. Die Oberfläche ist anfänglich matt glänzend. Er wird eingesetzt als Schlussfirnis auf Leinölgrundierungen, da er weniger durch Wasser quillt und eine bessere UV Beständigkeit besitzt als ein Leinölfirnis. Sehr gut ist er auch zur Pflege aller Arten von Holz, auch Harthölzer, geeignet. Das legendäre Eburit Hartrockenöl basiert auf den gleichen Inhaltsstoffen wie unser Holzöllack.</span></p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Leinöl",
+      "Tungöl",
+      "Balsam"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/65/992",
+    "variants": [
+      {
+        "combination_id": 332,
+        "attribute": "1 Liter",
+        "price_netto": 22689076,
+        "active": false
+      },
+      {
+        "combination_id": 333,
+        "attribute": "5 Liter",
+        "price_netto": 105042017,
+        "active": false
+      },
+      {
+        "combination_id": 334,
+        "attribute": "10 Liter",
+        "price_netto": 201680673,
+        "active": false
+      },
+      {
+        "combination_id": 335,
+        "attribute": "20 Liter",
+        "price_netto": 378151261,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "TÖN",
+    "name": "Tungöl natur",
+    "description_short": "<p>Tungöl Natur, ohne Sikkativ. Es polymerisiert ähnlich wie Leinöl, trocknet jedoch schneller und bildet eine harte, matte Oberfläche. Wird Holz ausschließlich mit Tungöl Natur behandelt, bleibt die natürliche Holzfarbe im Wesentlichen erhalten. Es eignet sich sehr gut zur Imprägnierung von Hartholz und ist als Oberflächenanstrich auf Leinölanstrichen geeignet. Es kann in Innen- und Außenbereichen eingesetzt werden.</p>\n<p>Tungöl Natur wird aus den Nüssen des Holzölbaumes (Vernicia fordii) in Asien, den USA und Südamerika gewonnen. Das Öl wurde historisch als „Holzöl“ oder „chinesisches Holzöl“ bezeichnet, da es als Bindemittel der chinesischen und japanischen Holz- und Papiermalerei verwendet wurde.<br />In der CAS Datenbank ist es unter der Bezeichnung „Holzöl“ registriert.</p>",
+    "meta_title": "",
+    "meta_description": "",
+    "categories": [
+      "Artikel",
+      "Leinöl",
+      "Tungöl",
+      "Balsam"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/69/994",
+    "variants": [
+      {
+        "combination_id": 336,
+        "attribute": "1 Liter",
+        "price_netto": 21008403,
+        "active": false
+      },
+      {
+        "combination_id": 337,
+        "attribute": "5 Liter",
+        "price_netto": 111008403,
+        "active": false
+      },
+      {
+        "combination_id": 338,
+        "attribute": "10 Liter",
+        "price_netto": 216008403,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beeck SIP Weiß",
+    "name": "Weiß - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Volltonfarbe, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarben sind für farbige Holz-Behandlungen im Innenbereich gedacht, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "BEECK Standölinnnenfarbe PRO, Weiß, deckend, für Holz im Innenbereich",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine reine Leinölfarbe für professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/94/1076",
+    "variants": [
+      {
+        "combination_id": 383,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 41500000,
+        "active": false
+      },
+      {
+        "combination_id": 384,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 41500000,
+        "active": false
+      },
+      {
+        "combination_id": 385,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 132500000,
+        "active": false
+      },
+      {
+        "combination_id": 386,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 132500000,
+        "active": false
+      },
+      {
+        "combination_id": 387,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 508500000,
+        "active": false
+      },
+      {
+        "combination_id": 388,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 508500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beeck SIP Schwarz",
+    "name": "Schwarz - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Volltonfarbe, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Standölfarbe Schwarz, deckend, für Holz im Innenbereich",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine reine Leinölfarbe für professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/98/1098",
+    "variants": [
+      {
+        "combination_id": 389,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 390,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 391,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 392,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 393,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 394,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beeck SIP Umbra",
+    "name": "Umbra - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Umbra, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/99/1102",
+    "variants": [
+      {
+        "combination_id": 395,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 396,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 397,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 398,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 399,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 400,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beeck SIP Braun",
+    "name": "Braun - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Braun, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/100/1126",
+    "variants": [
+      {
+        "combination_id": 401,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 402,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 403,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 404,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 405,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 406,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beek SIP Grün",
+    "name": "Grün - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Grün, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/101/1167",
+    "variants": [
+      {
+        "combination_id": 407,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 408,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 409,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 410,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 411,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 412,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beeck SIP Zitronengelb",
+    "name": "Zitronengelb - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Gelb, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/102/1139",
+    "variants": [
+      {
+        "combination_id": 413,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 414,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 415,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 416,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 417,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 418,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beeck SIP Maisgelb",
+    "name": "Maisgelb - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Maisgelb, BEECK Standölinnnenfarbe PRO, deckend, für Holz",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/103/1142",
+    "variants": [
+      {
+        "combination_id": 419,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 420,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 421,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 422,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 423,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 424,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beeck SIP Ocker",
+    "name": "Ockergelb - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Ocker, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/104/1145",
+    "variants": [
+      {
+        "combination_id": 425,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 426,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 427,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 428,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 429,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 430,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beek SIP Oxidrot",
+    "name": "Oxidrot - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Oxidrot, BEECK Standölinnnenfarbe PRO",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/105/1149",
+    "variants": [
+      {
+        "combination_id": 431,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 432,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 433,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 434,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 435,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 436,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beek SIP Ultrablau",
+    "name": "Ultrablau - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Ultrablau, BEECK Standölinnnenfarbe PRO, deckend",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/106/1152",
+    "variants": [
+      {
+        "combination_id": 437,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 438,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 439,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 440,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 441,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 442,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beeck SIP Weinrot",
+    "name": "Weinrot - BEECK Standölinnenfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Standölinnenfarbe PRO</strong><br />Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.</p>\n<p><strong>Verwendungszweck</strong><br />Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.</p>\n<p></p>",
+    "meta_title": "Weinrot, BEECK Standölinnnenfarbe PRO, deckend",
+    "meta_description": "Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.",
+    "categories": [
+      "Artikel",
+      "STANDÖLINNENFARBE PRO Volltonfarben"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/107/1158",
+    "variants": [
+      {
+        "combination_id": 443,
+        "attribute": "0,75 L, seidenmatt",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 444,
+        "attribute": "0,75 L, seidenglanz",
+        "price_netto": 57150000,
+        "active": false
+      },
+      {
+        "combination_id": 445,
+        "attribute": "2,5 L, seidenmatt",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 446,
+        "attribute": "2,5 L, seidenglanz",
+        "price_netto": 159500000,
+        "active": false
+      },
+      {
+        "combination_id": 447,
+        "attribute": "10 L, seidenmatt",
+        "price_netto": 613500000,
+        "active": false
+      },
+      {
+        "combination_id": 448,
+        "attribute": "10 L, seidenglanz",
+        "price_netto": 613500000,
+        "active": false
+      }
+    ]
+  },
+  {
+    "reference": "Beeck VSF P",
+    "name": "BEECK Vorstreichfarbe PRO",
+    "description_short": "<p><strong><img src=\"https://www.holzvertaefelung.store/img/cms/Beeck-Headline.jpg\" alt=\"Beeck Farben\" width=\"1022\" height=\"140\" /></strong></p>\n<p><strong>BEECK Vorstreichfarbe PRO<br /></strong>Weißmatter Ölvorlack für professionelle Voranstriche auf Holz und Eisenmetall im Innen- und Außenbereich</p>\n<p><strong>Verwendungszweck</strong><br />Deckend weißer, füllender, rasch trocknender High Solid Vorlack für Holz, Holzwerkstoffe und Eisenmetalle im Innen- und Außenbereich. Auch als Haftung vermittelnder Zwischenanstrich auf tragfähigen Altanstrichen auf Öl- und Alkydharzbasis. Weiß, bei getönten bzw. volltonigen Schlusslackierungen entsprechend tönbar. Weiterbehandlung im Außenbereich mit BEECK Standölaußenfarbe pro. Ideal für Holzvertäfelungen, Fenster, Türen und Klappläden.</p>",
+    "meta_title": "Weißer, matter Öllack für professionelle Voranstriche auf Holz",
+    "meta_description": "Beeck Vorstreichfarbe Pro, deckend weißer, füllender, rasch trocknender High Solid Voranstrich für Holz im Innen- und Außenbereich.",
+    "categories": [
+      "Artikel",
+      "Vorstreichfarbe PRO"
+    ],
+    "image_url": "https://www.vertaefelungen.de/api/images/products/109/1168",
+    "variants": [
+      {
+        "combination_id": 464,
+        "attribute": "0,75 L",
+        "price_netto": 30600000,
+        "active": false
+      },
+      {
+        "combination_id": 465,
+        "attribute": "2,5 L",
+        "price_netto": 97000000,
+        "active": false
+      },
+      {
+        "combination_id": 467,
+        "attribute": "10 L",
+        "price_netto": 371700000,
+        "active": false
+      }
+    ]
+  }
+]
