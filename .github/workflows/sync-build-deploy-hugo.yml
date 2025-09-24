@@ -84,6 +84,35 @@ jobs:
           echo "Listing ./public:"
           test -d public && ls -lah public || (echo "public missing" && exit 1)
 
+      # 🔎 Neuer Debug-Schritt: zeigt sicher an, dass SFTP_TARGET korrekt gesetzt ist
+      - name: Show SFTP target (safe) & preflight ls
+        env:
+          SFTP_HOST:     ${{ secrets.SFTP_HOST }}
+          SFTP_PORT:     ${{ secrets.SFTP_PORT }}
+          SFTP_USER:     ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
+        run: |
+          set -e
+          if [ -z "${SFTP_TARGET}" ]; then
+            echo "ERROR: SFTP_TARGET is EMPTY"; exit 1
+          fi
+          echo "SFTP_TARGET length: ${#SFTP_TARGET}"
+          echo "SFTP_TARGET prefix: ${SFTP_TARGET:0:8}..."
+          echo "SFTP_TARGET suffix: ...${SFTP_TARGET: -8}"
+          case "${SFTP_TARGET}" in
+            /*) echo "SFTP_TARGET looks absolute ✓" ;;
+            *)  echo "ERROR: SFTP_TARGET must start with '/'" ; exit 1 ;;
+          esac
+
+          # Preflight: Remote-Verzeichnis auflisten (Secrets werden von GitHub maskiert)
+          sudo apt-get update -y >/dev/null
+          sudo apt-get install -y sshpass >/dev/null
+          echo "Preflight: sftp ls -la \"${SFTP_TARGET}\""
+          sshpass -p "$SFTP_PASSWORD" sftp -P "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no "$SFTP_USER@$SFTP_HOST" <<EOF
+ls -la "${SFTP_TARGET}"
+EOF
+
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
