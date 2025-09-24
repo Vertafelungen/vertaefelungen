@@ -1,24 +1,22 @@
-name: Sync + Build-Fix + Deploy Wissen
+name: Hugo Build & Deploy (Wissen)
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'de/**'
-      - 'en/**'
-      - 'wissen/**'
-      - 'assets/**'
-      - 'robots.txt'
-      - 'sitemap.xml'
+      - 'content/**'
+      - 'layouts/**'
+      - 'static/**'
+      - 'config.yaml'
       - 'scripts/sync-from-sheet-hugo.py'
-      - '.github/workflows/sync-build-deploy-wissen.yml'
+      - '.github/workflows/hugo-build-deploy.yml'
   workflow_dispatch: {}
 
 permissions:
   contents: read
 
 concurrency:
-  group: build-deploy-wissen
+  group: hugo-deploy-wissen
   cancel-in-progress: true
 
 env:
@@ -27,109 +25,46 @@ env:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Python
+      - name: Setup Python (für Sync)
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Install deps
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.127.0'
+          extended: true
 
-      # --- SYNC aus Google Sheet ---
-      - name: Sync from Sheet (DE)
+      - name: Sync from Google Sheets (DE)
         env:
           LANG: de
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_DE }}
         run: |
           python scripts/sync-from-sheet-hugo.py
 
-      - name: Sync from Sheet (EN)
+      - name: Sync from Google Sheets (EN)
         env:
           LANG: en
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_EN }}
         run: |
           python scripts/sync-from-sheet-hugo.py
 
-      # --- BUILD-FIX: index.html + localhost-Links bereinigen ---
-      - name: Write /wissen/index.html (Redirect → /wissen/de/)
+      - name: Build Hugo
         run: |
-          mkdir -p wissen
-          cat > wissen/index.html <<'HTML'
-          <!doctype html>
-          <html lang="de">
-          <head>
-            <meta charset="utf-8">
-            <title>Wissensdatenbank | Vertäfelung & Lambris</title>
-            <link rel="canonical" href="/wissen/de/">
-            <meta http-equiv="refresh" content="0; url=/wissen/de/">
-          </head>
-          <body>
-            <p>Weiterleitung zur <a href="/wissen/de/">deutschen Übersicht</a> …</p>
-          </body>
-          </html>
-          HTML
-          echo "✓ /wissen/index.html geschrieben"
+          hugo --minify
 
-      - name: Strip localhost links (sanitize)
-        shell: python
+      - name: List public/
         run: |
-          import re
-          from pathlib import Path
-          roots = [Path("wissen"), Path("de"), Path("en"), Path("assets")]
-          host = re.compile(r"(https?://)?(localhost|127\.0\.0\.1)(:\d+)?", re.I)
-          base = re.compile(r'(<base\s+href=)["\'](.*?)["\']', re.I)
-          changed = 0
-          for root in roots:
-              if not root.exists(): 
-                  continue
-              for p in root.rglob("*"):
-                  if p.is_file() and p.suffix.lower() in {".html",".htm",".xml",".json",".txt",".md"}:
-                      try:
-                          txt = p.read_text(encoding="utf-8")
-                      except UnicodeDecodeError:
-                          try:
-                              txt = p.read_text(encoding="latin-1")
-                          except Exception:
-                              continue
-                      orig = txt
-                      # base href korrigieren, falls localhost
-                      def _fix_base(m):
-                          href = m.group(2)
-                          if "localhost" in href or "127.0.0.1" in href:
-                              return f'{m.group(1)}"/wissen/"'
-                          return m.group(0)
-                      txt = base.sub(_fix_base, txt)
-                      # Hostanteile entfernen
-                      txt = host.sub("", txt)
-                      if txt != orig:
-                          p.write_text(txt, encoding="utf-8")
-                          changed += 1
-          print(f"✓ localhost-Links bereinigt in {changed} Datei(en)")
+          ls -la public
+          ls -la public/de || true
+          ls -la public/en || true
 
-      - name: List payload
-        run: |
-          echo "::group::Root"
-          ls -la
-          echo "::endgroup::"
-          echo "::group::wissen"
-          ls -la wissen || true
-          echo "::endgroup::"
-          echo "::group::de"
-          ls -la de || true
-          echo "::endgroup::"
-          echo "::group::en"
-          ls -la en || true
-          echo "::endgroup::"
-
-      # --- DEPLOY nach IONOS per SFTP ---
-      - name: SFTP Deploy
+      - name: SFTP Deploy to IONOS
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server:   ${{ secrets.SFTP_HOST }}
@@ -137,13 +72,5 @@ jobs:
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
           sftp_only: true
+          local_path: public/**
           remote_path: ${{ env.SFTP_TARGET }}
-          local_path: |
-            wissen/**
-            de/**
-            en/**
-            assets/**
-            robots.txt
-            sitemap.xml
-      # Hinweis: CHMOD via SFTP ist auf Shared-Hosting oft nicht möglich.
-      # Falls Rechte falsch sind, im IONOS Webspace-Explorer manuell 644/755 setzen.
