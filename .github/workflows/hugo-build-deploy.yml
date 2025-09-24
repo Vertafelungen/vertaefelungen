@@ -40,31 +40,29 @@ jobs:
           hugo-version: '0.127.0'
           extended: true
 
-      - name: Sync from Google Sheets (DE)
+      # Produkte aus Sheets generieren (DE/EN)
+      - name: Sync products (DE)
         env:
           LANG: de
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_DE }}
-        run: |
-          python scripts/sync-from-sheet-hugo.py
+        run: python scripts/sync-from-sheet-hugo.py
 
-      - name: Sync from Google Sheets (EN)
+      - name: Sync products (EN)
         env:
           LANG: en
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_EN }}
-        run: |
-          python scripts/sync-from-sheet-hugo.py
+        run: python scripts/sync-from-sheet-hugo.py
 
-      - name: Build Hugo
-        run: |
-          hugo --minify
+      - name: Hugo build
+        run: hugo --minify
 
-      - name: List public/
+      - name: Inspect public/
         run: |
           ls -la public
           ls -la public/de || true
           ls -la public/en || true
 
-      - name: SFTP Deploy to IONOS
+      - name: SFTP Deploy to IONOS (/wissen)
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server:   ${{ secrets.SFTP_HOST }}
