@@ -84,7 +84,7 @@ jobs:
           echo "Listing ./public:"
           test -d public && ls -lah public || (echo "public missing" && exit 1)
 
-      # 🔎 Neuer Debug-Schritt: zeigt sicher an, dass SFTP_TARGET korrekt gesetzt ist
+      # 🔎 Sicherer Debug-Step: zeigt, dass SFTP_TARGET gesetzt & plausibel ist
       - name: Show SFTP target (safe) & preflight ls
         env:
           SFTP_HOST:     ${{ secrets.SFTP_HOST }}
@@ -105,13 +105,13 @@ jobs:
             *)  echo "ERROR: SFTP_TARGET must start with '/'" ; exit 1 ;;
           esac
 
-          # Preflight: Remote-Verzeichnis auflisten (Secrets werden von GitHub maskiert)
           sudo apt-get update -y >/dev/null
           sudo apt-get install -y sshpass >/dev/null
-          echo "Preflight: sftp ls -la \"${SFTP_TARGET}\""
-          sshpass -p "$SFTP_PASSWORD" sftp -P "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no "$SFTP_USER@$SFTP_HOST" <<EOF
-ls -la "${SFTP_TARGET}"
-EOF
+
+          echo "Preflight remote listing of target directory (secrets will be masked):"
+          # kein Heredoc, damit YAML sauber bleibt
+          echo "ls -la \"${SFTP_TARGET}\"" \
+            | sshpass -p "$SFTP_PASSWORD" sftp -P "${SFTP_PORT:-22}" -o StrictHostKeyChecking=no "$SFTP_USER@$SFTP_HOST"
 
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
