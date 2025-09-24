@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-# sync-from-sheet-hugo.py — v2025-09-24 19:05 (Europe/Berlin)
-# Liest Produktdaten aus CSV (Google Sheets) und erzeugt Hugo-Markdown.
+# sync-from-sheet-hugo.py — v2025-09-24 19:55 (Europe/Berlin)
+# Liest Produktdaten aus Google Sheets (CSV-Export) und erzeugt Hugo-Markdown.
 # Schreibt NUR in:
 #   DE: content/de/oeffentlich/produkte/
 #   EN: content/en/public/products/
-# Bestehende FAQ/Themen bleiben unberührt.
+# Manuell gepflegte FAQ/Themen bleiben unberührt.
 
 import os, re, unicodedata, requests, pandas as pd
 from pathlib import Path
@@ -12,7 +12,7 @@ from datetime import datetime
 from io import StringIO
 
 ROOT = Path(__file__).resolve().parents[1]
-LANG = os.getenv("LANG", "de").lower()  # de | en
+LANG = os.getenv("LANG", "de").lower()          # de | en
 CSV_URL = os.getenv("GSHEET_CSV_URL", "").strip()
 
 if not CSV_URL:
@@ -23,17 +23,18 @@ if not CSV_URL:
     else:
         raise SystemExit("Missing GSHEET_CSV_URL (or GSHEET_ID/GID).")
 
-# Erwartete Spaltennamen (klein): passe bei Bedarf an deine Tabelle an
+# Erwartete Spaltennamen (in Kleinbuchstaben). Bei Bedarf anpassen:
 COL_ID     = "id"            # z. B. p0003
 COL_TITLE  = "title"         # sichtbarer Titel
 COL_DESC   = "description"   # Kurzbeschreibung
 COL_BODY   = "content"       # Markdown-Inhalt
 COL_SLUG   = "slug"          # optional; sonst aus title erzeugt
-COL_PATH   = "path"          # optional Unterordner (z. B. "leisten" → /produkte/leisten/)
+COL_PATH   = "path"          # optional Unterordner (z. B. "leisten")
 COL_LANG   = "lang"          # optional Sprachfilter
 
 def try_fix_mojibake(text: str) -> str:
-    if not isinstance(text, str): return ""
+    if not isinstance(text, str):
+        return ""
     if any(s in text for s in ("Ã", "�", "¤")):
         try:
             fixed = text.encode("latin1", errors="ignore").decode("utf-8", errors="ignore")
@@ -49,6 +50,16 @@ def slugify(s: str) -> str:
     s = re.sub(r"[^a-z0-9\-]+", "-", s).strip("-")
     s = re.sub(r"-{2,}", "-", s)
     return s or "eintrag"
+
+def yq(value: str) -> str:
+    """
+    YAML-quoting: single-quoted Scalar.
+    Einzelne ' werden als '' verdoppelt (YAML-Regel), Zeilenumbrüche entfernt.
+    """
+    if value is None:
+        value = ""
+    s = str(value).replace("\r", " ").replace("\n", " ").strip()
+    return "'" + s.replace("'", "''") + "'"
 
 def fetch_df() -> pd.DataFrame:
     r = requests.get(CSV_URL, timeout=40)
@@ -70,10 +81,10 @@ def out_dir() -> Path:
 
 def write_md(row: dict) -> Path:
     title = (row.get(COL_TITLE) or row.get(COL_ID) or "").strip()
-    desc  = (row.get(COL_DESC) or "").strip()
-    body  = (row.get(COL_BODY) or "").rstrip() + "\n"
-    slug  = (row.get(COL_SLUG) or "").strip() or slugify(title)
-    sub   = (row.get(COL_PATH) or "").strip().strip("/")
+    desc  = (row.get(COL_DESC)  or "").strip()
+    body  = (row.get(COL_BODY)  or "").rstrip() + "\n"
+    slug  = (row.get(COL_SLUG)  or "").strip() or slugify(title)
+    sub   = (row.get(COL_PATH)  or "").strip().strip("/")
 
     target_dir = out_dir() / sub if sub else out_dir()
     target_dir.mkdir(parents=True, exist_ok=True)
@@ -81,18 +92,19 @@ def write_md(row: dict) -> Path:
 
     now = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-    # YAML Frontmatter – minimal & Hugo-kompatibel
-    fm = [
+    # YAML Frontmatter – robust mit yq()
+    fm_lines = [
         "---",
-        f'title: "{title.replace(\'"\', "\'")}"',
-        f'description: "{desc.replace(\'"\', "\'")}"',
+        f"title: {yq(title)}",
+        f"description: {yq(desc)}",
         f"slug: {slug}",
-        f"date: {now}",
+        f'date: "{now}"',
         "draft: false",
         "---",
         ""
     ]
-    out.write_text("\n".join(fm) + body, encoding="utf-8")
+
+    out.write_text("\n".join(fm_lines) + body, encoding="utf-8")
     return out
 
 def main():
