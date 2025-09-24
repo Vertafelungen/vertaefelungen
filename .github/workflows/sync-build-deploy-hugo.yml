@@ -1,4 +1,4 @@
-name: Build & Deploy Wissen (DE/EN)
+name: Sync + Build-Fix + Deploy Wissen
 
 on:
   push:
@@ -6,12 +6,12 @@ on:
     paths:
       - 'de/**'
       - 'en/**'
+      - 'scripts/**'
       - 'wissen/**'
       - 'assets/**'
       - 'robots.txt'
       - 'sitemap.xml'
-      - 'scripts/build_site.py'
-      - '.github/workflows/build-and-deploy-wissen.yml'
+      - '.github/workflows/sync-build-deploy-wissen.yml'
   workflow_dispatch: {}
 
 permissions:
@@ -37,32 +37,100 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install deps (if any)
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Build site
+      # --- SYNC aus Google Sheet ---
+      # DE
+      - name: Sync from Sheet (DE)
+        env:
+          LANG: de
+          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_DE }} # oder nutze GSHEET_ID/GSHEET_GID
         run: |
-          python scripts/build_site.py
-          echo "Build done"
+          python "scripts/sync-from-sheet.py"
 
-      # Optional: Artefakte prüfen
-      - name: List deploy payload
+      # EN
+      - name: Sync from Sheet (EN)
+        env:
+          LANG: en
+          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL_EN }} # oder nutze GSHEET_ID/GSHEET_GID
+        run: |
+          python "scripts/sync-from-sheet.py"
+
+      # --- BUILD-FIX: index.html + localhost-Links bereinigen ---
+      - name: Write /wissen/index.html (Redirect → /wissen/de/)
+        run: |
+          mkdir -p wissen
+          cat > wissen/index.html <<'HTML'
+          <!doctype html>
+          <html lang="de">
+          <head>
+            <meta charset="utf-8">
+            <title>Wissensdatenbank | Vertäfelung & Lambris</title>
+            <link rel="canonical" href="/wissen/de/">
+            <meta http-equiv="refresh" content="0; url=/wissen/de/">
+          </head>
+          <body>
+            <p>Weiterleitung zur <a href="/wissen/de/">deutschen Übersicht</a> …</p>
+          </body>
+          </html>
+          HTML
+          echo "✓ /wissen/index.html geschrieben"
+
+      - name: Strip localhost links (sanitize)
+        shell: python
+        run: |
+          import re, sys
+          from pathlib import Path
+          roots = [Path("wissen"), Path("de"), Path("en"), Path("assets")]
+          pat = re.compile(r"(https?://)?(localhost|127\.0\.0\.1)(:\d+)?", re.I)
+          base_re = re.compile(r'(<base\s+href=)["\'](.*?)["\']', re.I)
+          cnt = 0
+          for root in roots:
+              if not root.exists(): 
+                  continue
+              for p in root.rglob("*"):
+                  if p.is_file() and p.suffix.lower() in {".html",".htm",".xml",".json",".txt",".md"}:
+                      try:
+                          txt = p.read_text(encoding="utf-8")
+                      except UnicodeDecodeError:
+                          try:
+                              txt = p.read_text(encoding="latin-1")
+                          except Exception:
+                              continue
+                      orig = txt
+                      # base href auf /wissen/ setzen, falls localhost
+                      def _fix_base(m):
+                          href = m.group(2)
+                          if "localhost" in href or "127.0.0.1" in href:
+                              return f'{m.group(1)}"/wissen/"'
+                          return m.group(0)
+                      txt = base_re.sub(_fix_base, txt)
+                      # Hostanteile entfernen
+                      txt = pat.sub("", txt)
+                      if txt != orig:
+                          p.write_text(txt, encoding="utf-8")
+                          cnt += 1
+          print(f"Sanitized files:", cnt)
+
+      - name: List payload
         run: |
           ls -la
           ls -la wissen || true
-          ls -la wissen/de || true
-          ls -la wissen/en || true
+          ls -la de || true
+          ls -la en || true
 
-      # Deploy per SFTP (IONOS Webspace)
+      # --- DEPLOY nach IONOS per SFTP ---
       - name: SFTP Deploy
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT || 22 }}
+          server:   ${{ secrets.SFTP_HOST }}
+          port:     ${{ secrets.SFTP_PORT || 22 }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASS }}
-          # Quelle ist Repo-Root; wir schieben gezielt Ordner/Dateien nach /wissen
+          sftp_only: true
           local_path: |
             wissen/**
             de/**
@@ -71,9 +139,6 @@ jobs:
             robots.txt
             sitemap.xml
           remote_path: ${{ env.SFTP_TARGET }}
-          sftp_only: true
-          # Excludes (falls nötig):
-          # exclude: ".git*,.github/**,scripts/**"
 
-      # Hinweis: Viele Shared-Hosts lassen CHMOD via SFTP nicht zu.
-      # Falls Rechte nach Upload nicht passen, im IONOS Webspace-Explorer 644/755 setzen.
+      # Hinweis: CHMOD via SFTP ist auf Shared-Hosting oft nicht möglich.
+      # Falls Rechte falsch sind, im IONOS Webspace-Explorer manuell 644/755 setzen.
