@@ -1,0 +1,32 @@
+# config.yaml — v2025-09-24 18:30
+baseURL: "https://www.vertaefelungen.de/wissen/"
+title: "Wissensdatenbank | Vertäfelung & Lambris"
+defaultContentLanguage: de
+defaultContentLanguageInSubdir: true
+enableRobotsTXT: true
+
+languages:
+  de:
+    languageName: Deutsch
+    weight: 1
+    contentDir: content/de
+    params:
+      locale: de_DE
+  en:
+    languageName: English
+    weight: 2
+    contentDir: content/en
+    params:
+      locale: en_GB
+
+permalinks:
+  wissen: "/de/:slug/"
+  knowledge: "/en/:slug/"
+
+outputs:
+  home: ["HTML"]
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
