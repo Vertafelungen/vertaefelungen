@@ -41,6 +41,11 @@ jobs:
           extended: true
 
       # Produkte aus Sheets generieren (DE/EN)
+      - name: Install Python deps (requests, pandas)
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pandas
+          
       - name: Sync products (DE)
         env:
           LANG: de
