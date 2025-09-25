@@ -74,8 +74,7 @@ jobs:
 
       # ---- Hugo-Build ----
       - name: Hugo build
-        run: |
-          hugo --minify
+        run: hugo --minify --baseURL "https://www.vertaefelungen.de/wissen/"
 
       - name: Inspect public/
         run: |
