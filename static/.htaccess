@@ -17,3 +17,6 @@ Options -Indexes
   RewriteRule . - [L]
   RewriteRule ^$ index.html [L]
 </IfModule>
+# Redirect .md-Links (alte/harte Links) auf "slash-URL"
+RewriteCond %{REQUEST_URI} \.md$ [NC]
+RewriteRule ^(.+)\.md$ /wissen/$1/ [R=301,L]
