@@ -104,6 +104,8 @@ def write_md(row: dict) -> Path:
         ""
     ]
 
+    # .md-Links in /-Links umschreiben (z. B. (.../seite.md) -> (.../seite/))
+    body = re.sub(r'\((/[^)]+?)\.md\)', r'(\1/)', body)
     out.write_text("\n".join(fm_lines) + body, encoding="utf-8")
     return out
 
