@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{ block "title" . }}{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+</head>
+<body>
+  <header style="padding:1rem;border-bottom:1px solid #ddd">
+    <strong>Wissensseite (DEV)</strong> —
+    <a href="{{ "/de/" | relURL }}">DE</a> |
+    <a href="{{ "/en/" | relURL }}">EN</a>
+  </header>
+  <main style="padding:1rem">
+    {{ block "main" . }}{{ end }}
+  </main>
+</body>
+</html>

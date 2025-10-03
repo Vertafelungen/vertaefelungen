@@ -1,0 +1,28 @@
+# hugo.prod.toml
+# Version: 2025-10-03 20:05 CEST
+baseURL = "https://www.vertaefelungen.de/wissen/"
+title   = "Wissen – Vertäfelung & Lambris"
+
+defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = true
+# In Produktion ggf. aktivieren, wenn du Tags/Kategorien wirklich nutzt:
+# disableKinds = ["taxonomy", "term"]
+
+[languages]
+  [languages.de]
+    languageName = "Deutsch"
+    weight = 1
+    contentDir = "content/de"
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    contentDir = "content/en"
+
+[outputs]
+  page    = ["HTML"]
+  home    = ["HTML"]
+  section = ["HTML"]
+
+# Beispiel-Perma­links (optional anpassen)
+[permalinks]
+  products = "/produkte/:slug/"

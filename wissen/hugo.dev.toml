@@ -1,0 +1,23 @@
+# hugo.dev.toml
+# Version: 2025-10-03 20:05 CEST
+baseURL = "http://localhost:1313/"
+title   = "Wissen – Vertäfelung & Lambris"
+
+defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = true
+disableKinds = ["taxonomy", "term"]
+
+[languages]
+  [languages.de]
+    languageName = "Deutsch"
+    weight = 1
+    contentDir = "content/de"
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    contentDir = "content/en"
+
+[outputs]
+  page    = ["HTML"]
+  home    = ["HTML"]
+  section = ["HTML"]

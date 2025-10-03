@@ -1,7 +1,4 @@
 ---
-title: "Wissensdatenbank – Vertäfelung & Lambris"
-description: "Kuratierte Inhalte zu Vertäfelungen, Materialien, Oberflächen."
-draft: false
+title: "Wissen"
+description: "Fachinhalte zu historischen Holzvertäfelungen"
 ---
-
-<!-- Stand: 2025-09-24 14:57 -->

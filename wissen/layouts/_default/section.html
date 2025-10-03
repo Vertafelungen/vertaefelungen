@@ -1,0 +1,12 @@
+<!-- section.html | 2025-10-03 17:45 CEST -->
+{{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<ul>
+  {{ range .Pages }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ else }}
+    <li>Keine Inhalte in diesem Abschnitt.</li>
+  {{ end }}
+</ul>
+{{ end }}

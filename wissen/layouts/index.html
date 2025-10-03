@@ -1,0 +1,43 @@
+{{ define "title" }}Start – {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<h1>{{ .Site.Title }}</h1>
+
+<p><strong>Home-Template aktiv.</strong> Wähle eine Sprache:</p>
+<ul>
+  <li><a href="{{ "/de/" | relURL }}">Deutsch</a></li>
+  <li><a href="{{ "/en/" | relURL }}">English</a></li>
+</ul>
+
+<hr>
+
+<h2>Sektionen ({{ .Site.Language.Lang }})</h2>
+<ul>
+  {{ range .Site.Sections }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <small>({{ len .Pages }} Seiten)</small>
+    </li>
+  {{ else }}
+    <li>Keine Sektionen gefunden.</li>
+  {{ end }}
+</ul>
+
+<h2>Letzte Seiten ({{ .Site.Language.Lang }})</h2>
+<ul>
+  {{ $pages := .Site.RegularPages.ByDate.Reverse }}
+  {{ range first 20 $pages }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+  {{ else }}
+    <li>Keine regulären Seiten gefunden.</li>
+  {{ end }}
+</ul>
+
+<hr>
+
+<h3>Debug: Sprach-Summen (RegularPages)</h3>
+<ul>
+  {{ range .Sites }}
+    <li>{{ .Language.Lang }}: {{ len .RegularPages }}</li>
+  {{ end }}
+</ul>
+{{ end }}

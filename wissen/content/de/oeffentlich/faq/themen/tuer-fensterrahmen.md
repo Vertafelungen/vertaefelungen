@@ -1,0 +1,79 @@
+***
+title: "Profilierte Tür- und Fensterumrahmungen: Formen, Funktion, Restaurierung"
+slug: "faq-profilierte-tuer-fensterumrahmungen"
+kategorie: "FAQ"
+tags: ["Türumrahmung", "Fensterumrahmung", "Profilleisten", "Altbau", "Restaurierung", "Innenausbau"]
+erstellt_am: "2025-07-28"
+letzte_aenderung: "2025-07-28"
+sichtbar: true
+sprachversion: "de"
+beschreibung: "FAQ zu profilierten Tür- und Fensterumrahmungen aus Holz: Bauformen, Verwendung, Herstellung und Besonderheiten in Altbauten."
+***
+
+# FAQ: Profilierte Tür- und Fensterumrahmungen
+## 1. Was versteht man unter profilierten Tür- und Fensterumrahmungen?
+Profilierte Tür- und Fensterumrahmungen sind dekorativ gestaltete Leisten und Bekleidungen aus Holz, die Türen und Fenster im Innenraum einrahmen. Sie dienen sowohl der gestalterischen Gliederung als auch dem Schutz der Laibungskanten.
+
+***
+
+## 2. Welche Formen und Profile sind typisch?
+- **Einfache Bekleidungen:** Gerade oder mit Fase
+
+- **Gesimse:** Hohlkehle, Karnies, gestufte Profile
+
+- **Ornamentleisten:** Perlstab, Eierstab, florale Motive
+
+- **Komplexe Umrahmungen:** Mit Sockelstücken, Bekrönungen, Überdachungen
+
+***
+
+## 3. Welche Funktionen haben diese Umrahmungen?
+- Abdeckung von Fugen zwischen Wand und Zarge
+
+- Schutz der Mauerlaibung vor Beschädigung
+
+- Architektonische Gliederung des Raumes
+
+- Unterstreichung von Stil und Epoche des Gebäudes
+
+***
+
+## 4. Wo finden sich profilierte Umrahmungen besonders häufig?
+- In historischen Altbauten (Gründerzeit, Jugendstil, Barock, Klassizismus)
+
+- Bei hochwertigen Innenausbauten und denkmalgeschützten Gebäuden
+
+- Als Blickfang in Fluren, Salons, Bibliotheken und Treppenhäusern
+
+***
+
+## 5. Wie werden die Profile hergestellt?
+- Nach historischen Vorlagen auf Kehlmaschine, Fräse oder mit Handhobel
+
+- Auswahl des Holzes entsprechend dem Original (meist Kiefer, Eiche, Linde)
+
+- Anfertigung von Schablonen, Musterprofilen und ggf. Schnitzereien
+
+***
+
+## 6. Was ist bei der Restaurierung und Nachfertigung zu beachten?
+- Exakte Erfassung und Dokumentation des Bestandsprofils
+
+- Fertigung passender Ergänzungsprofile bei Schäden oder Umbauten
+
+- Materialtreue, Oberflächenangleichung und reversibles Einbauen
+
+- Abstimmung mit dem Denkmalschutz bei historischen Gebäuden
+
+***
+
+## 7. Montagehinweise
+- Passgenaue Anpassung an Wand und Zarge, besonders im Altbau
+
+- Verdeckte Befestigung für ein harmonisches Erscheinungsbild
+
+- Fugen sorgfältig schließen, auf Trockenheit und Raumklima achten
+
+***
+
+*Fragen zu profilierten Tür- und Fensterumrahmungen? Wir beraten Sie gern zur Auswahl, Nachfertigung und stilgerechten Integration!*

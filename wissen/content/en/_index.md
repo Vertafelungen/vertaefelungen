@@ -1,7 +1,4 @@
 ---
-title: "Knowledge Base – Panelling & Wainscoting"
-description: "Curated knowledge about panelling, materials, finishes."
-draft: false
+title: "Knowledge"
+description: "Expert content on historical wood panelling"
 ---
-
-<!-- Stand: 2025-09-24 14:57 -->
