@@ -1,7 +1,0 @@
-{{ define "main" }}
-  <article>
-    <h1>{{ .Title }}</h1>
-    {{ with .Params.description }}<p><em>{{ . }}</em></p>{{ end }}
-    {{ .Content }}
-  </article>
-{{ end }}
