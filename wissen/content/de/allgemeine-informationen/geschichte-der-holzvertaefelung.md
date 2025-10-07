@@ -1,12 +1,15 @@
 ---
-## 1. Mittelalter (ca. 1100–1500)### Funktionalität und Symbolik
+title: "Geschichte der Holzvertäfelung"
+slug: "geschichte-der-holzvertaefelung"
+type: "allgemeine-informationen"
+---
+
+## 1. Mittelalter (ca. 1100–1500)
+### Funktionalität und Symbolik
 
 **Stilmerkmale:**
 
-
-
 **Material:**
-
 
 **Beispiele:**
 ---
