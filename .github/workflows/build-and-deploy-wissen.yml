@@ -1,5 +1,5 @@
 name: Build & Deploy Wissen
-# Version: 2025-10-07 16:25 Europe/Berlin
+# Version: 2025-10-07 16:45 Europe/Berlin
 
 on:
   push:
@@ -42,12 +42,15 @@ jobs:
           test -f wissen/hugo.prod.toml || (echo "FEHLT: wissen/hugo.prod.toml" && exit 2)
 
       # Hotfix: unzulässige Steuerzeichen/BOM in Frontmatter & Content beseitigen
-      - name: Sanitize content (BOM & control chars)
+      - name: Sanitize content (BOM, C0/C1, NBSP, zero-width)
         run: |
           python - <<'PY'
           import pathlib, re
           root = pathlib.Path('wissen/content')
-          bad = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F]')
+          # C0: \x00-\x1F (ohne \t \n \r haben wir oben schon ersetzt)
+          # C1: \x7F-\x9F  -> enthält U+0080 etc.
+          bad_ctrl = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]')
+          zero_width = re.compile(r'[\u200B-\u200D\u2060]')  # ZW*, WORD JOINER
           fixed = 0
           for p in root.rglob('index.md'):
               b = p.read_bytes()
@@ -55,9 +58,12 @@ jobs:
               if b[:3] == b'\xef\xbb\xbf':
                   b = b[3:]
               s = b.decode('utf-8', 'replace')
-              ns = bad.sub('', s).replace('\r\n','\n').replace('\r','\n')
-              if s != ns:
-                  p.write_text(ns, encoding='utf-8')
+              s1 = s.replace('\r\n','\n').replace('\r','\n')
+              s1 = s1.replace('\u00A0',' ')  # NBSP -> normales Leerzeichen
+              s1 = zero_width.sub('', s1)
+              s1 = bad_ctrl.sub('', s1)
+              if s1 != s:
+                  p.write_text(s1, encoding='utf-8')
                   print(f'[sanitize] fixed: {p}')
                   fixed += 1
           print(f'[sanitize] files fixed: {fixed}')
@@ -73,7 +79,12 @@ jobs:
           files = list(root.glob('de/oeffentlich/produkte/**/index.md')) + \
                   list(root.glob('en/public/products/**/index.md'))
           for p in files:
-            s = p.read_text(encoding='utf-8', errors='strict')
+            try:
+              s = p.read_text(encoding='utf-8', errors='strict')
+            except Exception as e:
+              print(f'[lint] read error in {p}: {e}')
+              errs += 1
+              continue
             m = front_re.search(s)
             if not m:
               print(f'[lint] missing frontmatter: {p}')
@@ -117,7 +128,6 @@ jobs:
           protocol: "sftp"
           server-dir: "/wissen"
           local-dir: "wissen/public"
-          # Bei Bedarf einmalig auf true stellen, um Altlasten im Ziel zu löschen:
           dangerous-clean-slate: false
 
       - name: Done
