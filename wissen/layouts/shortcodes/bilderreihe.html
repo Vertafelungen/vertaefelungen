@@ -1,0 +1,5 @@
+<div class="flex gap-4 overflow-x-auto py-2">
+  {{ range .Page.Params.bilder }}
+    <img src="{{ . }}" alt="" loading="lazy" class="h-40 object-contain" />
+  {{ end }}
+</div>
