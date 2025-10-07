@@ -2,8 +2,6 @@ name: Sync from Google Sheet → Repo (DE/EN)
 
 on:
   workflow_dispatch: {}          # manueller Start im UI
-  schedule:
-    - cron: "17 * * * *"         # stündlich (UTC)
 
 permissions:
   contents: write
