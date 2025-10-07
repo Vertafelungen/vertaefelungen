@@ -1,13 +1,39 @@
 # hugo.prod.toml
-# Version: 2025-10-03 20:05 CEST
+# Version: 2025-10-07 13:55 Europe/Berlin
 baseURL = "https://www.vertaefelungen.de/wissen/"
 title   = "Wissen – Vertäfelung & Lambris"
 
 defaultContentLanguage = "de"
 defaultContentLanguageInSubdir = true
-# In Produktion ggf. aktivieren, wenn du Tags/Kategorien wirklich nutzt:
-# disableKinds = ["taxonomy", "term"]
+enableGitInfo = true
 
+# Frontmatter-Priorität für Lastmod: zuerst Git, dann Felder in der Datei
+[frontmatter]
+  lastmod = [":git", "lastmod", "date", "publishDate"]
+
+# Sitemap-Parameter (Hugo erzeugt /wissen/sitemap.xml)
+[sitemap]
+  changefreq = "weekly"
+  filename   = "sitemap.xml"
+  priority   = 0.5
+
+# Ausgaben: Home liefert zusätzlich SITEMAP (und optional RSS bei Bedarf)
+[outputs]
+  page    = ["HTML"]
+  home    = ["HTML", "SITEMAP"]
+  section = ["HTML"]
+
+# Taxonomien (für Filter/Listen nutzbar)
+[taxonomies]
+  kategorie = "kategorien"
+  tag       = "tags"
+
+# Permalinks – saubere, stabile URLs
+[permalinks]
+  produkte = "/produkte/:slug/"
+  faq      = "/faq/:slug/"
+
+# Sprachen
 [languages]
   [languages.de]
     languageName = "Deutsch"
@@ -18,12 +44,8 @@ defaultContentLanguageInSubdir = true
     weight = 2
     contentDir = "content/en"
 
-[outputs]
-  page    = ["HTML"]
-  home    = ["HTML"]
-  section = ["HTML"]
-
-# Beispiel-Perma­links (optional anpassen)
-[permalinks]
-  produkte = "/produkte/:slug/"
-  faq      = "/faq/:slug/"
+# Markdown-Renderer: erlaubt HTML in Markdown (z. B. für Shortcodes/Einbettungen)
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
