@@ -1,13 +1,23 @@
 name: Sync from Google Sheet → Repo (DE/EN)
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Optionaler Grund"
+        required: false
+        default: "manual run"
+      dry_run:
+        description: "Nur lesen, nichts schreiben"
+        required: false
+        type: boolean
+        default: false
   schedule:
-    - cron: "17 * * * *"            # stündlich; bei Bedarf anpassen
+    - cron: "17 * * * *"    # stündlich (UTC)
   push:
     branches: [ main ]
     paths:
-      - "wissen/scripts/sync-from-sheet.py"
+      - "wissen/scripts/**"                 # alle Scripts unter wissen/
       - ".github/workflows/sync-from-sheet.yml"
 
 permissions:
@@ -42,8 +52,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests pandas
 
-      # Falls du per Service Account arbeitest, kannst du hier optional das JSON bereitstellen.
-      # Das Script braucht es NICHT zwingend – es lädt CSV anonym, solange die Share-Einstellung passt.
+      # Optional: nur falls du wirklich einen Service-Account nutzt
       - name: Prepare Google Service Account JSON (optional)
         if: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON != '' }}
         env:
@@ -53,11 +62,10 @@ jobs:
 
       - name: Run sync script (from wissen/)
         env:
-          # Variante A (bevorzugt): kompletter CSV-Export-Link
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
-          # Variante B: ID + GID (falls kein CSV-URL-Secret vorhanden)
           GSHEET_ID: ${{ secrets.SHEET_ID }}
           GSHEET_GID: ${{ secrets.SHEET_GID }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
           cd wissen
           python scripts/sync-from-sheet.py
