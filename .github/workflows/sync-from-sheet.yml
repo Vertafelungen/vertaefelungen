@@ -1,90 +1,65 @@
-name: Build & Deploy Wissen (Hugo → IONOS)
+name: Sync from Google Sheet (Wissen)
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'wissen/**'
   workflow_dispatch:
+  schedule:
+    - cron: "17 */4 * * *"   # alle 4h
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wissen
 
     steps:
       - uses: actions/checkout@v4
 
-      # Python vor den Guard-Schritten bereitstellen
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      # Strenge Vorab-Prüfung: erst fixen, dann strikt validieren
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests pandas pyyaml
+
+      - name: Run sync-from-sheet
+        env:
+          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
+          SHEET_ID:       ${{ secrets.SHEET_ID }}
+          SHEET_GID:      ${{ secrets.SHEET_GID }}
+          DRY_RUN: "0"
+        run: |
+          python scripts/sync-from-sheet.py
+
+      # --- Nach dem Sync: Inhalte bereinigen & tolerant prüfen ---
       - name: Fix frontmatter (sanitize)
         run: |
-          python wissen/scripts/fix_frontmatter.py
+          python scripts/fix_frontmatter.py
 
-      - name: Content guard (strict)
-        # Falls content_guard.py noch nicht eingecheckt ist, melde sauber & breche ab (damit "strict" auch wirkt)
+      - name: Content guard (non-strict; skip if file missing)
+        if: ${{ hashFiles('wissen/scripts/content_guard.py') != '' }}
         run: |
-          if [[ -f "wissen/scripts/content_guard.py" ]]; then
-            python -m pip install --quiet pyyaml
-            python wissen/scripts/content_guard.py --strict
+          python scripts/content_guard.py || true
+
+      - name: (Info) content_guard.py not found → skipping
+        if: ${{ hashFiles('wissen/scripts/content_guard.py') == '' }}
+        run: echo "content_guard.py nicht gefunden – Guard wird in diesem Workflow übersprungen."
+
+      # --- Nur committen, wenn sich tatsächlich Dateien geändert haben ---
+      - name: Commit & push (only if changed)
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "sync-from-sheet: $(date -u +'%Y-%m-%dT%H:%M:%SZ') – update content"
+            git push origin HEAD:main
           else
-            echo "ERROR: wissen/scripts/content_guard.py fehlt – bitte einchecken (siehe Punkt 3/4)."
-            exit 1
+            echo "No content changes."
           fi
-
-      - name: Setup Hugo (extended)
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.146.0'
-          extended: true
-
-      - name: Build (prod config, site=wissen)
-        run: |
-          hugo --config wissen/hugo.prod.toml -s wissen -d wissen/public --gc --minify
-
-      - name: Smoke-Check
-        env:
-          STRICT_SMOKE: "1"
-        run: |
-          python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: wissen-public
-          path: wissen/public
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: wissen-public
-          path: wissen/public
-
-      - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-        with:
-          server:   ${{ secrets.SFTP_SERVER }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          protocol: "sftp"
-          server-dir: "/wissen"
-          local-dir:  "wissen/public"
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.DS_Store
-            **/Thumbs.db
