@@ -1,25 +1,22 @@
 ---
-
 ## 1. Middle Ages (c. 1100–1500)### Functionality and Symbolism
-In the Middle Ages, paneling served primarily to protect walls. Early examples can be found in monasteries and castles, often made of oak or fir – unadorned, rarely profiled.
 
 **Stylistic features:**
 
-- Vertical boards  
 
-- Occasionally chamfered or with carved vine motifs
 
 **Materials:**
 
-- Oak, fir, or larch
 
 **Examples:**
-
-- **Maulbronn Monastery (Baden-Württemberg):** Remnants of late medieval wood paneling from around 1470  
-
+---
+In the Middle Ages, paneling served primarily to protect walls. Early examples can be found in monasteries and castles, often made of oak or fir – unadorned, rarely profiled.
+- Vertical boards
+- Occasionally chamfered or with carved vine motifs
+- Oak, fir, or larch
+- **Maulbronn Monastery (Baden-Württemberg):** Remnants of late medieval wood paneling from around 1470
 - **Eltz Castle (Rhineland-Palatinate):** Gothic wood paneling with simple tracery panels
 
----
 ## 2. Renaissance (c. 1500–1650)### Geometric Clarity and Representation
 During the Renaissance, paneled wall systems became common in bourgeois townhouses. Architectural principles from antiquity were applied to interiors.
 

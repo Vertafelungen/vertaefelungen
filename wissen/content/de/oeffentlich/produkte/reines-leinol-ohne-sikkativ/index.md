@@ -12,27 +12,26 @@ beschreibung_md_de: |
   Es ist 100% natürlich und hat sich traditionell bewährt.
   Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
 beschreibung_md_en: |
-  Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
-  For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.
-  Drying time up to 2 weeks. Linseed oil fires the wood, the grain becomes more prominent.
   
-  Linseed oil is preferable to any artificially produced wood preservative and primer in interior areas.
-  It is 100% natural and has proven itself traditionally.
-  Linseed oil has a strong, typical odour at first, but this fades over the course of weeks.
 varianten:
-  -
     bezeichnung: 1 Liter
     preis_aufschlag: 0
-  -
     bezeichnung: 5 Liter
     preis_aufschlag: 45378151
-  -
     bezeichnung: 10 Liter
     preis_aufschlag: 96638655
-  -
     bezeichnung: 20 Liter
     preis_aufschlag: 197478992
 last_sync: "2025-10-07T16:08:15+02:00"
-
-
 ---
+Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
+For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.
+Drying time up to 2 weeks. Linseed oil fires the wood, the grain becomes more prominent.
+Linseed oil is preferable to any artificially produced wood preservative and primer in interior areas.
+It is 100% natural and has proven itself traditionally.
+Linseed oil has a strong, typical odour at first, but this fades over the course of weeks.
+-
+-
+-
+-
+

@@ -9,16 +9,15 @@ beschreibung_md_de: |
   
   Die Vertäfelung der Außenwände des Gildesaals ist typisch für Lübeck. Einen ähnlichen Aufbau mit einem flachen Feld mit Bildschnitzerei oben und 2 stehenden Kassetten unten, gibt es auch in der Jakobi- und in der Aegidienkirche. Jedoch sind die Schnitzereien der Schiffergesellschaft um einiges humorvoller.
 beschreibung_md_en: |
-  The Schiffergesellschaft Lübeck has existed since 1401. The interior is richly decorated with ship models and items that Lübeck captains have collected on their voyages over centuries.
-  This paneling is typical for Lübeck. A similar structure with a flat field with carvings in the upper area and two upright coffers in the lower area can also be found in the Jakobi- and Aegidienkirche. However, the carvings of the Schiffergesellschaft are somewhat more humorous.
 varianten:
-  -
     bezeichnung: Kiefer, Bausatz
     preis_aufschlag: 0
-  -
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 914460000
 last_sync: "2025-10-07T16:08:15+02:00"
-
-
 ---
+The Schiffergesellschaft Lübeck has existed since 1401. The interior is richly decorated with ship models and items that Lübeck captains have collected on their voyages over centuries.
+This paneling is typical for Lübeck. A similar structure with a flat field with carvings in the upper area and two upright coffers in the lower area can also be found in the Jakobi- and Aegidienkirche. However, the carvings of the Schiffergesellschaft are somewhat more humorous.
+-
+-
+

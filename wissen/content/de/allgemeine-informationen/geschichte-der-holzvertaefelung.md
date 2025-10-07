@@ -1,25 +1,22 @@
 ---
-
 ## 1. Mittelalter (ca. 1100–1500)### Funktionalität und Symbolik
-Im Mittelalter dienten Vertäfelungen vor allem dem Wandschutz. In Klöstern und Burgen finden sich früh Beispiele aus Eiche oder Fichte – oft roh, selten profiliert.
 
 **Stilmerkmale:**
 
-- Senkrechte Bretter
 
-- Gelegentlich mit Fasen oder geschnitzten Rankenmotiven
 
 **Material:**
 
-- Eiche, Tanne oder Lärche
 
 **Beispiele:**
-
-- **Kloster Maulbronn (Baden-Württemberg):** Reste spätmittelalterlicher Wandverkleidungen um 1470  
-
+---
+Im Mittelalter dienten Vertäfelungen vor allem dem Wandschutz. In Klöstern und Burgen finden sich früh Beispiele aus Eiche oder Fichte – oft roh, selten profiliert.
+- Senkrechte Bretter
+- Gelegentlich mit Fasen oder geschnitzten Rankenmotiven
+- Eiche, Tanne oder Lärche
+- **Kloster Maulbronn (Baden-Württemberg):** Reste spätmittelalterlicher Wandverkleidungen um 1470
 - **Burg Eltz (Rheinland-Pfalz):** Gotische Holzvertäfelungen mit einfachen Maßwerkfüllungen
 
----
 ## 2. Renaissance (ca. 1500–1650)### Geometrische Klarheit und Repräsentation
 Mit der Renaissance hielt die Paneelvertäfelung Einzug in bürgerliche Stadthäuser. Architektonische Prinzipien der Antike wurden nun auch auf Innenräume übertragen.
 

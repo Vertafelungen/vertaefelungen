@@ -6,15 +6,14 @@ type: produkte
 beschreibung_md_de: |
   Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen Bürgertum und einfachem Bauerhaus.
 beschreibung_md_en: |
-  Goethe's home in Weimar is a successful blend of classicist bourgeoisie and simple farmhouse.
 varianten:
-  -
     bezeichnung: Kiefer
     preis_aufschlag: 0
-  -
     bezeichnung: Eiche
     preis_aufschlag: 365780000
 last_sync: "2025-10-07T16:08:15+02:00"
-
-
 ---
+Goethe's home in Weimar is a successful blend of classicist bourgeoisie and simple farmhouse.
+-
+-
+

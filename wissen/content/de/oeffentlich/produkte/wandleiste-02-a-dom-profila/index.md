@@ -8,17 +8,16 @@ beschreibung_md_de: |
   Als Wandleiste zur direkten Montage auf der verputzen Wand.
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
 beschreibung_md_en: |
-  Wooden moulding 20 x 40 mm, symmetric âDome ProfilâÂ 
-  As a wall moulding for direct installation on the plastered wall. 
-  This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.
 varianten:
-  -
     bezeichnung: Kiefer
     preis_aufschlag: 0
-  -
     bezeichnung: White Wood
     preis_aufschlag: 4740000
 last_sync: "2025-10-07T16:08:15+02:00"
-
-
 ---
+Wooden moulding 20 x 40 mm, symmetric âDome ProfilâÂ
+As a wall moulding for direct installation on the plastered wall.
+This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.
+-
+-
+

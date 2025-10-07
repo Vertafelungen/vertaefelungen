@@ -10,12 +10,11 @@ beschreibung_md_de: |
   Durchmesser ca. 42 mm
   Hohe ca. 3 mm
 beschreibung_md_en: |
-  Elegant ventilation rosette based on the original design.
-  Cast brass, polished
   
-  Diameter approx. 42 mm
-  Hight approx 3 mm
 last_sync: "2025-10-07T16:08:15+02:00"
-
-
 ---
+Elegant ventilation rosette based on the original design.
+Cast brass, polished
+Diameter approx. 42 mm
+Hight approx 3 mm
+

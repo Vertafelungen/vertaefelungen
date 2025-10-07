@@ -11,20 +11,19 @@ beschreibung_md_de: |
   
   WL 01 eignet sich zur Bildung von feinen Rahmen auf Wandflächen.
 beschreibung_md_en: |
-  Profiled wooden moulding 16 x 40 mm
-  Available in pine or whitewood, other wood types on request
   
-  The WL 01 wall moulding features a classically shaped, asymmetrical profile measuring 40 x 16 mm. The design combines a generously curved cyma recta (karnis) in the central section with finely tapering contours on the inner side.
   
-  WL 01 is suitable for framing wall surfaces and creating elegant panel layouts. It is made from solid wood.
 varianten:
-  -
     bezeichnung: Kiefer
     preis_aufschlag: 0
-  -
     bezeichnung: White Wood
     preis_aufschlag: 4580000
 last_sync: "2025-10-07T16:08:15+02:00"
-
-
 ---
+Profiled wooden moulding 16 x 40 mm
+Available in pine or whitewood, other wood types on request
+The WL 01 wall moulding features a classically shaped, asymmetrical profile measuring 40 x 16 mm. The design combines a generously curved cyma recta (karnis) in the central section with finely tapering contours on the inner side.
+WL 01 is suitable for framing wall surfaces and creating elegant panel layouts. It is made from solid wood.
+-
+-
+

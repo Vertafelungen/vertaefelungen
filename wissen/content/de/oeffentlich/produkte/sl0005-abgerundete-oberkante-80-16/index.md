@@ -6,8 +6,7 @@ type: produkte
 beschreibung_md_de: |
   Schlicht und einfach, mit abgerundeter Oberkante
 beschreibung_md_en: |
-  Plain and simple, with a rounded upper edge
 last_sync: "2025-10-07T16:08:15+02:00"
-
-
 ---
+Plain and simple, with a rounded upper edge
+

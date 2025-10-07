@@ -9,13 +9,12 @@ beschreibung_md_de: |
 beschreibung_md_en: |
   Door and window frame TR 12, dimensions: 117 x 28 mm
 varianten:
-  -
     bezeichnung: Kiefer
     preis_aufschlag: 0
-  -
     bezeichnung: White Wood
     preis_aufschlag: 11660000
 last_sync: "2025-10-07T16:08:15+02:00"
-
-
 ---
+-
+-
+
