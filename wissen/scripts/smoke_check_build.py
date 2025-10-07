@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # smoke_check_build.py
-# Version: 2025-10-07 14:40 Europe/Berlin
+# Version: 2025-10-07 16:05 Europe/Berlin
 """
 Smoke-Check für den Hugo-Build der Wissensseite.
 
@@ -78,23 +78,15 @@ def main():
 
     # Sitemap prüfen
     sm = read_text(pub / "sitemap.xml")
-    # Grundstruktur + Namespace
     if not has(r'<urlset[^>]+sitemaps\.org/schemas/sitemap/0\.9', sm):
         print("[SMOKE] Sitemap ohne urlset-Standard-Namespace.", file=sys.stderr)
         sys.exit(3)
-    # xhtml-Alternate Namespace (für hreflang-Verweise)
     if not has(r'xmlns:xhtml=["\']http://www\.w3\.org/1999/xhtml["\']', sm):
         print("[SMOKE] Sitemap ohne xmlns:xhtml (hreflang-Alternates fehlen?).", file=sys.stderr)
         sys.exit(3)
-    # Mindestens eine DE- und EN-URL
     if "/de/" not in sm or "/en/" not in sm:
         print("[SMOKE] Sitemap enthält nicht sowohl /de/ als auch /en/ URLs.", file=sys.stderr)
         sys.exit(3)
-
-    # WARNUNG (nicht fatal): Unterordner-Robots entdeckt?
-    robots_sub = pub / "robots.txt"
-    if robots_sub.exists():
-        print("[SMOKE][WARN] /wissen/robots.txt gefunden. Crawler werten nur /robots.txt am Domain-Root aus.")
 
     print(f"[SMOKE] OK – {cnt} Dateien, Sitemap & Meta-Checks bestanden.")
     return 0
