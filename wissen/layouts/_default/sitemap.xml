@@ -1,0 +1,30 @@
+{{- /* layouts/_default/sitemap.xml  */ -}}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML -}}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {{- range .Site.RegularPages -}}
+  <url>
+    <loc>{{ .Permalink }}</loc>
+    {{- with .Lastmod -}}<lastmod>{{ .Format "2006-01-02T15:04:05-07:00" }}</lastmod>{{- end -}}
+    {{- /* hreflang: alle Übersetzungen + self + x-default */ -}}
+    {{- range .AllTranslations -}}
+      <xhtml:link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
+    {{- end -}}
+    <xhtml:link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
+  </url>
+  {{- end -}}
+
+  {{- /* Startseiten (Home) mit aufnehmen */ -}}
+  {{- range .Sites -}}
+  <url>
+    <loc>{{ .Home.Permalink }}</loc>
+    {{- with .Home.Lastmod -}}<lastmod>{{ .Format "2006-01-02T15:04:05-07:00" }}</lastmod>{{- end -}}
+    {{- range .Home.AllTranslations -}}
+      <xhtml:link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
+    {{- end -}}
+    <xhtml:link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Home.Permalink }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ .Home.Permalink }}" />
+  </url>
+  {{- end -}}
+</urlset>
