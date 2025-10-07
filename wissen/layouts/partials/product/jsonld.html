@@ -1,0 +1,23 @@
+{{- $p := .ctx.Params -}}
+{{- $desc := cond (eq .ctx.Lang "de") $p.beschreibung_md_de $p.beschreibung_md_en -}}
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Product",
+  "name": {{ .ctx.Title | jsonify }},
+  "image": {{ $p.bilder | default (slice) | jsonify }},
+  "description": {{ $desc | plainify | jsonify }},
+  "sku": {{ with index ($p.varianten | default (slice)) 0 }}{{ .sku | jsonify }}{{ else }}null{{ end }},
+  "offers": {{ if $p.varianten }}
+    {
+      "@type": "AggregateOffer",
+      "priceCurrency": "EUR",
+      "lowPrice": {{ (apply $p.varianten "index" "." "preis") | sort | first }},
+      "highPrice": {{ (apply $p.varianten "index" "." "preis") | sort | last }},
+      "offerCount": {{ len $p.varianten }},
+      "availability": "https://schema.org/InStock",
+      "url": {{ .ctx.Permalink | jsonify }}
+    }
+  {{ else }} null {{ end }}
+}
+</script>
