@@ -9,6 +9,7 @@ on:
       - "wissen/static/**"
       - "wissen/assets/**"
       - "wissen/hugo.prod.toml"
+      - "wissen/scripts/smoke_check_build.py"
       - ".github/workflows/build-and-deploy-wissen.yml"
   workflow_dispatch: {}
 
@@ -62,7 +63,7 @@ jobs:
           name: public
           path: public
 
-      # Passwort-basierter SFTP-Upload (empfohlen bei IONOS SFTP-only)
+      # Passwort-basierter SFTP-Upload (lftp, ohne Heredocs)
       - name: Deploy via SFTP (password, lftp)
         if: ${{ secrets.SFTP_PASSWORD != '' }}
         shell: bash
@@ -77,25 +78,19 @@ jobs:
           sudo apt-get update -y >/dev/null
           sudo apt-get install -y lftp >/dev/null
           PORT="${SFTP_PORT:-22}"
-          lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" <<EOF
-set sftp:auto-confirm yes
-set net:max-retries 2
-set net:timeout 30
-mkdir -p "$SFTP_TARGET"
-mirror -R --delete --only-newer public "$SFTP_TARGET"
-bye
-EOF
+          lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" \
+            -e "set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 30; mkdir -p \"$SFTP_TARGET\"; mirror -R --delete --only-newer public \"$SFTP_TARGET\"; bye"
 
-      # Key-basierter SFTP-Upload (falls kein Passwort gesetzt)
+      # Key-basierter SFTP-Upload (lftp, ohne Heredocs)
       - name: Deploy via SFTP (SSH key, lftp)
         if: ${{ secrets.SFTP_PASSWORD == '' && secrets.SFTP_PRIVATE_KEY != '' }}
         shell: bash
         env:
-          SFTP_HOST:       ${{ secrets.SFTP_HOST }}
-          SFTP_PORT:       ${{ secrets.SFTP_PORT }}
-          SFTP_USERNAME:   ${{ secrets.SFTP_USERNAME }}
+          SFTP_HOST:        ${{ secrets.SFTP_HOST }}
+          SFTP_PORT:        ${{ secrets.SFTP_PORT }}
+          SFTP_USERNAME:    ${{ secrets.SFTP_USERNAME }}
           SFTP_PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
-          SFTP_TARGET:     ${{ secrets.SFTP_TARGET }}
+          SFTP_TARGET:      ${{ secrets.SFTP_TARGET }}
         run: |
           set -euo pipefail
           sudo apt-get update -y >/dev/null
@@ -104,12 +99,5 @@ EOF
           mkdir -p ~/.ssh
           echo "$SFTP_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          echo 'set sftp:connect-program "ssh -a -x -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no"' > ~/.lftprc
-          lftp -u "$SFTP_USERNAME" -p "$PORT" sftp://"$SFTP_HOST" <<EOF
-set sftp:auto-confirm yes
-set net:max-retries 2
-set net:timeout 30
-mkdir -p "$SFTP_TARGET"
-mirror -R --delete --only-newer public "$SFTP_TARGET"
-bye
-EOF
+          lftp -u "$SFTP_USERNAME" -p "$PORT" sftp://"$SFTP_HOST" \
+            -e "set sftp:connect-program 'ssh -a -x -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no'; set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 30; mkdir -p \"$SFTP_TARGET\"; mirror -R --delete --only-newer public \"$SFTP_TARGET\"; bye"
