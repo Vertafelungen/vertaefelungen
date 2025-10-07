@@ -1,16 +1,18 @@
-name: Build & Deploy Wissen (Hugo → IONOS)
+# .github/workflows/build-and-deploy-wissen.yml
+# Version: 2025-09-21 12:33 (Europe/Berlin)
+
+name: Build & Deploy Wissen
 
 on:
   push:
     branches: [ main ]
     paths:
-      - "wissen/content/**"
-      - "wissen/layouts/**"
-      - "wissen/static/**"
-      - "wissen/assets/**"
-      - "wissen/hugo.prod.toml"
-      - "wissen/scripts/smoke_check_build.py"
-      - ".github/workflows/build-and-deploy-wissen.yml"
+      - 'de/**'
+      - 'en/**'
+      - 'assets/**'
+      - 'scripts/**'
+      - 'requirements.txt'
+      - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_dispatch: {}
 
 permissions:
@@ -21,90 +23,75 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-deploy:
+    if: github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[skip ci]')
     runs-on: ubuntu-latest
+    env:
+      PYTHONUTF8: "1"
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Setup Hugo (extended)
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: '0.146.0'
-          extended: true
-
-      - name: Build (prod config, site=wissen)
-        working-directory: wissen
-        run: hugo --config hugo.prod.toml --gc --minify
-
-      - name: Setup Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: "3.11"
 
-      - name: Smoke-Check
-        run: python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
-
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: public
-          path: wissen/public
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    container:
-      image: alpine:3.19
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: public
-          path: public
-
-      - name: Install tools (lftp + openssh-client)
-        shell: sh
+      - name: Install dependencies
+        shell: bash
         run: |
-          set -eu
-          apk add --no-cache lftp openssh-client coreutils
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python -c "import sys; from importlib import util as u; print('Python:', sys.version); print('markdown:', u.find_spec('markdown') is not None); print('yaml:', u.find_spec('yaml') is not None)"
 
-      - name: Deploy via SFTP (Passwort ODER SSH-Key, htdocs-aware, mit Timeouts)
-        shell: sh
+      - name: Build site
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo '🏗️  Build Wissensdatenbank...'
+          python scripts/build_site.py --content-root . --out-dir site --base-url "/wissen"
+
+      - name: Normalize /wissen prefixes per language (post-build)
+        shell: bash
+        run: |
+          set -euo pipefail
+          fix_lang() {
+            L="$1"
+            D="site/$L"
+            [ -d "$D" ] || { echo "⏭  $D nicht vorhanden – übersprungen"; return 0; }
+            mapfile -d '' files < <(find "$D" -type f -name '*.html' -print0)
+            [ "${#files[@]}" -eq 0 ] && { echo "ℹ️  Keine HTML-Dateien in $D"; return 0; }
+            perl -0777 -i -pe 's/\b(href|src)=(["'"'"'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' "${files[@]}"
+          }
+          fix_lang de
+          fix_lang en
+
+      # 🔎 Debug: prüfe Remote-Pfad ohne Here-Doc (YAML-sicher)
+      - name: Verify remote target via SFTP (pwd & ls)
+        shell: bash
         env:
-          SFTP_HOST:        ${{ secrets.SFTP_HOST }}
-          SFTP_PORT:        ${{ secrets.SFTP_PORT }}
-          SFTP_USERNAME:    ${{ secrets.SFTP_USERNAME }}
-          SFTP_PASSWORD:    ${{ secrets.SFTP_PASSWORD }}
-          SFTP_PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
-          SFTP_TARGET:      ${{ secrets.SFTP_TARGET }}
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
+          SFTP_USER: ${{ secrets.SFTP_USER }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_TARGET: ${{ secrets.SFTP_TARGET }}
         run: |
-          set -eu
-          PORT="${SFTP_PORT:-22}"
-          TARGET="${SFTP_TARGET#/}"         # nie absolut
-          [ -n "${TARGET}" ] || { echo "::error::SFTP_TARGET ist leer"; exit 1; }
-          [ -n "${SFTP_PASSWORD:-}" ] || [ -n "${SFTP_PRIVATE_KEY:-}" ] || { echo "::error::Weder Passwort noch SSH-Key gesetzt"; exit 1; }
+          set -euo pipefail
+          echo "🔎 Remote-Login testen & Zielpfad listen: $SFTP_TARGET"
+          sudo apt-get update -y >/dev/null
+          sudo apt-get install -y sshpass >/dev/null
+          printf "pwd\nls -la\ncd %s\npwd\nls -la\n" "$SFTP_TARGET" > sftp_cmds.txt
+          SSHPASS="$SFTP_PASSWORD" sshpass -e sftp -P "$SFTP_PORT" -oBatchMode=no -oStrictHostKeyChecking=no -b sftp_cmds.txt "$SFTP_USER@$SFTP_HOST"
 
-          # Auth vorbereiten
-          CONNECT=""
-          AUTH_OPEN=""
-          if [ -n "${SFTP_PRIVATE_KEY:-}" ] && [ -z "${SFTP_PASSWORD:-}" ]; then
-            mkdir -p /root/.ssh
-            printf '%s\n' "$SFTP_PRIVATE_KEY" > /root/.ssh/id_ed25519
-            chmod 600 /root/.ssh/id_ed25519
-            CONNECT="set sftp:connect-program 'ssh -a -x -i /root/.ssh/id_ed25519 -o StrictHostKeyChecking=no'"
-            AUTH_OPEN="-u ${SFTP_USERNAME}"
-          else
-            AUTH_OPEN="-u ${SFTP_USERNAME},${SFTP_PASSWORD}"
-          fi
-
-          # htdocs-Erkennung: Timeouts VOR dem Open setzen
-          HTEST="set net:timeout 15; set net:max-retries 1; set net:persist-retries 0; ${CONNECT}; open -p ${PORT} ${AUTH_OPEN} sftp://${SFTP_HOST}; cd htdocs; bye"
-          if timeout 30 lftp -e "${HTEST}" >/dev/null 2>&1; then
-            case "$TARGET" in htdocs/*) : ;; *) TARGET="htdocs/$TARGET" ;; esac
-          fi
-
-          # Upload: nur Inhalt von ./public -> $TARGET, mit harten Timeouts
-          SCRIPT="set cmd:fail-exit yes; set net:timeout 20; set net:max-retries 1; set net:persist-retries 0; ${CONNECT}; open -p ${PORT} ${AUTH_OPEN} sftp://${SFTP_HOST}; mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
-
-          echo "[DEPLOY] ${SFTP_HOST}:${PORT} → ${TARGET}"
-          timeout 120 lftp -e "${SCRIPT}" || { echo '::error::lftp transfer failed or timed out'; exit 1; }
+      - name: Deploy to IONOS (SFTP-only)
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server:   ${{ secrets.SFTP_HOST }}
+          port:     ${{ secrets.SFTP_PORT }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: "site"              # Quelle ist der ORDNER
+          remote_path: ${{ secrets.SFTP_TARGET }}   # exakt der Pfad aus deinen Secrets (ohne extra Slash)
+          sftp_only: true
