@@ -1,0 +1,18 @@
+<table class="w-full border-collapse">
+  <tbody>
+    {{ range $k, $v := .Page.Params }}
+      {{ if in (slice "kategorie" "varianten" "bilder" "sku") $k }}
+        <tr>
+          <th class="text-left pr-4">{{ $k }}</th>
+          <td>
+            {{ if eq (printf "%T" $v) "[]interface {}" }}
+              {{ delimit $v ", " }}
+            {{ else }}
+              {{ $v }}
+            {{ end }}
+          </td>
+        </tr>
+      {{ end }}
+    {{ end }}
+  </tbody>
+</table>
