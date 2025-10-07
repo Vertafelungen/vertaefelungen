@@ -1,5 +1,12 @@
 name: One-off: Fix Frontmatter (BOM/Control)
+
 on:
+  # Falls der Run-Button nicht erscheint, löst schon das Speichern dieser Datei den Run aus:
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/fix-frontmatter.yml'
+  # Wenn der Button später sichtbar ist, kannst du auch manuell starten:
   workflow_dispatch: {}
 
 permissions:
@@ -10,12 +17,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
+      # Schreibt den Helper ins Repo-Workspace (unabhängig davon, ob er schon existiert)
       - name: Write helper script
         run: |
           mkdir -p wissen/scripts
@@ -36,7 +46,6 @@ jobs:
               s = s.replace("\r\n", "\n")
               return s
           def pull_last_sync_into_frontmatter(txt: str) -> str:
-              import re
               m = re.match(r'^---\n(.*?\n)---\n(.*)$', txt, flags=re.S)
               if not m: return txt
               fm, body = m.group(1), m.group(2)
@@ -69,11 +78,11 @@ jobs:
       - name: Run fix
         run: python wissen/scripts/fix_frontmatter.py
 
-      - name: Commit & push
+      - name: Commit & push (only if changed)
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if [ -n "$(git status --porcelain)" ]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
             git commit -m "fix(frontmatter): sanitize all Markdown (BOM/control + last_sync in YAML)"
             git push
