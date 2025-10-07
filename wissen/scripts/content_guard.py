@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07
+# Version: 2025-10-07 (tolerant für allgemeine Seiten, strikt für Produkte/FAQ)
 from __future__ import annotations
 from pathlib import Path
 import re, sys
@@ -10,17 +10,18 @@ CONTENT = ROOT / "content"
 
 FM_RE = re.compile(r'^---\n(.*?\n)---\n(.*)$', re.S)
 
+# bekannte Schemas
 SCHEMAS = {
     "produkte": {
-        "required": {"title","slug","type"},
+        "required": {"title", "slug"},
         "recommended": {"kategorie","bilder","varianten","beschreibung_md_de","beschreibung_md_en","last_sync"},
     },
     "faq": {
-        "required": {"title","slug","type"},
+        "required": {"title", "slug"},
         "recommended": {"frage_md_de","antwort_md_de","frage_md_en","antwort_md_en","tags"},
     },
     "allgemeine-informationen": {
-        "required": {"title","slug","type"},
+        "required": {"title","slug"},   # 'type' wird nicht erzwungen
         "recommended": set(),
     },
 }
@@ -31,83 +32,121 @@ def read(p: Path) -> str:
 def parse_frontmatter(txt: str):
     m = FM_RE.match(txt)
     if not m:
-        return None, None  # kein Frontmatter (zulässig für einfache Seiten)
+        return None, None  # kein Frontmatter
     head, body = m.group(1), m.group(2)
-    try:
-        data = yaml.safe_load(head) or {}
-        if not isinstance(data, dict):
-            raise ValueError("Frontmatter ist kein Mapping (dict).")
-        return data, body
-    except Exception as e:
-        raise RuntimeError(f"YAML-Fehler im Frontmatter: {e}")
+    data = yaml.safe_load(head) or {}
+    if not isinstance(data, dict):
+        raise RuntimeError("YAML-Frontmatter ist kein Mapping (dict).")
+    return data, body
 
-def check_schema(p: Path, fm: dict):
-    t = str(fm.get("type") or "").strip()
+def guess_type_by_path(p: Path) -> str | None:
+    s = p.as_posix()
+    if "/de/oeffentlich/produkte/" in s or "/en/public/products/" in s:
+        return "produkte"
+    if "/faq/" in s:
+        return "faq"
+    if "/allgemeine-informationen/" in s:
+        return "allgemeine-informationen"
+    return None
+
+def keyline_errors(front_head: str) -> list[str]:
+    # „Text im YAML-Kopf“ (kein "key:") früh erkennen
+    errs = []
+    for i, ln in enumerate(front_head.splitlines(), start=1):
+        if ln.strip() == "" or ln.strip().startswith("#"):
+            continue
+        if re.match(r'^\s*[^:#\-\s][^:]*:\s*(\|[+-]?|\>|\s*[^#].*)?$', ln):
+            continue
+        errs.append(f"Textzeile im Frontmatter (kein 'key: value'): Zeile {i}: {ln[:60]!r}")
+        break
+    return errs
+
+def check_schema(p: Path, fm: dict, strict: bool):
+    # type lesen/normalisieren/erraten
+    t = (fm.get("type") or fm.get("Type") or "").strip()
+    t = t.lower() if t else ""
     if not t:
-        raise RuntimeError("Frontmatter: Feld 'type' fehlt.")
-    schema = SCHEMAS.get(t)
-    if not schema:
-        # unbekannter Typ ist ok, aber warnen
-        return [f"Warnung: unbekannter type='{t}'"], []
-    missing = [k for k in schema["required"] if k not in fm or fm[k] in ("", [], None)]
-    warns   = []
-    if missing:
-        raise RuntimeError(f"Pflichtfelder fehlen: {', '.join(sorted(missing))}")
-    # Leichte Zusatztchecks pro Typ
-    if t == "produkte":
-        if p.as_posix().startswith("wissen/content/de/oeffentlich/produkte/") and not fm.get("beschreibung_md_de"):
-            warns.append("Empfehlung: 'beschreibung_md_de' fehlt für DE-Produkte.")
-        if p.as_posix().startswith("wissen/content/en/public/products/") and not fm.get("beschreibung_md_en"):
-            warns.append("Empfehlung: 'beschreibung_md_en' fehlt für EN-Produkte.")
-        if "varianten" in fm and fm["varianten"] not in (None, "") and not isinstance(fm["varianten"], list):
-            raise RuntimeError("'varianten' muss eine Liste sein.")
-    return warns, []
+        t = guess_type_by_path(p) or ""
 
-def guard():
+    warns, errs = [], []
+
+    # Regeln:
+    # - Produkte/FAQ: **immer strikt** (müssen Pflichtfelder haben; wenn Pfade danach aussehen,
+    #   ist fehlender 'type' ebenfalls ein Fehler).
+    # - allgemeine-informationen: nur warnen, wenn 'type' fehlt; Pflicht: title+slug.
+    # - andere Seiten: nie Fehler wegen fehlendem 'type' (nur Warnung).
+
+    implied = guess_type_by_path(p)
+    if implied in ("produkte", "faq") and (fm.get("type","").lower() != implied):
+        if strict:
+            errs.append(f"Erwarte type='{implied}' (oder setze ihn explizit) für Datei im {implied}-Pfad.")
+        else:
+            warns.append(f"Empfehlung: type='{implied}' setzen.")
+        # für die weitere Prüfung nehmen wir implied
+        t = implied or t
+
+    schema = SCHEMAS.get(t) if t else None
+    if schema:
+        # Pflichtfelder prüfen (bei allgemeine-informationen ohne 'type' trotzdem nur warnend)
+        missing = [k for k in schema["required"] if not fm.get(k)]
+        if missing:
+            if strict and t in ("produkte","faq"):
+                errs.append(f"Pflichtfelder fehlen: {', '.join(sorted(missing))}")
+            else:
+                warns.append(f"Empfehlung: fehlende Felder: {', '.join(sorted(missing))}")
+        # Typ-spezifische Checks
+        if t == "produkte":
+            var = fm.get("varianten")
+            if var not in (None, "") and not isinstance(var, list):
+                errs.append("'varianten' muss eine Liste sein.")
+    else:
+        # unbekannter Typ oder keiner gesetzt
+        if strict and implied in ("produkte","faq"):
+            errs.append("Frontmatter: Feld 'type' fehlt.")
+        elif not t:
+            warns.append("Frontmatter: Feld 'type' fehlt (allgemeine Seite oder unbekannter Bereich).")
+
+    return warns, errs
+
+def guard(strict: bool):
     errors, warns = [], []
     for p in CONTENT.rglob("*.md"):
-        try:
-            txt = read(p)
-        except UnicodeDecodeError as e:
-            errors.append(f"{p}: Datei ist nicht UTF-8: {e}")
-            continue
+        txt = read(p)
 
         # Frontmatter vorhanden?
         m = FM_RE.match(txt)
         if not m:
-            # Seiten ohne Frontmatter sind ok – aber nur warnen, wenn Datei im “Wissen”-Baum liegt
             continue
 
-        # kein reiner Text im YAML-Kopf (fängt viele Fehler ab)
-        for i, ln in enumerate(m.group(1).splitlines(), start=1):
-            if ln.strip() and not re.match(r'^\s*[^:#\-\s][^:]*:\s*', ln) and not ln.strip().startswith("#"):
-                errors.append(f"{p}:{i}: Textzeile im YAML-Head (kein 'key: value'): {ln[:50]!r}")
-                break
+        # Keine reinen Textzeilen im YAML-Kopf
+        kerrs = keyline_errors(m.group(1))
+        if kerrs:
+            errors.append(f"{p}: {kerrs[0]}")
+            continue
 
-        # YAML parse
         try:
             fm, body = parse_frontmatter(txt)
         except Exception as e:
-            errors.append(f"{p}: {e}")
-            continue
-        if fm is None:
+            errors.append(f"{p}: YAML-Fehler: {e}")
             continue
 
-        # Schema
-        w, _ = check_schema(p, fm)
-        warns += [f"{p}: {msg}" for msg in w]
+        w, e = check_schema(p, fm, strict)
+        warns += [f"{p}: {x}" for x in w]
+        errors += [f"{p}: {x}" for x in e]
 
     return errors, warns
 
 def main():
     strict = "--strict" in sys.argv
-    errs, warns = guard()
-    for w in warns: print(f"[WARN] {w}")
+    errs, warns = guard(strict)
+    for w in warns:
+        print(f"[WARN] {w}")
     if errs:
-        for e in errs: print(f"[ERR] {e}", file=sys.stderr)
-        return 2 if strict else 0
+        for e in errs:
+            print(f"[ERR] {e}", file=sys.stderr)
+        sys.exit(2)
     print("Content-Guard: OK")
-    return 0
+    sys.exit(0)
 
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
