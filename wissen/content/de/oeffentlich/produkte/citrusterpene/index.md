@@ -15,5 +15,5 @@ varianten:
     bezeichnung: 5 Liter
     preis_aufschlag: 80672269
 ---
-last_sync: "2025-10-07T14:59:48+02:00"
+last_sync: "2025-10-07T15:13:01+02:00"
 

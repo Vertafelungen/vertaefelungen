@@ -1,19 +1,19 @@
 ---
-title: Wandleiste 14
-title_en: Wall Moulding 14
-slug: wandleiste-14
+title: Wandleiste 05 „Hohe Welle“
+title_en: Wall Moulding 05
+slug: wandleiste-05-hohe-welle
 type: produkte
 beschreibung_md_de: |
-  Profilierte Holzleiste 21 x 60 mm
+  "Hohe Welle" - Massive Holzleiste 20 x 40 mm, nicht symmetrisches Profil mit zentralem Halbrundstab.
   In Kiefer oder White Wood, andere Holzarten aus Anfrage
   
   Als Wandleiste zur direkten Montage auf der verputzen Wand.
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
 beschreibung_md_en: |
-  Profiled wooden strip 21 x 60 mm
-  In pine or whitewood, other wood types upon request
+  "High Wave" - Solid wooden strip 20 x 40 mm, non-symmetrical profile with a central semicircular bar.
+  Available in pine or whitewood, other wood species available upon request.
   
-  As a wall strip for direct mounting on the plastered wall.
+  As a wall strip for direct installation on the plastered wall.
   This strip can be used to create frames or panels that can be used to divide and partition large wall surfaces.
 varianten:
   -
@@ -21,7 +21,7 @@ varianten:
     preis_aufschlag: 0
   -
     bezeichnung: White Wood
-    preis_aufschlag: 10240000
+    preis_aufschlag: 5480000
 ---
 last_sync: "2025-10-07T15:13:01+02:00"
 
