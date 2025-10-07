@@ -1,0 +1,32 @@
+{{ define "main" }}
+<article class="container mx-auto px-4 py-8">
+  <header class="mb-6">
+    <h1 class="text-3xl font-semibold">{{ .Title }}</h1>
+    {{ partial "product/gallery.html" . }}
+  </header>
+
+  <section class="prose max-w-none">
+    {{ if eq .Lang "de" }}
+      {{ with .Params.beschreibung_md_de }}{{ . | markdownify }}{{ end }}
+    {{ else }}
+      {{ with .Params.beschreibung_md_en }}{{ . | markdownify }}{{ end }}
+    {{ end }}
+  </section>
+
+  {{ with .Params.varianten }}
+  <section class="mt-8">
+    <h2 class="text-xl font-semibold mb-2">{{ i18n "varianten_preise" | default "Varianten & Preise" }}</h2>
+    <table class="w-full border-collapse">
+      <thead><tr><th>Variante</th><th>Preis</th><th>Einheit</th><th>SKU</th></tr></thead>
+      <tbody>
+        {{ range . }}
+          <tr><td>{{ .name }}</td><td>{{ with .preis }}{{ printf "%.2f" . }} €{{ end }}</td><td>{{ .einheit }}</td><td>{{ .sku }}</td></tr>
+        {{ end }}
+      </tbody>
+    </table>
+  </section>
+  {{ end }}
+
+  {{ partial "product/jsonld.html" (dict "ctx" .) }}
+</article>
+{{ end }}
