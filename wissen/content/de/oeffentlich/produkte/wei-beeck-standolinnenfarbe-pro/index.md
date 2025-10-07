@@ -34,6 +34,7 @@ varianten:
   -
     bezeichnung: 10 L, seidenglanz
     preis_aufschlag: 467000000
----
 last_sync: "2025-10-07T16:08:15+02:00"
 
+
+---

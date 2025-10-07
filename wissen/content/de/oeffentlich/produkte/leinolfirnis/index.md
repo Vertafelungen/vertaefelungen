@@ -22,6 +22,7 @@ varianten:
   -
     bezeichnung: 20 Liter
     preis_aufschlag: 226050420
----
 last_sync: "2025-10-07T16:08:15+02:00"
 
+
+---

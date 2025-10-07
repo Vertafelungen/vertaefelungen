@@ -12,6 +12,7 @@ beschreibung_md_en: |
   A classic paneling that is suitable for city and country homes alike.
   
   The paneling can be ordered per linear meter. We manufacture the panel from solid wood in oak or pine. On request, it can be prepared for a colored coating.
----
 last_sync: "2025-10-07T16:08:15+02:00"
 
+
+---

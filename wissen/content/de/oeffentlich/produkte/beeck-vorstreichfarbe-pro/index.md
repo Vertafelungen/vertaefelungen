@@ -25,6 +25,7 @@ varianten:
   -
     bezeichnung: 10 L
     preis_aufschlag: 341100000
----
 last_sync: "2025-10-07T16:08:15+02:00"
 
+
+---

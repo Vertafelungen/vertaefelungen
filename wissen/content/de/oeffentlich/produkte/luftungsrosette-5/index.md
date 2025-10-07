@@ -15,6 +15,7 @@ beschreibung_md_en: |
   
   Diameter approx. 58 mm
   Hight approx 13 mm
----
 last_sync: "2025-10-07T16:08:15+02:00"
 
+
+---

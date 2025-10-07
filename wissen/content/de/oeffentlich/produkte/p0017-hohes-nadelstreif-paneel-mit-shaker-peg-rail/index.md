@@ -20,6 +20,7 @@ varianten:
   -
     bezeichnung: Eiche
     preis_aufschlag: 542000000
----
 last_sync: "2025-10-07T16:08:15+02:00"
 
+
+---
