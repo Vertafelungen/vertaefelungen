@@ -1,5 +1,5 @@
 name: Build & Deploy Wissen
-# Version: 2025-10-07 15:20 Europe/Berlin
+# Version: 2025-10-07 16:05 Europe/Berlin
 
 on:
   push:
@@ -25,19 +25,73 @@ jobs:
           hugo-version: '0.134.3'
           extended: true
 
-      # Preflight: zeigt, dass die Config wirklich da ist
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
       - name: Preflight listing
         run: |
           ls -la .
           ls -la wissen
           test -f wissen/hugo.prod.toml || (echo "FEHLT: wissen/hugo.prod.toml" && exit 2)
 
+      # Hotfix: unzulässige Steuerzeichen/BOM in Frontmatter & Content beseitigen
+      - name: Sanitize content (BOM & control chars)
+        run: |
+          python - <<'PY'
+          import pathlib, re
+          root = pathlib.Path('wissen/content')
+          bad = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F]')
+          fixed = 0
+          for p in root.rglob('index.md'):
+              b = p.read_bytes()
+              # Strip UTF-8 BOM
+              if b[:3] == b'\xef\xbb\xbf':
+                  b = b[3:]
+              s = b.decode('utf-8', 'replace')
+              ns = bad.sub('', s).replace('\r\n','\n').replace('\r','\n')
+              if s != ns:
+                  p.write_text(ns, encoding='utf-8')
+                  print(f'[sanitize] fixed: {p}')
+                  fixed += 1
+          print(f'[sanitize] files fixed: {fixed}')
+          PY
+
+      # Optional aber hilfreich: YAML-Frontmatter-Lint nur für Produkt-Indexdateien
+      - name: Lint frontmatter (YAML)
+        run: |
+          python - <<'PY'
+          import pathlib, sys, yaml, re
+          root = pathlib.Path('wissen/content')
+          front_re = re.compile(r'^---\n(.*?)\n---\n', re.S)
+          errs = 0
+          files = list(root.glob('de/oeffentlich/produkte/**/index.md')) + \
+                  list(root.glob('en/public/products/**/index.md'))
+          for p in files:
+            s = p.read_text(encoding='utf-8', errors='strict')
+            m = front_re.search(s)
+            if not m:
+              print(f'[lint] missing frontmatter: {p}')
+              errs += 1
+              continue
+            ysrc = m.group(1)
+            try:
+              yaml.safe_load(ysrc)
+            except Exception as e:
+              print(f'[lint] YAML error in {p}: {e}')
+              errs += 1
+          if errs:
+            sys.exit(3)
+          print('[lint] frontmatter OK')
+          PY
+
       - name: Build (prod)
         working-directory: wissen
         env:
           HUGO_ENV: production
         run: |
-          # keine -s Angabe; Config liegt im CWD
+          # Keine -s Angabe; Config liegt im CWD
           hugo --config hugo.prod.toml --minify --gc -d public
 
       - name: Smoke check
@@ -59,6 +113,7 @@ jobs:
           protocol: "sftp"
           server-dir: "/wissen"
           local-dir: "wissen/public"
+          # Bei Bedarf einmalig auf true stellen, um Altlasten im Ziel zu löschen:
           dangerous-clean-slate: false
 
       - name: Done
