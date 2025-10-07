@@ -76,10 +76,15 @@ jobs:
       - name: Run fix
         run: python wissen/scripts/fix_frontmatter.py
 
+      - name: Show git status (debug)
+        shell: bash
+        run: |
+          git status --porcelain || true
+
       - name: Commit & push (only if changed)
         shell: bash
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
+          if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
@@ -87,3 +92,4 @@ jobs:
             git push
           else
             echo "No changes."
+          fi
