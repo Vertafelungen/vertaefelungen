@@ -25,4 +25,5 @@ defaultContentLanguageInSubdir = true
 
 # Beispiel-Perma­links (optional anpassen)
 [permalinks]
-  products = "/produkte/:slug/"
+  produkte = "/produkte/:slug/"
+  faq      = "/faq/:slug/"
