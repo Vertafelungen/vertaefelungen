@@ -7,8 +7,9 @@ beschreibung_md_de: |
   TR 14, Maße: 118 x 20 mm
 beschreibung_md_en: |
   Door and window frame TR 14, dimensions: 118 x 20 mm
-last_sync: 2025-10-07T18:52:37+02:00
+last_sync: 2025-10-07 18:52:37+02:00
 ---
+
 -
 -
 

@@ -10,8 +10,9 @@ beschreibung_md_de: |
   Leinöl ist in Innenbereichen gegenüber jeder künstlich hergestellten Grundierung zu bevorzugen.
   Es ist 100% natürlich und hat sich traditionell bewährt.
   Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
-last_sync: 2025-10-07T18:52:37+02:00
+last_sync: 2025-10-07 18:52:37+02:00
 ---
+
 Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
 For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.
 Drying time up to 2 weeks. Linseed oil fires the wood, the grain becomes more prominent.

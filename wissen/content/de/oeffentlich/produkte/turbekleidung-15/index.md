@@ -7,8 +7,9 @@ beschreibung_md_de: |
   TR 15, Maße: 117 x 19 mm
 beschreibung_md_en: |
   Door and window frame TR 15, dimensions: 117 x 19 mm
-last_sync: 2025-10-07T18:52:37+02:00
+last_sync: 2025-10-07 18:52:37+02:00
 ---
+
 -
 -
 

@@ -4,7 +4,8 @@ slug: sl0006-mit-karnies-58-18
 type: produkte
 beschreibung_md_de: |
   schlicht, mit Karnies
-last_sync: 2025-10-07T18:52:36+02:00
+last_sync: 2025-10-07 18:52:36+02:00
 ---
+
 simple with cyma
 

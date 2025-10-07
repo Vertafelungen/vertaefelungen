@@ -8,8 +8,9 @@ beschreibung_md_de: |
   
   Als Wandleiste zur direkten Montage auf der verputzen Wand.
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
-last_sync: 2025-10-07T15:13:01+02:00
+last_sync: 2025-10-07 15:13:01+02:00
 ---
+
 Round bar strip - Solid wooden strip 10 x 40 mm, round bar strip.
 Available in pine or whitewood, other wood types available upon request.
 As a wall strip for direct installation on the plastered wall.
