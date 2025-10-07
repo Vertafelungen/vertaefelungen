@@ -1,18 +1,16 @@
-# .github/workflows/build-and-deploy-wissen.yml
-# Version: 2025-09-21 12:33 (Europe/Berlin)
-
-name: Build & Deploy Wissen
+name: Build & Deploy Wissen (Hugo → IONOS)
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'de/**'
-      - 'en/**'
-      - 'assets/**'
-      - 'scripts/**'
-      - 'requirements.txt'
-      - '.github/workflows/build-and-deploy-wissen.yml'
+      - "wissen/content/**"
+      - "wissen/layouts/**"
+      - "wissen/static/**"
+      - "wissen/assets/**"
+      - "wissen/hugo.prod.toml"
+      - "wissen/scripts/smoke_check_build.py"
+      - ".github/workflows/build-and-deploy-wissen.yml"
   workflow_dispatch: {}
 
 permissions:
@@ -23,75 +21,54 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-deploy:
-    if: github.actor != 'github-actions[bot]' && !contains(github.event.head_commit.message, '[skip ci]')
+  build:
     runs-on: ubuntu-latest
-    env:
-      PYTHONUTF8: "1"
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Hugo (extended)
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.146.0'
+          extended: true
+
+      - name: Build (prod config, site=wissen)
+        working-directory: wissen
+        run: hugo --config hugo.prod.toml --gc --minify
+
+      - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
 
-      - name: Install dependencies
-        shell: bash
-        run: |
-          set -euo pipefail
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          python -c "import sys; from importlib import util as u; print('Python:', sys.version); print('markdown:', u.find_spec('markdown') is not None); print('yaml:', u.find_spec('yaml') is not None)"
+      - name: Smoke-Check
+        run: python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
 
-      - name: Build site
-        shell: bash
-        run: |
-          set -euo pipefail
-          echo '🏗️  Build Wissensdatenbank...'
-          python scripts/build_site.py --content-root . --out-dir site --base-url "/wissen"
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public
+          path: wissen/public
 
-      - name: Normalize /wissen prefixes per language (post-build)
-        shell: bash
-        run: |
-          set -euo pipefail
-          fix_lang() {
-            L="$1"
-            D="site/$L"
-            [ -d "$D" ] || { echo "⏭  $D nicht vorhanden – übersprungen"; return 0; }
-            mapfile -d '' files < <(find "$D" -type f -name '*.html' -print0)
-            [ "${#files[@]}" -eq 0 ] && { echo "ℹ️  Keine HTML-Dateien in $D"; return 0; }
-            perl -0777 -i -pe 's/\b(href|src)=(["'"'"'])\/wissen\/(?!de\/|en\/)/$1=$2\/wissen\/'"$L"'\//gi' "${files[@]}"
-          }
-          fix_lang de
-          fix_lang en
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: public
+          path: wissen/public
 
-      # 🔎 Debug: prüfe Remote-Pfad ohne Here-Doc (YAML-sicher)
-      - name: Verify remote target via SFTP (pwd & ls)
-        shell: bash
-        env:
-          SFTP_HOST: ${{ secrets.SFTP_HOST }}
-          SFTP_PORT: ${{ secrets.SFTP_PORT }}
-          SFTP_USER: ${{ secrets.SFTP_USER }}
-          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-          SFTP_TARGET: ${{ secrets.SFTP_TARGET }}
-        run: |
-          set -euo pipefail
-          echo "🔎 Remote-Login testen & Zielpfad listen: $SFTP_TARGET"
-          sudo apt-get update -y >/dev/null
-          sudo apt-get install -y sshpass >/dev/null
-          printf "pwd\nls -la\ncd %s\npwd\nls -la\n" "$SFTP_TARGET" > sftp_cmds.txt
-          SSHPASS="$SFTP_PASSWORD" sshpass -e sftp -P "$SFTP_PORT" -oBatchMode=no -oStrictHostKeyChecking=no -b sftp_cmds.txt "$SFTP_USER@$SFTP_HOST"
-
-      - name: Deploy to IONOS (SFTP-only)
+      # Bewährter SFTP-Deploy (wie früher), nur mit Hugo-Pfad
+      - name: SFTP Deploy to IONOS
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server:   ${{ secrets.SFTP_HOST }}
-          port:     ${{ secrets.SFTP_PORT }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          local_path: "site"              # Quelle ist der ORDNER
-          remote_path: ${{ secrets.SFTP_TARGET }}   # exakt der Pfad aus deinen Secrets (ohne extra Slash)
+          port:     ${{ secrets.SFTP_PORT || 22 }}
+          username: ${{ secrets.SFTP_USERNAME || secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASSWORD || secrets.SFTP_PASS }}
           sftp_only: true
+          local_path: "wissen/public/**"          # Hugo-Ausgabe
+          remote_path: ${{ secrets.SFTP_TARGET }} # z. B. /wissen
+          args: "-o StrictHostKeyChecking=no -o ConnectTimeout=20"
