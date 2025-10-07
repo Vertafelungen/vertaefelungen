@@ -26,7 +26,7 @@
 ## 4. Result
 - Screenshots created for client approval
 
-- Visualization is included at **10 % of the project cost**
+- Visualization is included at **10 % of the project cost**
 
 - Once approved, a detailed drawing is prepared for the joinery
 

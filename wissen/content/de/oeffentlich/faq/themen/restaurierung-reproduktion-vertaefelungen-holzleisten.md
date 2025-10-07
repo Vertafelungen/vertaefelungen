@@ -30,7 +30,7 @@ Restaurierung umfasst die behutsame Instandsetzung, Sicherung und Ergänzung ori
 ***
 
 ## 3. Was sind typische Herausforderungen bei der Reproduktion?
-- Beschaffung passender, artgleicher Hölzer (z. B. langsam gewachsene Kiefer, Eiche)
+- Beschaffung passender, artgleicher Hölzer (z. B. langsam gewachsene Kiefer, Eiche)
 
 - Exakte Nachbildung historischer Profile und Verbindungen
 

@@ -40,12 +40,12 @@ Für eine schnelle und passgenaue Angebotserstellung benötigen wir:
 
 - Fotos oder Skizzen (optional, aber hilfreich)
 
-- Angaben zum gewünschten Lieferzeitpunkt und zu Besonderheiten (z. B. Altbau, Denkmalschutz)
+- Angaben zum gewünschten Lieferzeitpunkt und zu Besonderheiten (z. B. Altbau, Denkmalschutz)
 
 ***
 
 ## 3. Wie erfolgt die Bezahlung?
-- **50 % Anzahlung** nach Auftragsbestätigung
+- **50 % Anzahlung** nach Auftragsbestätigung
 
 - Restzahlung vor Lieferung
 

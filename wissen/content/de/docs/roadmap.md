@@ -89,7 +89,7 @@
 
 - [ ] Promptstruktur zur Beratung historischer Interieurs
 
-- [ ] Deployment per Website-Widget (z. B. über GPT-4o oder RAG-basiert)
+- [ ] Deployment per Website-Widget (z. B. über GPT-4o oder RAG-basiert)
 
 - [ ] FAQ-Datenbank kontinuierlich erweitern
 
@@ -100,7 +100,7 @@
 ### Phase 5 – Sichtbarkeit in LLMs
 - [ ] Veröffentlichung der `.md`-Inhalte unter CC BY-SA auf GitHub
 
-- [ ] Eintrag in offene Wissensdatenbanken (z. B. Wikidata, Internet Archive)
+- [ ] Eintrag in offene Wissensdatenbanken (z. B. Wikidata, Internet Archive)
 
 - [ ] Einreichung strukturierter Daten für LLM-Crawling (LangChain, KGI etc.)
 

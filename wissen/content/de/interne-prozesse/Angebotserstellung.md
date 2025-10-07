@@ -12,20 +12,20 @@
 ## 3. Visualisierung & Planungsphase
 - Nach positiver Rückmeldung erstellt unser Team eine maßstabsgetreue **3D-Visualisierung** (SketchUp).
 
-- Für diesen Schritt berechnen wir **10 % der geschätzten Gesamtkosten** als Planungsgebühr (z. B. bei 10.000 € Angebot = 1.000 €).
+- Für diesen Schritt berechnen wir **10 % der geschätzten Gesamtkosten** als Planungsgebühr (z. B. bei 10.000 € Angebot = 1.000 €).
 
 - Die Visualisierung bildet die Basis für das finale Angebot und eine mögliche Freigabe.
 
 ## 4. Exaktes Angebot und Freigabe
 - Auf Basis der freigegebenen Visualisierung erstellen wir das **detaillierte Angebot** mit:
 
-  - Material- und Variantenwahl (z. B. Fichte/Eiche, Bausatz vs. Montage)
+  - Material- und Variantenwahl (z. B. Fichte/Eiche, Bausatz vs. Montage)
 
   - Stück- und Laufmeterangabe
 
   - Montageoptionen (Selbstmontage oder Partnerbetrieb)
 
-- Mit **Annahme des Angebots** ist eine **Anzahlung von 50 %** fällig.
+- Mit **Annahme des Angebots** ist eine **Anzahlung von 50 %** fällig.
 
 ## 5. Produktion und Montage
 - Produktion beginnt nach Eingang der Anzahlung.

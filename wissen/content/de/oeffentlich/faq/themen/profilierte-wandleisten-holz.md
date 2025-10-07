@@ -34,7 +34,7 @@ Profilierte Wandleisten sind dekorativ geformte Leisten aus Massivholz, die zur 
 
 - Zur Gliederung großer Wandflächen (Rahmen, Felder, Kassetten)
 
-- Zum Schutz exponierter Kanten (z. B. in Fluren, Treppenhäusern)
+- Zum Schutz exponierter Kanten (z. B. in Fluren, Treppenhäusern)
 
 - Für die Verbindung zwischen Wand und Decke (Gesimsleisten)
 

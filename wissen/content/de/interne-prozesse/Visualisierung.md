@@ -21,12 +21,12 @@
 ## 3. Erstellung in SketchUp
 - Erstellen eines maßstäblichen 3D-Modells mit Wandflächen, Türzargen, Fensteröffnungen
 
-- Einfügen typischer Vertäfelungsprofile (z. B. Barock, Klassizismus, Gründerzeit)
+- Einfügen typischer Vertäfelungsprofile (z. B. Barock, Klassizismus, Gründerzeit)
 
 ## 4. Ergebnis
 - Erstellung von Screenshots zur Kundenfreigabe
 
-- Visualisierung fließt zu **10 % in die Angebotskosten ein**
+- Visualisierung fließt zu **10 % in die Angebotskosten ein**
 
 - Nach Freigabe folgt die technische Zeichnung für die Tischlerei
 

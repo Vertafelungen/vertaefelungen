@@ -68,7 +68,7 @@ Achtung: Bei zu dicker Schicht oder schlechter Belüftung kann der Geruch penetr
 ***
 
 ## 5. Welche Normen und Richtlinien sind für Leinöl in der Denkmalpflege relevant?
-- **WTA-Merkblätter** (z. B. WTA 2-10-12/D)
+- **WTA-Merkblätter** (z. B. WTA 2-10-12/D)
 
 - **DIN 68800** (Holzschutz)
 
@@ -81,9 +81,9 @@ Achtung: Bei zu dicker Schicht oder schlechter Belüftung kann der Geruch penetr
 ## 6. Wie wird Leinöl auf Holz angewendet?
 1. Oberfläche sauber, trocken und staubfrei vorbereiten.
 
-2. Leinöl satt auftragen, einziehen lassen (15–60 Minuten, je nach Saugfähigkeit).
+2. Leinöl satt auftragen, einziehen lassen (15–60 Minuten, je nach Saugfähigkeit).
 
-3. Überschüssiges Öl nach maximal 1 Stunde abwischen!
+3. Überschüssiges Öl nach maximal 1 Stunde abwischen!
 
 4. Vorgang je nach Bedarf 2–3 Mal wiederholen.
 
@@ -96,7 +96,7 @@ Achtung: Bei zu dicker Schicht oder schlechter Belüftung kann der Geruch penetr
 
 - Alte Anstriche können nachdunkeln oder gilben.
 
-- Für den Kontakt mit Lebensmitteln (z. B. Arbeitsplatten) nur reines, kaltgepresstes Leinöl verwenden.
+- Für den Kontakt mit Lebensmitteln (z. B. Arbeitsplatten) nur reines, kaltgepresstes Leinöl verwenden.
 
 ***
 

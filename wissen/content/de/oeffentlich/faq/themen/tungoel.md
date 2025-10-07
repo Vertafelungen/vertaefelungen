@@ -19,7 +19,7 @@ Tungöl (auch Chinesisches Holzöl, gewonnen aus den Samen des Tungbaums, Aleuri
 ## 2. Was ist der Unterschied zwischen Tungöl Natur und Tungöl-Holzlack?
 **Tungöl Natur (reines Tungöl):**
 
-- Besteht aus 100 % kaltgepresstem Tungöl, ohne Zusätze.
+- Besteht aus 100 % kaltgepresstem Tungöl, ohne Zusätze.
 
 - Trocknet sehr langsam (oft mehrere Tage), dringt sehr tief ins Holz ein und härtet zu einer zähelastischen, aber matten Oberfläche aus.
 

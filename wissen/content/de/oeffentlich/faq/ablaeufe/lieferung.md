@@ -19,10 +19,10 @@ beschreibung: "Antworten auf häufig gestellte Fragen zur Lieferung, Verpackung 
 ## 2. Wie erfolgt der Versand & was ist der Lieferumfang?
 - Die Vertäfelungen werden **in Holzkisten per Spedition** geliefert.
 
-- Verpackungsgrößen bis ca. 240 cm werden **frei Bordsteinkante** abgeladen, größere Verpackungen **frei LKW**.
+- Verpackungsgrößen bis ca. 240 cm werden **frei Bordsteinkante** abgeladen, größere Verpackungen **frei LKW**.
 
 ## 3. In welchem Zustand wird das Holz geliefert?
-- Alle Elemente sind **gehobelt, geschliffen und grundiert**, mit einer Restfeuchte von ca. 12 %.
+- Alle Elemente sind **gehobelt, geschliffen und grundiert**, mit einer Restfeuchte von ca. 12 %.
 
 - Das Holz sollte **eine Woche im Raum ruhen**, um sich vor Montage zu akklimatisieren.
 

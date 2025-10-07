@@ -12,7 +12,7 @@ beschreibung: "Antworten auf häufige Fragen zum Herstellungsprozess von Vertäf
 
 # FAQ: Herstellung
 ## 1. Wie entsteht eine historische Vertäfelung?
-- Vorab wird die originale Vorlage detailgenau vermessen und mit 3D‑CAD erstellt. Dies dient der Planung und Anpassung an Ihren Raum, z. B. Kassettenbreiten, Fensterbänke oder Heizkörperverkleidungen. Anschließend entstehen Stücklisten und CNC‑fähige Baupläne für die Schreinerei.
+- Vorab wird die originale Vorlage detailgenau vermessen und mit 3D‑CAD erstellt. Dies dient der Planung und Anpassung an Ihren Raum, z. B. Kassettenbreiten, Fensterbänke oder Heizkörperverkleidungen. Anschließend entstehen Stücklisten und CNC‑fähige Baupläne für die Schreinerei.
 
 ## 2. Welche Materialien und Techniken werden verwendet?
 - Zum Einsatz kommen hochwertiges Massivholz, meist Kiefer oder Eiche, in traditioneller Tischlerbauweise.

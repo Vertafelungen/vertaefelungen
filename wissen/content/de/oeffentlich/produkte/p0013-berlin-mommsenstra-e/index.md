@@ -4,7 +4,7 @@ title_en: P0013 - Berlin - Mommsenstr.
 slug: p0013-berlin-mommsenstra-e
 type: produkte
 beschreibung_md_de: |
-  Die Berliner Mommsenstraße liegt zwischen Kantstraße und Kurfürstendamm in einem sehr mondänen, schicken Wohnviertel mit vielen Galerien und Boutiquen. 
+  Die Berliner Mommsenstraße liegt zwischen Kantstraße und Kurfürstendamm in einem sehr mondänen, schicken Wohnviertel mit vielen Galerien und Boutiquen. 
   Die hier gezeigte Vertäfelung überzeugt durch ihren gleichmäßigen Rhythmus. Sie lässt sich besonders gut farblich gestalten.
 beschreibung_md_en: |
 varianten:

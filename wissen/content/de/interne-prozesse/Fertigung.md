@@ -2,7 +2,7 @@
 ## 1. Partnernetzwerk & Zusammenarbeit
 - Unsere Fertigung erfolgt je nach Projekt mit spezialisierten Tischlereien aus Sachsen, Brandenburg oder Nordrhein-Westfalen.
 
-- Die Auswahl erfolgt basierend auf Holzart (z. B. Eiche, Fichte), Stil (historisch, modern) und regionaler Nähe zum Objekt.
+- Die Auswahl erfolgt basierend auf Holzart (z. B. Eiche, Fichte), Stil (historisch, modern) und regionaler Nähe zum Objekt.
 
 ## 2. Technische Planung & Abstimmung
 - Nach Angebotsfreigabe erstellen wir eine Detailzeichnung, in der Maße, Profile und Material exakt definiert sind.
@@ -32,6 +32,6 @@
 - Transport erfolgt per Spedition zu dir oder dem Montagepartner.
 
 ## 7. Sonderprojekte: Denkmalgerecht & historisch
-- Verwendung originalgetreuer Materialien und traditioneller Verbindungstechniken (z. B. Falz, Zapfen).
+- Verwendung originalgetreuer Materialien und traditioneller Verbindungstechniken (z. B. Falz, Zapfen).
 
 - Abstimmung mit Denkmalbehörden sowie Einbindung historischer Vorgaben und Skizzen.

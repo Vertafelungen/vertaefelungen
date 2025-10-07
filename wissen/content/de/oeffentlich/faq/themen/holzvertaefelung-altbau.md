@@ -28,9 +28,9 @@ Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Deck
 ***
 
 ## 3. Welche typischen Bauformen gibt es?
-- **Brüstungshoch** (ca. 1 m): meist unter Fenstern, als Sitzbank-Verkleidung oder Wandabschluss
+- **Brüstungshoch** (ca. 1 m): meist unter Fenstern, als Sitzbank-Verkleidung oder Wandabschluss
 
-- **Halbhoch** (ca. 1,2–1,4 m): häufig in Fluren, Salons, Esszimmern
+- **Halbhoch** (ca. 1,2–1,4 m): häufig in Fluren, Salons, Esszimmern
 
 - **Raumhoch** (bis Decke): für repräsentative Räume, Bibliotheken, Säle
 
