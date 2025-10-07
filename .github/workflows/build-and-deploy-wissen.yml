@@ -32,7 +32,6 @@ jobs:
           hugo-version: "0.130.0"
           extended: true
 
-      # WICHTIG: im Unterordner "wissen" bauen
       - name: Build (prod config, site=wissen)
         working-directory: wissen
         run: |
@@ -54,74 +53,57 @@ jobs:
           name: public
           path: public
 
-      # Mini-Check: sind die Secrets gesetzt? (ohne Inhalte zu loggen)
-      - name: Verify deploy secrets presence
-        shell: bash
-        run: |
-          miss=0
-          for v in SFTP_HOST SFTP_USERNAME SFTP_TARGET; do
-            if [ -z "${{ secrets[v] || '' }}" ]; then echo "::error::$v NOT_SET"; miss=1; else echo "$v=SET"; fi
-          done
-          if [ -z "${{ secrets.SFTP_PASSWORD || '' }}" ] && [ -z "${{ secrets.SFTP_PRIVATE_KEY || '' }}" ]; then
-            echo "::error::SFTP_PASSWORD and SFTP_PRIVATE_KEY both NOT_SET"; miss=1
-          fi
-          exit $miss
-
-      # Variante A: Passwort (empfohlen bei IONOS Webhosting mit SFTP-only)
+      # --- Passwortbasierter SFTP-Upload via lftp ---
       - name: Deploy via SFTP (password, lftp)
         if: ${{ secrets.SFTP_PASSWORD != '' }}
         shell: bash
         env:
-          HOST:        ${{ secrets.SFTP_HOST }}
-          USERNAME:    ${{ secrets.SFTP_USERNAME }}
-          PASSWORD:    ${{ secrets.SFTP_PASSWORD }}
-          REMOTE:      ${{ secrets.SFTP_TARGET }}
-          PORT:        ${{ secrets.SFTP_PORT }}
+          SFTP_HOST:     ${{ secrets.SFTP_HOST }}
+          SFTP_PORT:     ${{ secrets.SFTP_PORT }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
         run: |
-          set -e
+          set -euo pipefail
           sudo apt-get update -y >/dev/null
           sudo apt-get install -y lftp >/dev/null
-          PORT="${PORT:-22}"
-          # lftp spiegelt rekursiv, legt Ordner an und löscht Entferntes, das lokal nicht mehr existiert
-          lftp -u "$USERNAME","$PASSWORD" -p "$PORT" sftp://"$HOST" <<'EOF'
+          PORT="${SFTP_PORT:-22}"
+          # Erst Verbindung „warmmachen“, dann spiegeln
+          lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" -e "bye" || true
+          lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" <<EOF
 set sftp:auto-confirm yes
 set net:max-retries 2
 set net:timeout 30
-EOF
-          lftp -u "$USERNAME","$PASSWORD" -p "$PORT" sftp://"$HOST" <<EOF
-set sftp:auto-confirm yes
-set net:max-retries 2
-set net:timeout 30
-mkdir -p $REMOTE
-mirror -R --delete --only-newer public $REMOTE
+mkdir -p $SFTP_TARGET
+mirror -R --delete --only-newer public $SFTP_TARGET
 bye
 EOF
 
-      # Variante B: SSH-Key (falls vorhanden; setzt SFTP mit Schlüssel auf)
+      # --- Keybasierter SFTP-Upload via lftp (falls kein Passwort gesetzt) ---
       - name: Deploy via SFTP (SSH key, lftp)
         if: ${{ secrets.SFTP_PASSWORD == '' && secrets.SFTP_PRIVATE_KEY != '' }}
         shell: bash
         env:
-          HOST:        ${{ secrets.SFTP_HOST }}
-          USERNAME:    ${{ secrets.SFTP_USERNAME }}
-          PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
-          REMOTE:      ${{ secrets.SFTP_TARGET }}
-          PORT:        ${{ secrets.SFTP_PORT }}
+          SFTP_HOST:       ${{ secrets.SFTP_HOST }}
+          SFTP_PORT:       ${{ secrets.SFTP_PORT }}
+          SFTP_USERNAME:   ${{ secrets.SFTP_USERNAME }}
+          SFTP_PRIVATE_KEY:${{ secrets.SFTP_PRIVATE_KEY }}
+          SFTP_TARGET:     ${{ secrets.SFTP_TARGET }}
         run: |
-          set -e
+          set -euo pipefail
           sudo apt-get update -y >/dev/null
           sudo apt-get install -y lftp openssh-client >/dev/null
-          PORT="${PORT:-22}"
+          PORT="${SFTP_PORT:-22}"
           mkdir -p ~/.ssh
-          echo "$PRIVATE_KEY" > ~/.ssh/id_ed25519
+          echo "$SFTP_PRIVATE_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          # lftp über SSH-Key sprechen lassen
+          # lftp so konfigurieren, dass es den Key nutzt
           echo 'set sftp:connect-program "ssh -a -x -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no"' > ~/.lftprc
-          lftp -u "$USERNAME" -p "$PORT" sftp://"$HOST" <<EOF
+          lftp -u "$SFTP_USERNAME" -p "$PORT" sftp://"$SFTP_HOST" <<EOF
 set sftp:auto-confirm yes
 set net:max-retries 2
 set net:timeout 30
-mkdir -p $REMOTE
-mirror -R --delete --only-newer public $REMOTE
+mkdir -p $SFTP_TARGET
+mirror -R --delete --only-newer public $SFTP_TARGET
 bye
 EOF
