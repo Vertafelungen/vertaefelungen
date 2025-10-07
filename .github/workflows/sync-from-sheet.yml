@@ -1,59 +1,56 @@
-name: Sync from Google Sheet → Repo (DE/EN)
+name: Sync from Google Sheet (Wissen)
+# Version: 2025-10-07 13:45 Europe/Berlin
 
 on:
-  workflow_dispatch: {}          # manueller Start im UI
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 */4 * * *" # alle 4h
 
 permissions:
   contents: write
 
-concurrency:
-  group: sync-from-sheet
-  cancel-in-progress: true
-
 jobs:
   sync:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wissen
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v4
 
-      - name: Git config (CI)
-        run: |
-          git config user.name  "ci-bot"
-          git config user.email "ci-bot@users.noreply.github.com"
-          git config core.autocrlf false
-
-      - name: Python 3.12
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install dependencies
+      - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install requests pandas pyyaml
 
-      - name: Run sync script (aus /wissen)
+      - name: Run sync-from-sheet
         env:
-          # Setze EINES von beidem:
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
-          SHEET_ID:       ${{ secrets.SHEET_ID }}
-          SHEET_GID:      ${{ secrets.SHEET_GID }}
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          SHEET_GID: ${{ secrets.SHEET_GID }}
+          DRY_RUN: "0"
         run: |
-          cd wissen
           python scripts/sync-from-sheet.py
-          echo "Sync abgeschlossen."
 
-      - name: Commit & push (nur bei Änderungen)
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Git status (changed files)
+        id: diff
         run: |
-          if git diff --quiet -- wissen/content; then
-            echo "Keine Änderungen."
-            exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          CHANGED=$(git status --porcelain | wc -l)
+          echo "changed=$CHANGED" >> $GITHUB_OUTPUT
+          if [ "$CHANGED" -gt "0" ]; then
+            git add .
+            git commit -m "sync-from-sheet: $(date -u +'%Y-%m-%dT%H:%M:%SZ') – $CHANGED files"
+          else
+            echo "No content changes."
           fi
-          git add -A
-          git commit -m "sync: sheet → wissen/content (DE/EN)"
-          git push origin main
+
+      - name: Push
+        if: steps.diff.outputs.changed != '0'
+        run: git push origin HEAD:main
