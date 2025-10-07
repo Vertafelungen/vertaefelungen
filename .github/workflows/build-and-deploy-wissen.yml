@@ -50,7 +50,7 @@ jobs:
           name: public
           path: wissen/public
 
-    deploy:
+  deploy:
     needs: build
     runs-on: ubuntu-latest
     container:
@@ -66,9 +66,9 @@ jobs:
         shell: sh
         run: |
           set -eu
-          apk add --no-cache lftp openssh-client coreutils  # coreutils bringt 'timeout' mit
+          apk add --no-cache lftp openssh-client coreutils
 
-      - name: Deploy via SFTP (Passwort ODER SSH-Key, htdocs-aware, mit Timeout)
+      - name: Deploy via SFTP (Passwort ODER SSH-Key, htdocs-aware, mit Timeouts)
         shell: sh
         env:
           SFTP_HOST:        ${{ secrets.SFTP_HOST }}
@@ -82,8 +82,9 @@ jobs:
           PORT="${SFTP_PORT:-22}"
           TARGET="${SFTP_TARGET#/}"         # nie absolut
           [ -n "${TARGET}" ] || { echo "::error::SFTP_TARGET ist leer"; exit 1; }
+          [ -n "${SFTP_PASSWORD:-}" ] || [ -n "${SFTP_PRIVATE_KEY:-}" ] || { echo "::error::Weder Passwort noch SSH-Key gesetzt"; exit 1; }
 
-          # Auth-Setup
+          # Auth vorbereiten
           CONNECT=""
           AUTH_OPEN=""
           if [ -n "${SFTP_PRIVATE_KEY:-}" ] && [ -z "${SFTP_PASSWORD:-}" ]; then
@@ -96,17 +97,14 @@ jobs:
             AUTH_OPEN="-u ${SFTP_USERNAME},${SFTP_PASSWORD}"
           fi
 
-          # htdocs automatisch voranstellen, wenn vorhanden und noch nicht enthalten
-          # Wichtig: erst Settings setzen, dann "open" – so greifen die Timeouts schon beim Connect.
+          # htdocs-Erkennung: Timeouts VOR dem Open setzen
           HTEST="set net:timeout 15; set net:max-retries 1; set net:persist-retries 0; ${CONNECT}; open -p ${PORT} ${AUTH_OPEN} sftp://${SFTP_HOST}; cd htdocs; bye"
           if timeout 30 lftp -e "${HTEST}" >/dev/null 2>&1; then
             case "$TARGET" in htdocs/*) : ;; *) TARGET="htdocs/$TARGET" ;; esac
           fi
 
-          # Upload nur Inhalt von ./public nach $TARGET
-          SCRIPT="set cmd:fail-exit yes; set net:timeout 20; set net:max-retries 1; set net:persist-retries 0; \
-          ${CONNECT}; open -p ${PORT} ${AUTH_OPEN} sftp://${SFTP_HOST}; \
-          mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
+          # Upload: nur Inhalt von ./public -> $TARGET, mit harten Timeouts
+          SCRIPT="set cmd:fail-exit yes; set net:timeout 20; set net:max-retries 1; set net:persist-retries 0; ${CONNECT}; open -p ${PORT} ${AUTH_OPEN} sftp://${SFTP_HOST}; mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
 
           echo "[DEPLOY] ${SFTP_HOST}:${PORT} → ${TARGET}"
           timeout 120 lftp -e "${SCRIPT}" || { echo '::error::lftp transfer failed or timed out'; exit 1; }
