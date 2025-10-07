@@ -3,11 +3,11 @@ name: Sync from Google Sheet → Repo (DE/EN)
 on:
   workflow_dispatch: {}
   schedule:
-    - cron: "17 * * * *"   # stündlich; bei Bedarf anpassen
+    - cron: "17 * * * *"            # stündlich; bei Bedarf anpassen
   push:
     branches: [ main ]
     paths:
-      - "scripts/sync-from-sheet.py"
+      - "wissen/scripts/sync-from-sheet.py"
       - ".github/workflows/sync-from-sheet.yml"
 
 permissions:
@@ -37,29 +37,31 @@ jobs:
         with:
           python-version: "3.12"
 
-      # Falls du requirements hast, bitte die Datei beibehalten:
-      - name: Install dependencies (optional)
-        if: hashFiles('scripts/requirements.txt') != ''
+      - name: Install dependencies
         run: |
-          pip install -r scripts/requirements.txt
+          python -m pip install --upgrade pip
+          pip install requests pandas
 
-      - name: Prepare Google Service Account JSON
+      # Falls du per Service Account arbeitest, kannst du hier optional das JSON bereitstellen.
+      # Das Script braucht es NICHT zwingend – es lädt CSV anonym, solange die Share-Einstellung passt.
+      - name: Prepare Google Service Account JSON (optional)
+        if: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON != '' }}
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: |
-          test -n "$GOOGLE_SERVICE_ACCOUNT_JSON"
           echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > service_account.json
 
-      - name: Run sync script (schreibt DE/EN deterministisch)
+      - name: Run sync script (from wissen/)
         env:
-          SHEET_ID: ${{ secrets.SHEET_ID }}
+          # Variante A (bevorzugt): kompletter CSV-Export-Link
+          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
+          # Variante B: ID + GID (falls kein CSV-URL-Secret vorhanden)
+          GSHEET_ID: ${{ secrets.SHEET_ID }}
+          GSHEET_GID: ${{ secrets.SHEET_GID }}
         run: |
-          python scripts/sync-from-sheet.py \
-            --service-account service_account.json \
-            --sheet-id "$SHEET_ID" \
-            --out-de "wissen/content/de/oeffentlich" \
-            --out-en "wissen/content/en/public" \
-            --deterministic
+          cd wissen
+          python scripts/sync-from-sheet.py
+          echo "Sync abgeschlossen."
 
       - name: Check for changes
         id: diff
@@ -78,5 +80,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add -A
-          git commit -m "sync: sheet changes → content (DE/EN)" || exit 0
+          git commit -m "sync: sheet → wissen/content (DE/EN)" || exit 0
           git push origin main
