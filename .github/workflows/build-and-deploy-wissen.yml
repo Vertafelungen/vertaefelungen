@@ -105,8 +105,8 @@ jobs:
 
           # Upload nur Inhalt von ./public nach $TARGET
           SCRIPT="set cmd:fail-exit yes; set net:timeout 20; set net:max-retries 1; set net:persist-retries 0; \
-${CONNECT}; open -p ${PORT} ${AUTH_OPEN} sftp://${SFTP_HOST}; \
-mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
+          ${CONNECT}; open -p ${PORT} ${AUTH_OPEN} sftp://${SFTP_HOST}; \
+          mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
 
           echo "[DEPLOY] ${SFTP_HOST}:${PORT} → ${TARGET}"
           timeout 120 lftp -e "${SCRIPT}" || { echo '::error::lftp transfer failed or timed out'; exit 1; }
