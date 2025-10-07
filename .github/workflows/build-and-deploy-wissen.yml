@@ -1,5 +1,5 @@
 name: Build & Deploy Wissen
-# Version: 2025-10-07 13:45 Europe/Berlin
+# Version: 2025-10-07 15:20 Europe/Berlin
 
 on:
   push:
@@ -14,8 +14,10 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v3
@@ -23,9 +25,20 @@ jobs:
           hugo-version: '0.134.3'
           extended: true
 
-      - name: Build (prod)
+      # Preflight: zeigt, dass die Config wirklich da ist
+      - name: Preflight listing
         run: |
-          hugo --config wissen/hugo.prod.toml -s wissen -d wissen/public --minify --gc
+          ls -la .
+          ls -la wissen
+          test -f wissen/hugo.prod.toml || (echo "FEHLT: wissen/hugo.prod.toml" && exit 2)
+
+      - name: Build (prod)
+        working-directory: wissen
+        env:
+          HUGO_ENV: production
+        run: |
+          # keine -s Angabe; Config liegt im CWD
+          hugo --config hugo.prod.toml --minify --gc -d public
 
       - name: Smoke check
         run: |
@@ -47,7 +60,6 @@ jobs:
           server-dir: "/wissen"
           local-dir: "wissen/public"
           dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.DS_Store
-            **/Thumbs.db
+
+      - name: Done
+        run: echo "Build & Deploy Wissen – OK"
