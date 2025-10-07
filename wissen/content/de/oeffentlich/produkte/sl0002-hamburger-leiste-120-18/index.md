@@ -10,5 +10,5 @@ beschreibung_md_en: |
   Hamburg or Berlin skirting board? Both are the same. Unfortunately, the origin of the terms cannot be proven more precisely.
   We think that this beautifully shaped profile can also be used in Dresden or Augsburg.
 ---
-last_sync: "2025-10-07T14:41:38+02:00"
+last_sync: "2025-10-07T14:59:48+02:00"
 

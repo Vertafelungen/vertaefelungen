@@ -13,5 +13,5 @@ beschreibung_md_en: |
   
   The paneling can be ordered per linear meter. We manufacture the panel from solid wood in oak or pine. On request, it can be prepared for a colored coating.
 ---
-last_sync: "2025-10-07T14:41:38+02:00"
+last_sync: "2025-10-07T14:59:48+02:00"
 

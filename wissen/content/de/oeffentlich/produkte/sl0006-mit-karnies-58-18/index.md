@@ -8,5 +8,5 @@ beschreibung_md_de: |
 beschreibung_md_en: |
   simple with cyma
 ---
-last_sync: "2025-10-07T14:41:38+02:00"
+last_sync: "2025-10-07T14:59:48+02:00"
 
