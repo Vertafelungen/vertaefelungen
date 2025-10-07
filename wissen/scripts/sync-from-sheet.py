@@ -1,25 +1,9 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 13:45 Europe/Berlin
-# sync-from-sheet.py – zieht ein Google-Sheet (CSV) und schreibt Hugo-Content (DE/EN)
-# Zielpfade:
-#   DE: wissen/content/de/oeffentlich/produkte/<slug>/index.md
-#   EN: wissen/content/en/public/products/<slug>/index.md
-#
-# ENV (eines von beidem):
-#   GSHEET_CSV_URL  ODER  SHEET_ID + SHEET_GID
-# Optional:
-#   DRY_RUN=1  → schreibt nicht, loggt nur
-#
-# Minimalspalten (Case-insensitive):
-#   slug (alternativ aus deutschem Titel generiert)
-#   titel_de, titel_en
-#   beschreibung_md_de, beschreibung_md_en
-# Optional:
-#   kategorie/category, bilder/images, varianten_yaml ODER varianten (name|preis|einheit|sku; ...),
-#   sku, preis, einheit
+# Version: 2025-10-07 14:05 Europe/Berlin
+# Sync Google Sheet → Hugo Content (DE/EN) mit Sanitizing + sauberem last_sync in der Frontmatter
 
 from __future__ import annotations
-import os, re, sys, unicodedata, hashlib
+import os, re, sys, unicodedata
 from datetime import datetime
 from io import StringIO
 from pathlib import Path
@@ -28,30 +12,35 @@ from zoneinfo import ZoneInfo
 import requests
 import pandas as pd
 
-# --------------------- Pfade ---------------------
 ROOT   = Path(__file__).resolve().parents[1]  # .../wissen
 OUT_DE = ROOT / "content" / "de" / "oeffentlich" / "produkte"
 OUT_EN = ROOT / "content" / "en" / "public" / "products"
 
 DRY_RUN = os.getenv("DRY_RUN", "") not in ("", "0", "false", "False")
 
-# --------------------- Helpers -------------------
+CTRL_RE = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]')
+BOM = "\ufeff"
+
 def now_iso_berlin() -> str:
     return datetime.now(ZoneInfo("Europe/Berlin")).replace(microsecond=0).isoformat()
 
-def try_fix(s: str | None) -> str:
+def sanitize(s: str | None) -> str:
     if s is None:
         return ""
     s = str(s)
+    # Repariere mögliche Fehldekodierungen (Latin1→UTF8 Artefakte vermeiden)
     if "Ã" in s or "�" in s:
         try:
-            return s.encode("latin1", errors="ignore").decode("utf-8", errors="ignore")
+            s = s.encode("latin1", errors="ignore").decode("utf-8", errors="ignore")
         except Exception:
-            return s
+            pass
+    s = s.replace(BOM, "")
+    s = CTRL_RE.sub(" ", s)
+    s = s.replace("\r\n", "\n")
     return s
 
 def slugify(s: str) -> str:
-    s = try_fix(s).strip().lower()
+    s = sanitize(s).strip().lower()
     s = unicodedata.normalize("NFKD", s)
     s = "".join(ch for ch in s if not unicodedata.combining(ch))
     s = re.sub(r"[^a-z0-9\-]+", "-", s).strip("-")
@@ -61,7 +50,7 @@ def slugify(s: str) -> str:
 def split_list(val: str):
     if not val:
         return []
-    parts = re.split(r"[;,]\s*", str(val).replace("\n", ","))
+    parts = re.split(r"[;,]\s*", sanitize(val).replace("\n", ","))
     return [p.strip() for p in parts if p.strip()]
 
 def first_col(df: pd.DataFrame, *cands):
@@ -76,15 +65,21 @@ def parse_varianten(row: dict):
     if vy and str(vy).strip():
         try:
             import yaml  # optional
-            v = yaml.safe_load(str(vy))
+            v = yaml.safe_load(sanitize(str(vy)))
             if isinstance(v, list):
-                return v
+                # Felder in Varianten ebenfalls sanitisieren
+                nn = []
+                for it in v:
+                    if not isinstance(it, dict):
+                        continue
+                    nn.append({k: sanitize(vv) for k, vv in it.items()})
+                return nn
         except Exception:
             pass
-    txt = row.get("varianten") or row.get("VARIANTEN") or ""
+    txt = sanitize(row.get("varianten") or row.get("VARIANTEN") or "")
     items = []
     for chunk in split_list(txt):
-        bits = [b.strip() for b in chunk.split("|")]
+        bits = [sanitize(b) for b in chunk.split("|")]
         if not bits or not bits[0]:
             continue
         item = {"name": bits[0]}
@@ -106,7 +101,7 @@ def yaml_block(key: str, text: str) -> str:
         lines.append(f"  {ln}")
     return "\n".join(lines)
 
-def fm_to_str(fm: dict, title: str, beschr_de: str, beschr_en: str) -> str:
+def fm_to_str(fm: dict, title: str, beschr_de: str, beschr_en: str, last_sync: str | None = None) -> str:
     # deterministische Reihenfolge
     order = [
         "title", "title_en",
@@ -115,16 +110,18 @@ def fm_to_str(fm: dict, title: str, beschr_de: str, beschr_en: str) -> str:
         "bilder", "varianten", "sku", "last_sync",
     ]
     data = dict(fm)
-    data["title"] = title
-    # title_en bleibt zusätzlich drin, damit ein Template bei Bedarf umschalten kann
-    # (für reine i18n-Frontmatter wäre getrennte title-Keys nicht nötig)
+    data["title"] = sanitize(title)
     out = ["---"]
     for k in order:
         if k == "beschreibung_md_de":
-            out.append(yaml_block(k, str(beschr_de)))
+            out.append(yaml_block(k, sanitize(beschr_de)))
             continue
         if k == "beschreibung_md_en":
-            out.append(yaml_block(k, str(beschr_en)))
+            out.append(yaml_block(k, sanitize(beschr_en)))
+            continue
+        if k == "last_sync":
+            if last_sync:
+                out.append(f'last_sync: "{last_sync}"')
             continue
         if k not in data:
             continue
@@ -132,22 +129,23 @@ def fm_to_str(fm: dict, title: str, beschr_de: str, beschr_en: str) -> str:
         if v in (None, "", []):
             continue
         if k in ("kategorie", "bilder"):
+            seq = v if isinstance(v, list) else split_list(v)
             out.append(f"{k}:")
-            for el in (v if isinstance(v, list) else split_list(v)):
-                out.append(f"  - {el}")
+            for el in seq:
+                out.append(f"  - {sanitize(el)}")
         elif k == "varianten":
             out.append("varianten:")
             for el in (v if isinstance(v, list) else []):
                 out.append("  -")
                 for kk, vv in el.items():
-                    out.append(f"    {kk}: {vv}")
+                    out.append(f"    {kk}: {sanitize(vv)}")
         else:
-            out.append(f"{k}: {v}")
+            out.append(f"{k}: {sanitize(v)}")
     out.append("---")
-    out.append("")  # Leerzeile hinter Frontmatter
+    out.append("")  # Leerzeile
     return "\n".join(out)
 
-LAST_SYNC_RE = re.compile(r'^\s*last_sync:\s*.*$', flags=re.M)
+LAST_SYNC_RE = re.compile(r'^\s*last_sync:\s*".*?"\s*$', flags=re.M)
 
 def strip_last_sync(txt: str) -> str:
     return LAST_SYNC_RE.sub("", txt or "")
@@ -165,32 +163,23 @@ def write_product(de: dict, en: dict):
         "bilder": de.get("bilder", []),
         "varianten": de.get("varianten", []),
         "sku": de.get("sku") or en.get("sku") or "",
-        # last_sync zunächst NICHT setzen → nur bei Änderung
+        "title_en": en["title"],  # optionaler Zusatzschlüssel
     }
 
-    # Frontmatter je Sprache bauen (Titel lokalisiert!)
-    fm_de_core = fm_to_str(
-        {**base_fm, "title_en": en["title"]},
-        title=de["title"],
-        beschr_de=de.get("beschreibung", ""),
-        beschr_en=en.get("beschreibung", ""),
-    )
-    fm_en_core = fm_to_str(
-        {**base_fm, "title_en": en["title"]},
-        title=en["title"],
-        beschr_de=de.get("beschreibung", ""),
-        beschr_en=en.get("beschreibung", ""),
-    )
+    core_de = fm_to_str(base_fm, title=de["title"], beschr_de=de.get("beschreibung",""), beschr_en=en.get("beschreibung",""))
+    core_en = fm_to_str(base_fm, title=en["title"], beschr_de=de.get("beschreibung",""), beschr_en=en.get("beschreibung",""))
 
     old_de = out_de.read_text(encoding="utf-8") if out_de.exists() else ""
     old_en = out_en.read_text(encoding="utf-8") if out_en.exists() else ""
-    changed_de = strip_last_sync(old_de) != strip_last_sync(fm_de_core)
-    changed_en = strip_last_sync(old_en) != strip_last_sync(fm_en_core)
+    changed_de = strip_last_sync(old_de) != strip_last_sync(core_de)
+    changed_en = strip_last_sync(old_en) != strip_last_sync(core_en)
 
     wrote = False
-    ts = f'last_sync: "{now_iso_berlin()}"'
+    ts = now_iso_berlin()
+
     if changed_de:
-        new_de = fm_de_core.rstrip() + "\n" + ts + "\n\n"
+        new_de = fm_to_str(base_fm, title=de["title"], beschr_de=de.get("beschreibung",""), beschr_en=en.get("beschreibung",""), last_sync=ts)
+        new_de = new_de.replace("\r\n", "\n")
         if not DRY_RUN:
             out_de.write_text(new_de, encoding="utf-8")
         print(f"[SYNC] DE {de['slug']}: CHANGED")
@@ -199,7 +188,8 @@ def write_product(de: dict, en: dict):
         print(f"[SYNC] DE {de['slug']}: UNCHANGED")
 
     if changed_en:
-        new_en = fm_en_core.rstrip() + "\n" + ts + "\n\n"
+        new_en = fm_to_str(base_fm, title=en["title"], beschr_de=de.get("beschreibung",""), beschr_en=en.get("beschreibung",""), last_sync=ts)
+        new_en = new_en.replace("\r\n", "\n")
         if not DRY_RUN:
             out_en.write_text(new_en, encoding="utf-8")
         print(f"[SYNC] EN {de['slug']}: CHANGED")
@@ -223,7 +213,7 @@ def fetch_csv_text() -> str:
     return r.text
 
 def row_to_lang(row: dict, lang: str) -> dict:
-    d = {k: try_fix(v) for k, v in row.items()}
+    d = {k: sanitize(v) for k, v in row.items()}
     if lang == "de":
         title = d.get("titel_de") or d.get("title_de") or ""
         beschr = d.get("beschreibung_md_de") or d.get("beschreibung_de") or ""
@@ -246,11 +236,11 @@ def row_to_lang(row: dict, lang: str) -> dict:
                 try:
                     item["preis"] = float(str(preis).replace(",", "."))
                 except ValueError:
-                    item["preis"] = preis
+                    item["preis"] = sanitize(preis)
             if einheit:
-                item["einheit"] = einheit
+                item["einheit"] = sanitize(einheit)
             if sku:
-                item["sku"] = sku
+                item["sku"] = sanitize(sku)
             varianten = [item]
 
     return {
