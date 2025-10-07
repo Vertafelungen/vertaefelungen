@@ -30,7 +30,7 @@ jobs:
       - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "0.146.0"
+          hugo-version: '0.146.0'
           extended: true
 
       - name: Build (prod config, site=wissen)
@@ -63,7 +63,7 @@ jobs:
           name: public
           path: public
 
-      - name: Deploy via SFTP (lftp; Passwort ODER SSH-Key, htdocs-kompatibel)
+      - name: Deploy (SSH key bevorzugt; sonst Passwort mit non-interactive apt)
         shell: bash
         env:
           SFTP_HOST:        ${{ secrets.SFTP_HOST }}
@@ -74,48 +74,57 @@ jobs:
           SFTP_TARGET:      ${{ secrets.SFTP_TARGET }}
         run: |
           set -euo pipefail
-          sudo apt-get update -y >/dev/null
-          sudo apt-get install -y lftp openssh-client >/dev/null
-
           PORT="${SFTP_PORT:-22}"
-          # 1) Zielpfad normalisieren: nie absolute Root-Pfade senden
-          TARGET_NORM="${SFTP_TARGET#/}"    # /wissen -> wissen
-          [ -z "${TARGET_NORM}" ] && { echo "::error::SFTP_TARGET ist leer"; exit 1; }
 
-          # 2) Falls auf dem Server 'htdocs' existiert und nicht schon geprefixt ist: automatisch prefixed
-          has_htdocs_pwd() {
-            if [ -n "${SFTP_PASSWORD:-}" ]; then
-              lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" -e "cd htdocs; pwd; bye" >/dev/null 2>&1
-            else
-              lftp -u "$SFTP_USERNAME" -p "$PORT" sftp://"$SFTP_HOST" \
-                -e "set sftp:connect-program \"ssh -a -x -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no\"; cd htdocs; pwd; bye" >/dev/null 2>&1
+          # Zielpfad normalisieren (nie absolute Rootpfade)
+          TARGET="${SFTP_TARGET#/}"
+          if [ -z "${TARGET}" ]; then
+            echo "::error::SFTP_TARGET ist leer"; exit 1
+          fi
+
+          # --- Pfad ggf. automatisch auf 'htdocs/' prefixen ---
+          auto_prefix_htdocs() {
+            local cmd="$1"
+            if $cmd "test -d htdocs"; then
+              case "$TARGET" in
+                htdocs/*) : ;;
+                *) TARGET="htdocs/$TARGET" ;;
+              esac
             fi
           }
 
+          # --- Fall A: SSH-KEY vorhanden -> rsync (keine Pakete nötig, hängt nicht) ---
           if [ -n "${SFTP_PRIVATE_KEY:-}" ] && [ -z "${SFTP_PASSWORD:-}" ]; then
+            echo "[DEPLOY] using rsync over SSH key to $SFTP_HOST:$PORT → $TARGET"
             mkdir -p ~/.ssh
             printf '%s\n' "$SFTP_PRIVATE_KEY" > ~/.ssh/id_ed25519
             chmod 600 ~/.ssh/id_ed25519
+
+            SSH_CMD="ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -p $PORT $SFTP_USERNAME@$SFTP_HOST"
+            auto_prefix_htdocs "$SSH_CMD -T -o BatchMode=yes --"  # prüft 'htdocs' per SSH
+            $SSH_CMD "mkdir -p '$TARGET'"
+
+            RSYNC_RSH="ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -p $PORT"
+            rsync -az --delete --info=progress2 --no-perms --no-owner --no-group \
+              -e "$RSYNC_RSH" public/ "$SFTP_USERNAME@$SFTP_HOST:$TARGET/"
+            exit 0
           fi
 
-          if has_htdocs_pwd; then
-            case "$TARGET_NORM" in
+          # --- Fall B: Passwort -> lftp, aber apt-get strikt non-interactive ---
+          echo "[DEPLOY] using lftp with password to $SFTP_HOST:$PORT → $TARGET"
+          export DEBIAN_FRONTEND=noninteractive
+          export NEEDRESTART_MODE=a
+          sudo apt-get update -y -o Dpkg::Use-Pty=0 >/dev/null
+          sudo apt-get install -y -o Dpkg::Use-Pty=0 --no-install-recommends lftp >/dev/null
+
+          # htdocs-Erkennung via SFTP
+          if lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" -e "cd htdocs; bye" >/dev/null 2>&1; then
+            case "$TARGET" in
               htdocs/*) : ;;
-              *) TARGET_NORM="htdocs/$TARGET_NORM" ;;
+              *) TARGET="htdocs/$TARGET" ;;
             esac
           fi
 
-          # 3) Upload: nur Inhalt von ./public, nicht den Ordnernamen
-          LFTP_CMD="set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 30; mkdir -p \"$TARGET_NORM\"; lcd public; mirror -R --delete --only-newer . \"$TARGET_NORM\"; bye"
-
-          if [ -n "${SFTP_PASSWORD:-}" ]; then
-            echo "[DEPLOY] Using password auth to $SFTP_HOST:$PORT → $TARGET_NORM"
-            lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" -e "$LFTP_CMD"
-          elif [ -n "${SFTP_PRIVATE_KEY:-}" ]; then
-            echo "[DEPLOY] Using SSH key auth to $SFTP_HOST:$PORT → $TARGET_NORM"
-            lftp -u "$SFTP_USERNAME" -p "$PORT" sftp://"$SFTP_HOST" \
-              -e "set sftp:connect-program \"ssh -a -x -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no\"; $LFTP_CMD"
-          else
-            echo "::error::Weder SFTP_PASSWORD noch SFTP_PRIVATE_KEY gesetzt."
-            exit 1
-          fi
+          # Upload nur Inhalt von ./public nach $TARGET
+          lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" \
+            -e "set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 30; mkdir -p '$TARGET'; lcd public; mirror -R --delete --only-newer . '$TARGET'; bye"
