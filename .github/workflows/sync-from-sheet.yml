@@ -1,77 +1,59 @@
-name: Sync from Google Sheet (Wissen)
-# Version: 2025-10-07 16:55 Europe/Berlin
+name: Sync from Google Sheet → Repo (DE/EN)
 
 on:
-  # ← sorgt für den "Run workflow"-Button in GitHub Actions
-  workflow_dispatch:
-    inputs:
-      dry_run:
-        description: "Nur loggen, keine Commits/Push"
-        type: boolean
-        default: false
-      sheet_id:
-        description: "Optional: SHEET_ID überschreiben"
-        required: false
-        type: string
-      sheet_gid:
-        description: "Optional: SHEET_GID überschreiben"
-        required: false
-        type: string
-  # regelmäßige Synchronisation (alle 4 Stunden, Minute 17)
-  schedule:
-    - cron: "17 */4 * * *"
+  workflow_dispatch: {}          # manueller Start im UI
 
 permissions:
   contents: write
 
 concurrency:
   group: sync-from-sheet
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: wissen
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Python
+      - name: Git config (CI)
+        run: |
+          git config user.name  "ci-bot"
+          git config user.email "ci-bot@users.noreply.github.com"
+          git config core.autocrlf false
+
+      - name: Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install Python deps
+      - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests pandas pyyaml
 
-      - name: Run sync-from-sheet
+      - name: Run sync script (aus /wissen)
         env:
-          # Entweder komplette CSV-URL, oder SHEET_ID + SHEET_GID
+          # Setze EINES von beidem:
           GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
-          SHEET_ID: ${{ inputs.sheet_id != '' && inputs.sheet_id || secrets.SHEET_ID }}
-          SHEET_GID: ${{ inputs.sheet_gid != '' && inputs.sheet_gid || secrets.SHEET_GID }}
-          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          SHEET_ID:       ${{ secrets.SHEET_ID }}
+          SHEET_GID:      ${{ secrets.SHEET_GID }}
         run: |
+          cd wissen
           python scripts/sync-from-sheet.py
+          echo "Sync abgeschlossen."
 
-      - name: Commit & push if changed
-        if: ${{ inputs.dry_run == false }}
+      - name: Commit & push (nur bei Änderungen)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          CHANGED=$(git status --porcelain | wc -l)
-          echo "Changed files: $CHANGED"
-          if [ "$CHANGED" -gt "0" ]; then
-            git add .
-            git commit -m "sync-from-sheet: $(date -u +'%Y-%m-%dT%H:%M:%SZ') – $CHANGED files"
-            git push origin HEAD:main
-          else
-            echo "No content changes."
+          if git diff --quiet -- wissen/content; then
+            echo "Keine Änderungen."
+            exit 0
           fi
+          git add -A
+          git commit -m "sync: sheet → wissen/content (DE/EN)"
+          git push origin main
