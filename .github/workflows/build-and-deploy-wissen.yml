@@ -24,8 +24,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v3
@@ -35,8 +34,7 @@ jobs:
 
       - name: Build (prod config, site=wissen)
         working-directory: wissen
-        run: |
-          hugo --config hugo.prod.toml --gc --minify
+        run: hugo --config hugo.prod.toml --gc --minify
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -44,8 +42,7 @@ jobs:
           python-version: "3.12"
 
       - name: Smoke-Check
-        run: |
-          python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
+        run: python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
@@ -56,6 +53,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    # WICHTIG: Container mit vorinstalliertem lftp verhindert apt/needrestart-Hänger
+    container:
+      image: ghcr.io/instrumentisto/lftp:latest
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4
@@ -63,8 +63,8 @@ jobs:
           name: public
           path: public
 
-      - name: Deploy (SSH key bevorzugt; sonst Passwort mit non-interactive apt)
-        shell: bash
+      - name: Deploy via SFTP (Container, Passwort ODER SSH-Key, htdocs-aware)
+        shell: sh
         env:
           SFTP_HOST:        ${{ secrets.SFTP_HOST }}
           SFTP_PORT:        ${{ secrets.SFTP_PORT }}
@@ -73,58 +73,28 @@ jobs:
           SFTP_PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
           SFTP_TARGET:      ${{ secrets.SFTP_TARGET }}
         run: |
-          set -euo pipefail
+          set -eu
+
           PORT="${SFTP_PORT:-22}"
+          TARGET="${SFTP_TARGET#/}"        # nie absolute Rootpfade
+          [ -n "${TARGET}" ] || { echo "::error::SFTP_TARGET ist leer"; exit 1; }
 
-          # Zielpfad normalisieren (nie absolute Rootpfade)
-          TARGET="${SFTP_TARGET#/}"
-          if [ -z "${TARGET}" ]; then
-            echo "::error::SFTP_TARGET ist leer"; exit 1
-          fi
-
-          # --- Pfad ggf. automatisch auf 'htdocs/' prefixen ---
-          auto_prefix_htdocs() {
-            local cmd="$1"
-            if $cmd "test -d htdocs"; then
-              case "$TARGET" in
-                htdocs/*) : ;;
-                *) TARGET="htdocs/$TARGET" ;;
-              esac
-            fi
-          }
-
-          # --- Fall A: SSH-KEY vorhanden -> rsync (keine Pakete nötig, hängt nicht) ---
+          # optionaler SSH-Key (Container ist Alpine, hat lftp + openssh-client)
           if [ -n "${SFTP_PRIVATE_KEY:-}" ] && [ -z "${SFTP_PASSWORD:-}" ]; then
-            echo "[DEPLOY] using rsync over SSH key to $SFTP_HOST:$PORT → $TARGET"
-            mkdir -p ~/.ssh
-            printf '%s\n' "$SFTP_PRIVATE_KEY" > ~/.ssh/id_ed25519
-            chmod 600 ~/.ssh/id_ed25519
-
-            SSH_CMD="ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -p $PORT $SFTP_USERNAME@$SFTP_HOST"
-            auto_prefix_htdocs "$SSH_CMD -T -o BatchMode=yes --"  # prüft 'htdocs' per SSH
-            $SSH_CMD "mkdir -p '$TARGET'"
-
-            RSYNC_RSH="ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no -p $PORT"
-            rsync -az --delete --info=progress2 --no-perms --no-owner --no-group \
-              -e "$RSYNC_RSH" public/ "$SFTP_USERNAME@$SFTP_HOST:$TARGET/"
-            exit 0
+            mkdir -p /root/.ssh
+            printf '%s\n' "$SFTP_PRIVATE_KEY" > /root/.ssh/id_ed25519
+            chmod 600 /root/.ssh/id_ed25519
+            CONNECT="set sftp:connect-program 'ssh -a -x -i /root/.ssh/id_ed25519 -o StrictHostKeyChecking=no'"
+            AUTH="-u ${SFTP_USERNAME}"
+          else
+            CONNECT=""
+            AUTH="-u ${SFTP_USERNAME},${SFTP_PASSWORD}"
           fi
 
-          # --- Fall B: Passwort -> lftp, aber apt-get strikt non-interactive ---
-          echo "[DEPLOY] using lftp with password to $SFTP_HOST:$PORT → $TARGET"
-          export DEBIAN_FRONTEND=noninteractive
-          export NEEDRESTART_MODE=a
-          sudo apt-get update -y -o Dpkg::Use-Pty=0 >/dev/null
-          sudo apt-get install -y -o Dpkg::Use-Pty=0 --no-install-recommends lftp >/dev/null
-
-          # htdocs-Erkennung via SFTP
-          if lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" -e "cd htdocs; bye" >/dev/null 2>&1; then
-            case "$TARGET" in
-              htdocs/*) : ;;
-              *) TARGET="htdocs/$TARGET" ;;
-            esac
+          # htdocs auto-prefix falls vorhanden und noch nicht enthalten
+          if lftp ${AUTH} -p "${PORT}" sftp://"${SFTP_HOST}" -e "${CONNECT}; cd htdocs; bye" >/dev/null 2>&1; then
+            case "$TARGET" in htdocs/*) : ;; *) TARGET="htdocs/$TARGET" ;; esac
           fi
 
-          # Upload nur Inhalt von ./public nach $TARGET
-          lftp -u "$SFTP_USERNAME","$SFTP_PASSWORD" -p "$PORT" sftp://"$SFTP_HOST" \
-            -e "set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 30; mkdir -p '$TARGET'; lcd public; mirror -R --delete --only-newer . '$TARGET'; bye"
+          # Upload: nur Inhalt von ./public nach $TARGET
+          lftp ${AUTH} -p "${PORT}" sftp://"${SFTP_HOST}" -e "${CONNECT}; set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 30; mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
