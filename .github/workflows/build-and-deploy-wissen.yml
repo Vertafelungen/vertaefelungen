@@ -1,24 +1,15 @@
-name: Build & Deploy Wissen (Hugo → IONOS)
+name: Build & Deploy Wissen
+# Version: 2025-10-07 13:45 Europe/Berlin
 
 on:
   push:
     branches: [ main ]
     paths:
-      - "wissen/content/**"
-      - "wissen/layouts/**"
-      - "wissen/static/**"
-      - "wissen/assets/**"
-      - "wissen/hugo.prod.toml"
-      - "wissen/scripts/smoke_check_build.py"
-      - ".github/workflows/build-and-deploy-wissen.yml"
+      - 'wissen/**'
   workflow_dispatch: {}
 
 permissions:
   contents: read
-
-concurrency:
-  group: build-deploy-wissen
-  cancel-in-progress: true
 
 jobs:
   build:
@@ -29,46 +20,34 @@ jobs:
       - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.146.0'
+          hugo-version: '0.134.3'
           extended: true
 
-      - name: Build (prod config, site=wissen)
-        working-directory: wissen
-        run: hugo --config hugo.prod.toml --gc --minify
+      - name: Build (prod)
+        run: |
+          hugo --config wissen/hugo.prod.toml -s wissen -d wissen/public --minify --gc
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - name: Smoke check
+        run: |
+          python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
 
-      - name: Smoke-Check
-        run: python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
-
-      - name: Upload build artifact
+      - name: Upload artifact (optional)
         uses: actions/upload-artifact@v4
         with:
-          name: public
+          name: wissen-public
           path: wissen/public
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
+      - name: Deploy via SFTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          name: public
-          path: wissen/public
-
-      # Bewährter SFTP-Deploy (wie früher), nur mit Hugo-Pfad
-      - name: SFTP Deploy to IONOS
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server:   ${{ secrets.SFTP_HOST }}
-          port:     ${{ secrets.SFTP_PORT || 22 }}
-          username: ${{ secrets.SFTP_USERNAME || secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD || secrets.SFTP_PASS }}
-          sftp_only: true
-          local_path: "wissen/public/**"          # Hugo-Ausgabe
-          remote_path: ${{ secrets.SFTP_TARGET }} # z. B. /wissen
-          args: "-o StrictHostKeyChecking=no -o ConnectTimeout=20"
+          server: ${{ secrets.SFTP_SERVER }}
+          username: ${{ secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          protocol: "sftp"
+          server-dir: "/wissen"
+          local-dir: "wissen/public"
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.DS_Store
+            **/Thumbs.db
