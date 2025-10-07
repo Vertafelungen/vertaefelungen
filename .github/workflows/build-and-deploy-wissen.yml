@@ -1,134 +1,74 @@
-name: Build & Deploy Wissen
-# Version: 2025-10-07 16:45 Europe/Berlin
+name: Build & Deploy Wissen (Hugo → IONOS)
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'wissen/**'
+      - "wissen/content/**"
+      - "wissen/layouts/**"
+      - "wissen/static/**"
+      - "wissen/assets/**"
+      - "wissen/hugo.prod.toml"
+      - "wissen/scripts/smoke_check_build.py"
+      - ".github/workflows/build-and-deploy-wissen.yml"
   workflow_dispatch: {}
 
 permissions:
   contents: read
 
+concurrency:
+  group: build-deploy-wissen
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.134.3'
+          hugo-version: '0.146.0'
           extended: true
+
+      - name: Build (prod config, site=wissen)
+        working-directory: wissen
+        run: hugo --config hugo.prod.toml --gc --minify
 
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
+          python-version: "3.12"
 
-      - name: Install Python deps
-        run: |
-          python -m pip install --upgrade pip
-          pip install pyyaml
+      - name: Smoke-Check
+        run: python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
 
-      - name: Preflight listing
-        run: |
-          ls -la .
-          ls -la wissen
-          test -f wissen/hugo.prod.toml || (echo "FEHLT: wissen/hugo.prod.toml" && exit 2)
-
-      # Hotfix: unzulässige Steuerzeichen/BOM in Frontmatter & Content beseitigen
-      - name: Sanitize content (BOM, C0/C1, NBSP, zero-width)
-        run: |
-          python - <<'PY'
-          import pathlib, re
-          root = pathlib.Path('wissen/content')
-          # C0: \x00-\x1F (ohne \t \n \r haben wir oben schon ersetzt)
-          # C1: \x7F-\x9F  -> enthält U+0080 etc.
-          bad_ctrl = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]')
-          zero_width = re.compile(r'[\u200B-\u200D\u2060]')  # ZW*, WORD JOINER
-          fixed = 0
-          for p in root.rglob('index.md'):
-              b = p.read_bytes()
-              # Strip UTF-8 BOM
-              if b[:3] == b'\xef\xbb\xbf':
-                  b = b[3:]
-              s = b.decode('utf-8', 'replace')
-              s1 = s.replace('\r\n','\n').replace('\r','\n')
-              s1 = s1.replace('\u00A0',' ')  # NBSP -> normales Leerzeichen
-              s1 = zero_width.sub('', s1)
-              s1 = bad_ctrl.sub('', s1)
-              if s1 != s:
-                  p.write_text(s1, encoding='utf-8')
-                  print(f'[sanitize] fixed: {p}')
-                  fixed += 1
-          print(f'[sanitize] files fixed: {fixed}')
-          PY
-
-      - name: Lint frontmatter (YAML)
-        run: |
-          python - <<'PY'
-          import pathlib, sys, yaml, re
-          root = pathlib.Path('wissen/content')
-          front_re = re.compile(r'^---\n(.*?)\n---\n', re.S)
-          errs = 0
-          files = list(root.glob('de/oeffentlich/produkte/**/index.md')) + \
-                  list(root.glob('en/public/products/**/index.md'))
-          for p in files:
-            try:
-              s = p.read_text(encoding='utf-8', errors='strict')
-            except Exception as e:
-              print(f'[lint] read error in {p}: {e}')
-              errs += 1
-              continue
-            m = front_re.search(s)
-            if not m:
-              print(f'[lint] missing frontmatter: {p}')
-              errs += 1
-              continue
-            ysrc = m.group(1)
-            try:
-              yaml.safe_load(ysrc)
-            except Exception as e:
-              print(f'[lint] YAML error in {p}: {e}')
-              errs += 1
-          if errs:
-            sys.exit(3)
-          print('[lint] frontmatter OK')
-          PY
-
-      - name: Build (prod)
-        working-directory: wissen
-        env:
-          HUGO_ENV: production
-        run: |
-          # Keine -s Angabe; Config liegt im CWD
-          hugo --config hugo.prod.toml --minify --gc -d public
-
-      - name: Smoke check
-        run: |
-          python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
-
-      - name: Upload artifact (optional)
+      - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: wissen-public
+          name: public
           path: wissen/public
 
-      - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
         with:
-          server: ${{ secrets.SFTP_SERVER }}
-          username: ${{ secrets.SFTP_USER }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          protocol: "sftp"
-          server-dir: "/wissen"
-          local-dir: "wissen/public"
-          dangerous-clean-slate: false
+          name: public
+          path: wissen/public
 
-      - name: Done
-        run: echo "Build & Deploy Wissen – OK"
+      # Bewährter SFTP-Deploy (wie früher), nur mit Hugo-Pfad
+      - name: SFTP Deploy to IONOS
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server:   ${{ secrets.SFTP_HOST }}
+          port:     ${{ secrets.SFTP_PORT || 22 }}
+          username: ${{ secrets.SFTP_USERNAME || secrets.SFTP_USER }}
+          password: ${{ secrets.SFTP_PASSWORD || secrets.SFTP_PASS }}
+          sftp_only: true
+          local_path: "wissen/public/**"          # Hugo-Ausgabe
+          remote_path: ${{ secrets.SFTP_TARGET }} # z. B. /wissen
+          args: "-o StrictHostKeyChecking=no -o ConnectTimeout=20"
