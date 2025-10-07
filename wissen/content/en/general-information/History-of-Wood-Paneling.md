@@ -1,7 +1,3 @@
-# The History of Wood Paneling_A journey through stylistic periods, interiors, and representative examples_
-
-Wood paneling has shaped the image of refined interiors for centuries. Originally used to protect walls from cold and moisture, it soon evolved into a significant design element in civic, ecclesiastical, and courtly architecture. Its forms reflect the stylistic ideals of each era – from simple planks to highly complex constructions with elaborate carvings.
-
 ---
 
 ## 1. Middle Ages (c. 1100–1500)### Functionality and Symbolism
@@ -24,7 +20,6 @@ In the Middle Ages, paneling served primarily to protect walls. Early examples c
 - **Eltz Castle (Rhineland-Palatinate):** Gothic wood paneling with simple tracery panels
 
 ---
-
 ## 2. Renaissance (c. 1500–1650)### Geometric Clarity and Representation
 During the Renaissance, paneled wall systems became common in bourgeois townhouses. Architectural principles from antiquity were applied to interiors.
 

@@ -1,7 +1,3 @@
-# Die Geschichte der Holzvertäfelung_Eine Reise durch Stilepochen, Räume und repräsentative Beispiele_
-
-Holzvertäfelungen prägen seit Jahrhunderten das Bild anspruchsvoll gestalteter Innenräume. Ursprünglich zum Schutz von Wänden vor Kälte und Feuchtigkeit eingesetzt, entwickelten sie sich bald zu bedeutenden Gestaltungselementen bürgerlicher, kirchlicher und höfischer Architektur. Ihre Formen spiegeln die jeweilige Epoche wider – vom einfachen Brett bis zur hochkomplexen Paneelkonstruktion mit reichen Schnitzereien.
-
 ---
 
 ## 1. Mittelalter (ca. 1100–1500)### Funktionalität und Symbolik
@@ -24,7 +20,6 @@ Im Mittelalter dienten Vertäfelungen vor allem dem Wandschutz. In Klöstern und
 - **Burg Eltz (Rheinland-Pfalz):** Gotische Holzvertäfelungen mit einfachen Maßwerkfüllungen
 
 ---
-
 ## 2. Renaissance (ca. 1500–1650)### Geometrische Klarheit und Repräsentation
 Mit der Renaissance hielt die Paneelvertäfelung Einzug in bürgerliche Stadthäuser. Architektonische Prinzipien der Antike wurden nun auch auf Innenräume übertragen.
 
