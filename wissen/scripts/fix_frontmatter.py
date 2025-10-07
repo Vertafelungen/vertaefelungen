@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 14:35 Europe/Berlin
+# Version: 2025-10-07 14:55 Europe/Berlin
 from __future__ import annotations
 from pathlib import Path
 import re, sys
@@ -7,7 +7,7 @@ import re, sys
 ROOT = Path(__file__).resolve().parents[1]  # .../wissen
 CONTENT = ROOT / "content"
 
-CTRL_RE = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]')  # Tabs (0x09) NICHT, die ersetzen wir gezielt in YAML
+CTRL_RE = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]')  # Tab (0x09) lassen wir durch und behandeln separat
 BOM = "\ufeff"
 
 def sanitize_all(s: str) -> str:
@@ -19,46 +19,90 @@ def sanitize_all(s: str) -> str:
     return s
 
 def ensure_frontmatter_starts_at_col1(s: str) -> str:
-    # Alles vor dem ersten "---\n" wegtrimmen (Whitespace), damit die Frontmatter wirklich bei Spalte 1 startet
+    # Alles vor dem ersten "---\n" entfernen (Whitespace, BOM, etc.)
     m = re.search(r'(?m)^[ \t]*---\n', s)
     if not m:
-        return s  # Datei ohne Frontmatter: unverändert
-    start = m.start()
-    return s[start:]  # alles davor weg
-
-def detab_yaml_head(s: str) -> str:
-    m = re.match(r'^---\n(.*?\n)---\n', s, flags=re.S)
-    if not m:
         return s
-    head = m.group(1)
-    # Tabs am Zeilenanfang in zwei Spaces je Tab umwandeln
-    def repl(line: str) -> str:
-        leading_tabs = re.match(r'^\t+', line)
-        if not leading_tabs:
-            return line
-        return line.replace('\t', '  ', leading_tabs.end())
-    fixed = "\n".join(repl(ln) for ln in head.split("\n"))
-    return s.replace(head, fixed, 1)
+    return s[m.start():]
 
-def pull_last_sync_into_frontmatter(s: str) -> str:
+def split_head_body(s: str):
     m = re.match(r'^---\n(.*?\n)---\n(.*)$', s, flags=re.S)
     if not m:
-        return s
-    fm, body = m.group(1), m.group(2)
+        return None, None, s  # kein klassischer YAML-Header
+    return m.group(1), m.group(2), None
+
+def detab_head(head: str) -> str:
+    lines = head.split("\n")
+    for i, ln in enumerate(lines):
+        # nur führende Tabs ersetzen (2 Spaces pro Tab)
+        m = re.match(r'^(\t+)(.*)$', ln)
+        if m:
+            lines[i] = '  ' * len(m.group(1)) + m.group(2)
+    return "\n".join(lines)
+
+KEY_LINE = re.compile(r'^\s*[^:#\-\s][^:]*:\s*(\|[+-]?|\>|\s*[^#].*)?$')  # grob: "key: ..." oder Blockindikator
+INDENTED = re.compile(r'^\s+')
+
+def normalize_yaml_head(head: str):
+    """
+    Entfernt 'verirrte' reine Textzeilen aus dem YAML-Head und gibt:
+      fixed_head, stray_lines (-> sollen in den Body)
+    zurück.
+    """
+    lines = head.split("\n")
+    fixed = []
+    stray = []
+    in_block = False
+    for ln in lines:
+        if in_block:
+            fixed.append(ln)
+            # Block endet, wenn Leerzeile oder nicht eingerückt – hier vereinfachen wir:
+            if not INDENTED.match(ln) and ln.strip() != "":
+                in_block = False
+            continue
+        if KEY_LINE.match(ln) or ln.strip().startswith("#") or ln.strip() == "":
+            fixed.append(ln)
+            if ln.strip().endswith("|") or ln.strip().endswith("|-") or ln.strip().endswith("|+") or ln.strip().endswith(">"):
+                in_block = True
+        else:
+            # Zeile ohne "key:" im Head -> in den Body verschieben
+            stray.append(ln.strip())
+    # Head ohne überflüssige Leerzeilen konsolidieren
+    fixed_head = "\n".join(fixed).strip("\n") + "\n"
+    return fixed_head, [x for x in stray if x]
+
+def pull_last_sync_into_head(head: str, body: str):
     ms = re.search(r'^\s*last_sync:\s*".*?"\s*$', body, flags=re.M)
-    if ms and "last_sync:" not in fm:
-        fm = fm.rstrip("\n") + "\n" + ms.group(0) + "\n"
+    if ms and "last_sync:" not in head:
+        head = head.rstrip("\n") + "\n" + ms.group(0) + "\n"
         body = body[:ms.start()] + body[ms.end():]
-    return f"---\n{fm}---\n{body.lstrip()}"
+    return head, body
 
 def fix_file(p: Path) -> bool:
     raw = p.read_text(encoding="utf-8", errors="replace")
     s = sanitize_all(raw)
     s = ensure_frontmatter_starts_at_col1(s)
-    s = detab_yaml_head(s)
-    s = pull_last_sync_into_frontmatter(s)
-    if s != raw:
-        p.write_text(s, encoding="utf-8")
+
+    head, body, fallback = split_head_body(s)
+    if fallback is not None:
+        # keine klassische Frontmatter – nur Sanitizing angewendet
+        if s != raw:
+            p.write_text(s, encoding="utf-8")
+            print(f"[FIX] {p} (sanitize only)")
+            return True
+        return False
+
+    head = detab_head(head)
+    head, stray = normalize_yaml_head(head)
+    # stray-Zeilen in den Body am Anfang einfügen
+    if stray:
+        body = ("\n".join(stray) + "\n\n" + body.lstrip())
+
+    head, body = pull_last_sync_into_head(head, body)
+
+    fixed = f"---\n{head}---\n{body.lstrip()}"
+    if fixed != raw:
+        p.write_text(fixed, encoding="utf-8")
         print(f"[FIX] {p}")
         return True
     return False
@@ -66,7 +110,6 @@ def fix_file(p: Path) -> bool:
 def main():
     changed = 0
     for f in CONTENT.rglob("*.md"):
-        # ALLE .md prüfen – keine Vorab-Heuristik mehr
         try:
             if fix_file(f):
                 changed += 1
