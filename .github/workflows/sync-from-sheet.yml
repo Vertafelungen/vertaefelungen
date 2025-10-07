@@ -1,0 +1,82 @@
+name: Sync from Google Sheet → Repo (DE/EN)
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: "17 * * * *"   # stündlich; bei Bedarf anpassen
+  push:
+    branches: [ main ]
+    paths:
+      - "scripts/sync-from-sheet.py"
+      - ".github/workflows/sync-from-sheet.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-from-sheet
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set Git config (CI user)
+        run: |
+          git config user.name  "ci-bot"
+          git config user.email "ci-bot@users.noreply.github.com"
+          git config core.autocrlf false
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # Falls du requirements hast, bitte die Datei beibehalten:
+      - name: Install dependencies (optional)
+        if: hashFiles('scripts/requirements.txt') != ''
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Prepare Google Service Account JSON
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          test -n "$GOOGLE_SERVICE_ACCOUNT_JSON"
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON" > service_account.json
+
+      - name: Run sync script (schreibt DE/EN deterministisch)
+        env:
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+        run: |
+          python scripts/sync-from-sheet.py \
+            --service-account service_account.json \
+            --sheet-id "$SHEET_ID" \
+            --out-de "wissen/content/de/oeffentlich" \
+            --out-en "wissen/content/en/public" \
+            --deterministic
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet -- wissen/content; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "Keine Änderungen erkannt."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Änderungen erkannt."
+          fi
+
+      - name: Commit & push (nur bei Änderungen)
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git add -A
+          git commit -m "sync: sheet changes → content (DE/EN)" || exit 0
+          git push origin main
