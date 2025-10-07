@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{{ block "title" . }}{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+  {{ partial "head/canonical.html" . }}
 </head>
 <body>
   <header style="padding:1rem;border-bottom:1px solid #ddd">
