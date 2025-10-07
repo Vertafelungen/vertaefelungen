@@ -1,14 +1,32 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 14:55 Europe/Berlin
+# Version: 2025-10-07 15:25 Europe/Berlin
 from __future__ import annotations
 from pathlib import Path
 import re, sys
 
-ROOT = Path(__file__).resolve().parents[1]  # .../wissen
+ROOT    = Path(__file__).resolve().parents[1]      # .../wissen
 CONTENT = ROOT / "content"
 
-CTRL_RE = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]')  # Tab (0x09) lassen wir durch und behandeln separat
-BOM = "\ufeff"
+# Control-Chars (ohne TAB), BOM entfernen
+CTRL_RE = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]')
+BOM     = "\ufeff"
+
+# Unicode-Sonderleerzeichen → normales Leerzeichen,
+# Zero-Width-Zeichen/LRM/RLM → entfernen
+SPACE_MAP = {
+    # NBSP + diverse Spaces
+    **{ord(c): " " for c in " \u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000"},
+    # Zero-width / Joiners / Word joiner / LRM/RLM
+    ord("\u200B"): None,  # ZWSP
+    ord("\u200C"): None,  # ZWNJ
+    ord("\u200D"): None,  # ZWJ
+    ord("\u2060"): None,  # WJ
+    ord("\u200E"): None,  # LRM
+    ord("\u200F"): None,  # RLM
+}
+
+def normalize_unicode_spaces(s: str) -> str:
+    return s.translate(SPACE_MAP)
 
 def sanitize_all(s: str) -> str:
     if not s:
@@ -16,11 +34,12 @@ def sanitize_all(s: str) -> str:
     s = s.replace(BOM, "")
     s = CTRL_RE.sub(" ", s)
     s = s.replace("\r\n", "\n")
+    s = normalize_unicode_spaces(s)
     return s
 
 def ensure_frontmatter_starts_at_col1(s: str) -> str:
-    # Alles vor dem ersten "---\n" entfernen (Whitespace, BOM, etc.)
-    m = re.search(r'(?m)^[ \t]*---\n', s)
+    # Alles vor erstem ---\n (inkl. Unicode-Leerzeichen) entfernen
+    m = re.search(r'(?m)^[ \t\u00A0\u1680\u2000-\u200B\u202F\u205F\u3000]*---\n', s)
     if not m:
         return s
     return s[m.start():]
@@ -28,46 +47,39 @@ def ensure_frontmatter_starts_at_col1(s: str) -> str:
 def split_head_body(s: str):
     m = re.match(r'^---\n(.*?\n)---\n(.*)$', s, flags=re.S)
     if not m:
-        return None, None, s  # kein klassischer YAML-Header
+        return None, None, s
     return m.group(1), m.group(2), None
 
 def detab_head(head: str) -> str:
     lines = head.split("\n")
     for i, ln in enumerate(lines):
-        # nur führende Tabs ersetzen (2 Spaces pro Tab)
+        # führende Tabs → zwei Spaces je Tab; Unicode-Spaces sind schon normalisiert
         m = re.match(r'^(\t+)(.*)$', ln)
         if m:
             lines[i] = '  ' * len(m.group(1)) + m.group(2)
     return "\n".join(lines)
 
-KEY_LINE = re.compile(r'^\s*[^:#\-\s][^:]*:\s*(\|[+-]?|\>|\s*[^#].*)?$')  # grob: "key: ..." oder Blockindikator
-INDENTED = re.compile(r'^\s+')
+# grobe Heuristik für Key-Zeilen im YAML
+KEY_LINE  = re.compile(r'^\s*[^:#\-\s][^:]*:\s*(\|[+-]?|\>|\s*[^#].*)?$')
+INDENTED  = re.compile(r'^\s+')
 
 def normalize_yaml_head(head: str):
-    """
-    Entfernt 'verirrte' reine Textzeilen aus dem YAML-Head und gibt:
-      fixed_head, stray_lines (-> sollen in den Body)
-    zurück.
-    """
+    """Entfernt 'verirrte' Textzeilen aus YAML-Head → Body."""
     lines = head.split("\n")
-    fixed = []
-    stray = []
+    fixed, stray = [], []
     in_block = False
     for ln in lines:
         if in_block:
             fixed.append(ln)
-            # Block endet, wenn Leerzeile oder nicht eingerückt – hier vereinfachen wir:
             if not INDENTED.match(ln) and ln.strip() != "":
                 in_block = False
             continue
         if KEY_LINE.match(ln) or ln.strip().startswith("#") or ln.strip() == "":
             fixed.append(ln)
-            if ln.strip().endswith("|") or ln.strip().endswith("|-") or ln.strip().endswith("|+") or ln.strip().endswith(">"):
+            if ln.strip().endswith(("|", "|-", "|+", ">")):
                 in_block = True
         else:
-            # Zeile ohne "key:" im Head -> in den Body verschieben
             stray.append(ln.strip())
-    # Head ohne überflüssige Leerzeilen konsolidieren
     fixed_head = "\n".join(fixed).strip("\n") + "\n"
     return fixed_head, [x for x in stray if x]
 
@@ -75,7 +87,7 @@ def pull_last_sync_into_head(head: str, body: str):
     ms = re.search(r'^\s*last_sync:\s*".*?"\s*$', body, flags=re.M)
     if ms and "last_sync:" not in head:
         head = head.rstrip("\n") + "\n" + ms.group(0) + "\n"
-        body = body[:ms.start()] + body[ms.end():]
+        body = body[:ms.start()] + ms.string[ms.end():]
     return head, body
 
 def fix_file(p: Path) -> bool:
@@ -85,16 +97,14 @@ def fix_file(p: Path) -> bool:
 
     head, body, fallback = split_head_body(s)
     if fallback is not None:
-        # keine klassische Frontmatter – nur Sanitizing angewendet
+        # keine klassische Frontmatter
         if s != raw:
-            p.write_text(s, encoding="utf-8")
-            print(f"[FIX] {p} (sanitize only)")
+            p.write_text(s, encoding="utf-8"); print(f"[FIX] {p} (sanitize only)")
             return True
         return False
 
     head = detab_head(head)
     head, stray = normalize_yaml_head(head)
-    # stray-Zeilen in den Body am Anfang einfügen
     if stray:
         body = ("\n".join(stray) + "\n\n" + body.lstrip())
 
@@ -102,8 +112,7 @@ def fix_file(p: Path) -> bool:
 
     fixed = f"---\n{head}---\n{body.lstrip()}"
     if fixed != raw:
-        p.write_text(fixed, encoding="utf-8")
-        print(f"[FIX] {p}")
+        p.write_text(fixed, encoding="utf-8"); print(f"[FIX] {p}")
         return True
     return False
 
