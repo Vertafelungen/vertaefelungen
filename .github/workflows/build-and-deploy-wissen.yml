@@ -1,0 +1,70 @@
+name: Build & Deploy Wissen (Hugo → IONOS)
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - "wissen/content/**"
+      - "wissen/layouts/**"
+      - "wissen/static/**"
+      - "wissen/assets/**"
+      - "hugo.prod.toml"
+      - ".github/workflows/build-and-deploy-wissen.yml"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-deploy-wissen
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo (extended)
+        uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: "0.130.0"
+          extended: true
+
+      - name: Build (prod config)
+        run: |
+          hugo --config hugo.prod.toml --gc --minify
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: public
+          path: public
+
+      # SFTP-Deploy-Action unterstützt Password ODER SSH-Key.
+      # Lass deine bestehenden Secrets/Variablen UNVERÄNDERT:
+      #   SFTP_HOST, SFTP_PORT (22), SFTP_USERNAME, SFTP_PASSWORD (oder SFTP_PRIVATE_KEY),
+      #   SFTP_TARGET (z. B. /wissen)
+      - name: Deploy via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          ssh_private_key: ${{ secrets.SFTP_PRIVATE_KEY }}
+          local_path: "public/*"
+          remote_path: ${{ secrets.SFTP_TARGET }}
+          sftp_only: true
+          args: "-o StrictHostKeyChecking=no"
