@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 (robust: block scalars, lists, _index.md-Ausnahme)
+# Version: 2025-10-07 16:30 Europe/Berlin
+# Strikter Content-Guard mit Unicode-Normalisierung des YAML-Frontmatters
 from __future__ import annotations
 from pathlib import Path
-import re, sys
+import re, sys, unicodedata
 import yaml  # pip install pyyaml
 
 ROOT    = Path(__file__).resolve().parents[1]
@@ -10,6 +11,68 @@ CONTENT = ROOT / "content"
 
 FM_RE = re.compile(r'^---\n(.*?\n)---\n(.*)$', re.S)
 
+# Unicode-Normalisierung (wie im Fixer)
+SPACE_MAP = {
+    **{ord(c): " " for c in " \u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000"},
+    ord("\u200B"): None, ord("\u200C"): None, ord("\u200D"): None, ord("\u2060"): None,
+    ord("\u200E"): None, ord("\u200F"): None, ord("\u2028"): " ", ord("\u2029"): " ",
+}
+def normalize_unicode(s: str) -> str:
+    return unicodedata.normalize("NFKC", s).translate(SPACE_MAP)
+
+# Pfad-Helfer
+def is_product_path(p: Path) -> bool:
+    s = p.as_posix()
+    return "/de/oeffentlich/produkte/" in s or "/en/public/products/" in s
+def is_faq_path(p: Path) -> bool:
+    return "/faq/" in p.as_posix()
+def is_index_file(p: Path) -> bool:
+    return p.name == "_index.md"
+def guess_type_by_path(p: Path) -> str | None:
+    if is_product_path(p): return "produkte"
+    if is_faq_path(p):     return "faq"
+    if "/allgemeine-informationen/" in p.as_posix(): return "allgemeine-informationen"
+    return None
+
+# Struktur-Prüfung (erlaubt Blocks & Listen)
+KEY_LINE   = re.compile(r'^\s*[^:#\-\s][^:]*:\s*(\|[+-]?|\>|[^\#].*)?$')
+LIST_ITEM  = re.compile(r'^\s*-\s+.*$')
+INDENTED   = re.compile(r'^\s+')
+
+def head_structure_error(head_raw: str) -> str | None:
+    head = normalize_unicode(head_raw)
+    lines = head.splitlines()
+    in_block = False
+    for i, ln in enumerate(lines, start=1):
+        if in_block:
+            if ln.strip() == "" or INDENTED.match(ln):  # Folgezeilen eines Blocks
+                continue
+            in_block = False  # Block beendet, aktuelle Zeile weiterprüfen
+
+        if ln.strip() == "" or ln.lstrip().startswith("#"):
+            continue
+        if KEY_LINE.match(ln):
+            if ln.rstrip().endswith(("|", "|-", "|+", ">")):
+                in_block = True
+            continue
+        if LIST_ITEM.match(ln):
+            continue
+        return f"Textzeile im YAML-Head (kein 'key: value' / Block / Liste): Zeile {i}: {ln[:60]!r}"
+    return None
+
+def parse_frontmatter(txt_raw: str):
+    m = FM_RE.match(txt_raw)
+    if not m:
+        return None, None
+    head_raw, body_raw = m.group(1), m.group(2)
+    head = normalize_unicode(head_raw)
+    body = normalize_unicode(body_raw)
+    data = yaml.safe_load(head) or {}
+    if not isinstance(data, dict):
+        raise RuntimeError("YAML-Frontmatter ist kein Mapping (dict).")
+    return head, data, body
+
+# Schemas
 SCHEMAS = {
     "produkte": {
         "required": {"title", "slug"},
@@ -25,76 +88,6 @@ SCHEMAS = {
     },
 }
 
-def is_product_path(p: Path) -> bool:
-    s = p.as_posix()
-    return "/de/oeffentlich/produkte/" in s or "/en/public/products/" in s
-
-def is_faq_path(p: Path) -> bool:
-    s = p.as_posix()
-    return "/faq/" in s
-
-def is_index_file(p: Path) -> bool:
-    return p.name == "_index.md"
-
-def guess_type_by_path(p: Path) -> str | None:
-    if is_product_path(p): return "produkte"
-    if is_faq_path(p):     return "faq"
-    if "/allgemeine-informationen/" in p.as_posix(): return "allgemeine-informationen"
-    return None
-
-def read_utf8(p: Path) -> str:
-    return p.read_text(encoding="utf-8", errors="strict")
-
-def parse_frontmatter(txt: str):
-    m = FM_RE.match(txt)
-    if not m:
-        return None, None
-    head, body = m.group(1), m.group(2)
-    data = yaml.safe_load(head) or {}
-    if not isinstance(data, dict):
-        raise RuntimeError("YAML-Frontmatter ist kein Mapping (dict).")
-    return head, data, body
-
-# -------- Struktur-Check für YAML-Head (erlaubt Block- und Listenzeilen)
-KEY_LINE   = re.compile(r'^\s*[^:#\-\s][^:]*:\s*(\|[+-]?|\>|[^\#].*)?$')
-LIST_ITEM  = re.compile(r'^\s*-\s+.*$')
-INDENTED   = re.compile(r'^\s+')
-
-def head_structure_error(head: str) -> str | None:
-    """Erkennt fälschlich hineingeratene Freitext-Zeilen im YAML-Head.
-
-    Erlaubt:
-      - key: value
-      - key: | / >  (Block), danach eingerückte Folgezeilen
-      - Listenzeilen: '  - item'
-      - leere Zeilen & Kommentare
-    """
-    lines = head.splitlines()
-    in_block = False
-    for i, ln in enumerate(lines, start=1):
-        if in_block:
-            if ln.strip() == "" or INDENTED.match(ln):
-                continue
-            # Block endet, aktuelle Zeile erneut normal prüfen
-            in_block = False
-            # kein "continue" – wir prüfen ln direkt unten
-
-        if ln.strip() == "" or ln.lstrip().startswith("#"):
-            continue
-
-        if KEY_LINE.match(ln):
-            if ln.rstrip().endswith(("|", "|-", "|+", ">")):
-                in_block = True
-            continue
-
-        if LIST_ITEM.match(ln):
-            continue
-
-        # alles andere ist verdächtiger Freitext
-        return f"Textzeile im YAML-Head (kein 'key: value' / Block / Liste): Zeile {i}: {ln[:60]!r}"
-    return None
-
-# -------- Schema-Prüfung
 def check_schema(p: Path, fm: dict, strict: bool):
     warns, errs = [], []
 
@@ -102,7 +95,7 @@ def check_schema(p: Path, fm: dict, strict: bool):
     fm_type = (fm.get("type") or "").strip().lower()
     t = fm_type or (implied or "")
 
-    # _index.md: nie strikt behandeln (Aggregationsseiten)
+    # _index.md nie strikt behandeln
     if is_index_file(p):
         if strict and implied in ("produkte","faq") and not fm_type:
             warns.append("Empfehlung: 'type' für _index.md optional setzen (z. B. 'produkte').")
@@ -124,10 +117,8 @@ def check_schema(p: Path, fm: dict, strict: bool):
                 errs.append(f"Pflichtfelder fehlen: {', '.join(sorted(missing))}")
             else:
                 warns.append(f"Empfehlung: fehlende Felder: {', '.join(sorted(missing))}")
-
         if t == "produkte":
             var = fm.get("varianten")
-            # nur Fehler, wenn Feld existiert und KEINE Liste ist
             if var is not None and var != "" and not isinstance(var, list):
                 errs.append("'varianten' muss eine Liste sein (oder Feld ganz weglassen).")
     else:
@@ -138,12 +129,11 @@ def check_schema(p: Path, fm: dict, strict: bool):
 
     return warns, errs
 
-# -------- Lauf
 def guard(strict: bool):
     errors, warns = [], []
     for p in CONTENT.rglob("*.md"):
         try:
-            txt = read_utf8(p)
+            txt = p.read_text(encoding="utf-8", errors="strict")
         except UnicodeDecodeError as e:
             errors.append(f"{p}: Datei ist nicht UTF-8: {e}")
             continue
@@ -152,8 +142,8 @@ def guard(strict: bool):
         if not m:
             continue
 
-        head = m.group(1)
-        err = head_structure_error(head)
+        # Strukturcheck (robust gegen NBSP/Zero-Width)
+        err = head_structure_error(m.group(1))
         if err:
             errors.append(f"{p}: {err}")
             continue
