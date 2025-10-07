@@ -53,9 +53,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    # WICHTIG: Container mit vorinstalliertem lftp verhindert apt/needrestart-Hänger
+    # Container mit schlankem Alpine: lftp/ssh werden per apk installiert (kein needrestart).
     container:
-      image: ghcr.io/instrumentisto/lftp:latest
+      image: alpine:3.19
     steps:
       - name: Download build artifact
         uses: actions/download-artifact@v4
@@ -63,7 +63,13 @@ jobs:
           name: public
           path: public
 
-      - name: Deploy via SFTP (Container, Passwort ODER SSH-Key, htdocs-aware)
+      - name: Install tools (lftp + openssh-client)
+        shell: sh
+        run: |
+          set -eu
+          apk add --no-cache lftp openssh-client
+
+      - name: Deploy via SFTP (Passwort ODER SSH-Key, htdocs-aware)
         shell: sh
         env:
           SFTP_HOST:        ${{ secrets.SFTP_HOST }}
@@ -74,27 +80,31 @@ jobs:
           SFTP_TARGET:      ${{ secrets.SFTP_TARGET }}
         run: |
           set -eu
-
           PORT="${SFTP_PORT:-22}"
-          TARGET="${SFTP_TARGET#/}"        # nie absolute Rootpfade
+          TARGET="${SFTP_TARGET#/}"         # nie absolut
+
           [ -n "${TARGET}" ] || { echo "::error::SFTP_TARGET ist leer"; exit 1; }
 
-          # optionaler SSH-Key (Container ist Alpine, hat lftp + openssh-client)
+          CONNECT=""
+          AUTH=""
           if [ -n "${SFTP_PRIVATE_KEY:-}" ] && [ -z "${SFTP_PASSWORD:-}" ]; then
+            # SSH-Key
             mkdir -p /root/.ssh
             printf '%s\n' "$SFTP_PRIVATE_KEY" > /root/.ssh/id_ed25519
             chmod 600 /root/.ssh/id_ed25519
             CONNECT="set sftp:connect-program 'ssh -a -x -i /root/.ssh/id_ed25519 -o StrictHostKeyChecking=no'"
             AUTH="-u ${SFTP_USERNAME}"
           else
-            CONNECT=""
+            # Passwort
             AUTH="-u ${SFTP_USERNAME},${SFTP_PASSWORD}"
           fi
 
-          # htdocs auto-prefix falls vorhanden und noch nicht enthalten
+          # htdocs automatisch voranstellen, wenn vorhanden und noch nicht enthalten
           if lftp ${AUTH} -p "${PORT}" sftp://"${SFTP_HOST}" -e "${CONNECT}; cd htdocs; bye" >/dev/null 2>&1; then
             case "$TARGET" in htdocs/*) : ;; *) TARGET="htdocs/$TARGET" ;; esac
           fi
 
-          # Upload: nur Inhalt von ./public nach $TARGET
-          lftp ${AUTH} -p "${PORT}" sftp://"${SFTP_HOST}" -e "${CONNECT}; set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 30; mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
+          # Upload: nur Inhalt von ./public → $TARGET
+          LFTP_CMD="${CONNECT}; set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 30; mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
+          echo "[DEPLOY] Upload to ${SFTP_HOST}:${PORT} → ${TARGET}"
+          lftp ${AUTH} -p "${PORT}" sftp://"${SFTP_HOST}" -e "${LFTP_CMD}"
