@@ -1,45 +1,43 @@
 #!/usr/bin/env python3
+# Version: 2025-10-07 13:45 Europe/Berlin
 # sync-from-sheet.py – zieht ein Google-Sheet (CSV) und schreibt Hugo-Content (DE/EN)
 # Zielpfade:
 #   DE: wissen/content/de/oeffentlich/produkte/<slug>/index.md
 #   EN: wissen/content/en/public/products/<slug>/index.md
 #
-# KONFIG über Umgebungsvariablen (eines von beidem):
-#   GSHEET_CSV_URL   -> kompletter CSV-Export-Link
-#   ODER
-#   SHEET_ID + SHEET_GID  (Google Sheet ID + Tabellenblatt GID)
+# ENV (eines von beidem):
+#   GSHEET_CSV_URL  ODER  SHEET_ID + SHEET_GID
+# Optional:
+#   DRY_RUN=1  → schreibt nicht, loggt nur
 #
-# Minimal erforderliche Spalten im Sheet (Case-insensitive erkannt):
-#   slug (alternativ wird aus deutschem Titel generiert)
+# Minimalspalten (Case-insensitive):
+#   slug (alternativ aus deutschem Titel generiert)
 #   titel_de, titel_en
 #   beschreibung_md_de, beschreibung_md_en
 # Optional:
-#   kategorie / category       (Komma/Strichpunkt-getrennt)
-#   bilder / images            (Komma/Strichpunkt-getrennt)
-#   varianten_yaml (YAML-Liste) ODER varianten im Format name|preis|einheit|sku; ...
-#   sku, preis, einheit        (für Single-Variante, falls varianten leer)
-#
-# Aufruf lokal (aus Repo-Root):   cd wissen && python scripts/sync-from-sheet.py
-# Aufruf in CI (Workflow tut das für dich)
+#   kategorie/category, bilder/images, varianten_yaml ODER varianten (name|preis|einheit|sku; ...),
+#   sku, preis, einheit
 
 from __future__ import annotations
-import os, re, sys, unicodedata
-from datetime import datetime, timezone, timedelta
+import os, re, sys, unicodedata, hashlib
+from datetime import datetime
 from io import StringIO
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 import requests
 import pandas as pd
 
 # --------------------- Pfade ---------------------
-ROOT = Path(__file__).resolve().parents[1]  # .../wissen
+ROOT   = Path(__file__).resolve().parents[1]  # .../wissen
 OUT_DE = ROOT / "content" / "de" / "oeffentlich" / "produkte"
 OUT_EN = ROOT / "content" / "en" / "public" / "products"
 
+DRY_RUN = os.getenv("DRY_RUN", "") not in ("", "0", "false", "False")
+
 # --------------------- Helpers -------------------
-def now_iso():
-    # Berlin-Zeit ohne externe Abhängigkeiten
-    return (datetime.utcnow() + timedelta(hours=2)).replace(microsecond=0, tzinfo=timezone(timedelta(hours=2))).isoformat()
+def now_iso_berlin() -> str:
+    return datetime.now(ZoneInfo("Europe/Berlin")).replace(microsecond=0).isoformat()
 
 def try_fix(s: str | None) -> str:
     if s is None:
@@ -74,7 +72,6 @@ def first_col(df: pd.DataFrame, *cands):
     return None
 
 def parse_varianten(row: dict):
-    # Variante A: YAML-Liste in 'varianten_yaml' (optional)
     vy = row.get("varianten_yaml") or row.get("VARIANTEN_YAML") or ""
     if vy and str(vy).strip():
         try:
@@ -84,7 +81,6 @@ def parse_varianten(row: dict):
                 return v
         except Exception:
             pass
-    # Variante B: kompakt "name|preis|einheit|sku; name|…"
     txt = row.get("varianten") or row.get("VARIANTEN") or ""
     items = []
     for chunk in split_list(txt):
@@ -110,7 +106,7 @@ def yaml_block(key: str, text: str) -> str:
         lines.append(f"  {ln}")
     return "\n".join(lines)
 
-def fm_to_str(fm: dict, de_title: str, en_title: str, de_desc: str, en_desc: str) -> str:
+def fm_to_str(fm: dict, title: str, beschr_de: str, beschr_en: str) -> str:
     # deterministische Reihenfolge
     order = [
         "title", "title_en",
@@ -118,15 +114,18 @@ def fm_to_str(fm: dict, de_title: str, en_title: str, de_desc: str, en_desc: str
         "beschreibung_md_de", "beschreibung_md_en",
         "bilder", "varianten", "sku", "last_sync",
     ]
-    # zusammenführen
     data = dict(fm)
-    data["title"] = de_title
-    data["title_en"] = en_title
-    data["beschreibung_md_de"] = de_desc or ""
-    data["beschreibung_md_en"] = en_desc or ""
-
+    data["title"] = title
+    # title_en bleibt zusätzlich drin, damit ein Template bei Bedarf umschalten kann
+    # (für reine i18n-Frontmatter wäre getrennte title-Keys nicht nötig)
     out = ["---"]
     for k in order:
+        if k == "beschreibung_md_de":
+            out.append(yaml_block(k, str(beschr_de)))
+            continue
+        if k == "beschreibung_md_en":
+            out.append(yaml_block(k, str(beschr_en)))
+            continue
         if k not in data:
             continue
         v = data[k]
@@ -142,13 +141,16 @@ def fm_to_str(fm: dict, de_title: str, en_title: str, de_desc: str, en_desc: str
                 out.append("  -")
                 for kk, vv in el.items():
                     out.append(f"    {kk}: {vv}")
-        elif k in ("beschreibung_md_de", "beschreibung_md_en"):
-            out.append(yaml_block(k, str(v)))
         else:
             out.append(f"{k}: {v}")
     out.append("---")
     out.append("")  # Leerzeile hinter Frontmatter
     return "\n".join(out)
+
+LAST_SYNC_RE = re.compile(r'^\s*last_sync:\s*.*$', flags=re.M)
+
+def strip_last_sync(txt: str) -> str:
+    return LAST_SYNC_RE.sub("", txt or "")
 
 def write_product(de: dict, en: dict):
     out_de = OUT_DE / de["slug"] / "index.md"
@@ -156,32 +158,56 @@ def write_product(de: dict, en: dict):
     out_de.parent.mkdir(parents=True, exist_ok=True)
     out_en.parent.mkdir(parents=True, exist_ok=True)
 
-    fm = {
+    base_fm = {
         "type": "produkte",
         "slug": de["slug"],
         "kategorie": de.get("kategorie", []),
         "bilder": de.get("bilder", []),
         "varianten": de.get("varianten", []),
         "sku": de.get("sku") or en.get("sku") or "",
-        "last_sync": now_iso(),
+        # last_sync zunächst NICHT setzen → nur bei Änderung
     }
-    fm_txt = fm_to_str(
-        fm,
-        de_title=de["title"],
-        en_title=en["title"],
-        de_desc=de.get("beschreibung", ""),
-        en_desc=en.get("beschreibung", ""),
+
+    # Frontmatter je Sprache bauen (Titel lokalisiert!)
+    fm_de_core = fm_to_str(
+        {**base_fm, "title_en": en["title"]},
+        title=de["title"],
+        beschr_de=de.get("beschreibung", ""),
+        beschr_en=en.get("beschreibung", ""),
     )
-    # Body lassen wir leer (Inhalt kommt aus Frontmatter-Feldern)
-    new_de = fm_txt
-    new_en = fm_txt
+    fm_en_core = fm_to_str(
+        {**base_fm, "title_en": en["title"]},
+        title=en["title"],
+        beschr_de=de.get("beschreibung", ""),
+        beschr_en=en.get("beschreibung", ""),
+    )
 
     old_de = out_de.read_text(encoding="utf-8") if out_de.exists() else ""
     old_en = out_en.read_text(encoding="utf-8") if out_en.exists() else ""
-    if new_de != old_de:
-        out_de.write_text(new_de, encoding="utf-8")
-    if new_en != old_en:
-        out_en.write_text(new_en, encoding="utf-8")
+    changed_de = strip_last_sync(old_de) != strip_last_sync(fm_de_core)
+    changed_en = strip_last_sync(old_en) != strip_last_sync(fm_en_core)
+
+    wrote = False
+    ts = f'last_sync: "{now_iso_berlin()}"'
+    if changed_de:
+        new_de = fm_de_core.rstrip() + "\n" + ts + "\n\n"
+        if not DRY_RUN:
+            out_de.write_text(new_de, encoding="utf-8")
+        print(f"[SYNC] DE {de['slug']}: CHANGED")
+        wrote = True
+    else:
+        print(f"[SYNC] DE {de['slug']}: UNCHANGED")
+
+    if changed_en:
+        new_en = fm_en_core.rstrip() + "\n" + ts + "\n\n"
+        if not DRY_RUN:
+            out_en.write_text(new_en, encoding="utf-8")
+        print(f"[SYNC] EN {de['slug']}: CHANGED")
+        wrote = True
+    else:
+        print(f"[SYNC] EN {de['slug']}: UNCHANGED")
+
+    return wrote
 
 def fetch_csv_text() -> str:
     url = (os.getenv("GSHEET_CSV_URL") or "").strip()
@@ -211,7 +237,6 @@ def row_to_lang(row: dict, lang: str) -> dict:
     varianten = parse_varianten(d)
     sku = d.get("sku") or ""
 
-    # Single-Variante aus preis/einheit/sku, wenn keine Liste vorhanden
     if not varianten:
         preis = d.get("preis") or ""
         einheit = d.get("einheit") or ""
@@ -244,23 +269,22 @@ def main():
     df = df.fillna("")
     df.columns = [c.strip() for c in df.columns]
 
-    # Optional: nur freigegebene Zeilen
     pub = first_col(df, "publish", "veröffentlichen")
     if pub:
         df = df[df[pub].astype(str).str.lower().isin(["1", "true", "ja", "yes", "y", ""])]
 
-    written = 0
     OUT_DE.mkdir(parents=True, exist_ok=True)
     OUT_EN.mkdir(parents=True, exist_ok=True)
 
+    written = 0
     for _, row in df.iterrows():
         row = {k: row[k] for k in df.columns}
         de = row_to_lang(row, "de")
         en = row_to_lang(row, "en")
-        write_product(de, en)
-        written += 1
+        if write_product(de, en):
+            written += 1
 
-    print(f"✓ {written} Produkte aktualisiert.")
+    print(f"✓ {written} Produkte geändert (idempotent).")
     print(f"DE → {OUT_DE}")
     print(f"EN → {OUT_EN}")
 
