@@ -8,7 +8,7 @@ on:
       - "wissen/layouts/**"
       - "wissen/static/**"
       - "wissen/assets/**"
-      - "hugo.prod.toml"
+      - "wissen/hugo.prod.toml"
       - ".github/workflows/build-and-deploy-wissen.yml"
   workflow_dispatch: {}
 
@@ -32,7 +32,9 @@ jobs:
           hugo-version: "0.130.0"
           extended: true
 
-      - name: Build (prod config)
+      # Wichtig: im Unterordner "wissen" bauen
+      - name: Build (prod config, site=wissen)
+        working-directory: wissen
         run: |
           hugo --config hugo.prod.toml --gc --minify
 
@@ -40,7 +42,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: public
-          path: public
+          path: wissen/public
 
   deploy:
     needs: build
@@ -52,9 +54,9 @@ jobs:
           name: public
           path: public
 
-      # SFTP-Deploy-Action unterstützt Password ODER SSH-Key.
-      # Lass deine bestehenden Secrets/Variablen UNVERÄNDERT:
-      #   SFTP_HOST, SFTP_PORT (22), SFTP_USERNAME, SFTP_PASSWORD (oder SFTP_PRIVATE_KEY),
+      # Passwort oder SSH-Key – wie bei dir bereits eingerichtet.
+      # Secrets bleiben unverändert:
+      #   SFTP_HOST, SFTP_PORT, SFTP_USERNAME, SFTP_PASSWORD (oder SFTP_PRIVATE_KEY),
       #   SFTP_TARGET (z. B. /wissen)
       - name: Deploy via SFTP
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
