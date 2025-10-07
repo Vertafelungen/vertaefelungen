@@ -1,14 +1,17 @@
 ---
-## 1. Middle Ages (c. 1100–1500)### Functionality and Symbolism
+title: "Geschichte der Holzvertäfelung"
+slug: "geschichte-der-holzvertaefelung"
+type: "allgemeine-informationen"
+---
 
-**Stylistic features:**
+## 1. Mittelalter (ca. 1100–1500)
+### Funktionalität und Symbolik
 
+**Stilmerkmale:**
 
+**Material:**
 
-**Materials:**
-
-
-**Examples:**
+**Beispiele:**
 ---
 In the Middle Ages, paneling served primarily to protect walls. Early examples can be found in monasteries and castles, often made of oak or fir – unadorned, rarely profiled.
 - Vertical boards
