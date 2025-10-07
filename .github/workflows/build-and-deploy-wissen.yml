@@ -32,7 +32,7 @@ jobs:
           hugo-version: "0.130.0"
           extended: true
 
-      # Wichtig: im Unterordner "wissen" bauen
+      # WICHTIG: im Unterordner "wissen" bauen
       - name: Build (prod config, site=wissen)
         working-directory: wissen
         run: |
@@ -54,19 +54,74 @@ jobs:
           name: public
           path: public
 
-      # Passwort oder SSH-Key – wie bei dir bereits eingerichtet.
-      # Secrets bleiben unverändert:
-      #   SFTP_HOST, SFTP_PORT, SFTP_USERNAME, SFTP_PASSWORD (oder SFTP_PRIVATE_KEY),
-      #   SFTP_TARGET (z. B. /wissen)
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
-        with:
-          server: ${{ secrets.SFTP_HOST }}
-          port: ${{ secrets.SFTP_PORT }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          ssh_private_key: ${{ secrets.SFTP_PRIVATE_KEY }}
-          local_path: "public/*"
-          remote_path: ${{ secrets.SFTP_TARGET }}
-          sftp_only: true
-          args: "-o StrictHostKeyChecking=no"
+      # Mini-Check: sind die Secrets gesetzt? (ohne Inhalte zu loggen)
+      - name: Verify deploy secrets presence
+        shell: bash
+        run: |
+          miss=0
+          for v in SFTP_HOST SFTP_USERNAME SFTP_TARGET; do
+            if [ -z "${{ secrets[v] || '' }}" ]; then echo "::error::$v NOT_SET"; miss=1; else echo "$v=SET"; fi
+          done
+          if [ -z "${{ secrets.SFTP_PASSWORD || '' }}" ] && [ -z "${{ secrets.SFTP_PRIVATE_KEY || '' }}" ]; then
+            echo "::error::SFTP_PASSWORD and SFTP_PRIVATE_KEY both NOT_SET"; miss=1
+          fi
+          exit $miss
+
+      # Variante A: Passwort (empfohlen bei IONOS Webhosting mit SFTP-only)
+      - name: Deploy via SFTP (password, lftp)
+        if: ${{ secrets.SFTP_PASSWORD != '' }}
+        shell: bash
+        env:
+          HOST:        ${{ secrets.SFTP_HOST }}
+          USERNAME:    ${{ secrets.SFTP_USERNAME }}
+          PASSWORD:    ${{ secrets.SFTP_PASSWORD }}
+          REMOTE:      ${{ secrets.SFTP_TARGET }}
+          PORT:        ${{ secrets.SFTP_PORT }}
+        run: |
+          set -e
+          sudo apt-get update -y >/dev/null
+          sudo apt-get install -y lftp >/dev/null
+          PORT="${PORT:-22}"
+          # lftp spiegelt rekursiv, legt Ordner an und löscht Entferntes, das lokal nicht mehr existiert
+          lftp -u "$USERNAME","$PASSWORD" -p "$PORT" sftp://"$HOST" <<'EOF'
+set sftp:auto-confirm yes
+set net:max-retries 2
+set net:timeout 30
+EOF
+          lftp -u "$USERNAME","$PASSWORD" -p "$PORT" sftp://"$HOST" <<EOF
+set sftp:auto-confirm yes
+set net:max-retries 2
+set net:timeout 30
+mkdir -p $REMOTE
+mirror -R --delete --only-newer public $REMOTE
+bye
+EOF
+
+      # Variante B: SSH-Key (falls vorhanden; setzt SFTP mit Schlüssel auf)
+      - name: Deploy via SFTP (SSH key, lftp)
+        if: ${{ secrets.SFTP_PASSWORD == '' && secrets.SFTP_PRIVATE_KEY != '' }}
+        shell: bash
+        env:
+          HOST:        ${{ secrets.SFTP_HOST }}
+          USERNAME:    ${{ secrets.SFTP_USERNAME }}
+          PRIVATE_KEY: ${{ secrets.SFTP_PRIVATE_KEY }}
+          REMOTE:      ${{ secrets.SFTP_TARGET }}
+          PORT:        ${{ secrets.SFTP_PORT }}
+        run: |
+          set -e
+          sudo apt-get update -y >/dev/null
+          sudo apt-get install -y lftp openssh-client >/dev/null
+          PORT="${PORT:-22}"
+          mkdir -p ~/.ssh
+          echo "$PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          # lftp über SSH-Key sprechen lassen
+          echo 'set sftp:connect-program "ssh -a -x -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no"' > ~/.lftprc
+          lftp -u "$USERNAME" -p "$PORT" sftp://"$HOST" <<EOF
+set sftp:auto-confirm yes
+set net:max-retries 2
+set net:timeout 30
+mkdir -p $REMOTE
+mirror -R --delete --only-newer public $REMOTE
+bye
+EOF
