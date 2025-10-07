@@ -1,0 +1,11 @@
+{{- /* canonical + hreflang (dynamisch für alle Sprachen) */ -}}
+{{- $curr := . -}}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- /* Alle Sprachvarianten inkl. der aktuellen Seite ausgeben */ -}}
+{{- range .AllTranslations }}
+<link rel="alternate" href="{{ .Permalink }}" hreflang="{{ .Lang }}">
+{{- end }}
+
+{{- /* Optional: x-default auf die Wissens-Root verweisen */ -}}
+<link rel="alternate" href="{{ site.BaseURL }}" hreflang="x-default">
