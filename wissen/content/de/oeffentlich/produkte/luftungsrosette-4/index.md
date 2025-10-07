@@ -10,7 +10,7 @@ beschreibung_md_de: |
   Durchmesser 45 mm
   Höhe ca. 4 mm
 beschreibung_md_en: |
-last_sync: "2025-10-07T16:08:15+02:00"
+last_sync: "2025-10-07T18:52:36+02:00"
 ---
 Elegant ventilation rosette based on the original design.
 Milled brass, smoothed surface

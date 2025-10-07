@@ -4,7 +4,6 @@ slug: "<kebab-slug-ohne-umlaute>"
 type: "faq"
 tags: []
 ---
-
 ## Frage
 
 <Frage in 1–2 Sätzen.>

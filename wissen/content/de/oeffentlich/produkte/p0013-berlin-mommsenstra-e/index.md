@@ -12,7 +12,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 685840000
-last_sync: "2025-10-07T16:08:15+02:00"
+last_sync: "2025-10-07T18:52:36+02:00"
 ---
 Berlin's Mommsenstraße is located between Kantstraße and Kurfürstendamm in a very sophisticated, chic residential area with many galleries and boutiques.
 The paneling shown here impresses with its consistent rhythm. It lends itself particularly well to color design.

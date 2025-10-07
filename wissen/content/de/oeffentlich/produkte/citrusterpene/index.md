@@ -11,7 +11,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: 5 Liter
     preis_aufschlag: 80672269
-last_sync: "2025-10-07T16:08:15+02:00"
+last_sync: "2025-10-07T18:52:37+02:00"
 ---
 Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and dissolve resins. Citrus terpene has a pleasant orange odour as it is obtained from the distillation of orange peel. It is also particularly suitable for ecological wood coatings. It is absolutely CO2 neutral, as it only releases as much CO2 as it has absorbed during growth.
 -

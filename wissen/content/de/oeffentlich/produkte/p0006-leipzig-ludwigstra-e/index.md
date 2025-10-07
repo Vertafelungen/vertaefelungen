@@ -11,7 +11,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 320060000
-last_sync: "2025-10-07T16:08:15+02:00"
+last_sync: "2025-10-07T18:52:36+02:00"
 ---
 This panelling from a house entrance in Leipzig's Ludwigstraße (Volkmarsdorf) dates from the construction period of the building in 1884 and is therefore around 140 years old. This time spans 6 generations.
 -

@@ -14,7 +14,7 @@ varianten:
     preis_aufschlag: 50420168
     bezeichnung: 1 Liter
     preis_aufschlag: 0
-last_sync: "2025-10-07T16:08:15+02:00"
+last_sync: "2025-10-07T18:52:37+02:00"
 ---
 Balsamic turpentine oil is a natural solvent that is obtained by repeated distillation (recification) of coniferous wood resins.
 Balsamic turpentine oil is used to dilute linseed oil paints.

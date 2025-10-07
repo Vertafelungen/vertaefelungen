@@ -49,7 +49,7 @@ varianten:
     preis_aufschlag: 556350000
     bezeichnung: 10 L, seidenglanz, Klassikgrün 03
     preis_aufschlag: 556350000
-last_sync: "2025-10-07T16:08:15+02:00"
+last_sync: "2025-10-07T18:52:36+02:00"
 ---
 Beeck Interior Stand-Oil Paint PRO
 Intended use
