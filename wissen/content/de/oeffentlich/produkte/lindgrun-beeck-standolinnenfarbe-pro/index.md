@@ -71,5 +71,5 @@ varianten:
     bezeichnung: 10 L, seidenglanz, Klassikgrün 03
     preis_aufschlag: 556350000
 ---
-last_sync: "2025-10-07T15:13:01+02:00"
+last_sync: "2025-10-07T16:08:15+02:00"
 

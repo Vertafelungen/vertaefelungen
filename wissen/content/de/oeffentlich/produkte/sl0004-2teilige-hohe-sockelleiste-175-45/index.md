@@ -8,5 +8,5 @@ beschreibung_md_de: |
 beschreibung_md_en: |
   Richly profiled, high skirting board made up of 2 parts.
 ---
-last_sync: "2025-10-07T15:13:01+02:00"
+last_sync: "2025-10-07T16:08:15+02:00"
 
