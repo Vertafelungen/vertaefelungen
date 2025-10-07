@@ -50,10 +50,9 @@ jobs:
           name: public
           path: wissen/public
 
-  deploy:
+    deploy:
     needs: build
     runs-on: ubuntu-latest
-    # Container mit schlankem Alpine: lftp/ssh werden per apk installiert (kein needrestart).
     container:
       image: alpine:3.19
     steps:
@@ -67,9 +66,9 @@ jobs:
         shell: sh
         run: |
           set -eu
-          apk add --no-cache lftp openssh-client
+          apk add --no-cache lftp openssh-client coreutils  # coreutils bringt 'timeout' mit
 
-      - name: Deploy via SFTP (Passwort ODER SSH-Key, htdocs-aware)
+      - name: Deploy via SFTP (Passwort ODER SSH-Key, htdocs-aware, mit Timeout)
         shell: sh
         env:
           SFTP_HOST:        ${{ secrets.SFTP_HOST }}
@@ -82,29 +81,32 @@ jobs:
           set -eu
           PORT="${SFTP_PORT:-22}"
           TARGET="${SFTP_TARGET#/}"         # nie absolut
-
           [ -n "${TARGET}" ] || { echo "::error::SFTP_TARGET ist leer"; exit 1; }
 
+          # Auth-Setup
           CONNECT=""
-          AUTH=""
+          AUTH_OPEN=""
           if [ -n "${SFTP_PRIVATE_KEY:-}" ] && [ -z "${SFTP_PASSWORD:-}" ]; then
-            # SSH-Key
             mkdir -p /root/.ssh
             printf '%s\n' "$SFTP_PRIVATE_KEY" > /root/.ssh/id_ed25519
             chmod 600 /root/.ssh/id_ed25519
             CONNECT="set sftp:connect-program 'ssh -a -x -i /root/.ssh/id_ed25519 -o StrictHostKeyChecking=no'"
-            AUTH="-u ${SFTP_USERNAME}"
+            AUTH_OPEN="-u ${SFTP_USERNAME}"
           else
-            # Passwort
-            AUTH="-u ${SFTP_USERNAME},${SFTP_PASSWORD}"
+            AUTH_OPEN="-u ${SFTP_USERNAME},${SFTP_PASSWORD}"
           fi
 
           # htdocs automatisch voranstellen, wenn vorhanden und noch nicht enthalten
-          if lftp ${AUTH} -p "${PORT}" sftp://"${SFTP_HOST}" -e "${CONNECT}; cd htdocs; bye" >/dev/null 2>&1; then
+          # Wichtig: erst Settings setzen, dann "open" – so greifen die Timeouts schon beim Connect.
+          HTEST="set net:timeout 15; set net:max-retries 1; set net:persist-retries 0; ${CONNECT}; open -p ${PORT} ${AUTH_OPEN} sftp://${SFTP_HOST}; cd htdocs; bye"
+          if timeout 30 lftp -e "${HTEST}" >/dev/null 2>&1; then
             case "$TARGET" in htdocs/*) : ;; *) TARGET="htdocs/$TARGET" ;; esac
           fi
 
-          # Upload: nur Inhalt von ./public → $TARGET
-          LFTP_CMD="${CONNECT}; set sftp:auto-confirm yes; set net:max-retries 2; set net:timeout 30; mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
-          echo "[DEPLOY] Upload to ${SFTP_HOST}:${PORT} → ${TARGET}"
-          lftp ${AUTH} -p "${PORT}" sftp://"${SFTP_HOST}" -e "${LFTP_CMD}"
+          # Upload nur Inhalt von ./public nach $TARGET
+          SCRIPT="set cmd:fail-exit yes; set net:timeout 20; set net:max-retries 1; set net:persist-retries 0; \
+${CONNECT}; open -p ${PORT} ${AUTH_OPEN} sftp://${SFTP_HOST}; \
+mkdir -p '${TARGET}'; lcd public; mirror -R --delete --only-newer . '${TARGET}'; bye"
+
+          echo "[DEPLOY] ${SFTP_HOST}:${PORT} → ${TARGET}"
+          timeout 120 lftp -e "${SCRIPT}" || { echo '::error::lftp transfer failed or timed out'; exit 1; }
