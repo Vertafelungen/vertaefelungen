@@ -9,7 +9,6 @@ beschreibung_md_en: |
   Door and window frame TR 07, dimensions: 143 x 31 mm
 last_sync: 2025-10-07T18:52:37+02:00
 ---
-
 -
 -
 

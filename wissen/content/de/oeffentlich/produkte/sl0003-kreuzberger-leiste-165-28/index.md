@@ -6,6 +6,5 @@ beschreibung_md_de: |
   Eine echte Berliner Leiste, die für eine Wohnung in der Adalbertstr. nachgefräst wurde.
 last_sync: 2025-10-07T18:52:36+02:00
 ---
-
 A genuine Berlin skirting board that was re-milled for an apartment in Adalbertstr.
 

@@ -10,7 +10,6 @@ beschreibung_md_de: |
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
 last_sync: 2025-10-07T15:13:01+02:00
 ---
-
 Wooden moulding 10 x 40 mm
 As a wall moulding for direct installation on the plastered wall.
 This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.

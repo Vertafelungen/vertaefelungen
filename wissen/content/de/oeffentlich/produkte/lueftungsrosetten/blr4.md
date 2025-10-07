@@ -2,20 +2,20 @@
 slug: "blr4"
 product_id: "70"
 reference: "BLR 4"
-titel: "LÃ¼ftungsrosette 4"
-kategorie: "Artikel, LÃ¼ftungsrosetten"
+titel: "LÃ1⁄4ftungsrosette 4"
+kategorie: "Artikel, LÃ1⁄4ftungsrosetten"
 beschreibung: >
-  FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet  Durchmesser 45 mm HÃ¶he ca. 4 mm
-meta_title: "blr4 â FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen.M"
-meta_description: "FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet. Durchmesser 45 mm. HÃ¶he ca. 4 mm."
+  FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet  Durchmesser 45 mm HÃ¶he ca. 4 mm
+meta_title: "blr4 â FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen.M"
+meta_description: "FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet. Durchmesser 45 mm. HÃ¶he ca. 4 mm."
 bilder:
   - blr4-1.png
   - blr4-2.png
   - blr4-3.png
 bilder_alt:
-  - "Messing-LÃ¼ftungsrosette mit fÃ¼nfblÃ¤ttriger Ãffnung montiert auf HolzflÃ¤che"
-  - "Messing-LÃ¼ftungsrosette mit MaÃstab zur GrÃ¶Ãenangabe auf HolzflÃ¤che"
-  - "Messing-LÃ¼ftungsrosette mit fÃ¼nf Ãffnungen flach liegend auf HolzflÃ¤che fotografiert"
+  - "Messing-LÃ1⁄4ftungsrosette mit fÃ1⁄4nfblÃ¤ttriger Ãffnung montiert auf HolzflÃ¤che"
+  - "Messing-LÃ1⁄4ftungsrosette mit MaÃstab zur GrÃ¶Ãenangabe auf HolzflÃ¤che"
+  - "Messing-LÃ1⁄4ftungsrosette mit fÃ1⁄4nf Ãffnungen flach liegend auf HolzflÃ¤che fotografiert"
 price: "41,18 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -30,16 +30,16 @@ source: "https://www.vertaefelungen.de/de/lueftungsrosetten/70-lueftungsrosette-
 last_updated: "2025-09-01"
 ***
 
-# LÃ¼ftungsrosette 4
+# LÃ1⁄4ftungsrosette 4
 
-FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet  Durchmesser 45 mm HÃ¶he ca. 4 mm
+FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet  Durchmesser 45 mm HÃ¶he ca. 4 mm
 
 ## Technische Daten
 
 - Referenz: BLR 4
 - Preis: 41,18 €
 - Verfügbar: 1
-- Kategorie: Artikel, LÃ¼ftungsrosetten
+- Kategorie: Artikel, LÃ1⁄4ftungsrosetten
 - Sortierung: 
 
 ## Varianten
@@ -48,14 +48,14 @@ FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen. Messing gefrÃ¤st, Ob
 
 ## Bilder
 
-![Messing-LÃ¼ftungsrosette mit fÃ¼nfblÃ¤ttriger Ãffnung montiert auf HolzflÃ¤che](blr4-1.png)
-![Messing-LÃ¼ftungsrosette mit MaÃstab zur GrÃ¶Ãenangabe auf HolzflÃ¤che](blr4-2.png)
-![Messing-LÃ¼ftungsrosette mit fÃ¼nf Ãffnungen flach liegend auf HolzflÃ¤che fotografiert](blr4-3.png)
+![Messing-LÃ1⁄4ftungsrosette mit fÃ1⁄4nfblÃ¤ttriger Ãffnung montiert auf HolzflÃ¤che](blr4-1.png)
+![Messing-LÃ1⁄4ftungsrosette mit MaÃstab zur GrÃ¶Ãenangabe auf HolzflÃ¤che](blr4-2.png)
+![Messing-LÃ1⁄4ftungsrosette mit fÃ1⁄4nf Ãffnungen flach liegend auf HolzflÃ¤che fotografiert](blr4-3.png)
 
 ## SEO-Metadaten
 
-- meta_title: blr4 â FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen.M
-- meta_description: FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet. Durchmesser 45 mm. HÃ¶he ca. 4 mm.
+- meta_title: blr4 â FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen.M
+- meta_description: FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet. Durchmesser 45 mm. HÃ¶he ca. 4 mm.
 
 ## Tags
 

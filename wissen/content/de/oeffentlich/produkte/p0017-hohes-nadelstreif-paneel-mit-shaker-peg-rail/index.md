@@ -9,7 +9,6 @@ beschreibung_md_de: |
   Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es für einen farbigen Anstrich vorbereitet werden.
 last_sync: 2025-10-07T18:52:36+02:00
 ---
-
 This cladding looks very nice and is very practical.
 Our Shaker Peg Rail is made in exactly the same shape as it can be found in the Shaker Museum Enfield.
 The peg rail is a useful invention that allows you to keep things handy and organized, such as pots, scissors, dog leashes or to hang something on the wall, such as chairs, when you want to vacuum thoroughly.

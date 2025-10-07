@@ -9,7 +9,6 @@ beschreibung_md_en: |
   Door and window frame TR 12, dimensions: 117 x 28 mm
 last_sync: 2025-10-07T18:52:37+02:00
 ---
-
 -
 -
 

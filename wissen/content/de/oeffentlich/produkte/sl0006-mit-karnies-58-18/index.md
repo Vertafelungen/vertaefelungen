@@ -6,6 +6,5 @@ beschreibung_md_de: |
   schlicht, mit Karnies
 last_sync: 2025-10-07T18:52:36+02:00
 ---
-
 simple with cyma
 

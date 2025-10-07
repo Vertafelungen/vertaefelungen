@@ -7,11 +7,11 @@ kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
   LeinÃ¶lfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
 meta_title: "loef â LeinÃ¶lfirnis mit Sikkativen.Im Innenbereich al"
-meta_description: "LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ¼r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ¼r innen & auÃen."
+meta_description: "LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ1⁄4r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ1⁄4r innen & auÃen."
 bilder:
   - loef.png
 bilder_alt:
-  - "LeinÃ¶lfirnis mit Sikkativ 1 Liter schnelltrocknend Endbehandlung Innenbereich 24 Stunden Trocknung natÃ¼rlich"
+  - "LeinÃ¶lfirnis mit Sikkativ 1 Liter schnelltrocknend Endbehandlung Innenbereich 24 Stunden Trocknung natÃ1⁄4rlich"
 price: "13,45 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -58,12 +58,12 @@ LeinÃ¶lfirnis mit Sikkativen. Im Innenbereich als schnelltrocknende Endbehandl
 
 ## Bilder
 
-![LeinÃ¶lfirnis mit Sikkativ 1 Liter schnelltrocknend Endbehandlung Innenbereich 24 Stunden Trocknung natÃ¼rlich](loef.png)
+![LeinÃ¶lfirnis mit Sikkativ 1 Liter schnelltrocknend Endbehandlung Innenbereich 24 Stunden Trocknung natÃ1⁄4rlich](loef.png)
 
 ## SEO-Metadaten
 
 - meta_title: loef â LeinÃ¶lfirnis mit Sikkativen.Im Innenbereich al
-- meta_description: LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ¼r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ¼r innen & auÃen.
+- meta_description: LeinÃ¶lfirnis â oxidativ trocknendes HolzÃ¶l fÃ1⁄4r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ1⁄4r innen & auÃen.
 
 ## Tags
 

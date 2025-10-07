@@ -2,18 +2,18 @@
 slug: "blr6"
 product_id: "74"
 reference: "BLR 6"
-titel: "LÃ¼ftungsrosette 6"
-kategorie: "Artikel, LÃ¼ftungsrosetten"
+titel: "LÃ1⁄4ftungsrosette 6"
+kategorie: "Artikel, LÃ1⁄4ftungsrosetten"
 beschreibung: >
-  LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 46 mm Hohe ca. 11 mm
-meta_title: "blr6 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl"
-meta_description: "LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen"
+  LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 46 mm Hohe ca. 11 mm
+meta_title: "blr6 â LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach Originalvorl"
+meta_description: "LÃ1⁄4ftungsrosette fÃ1⁄4r HolzvertÃ¤felungen"
 bilder:
   - blr6-1.png
   - blr6-2.png
   - blr6-3.png
 bilder_alt:
-  - "Runde LÃ¼ftungsscheibe aus Messing mit acht Schlitzen"
+  - "Runde LÃ1⁄4ftungsscheibe aus Messing mit acht Schlitzen"
   - "montiert auf HolzflÃ¤che"
   - "frontal aufgenommen"
 price: "49,58 €"
@@ -30,16 +30,16 @@ source: "https://www.vertaefelungen.de/de/lueftungsrosetten/74-lueftungsrosette-
 last_updated: "2025-09-01"
 ***
 
-# LÃ¼ftungsrosette 6
+# LÃ1⁄4ftungsrosette 6
 
-LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 46 mm Hohe ca. 11 mm
+LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach Originalvorlage nachgegossen. Messingguss, poliert  Durchmesser ca. 46 mm Hohe ca. 11 mm
 
 ## Technische Daten
 
 - Referenz: BLR 6
 - Preis: 49,58 €
 - Verfügbar: 1
-- Kategorie: Artikel, LÃ¼ftungsrosetten
+- Kategorie: Artikel, LÃ1⁄4ftungsrosetten
 - Sortierung: 
 
 ## Varianten
@@ -48,14 +48,14 @@ LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen. M
 
 ## Bilder
 
-![Runde LÃ¼ftungsscheibe aus Messing mit acht Schlitzen](blr6-1.png)
+![Runde LÃ1⁄4ftungsscheibe aus Messing mit acht Schlitzen](blr6-1.png)
 ![montiert auf HolzflÃ¤che](blr6-2.png)
 ![frontal aufgenommen](blr6-3.png)
 
 ## SEO-Metadaten
 
-- meta_title: blr6 â LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl
-- meta_description: LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen
+- meta_title: blr6 â LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach Originalvorl
+- meta_description: LÃ1⁄4ftungsrosette fÃ1⁄4r HolzvertÃ¤felungen
 
 ## Tags
 

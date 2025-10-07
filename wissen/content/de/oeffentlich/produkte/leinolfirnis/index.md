@@ -7,7 +7,6 @@ beschreibung_md_de: |
   Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
 last_sync: 2025-10-07T18:52:37+02:00
 ---
-
 Linseed oil varnish with siccatives.
 For interior use as a quick-drying finish with a drying time of up to 24 hours.
 -

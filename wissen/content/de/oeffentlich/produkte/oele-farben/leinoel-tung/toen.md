@@ -5,9 +5,9 @@ reference: "TÃN"
 titel: "TungÃ¶l natur"
 kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
-  TungÃ¶l Natur, ohne Sikkativ. Es polymerisiert Ã¤hnlich wie LeinÃ¶l, trocknet jedoch schneller und bildet eine harte, matte OberflÃ¤che. Wird Holz ausschlieÃlich mit TungÃ¶l Natur behandelt, bleibt die natÃ¼rliche Holzfarbe im Wesentlichen erhalten. Es eignet sich sehr gut zur ImprÃ¤gnierung von Hartholz und ist als OberflÃ¤chenanstrich auf LeinÃ¶lanstrichen geeignet. Es kann in Innen- und AuÃenbereichen eingesetzt werden.  TungÃ¶l Natur wird aus den NÃ¼ssen des HolzÃ¶lbaumes (Vernicia fordii) in Asien, den USA und SÃ¼damerika gewonnen. Das Ãl wurde historisch als âHolzÃ¶lâ oder âchinesisches HolzÃ¶lâ bezeichnet, da es als Bindemittel der chinesischen und japanischen Holz- und Papiermalerei verwendet wurde. In der CAS Datenbank ist es unter der Bezeichnung âHolzÃ¶lâ registriert.
+  TungÃ¶l Natur, ohne Sikkativ. Es polymerisiert Ã¤hnlich wie LeinÃ¶l, trocknet jedoch schneller und bildet eine harte, matte OberflÃ¤che. Wird Holz ausschlieÃlich mit TungÃ¶l Natur behandelt, bleibt die natÃ1⁄4rliche Holzfarbe im Wesentlichen erhalten. Es eignet sich sehr gut zur ImprÃ¤gnierung von Hartholz und ist als OberflÃ¤chenanstrich auf LeinÃ¶lanstrichen geeignet. Es kann in Innen- und AuÃenbereichen eingesetzt werden.  TungÃ¶l Natur wird aus den NÃ1⁄4ssen des HolzÃ¶lbaumes (Vernicia fordii) in Asien, den USA und SÃ1⁄4damerika gewonnen. Das Ãl wurde historisch als âHolzÃ¶lâ oder âchinesisches HolzÃ¶lâ bezeichnet, da es als Bindemittel der chinesischen und japanischen Holz- und Papiermalerei verwendet wurde. In der CAS Datenbank ist es unter der Bezeichnung âHolzÃ¶lâ registriert.
 meta_title: "toen â TungÃ¶l Natur, ohne Sikkativ. Es polymerisiert Ã¤hnlic"
-meta_description: "TungÃ¶l natur â reines, hÃ¤rtendes HolzÃ¶l fÃ¼r stark beanspruchte OberflÃ¤chen. LÃ¶semittelfrei, wetterfest, tief eindringend. Ideal fÃ¼r innen & auÃen."
+meta_description: "TungÃ¶l natur â reines, hÃ¤rtendes HolzÃ¶l fÃ1⁄4r stark beanspruchte OberflÃ¤chen. LÃ¶semittelfrei, wetterfest, tief eindringend. Ideal fÃ1⁄4r innen & auÃen."
 bilder:
   - toen.png
 bilder_alt:
@@ -33,7 +33,7 @@ last_updated: "2025-09-01"
 
 # TungÃ¶l natur
 
-TungÃ¶l Natur, ohne Sikkativ. Es polymerisiert Ã¤hnlich wie LeinÃ¶l, trocknet jedoch schneller und bildet eine harte, matte OberflÃ¤che. Wird Holz ausschlieÃlich mit TungÃ¶l Natur behandelt, bleibt die natÃ¼rliche Holzfarbe im Wesentlichen erhalten. Es eignet sich sehr gut zur ImprÃ¤gnierung von Hartholz und ist als OberflÃ¤chenanstrich auf LeinÃ¶lanstrichen geeignet. Es kann in Innen- und AuÃenbereichen eingesetzt werden.  TungÃ¶l Natur wird aus den NÃ¼ssen des HolzÃ¶lbaumes (Vernicia fordii) in Asien, den USA und SÃ¼damerika gewonnen. Das Ãl wurde historisch als âHolzÃ¶lâ oder âchinesisches HolzÃ¶lâ bezeichnet, da es als Bindemittel der chinesischen und japanischen Holz- und Papiermalerei verwendet wurde. In der CAS Datenbank ist es unter der Bezeichnung âHolzÃ¶lâ registriert.
+TungÃ¶l Natur, ohne Sikkativ. Es polymerisiert Ã¤hnlich wie LeinÃ¶l, trocknet jedoch schneller und bildet eine harte, matte OberflÃ¤che. Wird Holz ausschlieÃlich mit TungÃ¶l Natur behandelt, bleibt die natÃ1⁄4rliche Holzfarbe im Wesentlichen erhalten. Es eignet sich sehr gut zur ImprÃ¤gnierung von Hartholz und ist als OberflÃ¤chenanstrich auf LeinÃ¶lanstrichen geeignet. Es kann in Innen- und AuÃenbereichen eingesetzt werden.  TungÃ¶l Natur wird aus den NÃ1⁄4ssen des HolzÃ¶lbaumes (Vernicia fordii) in Asien, den USA und SÃ1⁄4damerika gewonnen. Das Ãl wurde historisch als âHolzÃ¶lâ oder âchinesisches HolzÃ¶lâ bezeichnet, da es als Bindemittel der chinesischen und japanischen Holz- und Papiermalerei verwendet wurde. In der CAS Datenbank ist es unter der Bezeichnung âHolzÃ¶lâ registriert.
 
 ## Technische Daten
 
@@ -59,7 +59,7 @@ TungÃ¶l Natur, ohne Sikkativ. Es polymerisiert Ã¤hnlich wie LeinÃ¶l, trock
 ## SEO-Metadaten
 
 - meta_title: toen â TungÃ¶l Natur, ohne Sikkativ. Es polymerisiert Ã¤hnlic
-- meta_description: TungÃ¶l natur â reines, hÃ¤rtendes HolzÃ¶l fÃ¼r stark beanspruchte OberflÃ¤chen. LÃ¶semittelfrei, wetterfest, tief eindringend. Ideal fÃ¼r innen & auÃen.
+- meta_description: TungÃ¶l natur â reines, hÃ¤rtendes HolzÃ¶l fÃ1⁄4r stark beanspruchte OberflÃ¤chen. LÃ¶semittelfrei, wetterfest, tief eindringend. Ideal fÃ1⁄4r innen & auÃen.
 
 ## Tags
 

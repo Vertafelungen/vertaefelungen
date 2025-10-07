@@ -5,13 +5,13 @@ reference: "CTP"
 titel: "Citrusterpene"
 kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
-  Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nnen von Farben und zum LÃ¶sen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist fÃ¼r Ã¶kologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es wÃ¤hrend des Wachstums aufgenommen hat.
-meta_title: "ctp â Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nne"
-meta_description: "Citrusterpene â natÃ¼rliches OrangenÃ¶l-LÃ¶semittel zum VerdÃ¼nnen von Ãlen & Reinigen von Werkzeug. Biologisch abbaubar, kraftvoll & angenehm im Geruch."
+  Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ1⁄4nnen von Farben und zum LÃ¶sen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist fÃ1⁄4r Ã¶kologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es wÃ¤hrend des Wachstums aufgenommen hat.
+meta_title: "ctp â Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ1⁄4nne"
+meta_description: "Citrusterpene â natÃ1⁄4rliches OrangenÃ¶l-LÃ¶semittel zum VerdÃ1⁄4nnen von Ãlen & Reinigen von Werkzeug. Biologisch abbaubar, kraftvoll & angenehm im Geruch."
 bilder:
   - ctp.png
 bilder_alt:
-  - "Citrusterpene 1 Liter Orange VerdÃ¼nner Ã¶kologisch Holzanstrich CO2-neutral Orangenschale destilliert LÃ¶sungsmittel"
+  - "Citrusterpene 1 Liter Orange VerdÃ1⁄4nner Ã¶kologisch Holzanstrich CO2-neutral Orangenschale destilliert LÃ¶sungsmittel"
 price: "20,17 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -31,7 +31,7 @@ last_updated: "2025-09-01"
 
 # Citrusterpene
 
-Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nnen von Farben und zum LÃ¶sen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist fÃ¼r Ã¶kologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es wÃ¤hrend des Wachstums aufgenommen hat.
+Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ1⁄4nnen von Farben und zum LÃ¶sen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist fÃ1⁄4r Ã¶kologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es wÃ¤hrend des Wachstums aufgenommen hat.
 
 ## Technische Daten
 
@@ -50,12 +50,12 @@ Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nnen von Farben und zum 
 
 ## Bilder
 
-![Citrusterpene 1 Liter Orange VerdÃ¼nner Ã¶kologisch Holzanstrich CO2-neutral Orangenschale destilliert LÃ¶sungsmittel](ctp.png)
+![Citrusterpene 1 Liter Orange VerdÃ1⁄4nner Ã¶kologisch Holzanstrich CO2-neutral Orangenschale destilliert LÃ¶sungsmittel](ctp.png)
 
 ## SEO-Metadaten
 
-- meta_title: ctp â Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ¼nne
-- meta_description: Citrusterpene â natÃ¼rliches OrangenÃ¶l-LÃ¶semittel zum VerdÃ¼nnen von Ãlen & Reinigen von Werkzeug. Biologisch abbaubar, kraftvoll & angenehm im Geruch.
+- meta_title: ctp â Citrusterpene kann wie BalsamterpentinÃ¶l zum VerdÃ1⁄4nne
+- meta_description: Citrusterpene â natÃ1⁄4rliches OrangenÃ¶l-LÃ¶semittel zum VerdÃ1⁄4nnen von Ãlen & Reinigen von Werkzeug. Biologisch abbaubar, kraftvoll & angenehm im Geruch.
 
 ## Tags
 

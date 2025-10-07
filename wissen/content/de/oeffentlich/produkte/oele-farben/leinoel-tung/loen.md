@@ -5,13 +5,13 @@ reference: "LÃN"
 titel: "Reines LeinÃ¶l, ohne Sikkativ"
 kategorie: "Artikel, LeinÃ¶l, TungÃ¶l, Balsam"
 beschreibung: >
-  Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines LeinÃ¶l hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Trocknungsdauer bis zu 2 Wochen. LeinÃ¶l feuert das Holz an, die Maserung tritt deutlicher hervor.  LeinÃ¶l ist in Innenbereichen gegenÃ¼ber jeder kÃ¼nstlich hergestellten Grundierung zu bevorzugen. Es ist 100% natÃ¼rlich und hat sich traditionell bewÃ¤hrt. LeinÃ¶l hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
+  Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines LeinÃ¶l hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Trocknungsdauer bis zu 2 Wochen. LeinÃ¶l feuert das Holz an, die Maserung tritt deutlicher hervor.  LeinÃ¶l ist in Innenbereichen gegenÃ1⁄4ber jeder kÃ1⁄4nstlich hergestellten Grundierung zu bevorzugen. Es ist 100% natÃ1⁄4rlich und hat sich traditionell bewÃ¤hrt. LeinÃ¶l hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
 meta_title: "loen â Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei v"
-meta_description: "LeinÃ¶l â kaltgepresstes, reines HolzÃ¶l fÃ¼r Innen & AuÃen. Ideal zur Holzpflege, Grundierung & Restaurierung. LÃ¶semittelfrei, traditionell & dauerhaft."
+meta_description: "LeinÃ¶l â kaltgepresstes, reines HolzÃ¶l fÃ1⁄4r Innen & AuÃen. Ideal zur Holzpflege, Grundierung & Restaurierung. LÃ¶semittelfrei, traditionell & dauerhaft."
 bilder:
   - loen.png
 bilder_alt:
-  - "Reines LeinÃ¶l ohne Sikkativ 1 Liter Holzgrundierung natÃ¼rlich gereinigt niedrig SÃ¤uregehalt tief eindringend"
+  - "Reines LeinÃ¶l ohne Sikkativ 1 Liter Holzgrundierung natÃ1⁄4rlich gereinigt niedrig SÃ¤uregehalt tief eindringend"
 price: "12,61 €"
 verfuegbar: "1"
 varianten_yaml: |
@@ -35,7 +35,7 @@ last_updated: "2025-09-01"
 
 # Reines LeinÃ¶l, ohne Sikkativ
 
-Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines LeinÃ¶l hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Trocknungsdauer bis zu 2 Wochen. LeinÃ¶l feuert das Holz an, die Maserung tritt deutlicher hervor.  LeinÃ¶l ist in Innenbereichen gegenÃ¼ber jeder kÃ¼nstlich hergestellten Grundierung zu bevorzugen. Es ist 100% natÃ¼rlich und hat sich traditionell bewÃ¤hrt. LeinÃ¶l hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
+Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ. Zur ersten Grundierung von rohem Holz. Reines LeinÃ¶l hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm. Trocknungsdauer bis zu 2 Wochen. LeinÃ¶l feuert das Holz an, die Maserung tritt deutlicher hervor.  LeinÃ¶l ist in Innenbereichen gegenÃ1⁄4ber jeder kÃ1⁄4nstlich hergestellten Grundierung zu bevorzugen. Es ist 100% natÃ1⁄4rlich und hat sich traditionell bewÃ¤hrt. LeinÃ¶l hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
 
 ## Technische Daten
 
@@ -58,12 +58,12 @@ Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei von Schweb- und Schleim
 
 ## Bilder
 
-![Reines LeinÃ¶l ohne Sikkativ 1 Liter Holzgrundierung natÃ¼rlich gereinigt niedrig SÃ¤uregehalt tief eindringend](loen.png)
+![Reines LeinÃ¶l ohne Sikkativ 1 Liter Holzgrundierung natÃ1⁄4rlich gereinigt niedrig SÃ¤uregehalt tief eindringend](loen.png)
 
 ## SEO-Metadaten
 
 - meta_title: loen â Gereinigtes LeinÃ¶l mit niedrigem SÃ¤uregehalt, frei v
-- meta_description: LeinÃ¶l â kaltgepresstes, reines HolzÃ¶l fÃ¼r Innen & AuÃen. Ideal zur Holzpflege, Grundierung & Restaurierung. LÃ¶semittelfrei, traditionell & dauerhaft.
+- meta_description: LeinÃ¶l â kaltgepresstes, reines HolzÃ¶l fÃ1⁄4r Innen & AuÃen. Ideal zur Holzpflege, Grundierung & Restaurierung. LÃ¶semittelfrei, traditionell & dauerhaft.
 
 ## Tags
 

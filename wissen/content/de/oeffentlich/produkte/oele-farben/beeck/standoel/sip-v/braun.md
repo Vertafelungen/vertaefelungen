@@ -5,15 +5,15 @@ reference: "Beeck SIP Braun"
 titel: "Braun - BEECK StandÃ¶linnenfarbe PRO"
 kategorie: "Artikel, STANDÃLINNENFARBE PRO Volltonfarben"
 beschreibung: >
-  BEECK StandÃ¶linnenfarbe PRO Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
-meta_title: "Braun, BEECK StandÃ¶linnnenfarbe PRO, deckend, fÃ¼r Holz im Innenbereich"
-meta_description: "Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ¼r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen."
+  BEECK StandÃ¶linnenfarbe PRO Deckend pigmentiert, fÃ1⁄4r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ1⁄4r farbige Holz-Behandlungen im Innenbereich, fÃ1⁄4r TÃ1⁄4ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
+meta_title: "Braun, BEECK StandÃ¶linnnenfarbe PRO, deckend, fÃ1⁄4r Holz im Innenbereich"
+meta_description: "Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ1⁄4r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen."
 bilder:
   - braun.png
   - braun-farbfaecher.png
   - sip_gebinde.png
 bilder_alt:
-  - "BEECK StandÃ¶linnenfarbe PRO Braun seidenmatt fÃ¼r Holz innen Deckende LeinÃ¶lfarbe fÃ¼r TÃ¼ren VertÃ¤felungen Denkmalschutz"
+  - "BEECK StandÃ¶linnenfarbe PRO Braun seidenmatt fÃ1⁄4r Holz innen Deckende LeinÃ¶lfarbe fÃ1⁄4r TÃ1⁄4ren VertÃ¤felungen Denkmalschutz"
   - ""
   - ""
 price: "57,15 €"
@@ -43,7 +43,7 @@ last_updated: "2025-09-01"
 
 # Braun - BEECK StandÃ¶linnenfarbe PRO
 
-BEECK StandÃ¶linnenfarbe PRO Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
+BEECK StandÃ¶linnenfarbe PRO Deckend pigmentiert, fÃ1⁄4r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.  Verwendungszweck LeinÃ¶l-StandÃ¶lfarbe fÃ1⁄4r farbige Holz-Behandlungen im Innenbereich, fÃ1⁄4r TÃ1⁄4ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ãlfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ãllackfilm.
 
 ## Technische Daten
 
@@ -70,14 +70,14 @@ BEECK StandÃ¶linnenfarbe PRO Deckend pigmentiert, fÃ¼r Schlusslackierungen a
 
 ## Bilder
 
-![BEECK StandÃ¶linnenfarbe PRO Braun seidenmatt fÃ¼r Holz innen Deckende LeinÃ¶lfarbe fÃ¼r TÃ¼ren VertÃ¤felungen Denkmalschutz](braun.png)
+![BEECK StandÃ¶linnenfarbe PRO Braun seidenmatt fÃ1⁄4r Holz innen Deckende LeinÃ¶lfarbe fÃ1⁄4r TÃ1⁄4ren VertÃ¤felungen Denkmalschutz](braun.png)
 ![](braun-farbfaecher.png)
 ![](sip_gebinde.png)
 
 ## SEO-Metadaten
 
-- meta_title: Braun, BEECK StandÃ¶linnnenfarbe PRO, deckend, fÃ¼r Holz im Innenbereich
-- meta_description: Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ¼r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen.
+- meta_title: Braun, BEECK StandÃ¶linnnenfarbe PRO, deckend, fÃ1⁄4r Holz im Innenbereich
+- meta_description: Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ1⁄4r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen.
 
 ## Tags
 

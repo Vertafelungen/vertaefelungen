@@ -34,7 +34,7 @@ beschreibung: "Antworten auf häufig gestellte Fragen zur Lieferung, Verpackung 
 - Alternativ erfolgt die Montage durch dich oder eine beauftragte Fachfirma.
 
 ## 5. Was muss ich bei der Anlieferung beachten?
-- Prüfe die Ware **bei Übergabe** im Beisein des Fahrers auf äußere Beschädigungen und die Anzahl der Packstücke. Notiere Schäden sofort auf dem Lieferschein und sende Fotos per E‑Mail.
+- Prüfe die Ware **bei Übergabe** im Beisein des Fahrers auf äußere Beschädigungen und die Anzahl der Packstücke. Notiere Schäden sofort auf dem Lieferschein und sende Fotos per E‐Mail.
 
 - Die Ware ist **transportschadenversichert**, diese Versicherung ist im Lieferpreis enthalten.
 

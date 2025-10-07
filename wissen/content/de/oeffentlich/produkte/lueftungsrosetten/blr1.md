@@ -2,12 +2,12 @@
 slug: "blr1"
 product_id: "71"
 reference: "BLR 1"
-titel: "LÃ¼ftungsrosette 1"
-kategorie: "Artikel, LÃ¼ftungsrosetten"
+titel: "LÃ1⁄4ftungsrosette 1"
+kategorie: "Artikel, LÃ1⁄4ftungsrosetten"
 beschreibung: >
-  FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, Abguss einer Originalvorlage, Messingguss, poliert  Durchmesser ca. 52 mm HÃ¶he ca. 5 mm
-meta_title: "blr1 â FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, Abguss"
-meta_description: "LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen"
+  FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, Abguss einer Originalvorlage, Messingguss, poliert  Durchmesser ca. 52 mm HÃ¶he ca. 5 mm
+meta_title: "blr1 â FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, Abguss"
+meta_description: "LÃ1⁄4ftungsrosette fÃ1⁄4r HolzvertÃ¤felungen"
 bilder:
   - blr1-1.png
   - blr1-2.png
@@ -15,10 +15,10 @@ bilder:
   - blr1-4.png
   - blr1-5.png
 bilder_alt:
-  - "BelÃ¼ftungsrosette aus Messing mit Vierpass-Durchbruch"
+  - "BelÃ1⁄4ftungsrosette aus Messing mit Vierpass-Durchbruch"
   - "montiert in Holzverkleidung"
   - "Nahaufnahme"
-  - "BelÃ¼ftungsrosette aus Messing mit Vierpass-Durchbruch"
+  - "BelÃ1⁄4ftungsrosette aus Messing mit Vierpass-Durchbruch"
   - "neben MaÃband zur GrÃ¶Ãenreferenz"
 price: "54,62 €"
 verfuegbar: "1"
@@ -34,16 +34,16 @@ source: "https://www.vertaefelungen.de/en/ventilation-rosettes/71-ventilation-ro
 last_updated: "2025-09-01"
 ***
 
-# LÃ¼ftungsrosette 1
+# LÃ1⁄4ftungsrosette 1
 
-FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, Abguss einer Originalvorlage, Messingguss, poliert  Durchmesser ca. 52 mm HÃ¶he ca. 5 mm
+FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, Abguss einer Originalvorlage, Messingguss, poliert  Durchmesser ca. 52 mm HÃ¶he ca. 5 mm
 
 ## Technische Daten
 
 - Referenz: BLR 1
 - Preis: 54,62 €
 - Verfügbar: 1
-- Kategorie: Artikel, LÃ¼ftungsrosetten
+- Kategorie: Artikel, LÃ1⁄4ftungsrosetten
 - Sortierung: 
 
 ## Varianten
@@ -52,16 +52,16 @@ FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, Abguss einer Originalv
 
 ## Bilder
 
-![BelÃ¼ftungsrosette aus Messing mit Vierpass-Durchbruch](blr1-1.png)
+![BelÃ1⁄4ftungsrosette aus Messing mit Vierpass-Durchbruch](blr1-1.png)
 ![montiert in Holzverkleidung](blr1-2.png)
 ![Nahaufnahme](blr1-3.png)
-![BelÃ¼ftungsrosette aus Messing mit Vierpass-Durchbruch](blr1-4.png)
+![BelÃ1⁄4ftungsrosette aus Messing mit Vierpass-Durchbruch](blr1-4.png)
 ![neben MaÃband zur GrÃ¶Ãenreferenz](blr1-5.png)
 
 ## SEO-Metadaten
 
-- meta_title: blr1 â FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, Abguss
-- meta_description: LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen
+- meta_title: blr1 â FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, Abguss
+- meta_description: LÃ1⁄4ftungsrosette fÃ1⁄4r HolzvertÃ¤felungen
 
 ## Tags
 
