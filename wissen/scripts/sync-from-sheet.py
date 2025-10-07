@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 13:45 Europe/Berlin
+# Version: 2025-10-07 16:05 Europe/Berlin
 # sync-from-sheet.py – zieht ein Google-Sheet (CSV) und schreibt Hugo-Content (DE/EN)
 # Zielpfade:
 #   DE: wissen/content/de/oeffentlich/produkte/<slug>/index.md
@@ -19,7 +19,7 @@
 #   sku, preis, einheit
 
 from __future__ import annotations
-import os, re, sys, unicodedata, hashlib
+import os, re, sys, unicodedata
 from datetime import datetime
 from io import StringIO
 from pathlib import Path
@@ -35,23 +35,39 @@ OUT_EN = ROOT / "content" / "en" / "public" / "products"
 
 DRY_RUN = os.getenv("DRY_RUN", "") not in ("", "0", "false", "False")
 
+# --------------------- Sanitizer -----------------
+_BAD_CTRL_RE = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F]')
+
+def sanitize_text(value: str | None) -> str:
+    """Entfernt Steuerzeichen und Encoding-Artefakte, normalisiert Zeilenenden."""
+    if value is None:
+        return ""
+    s = str(value)
+    if "Ã" in s or "�" in s:
+        try:
+            s = s.encode("latin1", errors="ignore").decode("utf-8", errors="ignore")
+        except Exception:
+            pass
+    s = _BAD_CTRL_RE.sub("", s)
+    s = s.replace("\r\n", "\n").replace("\r", "\n")
+    return s
+
+def sanitize_list(vals) -> list[str]:
+    if not vals:
+        return []
+    out = []
+    for v in vals:
+        t = sanitize_text(v).strip()
+        if t:
+            out.append(t)
+    return out
+
 # --------------------- Helpers -------------------
 def now_iso_berlin() -> str:
     return datetime.now(ZoneInfo("Europe/Berlin")).replace(microsecond=0).isoformat()
 
-def try_fix(s: str | None) -> str:
-    if s is None:
-        return ""
-    s = str(s)
-    if "Ã" in s or "�" in s:
-        try:
-            return s.encode("latin1", errors="ignore").decode("utf-8", errors="ignore")
-        except Exception:
-            return s
-    return s
-
 def slugify(s: str) -> str:
-    s = try_fix(s).strip().lower()
+    s = sanitize_text(s).strip().lower()
     s = unicodedata.normalize("NFKD", s)
     s = "".join(ch for ch in s if not unicodedata.combining(ch))
     s = re.sub(r"[^a-z0-9\-]+", "-", s).strip("-")
@@ -62,7 +78,7 @@ def split_list(val: str):
     if not val:
         return []
     parts = re.split(r"[;,]\s*", str(val).replace("\n", ","))
-    return [p.strip() for p in parts if p.strip()]
+    return [sanitize_text(p).strip() for p in parts if sanitize_text(p).strip()]
 
 def first_col(df: pd.DataFrame, *cands):
     lm = {c.lower(): c for c in df.columns}
@@ -76,9 +92,14 @@ def parse_varianten(row: dict):
     if vy and str(vy).strip():
         try:
             import yaml  # optional
-            v = yaml.safe_load(str(vy))
+            v = yaml.safe_load(sanitize_text(str(vy)))
             if isinstance(v, list):
-                return v
+                clean = []
+                for el in v:
+                    if not isinstance(el, dict):
+                        continue
+                    clean.append({k: sanitize_text(str(vv)) for k, vv in el.items()})
+                return clean
         except Exception:
             pass
     txt = row.get("varianten") or row.get("VARIANTEN") or ""
@@ -87,44 +108,43 @@ def parse_varianten(row: dict):
         bits = [b.strip() for b in chunk.split("|")]
         if not bits or not bits[0]:
             continue
-        item = {"name": bits[0]}
+        item = {"name": sanitize_text(bits[0])}
         if len(bits) > 1 and bits[1]:
             try:
-                item["preis"] = float(str(bits[1]).replace(",", "."))
+                item["preis"] = float(sanitize_text(bits[1]).replace(",", "."))
             except ValueError:
-                item["preis"] = bits[1]
+                item["preis"] = sanitize_text(bits[1])
         if len(bits) > 2 and bits[2]:
-            item["einheit"] = bits[2]
+            item["einheit"] = sanitize_text(bits[2])
         if len(bits) > 3 and bits[3]:
-            item["sku"] = bits[3]
+            item["sku"] = sanitize_text(bits[3])
         items.append(item)
     return items
 
 def yaml_block(key: str, text: str) -> str:
+    safe_text = sanitize_text(text).replace("\n---", "\n—")  # trennt evtl. YAML-Delimiter in Content
     lines = [f"{key}: |"]
-    for ln in (text or "").splitlines():
+    for ln in safe_text.splitlines():
         lines.append(f"  {ln}")
     return "\n".join(lines)
 
 def fm_to_str(fm: dict, title: str, beschr_de: str, beschr_en: str) -> str:
-    # deterministische Reihenfolge
     order = [
         "title", "title_en",
         "slug", "type", "kategorie",
         "beschreibung_md_de", "beschreibung_md_en",
         "bilder", "varianten", "sku", "last_sync",
     ]
-    data = dict(fm)
-    data["title"] = title
-    # title_en bleibt zusätzlich drin, damit ein Template bei Bedarf umschalten kann
-    # (für reine i18n-Frontmatter wäre getrennte title-Keys nicht nötig)
+    data = {k: v for k, v in fm.items()}
+
+    data["title"] = sanitize_text(title)
     out = ["---"]
     for k in order:
         if k == "beschreibung_md_de":
-            out.append(yaml_block(k, str(beschr_de)))
+            out.append(yaml_block(k, sanitize_text(beschr_de)))
             continue
         if k == "beschreibung_md_en":
-            out.append(yaml_block(k, str(beschr_en)))
+            out.append(yaml_block(k, sanitize_text(beschr_en)))
             continue
         if k not in data:
             continue
@@ -132,25 +152,31 @@ def fm_to_str(fm: dict, title: str, beschr_de: str, beschr_en: str) -> str:
         if v in (None, "", []):
             continue
         if k in ("kategorie", "bilder"):
+            arr = v if isinstance(v, list) else split_list(v)
+            arr = sanitize_list(arr)
+            if not arr:
+                continue
             out.append(f"{k}:")
-            for el in (v if isinstance(v, list) else split_list(v)):
+            for el in arr:
                 out.append(f"  - {el}")
         elif k == "varianten":
             out.append("varianten:")
             for el in (v if isinstance(v, list) else []):
                 out.append("  -")
                 for kk, vv in el.items():
-                    out.append(f"    {kk}: {vv}")
+                    if vv in (None, ""):
+                        continue
+                    out.append(f"    {kk}: {sanitize_text(str(vv))}")
         else:
-            out.append(f"{k}: {v}")
+            out.append(f"{k}: {sanitize_text(v)}")
     out.append("---")
     out.append("")  # Leerzeile hinter Frontmatter
     return "\n".join(out)
 
-LAST_SYNC_RE = re.compile(r'^\s*last_sync:\s*.*$', flags=re.M)
+_LAST_SYNC_RE = re.compile(r'^\s*last_sync:\s*.*$', flags=re.M)
 
 def strip_last_sync(txt: str) -> str:
-    return LAST_SYNC_RE.sub("", txt or "")
+    return _LAST_SYNC_RE.sub("", txt or "")
 
 def write_product(de: dict, en: dict):
     out_de = OUT_DE / de["slug"] / "index.md"
@@ -160,26 +186,24 @@ def write_product(de: dict, en: dict):
 
     base_fm = {
         "type": "produkte",
-        "slug": de["slug"],
-        "kategorie": de.get("kategorie", []),
-        "bilder": de.get("bilder", []),
+        "slug": sanitize_text(de["slug"]),
+        "kategorie": sanitize_list(de.get("kategorie", [])),
+        "bilder": sanitize_list(de.get("bilder", [])),
         "varianten": de.get("varianten", []),
-        "sku": de.get("sku") or en.get("sku") or "",
-        # last_sync zunächst NICHT setzen → nur bei Änderung
+        "sku": sanitize_text(de.get("sku") or en.get("sku") or ""),
     }
 
-    # Frontmatter je Sprache bauen (Titel lokalisiert!)
     fm_de_core = fm_to_str(
-        {**base_fm, "title_en": en["title"]},
-        title=de["title"],
-        beschr_de=de.get("beschreibung", ""),
-        beschr_en=en.get("beschreibung", ""),
+        {**base_fm, "title_en": sanitize_text(en["title"])},
+        title=sanitize_text(de["title"]),
+        beschr_de=sanitize_text(de.get("beschreibung", "")),
+        beschr_en=sanitize_text(en.get("beschreibung", "")),
     )
     fm_en_core = fm_to_str(
-        {**base_fm, "title_en": en["title"]},
-        title=en["title"],
-        beschr_de=de.get("beschreibung", ""),
-        beschr_en=en.get("beschreibung", ""),
+        {**base_fm, "title_en": sanitize_text(en["title"])},
+        title=sanitize_text(en["title"]),
+        beschr_de=sanitize_text(de.get("beschreibung", "")),
+        beschr_en=sanitize_text(en.get("beschreibung", "")),
     )
 
     old_de = out_de.read_text(encoding="utf-8") if out_de.exists() else ""
@@ -220,10 +244,16 @@ def fetch_csv_text() -> str:
         url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv&gid={gid}"
     r = requests.get(url, timeout=60)
     r.raise_for_status()
-    return r.text
+    # BOM/Steuerzeichen im CSV entfernen
+    b = r.content
+    if b[:3] == b'\xef\xbb\xbf':
+        b = b[3:]
+    txt = b.decode("utf-8", "replace")
+    txt = _BAD_CTRL_RE.sub("", txt)
+    return txt
 
 def row_to_lang(row: dict, lang: str) -> dict:
-    d = {k: try_fix(v) for k, v in row.items()}
+    d = {k: sanitize_text(row[k]) for k in row.keys()}
     if lang == "de":
         title = d.get("titel_de") or d.get("title_de") or ""
         beschr = d.get("beschreibung_md_de") or d.get("beschreibung_de") or ""
@@ -244,7 +274,7 @@ def row_to_lang(row: dict, lang: str) -> dict:
             item = {"name": "Standard"}
             if preis:
                 try:
-                    item["preis"] = float(str(preis).replace(",", "."))
+                    item["preis"] = float(preis.replace(",", "."))
                 except ValueError:
                     item["preis"] = preis
             if einheit:
