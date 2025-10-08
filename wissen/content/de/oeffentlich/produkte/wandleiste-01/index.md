@@ -9,7 +9,7 @@ beschreibung_md_de: |
   Die Wandleiste WL 01 besitzt ein klassisch gestaltetes, asymmetrisches Profil im Maß 40 x 16 mm. Der Aufbau kombiniert einen voluminös geschwungene Karnis in der Mittelzone mit fein auslaufenden Profilierungen zur inneren Seite.
   
   WL 01 eignet sich zur Bildung von feinen Rahmen auf Wandflächen.
-last_sync: 2025-10-08T06:34:20+02:00
+last_sync: 2025-10-08 06:34:20+02:00
 ---
 
 Profiled wooden moulding 16 x 40 mm

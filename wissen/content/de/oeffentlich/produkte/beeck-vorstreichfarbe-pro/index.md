@@ -10,7 +10,7 @@ beschreibung_md_de: |
   Deckend weißer, füllender, rasch trocknender High Solid Vorlack für Holz, Holzwerkstoffe und Eisenmetalle im Innen- und Außenbereich. Auch als Haftung vermittelnder Zwischenanstrich auf tragfähigen Altanstrichen auf Öl- und Alkydharzbasis. Weiß, bei getönten bzw. volltonigen Schlusslackierungen entsprechend tönbar. Weiterbehandlung im Außenbereich mit BEECK Standölaußenfarbe pro. Ideal für Holzvertäfelungen, Fenster, Türen und Klappläden.
 beschreibung_md_en: |
   Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
-last_sync: 2025-10-08T06:34:20+02:00
+last_sync: 2025-10-08 06:34:20+02:00
 ---
 
 Beeck Interior Stand-Oil Paint PRO

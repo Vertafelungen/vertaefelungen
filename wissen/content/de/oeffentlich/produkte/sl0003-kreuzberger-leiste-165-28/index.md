@@ -4,7 +4,7 @@ slug: sl0003-kreuzberger-leiste-165-28
 type: produkte
 beschreibung_md_de: |
   Eine echte Berliner Leiste, die für eine Wohnung in der Adalbertstr. nachgefräst wurde.
-last_sync: 2025-10-08T06:34:20+02:00
+last_sync: 2025-10-08 06:34:20+02:00
 ---
 
 A genuine Berlin skirting board that was re-milled for an apartment in Adalbertstr.

@@ -5,7 +5,7 @@ type: produkte
 beschreibung_md_de: |
   Leinölfirnis mit Sikkativen.
   Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
-last_sync: 2025-10-08T06:34:20+02:00
+last_sync: 2025-10-08 06:34:20+02:00
 ---
 
 Linseed oil varnish with siccatives.
