@@ -12,7 +12,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 1097350000
-last_sync: "2025-10-08T18:38:14+02:00"
+last_sync: "2025-10-08T22:31:55+02:00"
 ---
 Sir Henry Cole, the founding director of the South Kensington Museum, showed great flair when he commissioned the young William Morris to design the "Green Dining Room", now known as the "Morris Room", in 1861. Morris, later one of the most famous representatives of the Arts and Crafts movement, proposed a design consisting of panelling in the style of the Elizabethan Neo-Renaissance and elements of Gothic Revival. Morris enlisted the help of his friends, the architect Philip Webb and the painter Edward Burne-Jones. The original state has been preserved and is open to visitors. The panel has a height of 214 cm and is painted green in its original colour.
 -

@@ -11,7 +11,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche
     preis_aufschlag: 365780000
-last_sync: "2025-10-08T18:38:14+02:00"
+last_sync: "2025-10-08T22:31:55+02:00"
 ---
 Goethe's home in Weimar is a successful blend of classicist bourgeoisie and simple farmhouse.
 -
