@@ -9,7 +9,6 @@ beschreibung_md_en: |
   Door and window frame TR 11, dimensions: 118 x 23 mm
 last_sync: 2025-10-08 03:59:54+02:00
 ---
-
 -
 -
 

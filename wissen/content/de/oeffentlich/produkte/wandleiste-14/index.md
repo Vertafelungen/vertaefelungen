@@ -10,7 +10,6 @@ beschreibung_md_de: |
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
 last_sync: 2025-10-08 03:59:54+02:00
 ---
-
 Profiled wooden strip 21 x 60 mm
 In pine or whitewood, other wood types upon request
 As a wall strip for direct mounting on the plastered wall.

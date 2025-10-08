@@ -6,7 +6,6 @@ beschreibung_md_de: |
   Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen Bürgertum und einfachem Bauerhaus.
 last_sync: 2025-10-08 03:59:54+02:00
 ---
-
 Goethe's home in Weimar is a successful blend of classicist bourgeoisie and simple farmhouse.
 -
 -

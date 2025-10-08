@@ -8,7 +8,6 @@ beschreibung_md_en: |
   Door and window frame TR 01 / 120, dimensions: 120 x 18 mm
 last_sync: 2025-10-08 03:59:54+02:00
 ---
-
 -
 -
 
