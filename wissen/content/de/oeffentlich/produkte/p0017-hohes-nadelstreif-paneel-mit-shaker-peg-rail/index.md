@@ -14,7 +14,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche
     preis_aufschlag: 542000000
-last_sync: "2025-10-08T10:39:16+02:00"
+last_sync: "2025-10-08T14:59:09+02:00"
 ---
 This cladding looks very nice and is very practical.
 Our Shaker Peg Rail is made in exactly the same shape as it can be found in the Shaker Museum Enfield.

@@ -6,7 +6,7 @@ type: produkte
 beschreibung_md_de: |
   schlicht, mit Karnies
 beschreibung_md_en: |
-last_sync: "2025-10-08T10:39:16+02:00"
+last_sync: "2025-10-08T14:59:09+02:00"
 ---
 simple with cyma
 

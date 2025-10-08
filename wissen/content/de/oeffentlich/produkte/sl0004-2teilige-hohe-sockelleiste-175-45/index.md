@@ -6,7 +6,7 @@ type: produkte
 beschreibung_md_de: |
   Reich profilierte, hohe Sockelleiste, die aus 2 Teilen zusammengesetzt wird.
 beschreibung_md_en: |
-last_sync: "2025-10-08T10:39:16+02:00"
+last_sync: "2025-10-08T14:59:09+02:00"
 ---
 Richly profiled, high skirting board made up of 2 parts.
 
