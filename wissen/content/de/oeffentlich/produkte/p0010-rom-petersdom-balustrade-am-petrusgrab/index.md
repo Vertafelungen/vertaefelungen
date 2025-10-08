@@ -7,6 +7,7 @@ beschreibung_md_de: |
   Bei Höhe, Form und Proportionen halten wir uns genau an das Original. Die Farbigkeit der unterschiedlichen Marmorarten können wir auch durch die Verwendung unterschiedlicher Holzarten nachstellen.
 last_sync: 2025-10-08 03:59:54+02:00
 ---
+
 The balustrade that we have used as a model for this new wainscoting is located in the centre of St Peter's Basilica in Rome, directly in front of Bernini's ciborium. It surrounds the staircase to the Vatican Necropolis, where St Peter's tomb is located.
 In terms of height, shape and proportions, we have stuck exactly to the original. We can also recreate the colours of the different types of marble by using different types of wood.
 -

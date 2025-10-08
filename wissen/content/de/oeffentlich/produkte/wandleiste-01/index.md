@@ -11,6 +11,7 @@ beschreibung_md_de: |
   WL 01 eignet sich zur Bildung von feinen Rahmen auf Wandflächen.
 last_sync: 2025-10-08 03:59:54+02:00
 ---
+
 Profiled wooden moulding 16 x 40 mm
 Available in pine or whitewood, other wood types on request
 The WL 01 wall moulding features a classically shaped, asymmetrical profile measuring 40 x 16 mm. The design combines a generously curved cyma recta (karnis) in the central section with finely tapering contours on the inner side.

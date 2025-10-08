@@ -9,6 +9,7 @@ beschreibung_md_en: |
   Door and window frame TR 13, dimensions: 103 x 23 mm
 last_sync: 2025-10-08 03:59:54+02:00
 ---
+
 -
 -
 
