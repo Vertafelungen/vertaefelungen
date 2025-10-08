@@ -18,7 +18,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: White Wood
     preis_aufschlag: 4580000
-last_sync: "2025-10-07T22:31:34+02:00"
+last_sync: "2025-10-08T03:59:54+02:00"
 ---
 Profiled wooden moulding 16 x 40 mm
 Available in pine or whitewood, other wood types on request

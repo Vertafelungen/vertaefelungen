@@ -16,7 +16,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: White Wood
     preis_aufschlag: 10240000
-last_sync: "2025-10-07T22:31:34+02:00"
+last_sync: "2025-10-08T03:59:54+02:00"
 ---
 Profiled wooden strip 21 x 60 mm
 In pine or whitewood, other wood types upon request
