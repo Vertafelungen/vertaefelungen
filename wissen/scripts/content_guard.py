@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 16:30 Europe/Berlin
-# Strikter Content-Guard mit Unicode-Normalisierung des YAML-Frontmatters
+# Version: 2025-10-07 17:05 Europe/Berlin
+# Content-Guard: robust gegen NBSP/Zero-Width/LSEP/PSEP, Tabs im YAML-Head,
+# strikt für 'produkte' und 'faq', tolerant für allgemeine Seiten, _index.md ausgenommen.
 from __future__ import annotations
 from pathlib import Path
 import re, sys, unicodedata
@@ -11,43 +12,59 @@ CONTENT = ROOT / "content"
 
 FM_RE = re.compile(r'^---\n(.*?\n)---\n(.*)$', re.S)
 
-# Unicode-Normalisierung (wie im Fixer)
+# ---------- Normalisierung (identisch zur Fix-Logik, plus Detab) ----------
 SPACE_MAP = {
+    # Space-Varianten -> normales Leerzeichen
     **{ord(c): " " for c in " \u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000"},
+    # Zero-Width / Marks entfernen
     ord("\u200B"): None, ord("\u200C"): None, ord("\u200D"): None, ord("\u2060"): None,
-    ord("\u200E"): None, ord("\u200F"): None, ord("\u2028"): " ", ord("\u2029"): " ",
+    ord("\u200E"): None, ord("\u200F"): None,
+    # LSEP / PSEP -> Space
+    ord("\u2028"): " ",  ord("\u2029"): " ",
 }
-def normalize_unicode(s: str) -> str:
-    return unicodedata.normalize("NFKC", s).translate(SPACE_MAP)
 
-# Pfad-Helfer
+def norm_unicode(s: str) -> str:
+    # NFKC vereinheitlicht typografische Varianten (fi/ﬂ etc.)
+    return unicodedata.normalize("NFKC", s).translate(SPACE_MAP).replace("\r\n", "\n")
+
+def detab_head(head: str) -> str:
+    # Tabs am Zeilenanfang sind im YAML-Indent unzulässig
+    return re.sub(r'^\t+', lambda m: "  " * len(m.group(0)), head, flags=re.M)
+
+def sanitize_head(head_raw: str) -> str:
+    return detab_head(norm_unicode(head_raw))
+
+# ---------- Pfad-Helfer ----------
 def is_product_path(p: Path) -> bool:
     s = p.as_posix()
     return "/de/oeffentlich/produkte/" in s or "/en/public/products/" in s
+
 def is_faq_path(p: Path) -> bool:
     return "/faq/" in p.as_posix()
+
 def is_index_file(p: Path) -> bool:
     return p.name == "_index.md"
+
 def guess_type_by_path(p: Path) -> str | None:
     if is_product_path(p): return "produkte"
     if is_faq_path(p):     return "faq"
     if "/allgemeine-informationen/" in p.as_posix(): return "allgemeine-informationen"
     return None
 
-# Struktur-Prüfung (erlaubt Blocks & Listen)
+# ---------- Struktur-Prüfung (erlaubt Block- und Listenzeilen) ----------
 KEY_LINE   = re.compile(r'^\s*[^:#\-\s][^:]*:\s*(\|[+-]?|\>|[^\#].*)?$')
 LIST_ITEM  = re.compile(r'^\s*-\s+.*$')
 INDENTED   = re.compile(r'^\s+')
 
 def head_structure_error(head_raw: str) -> str | None:
-    head = normalize_unicode(head_raw)
+    head = sanitize_head(head_raw)
     lines = head.splitlines()
     in_block = False
     for i, ln in enumerate(lines, start=1):
         if in_block:
-            if ln.strip() == "" or INDENTED.match(ln):  # Folgezeilen eines Blocks
+            if ln.strip() == "" or INDENTED.match(ln):
                 continue
-            in_block = False  # Block beendet, aktuelle Zeile weiterprüfen
+            in_block = False  # Block beendet -> aktuelle Zeile normal prüfen
 
         if ln.strip() == "" or ln.lstrip().startswith("#"):
             continue
@@ -60,19 +77,20 @@ def head_structure_error(head_raw: str) -> str | None:
         return f"Textzeile im YAML-Head (kein 'key: value' / Block / Liste): Zeile {i}: {ln[:60]!r}"
     return None
 
+# ---------- Frontmatter parsen (nach Sanitizing!) ----------
 def parse_frontmatter(txt_raw: str):
     m = FM_RE.match(txt_raw)
     if not m:
-        return None, None
+        return None, None, None
     head_raw, body_raw = m.group(1), m.group(2)
-    head = normalize_unicode(head_raw)
-    body = normalize_unicode(body_raw)
+    head = sanitize_head(head_raw)
+    body = norm_unicode(body_raw)
     data = yaml.safe_load(head) or {}
     if not isinstance(data, dict):
         raise RuntimeError("YAML-Frontmatter ist kein Mapping (dict).")
     return head, data, body
 
-# Schemas
+# ---------- Schemas ----------
 SCHEMAS = {
     "produkte": {
         "required": {"title", "slug"},
@@ -129,6 +147,7 @@ def check_schema(p: Path, fm: dict, strict: bool):
 
     return warns, errs
 
+# ---------- Lauf ----------
 def guard(strict: bool):
     errors, warns = [], []
     for p in CONTENT.rglob("*.md"):
@@ -142,7 +161,7 @@ def guard(strict: bool):
         if not m:
             continue
 
-        # Strukturcheck (robust gegen NBSP/Zero-Width)
+        # Strukturcheck auf dem sanitizten Head
         err = head_structure_error(m.group(1))
         if err:
             errors.append(f"{p}: {err}")
