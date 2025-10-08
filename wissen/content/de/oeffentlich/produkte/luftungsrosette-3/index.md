@@ -1,6 +1,5 @@
 ---
 title: Lüftungsrosette 3
-title_en: Ventilation Rosette 3
 slug: luftungsrosette-3
 type: produkte
 beschreibung_md_de: |
@@ -9,10 +8,9 @@ beschreibung_md_de: |
   
   Durchmesser ca. 36 mm
   Hohe ca. 3 mm
-beschreibung_md_en: |
-  
-last_sync: "2025-10-08T03:59:54+02:00"
+last_sync: 2025-10-08T03:59:54+02:00
 ---
+
 Elegant ventilation rosette based on the original design.
 Cast brass, polished
 Diameter approx. 36 mm
