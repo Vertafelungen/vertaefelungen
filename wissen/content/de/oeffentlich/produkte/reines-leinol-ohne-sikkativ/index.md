@@ -22,7 +22,7 @@ varianten:
     preis_aufschlag: 96638655
     bezeichnung: 20 Liter
     preis_aufschlag: 197478992
-last_sync: "2025-10-08T14:59:09+02:00"
+last_sync: "2025-10-08T18:38:14+02:00"
 ---
 Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
 For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.
