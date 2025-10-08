@@ -7,7 +7,7 @@ beschreibung_md_de: |
   Unser Shaker Peg Rail wird genau in der Form hergestellt, wie es im Shaker Museum Enfield vorzufinden ist.
   Das Peg-Rail ist ein sinnvolle Erfindung, die es ermöglicht, Dinge griffbereit und übersichtlich aufzubewahren. So können Töpfe, Schere, Hundeleine und sogar Stühle einfach an die Wand gehängt werden.
   Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es für einen farbigen Anstrich vorbereitet werden.
-last_sync: 2025-10-08T03:59:54+02:00
+last_sync: 2025-10-08 03:59:54+02:00
 ---
 
 This cladding looks very nice and is very practical.

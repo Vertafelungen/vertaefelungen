@@ -5,7 +5,7 @@ type: produkte
 beschreibung_md_de: |
   Die Balustrade, die wir als Vorlage für dieses neue Vertäfelung genommen haben, befindet sich im Zentrum des Petersdoms, direkt vor Berninis Ziborium. Sie umgibt den Treppenabgang zur Vatikanischen Nekropole, in der sich das Grab Petrus befindet.
   Bei Höhe, Form und Proportionen halten wir uns genau an das Original. Die Farbigkeit der unterschiedlichen Marmorarten können wir auch durch die Verwendung unterschiedlicher Holzarten nachstellen.
-last_sync: 2025-10-08T03:59:54+02:00
+last_sync: 2025-10-08 03:59:54+02:00
 ---
 
 The balustrade that we have used as a model for this new wainscoting is located in the centre of St Peter's Basilica in Rome, directly in front of Bernini's ciborium. It surrounds the staircase to the Vatican Necropolis, where St Peter's tomb is located.

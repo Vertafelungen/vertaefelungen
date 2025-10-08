@@ -10,7 +10,7 @@ beschreibung_md_de: |
   Leinöl ist in Innenbereichen gegenüber jeder künstlich hergestellten Grundierung zu bevorzugen.
   Es ist 100% natürlich und hat sich traditionell bewährt.
   Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
-last_sync: 2025-10-08T03:59:54+02:00
+last_sync: 2025-10-08 03:59:54+02:00
 ---
 
 Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.

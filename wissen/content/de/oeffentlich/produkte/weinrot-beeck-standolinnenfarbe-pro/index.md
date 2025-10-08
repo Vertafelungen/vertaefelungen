@@ -10,7 +10,7 @@ beschreibung_md_de: |
   Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
 beschreibung_md_en: |
   Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
-last_sync: 2025-10-08T03:59:54+02:00
+last_sync: 2025-10-08 03:59:54+02:00
 ---
 
 Beeck Interior Stand-Oil Paint PRO

@@ -8,7 +8,7 @@ beschreibung_md_de: |
   
   Durchmesser ca. 46 mm
   Hohe ca. 11 mm
-last_sync: 2025-10-08T03:59:54+02:00
+last_sync: 2025-10-08 03:59:54+02:00
 ---
 
 Elegant ventilation rosette based on the original design.

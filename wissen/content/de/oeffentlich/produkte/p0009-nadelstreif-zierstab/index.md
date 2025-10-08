@@ -4,7 +4,7 @@ slug: p0009-nadelstreif-zierstab
 type: produkte
 beschreibung_md_de: |
   Was wir salop als "Nadelstreif" bezeichnen, ist die Kombination von Brett und Zierleiste. Beides sind separate Elemente, die sich mit Nut und Feder verbinden und im Wechsel aneinander reihen. Das Besondere ist, dass es unterschiedliche Zierleisten gibt, die zur Auswahl stehen. Eine klassische Vertäfelung, die sich für Hotellerie und Bauernhaus gleichermaßen eignet. Die Vertäfelung kann pro Laufmeter bestellt werden. Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es für einen farbigen Anstrich vorbereitet werden.
-last_sync: 2025-10-08T03:59:54+02:00
+last_sync: 2025-10-08 03:59:54+02:00
 ---
 
 What we casually call "pinstripe" here is the combination of board and decorative trim.
