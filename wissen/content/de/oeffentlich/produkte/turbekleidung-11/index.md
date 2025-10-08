@@ -1,5 +1,6 @@
 ---
 title: Türbekleidung 11
+title_en: Door Frame 11
 slug: turbekleidung-11
 type: produkte
 beschreibung_md_de: |
@@ -7,9 +8,13 @@ beschreibung_md_de: |
   TR 11, Maße: 118 x 23 mm mm
 beschreibung_md_en: |
   Door and window frame TR 11, dimensions: 118 x 23 mm
-last_sync: 2025-10-08 03:59:54+02:00
+varianten:
+    bezeichnung: Kiefer
+    preis_aufschlag: 0
+    bezeichnung: White Wood
+    preis_aufschlag: 25080000
+last_sync: "2025-10-08T06:34:20+02:00"
 ---
-
 -
 -
 

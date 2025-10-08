@@ -1,5 +1,6 @@
 ---
 title: Wandleiste 14
+title_en: Wall Moulding 14
 slug: wandleiste-14
 type: produkte
 beschreibung_md_de: |
@@ -8,9 +9,15 @@ beschreibung_md_de: |
   
   Als Wandleiste zur direkten Montage auf der verputzen Wand.
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
-last_sync: 2025-10-08 03:59:54+02:00
+beschreibung_md_en: |
+  
+varianten:
+    bezeichnung: Kiefer
+    preis_aufschlag: 0
+    bezeichnung: White Wood
+    preis_aufschlag: 10240000
+last_sync: "2025-10-08T06:34:20+02:00"
 ---
-
 Profiled wooden strip 21 x 60 mm
 In pine or whitewood, other wood types upon request
 As a wall strip for direct mounting on the plastered wall.
