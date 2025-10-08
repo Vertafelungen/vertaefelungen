@@ -1,5 +1,6 @@
 ---
 title: Lüftungsrosette 7
+title_en: Ventilation Rosette 7
 slug: luftungsrosette-7
 type: produkte
 beschreibung_md_de: |
@@ -8,9 +9,10 @@ beschreibung_md_de: |
   
   Durchmesser ca. 28 mm
   Hohe ca. 12 mm
-last_sync: 2025-10-08 06:34:20+02:00
+beschreibung_md_en: |
+  
+last_sync: "2025-10-08T10:39:16+02:00"
 ---
-
 Elegant ventilation rosette based on an original design.
 Cast brass, polished
 Diameter approx. 28 mm
