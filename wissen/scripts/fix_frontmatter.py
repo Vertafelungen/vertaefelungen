@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 16:30 Europe/Berlin
+# Version: 2025-10-07 17:30 Europe/Berlin
 # Robuster Frontmatter-Fixer:
 # - entfernt BOM/Control/Zero-Width
-# - normalisiert NBSP und exotische Spaces
+# - normalisiert NBSP u. alle exotischen Spaces
 # - entfernt LSEP/PSEP
 # - rückt Tabs in YAML auf Spaces um
 # - zieht verirrte Textzeilen aus YAML in den Body
@@ -14,66 +14,41 @@ import re, sys, unicodedata
 ROOT    = Path(__file__).resolve().parents[1]  # .../wissen
 CONTENT = ROOT / "content"
 
-# Control-Chars (ohne TAB), BOM
 CTRL_RE = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]')
 BOM     = "\ufeff"
 
-# Unicode-Sonderzeichen normalisieren:
 SPACE_MAP = {
-    # Alle gängigen Space-Varianten -> normales Leerzeichen
     **{ord(c): " " for c in " \u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000"},
-    # Zero-width & Markierungen entfernen
-    ord("\u200B"): None,  # ZWSP
-    ord("\u200C"): None,  # ZWNJ
-    ord("\u200D"): None,  # ZWJ
-    ord("\u2060"): None,  # WJ
-    ord("\u200E"): None,  # LRM
-    ord("\u200F"): None,  # RLM
-    # Line/Paragraph Separator -> Space (YAML mag die nicht)
-    ord("\u2028"): " ",   # LSEP
-    ord("\u2029"): " ",   # PSEP
+    ord("\u200B"): None, ord("\u200C"): None, ord("\u200D"): None, ord("\u2060"): None,
+    ord("\u200E"): None, ord("\u200F"): None, ord("\u2028"): " ", ord("\u2029"): " ",
 }
 
 def normalize_unicode(s: str) -> str:
-    # NFKC vereinheitlicht typografische Varianten (z. B. „ﬁ“)
-    return unicodedata.normalize("NFKC", s).translate(SPACE_MAP)
+    return unicodedata.normalize("NFKC", s).translate(SPACE_MAP).replace("\r\n", "\n")
 
 def sanitize_all(s: str) -> str:
-    if not s:
-        return s
+    if not s: return s
     s = s.replace(BOM, "")
     s = CTRL_RE.sub(" ", s)
-    s = s.replace("\r\n", "\n")
     s = normalize_unicode(s)
     return s
 
 def ensure_frontmatter_starts_at_col1(s: str) -> str:
-    # Alles vor erstem ---\n (inkl. Unicode-Spaces) entfernen
     m = re.search(r'(?m)^[ \t\u00A0\u1680\u2000-\u200B\u202F\u205F\u3000]*---\n', s)
-    if not m:
-        return s
-    return s[m.start():]
+    return s[m.start():] if m else s
 
 def split_head_body(s: str):
     m = re.match(r'^---\n(.*?\n)---\n(.*)$', s, flags=re.S)
-    if not m:
-        return None, None, s
-    return m.group(1), m.group(2), None
+    return (m.group(1), m.group(2), None) if m else (None, None, s)
 
 def detab_head(head: str) -> str:
-    # Führende Tabs im YAML-Kopf → zwei Spaces je Tab
     return re.sub(r'^\t+', lambda m: "  " * len(m.group(0)), head, flags=re.M)
 
-# Erlaubte Key-Zeilen und Block/Liste erkennen
 KEY_LINE  = re.compile(r'^\s*[^:#\-\s][^:]*:\s*(\|[+-]?|\>|[^\#].*)?$')
 LIST_ITEM = re.compile(r'^\s*-\s+.*$')
 INDENTED  = re.compile(r'^\s+')
 
 def normalize_yaml_head(head: str):
-    """
-    Entfernt 'verirrte' reine Textzeilen aus dem YAML-Head → Body.
-    Gibt (fixed_head, stray_lines) zurück.
-    """
     lines = head.split("\n")
     fixed, stray = [], []
     in_block = False
@@ -92,7 +67,6 @@ def normalize_yaml_head(head: str):
             continue
         if LIST_ITEM.match(ln):
             fixed.append(ln); continue
-        # sonst: verirrter Text
         stray.append(ln.strip())
     fixed_head = "\n".join(fixed).strip("\n") + "\n"
     return fixed_head, [x for x in stray if x]
@@ -123,11 +97,10 @@ def fix_file(p: Path) -> bool:
         body = ("\n".join(stray) + "\n\n" + body.lstrip())
 
     head, body = pull_last_sync_into_head(head, body)
-
     fixed = f"---\n{head}---\n{body.lstrip()}"
+
     if fixed != raw:
-        p.write_text(fixed, encoding="utf-8")
-        print(f"[FIX] {p}")
+        p.write_text(fixed, encoding="utf-8"); print(f"[FIX] {p}")
         return True
     return False
 
