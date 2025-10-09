@@ -18,7 +18,7 @@ varianten:
     preis_aufschlag: 90000000
     bezeichnung: 10 Liter
     preis_aufschlag: 195000000
-last_sync: "2025-10-09T04:01:08+02:00"
+last_sync: "2025-10-09T06:34:39+02:00"
 ---
 Natural Tung Oil contains no siccatives. It polymerises in a similar way to linseed oil, but dries faster and forms a hard, matt surface. If wood is treated exclusively with Tung Oil Natural, the natural wood colour is essentially retained. It is very suitable for impregnating hardwood and as a surface coating on linseed oil paints. It can be used indoors and outdoors.
 Tung oil natural is obtained from the nuts of the wood oil tree (Vernicia fordii) in Asia, the USA and South America. The oil was historically referred to as "wood oil" or "Chinese wood oil" and is the binding agent for Chinese and Japanese wood and paper paintings.

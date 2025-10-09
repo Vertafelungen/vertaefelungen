@@ -11,7 +11,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 360720000
-last_sync: "2025-10-09T04:01:07+02:00"
+last_sync: "2025-10-09T06:34:39+02:00"
 ---
 Town Hall Lübeck - The centre of the Hanseatic League. This is where from the 14th to the 18th century the Hansa Days took place, where co-operation was regulated. The city council still debates current issues here today. Lübeck is a very proud city, which is clearly demonstrated by its buildings. Inside and out. The entire length of the corridor on the upper hall way and in the „Long House“ is stuffed with a coffered panelling. All rails and frames are made of oak, but the cassettes are of pine. This panelling was probably created during the renovation of 1893.
 -
