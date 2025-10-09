@@ -19,7 +19,7 @@ varianten:
     preis_aufschlag: 66400000
     bezeichnung: 10 L
     preis_aufschlag: 341100000
-last_sync: "2025-10-09T18:42:09+02:00"
+last_sync: "2025-10-09T22:32:25+02:00"
 ---
 Beeck Interior Stand-Oil Paint PRO
 Intended use

@@ -13,7 +13,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: White Wood
     preis_aufschlag: 4740000
-last_sync: "2025-10-09T18:42:09+02:00"
+last_sync: "2025-10-09T22:32:24+02:00"
 ---
 Wooden moulding 20 x 40 mm, symmetric âDome ProfilâÂ
 As a wall moulding for direct installation on the plastered wall.
