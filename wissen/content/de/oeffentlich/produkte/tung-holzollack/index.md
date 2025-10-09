@@ -24,7 +24,7 @@ varianten:
     preis_aufschlag: 178991597
     bezeichnung: 20 Liter
     preis_aufschlag: 355462185
-last_sync: "2025-10-09T14:59:13+02:00"
+last_sync: "2025-10-09T18:42:09+02:00"
 ---
 Tung oil boiled with linseed oil, linseed oil stand oil and siccatives.
 For interior and exterior use.

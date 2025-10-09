@@ -11,7 +11,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 365780000
-last_sync: "2025-10-09T14:59:13+02:00"
+last_sync: "2025-10-09T18:42:09+02:00"
 ---
 A good example of panelling that provides clear structures and puts the pictures on display centre stage. The surface looks like a flat balustrade with plenty of space at the top to hang pictures in different formats at eye level.
 -
