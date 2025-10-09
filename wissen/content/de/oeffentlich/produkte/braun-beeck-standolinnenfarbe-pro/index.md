@@ -25,7 +25,7 @@ varianten:
     preis_aufschlag: 556350000
     bezeichnung: 10 L, seidenglanz
     preis_aufschlag: 556350000
-last_sync: "2025-10-09T06:34:39+02:00"
+last_sync: "2025-10-09T10:39:18+02:00"
 ---
 Beeck Interior Stand-Oil Paint PRO
 Intended use

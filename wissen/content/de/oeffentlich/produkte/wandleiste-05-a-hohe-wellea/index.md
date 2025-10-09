@@ -16,7 +16,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: White Wood
     preis_aufschlag: 5480000
-last_sync: "2025-10-09T06:34:39+02:00"
+last_sync: "2025-10-09T10:39:18+02:00"
 ---
 "High Wave" - Solid wooden strip 20 x 40 mm, non-symmetrical profile with a central semicircular bar.
 Available in pine or whitewood, other wood species available upon request.

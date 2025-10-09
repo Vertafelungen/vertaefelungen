@@ -14,7 +14,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 548670000
-last_sync: "2025-10-09T06:34:39+02:00"
+last_sync: "2025-10-09T10:39:18+02:00"
 ---
 The Balzer bakery was located here 130 years ago. All the walls are covered with fresh summer flower tiles and beautifully profiled wooden mouldings and the buns must have smelled twice as good!
 Today they're serving burgers and the setting, well, looks a bit scruffy. I hope that the next tenant knows what to do with this treasure.
