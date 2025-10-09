@@ -12,7 +12,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 365780000
-last_sync: "2025-10-09T10:39:18+02:00"
+last_sync: "2025-10-09T14:59:13+02:00"
 ---
 The Wins quarter around Winsstrasse in Berlin Prenzlauer Berg is a residential area with a high quality of life. The atmosphere is characterised by street cafés, book and wine shops and the well-preserved old buildings also contribute to the cosy atmosphere. The stucco-decorated entrances are very varied. There are Art Nouveau tiles, marble and wood panelling like this one.
 This wainscoting has an original height of 110 cm and strong profiles with long, horizontal picture-frame-mouldings, which can be easily adapted to individual room dimensions. We manufacture the panel in oak or pine. On request, it can be prepared for a coat of coloured paint.

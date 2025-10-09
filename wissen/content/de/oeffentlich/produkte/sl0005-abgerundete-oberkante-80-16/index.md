@@ -6,7 +6,7 @@ type: produkte
 beschreibung_md_de: |
   Schlicht und einfach, mit abgerundeter Oberkante
 beschreibung_md_en: |
-last_sync: "2025-10-09T10:39:18+02:00"
+last_sync: "2025-10-09T14:59:13+02:00"
 ---
 Plain and simple, with a rounded upper edge
 
