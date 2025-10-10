@@ -1,6 +1,5 @@
 ---
 title: Wandleiste 10
-title_en: Wall Moulding 10
 slug: wandleiste-10
 type: produkte
 beschreibung_md_de: |
@@ -9,15 +8,9 @@ beschreibung_md_de: |
   
   Als Wandleiste zur direkten Montage auf der verputzen Wand.
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
-beschreibung_md_en: |
-  
-varianten:
-    bezeichnung: Kiefer
-    preis_aufschlag: 0
-    bezeichnung: White Wood
-    preis_aufschlag: 6860000
-last_sync: "2025-10-10T06:34:22+02:00"
+last_sync: 2025-10-10T06:34:22+02:00
 ---
+
 Profiled wooden strip 23 x 80 mm
 In pine or whitewood, other wood species available upon request
 As a wall strip for direct installation on the plastered wall.

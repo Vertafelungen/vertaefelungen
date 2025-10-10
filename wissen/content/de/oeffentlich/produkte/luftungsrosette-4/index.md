@@ -1,6 +1,5 @@
 ---
 title: Lüftungsrosette 4
-title_en: Ventilation Rosette 4
 slug: luftungsrosette-4
 type: produkte
 beschreibung_md_de: |
@@ -9,9 +8,9 @@ beschreibung_md_de: |
   
   Durchmesser 45 mm
   Höhe ca. 4 mm
-beschreibung_md_en: |
-last_sync: "2025-10-10T06:34:22+02:00"
+last_sync: 2025-10-10T06:34:22+02:00
 ---
+
 Elegant ventilation rosette based on the original design.
 Milled brass, smoothed surface
 Diameter 45 mm
