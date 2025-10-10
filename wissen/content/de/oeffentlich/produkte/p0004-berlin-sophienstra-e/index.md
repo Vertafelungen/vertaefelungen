@@ -11,7 +11,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 311120000
-last_sync: "2025-10-10T10:37:40+02:00"
+last_sync: "2025-10-10T14:57:15+02:00"
 ---
 Berlin's Sophienstraße has a particularly picturesque small-town charm and the only remaining baroque church tower in Berlin. From Sophienstraße you can reach the Hackesche Höfe and the Sophien-Gips-Höfe. The Lambris has an upright cassette that can be easily adapted to individual room dimensions. We manufacture the panel in oak or pine. On request, it can be prepared for a coloured coating.
 -
