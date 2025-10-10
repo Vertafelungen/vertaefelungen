@@ -1,5 +1,6 @@
 ---
 title: Türbekleidung 15
+title_en: Door Frame 15
 slug: turbekleidung-15
 type: produkte
 beschreibung_md_de: |
@@ -7,9 +8,13 @@ beschreibung_md_de: |
   TR 15, Maße: 117 x 19 mm
 beschreibung_md_en: |
   Door and window frame TR 15, dimensions: 117 x 19 mm
-last_sync: 2025-10-10T06:34:22+02:00
+varianten:
+    bezeichnung: Kiefer
+    preis_aufschlag: 0
+    bezeichnung: White Wood
+    preis_aufschlag: 11660000
+last_sync: "2025-10-10T10:37:40+02:00"
 ---
-
 -
 -
 

@@ -16,7 +16,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: White Wood
     preis_aufschlag: 3440000
-last_sync: "2025-10-10T06:34:22+02:00"
+last_sync: "2025-10-10T10:37:40+02:00"
 ---
 Round bar strip - Solid wooden strip 10 x 40 mm, round bar strip.
 Available in pine or whitewood, other wood types available upon request.
