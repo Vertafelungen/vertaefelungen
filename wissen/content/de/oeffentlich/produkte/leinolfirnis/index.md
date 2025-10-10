@@ -16,7 +16,7 @@ varianten:
     preis_aufschlag: 108403361
     bezeichnung: 20 Liter
     preis_aufschlag: 226050420
-last_sync: "2025-10-10T18:36:34+02:00"
+last_sync: "2025-10-10T22:31:21+02:00"
 ---
 Linseed oil varnish with siccatives.
 For interior use as a quick-drying finish with a drying time of up to 24 hours.
