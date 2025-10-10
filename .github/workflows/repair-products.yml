@@ -1,22 +1,51 @@
-name: One-off: Repair Product Frontmatter
+name: "One-off: Repair Product Frontmatter"
+
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
+
 permissions:
   contents: write
+
 jobs:
   fix:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: { python-version: "3.12" }
-      - run: python wissen/scripts/repair_products_frontmatter.py
-      - run: |
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Run repair script
+        shell: bash
+        run: |
+          set -e
+          if [[ -f "wissen/scripts/repair_product_index_frontmatter.py" ]]; then
+            python wissen/scripts/repair_product_index_frontmatter.py
+          elif [[ -f "wissen/scripts/repair_products_frontmatter.py" ]]; then
+            python wissen/scripts/repair_products_frontmatter.py
+          else
+            echo "No repair script found in wissen/scripts/."
+            exit 0
+          fi
+
+      - name: Commit & push (only if changed)
+        shell: bash
+        run: |
           if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "chore(products): normalize frontmatter (varianten→list, unicode, tabs)"
+            git commit -m "chore(products): repair product frontmatter (normalize unicode, tabs, NBSP)"
             git push
           else
             echo "No changes."
