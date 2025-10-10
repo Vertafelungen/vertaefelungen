@@ -11,7 +11,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche
     preis_aufschlag: 67226891
-last_sync: "2025-10-10T14:57:15+02:00"
+last_sync: "2025-10-10T18:36:33+02:00"
 ---
 This high skirting board comes from the main building of the Augustiner brewery in Munich city centre. Some living rooms of the Wagner brewery family, the "Wagner Salons", are furnished with it on the first floor. The salons were remodelled and refurnished in 1896-97 by Emanuel von Seidel in a mixture of contemporary Art Nouveau and dignified neo-Baroque. They were extensively restored in 2019 and are now available to guests.
 -
