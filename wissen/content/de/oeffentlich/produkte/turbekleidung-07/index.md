@@ -13,7 +13,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: White Wood
     preis_aufschlag: 16720000
-last_sync: "2025-10-09T22:32:24+02:00"
+last_sync: "2025-10-10T04:01:37+02:00"
 ---
 -
 -
