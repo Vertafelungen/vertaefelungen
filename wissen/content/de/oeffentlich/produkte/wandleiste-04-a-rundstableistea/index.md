@@ -1,7 +1,7 @@
 ---
-title: Wandleiste 04 âRundstableisteâ
+title: Wandleiste 04 Rundstableiste
 title_en: Wall Moulding 04
-slug: wandleiste-04-a-rundstableistea
+slug: wandleiste-04-a-rundstableiste
 type: produkte
 beschreibung_md_de: |
   Rundstableiste - Massive Holzleiste 10 x 40 mm, Rundstableiste.
