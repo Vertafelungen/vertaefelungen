@@ -1,5 +1,4 @@
 ---
-title: Wandleiste 02 Dom-Profil
 title_en: Wall Moulding 02 "Dome"
 slug: wandleiste-02-a-dom-profila
 type: produkte
