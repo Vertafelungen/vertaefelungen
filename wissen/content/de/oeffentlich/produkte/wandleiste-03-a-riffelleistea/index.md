@@ -15,7 +15,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: White Wood
     preis_aufschlag: 3440000
-last_sync: "2025-10-11T06:33:21+02:00"
+last_sync: "2025-10-11T10:33:31+02:00"
 ---
 Wooden moulding 10 x 40 mm
 As a wall moulding for direct installation on the plastered wall.Â

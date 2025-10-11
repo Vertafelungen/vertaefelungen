@@ -1,5 +1,6 @@
 ---
 title: Reines Leinöl, ohne Sikkativ
+title_en: Pur Linseed Oil
 slug: reines-leinol-ohne-sikkativ
 type: produkte
 beschreibung_md_de: |
@@ -10,9 +11,19 @@ beschreibung_md_de: |
   Leinöl ist in Innenbereichen gegenüber jeder künstlich hergestellten Grundierung zu bevorzugen.
   Es ist 100% natürlich und hat sich traditionell bewährt.
   Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
-last_sync: 2025-10-11 06:33:21+02:00
+beschreibung_md_en: |
+  
+varianten:
+    bezeichnung: 1 Liter
+    preis_aufschlag: 0
+    bezeichnung: 5 Liter
+    preis_aufschlag: 45378151
+    bezeichnung: 10 Liter
+    preis_aufschlag: 96638655
+    bezeichnung: 20 Liter
+    preis_aufschlag: 197478992
+last_sync: "2025-10-11T10:33:31+02:00"
 ---
-
 Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
 For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.
 Drying time up to 2 weeks. Linseed oil fires the wood, the grain becomes more prominent.
