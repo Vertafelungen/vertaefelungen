@@ -12,7 +12,6 @@ beschreibung_md_de: |
   Leinöl hat anfangs einen typischen, intensiven Eigengeruch, der aber im Laufe von Wochen vergeht.
 last_sync: 2025-10-11 10:33:31+02:00
 ---
-
 Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
 For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.
 Drying time up to 2 weeks. Linseed oil fires the wood, the grain becomes more prominent.

@@ -9,7 +9,6 @@ beschreibung_md_en: |
   Door and window frame TR 17, dimensions: 164 x 58 mm
 last_sync: 2025-10-11 10:33:31+02:00
 ---
-
 -
 -
 
