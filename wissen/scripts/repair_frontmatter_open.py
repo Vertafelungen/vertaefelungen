@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Repariert Markdown-Dateien mit *offenem* oder fehlerhaft begonnenem YAML-Frontmatter.
+Repariert Markdown-Dateien mit offenem oder fehlerhaft begonnenem YAML-Frontmatter.
 
 Fälle:
-- Zeile 1 ist exakt '---' (Start), aber es existiert kein schließender '---' (linksbuendig).
-- Zeile 1 beginnt mit '---' und enthält bereits Text auf derselben Zeile (z. B. '--- title: Wissen').
-  => Der Rest nach '---' wird als erste YAML-Zeile gewertet.
-- Danach werden zusammenhängende YAML-Zeilen (Key/Value, Listen, eingerückte Fortsetzungen)
-  bis zur ersten Nicht-YAML-Zeile gesammelt und korrekt zwischen '---' ... '---' eingeschlossen.
+- Zeile 1 ist exakt '---' (linksbuendig), aber es existiert kein schließender '---'.
+- Zeile 1 beginnt mit '---' und enthaelt bereits Payload (z. B. '--- title: Wissen description: ...').
+  -> Payload wird in einzelne YAML-Zeilen aufgesplittet.
+- Existiert bereits ein schliessender '---', wird der vorhandene Header-Bereich korrekt neu
+  aufgebaut (Payload gesplittet + bisherige Header-Zeilen bis zum End-Delimiter).
 
 Idempotent: Mehrfachlauf ist unkritisch.
 """
@@ -19,21 +19,24 @@ import re
 
 CONTENT = Path(__file__).resolve().parents[1] / "content"
 
-# gültige Start-/End-Zeile: NUR '---' (evtl. Whitespace)
+# Delimiter exakt in eigener Zeile
 DELIM_RE = re.compile(r'^\s*---\s*$')
-# erkennt Zeile 1, die mit '---' beginnt, aber Text dahinter hat
+
+# Start mit Payload in Zeile 1: '--- <payload>'
 START_WITH_PAYLOAD_RE = re.compile(r'^\s*---\s*(.+)$')
 
-# YAML-ähnliche Zeilen: key: value, listeneintrag, eingerückte Fortsetzung
+# YAML-Formen
 KEY_LINE  = re.compile(r'^[A-Za-z0-9_\-]+\s*:\s*.*$')
 LIST_ITEM = re.compile(r'^\s*-\s+.*$')
-INDENTED  = re.compile(r'^\s{2,}\S.*$')  # eingerückt (z. B. Block-Content)
+INDENTED  = re.compile(r'^\s{2,}\S.*$')  # eingerueckte Fortsetzungen / Blockcontent
+
+# Key-Tokenizer: findet "key:" am Wortanfang (Start oder Whitespace davor)
+KEY_TOKEN = re.compile(r'(?<!\S)([A-Za-z0-9_\-]+)\s*:\s*')
 
 def normalize_nl(s: str) -> str:
     return s.replace("\r\n", "\n").replace("\r", "\n")
 
 def find_end_delim(lines: list[str], start_idx: int = 1) -> int | None:
-    """Suche echten Abschluss-Delimiter ab start_idx; None, wenn nicht vorhanden."""
     for i in range(start_idx, len(lines)):
         if DELIM_RE.match(lines[i]):
             return i
@@ -55,22 +58,41 @@ def collect_yaml_block(lines: list[str], start_idx: int) -> tuple[list[str], int
         break
     return yaml_lines, i
 
+def split_payload_into_yaml_lines(payload: str) -> list[str]:
+    """
+    Zerlegt 'title: Wissen description: ... slug: x' in einzelne Zeilen:
+    ['title: Wissen', 'description: ...', 'slug: x'].
+    """
+    res: list[str] = []
+    if not payload.strip():
+        return res
+    matches = list(KEY_TOKEN.finditer(payload))
+    if not matches:
+        # kein 'key:' -> als Kommentar ablegen (damit Parser nicht scheitert)
+        return [f"# auto-repaired: payload='{payload.strip()}'"]
+    for idx, m in enumerate(matches):
+        key = m.group(1)
+        start = m.end()
+        end = matches[idx + 1].start() if idx + 1 < len(matches) else len(payload)
+        value = payload[start:end].strip()
+        # Falls value leer ist, trotzdem key anlegen
+        res.append(f"{key}: {value}".rstrip())
+    return res
+
 def repair_text(t: str) -> tuple[str, bool]:
-    """
-    Repariert offene/fehlerhafte Header. Gibt (neuer_text, geändert?)
-    """
     t = normalize_nl(t)
     if not t:
         return t, False
 
     lines = t.splitlines()
 
-    # Fall A: Zeile 1 ist exakt '---'
+    # Fall A: Start-Zeile ist exakt '---'
     if DELIM_RE.match(lines[0]):
         end = find_end_delim(lines, start_idx=1)
         if end is not None:
-            return t, False  # bereits korrekt geschlossen
-        # kein Abschluss -> Header sammeln ab Zeile 1
+            # Header ist formal geschlossen → nichts tun
+            return t, False
+        # Kein Abschluss: Header aus "YAML-ähnlichen" Zeilen sammeln
         yaml_lines, body_idx = collect_yaml_block(lines, 1)
         if not yaml_lines:
             yaml_lines = ["# auto-repaired: missing end YAML frontmatter delimiter"]
@@ -78,23 +100,31 @@ def repair_text(t: str) -> tuple[str, bool]:
         body = "\n".join(lines[body_idx:]).lstrip("\n")
         return fixed + (body + ("\n" if body and not body.endswith("\n") else "")), True
 
-    # Fall B: Zeile 1 beginnt mit '---' + Text
+    # Fall B: Start-Zeile beginnt mit '---' + Payload
     m = START_WITH_PAYLOAD_RE.match(lines[0])
     if m:
-        first_payload = m.group(1).strip()  # z. B. "title: Wissen"
-        # Collect weitere YAML-Zeilen ab Zeile 2
-        yaml_lines, body_idx = collect_yaml_block(lines, 1)
-        header = []
-        if first_payload:
-            header.append(first_payload)
-        header.extend(yaml_lines)
-        if not header:
-            header = ["# auto-repaired: malformed frontmatter start"]
-        fixed = "---\n" + "\n".join(header).rstrip() + "\n---\n"
-        body = "\n".join(lines[body_idx:]).lstrip("\n")
+        payload = m.group(1)
+        end = find_end_delim(lines, start_idx=1)
+        header_lines: list[str] = split_payload_into_yaml_lines(payload)
+
+        if end is not None:
+            # Existierender Abschluss: uebernehme existierende Header-Zeilen bis 'end'
+            rest = lines[1:end]
+            header_lines.extend(rest)
+            body = "\n".join(lines[end+1:]).lstrip("\n")
+        else:
+            # Kein Abschluss: YAML-Block heuristisch sammeln
+            rest, body_idx = collect_yaml_block(lines, 1)
+            header_lines.extend(rest)
+            body = "\n".join(lines[body_idx:]).lstrip("\n")
+
+        if not header_lines:
+            header_lines = ["# auto-repaired: malformed frontmatter start"]
+
+        fixed = "---\n" + "\n".join(header_lines).rstrip() + "\n---\n"
         return fixed + (body + ("\n" if body and not body.endswith("\n") else "")), True
 
-    # kein Frontmatter-Start vorhanden
+    # Kein Frontmatter-Start
     return t, False
 
 def main() -> int:
