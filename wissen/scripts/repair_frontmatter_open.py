@@ -2,30 +2,51 @@
 # -*- coding: utf-8 -*-
 """
 Repariert Markdown-Dateien mit *offenem* YAML-Frontmatter:
-- Datei beginnt mit '---' (erste Zeile),
-- es existiert KEIN zweites '---' als schließender Delimiter.
-Lösung: wir entfernen das einzelne eröffnende '---' und setzen
-einen minimalen, leeren Header davor, damit Hugo/Parser nicht abstürzen.
+- Datei beginnt mit einer Zeile, die exakt '---' (optional nur Whitespace dahinter) enthält
+  (Regex ^---\s*$, also linksbündig).
+- Es existiert *kein* weiterer Abschluss-Delimiter ^---\s*$.
+Dann wird ein minimaler, gültiger Header vorangestellt.
 
-Skript ist idempotent: Mehrfachlauf schadet nicht.
+Idempotent: Mehrfachlauf ist unkritisch.
 """
 
 from __future__ import annotations
 from pathlib import Path
+import re
 
 CONTENT = Path(__file__).resolve().parents[1] / "content"
+
+START_RE = re.compile(r'^---\s*$')  # nur linksbündig gültig
+END_RE   = re.compile(r'^---\s*$')  # nur linksbündig gültig
 
 def has_unclosed_frontmatter(text: str) -> bool:
     lines = text.splitlines()
     if not lines:
         return False
-    if lines[0].strip() != '---':
+    # Start muss in Zeile 1 exakt '---' sein
+    if not START_RE.match(lines[0]):
         return False
-    # nach erstem '---' kein weiteres '---' als Zeile gefunden?
+    # Suchen nach einem *gültigen* Abschluss (links­bündig)
     for i in range(1, len(lines)):
-        if lines[i].strip() == '---':
-            return False
-    return True
+        if END_RE.match(lines[i]):
+            return False  # gültig geschlossen → kein Fix nötig
+    return True  # kein gültiger Abschluss gefunden
+
+def fix_open_frontmatter(text: str) -> str:
+    """
+    Entfernt das einsame eröffnende '---' und ersetzt es
+    durch einen minimalen, gültigen Header.
+    """
+    lines = text.splitlines()
+    # Body = alles nach der ersten Zeile; führende Leerzeilen weg
+    body = "\n".join(lines[1:]).lstrip("\n")
+    fixed = (
+        "---\n"
+        "# auto-repaired: missing end YAML frontmatter delimiter\n"
+        "---\n\n"
+        f"{body}"
+    )
+    return fixed
 
 def main() -> int:
     repaired = 0
@@ -34,18 +55,10 @@ def main() -> int:
             t = p.read_text(encoding="utf-8")
         except Exception:
             continue
-        t = t.replace("\r\n","\n").replace("\r","\n")
+        # Zeilenenden normalisieren, damit Regex arbeitet
+        t = t.replace("\r\n", "\n").replace("\r", "\n")
         if has_unclosed_frontmatter(t):
-            lines = t.splitlines()
-            # entferne das erste '---'
-            body = "\n".join(lines[1:]).lstrip("\n")
-            fixed = (
-                "---\n"
-                "# auto-repaired: missing end YAML frontmatter delimiter\n"
-                "---\n\n"
-                f"{body}"
-            )
-            p.write_text(fixed, encoding="utf-8")
+            p.write_text(fix_open_frontmatter(t), encoding="utf-8")
             repaired += 1
     print(f"Repaired files (open frontmatter): {repaired}")
     return 0
