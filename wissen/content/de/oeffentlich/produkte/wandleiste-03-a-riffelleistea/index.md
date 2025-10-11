@@ -1,6 +1,5 @@
 ---
 title: Wandleiste 03 Riffelleiste
-title_en: Wall Moulding 03
 slug: wandleiste-03-a-riffelleiste
 type: produkte
 beschreibung_md_de: |
@@ -9,14 +8,9 @@ beschreibung_md_de: |
   
   Als Wandleiste zur direkten Montage auf der verputzen Wand.
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
-beschreibung_md_en: |
-varianten:
-    bezeichnung: Kiefer
-    preis_aufschlag: 0
-    bezeichnung: White Wood
-    preis_aufschlag: 3440000
-last_sync: "2025-10-11T10:33:31+02:00"
+last_sync: 2025-10-11T10:33:31+02:00
 ---
+
 Wooden moulding 10 x 40 mm
 As a wall moulding for direct installation on the plastered wall.
 This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.

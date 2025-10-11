@@ -1,6 +1,5 @@
 ---
 title: Wandleiste 05 hohe Welle
-title_en: Wall Moulding 05
 slug: wandleiste-05-a-hohe-welle
 type: produkte
 beschreibung_md_de: |
@@ -9,15 +8,9 @@ beschreibung_md_de: |
   
   Als Wandleiste zur direkten Montage auf der verputzen Wand.
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
-beschreibung_md_en: |
-  
-varianten:
-    bezeichnung: Kiefer
-    preis_aufschlag: 0
-    bezeichnung: White Wood
-    preis_aufschlag: 5480000
-last_sync: "2025-10-11T10:33:31+02:00"
+last_sync: 2025-10-11T10:33:31+02:00
 ---
+
 "High Wave" - Solid wooden strip 20 x 40 mm, non-symmetrical profile with a central semicircular bar.
 Available in pine or whitewood, other wood species available upon request.
 As a wall strip for direct installation on the plastered wall.

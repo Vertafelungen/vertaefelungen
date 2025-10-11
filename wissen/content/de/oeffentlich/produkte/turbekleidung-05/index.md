@@ -8,6 +8,7 @@ beschreibung_md_en: |
   Door and window frame TR 05, dimensions: 179 x 42 mm
 last_sync: 2025-10-11 10:33:31+02:00
 ---
+
 -
 -
 
