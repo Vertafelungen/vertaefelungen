@@ -44,21 +44,40 @@ jobs:
         run: |
           python scripts/sync-from-sheet.py
 
-      - name: Sanitize content (remove NBSP/Zero-Width, normalize newlines)
+      - name: Sanitize content (remove NBSP/Zero-Width/C0/C1, normalize newlines)
         run: |
           python - <<'PY'
-          import sys, unicodedata, re
+          import re
           from pathlib import Path
+
           ROOT = Path("wissen")
           CONTENT = ROOT / "content"
+
           BOM = "\ufeff"
           NBSP = "\u00A0"
           ZERO = {"\u200B","\u200C","\u200D","\u2060","\uFEFF","\u200E","\u200F"}
-          def clean(s:str)->str:
+
+          # C0 (00–1F), DEL (7F) und C1 (80–9F)
+          CTRL_RE = re.compile(r'[\x00-\x1F\x7F-\x9F]')
+
+          def clean(s: str) -> str:
             s = s.replace("\r\n","\n").replace("\r","\n").replace(BOM,"")
             s = s.replace(NBSP," ")
             for z in ZERO: s = s.replace(z,"")
+            # typische Windows-1252-Ersatzabbildung
+            s = (s
+              .replace("\u0096","-")   # en dash
+              .replace("\u0097","-")   # em dash
+              .replace("\u0091","'")   # left single quote
+              .replace("\u0092","'")   # right single quote
+              .replace("\u0093","\"")  # left double quote
+              .replace("\u0094","\"")  # right double quote
+              .replace("\u0085","...") # ellipsis
+            )
+            # verbleibende C0/C1/DEL → Leerzeichen
+            s = CTRL_RE.sub(" ", s)
             return s
+
           changed = 0
           for p in CONTENT.rglob("*.md"):
             try:
@@ -82,7 +101,7 @@ jobs:
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "ci(ssot): sanitize content + sync sheet → markdown"
+            git commit -m "ci(ssot): sanitize content (C0/C1) + sync sheet → markdown"
             git push origin HEAD:main
           else
             echo "No content changes."
