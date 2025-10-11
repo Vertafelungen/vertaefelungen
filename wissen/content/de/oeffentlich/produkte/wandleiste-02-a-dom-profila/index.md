@@ -20,4 +20,3 @@ As a wall moulding for direct installation on the plastered wall.
 This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.
 -
 -
-
