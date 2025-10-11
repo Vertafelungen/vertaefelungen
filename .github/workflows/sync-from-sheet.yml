@@ -44,6 +44,34 @@ jobs:
         run: |
           python scripts/sync-from-sheet.py
 
+      - name: Sanitize content (remove NBSP/Zero-Width, normalize newlines)
+        run: |
+          python - <<'PY'
+          import sys, unicodedata, re
+          from pathlib import Path
+          ROOT = Path("wissen")
+          CONTENT = ROOT / "content"
+          BOM = "\ufeff"
+          NBSP = "\u00A0"
+          ZERO = {"\u200B","\u200C","\u200D","\u2060","\uFEFF","\u200E","\u200F"}
+          def clean(s:str)->str:
+            s = s.replace("\r\n","\n").replace("\r","\n").replace(BOM,"")
+            s = s.replace(NBSP," ")
+            for z in ZERO: s = s.replace(z,"")
+            return s
+          changed = 0
+          for p in CONTENT.rglob("*.md"):
+            try:
+              t = p.read_text(encoding="utf-8")
+            except Exception:
+              continue
+            nt = clean(t)
+            if nt != t:
+              p.write_text(nt, encoding="utf-8")
+              changed += 1
+          print(f"Sanitized files: {changed}")
+          PY
+
       - name: Content Guard (strict)
         run: |
           python scripts/content_guard.py --strict
@@ -54,7 +82,7 @@ jobs:
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "ci(ssot): sync sheet → markdown"
+            git commit -m "ci(ssot): sanitize content + sync sheet → markdown"
             git push origin HEAD:main
           else
             echo "No content changes."
