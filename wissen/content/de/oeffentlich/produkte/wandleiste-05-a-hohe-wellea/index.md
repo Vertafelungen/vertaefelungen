@@ -1,7 +1,7 @@
 ---
-title: Wandleiste 05 âHohe Welleâ
+title: Wandleiste 05 hohe Welle
 title_en: Wall Moulding 05
-slug: wandleiste-05-a-hohe-wellea
+slug: wandleiste-05-a-hohe-welle
 type: produkte
 beschreibung_md_de: |
   "Hohe Welle" - Massive Holzleiste 20 x 40 mm, nicht symmetrisches Profil mit zentralem Halbrundstab.
