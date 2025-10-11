@@ -38,21 +38,37 @@ jobs:
         working-directory: wissen
         run: |
           python - <<'PY'
-          import sys
+          import re
           from pathlib import Path
+          CONTENT = Path("content")
+
           BOM = "\ufeff"
           NBSP = "\u00A0"
           ZERO = {"\u200B","\u200C","\u200D","\u2060","\uFEFF","\u200E","\u200F"}
-          def clean(s:str)->str:
+          CTRL_RE = re.compile(r'[\x00-\x1F\x7F-\x9F]')
+
+          def clean(s: str) -> str:
             s = s.replace("\r\n","\n").replace("\r","\n").replace(BOM,"")
             s = s.replace(NBSP," ")
             for z in ZERO: s = s.replace(z,"")
+            s = (s
+              .replace("\u0096","-")
+              .replace("\u0097","-")
+              .replace("\u0091","'")
+              .replace("\u0092","'")
+              .replace("\u0093","\"")
+              .replace("\u0094","\"")
+              .replace("\u0085","...")
+            )
+            s = CTRL_RE.sub(" ", s)
             return s
-          CONTENT = Path("content")
+
           changed = 0
           for p in CONTENT.rglob("*.md"):
-            try: t = p.read_text(encoding="utf-8")
-            except Exception: continue
+            try:
+              t = p.read_text(encoding="utf-8")
+            except Exception:
+              continue
             nt = clean(t)
             if nt != t:
               p.write_text(nt, encoding="utf-8")
