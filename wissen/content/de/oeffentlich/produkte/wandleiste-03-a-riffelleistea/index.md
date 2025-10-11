@@ -1,7 +1,7 @@
 ---
-title: Wandleiste 03 âRiffelleisteâ
+title: Wandleiste 03 Riffelleiste
 title_en: Wall Moulding 03
-slug: wandleiste-03-a-riffelleistea
+slug: wandleiste-03-a-riffelleiste
 type: produkte
 beschreibung_md_de: |
   Riffelleiste - Massive Holzleiste 10 x 40 mm.
@@ -18,7 +18,7 @@ varianten:
 last_sync: "2025-10-11T10:33:31+02:00"
 ---
 Wooden moulding 10 x 40 mm
-As a wall moulding for direct installation on the plastered wall.Â
+As a wall moulding for direct installation on the plastered wall.
 This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.
 -
 -
