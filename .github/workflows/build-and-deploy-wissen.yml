@@ -5,10 +5,16 @@ on:
     branches: [ "main" ]
     paths:
       - "wissen/**"
+      - "hugo.prod.toml"
+      - "hugo.dev.toml"
   workflow_dispatch:
 
 permissions:
   contents: read
+
+concurrency:
+  group: build-deploy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -23,7 +29,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install deps for guard
+      - name: Install Python dependency for Guard
         run: |
           python -m pip install --upgrade pip
           pip install pyyaml
@@ -41,7 +47,9 @@ jobs:
 
       - name: Build (prod)
         run: |
-          hugo --config wissen/hugo.prod.toml -s wissen -d wissen/public --gc --minify
+          # Wir bauen explizit das Site-Verzeichnis "wissen"
+          # und schreiben das Ergebnis nach "wissen/public".
+          hugo --config hugo.prod.toml -s wissen -d wissen/public --gc --minify
 
       - name: Smoke-Check
         run: |
@@ -56,6 +64,7 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -69,12 +78,13 @@ jobs:
       - name: Deploy via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          server:   ${{ secrets.SFTP_SERVER }}
+          server:   ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
           protocol: sftp
-          server-dir: "/wissen"
+          server-dir: ${{ secrets.SFTP_TARGET }}
           local-dir:  "wissen/public"
+          port:       ${{ secrets.SFTP_PORT }}
           dangerous-clean-slate: false
           exclude: |
             **/.git*
