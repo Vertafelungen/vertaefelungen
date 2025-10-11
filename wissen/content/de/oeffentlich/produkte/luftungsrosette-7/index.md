@@ -11,7 +11,7 @@ beschreibung_md_de: |
   Hohe ca. 12 mm
 beschreibung_md_en: |
   
-last_sync: "2025-10-11T03:56:42+02:00"
+last_sync: "2025-10-11T06:33:21+02:00"
 ---
 Elegant ventilation rosette based on an original design.
 Cast brass, polished
