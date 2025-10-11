@@ -1,167 +1,323 @@
 #!/usr/bin/env python3
-# Version: 2025-10-11
-# Sync aus Google Sheet (CSV/Export) -> Markdown-Dateien
-# - Sanitizing aller Textwerte: NBSP/Zero-Width/BOM/LSEP/PSEP entfernen/ersetzen
-# - UTF-8 ohne BOM, LF
-# - Variablen:
-#     GSHEET_CSV_URL  (direkter CSV-Export-Link)  ODER
-#     SHEET_ID + SHEET_GID (wird zu CSV-URL gebaut)
-# - Erwartete Spalten (Beispiele; optional): title_de, title_en, slug,
-#   beschreibung_md_de, beschreibung_md_en, kategorie (Komma-getrennt),
-#   bilder (Komma-getrennt), varianten (Semikolon-getrennt; Name|Preis|Einheit|SKU)
+# -*- coding: utf-8 -*-
+"""
+Sync from Sheet → Markdown (DE/EN) für Produkte (+ optional FAQ).
+
+- Einzeln konfigurierbare Spaltennamen im COLUMNS-Block unten.
+- Unicode-Sanitizing: NBSP/Zero-Width raus, CRLF→LF, Tabs→Spaces.
+- Tolerantes Matching Bilder/Alt-Texte (fehlende Alt-Texte -> Titel).
+- Varianten: übernimmt YAML aus 'varianten_yaml' (oder parse-tolerant).
+- Pfadbildung: <export_pfad_de>/<slug_de>/index.md (analog EN).
+- Optional: FAQ-Sheet (wenn SECRET 'FAQ_SHEET_CSV' gesetzt ist).
+
+ENV:
+  - PRODUCTS_SHEET_CSV (Pflicht)
+  - FAQ_SHEET_CSV      (optional)
+"""
+
 from __future__ import annotations
 from pathlib import Path
-import os, io, re, sys, unicodedata, csv
+import csv, os, re, sys, unicodedata, textwrap
 import requests
 import yaml
 
-ROOT     = Path(__file__).resolve().parents[1]
-CONTENT  = ROOT / "content"
-DE_PROD  = CONTENT / "de" / "oeffentlich" / "produkte"
-EN_PROD  = CONTENT / "en" / "public" / "products"
+# ---------- Konfiguration: Spaltennamen aus deinem Sheet ----------
+COLUMNS = {
+    # Generische Produktfelder
+    "id":                   "product_id",
+    "sku":                  "reference",
+    "slug_de":              "slug_de",
+    "slug_en":              "slug_en",
+    "title_de":             "titel_de",
+    "title_en":             "titel_en",
+    "desc_md_de":           "beschreibung_md_de",
+    "desc_md_en":           "beschreibung_md_en",
+    "meta_title_de":        "meta_title_de",
+    "meta_title_en":        "meta_title_en",
+    "meta_desc_de":         "meta_description_de",
+    "meta_desc_en":         "meta_description_en",
+    "price":                "price",            # Integer: Cent (oder wie im Sheet definiert)
+    "in_stock":             "verfuegbar",       # 1 oder 0
+    "variant_name":         "variante_kurz_bez",# optional (nicht zwingend)
+    "variants_yaml":        "varianten_yaml",
+    "images":               "bilder_liste",     # Kommasepariert
+    "images_alt_de":        "bilder_alt_de",    # Kommasepariert
+    "images_alt_en":        "bilder_alt_en",    # Kommasepariert
+    "category_raw":         "kategorie_raw",    # Kommasepariert
+    "export_path_de":       "export_pfad_de",   # z.B. de/oeffentlich/produkte/leisten/wandleisten
+    "export_path_en":       "export_pfad_en",   # z.B. en/public/products/mouldings/wall-mouldings
+    "tags":                 "tags",             # Komma/Semikolon
+    "source_de":            "source_de",
+    "source_en":            "source_en",
+    "last_updated":         "last_updated",
+}
 
+# Optionales FAQ-Sheet (wenn vorhanden) – Spaltennamen:
+FAQ_COLUMNS = {
+    "slug_de":    "slug_de",
+    "slug_en":    "slug_en",
+    "title_de":   "frage_de",
+    "title_en":   "frage_en",
+    "answer_de":  "antwort_md_de",
+    "answer_en":  "antwort_md_en",
+    "tags":       "tags",
+}
+
+# ---------- Pfade ----------
+ROOT = Path(__file__).resolve().parents[1]
+CONTENT = ROOT / "content"
+DE_PROD = CONTENT / "de"
+EN_PROD = CONTENT / "en"
+
+# ---------- Unicode/Whitespace Normalisierung ----------
 BOM = "\ufeff"
-CTRL_RE  = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]')
+CTRL_RE = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]')
 SPACE_MAP = {
     **{ord(c): " " for c in " \u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000"},
     ord("\u200B"): None, ord("\u200C"): None, ord("\u200D"): None, ord("\u2060"): None,
     ord("\u200E"): None, ord("\u200F"): None, ord("\u2028"): " ", ord("\u2029"): " ",
 }
-
-def norm(s: str | None) -> str:
-    if s is None: return ""
+def norm(s: str) -> str:
+    if s is None:
+        return ""
     s = str(s).replace(BOM, "")
-    s = unicodedata.normalize("NFKC", s).translate(SPACE_MAP).replace("\r\n", "\n")
+    s = unicodedata.normalize("NFKC", s).translate(SPACE_MAP).replace("\r\n","\n")
     s = CTRL_RE.sub(" ", s)
-    return s.strip()
+    return s
 
-def csv_from_env() -> str:
-    url = os.getenv("GSHEET_CSV_URL", "").strip()
+def detab(s: str) -> str:
+    return re.sub(r'^\t+', lambda m:"  "*len(m.group(0)), s, flags=re.M)
+
+def nstrip(s: str) -> str:
+    return norm(s).strip()
+
+# ---------- Helpers ----------
+def fetch_csv(url: str) -> list[dict]:
     if not url:
-        sid = os.getenv("SHEET_ID", "").strip()
-        gid = os.getenv("SHEET_GID", "").strip()
-        if not sid or not gid:
-            raise SystemExit("GSHEET_CSV_URL oder SHEET_ID+SHEET_GID müssen gesetzt sein.")
-        url = f"https://docs.google.com/spreadsheets/d/{sid}/export?format=csv&gid={gid}"
+        return []
+    if not (url.startswith("http://") or url.startswith("https://")):
+        raise ValueError("CSV-URL muss mit http(s) beginnen")
     r = requests.get(url, timeout=60)
     r.raise_for_status()
-    return r.text
+    txt = norm(r.text)
+    return list(csv.DictReader(txt.splitlines()))
 
-def parse_list(cell: str) -> list[str]:
-    cell = norm(cell)
-    if not cell: return []
-    parts = [norm(p) for p in cell.replace(";", ",").split(",")]
-    return [p for p in parts if p]
+def split_any(s: str) -> list[str]:
+    s = norm(s)
+    if ";" in s and "," in s:
+        # Trenne zuerst Semikolon grob, dann Komma innerhalb
+        items = []
+        for chunk in s.split(";"):
+            items += [x.strip() for x in chunk.split(",")]
+        return [x for x in items if x]
+    # sonst: Komma oder Semikolon
+    parts = re.split(r"[;,]", s)
+    return [p.strip() for p in parts if p.strip()]
 
-def parse_varianten(cell: str):
-    v = norm(cell)
-    if not v: return []
-    out = []
-    for chunk in [s.strip() for s in v.split(";") if s.strip()]:
-        bits = [b.strip() for b in chunk.split("|")]
-        if not bits or not bits[0]: continue
-        rec = {"name": bits[0]}
-        if len(bits) > 1 and bits[1]:
-            try: rec["preis"] = float(bits[1].replace(",", "."))
-            except ValueError: rec["preis"] = bits[1]
-        if len(bits) > 2 and bits[2]: rec["einheit"] = bits[2]
-        if len(bits) > 3 and bits[3]: rec["sku"] = bits[3]
-        out.append(rec)
-    return out
+def as_int(s: str, default: int = 0) -> int:
+    s = nstrip(s)
+    if not s:
+        return default
+    try:
+        return int(float(s))
+    except Exception:
+        return default
 
 def ensure_dir(p: Path):
     p.mkdir(parents=True, exist_ok=True)
 
-def write_utf8_nobom(p: Path, text: str):
-    p.parent.mkdir(parents=True, exist_ok=True)
-    data = text.encode("utf-8")
-    p.write_bytes(data)
+def write_text(p: Path, content: str):
+    ensure_dir(p.parent)
+    p.write_text(content, encoding="utf-8")
 
-def build_frontmatter(row: dict, lang: str) -> dict:
-    fm: dict = {}
-    title = norm(row.get(f"title_{lang}", row.get("title", "")))
-    fm["title"] = title
-    fm["slug"]  = norm(row.get("slug", "")) or re.sub(r"[^a-z0-9\-]+","-", title.lower()).strip("-")
-    fm["type"]  = "produkte"
-    # Felder
-    fm["kategorie"] = parse_list(row.get("kategorie", ""))
-    fm["bilder"]    = parse_list(row.get("bilder", ""))
-    fm[f"beschreibung_md_{lang}"] = norm(row.get(f"beschreibung_md_{lang}", ""))
-    # Varianten
-    var = parse_varianten(row.get("varianten",""))
-    if var: fm["varianten"] = var
-    # last_sync
-    fm["last_sync"] = norm(row.get("last_sync", ""))
-    return fm
+def literal_block(key: str, value: str) -> list[str]:
+    lines = [f"{key}: |"]
+    for ln in norm(value).splitlines():
+        lines.append(f"  {ln}")
+    return lines
 
-def fm_to_text(fm: dict, body: str) -> str:
-    order = [
-        "title","slug","type","kategorie",
-        "beschreibung_md_de","beschreibung_md_en",
-        "bilder","varianten","sku","last_sync",
-    ]
-    rest = [k for k in fm.keys() if k not in order]
-    lines = ["---"]
-    for key in order + rest:
-        if key not in fm: continue
-        val = fm[key]
-        if val in (None, "", [], {}): continue
-        if key in ("beschreibung_md_de","beschreibung_md_en"):
-            lines.append(f"{key}: |")
-            for ln in str(val).splitlines(): lines.append(f"  {ln}")
-        elif key in ("kategorie","bilder"):
-            seq = val if isinstance(val, list) else [val]
-            lines.append(f"{key}:")
-            for el in seq: lines.append(f"  - {el}")
-        elif key=="varianten" and isinstance(val, list):
-            lines.append("varianten:")
-            for item in val:
-                if isinstance(item, dict):
-                    lines.append("  -")
-                    for kk,vv in item.items(): lines.append(f"    {kk}: {vv}")
-                else:
-                    lines.append(f"  - {item}")
-        elif isinstance(val,(list,dict)):
-            dumped = yaml.safe_dump(val, sort_keys=False, allow_unicode=True).rstrip("\n").splitlines()
-            lines.append(f"{key}:")
-            lines += [f"  {ln}" for ln in dumped]
-        else:
-            sval = str(val)
-            if "\n" in sval:
-                lines.append(f"{key}: |")
-                for ln in sval.splitlines(): lines.append(f"  {ln}")
+def yaml_list(key: str, seq: list[str]) -> list[str]:
+    out = [f"{key}:"]
+    for el in seq:
+        out.append(f"  - {norm(el)}")
+    return out
+
+def yaml_variants(key: str, variants) -> list[str]:
+    """Accept YAML list, stringified YAML, or []"""
+    if isinstance(variants, str):
+        v = nstrip(variants)
+        if not v:
+            return []
+        try:
+            parsed = yaml.safe_load(v)
+        except Exception:
+            parsed = []
+        variants = parsed
+    if not variants:
+        return []
+    out = [f"{key}:"]
+    if isinstance(variants, list):
+        for item in variants:
+            if isinstance(item, dict):
+                out.append("  -")
+                for kk, vv in item.items():
+                    out.append(f"    {kk}: {vv}")
             else:
-                lines.append(f"{key}: {sval}")
+                out.append(f"  - {item}")
+    else:
+        # fallback: dump as nested yaml
+        dumped = yaml.safe_dump(variants, allow_unicode=True, sort_keys=False).splitlines()
+        out.append("  # WARNING: variants had non-list structure")
+        out += [("  " + ln) for ln in dumped]
+    return out
+
+def align_images_and_alts(images: list[str], alts: list[str], fallback_title: str) -> tuple[list[str], list[str]]:
+    imgs = [img for img in images if img]
+    alts = [a for a in alts if a]
+    if not imgs:
+        return [], []
+    if len(alts) < len(imgs):
+        alts = alts + [fallback_title] * (len(imgs) - len(alts))
+    if len(alts) > len(imgs):
+        alts = alts[:len(imgs)]
+    return imgs, alts
+
+def sanitize_path(path_str: str) -> str:
+    # verhindert //, führende oder trailing slashes
+    s = path_str.strip().strip("/").replace("//","/")
+    return s
+
+def build_frontmatter_product(rec: dict, lang: str) -> tuple[str, str]:
+    get = lambda k: rec.get(COLUMNS[k], "") if COLUMNS.get(k) in rec else rec.get(k, "")
+
+    title   = nstrip(get("title_de") if lang=="de" else get("title_en"))
+    slug    = nstrip(get("slug_de")  if lang=="de" else get("slug_en"))
+    sku     = nstrip(get("sku"))
+    price_cents = as_int(get("price"), 0)
+    in_stock = 1 if nstrip(get("in_stock")) in ("1","true","True","yes","ja") else 0
+
+    export_path = nstrip(get("export_path_de") if lang=="de" else get("export_path_en"))
+    export_path = sanitize_path(export_path)
+    if not export_path:
+        # sinnvolle Defaults
+        export_path = "de/oeffentlich/produkte" if lang=="de" else "en/public/products"
+
+    images = split_any(get("images"))
+    alts   = split_any(get("images_alt_de") if lang=="de" else get("images_alt_en"))
+    images, alts = align_images_and_alts(images, alts, fallback_title=title)
+
+    cats = [c for c in split_any(get("category_raw")) if c.lower() != "artikel"]
+    tags = split_any(get("tags"))
+
+    desc  = nstrip(get("desc_md_de") if lang=="de" else get("desc_md_en"))
+    mtitle = nstrip(get("meta_title_de") if lang=="de" else get("meta_title_en"))
+    mdesc  = nstrip(get("meta_desc_de")  if lang=="de" else get("meta_desc_en"))
+    source = nstrip(get("source_de") if lang=="de" else get("source_en"))
+    last_updated = nstrip(get("last_updated"))
+
+    variants = rec.get(COLUMNS["variants_yaml"], rec.get("variants_yaml", ""))
+
+    # --- YAML Frontmatter zusammenbauen ---
+    lines: list[str] = ["---"]
+    # Pflichtfelder
+    lines.append(f'title: "{title}"')
+    lines.append(f"slug: {slug}")
+    lines.append('type: "produkte"')
+    if sku: lines.append(f"sku: {sku}")
+    lines.append(f"price_cents: {price_cents}")
+    if in_stock in (0,1): lines.append(f"in_stock: {bool(in_stock)}")
+
+    if cats: lines += yaml_list("kategorie", cats)
+    if tags: lines += yaml_list("tags", tags)
+
+    if images:
+        lines += yaml_list("bilder", images)
+        lines += yaml_list("bilder_alt", alts)
+
+    if variants:
+        lines += yaml_variants("varianten", variants)
+
+    if mtitle: lines.append(f'meta_title: "{mtitle}"')
+    if mdesc:  lines.append(f'meta_description: "{mdesc}"')
+    if source: lines.append(f'source: "{source}"')
+    if last_updated: lines.append(f'last_updated: "{last_updated}"')
+
+    # sprachspezifische Beschreibungen als Literal-Block
+    if desc:
+        lines += literal_block("beschreibung_md", desc)
+
+    lines.append("---")
+    lines.append("")  # Leerzeile vor Body
+
+    # Pfad zu index.md
+    dest_rel = f"{export_path}/{slug}/index.md"
+    return "\n".join(lines), dest_rel
+
+def build_frontmatter_faq(rec: dict, lang: str) -> tuple[str, str]:
+    get = lambda k: rec.get(FAQ_COLUMNS[k], "")
+    title = nstrip(get("title_de") if lang=="de" else get("title_en"))
+    slug  = nstrip(get("slug_de") if lang=="de" else get("slug_en"))
+    answer= nstrip(get("answer_de") if lang=="de" else get("answer_en"))
+    tags  = split_any(nstrip(get("tags")))
+
+    lines = ["---"]
+    lines.append(f'title: "{title}"')
+    lines.append(f"slug: {slug}")
+    lines.append('type: "faq"')
+    if tags: lines += yaml_list("tags", tags)
+    if answer: lines += literal_block("antwort_md", answer)
     lines.append("---")
     lines.append("")
-    lines.append(body.lstrip())
-    return "\n".join(lines)
 
-def write_product_pages(row: dict):
-    # deutsch
-    fm_de  = build_frontmatter(row, "de")
-    fm_en  = build_frontmatter(row, "en")
-    slug   = fm_de["slug"]
-    de_dir = DE_PROD / slug
-    en_dir = EN_PROD / slug
-    ensure_dir(de_dir); ensure_dir(en_dir)
+    dest_rel = ("de/faq" if lang=="de" else "en/faq") + f"/{slug}/index.md"
+    return "\n".join(lines), dest_rel
 
-    body_de = norm(row.get("body_md_de",""))
-    body_en = norm(row.get("body_md_en",""))
+def process_products(rows: list[dict]):
+    for rec in rows:
+        # Normalize record keys/values
+        rec = {k: norm(v) for k,v in rec.items()}
 
-    de_text = fm_to_text(fm_de, body_de)
-    en_text = fm_to_text(fm_en, body_en)
+        # DE
+        fm_de, dest_de = build_frontmatter_product(rec, "de")
+        write_text(CONTENT / dest_de, fm_de)
 
-    write_utf8_nobom(de_dir/"index.md", de_text)
-    write_utf8_nobom(en_dir/"index.md", en_text)
+        # EN (nur wenn slug_en+title_en vorhanden; sonst überspringen)
+        if nstrip(rec.get(COLUMNS["slug_en"], "")) and nstrip(rec.get(COLUMNS["title_en"], "")):
+            fm_en, dest_en = build_frontmatter_product(rec, "en")
+            write_text(CONTENT / dest_en, fm_en)
+
+def process_faq(rows: list[dict]):
+    for rec in rows:
+        rec = {k: norm(v) for k,v in rec.items()}
+        if nstrip(rec.get(FAQ_COLUMNS["slug_de"], "")) and nstrip(rec.get(FAQ_COLUMNS["title_de"], "")):
+            fm_de, dest_de = build_frontmatter_faq(rec, "de")
+            write_text(CONTENT / dest_de, fm_de)
+        if nstrip(rec.get(FAQ_COLUMNS["slug_en"], "")) and nstrip(rec.get(FAQ_COLUMNS["title_en"], "")):
+            fm_en, dest_en = build_frontmatter_faq(rec, "en")
+            write_text(CONTENT / dest_en, fm_en)
 
 def main():
-    csv_text = csv_from_env()
-    reader = csv.DictReader(io.StringIO(csv_text))
-    rows = list(reader)
-    for r in rows:
-        write_product_pages(r)
-    print(f"✓ synced {len(rows)} rows into Markdown (sanitized).")
+    products_url = os.getenv("PRODUCTS_SHEET_CSV", "")
+    faq_url      = os.getenv("FAQ_SHEET_CSV", "")
+
+    if not products_url:
+        print("ERROR: PRODUCTS_SHEET_CSV Secret/Env fehlt.", file=sys.stderr)
+        sys.exit(2)
+
+    prod_rows = fetch_csv(products_url)
+    if not prod_rows:
+        print("WARN: Keine Produktzeilen im Sheet gefunden.")
+    else:
+        process_products(prod_rows)
+        print(f"✓ Produkte verarbeitet: {len(prod_rows)}")
+
+    if faq_url:
+        faq_rows = fetch_csv(faq_url)
+        if faq_rows:
+            process_faq(faq_rows)
+            print(f"✓ FAQs verarbeitet: {len(faq_rows)}")
+
+    print("SSOT → Markdown: done.")
     return 0
 
 if __name__ == "__main__":
