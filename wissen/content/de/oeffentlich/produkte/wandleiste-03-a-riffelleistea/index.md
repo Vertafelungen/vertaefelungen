@@ -1,5 +1,5 @@
 ---
-title: Wandleiste 03 Riffelleiste
+title: Wandleiste 03 Riffelleiste
 title_en: Wall Moulding 03
 slug: wandleiste-03-a-riffelleiste
 type: produkte
