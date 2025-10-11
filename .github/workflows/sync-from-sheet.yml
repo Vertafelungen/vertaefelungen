@@ -76,6 +76,14 @@ jobs:
           print(f"Sanitized files: {changed}")
           PY
 
+      - name: Repair header delimiters (*** → --- , auto-close)
+        run: |
+          python scripts/repair_header_delimiters.py
+
+      - name: Repair risky YAML scalars (quote/escape)
+        run: |
+          python scripts/repair_frontmatter_scalars.py
+
       - name: Repair malformed frontmatter (open header)
         run: |
           python scripts/repair_frontmatter_open.py
@@ -98,7 +106,7 @@ jobs:
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "ci(ssot): sanitize + repair frontmatter + normalize + coerce types + sync"
+            git commit -m "ci(ssot): sanitize + repair delimiters + quote scalars + repair FM + normalize + coerce"
             git push origin HEAD:main
           else
             echo "No content changes."
