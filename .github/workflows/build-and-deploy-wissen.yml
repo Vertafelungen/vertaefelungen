@@ -34,6 +34,32 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyyaml
 
+      - name: Sanitize content (safety net)
+        working-directory: wissen
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          BOM = "\ufeff"
+          NBSP = "\u00A0"
+          ZERO = {"\u200B","\u200C","\u200D","\u2060","\uFEFF","\u200E","\u200F"}
+          def clean(s:str)->str:
+            s = s.replace("\r\n","\n").replace("\r","\n").replace(BOM,"")
+            s = s.replace(NBSP," ")
+            for z in ZERO: s = s.replace(z,"")
+            return s
+          CONTENT = Path("content")
+          changed = 0
+          for p in CONTENT.rglob("*.md"):
+            try: t = p.read_text(encoding="utf-8")
+            except Exception: continue
+            nt = clean(t)
+            if nt != t:
+              p.write_text(nt, encoding="utf-8")
+              changed += 1
+          print(f"Sanitized files (build): {changed}")
+          PY
+
       - name: Content Guard (strict)
         working-directory: wissen
         run: |
@@ -47,8 +73,6 @@ jobs:
 
       - name: Build (prod)
         run: |
-          # Wir bauen explizit das Site-Verzeichnis "wissen"
-          # und schreiben das Ergebnis nach "wissen/public".
           hugo --config hugo.prod.toml -s wissen -d wissen/public --gc --minify
 
       - name: Smoke-Check
