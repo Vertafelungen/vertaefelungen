@@ -1,18 +1,19 @@
-name: "Sync from Google Sheet → Markdown"
+name: "SSOT → Repo (Sync Google Sheet → Markdown)"
 
 on:
   workflow_dispatch:
-  # optional: täglicher Autosync (UTC)
-  # schedule:
-  #   - cron: "0 3 * * *"
+  schedule:
+    - cron: "17 */6 * * *"  # alle 6h
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
-  sync:
+  ssot_sync:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wissen
 
     steps:
       - name: Checkout
@@ -23,46 +24,32 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install deps
         run: |
           python -m pip install --upgrade pip
           pip install requests pyyaml
 
-      - name: Run sync
+      - name: Generate Markdown from SSOT
         env:
-          # EINE Variante setzen:
-          # 1) Direktlink als Secret:
-          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
-          # ODER 2) Sheet-ID + GID:
-          SHEET_ID:  ${{ secrets.SHEET_ID }}
-          SHEET_GID: ${{ secrets.SHEET_GID }}
+          PRODUCTS_SHEET_CSV: ${{ secrets.PRODUCTS_SHEET_CSV }}
+          FAQ_SHEET_CSV:      ${{ secrets.FAQ_SHEET_CSV }}  # optional
         run: |
-          python wissen/scripts/sync-from-sheet.py
+          python scripts/sync-from-sheet.py
 
-      # Statt auf main zu pushen: PR aus einem Bot-Branch erstellen/aktualisieren
-      - name: Create or update PR
-        id: cpr
-        uses: peter-evans/create-pull-request@v6
-        with:
-          # Fester Branch-Name → derselbe PR wird bei Folgeläufen aktualisiert
-          branch: bot/sync-from-sheet
-          title: "chore(sync): update content from Google Sheet"
-          body: |
-            Automated sync from Google Sheet → Markdown.
-            - Sanitizing (NBSP/Zero-Width/LSEP/PSEP/BOM)
-            - UTF-8 (no BOM), LF
-          commit-message: "chore(sync): update content from Google Sheet"
-          committer: "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          author:    "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
-          signoff: true
-          draft: false
-          labels: |
-            chore
-            sync
-          delete-branch: false
+      - name: Content Guard (strict)
+        run: |
+          python scripts/content_guard.py --strict
 
-      - name: PR result
-        if: steps.cpr.outputs.pull-request-number == ''
-        run: echo "No changes → nothing to commit or PR already up-to-date."
+      - name: Commit & push (only if changed)
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name  "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "ci(ssot): sync sheet → markdown"
+            git push origin HEAD:main
+          else
+            echo "No content changes."
+          fi
