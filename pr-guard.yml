@@ -1,0 +1,32 @@
+name: "PR Content Guard (Wissen)"
+
+on:
+  pull_request:
+    paths:
+      - "wissen/**"
+
+permissions:
+  contents: read
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyyaml
+
+      - name: Fix frontmatter (sanitize)
+        run: python wissen/scripts/fix_frontmatter.py
+
+      - name: Content guard (strict)
+        run: python wissen/scripts/content_guard.py --strict
