@@ -1,160 +1,225 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 18:25 Europe/Berlin
-# Strikter Content-Guard, robust gegen NBSP/Zero-Width/LSEP/PSEP/BOM und Tabs im YAML-Head.
+# -*- coding: utf-8 -*-
+"""
+Content Guard (strict)
+
+Prüft alle Markdown-Dateien unter `wissen/content/**`:
+- UTF-8, kein BOM, keine Zero-Width-Zeichen, keine NBSP (U+00A0)
+- YAML-Frontmatter vorhanden & parsebar
+- Pfad ↔ type-Konsistenz:
+   * /de/oeffentlich/produkte/ oder /en/public/products/  -> type: "produkte"
+   * /de/faq/ oder /en/faq/                               -> type: "faq"
+   * _index.md ist von Pflichtprüfungen ausgenommen (nur Hinweise)
+- Pflichtfelder & Datentypen
+   * produkte: title (str), slug (str), varianten (list|absent), bilder/bilder_alt (len = len)
+   * faq:      title (str), slug (str)
+- Nur Spaces (keine Tabs) im YAML-Header
+- Bricht mit Exit 2 ab, wenn Fehler gefunden wurden.
+
+Aufruf:
+  python wissen/scripts/content_guard.py --strict
+"""
+
 from __future__ import annotations
 from pathlib import Path
-import re, sys, unicodedata
+import re
+import sys
+import unicodedata
 import yaml
 
 ROOT    = Path(__file__).resolve().parents[1]
 CONTENT = ROOT / "content"
-BOM     = "\ufeff"
-FM_RE   = re.compile(r'^---\n(.*?\n)---\n(.*)$', re.S)
 
-SPACE_MAP = {
-    **{ord(c): " " for c in " \u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200A\u202F\u205F\u3000"},
-    ord("\u200B"): None, ord("\u200C"): None, ord("\u200D"): None, ord("\u2060"): None,
-    ord("\u200E"): None, ord("\u200F"): None, ord("\u2028"): " ", ord("\u2029"): " ",
-}
-def norm_unicode(s: str) -> str:
-    return unicodedata.normalize("NFKC", s.replace(BOM,"")).translate(SPACE_MAP).replace("\r\n","\n")
+# --- Erkennung Frontmatter ---
+FM_RE = re.compile(r'^---\s*\n(.*?)\n---\s*\n', re.S)
 
-def detab_head(head: str) -> str:
-    return re.sub(r'^\t+', lambda m:"  "*len(m.group(0)), head, flags=re.M)
+# --- Unicode Sanitizing (nur zur Prüfung; Dateien werden NICHT verändert) ---
+BOM = "\ufeff"
+NBSP = "\u00A0"  # U+00A0
+ZERO_WIDTH = {"\u200B", "\u200C", "\u200D", "\u2060", "\uFEFF", "\u200E", "\u200F"}
 
-def sanitize_head(head_raw: str) -> str:
-    return detab_head(norm_unicode(head_raw))
+def normalize_newlines(s: str) -> str:
+    return s.replace("\r\n", "\n").replace("\r", "\n")
 
-def strip_disallowed_yaml_chars(head: str) -> str:
-    out=[]
-    for ch in head:
-        if ch=="\u00A0": out.append(" ")
-        elif unicodedata.category(ch)=="Cf": continue
-        else: out.append(ch)
-    return "".join(out)
+def find_nbsp(s: str) -> bool:
+    return NBSP in s
 
-# Pfad-Helfer
-def is_product_path(p: Path) -> bool:
-    s=p.as_posix()
-    return "/de/oeffentlich/produkte/" in s or "/en/public/products/" in s
-def is_faq_path(p: Path) -> bool:
-    return "/faq/" in p.as_posix()
+def find_zero_width(s: str) -> bool:
+    return any(z in s for z in ZERO_WIDTH)
+
+def has_tabs(s: str) -> bool:
+    # Tabs im YAML-Header sind nicht erlaubt
+    return "\t" in s
+
+# --- Pfadregeln ---
 def is_index_file(p: Path) -> bool:
-    return p.name == "_index.md"
-def guess_type_by_path(p: Path) -> str|None:
+    return p.name.lower() == "_index.md"
+
+def is_product_path(p: Path) -> bool:
+    s = p.as_posix()
+    return "/de/oeffentlich/produkte/" in s or "/en/public/products/" in s
+
+def is_faq_path(p: Path) -> bool:
+    s = p.as_posix()
+    return "/de/faq/" in s or "/en/faq/" in s
+
+def expected_type_for(p: Path) -> str | None:
     if is_product_path(p): return "produkte"
     if is_faq_path(p):     return "faq"
-    if "/allgemeine-informationen/" in p.as_posix(): return "allgemeine-informationen"
     return None
 
-# Struktur-Prüfung
+# --- YAML Hilfen ---
 KEY_LINE  = re.compile(r'^\s*[^:#\-\s][^:]*:\s*(\|[+-]?|\>|[^\#].*)?$')
 LIST_ITEM = re.compile(r'^\s*-\s+.*$')
-INDENTED  = re.compile(r'^\s+')
-def head_structure_error(head_raw: str)->str|None:
-    head = sanitize_head(head_raw)
-    lines=head.splitlines(); in_block=False
-    for i,ln in enumerate(lines,1):
+
+def check_yaml_shape(head: str) -> str | None:
+    """
+    Grobcheck: jede „Top-Level”-Zeile im Header muss key: value / Block / Liste sein.
+    """
+    lines = head.splitlines()
+    in_block = False
+    for i, ln in enumerate(lines, 1):
         if in_block:
-            if ln.strip()=="" or INDENTED.match(ln): continue
-            in_block=False
-        if ln.strip()=="" or ln.lstrip().startswith("#"): continue
-        if KEY_LINE.match(ln):
-            if ln.rstrip().endswith(("|","|-","|+ ",">")) or ln.rstrip().endswith(("|","|-","|+ ",">")):
-                in_block=True
+            # solange eingerückt → gehört zum Block
+            if ln.strip() == "" or ln.startswith("  ") or ln.startswith("\t"):
+                continue
+            in_block = False
+        if ln.strip() == "" or ln.lstrip().startswith("#"):
             continue
-        if LIST_ITEM.match(ln): continue
-        return f"Textzeile im YAML-Head (kein 'key: value' / Block / Liste): Zeile {i}: {ln[:60]!r}"
+        if KEY_LINE.match(ln):
+            if ln.rstrip().endswith(("|", "|-", "|+", ">",)):
+                in_block = True
+            continue
+        if LIST_ITEM.match(ln):
+            continue
+        return f"YAML-Strukturfehler in Zeile {i}: '{ln[:60]}'"
     return None
 
-def parse_frontmatter(txt_raw: str):
-    # Gesamtdokument vorab normalisieren, um NBSP in Trennerkontexten zu vermeiden
-    txt = norm_unicode(txt_raw)
-    m=FM_RE.match(txt)
-    if not m: return None,None,None
-    head_raw, body_raw = m.group(1), m.group(2)
-    head = sanitize_head(head_raw)
-    body = norm_unicode(body_raw)
+# --- Prüfung einzelner Dateien ---
+def guard_file(p: Path) -> tuple[list[str], list[str]]:
+    """
+    Liefert (warns, errs) für Datei p
+    """
+    warns: list[str] = []
+    errs:  list[str] = []
 
     try:
-        data = yaml.safe_load(head) or {}
-    except Exception:
-        head2 = strip_disallowed_yaml_chars(head)
-        data  = yaml.safe_load(head2) or {}
-        head  = head2
-    if not isinstance(data, dict):
-        raise RuntimeError("YAML-Frontmatter ist kein Mapping (dict).")
-    return head, data, body
-
-SCHEMAS = {
-    "produkte": {"required":{"title","slug"},"recommended":{"kategorie","bilder","varianten","beschreibung_md_de","beschreibung_md_en","last_sync"}},
-    "faq":      {"required":{"title","slug"},"recommended":{"frage_md_de","antwort_md_de","frage_md_en","antwort_md_en","tags"}},
-    "allgemeine-informationen":{"required":{"title","slug"},"recommended":set()},
-}
-
-def check_schema(p: Path, fm: dict, strict: bool):
-    warns, errs = [], []
-    implied = guess_type_by_path(p)
-    fm_type = (fm.get("type") or "").strip().lower()
-    t = fm_type or (implied or "")
-    if is_index_file(p):
-        if strict and implied in ("produkte","faq") and not fm_type:
-            warns.append("Empfehlung: 'type' für _index.md optional setzen (z. B. 'produkte').")
+        raw = p.read_text(encoding="utf-8", errors="strict")
+    except UnicodeDecodeError as e:
+        errs.append(f"{p}: Datei ist nicht UTF-8: {e}")
         return warns, errs
-    if implied in ("produkte","faq") and fm_type != implied:
-        if strict: errs.append(f"Erwarte type='{implied}' (oder setze ihn explizit) für Datei im {implied}-Pfad.")
-        else:      warns.append(f"Empfehlung: type='{implied}' setzen.")
-        t = implied or t
-    schema = SCHEMAS.get(t) if t else None
-    if schema:
-        missing = [k for k in schema["required"] if not fm.get(k)]
-        if missing:
-            if strict and t in ("produkte","faq"): errs.append(f"Pflichtfelder fehlen: {', '.join(sorted(missing))}")
-            else:                                  warns.append(f"Empfehlung: fehlende Felder: {', '.join(sorted(missing))}")
-        if t=="produkte":
-            var = fm.get("varianten")
-            if var is not None and var != "" and not isinstance(var, list):
-                errs.append("'varianten' muss eine Liste sein (oder Feld ganz weglassen).")
-    else:
-        if strict and implied in ("produkte","faq"):
-            errs.append("Frontmatter: Feld 'type' fehlt.")
-        elif not t:
-            warns.append("Frontmatter: Feld 'type' fehlt (allgemeine Seite/unklarer Bereich).")
+
+    s = normalize_newlines(raw)
+
+    # BOM, NBSP, Zero-Width auf dem gesamten Dokument prüfen
+    if s.startswith(BOM):
+        errs.append(f"{p}: BOM gefunden – bitte ohne BOM speichern.")
+    if find_nbsp(s):
+        errs.append(f"{p}: NBSP (geschütztes Leerzeichen, U+00A0) gefunden.")
+    if find_zero_width(s):
+        errs.append(f"{p}: Zero-Width-Steuerzeichen gefunden.")
+
+    m = FM_RE.match(s)
+    if not m:
+        # Seiten ohne Frontmatter sind zulässig (z. B. reine Übersichtsseiten),
+        # aber im Produkt-/FAQ-Pfad sollte Frontmatter existieren:
+        if is_product_path(p) or is_faq_path(p):
+            errs.append(f"{p}: Kein YAML-Frontmatter gefunden.")
+        return warns, errs
+
+    head = m.group(1)
+
+    if has_tabs(head):
+        errs.append(f"{p}: Tabs im YAML-Header – bitte nur Spaces verwenden.")
+
+    shape_err = check_yaml_shape(head)
+    if shape_err:
+        errs.append(f"{p}: {shape_err}")
+        return warns, errs
+
+    try:
+        fm = yaml.safe_load(head) or {}
+    except Exception as e:
+        errs.append(f"{p}: YAML-Parsing fehlgeschlagen: {e}")
+        return warns, errs
+
+    if not isinstance(fm, dict):
+        errs.append(f"{p}: YAML-Header ist kein Mapping (dict).")
+        return warns, errs
+
+    # _index.md: nur Hinweise
+    if is_index_file(p):
+        if is_product_path(p) and (fm.get("type") not in (None, "produkte")):
+            warns.append(f"{p}: Empfehlung: 'type: produkte' (optional) für _index.md.")
+        if is_faq_path(p) and (fm.get("type") not in (None, "faq")):
+            warns.append(f"{p}: Empfehlung: 'type: faq' (optional) für _index.md.")
+        return warns, errs
+
+    # Erwarteten Typ erzwingen
+    exp = expected_type_for(p)
+    if exp and (fm.get("type") != exp):
+        errs.append(f"{p}: Erwarte type='{exp}' für diese Pfadstruktur.")
+        # Weitere Prüfungen basieren auf exp:
+        fm.setdefault("type", exp)
+
+    # Pflichtfelder & Datentypen
+    t = fm.get("type")
+
+    if t == "produkte":
+        # Pflichtfelder
+        if not isinstance(fm.get("title"), str) or not fm.get("title"):
+            errs.append(f"{p}: Pflichtfeld 'title' fehlt/ist leer.")
+        if not isinstance(fm.get("slug"), str) or not fm.get("slug"):
+            errs.append(f"{p}: Pflichtfeld 'slug' fehlt/ist leer.")
+
+        # varianten (wenn vorhanden) muss Liste sein
+        if "varianten" in fm and fm["varianten"] not in (None, "", []):
+            if not isinstance(fm["varianten"], list):
+                errs.append(f"{p}: 'varianten' muss eine Liste sein.")
+
+        # bilder/bilder_alt – falls beide vorhanden, gleiche Länge
+        if isinstance(fm.get("bilder"), list) and isinstance(fm.get("bilder_alt"), list):
+            if len(fm["bilder"]) != len(fm["bilder_alt"]):
+                errs.append(f"{p}: 'bilder' und 'bilder_alt' haben unterschiedliche Längen.")
+
+        # optionale Typchecks
+        if "in_stock" in fm and not isinstance(fm["in_stock"], bool):
+            errs.append(f"{p}: 'in_stock' muss boolean sein (true/false).")
+        if "price_cents" in fm and not isinstance(fm["price_cents"], int):
+            errs.append(f"{p}: 'price_cents' muss Integer sein (Cent).")
+
+    elif t == "faq":
+        if not isinstance(fm.get("title"), str) or not fm.get("title"):
+            errs.append(f"{p}: Pflichtfeld 'title' fehlt/ist leer.")
+        if not isinstance(fm.get("slug"), str) or not fm.get("slug"):
+            errs.append(f"{p}: Pflichtfeld 'slug' fehlt/ist leer.")
+
     return warns, errs
 
-def guard(strict: bool):
-    errors, warns = [], []
-    for p in CONTENT.rglob("*.md"):
-        try:
-            txt = p.read_text(encoding="utf-8", errors="strict")
-        except UnicodeDecodeError as e:
-            errors.append(f"{p}: Datei ist nicht UTF-8: {e}")
-            continue
-        m=FM_RE.match(norm_unicode(txt))
-        if not m: continue
-        err = head_structure_error(m.group(1))
-        if err:
-            errors.append(f"{p}: {err}")
-            continue
-        try:
-            _, fm, _ = parse_frontmatter(txt)
-        except Exception as e:
-            errors.append(f"{p}: YAML-Fehler: {e}")
-            continue
-        w,e2 = check_schema(p,fm,strict)
-        warns += [f"{p}: {x}" for x in w]
-        errors+= [f"{p}: {x}" for x in e2]
-    return errors, warns
-
-def main():
+# --- Main ---
+def main() -> int:
     strict = "--strict" in sys.argv
-    errs, warns = guard(strict)
-    for w in warns: print(f"[WARN] {w}")
-    if errs:
-        for e in errs: print(f"[ERR] {e}", file=sys.stderr)
-        sys.exit(2)
-    print("Content-Guard: OK")
-    sys.exit(0)
+
+    all_warns: list[str] = []
+    all_errs:  list[str] = []
+
+    for p in CONTENT.rglob("*.md"):
+        w, e = guard_file(p)
+        all_warns.extend([f"[WARN] {x}" for x in w])
+        all_errs.extend([f"[ERR]  {x}" for x in e])
+
+    # Ausgabe
+    for w in all_warns:
+        print(w)
+    if all_errs:
+        for e in all_errs:
+            print(e, file=sys.stderr)
+        # Im non-strict könnten wir nur warnen – hier bleiben wir strikt:
+        return 2
+
+    print("Content Guard: OK")
+    return 0
+
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
