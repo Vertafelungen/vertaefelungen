@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: forbid-nbsp-in-yaml-head
+        name: Forbid NBSP/Zero-Width/Tabs in Markdown YAML head
+        entry: python tools/hooks/no-nbsp-yaml.py
+        language: system
+        files: ^wissen/content/.*\.md$
