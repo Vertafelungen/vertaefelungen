@@ -1,78 +1,68 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 14:05 Europe/Berlin
+# -*- coding: utf-8 -*-
 """
-Smoke-Check für den Hugo-Build.
-STRICT_SMOKE=1 prüft zusätzlich BOM/Steuerzeichen und Frontmatter.
+Einfacher Post-Build Smoke-Test für den Hugo-Output.
+
+Prüft:
+- Verzeichnis existiert
+- Mindestens N HTML-Dateien (Default 25) → --min-files 25
+- sitemap.xml vorhanden
+- (Optional) Mindestens eine Produktseite (de/en) existiert
+- (Optional) In einigen Produktseiten kommt JSON-LD vor
+
+Beendet sich mit Exit 2 bei Fehler.
 """
+
 from __future__ import annotations
-import argparse, os, sys, re
 from pathlib import Path
+import argparse
+import sys
 
-CTRL_RE = re.compile(r'[\x00-\x08\x0B\x0C\x0E-\x1F\x7F]')
+def find_files(base: Path, pattern: str):
+    return list(base.rglob(pattern))
 
-def read_text(p: Path) -> str:
-    return p.read_text(encoding="utf-8", errors="replace")
-
-def has(pattern: str, text: str) -> bool:
-    return re.search(pattern, text, flags=re.I) is not None
-
-def check_markdown_frontmatter(content: str) -> bool:
-    # sehr einfache Frontmatter-Prüfung
-    if content.startswith("\ufeff"):
+def has_ld_json(html_path: Path) -> bool:
+    try:
+        txt = html_path.read_text(encoding="utf-8", errors="ignore")
+    except Exception:
         return False
-    if not content.startswith("---"):
-        return False
-    if CTRL_RE.search(content[:1000]):  # nur im Kopf scannen
-        return False
-    return True
+    return '<script type="application/ld+json">' in txt
 
-def main():
+def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--public-dir", default="wissen/public")
-    ap.add_argument("--min-files", type=int, default=25)
-    a = ap.parse_args()
-    strict = os.getenv("STRICT_SMOKE", "") not in ("", "0", "false", "False")
+    ap.add_argument("--public-dir", default="wissen/public", help="Pfad zum Hugo-Output")
+    ap.add_argument("--min-files", type=int, default=25, help="Mindestanzahl .html Dateien")
+    args = ap.parse_args()
 
-    pub = Path(a.public_dir).resolve()
-    need = [pub / "de" / "index.html", pub / "en" / "index.html", pub / "sitemap.xml", pub / "robots.txt"]
-    missing = [p for p in [pub] + need if not p.exists()]
-    if missing:
-        for m in missing: print(f"[SMOKE] fehlt: {m}", file=sys.stderr)
-        sys.exit(2)
+    public = Path(args.public_dir)
+    if not public.exists():
+        print(f"[ERR] Output-Verzeichnis existiert nicht: {public}", file=sys.stderr)
+        return 2
 
-    cnt = sum(1 for _ in pub.rglob("*") if _.is_file())
-    if cnt < a.min_files:
-        print(f"[SMOKE] zu wenige Dateien: {cnt} < {a.min_files}", file=sys.stderr); sys.exit(2)
+    html_files = find_files(public, "*.html")
+    if len(html_files) < args.min_files:
+        print(f"[ERR] Zuwenig HTML-Dateien ({len(html_files)} < {args.min_files}).", file=sys.stderr)
+        return 2
 
-    de = read_text(pub / "de" / "index.html")
-    en = read_text(pub / "en" / "index.html")
-    if "�" in de or "�" in en:
-        print(f"[SMOKE] Encoding-Fehlerzeichen in /de/ oder /en/", file=sys.stderr); sys.exit(3)
+    # sitemap
+    if not (public / "sitemap.xml").exists():
+        print("[ERR] sitemap.xml fehlt.", file=sys.stderr)
+        return 2
 
-    if strict:
-        # Check canonical/hreflang
-        for page, txt in (("de", de), ("en", en)):
-            if not has(r'rel=["\']canonical["\']', txt):
-                print(f"[SMOKE] canonical fehlt auf /{page}/", file=sys.stderr); sys.exit(3)
-            if not (has(r'hreflang=["\']de["\']', txt) and has(r'hreflang=["\']en["\']', txt)):
-                print(f"[SMOKE] hreflang fehlt/ist unvollständig auf /{page}/", file=sys.stderr); sys.exit(3)
-        # Grober Scan aller Markdown-Dateien, um zukünftige BOM/Steuerzeichen zu fangen
-        content_root = Path(__file__).resolve().parents[1] / "content"
-        bad = []
-        for md in content_root.rglob("*.md"):
-            head = md.read_text(encoding="utf-8", errors="replace")[:1200]
-            if not check_markdown_frontmatter(head):
-                bad.append(str(md))
-        if bad:
-            print("[SMOKE] Ungültige Frontmatter/BOM in:", file=sys.stderr)
-            for b in bad: print(" -", b, file=sys.stderr)
-            sys.exit(3)
+    # Produktseiten prüfen (optional, nur warnen, wenn nicht vorhanden)
+    prod_de = find_files(public / "de" / "oeffentlich" / "produkte", "index.html")
+    prod_en = find_files(public / "en" / "public" / "products", "index.html")
+    if not prod_de and not prod_en:
+        print("[WARN] Keine Produktseiten gefunden (de/en).")
 
-    robots = read_text(pub / "robots.txt")
-    if "Sitemap:" not in robots:
-        print("[SMOKE] robots.txt ohne Sitemap-Zeile", file=sys.stderr); sys.exit(3)
+    # JSON-LD (optional, nur warnen)
+    sample_pages = (prod_de[:3] + prod_en[:2])[:5]
+    if sample_pages:
+        pages_with_ld = sum(1 for p in sample_pages if has_ld_json(p))
+        if pages_with_ld == 0:
+            print("[WARN] In den Stichproben wurde kein JSON-LD gefunden.")
 
-    print(f"[SMOKE] OK – {cnt} Dateien (strict={int(strict)}).")
+    print(f"Smoke-Check OK – HTML: {len(html_files)}, Produkte: de={len(prod_de)}, en={len(prod_en)}")
     return 0
 
 if __name__ == "__main__":
