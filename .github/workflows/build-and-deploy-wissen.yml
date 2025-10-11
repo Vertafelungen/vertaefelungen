@@ -70,6 +70,16 @@ jobs:
           print(f"Sanitized files (build): {changed}")
           PY
 
+      - name: Repair header delimiters (*** → --- , auto-close)
+        working-directory: wissen
+        run: |
+          python scripts/repair_header_delimiters.py
+
+      - name: Repair risky YAML scalars (quote/escape)
+        working-directory: wissen
+        run: |
+          python scripts/repair_frontmatter_scalars.py
+
       - name: Repair malformed frontmatter (open header)
         working-directory: wissen
         run: |
