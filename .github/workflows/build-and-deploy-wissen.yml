@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   build:
@@ -17,50 +17,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Install Python deps
+      - name: Install deps for guard
         run: |
           python -m pip install --upgrade pip
           pip install pyyaml
 
-      # >>> Einmalige Reparatur für Produkt-Frontmatter in index.md UND _index.md
-      - name: One-time product repair (safe)
+      - name: Content Guard (strict)
+        working-directory: wissen
         run: |
-          if [[ -f "wissen/scripts/repair_product_index_frontmatter.py" ]]; then
-            python wissen/scripts/repair_product_index_frontmatter.py
-            # Falls echte Änderungen: Commit & Push auslösen (startet Build ggf. erneut)
-            if [[ -n "$(git status --porcelain)" ]]; then
-              git config user.name  "github-actions[bot]"
-              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-              git add -A
-              git commit -m "chore(products): repair index/_index frontmatter (NBSP/ZeroWidth/LSEP/Tabs)"
-              git push
-            else
-              echo "No product index changes."
-            fi
-          else
-            echo "repair_product_index_frontmatter.py not present — skipping."
-          fi
-
-      - name: Fix frontmatter (sanitize)
-        run: |
-          python wissen/scripts/fix_frontmatter.py
-
-      - name: Content guard (strict)
-        run: |
-          if [[ -f "wissen/scripts/content_guard.py" ]]; then
-            python wissen/scripts/content_guard.py --strict
-          else
-            echo "ERROR: wissen/scripts/content_guard.py fehlt – bitte einchecken."
-            exit 1
-          fi
+          python scripts/content_guard.py --strict
 
       - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v3
@@ -68,13 +39,11 @@ jobs:
           hugo-version: "0.146.0"
           extended: true
 
-      - name: Build (prod config, site=wissen)
+      - name: Build (prod)
         run: |
           hugo --config wissen/hugo.prod.toml -s wissen -d wissen/public --gc --minify
 
       - name: Smoke-Check
-        env:
-          STRICT_SMOKE: "1"
         run: |
           python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
 
@@ -87,7 +56,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
