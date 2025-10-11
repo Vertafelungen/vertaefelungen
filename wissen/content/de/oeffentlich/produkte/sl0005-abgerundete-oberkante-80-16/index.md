@@ -6,5 +6,6 @@ beschreibung_md_de: |
   Schlicht und einfach, mit abgerundeter Oberkante
 last_sync: 2025-10-11 06:33:21+02:00
 ---
+
 Plain and simple, with a rounded upper edge
 

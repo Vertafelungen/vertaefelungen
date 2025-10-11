@@ -8,6 +8,7 @@ beschreibung_md_en: |
   Door and window frame TR 03, dimensions: 160 X 42 mm
 last_sync: 2025-10-11 06:33:21+02:00
 ---
+
 -
 -
 
