@@ -10,7 +10,6 @@ beschreibung_md_de: |
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
 last_sync: 2025-10-11 06:33:21+02:00
 ---
-
 Wooden strip 15 x 30 mm
 In pine or whitewood, other wood species available upon request
 As a wall strip for direct mounting on the plastered wall.
