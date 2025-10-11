@@ -4,9 +4,8 @@ slug: p0011-weimar-goethehaus-am-frauenplan
 type: produkte
 beschreibung_md_de: |
   Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen Bürgertum und einfachem Bauerhaus.
-last_sync: 2025-10-11T06:33:21+02:00
+last_sync: 2025-10-11 06:33:21+02:00
 ---
-
 Goethe's home in Weimar is a successful blend of classicist bourgeoisie and simple farmhouse.
 -
 -

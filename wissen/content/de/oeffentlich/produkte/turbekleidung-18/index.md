@@ -7,9 +7,8 @@ beschreibung_md_de: |
   TR 18, Maße: 150 x 40 mm
 beschreibung_md_en: |
   Door and window frame TR 18, dimensions: 150 x 40 mm
-last_sync: 2025-10-11T06:33:21+02:00
+last_sync: 2025-10-11 06:33:21+02:00
 ---
-
 -
 -
 

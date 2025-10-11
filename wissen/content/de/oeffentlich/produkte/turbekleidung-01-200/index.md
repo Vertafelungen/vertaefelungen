@@ -6,9 +6,8 @@ beschreibung_md_de: |
   Tür- und Fensterrahmen TR 01 / 200, Maße: 200 x 24 mm
 beschreibung_md_en: |
   Door and window frame TR 01 / 200, dimensions: 200 x 24 mm
-last_sync: 2025-10-11T06:33:21+02:00
+last_sync: 2025-10-11 06:33:21+02:00
 ---
-
 -
 -
 

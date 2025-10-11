@@ -4,8 +4,7 @@ slug: sl0005-abgerundete-oberkante-80-16
 type: produkte
 beschreibung_md_de: |
   Schlicht und einfach, mit abgerundeter Oberkante
-last_sync: 2025-10-11T06:33:21+02:00
+last_sync: 2025-10-11 06:33:21+02:00
 ---
-
 Plain and simple, with a rounded upper edge
 

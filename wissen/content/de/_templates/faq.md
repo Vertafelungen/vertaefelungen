@@ -1,8 +1,7 @@
 ---
-title: "<Aussagekräftiger Titel>"
-slug: "<kebab-slug-ohne-umlaute>"
-type: "faq"
-tags: []
+title: <Aussagekräftiger Titel>
+slug: <kebab-slug-ohne-umlaute>
+type: faq
 ---
 ## Frage
 

@@ -8,9 +8,8 @@ beschreibung_md_de: |
   
   Durchmesser ca. 52 mm
   Höhe ca. 5 mm
-last_sync: 2025-10-11T06:33:21+02:00
+last_sync: 2025-10-11 06:33:21+02:00
 ---
-
 Elegant ventilation rosette based on an original design.
 Cast brass, polished
 Diameter approx. 52 mm
