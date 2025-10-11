@@ -1,6 +1,5 @@
 ---
 title: Wandleiste 06
-title_en: Wall Moulding 06
 slug: wandleiste-06
 type: produkte
 beschreibung_md_de: |
@@ -9,15 +8,9 @@ beschreibung_md_de: |
   
   Als Wandleiste zur direkten Montage auf der verputzen Wand.
   Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
-beschreibung_md_en: |
-  
-varianten:
-    bezeichnung: Kiefer
-    preis_aufschlag: 0
-    bezeichnung: White Wood
-    preis_aufschlag: 3120000
-last_sync: "2025-10-11T06:33:21+02:00"
+last_sync: 2025-10-11T06:33:21+02:00
 ---
+
 Wooden strip 15 x 30 mm
 In pine or whitewood, other wood types available upon request
 As a wall strip for direct mounting on the plastered wall.
