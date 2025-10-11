@@ -12,7 +12,7 @@ varianten:
     preis_aufschlag: 0
     bezeichnung: Eiche, Bausatz
     preis_aufschlag: 640120000
-last_sync: "2025-10-10T22:31:21+02:00"
+last_sync: "2025-10-11T03:56:42+02:00"
 ---
 Very impressive but quite simply constructed. The "windows" lined up in a row with the trefoil arches at the end create neo-Gothic panelling. Such an interior lends prestige and dignity to a Victorian-style entrance.
 -
