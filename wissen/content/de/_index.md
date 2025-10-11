@@ -1,4 +1,1 @@
----
-title: Wissen
-description: Fachinhalte zu historischen Holzvertäfelungen
----
+--- title: Wissen description: Fachinhalte zu historischen Holzvertäfelungen --- 

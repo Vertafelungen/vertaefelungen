@@ -1,6 +1,1 @@
----
-title: Titel der Kategorie
-type: produkte
----
-
-Übersichtsseite. Wähle einen Beitrag:
+--- title: Titel der Kategorie type: produkte ---  Übersichtsseite. Wähle einen Beitrag: 

@@ -1,4 +1,1 @@
----
-title: Knowledge
-description: Expert content on historical wood panelling
----
+--- title: Knowledge description: Expert content on historical wood panelling --- 

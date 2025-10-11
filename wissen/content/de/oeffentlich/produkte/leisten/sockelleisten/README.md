@@ -1,17 +1,1 @@
-# Sockelleisten
-
-Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:
-
-- [sl0001](./sl0001.md): 
-- [sl0002](./sl0002.md): 
-- [sl0003](./sl0003.md): 
-- [sl0004](./sl0004.md): 
-- [sl0005](./sl0005.md): 
-- [sl0006](./sl0006.md): 
-- [sl0007-ae](./sl0007-ae.md): 
-- [sl0007-ie](./sl0007-ie.md): 
-- [sl0007](./sl0007.md): 
-
-***
-
-Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris
+# Sockelleisten  Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:  - [sl0001](./sl0001.md):  - [sl0002](./sl0002.md):  - [sl0003](./sl0003.md):  - [sl0004](./sl0004.md):  - [sl0005](./sl0005.md):  - [sl0006](./sl0006.md):  - [sl0007-ae](./sl0007-ae.md):  - [sl0007-ie](./sl0007-ie.md):  - [sl0007](./sl0007.md):   ***  Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris 
