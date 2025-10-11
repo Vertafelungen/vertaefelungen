@@ -75,6 +75,11 @@ jobs:
         run: |
           python scripts/repair_frontmatter_open.py
 
+      - name: Normalize YAML values (quote + list split)
+        working-directory: wissen
+        run: |
+          python scripts/repair_frontmatter_values.py
+
       - name: Content Guard (strict)
         working-directory: wissen
         run: |
