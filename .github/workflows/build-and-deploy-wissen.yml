@@ -80,6 +80,11 @@ jobs:
         run: |
           python scripts/repair_frontmatter_values.py
 
+      - name: Coerce typed fields (price_cents:int, in_stock:bool)
+        working-directory: wissen
+        run: |
+          python scripts/coerce_product_fields.py
+
       - name: Content Guard (strict)
         working-directory: wissen
         run: |
