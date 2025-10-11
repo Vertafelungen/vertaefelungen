@@ -7,7 +7,7 @@ beschreibung_md_de: |
   Der Innenraum ist reich mit Schiffsmodellen und kuriosen Dingen geschmückt, die von Lübecker Kapitänen über die Jahrhunderte auf ihren Fahrten zusammengetragen wurden. Um 1868 wurde beschlossen im Gildesaal einen Restaurantbetrieb einzurichten, der bis heute geöffnet ist.
   
   Die Vertäfelung der Außenwände des Gildesaals ist typisch für Lübeck. Einen ähnlichen Aufbau mit einem flachen Feld mit Bildschnitzerei oben und 2 stehenden Kassetten unten, gibt es auch in der Jakobi- und in der Aegidienkirche. Jedoch sind die Schnitzereien der Schiffergesellschaft um einiges humorvoller.
-last_sync: 2025-10-11T10:33:31+02:00
+last_sync: 2025-10-11 10:33:31+02:00
 ---
 
 The Schiffergesellschaft Lübeck has existed since 1401. The interior is richly decorated with ship models and items that Lübeck captains have collected on their voyages over centuries.

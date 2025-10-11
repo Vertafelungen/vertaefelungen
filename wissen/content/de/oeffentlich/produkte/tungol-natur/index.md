@@ -7,7 +7,7 @@ beschreibung_md_de: |
   
   Tungöl Natur wird aus den Nüssen des Holzölbaumes (Vernicia fordii) in Asien, den USA und Südamerika gewonnen. Das Öl wurde historisch als „Holzöl“ oder „chinesisches Holzöl“ bezeichnet, da es als Bindemittel der chinesischen und japanischen Holz- und Papiermalerei verwendet wurde.
   In der CAS Datenbank ist es unter der Bezeichnung „Holzöl“ registriert.
-last_sync: 2025-10-11T10:33:31+02:00
+last_sync: 2025-10-11 10:33:31+02:00
 ---
 
 Natural Tung Oil contains no siccatives. It polymerises in a similar way to linseed oil, but dries faster and forms a hard, matt surface. If wood is treated exclusively with Tung Oil Natural, the natural wood colour is essentially retained. It is very suitable for impregnating hardwood and as a surface coating on linseed oil paints. It can be used indoors and outdoors.

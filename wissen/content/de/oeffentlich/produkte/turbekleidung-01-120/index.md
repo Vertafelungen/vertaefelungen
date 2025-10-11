@@ -6,7 +6,7 @@ beschreibung_md_de: |
   Tür- und Fensterrahmen TR 01 / 120, Maße: 120 x 18 mm
 beschreibung_md_en: |
   Door and window frame TR 01 / 120, dimensions: 120 x 18 mm
-last_sync: 2025-10-11T10:33:31+02:00
+last_sync: 2025-10-11 10:33:31+02:00
 ---
 
 -

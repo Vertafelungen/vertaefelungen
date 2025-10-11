@@ -7,7 +7,7 @@ beschreibung_md_de: |
   Heute gibt ́s hier Burger und die Kulisse, nun ja, wirkt etwas ungepflegt. Ich hoffe, dass der nächste Mieter mehr mit diesem Schatz anzufangen weiß.
   Die Kombination von Vertäfelung und Fliesen findet man öfters in Restaurants und Lebensmittelgeschäften. Fliesen bringen ein weiteres dekoratives Element ins Spiel. Man kann größere Flächen aufziehen und durch Rahmen in Bereiche einteilen.
   Die in diesem Beispiel eingesetzten Fliesen stammen aus der GOLEM Manufaktur.
-last_sync: 2025-10-11T10:33:31+02:00
+last_sync: 2025-10-11 10:33:31+02:00
 ---
 
 The Balzer bakery was located here 130 years ago. All the walls are covered with fresh summer flower tiles and beautifully profiled wooden mouldings and the buns must have smelled twice as good!

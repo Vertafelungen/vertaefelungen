@@ -5,7 +5,7 @@ type: produkte
 beschreibung_md_de: |
   Die Berliner Mommsenstraße liegt zwischen Kantstraße und Kurfürstendamm in einem sehr mondänen, schicken Wohnviertel mit vielen Galerien und Boutiquen. 
   Die hier gezeigte Vertäfelung überzeugt durch ihren gleichmäßigen Rhythmus. Sie lässt sich besonders gut farblich gestalten.
-last_sync: 2025-10-11T10:33:31+02:00
+last_sync: 2025-10-11 10:33:31+02:00
 ---
 
 Berlin's Mommsenstraße is located between Kantstraße and Kurfürstendamm in a very sophisticated, chic residential area with many galleries and boutiques.
