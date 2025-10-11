@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-# Version: 2025-10-07 18:25 Europe/Berlin
+# Version: 2025-10-11
 # Normalisiert ALLE *.md unter wissen/content:
-# - entfernt BOM/Control/Zero-Width, ersetzt NBSP/LSEP/PSEP
+# - entfernt BOM/Control/Zero-Width, ersetzt NBSP/LSEP/PSEP durch normales Space
 # - Tabs im YAML-Indent -> Spaces
-# - Produkte: ergänzt type/slug, normalisiert varianten
+# - Produkte: ergänzt type/slug, normalisiert varianten (String -> Liste von Objekten)
 from __future__ import annotations
 from pathlib import Path
 import re, sys, unicodedata
@@ -130,8 +130,7 @@ def serialize_head(data: dict) -> str:
         if val in (None, "", [], {}): continue
         if key in ("beschreibung_md_de","beschreibung_md_en"):
             lines.append(f"{key}: |")
-            for ln in str(val).splitlines():
-                lines.append(f"  {ln}")
+            for ln in str(val).splitlines(): lines.append(f"  {ln}")
         elif key in ("kategorie","bilder"):
             seq = val if isinstance(val, list) else [val]
             lines.append(f"{key}:")
@@ -167,7 +166,6 @@ def repair_file(p: Path) -> bool:
 
     data = yaml_parse_robust(head)
 
-    # Produkt-Heuristiken
     if is_product_path(p):
         if is_index(p):
             data.setdefault("type","produkte")
