@@ -4,8 +4,9 @@
 Dieser Ordner enthält folgende Unterverzeichnisse:
 
  
-- [BlaBlaBla)
+- [BlaBla)
 - [DingDong)
+
 
 ***
 
