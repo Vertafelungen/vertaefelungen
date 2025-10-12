@@ -1,1 +1,15 @@
---- title: "SL0006 - mit Karnies 58/18" slug: sl0006 type: "produkte" sku: SL0006 price_cents: 60000000 in_stock: True kategorie:   - Sockelleisten bilder:   - sl0006-1.png   - sl0006-2.png bilder_alt:   - Freigestellte technische Zeichnung der Karniesleiste SOL0006 58/18 mit klarer Profilkontur und MaÃ angabe 58 mm   - Raumansicht mit montierter Karniesleiste SOL0006 58/18 als dezente Wandabschlussleiste in Innenraumecke meta_title: "Sockelleiste mit Karnies, HÃ¶he 5,8 cm" meta_description: "Schlichte FuÃ leiste mit Karnies aus nordischer Kiefer" source: "https://www.vertaefelungen.de/de/sockelleisten/45-Sockelleiste-mit-karnies-58.html" last_updated: "2025-08-20" beschreibung_md: |   schlicht, mit Karnies --- 
+---
+title: "sl0006"
+slug: "sl0006"
+type: "produkte"
+product_id: "38"
+reference: "SL0006"
+titel: "SL0006 – Sockelleiste"
+kategorie: "Artikel, Sockelleisten"
+beschreibung: "Sockelleiste, Profilvariante SL0006."
+meta_title: "Sockelleiste SL0006"
+meta_description: "Sockelleiste, Profilvariante SL0006."
+bilder: "sl0006-1.png"
+alt: "Sockelleiste SL0006"
+last_updated: "2025-02-20"
+---
