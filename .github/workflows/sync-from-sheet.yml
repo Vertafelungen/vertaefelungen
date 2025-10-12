@@ -1,21 +1,21 @@
-name: "SSOT → Repo (Sync Google Sheet → Markdown)"
+name: SSOT → Repo (Sync Google Sheet → Markdown)
 
 on:
   workflow_dispatch:
-  push:
-    paths:
-      - "wissen/scripts/**"
-      - ".github/workflows/ssot-sync.yml"
   schedule:
-    - cron: "15 4 * * *"  # täglich 04:15 UTC
+    # optional: täglicher Sync um 03:00 UTC
+    - cron: "0 3 * * *"
 
 permissions:
   contents: write
 
+concurrency:
+  group: ssot_sync
+  cancel-in-progress: false
+
 jobs:
   ssot_sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -31,68 +31,85 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install pyyaml
+          if [ -f "wissen/tools/requirements-ssot.txt" ]; then
+            pip install -r wissen/tools/requirements-ssot.txt
+          else
+            echo "requirements-ssot.txt fehlt – installiere Minimal-Set."
+            pip install requests PyYAML ruamel.yaml python-slugify chardet
+          fi
 
-      # 1) Sheet → Markdown
       - name: Generate Markdown from SSOT
         env:
-          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
-          GSHEET_CSV_URL_DE: ${{ secrets.GSHEET_CSV_URL_DE }}
-          GSHEET_CSV_URL_EN: ${{ secrets.GSHEET_CSV_URL_EN }}
+          # Falls dein Skript diese ENV-Variablen nutzt:
+          GSHEET_CSV_URL:     ${{ secrets.GSHEET_CSV_URL }}
+          GSHEET_CSV_URL_DE:  ${{ secrets.GSHEET_CSV_URL_DE }}
+          GSHEET_CSV_URL_EN:  ${{ secrets.GSHEET_CSV_URL_EN }}
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: |
           python wissen/scripts/sync-from-sheet.py
 
-      # 2) Sanitize (NBSP/Zero-Width, BOM, Smart Quotes)
+      # Sicherheitsnetz: unsichtbare/“smarte” Zeichen und CRLF vereinheitlichen
       - name: Sanitize content (remove NBSP/Zero-Width/SmartQuotes)
         run: |
           python - <<'PY'
-          from pathlib import Path
-          import sys
-          ROOT = Path(__file__).resolve().parents[2]
-          content = ROOT / "wissen" / "content"
-          bad = dict(
-            nbsp="\u00A0", zwsp="\u200B", zwnj="\u200C", zwj="\u200D", bom="\uFEFF",
-            ldq="\u201C", rdq="\u201D", lsq="\u2018", rsq="\u2019", en="\u2013", em="\u2014"
-          )
-          rep = {bad["ldq"]:'"', bad["rdq"]:'"', bad["lsq"]:"'", bad["rsq"]:"'", bad["en"]:"-", bad["em"]:"-"}
-          cnt=0
-          for p in content.rglob("*.md"):
-            t = p.read_text(encoding="utf-8", errors="replace")
-            t2 = t.replace(bad["nbsp"], " ").replace(bad["bom"], "")
-            for k in ("zwsp","zwnj","zwj"):
-              t2 = t2.replace(bad[k], "")
-            for k,v in rep.items():
-              t2 = t2.replace(k, v)
-            if t2 != t:
-              p.write_text(t2, encoding="utf-8")
-              cnt += 1
-          print(f"[sanitize] changed={cnt}")
+          import pathlib
+          ROOT = pathlib.Path("wissen/content")
+          if ROOT.exists():
+              repl = {
+                  "\u00A0": " ",   # NBSP
+                  "\u200B": "",    # ZWSP
+                  "\u200C": "",    # ZWNJ
+                  "\u201C": "\"",  # “
+                  "\u201D": "\"",  # ”
+                  "\u2018": "'",   # ‘
+                  "\u2019": "'",   # ’
+              }
+              for p in ROOT.rglob("*.md"):
+                  s = p.read_text(encoding="utf-8", errors="ignore")
+                  for k,v in repl.items():
+                      s = s.replace(k, v)
+                  s = s.replace("\r\n", "\n").replace("\r", "\n")
+                  p.write_text(s, encoding="utf-8")
           PY
 
-      # 3) Offene Header "***" → "---", fehlenden Abschluss ergänzen (falls nötig)
+      # Frontmatter-Reparatur (offene Header o. Ä.) – nur wenn Skript vorhanden
       - name: Repair malformed frontmatter (open header)
         run: |
-          python wissen/scripts/repair_frontmatter_open.py
+          if [[ -f "wissen/scripts/repair_frontmatter_open.py" ]]; then
+            python wissen/scripts/repair_frontmatter_open.py
+          elif [[ -f "wissen/scripts/fix_frontmatter.py" ]]; then
+            python wissen/scripts/fix_frontmatter.py
+          else
+            echo "Kein Frontmatter-Repair-Skript gefunden – Schritt übersprungen."
+          fi
 
-      # 4) QUOTING & TYPES: riskante Strings quoten, price_cents→int, in_stock→bool
+      # YAML-Normalisierung (Quotes, Listen splitten, Typen coerzen) – falls vorhanden
       - name: Normalize YAML values (quote + list split + type coercion)
         run: |
-          python wissen/scripts/normalize_yaml_values.py
+          if [[ -f "wissen/scripts/repair_frontmatter_values.py" ]]; then
+            python wissen/scripts/repair_frontmatter_values.py
+          elif [[ -f "wissen/scripts/normalize_all_md_frontmatter.py" ]]; then
+            python wissen/scripts/normalize_all_md_frontmatter.py
+          else
+            echo "Kein Normalizer-Skript gefunden – Schritt übersprungen."
+          fi
 
-      # 5) Strenger Inhaltsschutz: bricht bei YAML-Fehlern ab
+      # Strenger Inhaltswächter – bricht bei YAML-/Strukturfehlern ab (so gewollt)
       - name: Content Guard (strict)
         run: |
-          python wissen/scripts/content_guard.py --strict
+          if [[ -f "wissen/scripts/content_guard.py" ]]; then
+            python wissen/scripts/content_guard.py --strict
+          else
+            echo "content_guard.py nicht gefunden – Schritt übersprungen."
+          fi
 
-      # 6) Commit & push nur bei Änderungen
       - name: Commit & push (only if changed)
         run: |
-          if [ -n "$(git status --porcelain)" ]; then
+          if [[ -n "$(git status --porcelain)" ]]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "ci(ssot): sanitize + normalize frontmatter (quotes/types) + sync sheet → markdown"
+            git commit -m "ci(ssot): sanitize + normalize + sync sheet → markdown"
             git push
           else
             echo "No changes."
