@@ -2,22 +2,20 @@ name: "SSOT → Repo (Sync Google Sheet → Markdown)"
 
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "wissen/scripts/**"
+      - ".github/workflows/ssot-sync.yml"
   schedule:
-    - cron: "17 */6 * * *"
+    - cron: "15 4 * * *"  # täglich 04:15 UTC
 
 permissions:
   contents: write
 
-concurrency:
-  group: ssot-sync-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   ssot_sync:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: wissen
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -33,81 +31,69 @@ jobs:
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests pyyaml
+          python -m pip install pyyaml
 
+      # 1) Sheet → Markdown
       - name: Generate Markdown from SSOT
         env:
-          PRODUCTS_SHEET_CSV: ${{ secrets.GSHEET_CSV_URL }}
+          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
+          GSHEET_CSV_URL_DE: ${{ secrets.GSHEET_CSV_URL_DE }}
+          GSHEET_CSV_URL_EN: ${{ secrets.GSHEET_CSV_URL_EN }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
         run: |
-          python scripts/sync-from-sheet.py
+          python wissen/scripts/sync-from-sheet.py
 
-      - name: Sanitize content (remove NBSP/Zero-Width/C0/C1, normalize newlines)
+      # 2) Sanitize (NBSP/Zero-Width, BOM, Smart Quotes)
+      - name: Sanitize content (remove NBSP/Zero-Width/SmartQuotes)
         run: |
           python - <<'PY'
-          import re
           from pathlib import Path
-          CONTENT = Path("content")
-          BOM = "\ufeff"
-          NBSP = "\u00A0"
-          ZERO = {"\u200B","\u200C","\u200D","\u2060","\uFEFF","\u200E","\u200F"}
-          CTRL_RE = re.compile(r'[\x00-\x1F\x7F-\x9F]')
-          def clean(s: str) -> str:
-            s = s.replace("\r\n","\n").replace("\r","\n").replace(BOM,"")
-            s = s.replace(NBSP," ")
-            for z in ZERO: s = s.replace(z,"")
-            s = (s
-              .replace("\u0096","-").replace("\u0097","-")
-              .replace("\u0091","'").replace("\u0092","'")
-              .replace("\u0093","\"").replace("\u0094","\"")
-              .replace("\u0085","...")
-            )
-            s = CTRL_RE.sub(" ", s)
-            return s
-          changed = 0
-          for p in CONTENT.rglob("*.md"):
-            try:
-              t = p.read_text(encoding="utf-8")
-            except Exception:
-              continue
-            nt = clean(t)
-            if nt != t:
-              p.write_text(nt, encoding="utf-8")
-              changed += 1
-          print(f"Sanitized files: {changed}")
+          import sys
+          ROOT = Path(__file__).resolve().parents[2]
+          content = ROOT / "wissen" / "content"
+          bad = dict(
+            nbsp="\u00A0", zwsp="\u200B", zwnj="\u200C", zwj="\u200D", bom="\uFEFF",
+            ldq="\u201C", rdq="\u201D", lsq="\u2018", rsq="\u2019", en="\u2013", em="\u2014"
+          )
+          rep = {bad["ldq"]:'"', bad["rdq"]:'"', bad["lsq"]:"'", bad["rsq"]:"'", bad["en"]:"-", bad["em"]:"-"}
+          cnt=0
+          for p in content.rglob("*.md"):
+            t = p.read_text(encoding="utf-8", errors="replace")
+            t2 = t.replace(bad["nbsp"], " ").replace(bad["bom"], "")
+            for k in ("zwsp","zwnj","zwj"):
+              t2 = t2.replace(bad[k], "")
+            for k,v in rep.items():
+              t2 = t2.replace(k, v)
+            if t2 != t:
+              p.write_text(t2, encoding="utf-8")
+              cnt += 1
+          print(f"[sanitize] changed={cnt}")
           PY
 
-      - name: Repair header delimiters (*** → --- , auto-close)
-        run: |
-          python scripts/repair_header_delimiters.py
-
-      - name: Repair risky YAML scalars (quote/escape)
-        run: |
-          python scripts/repair_frontmatter_scalars.py
-
+      # 3) Offene Header "***" → "---", fehlenden Abschluss ergänzen (falls nötig)
       - name: Repair malformed frontmatter (open header)
         run: |
-          python scripts/repair_frontmatter_open.py
+          python wissen/scripts/repair_frontmatter_open.py
 
-      - name: Normalize YAML values (quote + list split)
+      # 4) QUOTING & TYPES: riskante Strings quoten, price_cents→int, in_stock→bool
+      - name: Normalize YAML values (quote + list split + type coercion)
         run: |
-          python scripts/repair_frontmatter_values.py
+          python wissen/scripts/normalize_yaml_values.py
 
-      - name: Coerce typed fields (price_cents:int, in_stock:bool)
-        run: |
-          python scripts/coerce_product_fields.py
-
+      # 5) Strenger Inhaltsschutz: bricht bei YAML-Fehlern ab
       - name: Content Guard (strict)
         run: |
-          python scripts/content_guard.py --strict
+          python wissen/scripts/content_guard.py --strict
 
+      # 6) Commit & push nur bei Änderungen
       - name: Commit & push (only if changed)
         run: |
-          if [[ -n "$(git status --porcelain)" ]]; then
+          if [ -n "$(git status --porcelain)" ]; then
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "ci(ssot): sanitize + repair delimiters + quote scalars + repair FM + normalize + coerce"
-            git push origin HEAD:main
+            git commit -m "ci(ssot): sanitize + normalize frontmatter (quotes/types) + sync sheet → markdown"
+            git push
           else
-            echo "No content changes."
+            echo "No changes."
           fi
