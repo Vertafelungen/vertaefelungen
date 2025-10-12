@@ -1,17 +1,12 @@
-name: SSOT → Repo (Sync Google Sheet → Markdown)
+name: SSOT → Repo (Sync Google Sheet → Markdown, DE+EN)
 
 on:
   workflow_dispatch:
   schedule:
-    # optional: täglicher Sync um 03:00 UTC
-    - cron: "0 3 * * *"
+    - cron: "15 3 * * *"   # optional: täglich 03:15 UTC
 
 permissions:
   contents: write
-
-concurrency:
-  group: ssot_sync
-  cancel-in-progress: false
 
 jobs:
   ssot_sync:
@@ -30,78 +25,40 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          python -m pip install --upgrade pip
-          if [ -f "wissen/tools/requirements-ssot.txt" ]; then
-            pip install -r wissen/tools/requirements-ssot.txt
-          else
-            echo "requirements-ssot.txt fehlt – installiere Minimal-Set."
-            pip install requests PyYAML ruamel.yaml python-slugify chardet
-          fi
+          python -m pip install --upgrade pip pyyaml
 
-      - name: Generate Markdown from SSOT
+      # -------- SSOT → Markdown: DE --------
+      - name: Generate Markdown from SSOT (DE)
         env:
-          # Falls dein Skript diese ENV-Variablen nutzt:
-          GSHEET_CSV_URL:     ${{ secrets.GSHEET_CSV_URL }}
-          GSHEET_CSV_URL_DE:  ${{ secrets.GSHEET_CSV_URL_DE }}
-          GSHEET_CSV_URL_EN:  ${{ secrets.GSHEET_CSV_URL_EN }}
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          PRODUCTS_SHEET_CSV: ${{ secrets.GSHEET_CSV_URL_DE }}
+          TARGET_LANG: de
         run: |
           python wissen/scripts/sync-from-sheet.py
 
-      # Sicherheitsnetz: unsichtbare/“smarte” Zeichen und CRLF vereinheitlichen
+      # -------- SSOT → Markdown: EN --------
+      - name: Generate Markdown from SSOT (EN)
+        env:
+          PRODUCTS_SHEET_CSV: ${{ secrets.GSHEET_CSV_URL_EN }}
+          TARGET_LANG: en
+        run: |
+          python wissen/scripts/sync-from-sheet.py
+
+      # ---- Safety-Net Schritte (optional, aber sinnvoll) ----
       - name: Sanitize content (remove NBSP/Zero-Width/SmartQuotes)
         run: |
-          python - <<'PY'
-          import pathlib
-          ROOT = pathlib.Path("wissen/content")
-          if ROOT.exists():
-              repl = {
-                  "\u00A0": " ",   # NBSP
-                  "\u200B": "",    # ZWSP
-                  "\u200C": "",    # ZWNJ
-                  "\u201C": "\"",  # “
-                  "\u201D": "\"",  # ”
-                  "\u2018": "'",   # ‘
-                  "\u2019": "'",   # ’
-              }
-              for p in ROOT.rglob("*.md"):
-                  s = p.read_text(encoding="utf-8", errors="ignore")
-                  for k,v in repl.items():
-                      s = s.replace(k, v)
-                  s = s.replace("\r\n", "\n").replace("\r", "\n")
-                  p.write_text(s, encoding="utf-8")
-          PY
+          python wissen/scripts/sanitize_content.py || true
 
-      # Frontmatter-Reparatur (offene Header o. Ä.) – nur wenn Skript vorhanden
       - name: Repair malformed frontmatter (open header)
         run: |
-          if [[ -f "wissen/scripts/repair_frontmatter_open.py" ]]; then
-            python wissen/scripts/repair_frontmatter_open.py
-          elif [[ -f "wissen/scripts/fix_frontmatter.py" ]]; then
-            python wissen/scripts/fix_frontmatter.py
-          else
-            echo "Kein Frontmatter-Repair-Skript gefunden – Schritt übersprungen."
-          fi
+          python wissen/scripts/repair_frontmatter_open.py || true
 
-      # YAML-Normalisierung (Quotes, Listen splitten, Typen coerzen) – falls vorhanden
       - name: Normalize YAML values (quote + list split + type coercion)
         run: |
-          if [[ -f "wissen/scripts/repair_frontmatter_values.py" ]]; then
-            python wissen/scripts/repair_frontmatter_values.py
-          elif [[ -f "wissen/scripts/normalize_all_md_frontmatter.py" ]]; then
-            python wissen/scripts/normalize_all_md_frontmatter.py
-          else
-            echo "Kein Normalizer-Skript gefunden – Schritt übersprungen."
-          fi
+          python wissen/scripts/repair_frontmatter_values.py || true
 
-      # Strenger Inhaltswächter – bricht bei YAML-/Strukturfehlern ab (so gewollt)
       - name: Content Guard (strict)
         run: |
-          if [[ -f "wissen/scripts/content_guard.py" ]]; then
-            python wissen/scripts/content_guard.py --strict
-          else
-            echo "content_guard.py nicht gefunden – Schritt übersprungen."
-          fi
+          python wissen/scripts/content_guard.py --strict
 
       - name: Commit & push (only if changed)
         run: |
@@ -109,7 +66,7 @@ jobs:
             git config user.name  "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "ci(ssot): sanitize + normalize + sync sheet → markdown"
+            git commit -m "ci(ssot): sync sheet → markdown (de+en, auto)"
             git push
           else
             echo "No changes."
