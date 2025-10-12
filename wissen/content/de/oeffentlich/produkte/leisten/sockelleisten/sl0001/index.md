@@ -1,1 +1,15 @@
---- title: "SL0001 - Hamburger Leiste 170/25" slug: sl0001 type: "produkte" sku: SL0001 price_cents: 35940000 in_stock: True kategorie:   - Sockelleisten bilder:   - sl0001-1.png   - sl0001-2.png bilder_alt:   - Technische Zeichnung einer Hamburger Sockelleiste 25/170 mit 170 mm Höhe und markantem Profil   - Detaillierte Darstellung der Hamburger Sockelleiste 25/170 in einer Raumecke mit Profilansicht und Wandmontage meta_title: "Hamburger Leiste, 17 cm Höhe" meta_description: "Hamburger oder Berliner Leiste - beides das Gleiche! Wir bieten diese Fußleiste mit einer Höhe von 17 cm." source: "https://www.vertaefelungen.de/de/sockelleisten/40-hamburger-leiste-25-170.html" last_updated: "2025-08-20" beschreibung_md: |   Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen.Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lÃ¤sst. ---
+---
+title: "sl0001"
+slug: "sl0001"
+type: "produkte"
+product_id: "34"
+reference: "SL0001"
+titel: "SL0001 – Sockelleiste"
+kategorie: "Artikel, Sockelleisten"
+beschreibung: "Klassische Sockelleiste."
+meta_title: "Sockelleiste SL0001"
+meta_description: "Klassische Sockelleiste."
+bilder: "sl0001-1.png"
+alt: "Sockelleiste SL0001"
+last_updated: "2025-02-20"
+---
