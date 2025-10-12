@@ -1,1 +1,15 @@
---- title: "SL0005 - abgerundete Oberkante 80/16" slug: sl0005 type: "produkte" sku: SL0005 price_cents: 17150000 in_stock: True kategorie:   - Sockelleisten bilder:   - sl0005-1.png   - sl0005-2.png bilder_alt:   - Sockelleiste SOL 0005 abgerundet 16/80 in Raumecke mit Wandansicht und Profilquerschnitt   - Sockelleiste SOL 0005 abgerundet 16/80 in technischer Darstellung mit HÃ¶he 80 mm meta_title: "Sockelleiste mit abgerundeter Oberkante - HÃ¶he 8 cm" meta_description: "Schlichte Sockelleiste mit abgerundeter Oberkante - 80/16 - AusfÃ1⁄4hrung in Eiche" source: "https://www.vertaefelungen.de/de/sockelleisten/34-Sockelleiste-abgerundete-oberkante.html" last_updated: "2025-08-20" beschreibung_md: |   Schlicht und einfach, mit abgerundeter Oberkante --- 
+---
+title: "sl0005"
+slug: "sl0005"
+type: "produkte"
+product_id: "37"
+reference: "SL0005"
+titel: "SL0005 – Sockelleiste"
+kategorie: "Artikel, Sockelleisten"
+beschreibung: "Sockelleiste, Profilvariante SL0005."
+meta_title: "Sockelleiste SL0005"
+meta_description: "Sockelleiste, Profilvariante SL0005."
+bilder: "sl0005-1.png"
+alt: "Sockelleiste SL0005"
+last_updated: "2025-02-20"
+---
