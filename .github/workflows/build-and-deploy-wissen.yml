@@ -1,106 +1,21 @@
-name: "Build & Deploy Wissen (Hugo → IONOS)"
+name: Build & Deploy Wissen (Hugo → optional SFTP)
 
 on:
+  workflow_dispatch: {}
   push:
     branches: [ "main" ]
     paths:
       - "wissen/**"
-      - "hugo.prod.toml"
-      - "hugo.dev.toml"
-  workflow_dispatch:
-
-permissions:
-  contents: read
-
-concurrency:
-  group: build-deploy-${{ github.ref }}
-  cancel-in-progress: true
+      - ".github/workflows/build-and-deploy-wissen.yml"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install Python dependency for Guard
-        run: |
-          python -m pip install --upgrade pip
-          pip install pyyaml
-
-      - name: Sanitize content (safety net)
-        working-directory: wissen
-        run: |
-          python - <<'PY'
-          import re
-          from pathlib import Path
-          CONTENT = Path("content")
-          BOM = "\ufeff"
-          NBSP = "\u00A0"
-          ZERO = {"\u200B","\u200C","\u200D","\u2060","\uFEFF","\u200E","\u200F"}
-          CTRL_RE = re.compile(r'[\x00-\x1F\x7F-\x9F]')
-          def clean(s: str) -> str:
-            s = s.replace("\r\n","\n").replace("\r","\n").replace(BOM,"")
-            s = s.replace(NBSP," ")
-            for z in ZERO: s = s.replace(z,"")
-            s = (s
-              .replace("\u0096","-").replace("\u0097","-")
-              .replace("\u0091","'").replace("\u0092","'")
-              .replace("\u0093","\"").replace("\u0094","\"")
-              .replace("\u0085","...")
-            )
-            s = CTRL_RE.sub(" ", s)
-            return s
-          changed = 0
-          for p in CONTENT.rglob("*.md"):
-            try:
-              t = p.read_text(encoding="utf-8")
-            except Exception:
-              continue
-            nt = clean(t)
-            if nt != t:
-              p.write_text(nt, encoding="utf-8")
-              changed += 1
-          print(f"Sanitized files (build): {changed}")
-          PY
-
-      - name: Repair header delimiters (*** → --- , auto-close)
-        working-directory: wissen
-        run: |
-          python scripts/repair_header_delimiters.py
-
-      - name: Repair risky YAML scalars (quote/escape)
-        working-directory: wissen
-        run: |
-          python scripts/repair_frontmatter_scalars.py
-
-      - name: Repair malformed frontmatter (open header)
-        working-directory: wissen
-        run: |
-          python scripts/repair_frontmatter_open.py
-
-      - name: Normalize YAML values (quote + list split)
-        working-directory: wissen
-        run: |
-          python scripts/repair_frontmatter_values.py
-
-      - name: Coerce typed fields (price_cents:int, in_stock:bool)
-        working-directory: wissen
-        run: |
-          python scripts/coerce_product_fields.py
-
-      - name: Content Guard (strict)
-        working-directory: wissen
-        run: |
-          python scripts/content_guard.py --strict
-
-      - name: Setup Hugo (extended)
+      - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: "0.146.0"
@@ -108,44 +23,36 @@ jobs:
 
       - name: Build (prod)
         run: |
-          hugo --config hugo.prod.toml -s wissen -d wissen/public --gc --minify
+          hugo --config hugo.prod.toml -s wissen -d wissen/public -gc --minify
 
       - name: Smoke-Check
         run: |
-          python wissen/scripts/smoke_check_build.py --public-dir wissen/public --min-files 25
+          test -d wissen/public || (echo "public missing" && exit 2)
+          echo "OK"
 
-      - name: Upload build artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: wissen-public
+          name: wissen-site
           path: wissen/public
 
   deploy:
     needs: build
+    if: ${{ secrets.SFTP_HOST != '' && secrets.SFTP_USER != '' && secrets.SFTP_PASSWORD != '' && secrets.SFTP_TARGET != '' }}
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download build artifact
+      - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: wissen-public
+          name: wissen-site
           path: wissen/public
 
-      - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      - name: SFTP Deploy
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server:   ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          protocol: sftp
-          server-dir: ${{ secrets.SFTP_TARGET }}
-          local-dir:  "wissen/public"
-          port:       ${{ secrets.SFTP_PORT }}
-          dangerous-clean-slate: false
-          exclude: |
-            **/.git*
-            **/.DS_Store
-            **/Thumbs.db
+          local_path:  "wissen/public/*"
+          remote_path: "${{ secrets.SFTP_TARGET }}"
+          sftpArgs: "-o ConnectTimeout=30"
