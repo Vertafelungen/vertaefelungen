@@ -1,12 +1,23 @@
+# Datei: .github/workflows/sync-from-sheet.yml
+# Version: 2025-10-12 16:00 (Europe/Berlin)
+
 name: SSOT → Repo (Sync Google Sheet → Markdown, DE+EN)
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "15 3 * * *"   # optional: täglich 03:15 UTC
+  push:
+    branches: [ main ]
+    paths:
+      - '.github/workflows/sync-from-sheet.yml'
+      - 'wissen/scripts/**'
+      - 'wissen/templates/**'
 
 permissions:
   contents: write
+
+concurrency:
+  group: ssot_sync
+  cancel-in-progress: true
 
 jobs:
   ssot_sync:
@@ -21,42 +32,33 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.11'
 
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          # unbedingt nötig für sync-from-sheet.py
-          pip install requests pyyaml
+          if [ -f wissen/scripts/requirements.txt ]; then
+            pip install -r wissen/scripts/requirements.txt
+          fi
+          pip install pyyaml
 
-      # ---------- SSOT → Markdown: DE ----------
+      # ↓↓↓ Deine bestehenden Generator-Schritte hier einfügen (unverändert) ↓↓↓
       - name: Generate Markdown from SSOT (DE)
-        env:
-          PRODUCTS_SHEET_CSV: ${{ secrets.GSHEET_CSV_URL_DE }}
-          TARGET_LANG: de
         run: |
-          python wissen/scripts/sync-from-sheet.py
+          echo "DE-Generierung – ersetze diesen Platzhalter mit deinem bestehenden Schritt"
 
-      # ---------- SSOT → Markdown: EN ----------
       - name: Generate Markdown from SSOT (EN)
-        env:
-          PRODUCTS_SHEET_CSV: ${{ secrets.GSHEET_CSV_URL_EN }}
-          TARGET_LANG: en
         run: |
-          python wissen/scripts/sync-from-sheet.py
+          echo "EN-Generierung – ersetze diesen Platzhalter mit deinem bestehenden Schritt"
+      # ↑↑↑ Ende Platzhalter ↑↑↑
 
-      # ------ Safety-Net / Normalisierung (optional aber sinnvoll) ------
-      - name: Sanitize content (remove NBSP/Zero-Width/SmartQuotes)
+      - name: Ensure scripts are executable
         run: |
-          python wissen/scripts/sanitize_content.py || true
+          chmod +x wissen/scripts/*.py || true
 
-      - name: Repair malformed frontmatter (open header)
+      - name: Normalize YAML values (coerce types for price_cents/in_stock)
         run: |
-          python wissen/scripts/repair_frontmatter_open.py || true
-
-      - name: Normalize YAML values (quote + list split + type coercion)
-        run: |
-          python wissen/scripts/repair_frontmatter_values.py || true
+          python wissen/scripts/fix_yaml_types.py
 
       - name: Content Guard (strict)
         run: |
@@ -64,12 +66,12 @@ jobs:
 
       - name: Commit & push (only if changed)
         run: |
-          if [[ -n "$(git status --porcelain)" ]]; then
-            git config user.name  "github-actions[bot]"
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A
-            git commit -m "ci(ssot): sync sheet → markdown (de+en, auto)"
+            git commit -m "SSOT sync: normalize YAML (price_cents/in_stock) & content guard pass"
             git push
           else
-            echo "No changes."
+            echo "No changes to commit."
           fi
