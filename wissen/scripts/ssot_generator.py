@@ -15,6 +15,7 @@ import os
 import re
 import sys
 import csv
+import io
 import json
 import math
 import argparse
@@ -167,7 +168,6 @@ def yaml_dump(data: dict) -> str:
     yaml.preserve_quotes = True
     yaml.default_flow_style = False
     yaml.indent(sequence=2, offset=2)
-    out = []
     from io import StringIO
     buf = StringIO()
     yaml.dump(data, buf)
@@ -192,7 +192,7 @@ def extract_for_lang(row: dict, lang: str) -> Dict:
     images_alt = first_value(row, CANDS.get(f"images_alt_{lang}", []))
     body   = first_value(row, CANDS.get(f"body_{lang}", []))
 
-    # Fallbacks: wenn sprachspez. leer, probiere generische
+    # Fallbacks (nur DE) falls nur generisch vorhanden
     if not title and lang == "de":
         title = first_value(row, ["title", "titel"])
     if not desc and lang == "de":
@@ -252,14 +252,14 @@ def compute_paths(row: dict, lang: str, fallback_slug: Optional[str]) -> (str, P
 # ---------- Hauptlogik --------------------------------------------------------
 
 def generate_from_csv(csv_url: str, langs: List[str]) -> int:
-    print(f"[ssot] Lade CSV: {csv_url}")
+    print(f"[ssot] Lade CSV: {csv_url if csv_url else '<<missing>>'}")
     r = requests.get(csv_url, timeout=60)
     r.raise_for_status()
     text = ensure_deterministic_newlines(r.text)
 
     # Pandas mit dtype=str, damit nichts implizit typisiert wird
     df = pd.read_csv(
-        pd.compat.StringIO(text),
+        io.StringIO(text),           # <-- Fix: keine pandas.compat.StringIO mehr
         dtype=str,
         keep_default_na=False,
         na_values=[],
@@ -268,11 +268,6 @@ def generate_from_csv(csv_url: str, langs: List[str]) -> int:
         engine="python"
     )
 
-    total_written = 0
-    for idx, row in df.to_dict(orient="records"):
-        pass  # dummy to check iterator type (will fix below)
-
-    # Workaround: pandas 2.2.2 -> iterrows liefert (idx, Series)
     total_written = 0
     for _, s in df.iterrows():
         row = {k: (None if (v == "" or pd.isna(v)) else str(v)) for k, v in s.items()}
@@ -295,13 +290,16 @@ def generate_from_csv(csv_url: str, langs: List[str]) -> int:
 
             rel_path, out_path = compute_paths(row, lang, slug_val)
 
+            # Kategorie (nur der Teil ohne slug)
+            category_only = rel_path.rsplit("/", 1)[0] if "/" in rel_path else ""
+
             # YAML-Frontmatter aufbauen (nur sinnvolle Keys schreiben)
             fm = {
                 "title":           quoted(data["title"]) if data["title"] else DQ(""),
                 "description":     quoted(data["description"]) if data["description"] else DQ(""),
                 "slug":            quoted(slug_val),
                 "type":            quoted("produkte"),
-                "kategorie":       quoted(rel_path.split("oeffentlich/produkte/")[-1].rsplit("/", 1)[0]),  # nur Kategorie ohne slug
+                "kategorie":       quoted(category_only),
             }
             if data["meta_title"]:        fm["meta_title"] = quoted(data["meta_title"])
             if data["meta_description"]:  fm["meta_description"] = quoted(data["meta_description"])
@@ -314,7 +312,7 @@ def generate_from_csv(csv_url: str, langs: List[str]) -> int:
             if data["images"]:
                 imgs = []
                 for it in data["images"]:
-                    di = {"src": DQ(it["src"])}
+                    di = {"src": DQ(normalize_text(it["src"]))}
                     if "alt" in it and it["alt"]:
                         di["alt"] = DQ(normalize_text(it["alt"]))
                     imgs.append(di)
