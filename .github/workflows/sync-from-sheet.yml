@@ -25,9 +25,11 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          python -m pip install --upgrade pip pyyaml
+          python -m pip install --upgrade pip
+          # unbedingt nötig für sync-from-sheet.py
+          pip install requests pyyaml
 
-      # -------- SSOT → Markdown: DE --------
+      # ---------- SSOT → Markdown: DE ----------
       - name: Generate Markdown from SSOT (DE)
         env:
           PRODUCTS_SHEET_CSV: ${{ secrets.GSHEET_CSV_URL_DE }}
@@ -35,7 +37,7 @@ jobs:
         run: |
           python wissen/scripts/sync-from-sheet.py
 
-      # -------- SSOT → Markdown: EN --------
+      # ---------- SSOT → Markdown: EN ----------
       - name: Generate Markdown from SSOT (EN)
         env:
           PRODUCTS_SHEET_CSV: ${{ secrets.GSHEET_CSV_URL_EN }}
@@ -43,7 +45,7 @@ jobs:
         run: |
           python wissen/scripts/sync-from-sheet.py
 
-      # ---- Safety-Net Schritte (optional, aber sinnvoll) ----
+      # ------ Safety-Net / Normalisierung (optional aber sinnvoll) ------
       - name: Sanitize content (remove NBSP/Zero-Width/SmartQuotes)
         run: |
           python wissen/scripts/sanitize_content.py || true
