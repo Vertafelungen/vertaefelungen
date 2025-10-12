@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Datei: wissen/scripts/sync-from-sheet-hugo.py
+# Datei: wissen/scripts/sync-from-sheet.py
 # Version: 2025-10-12 17:05 (Europe/Berlin)
 # Zweck: CSV aus Google Sheets einlesen und HUGO-Markdown je Sprache erzeugen.
 # Nutzt NUR Spalten, die WIRKLICH im CSV vorhanden sind (Stand geprüft).
