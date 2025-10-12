@@ -1,1 +1,15 @@
---- title: "SL0007 - MÃ1⁄4nchen - Augustiner Stammhaus - Sockelleiste 450/62" slug: sl0007 type: "produkte" sku: SL0007 price_cents: 79830000 in_stock: True kategorie:   - Sockelleisten bilder:   - sl0007-1.png   - sl0007-2.png   - sl0007-3.png bilder_alt:   - Sockelleiste vierteilig 450 mm Neobarock Jugendstil Mischung Wagner Salons Augustiner MÃ1⁄4nchen   - Sockelleiste vierteilig 450 mm Neobarock Jugendstil Mischung Eckansicht Wagner Salons Augustiner   - Sockelleiste vierteilig 450 mm Neobarock Jugendstil Mischung Wandansicht Gehrung Wagner Salons Augustiner meta_title: "Sockelleiste aus dem Augustiner Stammhaus in MÃ1⁄4nchen" meta_description: "45 cm hohe Sockelleiste aus den Wagner-Salons des Augustiner Stammhauses in MÃ1⁄4nchen. Wir reproduzieren diese Leiste fÃ1⁄4r Ihre RÃ¤ume in Eiche oder Kiefer." source: "https://www.vertaefelungen.de/de/sockelleisten/26-150-Sockelleiste-Augustiner-Stammhaus.html#/47-holzart-kiefer" last_updated: "2025-08-20" beschreibung_md: |   Diese 4-teilige, 45 cm hohe Sockelleiste kommt aus dem Stammhaus der Augustiner Brauerei in der MÃ1⁄4nchner Innenstadt. Mit ihr sind im 1.OG einige WohnrÃ¤ume der Brauerfamilie Wagner ausgestattet, die â  Wagner Salonsâ  . Die Salons wurden 1896-97 von Emanuel von Seidel in einer Mischung aus zeitgenÃ¶ssischem Jugendstil und elegantem Neobarock umgebaut und neu eingerichtet. 2019 wurden sie umfassend restauriert und sind nun fÃ1⁄4r GÃ¤ste geÃ¶ffnet. --- 
+---
+title: "sl0007"
+slug: "sl0007"
+type: "produkte"
+product_id: "39"
+reference: "SL0007"
+titel: "SL0007 – Sockelleiste"
+kategorie: "Artikel, Sockelleisten"
+beschreibung: "Sockelleiste, Profilvariante SL0007."
+meta_title: "Sockelleiste SL0007"
+meta_description: "Sockelleiste, Profilvariante SL0007."
+bilder: "sl0007-1.png"
+alt: "Sockelleiste SL0007"
+last_updated: "2025-02-20"
+---
