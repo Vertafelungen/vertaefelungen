@@ -1,15 +1,15 @@
 ---
-title: "sl0006"
-slug: "sl0006"
-type: "produkte"
-product_id: "38"
-reference: "SL0006"
-titel: "SL0006 – Sockelleiste"
-kategorie: "Artikel, Sockelleisten"
-beschreibung: "Sockelleiste, Profilvariante SL0006."
-meta_title: "Sockelleiste SL0006"
-meta_description: "Sockelleiste, Profilvariante SL0006."
-bilder: "sl0006-1.png"
-alt: "Sockelleiste SL0006"
-last_updated: "2025-02-20"
+title: sl0006
+slug: sl0006
+type: produkte
+product_id: '38'
+reference: SL0006
+titel: SL0006 - Sockelleiste
+kategorie: Artikel, Sockelleisten
+beschreibung: Sockelleiste, Profilvariante SL0006.
+meta_title: Sockelleiste SL0006
+meta_description: Sockelleiste, Profilvariante SL0006.
+bilder: sl0006-1.png
+alt: Sockelleiste SL0006
+last_updated: '2025-02-20'
 ---

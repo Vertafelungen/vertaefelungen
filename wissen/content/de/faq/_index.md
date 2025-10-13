@@ -1,15 +1,12 @@
 ---
-title: "FAQ"
-slug: "faq"
-description: "Häufige Fragen zu historischen Holzvertäfelungen."
-# Wenn du einen Menüpunkt willst (Name/Position nach Bedarf anpassen)
+title: FAQ
+slug: faq
+description: Häufige Fragen zu historischen Holzvertäfelungen.
 menu:
   main:
-    name: "FAQ"
+    name: FAQ
     weight: 50
-# keine Produkt-Logik:
-type: "page"
+type: page
 ---
-
 <!-- Übersichtsseite für FAQ (optional).
      Hier kannst du ein Intro schreiben oder eine Liste von Fragen rendern. -->
