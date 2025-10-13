@@ -12,6 +12,9 @@ on:
       - 'wissen/assets/**'
       - 'wissen/static/**'
       - '.github/workflows/build-and-deploy-wissen.yml'
+  workflow_run:
+    workflows: ["SSOT → Markdown Sync"]
+    types: [completed]
 
 permissions:
   contents: read
@@ -37,6 +40,8 @@ jobs:
           extended: true
 
       - name: Build (minified)
+        env:
+          HUGO_ENV: production
         run: hugo --minify
 
       - name: Upload artifact
