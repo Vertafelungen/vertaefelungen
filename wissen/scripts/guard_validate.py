@@ -16,7 +16,10 @@ Exit 1 bei Fehlern.
 """
 from __future__ import annotations
 
-import sys, re, os, json
+import sys
+import re
+import os
+import json
 from pathlib import Path
 from typing import Any, Dict, List
 import argparse
@@ -49,7 +52,7 @@ def find_frontmatter(txt: str):
     if end == -1:
         return None, None, "missing closing ---"
     header = txt[4:end]
-    body = txt[end+4:]
+    body = txt[end + 4 :]
     if txt.startswith("***"):
         return None, None, "invalid delimiter ***"
     return header, body, None
@@ -84,7 +87,7 @@ def check_types(y: Dict[str, Any], rel: str, errs: List[str]):
     ensure_type("in_stock", bool)
 
     if "images" in y:
-        if not isinstance(y["images"], list]):
+        if not isinstance(y["images"], list):  # <-- FIX: korrektes schließendes Zeichen
             errs.append(f"{rel}: images must be a list")
         else:
             for i, it in enumerate(y["images"]):
@@ -121,10 +124,6 @@ def main():
         rel = str(f.relative_to(REPO_ROOT)).replace("\\", "/")
         b = f.read_bytes()
 
-        if b.count(b"\r\n") > 0:
-            # Zeilenenden nur validieren, wenn nicht im managed-only sofort geskippt
-            pass
-
         try:
             txt = b.decode("utf-8")
         except UnicodeDecodeError:
@@ -137,7 +136,6 @@ def main():
         header_txt, body_txt, err = find_frontmatter(txt)
         if err:
             if managed_only:
-                # Altbestand ohne Frontmatter ignorieren
                 skipped += 1
                 continue
             else:
@@ -160,6 +158,9 @@ def main():
             continue
 
         # Ab hier: volle Validierung
+        if b.count(b"\r\n") > 0:
+            errs.append(f"{rel}: CRLF found, must be LF only")
+
         if FORBIDDEN_SEGMENT in rel:
             errs.append(f"{rel}: path contains forbidden '/public'")
 
@@ -170,15 +171,10 @@ def main():
         if probs_b:
             errs.append(f"{rel}: body contains forbidden chars: {', '.join(sorted(set(probs_b)))}")
 
-        # Zeilenenden LF
-        if b.count(b"\r\n") > 0:
-            errs.append(f"{rel}: CRLF found, must be LF only")
-
         if not isinstance(y, dict):
             errs.append(f"{rel}: YAML must be mapping at top level")
             continue
 
-        # Typen und Werte
         check_types(y, rel, errs)
 
         # '/public' in Werten
