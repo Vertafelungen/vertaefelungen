@@ -1,2 +1,18 @@
---- title: "TÃ1⁄4rbekleidung 15" slug: tr15 type: "produkte" sku: TR 15 price_cents: 35320000 in_stock: True kategorie:   - TÃ1⁄4rbekleidungen & Fensterrahmen bilder:   - tr15.png bilder_alt:   - TÃ1⁄4rbekleidung TR15 Kiefer 117x19mm TÃ1⁄4rrahmen Fensterrahmen Holzprofil nach Originalvorlage meta_title: "tr15 â " TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR" meta_description: "Als TÃ1⁄4r- oder Fensterrahmen einsetzbar, MaÃ e: 117 x 19 mm mm Kiefer oder White Wood, LÃ¤nge nach Wunsch, andere HÃ¶lzer (zB. Eiche) auf Anfrage" source: "https://www.vertaefelungen.de/de/tuerrahmen/128-550-tr15.html#/66-holzart_wl-kiefer" last_updated: "2025-09-01" beschreibung_md: |   TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR 15, MaÃ e: 117 x 19 mm --- 
+---
+title: '"TÃ1⁄4rbekleidung 15"'
+slug: 'tr15'
+type: '"produkte"'
+sku: 'TR 15'
+price_cents: '35320000'
+in_stock: 'True'
+kategorie: '- TÃ1⁄4rbekleidungen & Fensterrahmen'
+bilder: '- tr15.png'
+bilder_alt: '- TÃ1⁄4rbekleidung TR15 Kiefer 117x19mm TÃ1⁄4rrahmen Fensterrahmen Holzprofil nach Originalvorlage'
+meta_title: '"tr15 â " TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR"'
+meta_description: '"Als TÃ1⁄4r- oder Fensterrahmen einsetzbar, MaÃ'
+e: '117 x 19 mm ---'
+source: '"https://www.vertaefelungen.de/de/tuerrahmen/128-550-tr15.html#/66-holzart_wl-kiefer"'
+last_updated: '"2025-09-01"'
+beschreibung_md: |-
+  TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR 15, MaÃ
 ---

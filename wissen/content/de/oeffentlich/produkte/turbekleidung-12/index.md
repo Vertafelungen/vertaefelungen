@@ -1,2 +1,12 @@
---- title: Türbekleidung 12 slug: turbekleidung-12 type: produkte beschreibung_md_de: |   Tür- und Fensterrahmen nach Originalvorlage    TR 12, Maße: 117 x 28 mm beschreibung_md_en: |   Door and window frame TR 12, dimensions: 117 x 28 mm last_sync: 2025-10-11 10:33:31+02:00 ---  - -  
+---
+title: 'Türbekleidung 12'
+slug: 'turbekleidung-12'
+type: 'produkte'
+beschreibung_md_de: |-
+  Tür- und Fensterrahmen nach Originalvorlage    TR 12, Maße: 117 x 28 mm
+beschreibung_md_en: |-
+  Door and window frame TR 12,
+last_sync: '2025-10-11'
+dimensions: '117 x 28 mm'
+'10': '33:31+02:00 ---  - -'
 ---

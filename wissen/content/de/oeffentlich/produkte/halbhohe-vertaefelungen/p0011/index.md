@@ -1,2 +1,17 @@
---- title: "P0011 - Weimar - Goethehaus am Frauenplan" slug: p0011 type: "produkte" sku: P0011 price_cents: 526790000 in_stock: True kategorie:   - Halbhohe VertÃ¤felungen bilder:   - p0011-1.png   - p0011-2.png   - p0011-3.png   - p0011-4.png   - p0011-5.png bilder_alt:   - Klassizistische BrÃ1⁄4stungsvertÃ¤felung nach Goethes Haus Weimar mit ausgeschnittenen Vasenbalustern 930 mm hoch   - Gesamtansicht klassizistische BalustervertÃ¤felung nach Goethes Haus Weimar mit mehrfachen Feldern und Wandanschluss   - Eckansicht klassizistische BalustervertÃ¤felung nach Goethes Haus Weimar mit Vasenbalustern 930 mm hoch   - Detail klassizistische BalustervertÃ¤felung nach Goethes Haus Weimar mit profiliertem Abschluss 930 mm   - Sockeldetail klassizistische BalustervertÃ¤felung nach Goethes Haus Weimar mit geschnitztem Profil 930 mm meta_title: "Goethes TreppengelÃ¤nder als HolzvertÃ¤felung" meta_description: "VertÃ¤felung â  Weimar Goethehausâ   â " halbhohe WandvertÃ¤felung nach originalem Vorbild. Kiefernholz-Bausatz fÃ1⁄4r museale RÃ¤ume und klassisches Wohnen." source: "https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/52-weimar-goethehaus-am-frauenplan.html" last_updated: "2025-08-20" beschreibung_md: |   Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen BÃ1⁄4rgertum und einfachem Bauerhaus. --- 
+---
+title: '"P0011 - Weimar - Goethehaus am Frauenplan"'
+slug: 'p0011'
+type: '"produkte"'
+sku: 'P0011'
+price_cents: '526790000'
+in_stock: 'True'
+kategorie: '- Halbhohe VertÃ¤felungen'
+bilder: '- p0011-1.png   - p0011-2.png   - p0011-3.png   - p0011-4.png   - p0011-5.png'
+bilder_alt: '- Klassizistische BrÃ1⁄4stungsvertÃ¤felung nach Goethes Haus Weimar mit ausgeschnittenen Vasenbalustern 930 mm hoch   - Gesamtansicht klassizistische BalustervertÃ¤felung nach Goethes Haus Weimar mit mehrfachen Feldern und Wandanschluss   - Eckansicht klassizistische BalustervertÃ¤felung nach Goethes Haus Weimar mit Vasenbalustern 930 mm hoch   - Detail klassizistische BalustervertÃ¤felung nach Goethes Haus Weimar mit profiliertem Abschluss 930 mm   - Sockeldetail klassizistische BalustervertÃ¤felung nach Goethes Haus Weimar mit geschnitztem Profil 930 mm'
+meta_title: '"Goethes TreppengelÃ¤nder als HolzvertÃ¤felung"'
+meta_description: '"VertÃ¤felung â  Weimar Goethehausâ   â " halbhohe WandvertÃ¤felung nach originalem Vorbild. Kiefernholz-Bausatz fÃ1⁄4r museale RÃ¤ume und klassisches Wohnen."'
+source: '"https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/52-weimar-goethehaus-am-frauenplan.html"'
+last_updated: '"2025-08-20"'
+beschreibung_md: |-
+  Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen BÃ1⁄4rgertum und einfachem Bauerhaus. ---
 ---

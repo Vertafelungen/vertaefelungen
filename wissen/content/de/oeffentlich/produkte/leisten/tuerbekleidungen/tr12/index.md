@@ -1,2 +1,18 @@
---- title: "TÃ1⁄4rbekleidung 12" slug: tr12 type: "produkte" sku: TR 12 price_cents: 35320000 in_stock: True kategorie:   - TÃ1⁄4rbekleidungen & Fensterrahmen bilder:   - tr12.png bilder_alt:   - TÃ1⁄4rbekleidung TR12 Kiefer 117x28mm TÃ1⁄4rrahmen Fensterrahmen Holzprofil nach Originalvorlage meta_title: "tr12 â " TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR" meta_description: "Als TÃ1⁄4r- oder Fensterrahmen einsetzbar, MaÃ e: 117 x 28 mm mm Kiefer oder White Wood, LÃ¤nge nach Wunsch, andere HÃ¶lzer (zB. Eiche) auf Anfrage" source: "https://www.vertaefelungen.de/de/tuerrahmen/125-544-tr12.html#/66-holzart_wl-kiefer" last_updated: "2025-09-01" beschreibung_md: |   TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR 12, MaÃ e: 117 x 28 mm --- 
+---
+title: '"TÃ1⁄4rbekleidung 12"'
+slug: 'tr12'
+type: '"produkte"'
+sku: 'TR 12'
+price_cents: '35320000'
+in_stock: 'True'
+kategorie: '- TÃ1⁄4rbekleidungen & Fensterrahmen'
+bilder: '- tr12.png'
+bilder_alt: '- TÃ1⁄4rbekleidung TR12 Kiefer 117x28mm TÃ1⁄4rrahmen Fensterrahmen Holzprofil nach Originalvorlage'
+meta_title: '"tr12 â " TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR"'
+meta_description: '"Als TÃ1⁄4r- oder Fensterrahmen einsetzbar, MaÃ'
+e: '117 x 28 mm ---'
+source: '"https://www.vertaefelungen.de/de/tuerrahmen/125-544-tr12.html#/66-holzart_wl-kiefer"'
+last_updated: '"2025-09-01"'
+beschreibung_md: |-
+  TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR 12, MaÃ
 ---

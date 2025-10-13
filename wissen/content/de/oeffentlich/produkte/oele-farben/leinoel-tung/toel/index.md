@@ -1,2 +1,17 @@
---- title: "Tung HolzÃ¶llack" slug: toel type: "produkte" sku: TÃ-L price_cents: 22690000 in_stock: True kategorie:   - LeinÃ¶l   - TungÃ¶l   - Balsam bilder:   - toel.png bilder_alt:   - Tung HolzÃ¶llack 1 Liter TungÃ¶l LackleinÃ¶l innen auÃ en UV-bestÃ¤ndig schnelltrocknend HartrockenÃ¶l Schlussfirnis meta_title: "toel â " <p style="margin:0px;font-style:normal;font-size:10.7px" meta_description: "TungÃ¶l Lack â " reines, hÃ¤rtendes HolzÃ¶l fÃ1⁄4r stark beanspruchte OberflÃ¤chen. LÃ¶semittelfrei, wetterfest, tief eindringend. Ideal fÃ1⁄4r innen & auÃ en." source: "https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/65-332-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter" last_updated: "2025-09-01" beschreibung_md: |   TungÃ¶l verkocht mit LackleinÃ¶l, LeinÃ¶lstandÃ¶l und Sikkativen.Anwendung innen und auÃ en.Â TUNG HolzÃ¶llack trocknet bedeutend schneller und hÃ¤rter als ein LeinÃ¶lfirnisanstrich. Die OberflÃ¤che ist anfÃ¤nglich matt glÃ¤nzend. Er wird eingesetzt als Schlussfirnis auf LeinÃ¶lgrundierungen, da er weniger durch Wasser quillt und eine bessere UV BestÃ¤ndigkeit besitzt als ein LeinÃ¶lfirnis. Sehr gut ist er auch zur Pflege aller Arten von Holz, auch HarthÃ¶lzer, geeignet. Das legendÃ¤re Eburit HartrockenÃ¶l basiert auf den gleichen Inhaltsstoffen wie unser HolzÃ¶llack. --- 
+---
+title: '"Tung HolzÃ¶llack"'
+slug: 'toel'
+type: '"produkte"'
+sku: 'TÃ-L'
+price_cents: '22690000'
+in_stock: 'True'
+kategorie: '- LeinÃ¶l   - TungÃ¶l   - Balsam'
+bilder: '- toel.png'
+bilder_alt: '- Tung HolzÃ¶llack 1 Liter TungÃ¶l LackleinÃ¶l innen auÃ en UV-bestÃ¤ndig schnelltrocknend HartrockenÃ¶l Schlussfirnis'
+meta_title: '"toel â " <p style="margin:0px;font-style:normal;font-size:10.7px"'
+meta_description: '"TungÃ¶l Lack â " reines, hÃ¤rtendes HolzÃ¶l fÃ1⁄4r stark beanspruchte OberflÃ¤chen. LÃ¶semittelfrei, wetterfest, tief eindringend. Ideal fÃ1⁄4r innen & auÃ en."'
+source: '"https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/65-332-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter"'
+last_updated: '"2025-09-01"'
+beschreibung_md: |-
+  TungÃ¶l verkocht mit LackleinÃ¶l, LeinÃ¶lstandÃ¶l und Sikkativen.Anwendung innen und auÃ en.Â TUNG HolzÃ¶llack trocknet bedeutend schneller und hÃ¤rter als ein LeinÃ¶lfirnisanstrich. Die OberflÃ¤che ist anfÃ¤nglich matt glÃ¤nzend. Er wird eingesetzt als Schlussfirnis auf LeinÃ¶lgrundierungen, da er weniger durch Wasser quillt und eine bessere UV BestÃ¤ndigkeit besitzt als ein LeinÃ¶lfirnis. Sehr gut ist er auch zur Pflege aller Arten von Holz, auch HarthÃ¶lzer, geeignet. Das legendÃ¤re Eburit HartrockenÃ¶l basiert auf den gleichen Inhaltsstoffen wie unser HolzÃ¶llack. ---
 ---

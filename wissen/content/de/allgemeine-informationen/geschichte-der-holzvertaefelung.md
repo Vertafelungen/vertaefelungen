@@ -7,8 +7,8 @@ draft: false
 ## 1. Mittelalter (ca. 1100–1500)
 ### Funktionalität und Symbolik
 
-**Stilmerkmale:**  
-**Material:**  
+**Stilmerkmale:**
+**Material:**
 **Beispiele:**
 
 ---

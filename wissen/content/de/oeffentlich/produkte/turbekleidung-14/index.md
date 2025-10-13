@@ -1,2 +1,12 @@
---- title: Türbekleidung 14 slug: turbekleidung-14 type: produkte beschreibung_md_de: |   Tür- und Fensterrahmen nach Originalvorlage    TR 14, Maße: 118 x 20 mm beschreibung_md_en: |   Door and window frame TR 14, dimensions: 118 x 20 mm last_sync: 2025-10-11 10:33:31+02:00 ---  - -  
+---
+title: 'Türbekleidung 14'
+slug: 'turbekleidung-14'
+type: 'produkte'
+beschreibung_md_de: |-
+  Tür- und Fensterrahmen nach Originalvorlage    TR 14, Maße: 118 x 20 mm
+beschreibung_md_en: |-
+  Door and window frame TR 14,
+last_sync: '2025-10-11'
+dimensions: '118 x 20 mm'
+'10': '33:31+02:00 ---  - -'
 ---
