@@ -2,18 +2,19 @@
 # -*- coding: utf-8 -*-
 """
 Hart prüfender Guard:
-- Alle *.md unter wissen/content/{de,en}/**/*.md
+- Alle index.md unter wissen/content/{de,en}/**/index.md
 - Frontmatter mit ---/---; KEIN ***
 - YAML parsebar; Feldtypen geprüft (price_cents:int, in_stock:bool, images:list[dict], lang in {de,en})
 - Keine verbotenen Unicode-Zeichen (NBSP, ZWSP, Smart Quotes) im Header ODER Body
 - Zeilenenden LF (keine CRLF)
 - Keine '/public' Segmente in Pfad oder Werten
-- Optional: Plausibilitätswarnung zu price_cents
 Exit 1 bei Fehler.
 """
 from __future__ import annotations
 
-import sys, re
+import sys
+import re
+import json  # <<< FIX: fehlender Import
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -62,7 +63,6 @@ def check_types(y: Dict[str, Any], rel: str, errs: List[str]):
         if key in y and not isinstance(y[key], t):
             errs.append(f"{rel}: field '{key}' must be {t.__name__}")
 
-    # required-ish
     for k in ("slug", "lang", "title"):
         if k not in y or not y[k]:
             errs.append(f"{rel}: missing '{k}'")
@@ -75,7 +75,7 @@ def check_types(y: Dict[str, Any], rel: str, errs: List[str]):
             errs.append(f"{rel}: price_cents must be int")
         elif y["price_cents"] < 0:
             errs.append(f"{rel}: price_cents must be >= 0")
-        elif y["price_cents"] > 5000000:  # 50.000 €
+        elif y["price_cents"] > 5_000_000:  # 50.000 €
             errs.append(f"{rel}: price_cents suspiciously high (>5,000,000)")
 
     ensure_type("in_stock", bool)
@@ -130,7 +130,6 @@ def main():
             errs.append(f"{rel}: {err}")
             continue
 
-        # Problemzeichen suchen
         probs_h = has_problem_chars(header_txt or "")
         probs_b = has_problem_chars(body_txt or "")
         if probs_h:
@@ -138,17 +137,14 @@ def main():
         if probs_b:
             errs.append(f"{rel}: body contains forbidden chars: {', '.join(sorted(set(probs_b)))}")
 
-        # YAML parsen
         try:
             y = yaml.load(header_txt) or {}
         except Exception as e:
             errs.append(f"{rel}: YAML parse error: {e}")
             continue
 
-        # Typen prüfen
         if isinstance(y, dict):
             check_types(y, rel, errs)
-            # Werte auf '/public' prüfen
             as_text = json.dumps(y, ensure_ascii=False)
             if "/public/" in as_text:
                 errs.append(f"{rel}: YAML values must not contain '/public'")
