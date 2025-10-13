@@ -11,6 +11,7 @@ on:
       - 'wissen/layouts/**'
       - 'wissen/assets/**'
       - 'wissen/static/**'
+      - 'wissen/scripts/lint_content_frontmatter.py'
       - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_run:
     workflows: ["SSOT → Markdown Sync"]
@@ -26,18 +27,38 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # für Auto-Fix-Commit
     defaults:
       run:
         working-directory: wissen
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.125.7'
           extended: true
+
+      # Repariert ungeschlossenes Frontmatter (---) in Altbeständen
+      - name: Frontmatter auto-fix
+        env:
+          AUTOFIX_FRONTMATTER: "1"
+        run: |
+          python3 scripts/lint_content_frontmatter.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No frontmatter fixes to commit."
+          else
+            git commit -m "fix(frontmatter): auto-close YAML delimiters [skip ci]"
+            git push
+          fi
 
       - name: Build (minified)
         env:
