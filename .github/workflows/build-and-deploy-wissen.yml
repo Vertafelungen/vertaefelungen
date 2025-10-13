@@ -52,16 +52,31 @@ jobs:
 
   deploy-sftp:
     needs: build
-    if: ${{ github.ref == 'refs/heads/main' && secrets.SFTP_HOST != '' && secrets.SFTP_USERNAME != '' && secrets.SFTP_PASSWORD != '' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Check SFTP secrets
+        id: s
+        shell: bash
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          if [[ -n "$SFTP_HOST" && -n "$SFTP_USERNAME" && -n "$SFTP_PASSWORD" ]]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Download artifact
+        if: steps.s.outputs.ok == 'true'
         uses: actions/download-artifact@v4
         with:
           name: wissen-public
           path: ./public
 
       - name: Deploy via SFTP
+        if: steps.s.outputs.ok == 'true'
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
           server: ${{ secrets.SFTP_HOST }}
@@ -72,3 +87,7 @@ jobs:
           remote_path: ${{ secrets.SFTP_TARGET || '/wissen' }}
           delete_remote_files: false
           sftp_command_args: "-o StrictHostKeyChecking=no"
+
+      - name: Skip deploy (no SFTP secrets)
+        if: steps.s.outputs.ok != 'true'
+        run: echo "SFTP secrets missing -> skipping deploy."
