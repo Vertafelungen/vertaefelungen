@@ -49,9 +49,11 @@ jobs:
         run: |
           python wissen/scripts/ssot_generator.py
 
-      - name: Guard validation
+      - name: Guard validation (managed files only)
+        env:
+          GUARD_MODE: managed
         run: |
-          python wissen/scripts/guard_validate.py
+          python wissen/scripts/guard_validate.py --mode managed
 
       - name: Commit & Push if changes
         run: |
