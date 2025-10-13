@@ -1,7 +1,8 @@
+---
 name: One-off: Repair YAML header delimiters
 
 on:
-  workflow_dispatch: {}
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -22,114 +23,84 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
-          import os, re, sys, io, pathlib
+          import os, re, pathlib
 
           ROOT = pathlib.Path(".")
-          CONTENT_DIRS = [
-              ROOT / "wissen" / "content",
-          ]
+          CONTENT_DIRS = [ ROOT / "wissen" / "content" ]
 
-          # Zeichen, die im YAML-Header gerne Ärger machen
-          ZERO_WIDTH = [
-              "\ufeff",  # BOM
-              "\u200b", "\u200c", "\u200d", "\u2060",  # Zero width chars
-              "\xa0",    # NBSP
-          ]
-          CONTROL_BAD = dict.fromkeys(range(0x00, 0x20), None)
-          # ^ entfernt Steuerzeichen 0x00-0x1F (Zeilenumbrüche behandeln wir separat)
+          ZERO_WIDTH = ["\ufeff","\u200b","\u200c","\u200d","\u2060","\xa0"]
+          CONTROL_BAD = dict.fromkeys(range(0x00,0x20), None)
 
           def clean_header_text(s: str) -> str:
               for z in ZERO_WIDTH:
                   s = s.replace(z, "")
-              # Steuerzeichen (außer \n, \r, \t) aus dem Header entfernen
               s = s.translate(CONTROL_BAD)
-              # „Smart quotes“ in ASCII-Quotes wandeln
               s = s.replace("“","\"").replace("”","\"").replace("‘","'").replace("’","'")
-              # En/Em-Dash in Bindestrich
               s = s.replace("–","-").replace("—","-")
               return s
 
-          fm_open = re.compile(r"^(\*{3}|-{3})\s*$")        # *** oder ---
-          fm_close = re.compile(r"^-{3}\s*$")               # ---
-          yaml_kv   = re.compile(r"^[A-Za-z0-9_][A-Za-z0-9_\-]*\s*:\s*.*$")
+          fm_open  = re.compile(r"^(\*{3}|-{3})\s*$")   # *** oder ---
+          fm_close = re.compile(r"^-{3}\s*$")           # ---
+          yaml_kv  = re.compile(r"^[A-Za-z0-9_][A-Za-z0-9_\-]*\s*:\s*.*$")
 
-          changed_files = []
+          changed = []
 
-          def process_file(p: pathlib.Path):
+          def process_md(p: pathlib.Path):
               try:
-                  raw = p.read_bytes()
-                  text = raw.decode("utf-8", errors="replace")
+                  text = p.read_text(encoding="utf-8", errors="replace")
               except Exception:
                   return
-
               orig = text
-              lines = text.splitlines(True)  # keepends
-
-              # Bom/Zero width vorne entfernen
-              if lines:
-                  lines[0] = clean_header_text(lines[0])
+              lines = text.splitlines(True)
 
               if not lines:
                   return
 
-              # Prüfen, ob es wie ein YAML-Header beginnt
+              # erste Zeile säubern
+              lines[0] = clean_header_text(lines[0])
+
               if not fm_open.match(lines[0].strip()):
-                  # Falls *** statt --- verwendet wird
                   if lines[0].strip() == "***":
                       lines[0] = "---\n"
                   else:
-                      # Kein Frontmatter vorhanden -> nichts tun
-                      return
+                      return  # kein Frontmatter
 
-              # Jetzt beginnt Header sicher
-              # Öffnende Linie normalisieren
-              if lines[0].strip() == "***":
-                  lines[0] = "---\n"
-              elif lines[0].strip() != "---":
+              if lines[0].strip() != "---":
                   lines[0] = "---\n"
 
-              # Header bis zum schließenden --- suchen
               i = 1
               header_end = -1
               while i < len(lines):
-                  # Header-Zeile sanitizen
                   lines[i] = clean_header_text(lines[i])
-
                   if fm_close.match(lines[i].strip()):
                       header_end = i
                       break
-
-                  # Falls die Zeile eindeutig kein YAML-KV mehr ist, brechen wir ab
                   if not yaml_kv.match(lines[i].strip()) and lines[i].strip() != "":
                       break
                   i += 1
 
-              # Wenn kein schließendes --- gefunden wurde, einfügen
               if header_end == -1:
-                  # Suche nach erster Leerzeile nach dem (vermutlichen) Header
                   insert_at = i
                   while insert_at < len(lines) and lines[insert_at].strip() != "":
                       insert_at += 1
                   lines.insert(insert_at, "---\n")
                   header_end = insert_at
 
-              # Sicherstellen, dass nach dem Header eine Leerzeile kommt
               if header_end + 1 < len(lines) and lines[header_end + 1].strip() != "":
                   lines.insert(header_end + 1, "\n")
 
               new_text = "".join(lines)
               if new_text != orig:
                   p.write_text(new_text, encoding="utf-8", newline="\n")
-                  changed_files.append(str(p))
+                  changed.append(str(p))
 
-          for content_root in CONTENT_DIRS:
-              if not content_root.exists():
-                  continue
-              for p in content_root.rglob("*.md"):
-                  process_file(p)
+          for root in CONTENT_DIRS:
+              if root.exists():
+                  for md in root.rglob("*.md"):
+                      process_md(md)
 
-          print(f"Repaired files: {len(changed_files)}")
-          for f in changed_files:
+          print(f"Repaired files: {len(changed)}")
+          for f in changed:
               print("  FIX:", f)
           PY
 
