@@ -4,12 +4,12 @@
 SSOT -> Markdown Generator (deterministic)
 Repo layout target: wissen/content/{de|en}/.../<slug>/index.md
 
-- Liest CSV aus GSHEET_CSV_URL (Secret) oder GSHEET_ID+GSHEET_GID oder aus SSOT_CSV_PATH (lokal)
+- Liest CSV aus SSOT_CSV_PATH (lokal) oder GSHEET_CSV_URL (Secret) oder GSHEET_ID+GSHEET_GID
 - Normalisiert Text (UTF-8, NFC, entfernt ZWSP/NBSP, ersetzt Smart Quotes, --)
 - Mappt DE/EN aus einer CSV-Zeile auf je eine Markdown-Datei (index.md)
 - YAML: strikt mit ---/---, UTF-8 LF, korrekt gequotet, stabile Feldreihenfolge
 - Datentypen: price_cents:int, in_stock:bool, Listen korrekt, Variants normalisiert
-- Entfernt "public" aus Pfaden, schreibt nur wenn Content sich geändert hat (idempotent)
+- Entfernt "public" aus Pfaden, schreibt nur, wenn Content sich geändert hat (idempotent)
 - Pruning: löscht verwaltete Seiten, die nicht mehr in CSV vorkommen
 
 Abhängigkeiten: pandas, requests, python-slugify, ruamel.yaml, Unidecode
@@ -184,50 +184,26 @@ def build_images(file_list: List[str], alt_list: List[str]) -> List[Dict[str, An
 DOCS_EXPORT_TMPL = "https://docs.google.com/spreadsheets/d/{doc}/export?format=csv&gid={gid}"
 
 def canonicalize_gsheet_url(url: str) -> str:
-    """
-    Akzeptiert diverse Google-Links und erzeugt die stabile Export-URL.
-    """
     u = url.strip()
-
-    # 1) Bereits kanonische Export-URL?
     if re.match(r"^https://docs\.google\.com/spreadsheets/d/[^/]+/export\?[^ ]*format=csv", u):
         return u
-
-    # 2) /spreadsheets/d/<ID>/edit?...gid=...
     m = re.search(r"https://docs\.google\.com/spreadsheets/d/([^/]+)/", u)
     if m:
         doc = m.group(1)
-        gid = None
-        # gid in Query oder Fragment
         q_gid = re.search(r"(?:[?&]gid=)(\d+)", u)
         f_gid = re.search(r"(?:#gid=)(\d+)", u)
-        if q_gid:
-            gid = q_gid.group(1)
-        elif f_gid:
-            gid = f_gid.group(1)
-        else:
-            gid = "0"
+        gid = q_gid.group(1) if q_gid else (f_gid.group(1) if f_gid else "0")
         return DOCS_EXPORT_TMPL.format(doc=doc, gid=gid)
-
-    # 3) publish-to-web URL -> output=csv
     if "output=csv" in u and "docs.google.com" in u:
         return u
-
-    # 4) googleusercontent.com/export/... -> nicht stabil
     if "googleusercontent.com/export" in u:
         raise ValueError(
             "Die URL zeigt auf googleusercontent.com/export (session-gebunden). "
-            "Bitte eine docs.google.com Export-URL verwenden: "
-            "https://docs.google.com/spreadsheets/d/<ID>/export?format=csv&gid=<GID>"
+            "Bitte eine docs.google.com Export-URL verwenden."
         )
-
-    # 5) Fallback: unverändert (kann Fehler erzeugen)
     return u
 
 def resolve_gsheet_source_env() -> Optional[str]:
-    """
-    Bevorzugt GSHEET_CSV_URL; alternativ GSHEET_ID + GSHEET_GID.
-    """
     url = os.environ.get("GSHEET_CSV_URL", "").strip()
     if not url:
         doc = os.environ.get("GSHEET_ID", "").strip()
@@ -237,19 +213,20 @@ def resolve_gsheet_source_env() -> Optional[str]:
     return url or None
 
 def load_csv() -> pd.DataFrame:
-    url = resolve_gsheet_source_env()
     local = os.environ.get("SSOT_CSV_PATH")
-
     if local:
         csv_bytes = Path(local).read_bytes()
         data = csv_bytes.decode("utf-8")
-    elif url:
+    else:
+        url = resolve_gsheet_source_env()
+        if not url:
+            print("ERROR: Neither SSOT_CSV_PATH nor GSHEET_CSV_URL/GSHEET_ID provided.", file=sys.stderr)
+            sys.exit(2)
         try:
             url_canon = canonicalize_gsheet_url(url)
         except ValueError as e:
             print(f"ERROR: {e}", file=sys.stderr)
             sys.exit(2)
-
         headers = {
             "User-Agent": "vertaefelungen-ssot-generator/1.0",
             "Accept": "text/csv, text/plain;q=0.9, */*;q=0.1",
@@ -257,25 +234,13 @@ def load_csv() -> pd.DataFrame:
         r = requests.get(url_canon, timeout=60, headers=headers)
         try:
             r.raise_for_status()
-        except requests.HTTPError as e:
-            # Hilfetext für typische 400/403
-            hint = (
-                "\nHinweis: Nutze eine docs.google.com Export-URL im Format\n"
-                "  https://docs.google.com/spreadsheets/d/<ID>/export?format=csv&gid=<GID>\n"
-                "und stelle die Freigabe auf 'Jeder mit dem Link: Betrachter' "
-                "oder verwende 'Im Web veröffentlichen (CSV)'."
-            )
-            print(f"ERROR: HTTP {r.status_code} for Google Sheets CSV.\n{hint}", file=sys.stderr)
+        except requests.HTTPError:
+            print("ERROR: HTTP error for Google Sheets CSV.", file=sys.stderr)
             raise
         data = r.content.decode("utf-8", errors="strict")
-
-        # Zusätzlicher Schutz: Falls trotzdem HTML zurückkommt (z. B. Login-Seite)
-        if "<html" in data.lower() or "<!doctype html" in data.lower():
+        if "<html" in data.lower():
             print("ERROR: Received HTML instead of CSV (vermutlich keine öffentliche Freigabe).", file=sys.stderr)
             sys.exit(2)
-    else:
-        print("ERROR: Neither GSHEET_CSV_URL nor GSHEET_ID provided (and no SSOT_CSV_PATH).", file=sys.stderr)
-        sys.exit(2)
 
     from io import StringIO
     df = pd.read_csv(StringIO(data), dtype=str, keep_default_na=False, na_values=[])
@@ -401,81 +366,4 @@ def write_markdown(lang: str, row: pd.Series, out_dir: Path) -> Path:
     buf.write("---\n\n")
     buf.write(body.rstrip() + "\n")
 
-    content = buf.getvalue()
-    content = content.replace("\r\n", "\n")
-    if content.startswith("***"):
-        raise RuntimeError("Header delimiter must be '---', got '***'")
-
-    out_dir.mkdir(parents=True, exist_ok=True)
-    out_file = out_dir / "index.md"
-    prev = out_file.read_text(encoding="utf-8") if out_file.exists() else None
-    if prev == content:
-        return out_file
-    with out_file.open("w", encoding="utf-8", newline="\n") as f:
-        f.write(content)
-    return out_file
-
-def prune_orphans(managed_paths: Dict[str, set]):
-    for lang in ("de", "en"):
-        base = CONTENT_ROOT / lang
-        if not base.exists():
-            continue
-        for idx_file in base.rglob("index.md"):
-            try:
-                txt = idx_file.read_text(encoding="utf-8")
-            except Exception:
-                continue
-            if not txt.startswith("---"):
-                continue
-            header_end = txt.find("\n---", 4)
-            if header_end == -1:
-                continue
-            header_txt = txt[4:header_end]
-            if "managed_by: " not in header_txt:
-                continue
-            if idx_file.parent.name not in managed_paths[lang]:
-                try:
-                    shutil.rmtree(idx_file.parent)
-                    print(f"Pruned old: {idx_file.parent}")
-                except Exception as e:
-                    print(f"WARN prune failed: {idx_file.parent} -> {e}", file=sys.stderr)
-
-def main():
-    df = load_csv()
-    slugs = {
-        "de": set(df["slug_de"].astype(str).map(normalize_text)),
-        "en": set(df["slug_en"].astype(str).map(normalize_text)),
-    }
-    written = []
-    for _, row in df.iterrows():
-        for lang in ("de", "en"):
-            slug = normalize_text(row.get(f"slug_{lang}")).strip()
-            if not slug:
-                continue
-            raw_path = normalize_text(row.get(f"export_pfad_{lang}"))
-            rel = sanitize_export_path(lang, raw_path)
-            if str(rel) == "." or str(rel) == "":
-                cat = (normalize_text(row.get("kategorie_raw")).lower())
-                if "halbhohe" in cat or "dado" in cat:
-                    rel = Path("oeffentlich/produkte/halbhohe-vertaefelungen") if lang == "de" else Path("public/products/dado-panel")
-                elif "hohe" in cat or "high" in cat:
-                    rel = Path("oeffentlich/produkte/hohe-vertaefelungen") if lang == "de" else Path("public/products/high-wainscoting")
-                else:
-                    rel = Path("oeffentlich/produkte/sonstiges") if lang == "de" else Path("public/products/misc")
-            rel = sanitize_export_path(lang, str(rel))
-            out_dir = CONTENT_ROOT / lang / rel / slug
-            f = write_markdown(lang, row, out_dir)
-            written.append(str(f.relative_to(REPO_ROOT)))
-
-    prune_orphans(slugs)
-
-    print(f"Wrote/checked {len(written)} files.")
-    bad = [p for p in written if "/public/" in p or p.startswith("wissen/content/en/public/")]
-    if bad:
-        print("ERROR: Found forbidden '/public' segment in output paths:", file=sys.stderr)
-        for b in bad:
-            print(" -", b, file=sys.stderr)
-        sys.exit(10)
-
-if __name__ == "__main__":
-    main()
+    content
