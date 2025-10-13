@@ -1,0 +1,59 @@
+name: SSOT → Markdown Sync
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ main ]
+    paths:
+      - 'wissen/scripts/ssot_generator.py'
+      - 'wissen/scripts/guard_validate.py'
+      - 'requirements-ssot.txt'
+      - '.github/workflows/ssot_sync.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ssot-sync
+  cancel-in-progress: true
+
+jobs:
+  ssot-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-ssot.txt
+
+      - name: Generate content from SSOT
+        env:
+          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
+        run: |
+          python wissen/scripts/ssot_generator.py
+
+      - name: Guard validation
+        run: |
+          python wissen/scripts/guard_validate.py
+
+      - name: Commit & Push if changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(ssot): regenerate content (deterministic)"
+            git push
+          fi
