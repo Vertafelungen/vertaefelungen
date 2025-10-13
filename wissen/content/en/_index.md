@@ -1,1 +1,4 @@
---- title: Knowledge description: Expert content on historical wood panelling --- 
+---
+title: 'Knowledge - English'
+description: 'Knowledge base on historical wood panelling, wainscoting, mouldings and restoration (EN).'
+---
