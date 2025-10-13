@@ -7,6 +7,7 @@ on:
     paths:
       - 'wissen/scripts/ssot_generator.py'
       - 'wissen/scripts/guard_validate.py'
+      - 'wissen/ssot/**'                # <<< lokale CSV ändert → neu bauen
       - 'requirements-ssot.txt'
       - '.github/workflows/ssot_sync.yml'
 
@@ -20,11 +21,19 @@ concurrency:
 jobs:
   ssot-sync:
     runs-on: ubuntu-latest
+    env:
+      SSOT_CSV_PATH: wissen/ssot/SSOT.csv   # <<< Lokaler CSV-Pfad fürs Skript
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Verify local CSV exists
+        run: |
+          test -f "$SSOT_CSV_PATH" || { echo "CSV not found at $SSOT_CSV_PATH"; exit 2; }
+          file "$SSOT_CSV_PATH" || true
+          head -n 2 "$SSOT_CSV_PATH" || true
 
       - name: Setup Python 3.12
         uses: actions/setup-python@v5
@@ -36,9 +45,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements-ssot.txt
 
-      - name: Generate content from SSOT
-        env:
-          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
+      - name: Generate content from SSOT (local CSV)
         run: |
           python wissen/scripts/ssot_generator.py
 
@@ -54,6 +61,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore(ssot): regenerate content (deterministic)"
+            git commit -m "chore(ssot): regenerate content (local CSV)"
             git push
           fi
