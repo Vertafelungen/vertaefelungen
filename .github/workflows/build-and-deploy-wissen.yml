@@ -12,6 +12,8 @@ on:
       - 'wissen/assets/**'
       - 'wissen/static/**'
       - 'wissen/scripts/lint_content_frontmatter.py'
+      - 'wissen/scripts/sanitize_legacy_frontmatter.py'
+      - 'wissen/scripts/fix_legacy_yaml_format.py'
       - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_run:
     workflows: ["SSOT → Markdown Sync"]
@@ -28,7 +30,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # für Auto-Fix-Commit
+      contents: write  # für Auto-Fix-Commits
     defaults:
       run:
         working-directory: wissen
@@ -44,10 +46,11 @@ jobs:
           hugo-version: '0.125.7'
           extended: true
 
-      # Repariert ungeschlossenes Frontmatter (---) in Altbeständen
+      # 1) Schließt fehlende --- automatisch (auch CP-1252, Tabs/Spaces)
       - name: Frontmatter auto-fix
         env:
           AUTOFIX_FRONTMATTER: "1"
+          LINT_VERBOSE: "1"
         run: |
           python3 scripts/lint_content_frontmatter.py
           git config user.name "github-actions[bot]"
@@ -57,6 +60,36 @@ jobs:
             echo "No frontmatter fixes to commit."
           else
             git commit -m "fix(frontmatter): auto-close YAML delimiters [skip ci]"
+            git push
+          fi
+
+      # 2) Sanitiert Legacy-YAML (Quotes, NBSP/Smart Quotes, Tabs→Spaces)
+      - name: Sanitize legacy YAML frontmatter
+        env:
+          SANITIZE_APPLY: "1"
+        run: |
+          python3 scripts/sanitize_legacy_frontmatter.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No sanitizer changes to commit."
+          else
+            git commit -m "fix(frontmatter): sanitize legacy YAML (quote & normalize) [skip ci]"
+            git push
+          fi
+
+      # 3) Repariert „flache“ Header (mehrere key: in einer Zeile, Block-| korrekt)
+      - name: Fix legacy YAML formatting (flat → proper)
+        run: |
+          python3 scripts/fix_legacy_yaml_format.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No legacy formatting changes."
+          else
+            git commit -m "fix(frontmatter): normalize legacy YAML header [skip ci]"
             git push
           fi
 
