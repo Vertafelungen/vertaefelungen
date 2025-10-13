@@ -30,7 +30,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # für Auto-Fix-Commits
+      contents: write
     defaults:
       run:
         working-directory: wissen
@@ -40,19 +40,28 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python deps for build utilities
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruamel.yaml
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.125.7'
           extended: true
 
-      # 1) Schließt fehlende --- automatisch (auch CP-1252, Tabs/Spaces)
       - name: Frontmatter auto-fix
         env:
           AUTOFIX_FRONTMATTER: "1"
           LINT_VERBOSE: "1"
         run: |
-          python3 scripts/lint_content_frontmatter.py
+          python scripts/lint_content_frontmatter.py
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
@@ -63,12 +72,11 @@ jobs:
             git push
           fi
 
-      # 2) Sanitiert Legacy-YAML (Quotes, NBSP/Smart Quotes, Tabs→Spaces)
       - name: Sanitize legacy YAML frontmatter
         env:
           SANITIZE_APPLY: "1"
         run: |
-          python3 scripts/sanitize_legacy_frontmatter.py
+          python scripts/sanitize_legacy_frontmatter.py
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
@@ -79,10 +87,9 @@ jobs:
             git push
           fi
 
-      # 3) Repariert „flache“ Header (mehrere key: in einer Zeile, Block-| korrekt)
       - name: Fix legacy YAML formatting (flat → proper)
         run: |
-          python3 scripts/fix_legacy_yaml_format.py
+          python scripts/fix_legacy_yaml_format.py
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
