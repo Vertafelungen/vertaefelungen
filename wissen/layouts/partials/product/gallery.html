@@ -1,0 +1,27 @@
+{{- /* Produkt-Galerie: robust, keine Pflichtdaten nötig */ -}}
+{{- $s := newScratch -}}
+
+{{- with .Params.images -}}
+  {{- range . -}}
+    {{- $s.Add "imgs" (slice .) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if not ($s.Get "imgs") -}}
+  {{- with .Resources.ByType "image" -}}
+    {{- range . -}}
+      {{- $s.Add "imgs" (slice .RelPermalink) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $imgs := $s.Get "imgs" -}}
+{{- if $imgs }}
+<div class="product-gallery">
+  {{- range $imgs }}
+    <figure class="product-gallery__item">
+      <img src="{{ . | absURL }}" alt="{{ $.Title | safeHTMLAttr }}" loading="lazy" decoding="async" />
+    </figure>
+  {{- end }}
+</div>
+{{- end }}
