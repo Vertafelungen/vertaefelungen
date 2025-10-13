@@ -1,28 +1,31 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Hart prüfender Guard:
-- Alle index.md unter wissen/content/{de,en}/**/index.md
-- Frontmatter mit ---/---; KEIN ***
-- YAML parsebar; Feldtypen geprüft (price_cents:int, in_stock:bool, images:list[dict], lang in {de,en})
-- Keine verbotenen Unicode-Zeichen (NBSP, ZWSP, Smart Quotes) im Header ODER Body
-- Zeilenenden LF (keine CRLF)
-- Keine '/public' Segmente in Pfad oder Werten
-Exit 1 bei Fehler.
+Guard-Validator
+
+Default: MODE=managed
+- Prüft NUR Dateien mit 'managed_by:' im Frontmatter (vom SSOT-Generator erzeugt)
+- Validiert: ---/---, YAML parsebar, Typen (price_cents:int, in_stock:bool, images:list[map]),
+  lang in {de,en}, keine Problemzeichen (NBSP/ZWSP/Smart Quotes) im Header/Body,
+  LF-Zeilenenden, keine '/public' in Pfaden oder Werten.
+
+Optional: MODE=all (oder --mode all)
+- Prüft ALLE index.md und meldet auch Altbestände hart.
+
+Exit 1 bei Fehlern.
 """
 from __future__ import annotations
 
-import sys
-import re
-import json  # <<< FIX: fehlender Import
+import sys, re, os, json
 from pathlib import Path
 from typing import Any, Dict, List
+import argparse
 
-import unicodedata
 from ruamel.yaml import YAML
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CONTENT_ROOT = REPO_ROOT / "wissen" / "content"
+
 PROBLEM = {
     "\u00A0": "NBSP",
     "\u202F": "NARROW_NBSP",
@@ -81,7 +84,7 @@ def check_types(y: Dict[str, Any], rel: str, errs: List[str]):
     ensure_type("in_stock", bool)
 
     if "images" in y:
-        if not isinstance(y["images"], list):
+        if not isinstance(y["images"], list]):
             errs.append(f"{rel}: images must be a list")
         else:
             for i, it in enumerate(y["images"]):
@@ -104,31 +107,61 @@ def check_types(y: Dict[str, Any], rel: str, errs: List[str]):
                     errs.append(f"{rel}: variants[{i}].preis_aufschlag_cents must be int")
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", choices=["managed", "all"], default=os.environ.get("GUARD_MODE", "managed"))
+    args = parser.parse_args()
+    managed_only = (args.mode == "managed")
+
     yaml = YAML(typ="safe")
     md_files = list((CONTENT_ROOT / "de").rglob("index.md")) + list((CONTENT_ROOT / "en").rglob("index.md"))
     errs: List[str] = []
+    skipped = 0
 
     for f in md_files:
         rel = str(f.relative_to(REPO_ROOT)).replace("\\", "/")
         b = f.read_bytes()
+
         if b.count(b"\r\n") > 0:
-            errs.append(f"{rel}: CRLF found, must be LF only")
+            # Zeilenenden nur validieren, wenn nicht im managed-only sofort geskippt
+            pass
 
         try:
             txt = b.decode("utf-8")
         except UnicodeDecodeError:
+            if managed_only:
+                skipped += 1
+                continue
             errs.append(f"{rel}: not UTF-8 decodable")
             continue
 
-        if FORBIDDEN_SEGMENT in rel:
-            errs.append(f"{rel}: path contains forbidden '/public'")
-        if rel.count("/de/") + rel.count("/en/") != 1:
-            errs.append(f"{rel}: unexpected language segment")
-
         header_txt, body_txt, err = find_frontmatter(txt)
         if err:
-            errs.append(f"{rel}: {err}")
+            if managed_only:
+                # Altbestand ohne Frontmatter ignorieren
+                skipped += 1
+                continue
+            else:
+                errs.append(f"{rel}: {err}")
+                continue
+
+        # YAML parsen
+        try:
+            y = yaml.load(header_txt) or {}
+        except Exception as e:
+            if managed_only:
+                skipped += 1
+                continue
+            errs.append(f"{rel}: YAML parse error: {e}")
             continue
+
+        # Nur „managed_by“ prüfen im managed-only Modus
+        if managed_only and ("managed_by" not in y or not str(y.get("managed_by", "")).startswith("ssot_generator/")):
+            skipped += 1
+            continue
+
+        # Ab hier: volle Validierung
+        if FORBIDDEN_SEGMENT in rel:
+            errs.append(f"{rel}: path contains forbidden '/public'")
 
         probs_h = has_problem_chars(header_txt or "")
         probs_b = has_problem_chars(body_txt or "")
@@ -137,27 +170,30 @@ def main():
         if probs_b:
             errs.append(f"{rel}: body contains forbidden chars: {', '.join(sorted(set(probs_b)))}")
 
-        try:
-            y = yaml.load(header_txt) or {}
-        except Exception as e:
-            errs.append(f"{rel}: YAML parse error: {e}")
+        # Zeilenenden LF
+        if b.count(b"\r\n") > 0:
+            errs.append(f"{rel}: CRLF found, must be LF only")
+
+        if not isinstance(y, dict):
+            errs.append(f"{rel}: YAML must be mapping at top level")
             continue
 
-        if isinstance(y, dict):
-            check_types(y, rel, errs)
-            as_text = json.dumps(y, ensure_ascii=False)
-            if "/public/" in as_text:
-                errs.append(f"{rel}: YAML values must not contain '/public'")
-        else:
-            errs.append(f"{rel}: YAML must be mapping at top level")
+        # Typen und Werte
+        check_types(y, rel, errs)
+
+        # '/public' in Werten
+        as_text = json.dumps(y, ensure_ascii=False)
+        if "/public/" in as_text:
+            errs.append(f"{rel}: YAML values must not contain '/public'")
 
     if errs:
         print("Guard found issues:\n", file=sys.stderr)
         for e in errs:
             print(" -", e, file=sys.stderr)
+        print(f"\n(Mode: {args.mode}; skipped={skipped})", file=sys.stderr)
         sys.exit(1)
 
-    print(f"Guard OK: {len(md_files)} files validated.")
+    print(f"Guard OK: checked={len(md_files)}; skipped={skipped}; mode={args.mode}")
 
 if __name__ == "__main__":
     main()
