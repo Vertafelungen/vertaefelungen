@@ -1,8 +1,8 @@
 ---
 title: '"WeiÃ  - BEECK StandÃ¶linnenfarbe PRO"'
-slug: 'weiss'
+slug: weiss
 type: '"produkte"'
-sku: 'Beeck SIP WeiÃ'
+sku: Beeck SIP WeiÃ
 price_cents: '41500000'
 in_stock: 'True'
 kategorie: '- STANDÃ-LINNENFARBE PRO Volltonfarben'
@@ -12,7 +12,6 @@ meta_title: '"BEECK StandÃ¶linnnenfarbe PRO, WeiÃ , deckend, fÃ1⁄4r Holz i
 meta_description: '"Beeck StandÃ¶linnenfarbe Pro ist eine reine LeinÃ¶lfarbe fÃ1⁄4r professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung."'
 source: '"https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/94-383-weiss.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  BEECK StandÃ¶linnenfarbe PROVolltonfarbe, deckend pigmentiert, fÃ1⁄4r Schlusslackierungen auf Holz im Innenbereich,
-Glanzgrad: 'seidenmatt oder seidenglanz.VerwendungszweckLeinÃ¶l-StandÃ¶lfarben sind fÃ1⁄4r farbige Holz-Behandlungen im Innenbereich gedacht, fÃ1⁄4r TÃ1⁄4ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ã-lfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ã-llackfilm. ---'
+beschreibung_md: BEECK StandÃ¶linnenfarbe PROVolltonfarbe, deckend pigmentiert, fÃ1⁄4r Schlusslackierungen auf Holz im Innenbereich,
+Glanzgrad: seidenmatt oder seidenglanz.VerwendungszweckLeinÃ¶l-StandÃ¶lfarben sind fÃ1⁄4r farbige Holz-Behandlungen im Innenbereich gedacht, fÃ1⁄4r TÃ1⁄4ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ã-lfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ã-llackfilm. ---
 ---

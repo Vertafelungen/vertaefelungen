@@ -1,8 +1,8 @@
 ---
 title: '"P0010 - Rom - Petersdom - Balustrade am Petrusgrab"'
-slug: 'p0010'
+slug: p0010
 type: '"produkte"'
-sku: 'P0010'
+sku: P0010
 price_cents: '1526790000'
 in_stock: 'True'
 kategorie: '- Halbhohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"Balustrade vom Petrusgrab im Petersdom in Rom"'
 meta_description: '"VertÃ¤felung â  Balustrade am Petrusgrabâ   â " halbhohe Rekonstruktion nach rÃ¶mischem Original. Kiefernholz-Bausatz fÃ1⁄4r sakrale RÃ¤ume & stilvolle Restaurierung."'
 source: '"https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/38-239-balustrade-am-petrusgrab-rom.html#/55-bausatz-bausatz/57-holzart_p0010-kiefer"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Die Balustrade, die wir als Vorlage fÃ1⁄4r dieses neue VertÃ¤felung genommen haben, befindet sich im Zentrum des Petersdoms, direkt vor Berninis Ziborium. Sie umgibt den Treppenabgang zur Vatikanischen Nekropole, in der sich das Grab Petrus befindet.Bei HÃ¶he, Form und Proportionen halten wir uns genau an das Original. Die Farbigkeit der unterschiedlichen Marmorarten kÃ¶nnen wir auch durch die Verwendung unterschiedlicher Holzarten nachstellen. ---
+beschreibung_md: Die Balustrade, die wir als Vorlage fÃ1⁄4r dieses neue VertÃ¤felung genommen haben, befindet sich im Zentrum des Petersdoms, direkt vor Berninis Ziborium. Sie umgibt den Treppenabgang zur Vatikanischen Nekropole, in der sich das Grab Petrus befindet.Bei HÃ¶he, Form und Proportionen halten wir uns genau an das Original. Die Farbigkeit der unterschiedlichen Marmorarten kÃ¶nnen wir auch durch die Verwendung unterschiedlicher Holzarten nachstellen. ---
 ---

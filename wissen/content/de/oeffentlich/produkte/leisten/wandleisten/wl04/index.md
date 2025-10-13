@@ -1,8 +1,8 @@
 ---
 title: '"Wandleiste 04 â  Rundstableisteâ  "'
-slug: 'wl04'
+slug: wl04
 type: '"produkte"'
-sku: 'WL 04'
+sku: WL 04
 price_cents: '10400000'
 in_stock: 'True'
 kategorie: '- Wandleisten'
@@ -12,6 +12,5 @@ meta_title: '"wl04 â " Rundstableiste - Massive Holzleiste 10 x 40 mm"'
 meta_description: '"Rundstableiste - Massive Holzleiste 10 x 40 mm, Rundstableiste. In Kiefer oder White Wood, andere Holzarten aus Anfrage. Als Wandleiste zu."'
 source: '"https://www.vertaefelungen.de/de/wandleisten/79-345-wl-01.html#/66-holzart_wl-kiefer"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  Rundstableiste - Massive Holzleiste 10 x 40 mm, Rundstableiste.In Kiefer oder White Wood, andere Holzarten aus AnfrageAls Wandleiste zur direkten Montage auf der verputzen Wand.Mit dieser Leiste kÃ¶nnen Rahmen oder Kassetten gebildet werden, mit denen sich groÃ e WandflÃ¤chen gliedern und einteilen lassen. ---
+beschreibung_md: Rundstableiste - Massive Holzleiste 10 x 40 mm, Rundstableiste.In Kiefer oder White Wood, andere Holzarten aus AnfrageAls Wandleiste zur direkten Montage auf der verputzen Wand.Mit dieser Leiste kÃ¶nnen Rahmen oder Kassetten gebildet werden, mit denen sich groÃ e WandflÃ¤chen gliedern und einteilen lassen. ---
 ---

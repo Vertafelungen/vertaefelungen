@@ -1,5 +1,5 @@
 ---
-title: 'Titel der Kategorie'
-type: 'produkte ---  Übersichtsseite. Wähle einen'
+title: Titel der Kategorie
+type: produkte ---  Übersichtsseite. Wähle einen
 Beitrag: ''
 ---

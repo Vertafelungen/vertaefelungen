@@ -1,8 +1,8 @@
 ---
 title: '"P0006 - Leipzig - LudwigstraÃ e"'
-slug: 'p0006'
+slug: p0006
 type: '"produkte"'
-sku: 'P0006'
+sku: P0006
 price_cents: '464290000'
 in_stock: 'True'
 kategorie: '- Halbhohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"GrÃ1⁄4nderzeitlichen VertÃ¤felung - Leipzig Volkmarsdorf"'
 meta_description: '"VertÃ¤felung â  Leipzig LudwigstraÃ eâ   â " halbhohe WandvertÃ¤felung im Stil der GrÃ1⁄4nderzeit. Kiefernholz-Bausatz fÃ1⁄4r Altbau, Flur und stilvolle WohnrÃ¤ume."'
 source: '"https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/33-271-leipzig-ludwigstrasse.html#/47-holzart-kiefer/55-bausatz-bausatz"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Dieser Lambris aus einem Hauseingang der Leipziger LudwigstraÃ e (Volkmarsdorf) stammt aus der Bauzeit des GebÃ¤udes von 1884 und hat somit ein Alter von rund 140 Jahren. Diese Zeitspanne Ã1⁄4berbrÃ1⁄4ckt fÃ1⁄4nf Generationen. ---
+beschreibung_md: Dieser Lambris aus einem Hauseingang der Leipziger LudwigstraÃ e (Volkmarsdorf) stammt aus der Bauzeit des GebÃ¤udes von 1884 und hat somit ein Alter von rund 140 Jahren. Diese Zeitspanne Ã1⁄4berbrÃ1⁄4ckt fÃ1⁄4nf Generationen. ---
 ---

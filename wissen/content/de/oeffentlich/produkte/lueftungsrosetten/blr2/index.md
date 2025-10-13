@@ -1,8 +1,8 @@
 ---
 title: '"LÃ1⁄4ftungsrosette 2"'
-slug: 'blr2'
+slug: blr2
 type: '"produkte"'
-sku: 'BLR 2'
+sku: BLR 2
 price_cents: '49580000'
 in_stock: 'True'
 kategorie: '- LÃ1⁄4ftungsrosetten'
@@ -12,6 +12,5 @@ meta_title: '"blr2 â " LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach O
 meta_description: '"LÃ1⁄4ftungsrosette fÃ1⁄4r HolzvertÃ¤felungen"'
 source: '"https://www.vertaefelungen.de/de/lueftungsrosetten/72-lueftungsrosette-3.html"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach Originalvorlage nachgegossen.Messingguss, poliertDurchmesser ca. 42 mmHohe ca. 3 mm ---
+beschreibung_md: LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach Originalvorlage nachgegossen.Messingguss, poliertDurchmesser ca. 42 mmHohe ca. 3 mm ---
 ---

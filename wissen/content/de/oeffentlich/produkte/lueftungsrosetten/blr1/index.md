@@ -1,8 +1,8 @@
 ---
 title: '"LÃ1⁄4ftungsrosette 1"'
-slug: 'blr1'
+slug: blr1
 type: '"produkte"'
-sku: 'BLR 1'
+sku: BLR 1
 price_cents: '54620000'
 in_stock: 'True'
 kategorie: '- LÃ1⁄4ftungsrosetten'
@@ -12,6 +12,5 @@ meta_title: '"blr1 â " FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤fe
 meta_description: '"LÃ1⁄4ftungsrosette fÃ1⁄4r HolzvertÃ¤felungen"'
 source: '"https://www.vertaefelungen.de/en/ventilation-rosettes/71-ventilation-rosette-3.html"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, Abguss einer Originalvorlage,Messingguss, poliertDurchmesser ca. 52 mmHÃ¶he ca. 5 mm ---
+beschreibung_md: FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, Abguss einer Originalvorlage,Messingguss, poliertDurchmesser ca. 52 mmHÃ¶he ca. 5 mm ---
 ---

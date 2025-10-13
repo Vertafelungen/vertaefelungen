@@ -1,8 +1,8 @@
 ---
 title: '"Wandleiste 03 â  Riffelleisteâ  "'
-slug: 'wl03'
+slug: wl03
 type: '"produkte"'
-sku: 'WL 03'
+sku: WL 03
 price_cents: '10400000'
 in_stock: 'True'
 kategorie: '- Wandleisten'
@@ -12,6 +12,5 @@ meta_title: '"wl03 â " Riffelleiste - Massive Holzleiste 10 x 40 mm.<br"'
 meta_description: '"Riffelleiste - Massive Holzleiste 10 x 40 mm. In Kiefer oder White Wood, andere Holzarten aus Anfrage. Als Wandleiste zur direkten Montag."'
 source: '"https://www.vertaefelungen.de/de/wandleisten/78-343-wl-01.html#/66-holzart_wl-kiefer"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  Riffelleiste - Massive Holzleiste 10 x 40 mm.In Kiefer oder White Wood, andere Holzarten aus Anfrage.Als Wandleiste zur direkten Montage auf der verputzen Wand.Mit dieser Leiste kÃ¶nnen Rahmen oder Kassetten gebildet werden, mit denen sich groÃ e WandflÃ¤chen gliedern und einteilen lassen. ---
+beschreibung_md: Riffelleiste - Massive Holzleiste 10 x 40 mm.In Kiefer oder White Wood, andere Holzarten aus Anfrage.Als Wandleiste zur direkten Montage auf der verputzen Wand.Mit dieser Leiste kÃ¶nnen Rahmen oder Kassetten gebildet werden, mit denen sich groÃ e WandflÃ¤chen gliedern und einteilen lassen. ---
 ---

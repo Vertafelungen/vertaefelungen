@@ -1,8 +1,8 @@
 ---
 title: '"TÃ1⁄4rbekleidung 09"'
-slug: 'tr09'
+slug: tr09
 type: '"produkte"'
-sku: 'TR 09'
+sku: TR 09
 price_cents: '35320000'
 in_stock: 'True'
 kategorie: '- TÃ1⁄4rbekleidungen & Fensterrahmen'
@@ -10,9 +10,8 @@ bilder: '- tr09.png'
 bilder_alt: '- TÃ1⁄4rrahmen TR 09 aus Kiefernholz 115 x 26 mm massiv klassisches Design ideal fÃ1⁄4r Innenausbau TÃ1⁄4ren und Fenster vielseitig einsetzbar nach MaÃ  bestellbar'
 meta_title: '"tr09 â " TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR"'
 meta_description: '"Als TÃ1⁄4r- oder Fensterrahmen einsetzbar, MaÃ'
-e: '115 x 26 mm ---'
+e: 115 x 26 mm ---
 source: '"https://www.vertaefelungen.de/de/tuerrahmen/123-540-tr09.html#/66-holzart_wl-kiefer"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR 09, MaÃ
+beschreibung_md: TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR 09, MaÃ
 ---

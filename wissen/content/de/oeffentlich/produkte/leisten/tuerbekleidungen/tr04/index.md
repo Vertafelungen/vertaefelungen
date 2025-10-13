@@ -1,18 +1,17 @@
 ---
 title: '"TÃ1⁄4rbekleidung 04"'
-slug: 'tr04'
+slug: tr04
 type: '"produkte"'
-sku: 'TR 04'
+sku: TR 04
 price_cents: '79200000'
 in_stock: 'True'
 kategorie: '- TÃ1⁄4rbekleidungen & Fensterrahmen'
 bilder: '- tr04.png'
 bilder_alt: '- TÃ1⁄4rrahmen TR 04 aus Kiefernholz 160 x 34 mm massiv stabil und vielseitig ideal fÃ1⁄4r Innenausbau TÃ1⁄4ren und Fenster klassisches Design nach MaÃ  bestellbar'
 meta_title: '"tr04 â " TÃ1⁄4r- und Fensterrahmen TR 04, MaÃ'
-e: '160 X 34 mm ---'
+e: 160 X 34 mm ---
 meta_description: '"Als TÃ1⁄4r- oder Fensterrahmen einsetzbar, MaÃ'
 source: '"https://www.vertaefelungen.de/de/tuerrahmen/121-536-tr03.html#/66-holzart_wl-kiefer"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  TÃ1⁄4r- und Fensterrahmen TR 04, MaÃ
+beschreibung_md: TÃ1⁄4r- und Fensterrahmen TR 04, MaÃ
 ---

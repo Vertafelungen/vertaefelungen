@@ -1,8 +1,8 @@
 ---
 title: '"P0002 - Hamburger Michel"'
-slug: 'p0002'
+slug: p0002
 type: '"produkte"'
-sku: 'P0002'
+sku: P0002
 price_cents: '1026790000'
 in_stock: 'True'
 kategorie: '- Hohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"VertÃ¤felung Hamburger Michel"'
 meta_description: '"VertÃ¤felung â  Hamburger Michelâ   â " hohe WandvertÃ¤felung nach historischem Vorbild. Als Bausatz in Kiefer. Perfekt fÃ1⁄4r stilechtes Interieur."'
 source: '"https://www.vertaefelungen.de/de/hohe-vertaefelungen/24-hamburger-michel.html"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Die Turmhalle des Michels ist mit einer knapp 3 Meter hohen EichenvertÃ¤felung ausgestattet, die aus der Zeit des Wiederaufbaus von 1906-1912 stammt. Die vertikale Kassettierung zieht sich um den ganzen Raum und schafft eine klare, unaufdringliche Gliederung. Die VertÃ¤felung besteht aus einem deutlichen Sockel- und Kopfbereich mit einer 2-reihigen, senkrecht stehenden Kassettierung, die sich gut an individuelle RaummaÃ e anpassen lÃ¤sst. Wir fertigen die VertÃ¤felung originalgetreu in Eiche und auch in Kiefer. ---
+beschreibung_md: Die Turmhalle des Michels ist mit einer knapp 3 Meter hohen EichenvertÃ¤felung ausgestattet, die aus der Zeit des Wiederaufbaus von 1906-1912 stammt. Die vertikale Kassettierung zieht sich um den ganzen Raum und schafft eine klare, unaufdringliche Gliederung. Die VertÃ¤felung besteht aus einem deutlichen Sockel- und Kopfbereich mit einer 2-reihigen, senkrecht stehenden Kassettierung, die sich gut an individuelle RaummaÃ e anpassen lÃ¤sst. Wir fertigen die VertÃ¤felung originalgetreu in Eiche und auch in Kiefer. ---
 ---

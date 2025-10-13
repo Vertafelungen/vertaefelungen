@@ -1,8 +1,8 @@
 ---
 title: '"P0014 - LÃ1⁄4beck - Schiffergesellschaft"'
-slug: 'p0014'
+slug: p0014
 type: '"produkte"'
-sku: 'P0014'
+sku: P0014
 price_cents: '1276790000'
 in_stock: 'True'
 kategorie: '- Hohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"HolzvertÃ¤felung aus der LÃ1⁄4becker Schiffergesellschaft"'
 meta_description: '"VertÃ¤felung â  LÃ1⁄4beck Schiffergesellschaftâ   â " hohe WandvertÃ¤felung im hanseatischen Stil. Bausatz aus Kiefernholz fÃ1⁄4r historische Interieurs & GaststÃ¤tten."'
 source: '"https://www.vertaefelungen.de/de/hohe-vertaefelungen/55-295-luebeck-schiffergesellschaft.html#/47-holzart-kiefer/55-bausatz-bausatz"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Die Schiffergesellschaft LÃ1⁄4beck besteht seit 1401. Sie wurde gegrÃ1⁄4ndet, um Witwen und Waisen von auf See gebliebenen Seefahrern Speisen und Wohnraum zu gewÃ¤hren. Der Innenraum ist reich mit Schiffsmodellen und kuriosen Dingen geschmÃ1⁄4ckt, die von LÃ1⁄4becker KapitÃ¤nen Ã1⁄4ber die Jahrhunderte auf ihren Fahrten zusammengetragen wurden. Um 1868 wurde beschlossen im Gildesaal einen Restaurantbetrieb einzurichten, der bis heute geÃ¶ffnet ist.Die VertÃ¤felung der AuÃ enwÃ¤nde des Gildesaals ist typisch fÃ1⁄4r LÃ1⁄4beck. Einen Ã¤hnlichen Aufbau mit einem flachen Feld mit Bildschnitzerei oben und 2 stehenden Kassetten unten, gibt es auch in der Jakobi- und in der Aegidienkirche. Jedoch sind die Schnitzereien der Schiffergesellschaft um einiges humorvoller. ---
+beschreibung_md: Die Schiffergesellschaft LÃ1⁄4beck besteht seit 1401. Sie wurde gegrÃ1⁄4ndet, um Witwen und Waisen von auf See gebliebenen Seefahrern Speisen und Wohnraum zu gewÃ¤hren. Der Innenraum ist reich mit Schiffsmodellen und kuriosen Dingen geschmÃ1⁄4ckt, die von LÃ1⁄4becker KapitÃ¤nen Ã1⁄4ber die Jahrhunderte auf ihren Fahrten zusammengetragen wurden. Um 1868 wurde beschlossen im Gildesaal einen Restaurantbetrieb einzurichten, der bis heute geÃ¶ffnet ist.Die VertÃ¤felung der AuÃ enwÃ¤nde des Gildesaals ist typisch fÃ1⁄4r LÃ1⁄4beck. Einen Ã¤hnlichen Aufbau mit einem flachen Feld mit Bildschnitzerei oben und 2 stehenden Kassetten unten, gibt es auch in der Jakobi- und in der Aegidienkirche. Jedoch sind die Schnitzereien der Schiffergesellschaft um einiges humorvoller. ---
 ---

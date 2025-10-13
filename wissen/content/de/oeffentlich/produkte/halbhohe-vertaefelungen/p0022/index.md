@@ -1,8 +1,8 @@
 ---
 title: '"P0022 - LÃ1⁄4beck - Rathaus - Langes Haus"'
-slug: 'p0022'
+slug: p0022
 type: '"produkte"'
-sku: 'P0022'
+sku: P0022
 price_cents: '529570000'
 in_stock: 'True'
 kategorie: '- Halbhohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"HolzvertÃ¤felung im LÃ1⁄4becker Rathaus"'
 meta_description: '"VertÃ¤felung â  LÃ1⁄4becker Rathaus â " Langes Hausâ   â " halbhohe WandvertÃ¤felung im historischen Stil. Kiefernholz-Bausatz fÃ1⁄4r Denkmalschutz & Altbauinterieurs."'
 source: '"https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/35-luebecker-rathaus-langes-haus.html"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Rathaus LÃ1⁄4beck - Die Zentrale der Hanse. Hier fanden vom 14. - 18. Jh. die Hansetage statt, auf denen das Miteinander geregelt wurden. Noch heute debattiert hier die BÃ1⁄4rgerschaft Ã1⁄4ber die aktuellen Themen. LÃ1⁄4beck ist eine sehr stolze Stadt, was sie auch durch ihre Bauten deutlich zeigt. AuÃ en, wie innen. Ã ber die gesamte LÃ¤nge des Flurs im Obergeschoss und im Langen Haus zieht sich ein Lambris mit Kassettengliederung. Die Profile und RahmhÃ¶lzer sind aus Eiche, wÃ¤hrend die KassettenfÃ1⁄4llungen aus Kiefernholz gemacht sind. Diese Verkleidung ist wahrscheinlich wÃ¤hrend des Umbaus von 1893 entstanden. ---
+beschreibung_md: Rathaus LÃ1⁄4beck - Die Zentrale der Hanse. Hier fanden vom 14. - 18. Jh. die Hansetage statt, auf denen das Miteinander geregelt wurden. Noch heute debattiert hier die BÃ1⁄4rgerschaft Ã1⁄4ber die aktuellen Themen. LÃ1⁄4beck ist eine sehr stolze Stadt, was sie auch durch ihre Bauten deutlich zeigt. AuÃ en, wie innen. Ã ber die gesamte LÃ¤nge des Flurs im Obergeschoss und im Langen Haus zieht sich ein Lambris mit Kassettengliederung. Die Profile und RahmhÃ¶lzer sind aus Eiche, wÃ¤hrend die KassettenfÃ1⁄4llungen aus Kiefernholz gemacht sind. Diese Verkleidung ist wahrscheinlich wÃ¤hrend des Umbaus von 1893 entstanden. ---
 ---

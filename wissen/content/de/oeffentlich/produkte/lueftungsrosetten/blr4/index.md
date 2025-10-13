@@ -1,8 +1,8 @@
 ---
 title: '"LÃ1⁄4ftungsrosette 4"'
-slug: 'blr4'
+slug: blr4
 type: '"produkte"'
-sku: 'BLR 4'
+sku: BLR 4
 price_cents: '41180000'
 in_stock: 'True'
 kategorie: '- LÃ1⁄4ftungsrosetten'
@@ -12,6 +12,5 @@ meta_title: '"blr4 â " FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤fe
 meta_description: '"FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet. Durchmesser 45 mm. HÃ¶he ca. 4 mm."'
 source: '"https://www.vertaefelungen.de/de/lueftungsrosetten/70-lueftungsrosette-4.html"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen.Messing gefrÃ¤st, OberflÃ¤che geschlichtetDurchmesser 45 mmHÃ¶he ca. 4 mm ---
+beschreibung_md: FormschÃ¶ne LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen.Messing gefrÃ¤st, OberflÃ¤che geschlichtetDurchmesser 45 mmHÃ¶he ca. 4 mm ---
 ---

@@ -1,8 +1,8 @@
 ---
 title: '"TÃ1⁄4rbekleidung 14"'
-slug: 'tr14'
+slug: tr14
 type: '"produkte"'
-sku: 'TR 14'
+sku: TR 14
 price_cents: '30800000'
 in_stock: 'True'
 kategorie: '- TÃ1⁄4rbekleidungen & Fensterrahmen'
@@ -10,9 +10,8 @@ bilder: '- tr14.png'
 bilder_alt: '- TÃ1⁄4rbekleidung TR14 Kiefer 118x20mm TÃ1⁄4rrahmen Fensterrahmen Holzprofil nach Originalvorlage'
 meta_title: '"tr14 â " TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR"'
 meta_description: '"Als TÃ1⁄4r- oder Fensterrahmen einsetzbar, MaÃ'
-e: '118 x 20 mm ---'
+e: 118 x 20 mm ---
 source: '"https://www.vertaefelungen.de/de/tuerrahmen/127-548-tr14.html#/66-holzart_wl-kiefer"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR 14, MaÃ
+beschreibung_md: TÃ1⁄4r- und Fensterrahmen nach Originalvorlage TR 14, MaÃ
 ---

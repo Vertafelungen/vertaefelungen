@@ -1,8 +1,8 @@
 ---
 title: '"P0017 - Hohes Nadelstreif-Paneel mit Shaker Peg Rail"'
-slug: 'p0017'
+slug: p0017
 type: '"produkte"'
-sku: 'P0017'
+sku: P0017
 price_cents: '700000000'
 in_stock: 'True'
 kategorie: '- Hohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"Hohes Nadelstreifpaneel mit Shaker Peg Rail"'
 meta_description: '"Hohes Nadelstreifpaneel mit Shaker-Pegrail â " stilechte WandvertÃ¤felung mit funktionaler Garderienleiste. Ideal fÃ1⁄4r reduzierte, zeitlose Interieurs."'
 source: '"https://www.vertaefelungen.de/de/hohe-vertaefelungen/47-285-hohes-nadelstreifpaneel-mit-shaker-pegrail.html#/47-holzart-kiefer"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Diese VertÃ¤felung sieht super aus und ist unerhÃ¶rt praktisch.Unser Shaker Peg Rail wird genau in der Form hergestellt, wie es im Shaker Museum Enfield vorzufinden ist.Das Peg-Rail ist ein sinnvolle Erfindung, die es ermÃ¶glicht, Dinge griffbereit und Ã1⁄4bersichtlich aufzubewahren. So kÃ¶nnen TÃ¶pfe, Schere, Hundeleine und sogar StÃ1⁄4hle einfach an die Wand gehÃ¤ngt werden.Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es fÃ1⁄4r einen farbigen Anstrich vorbereitet werden. ---
+beschreibung_md: Diese VertÃ¤felung sieht super aus und ist unerhÃ¶rt praktisch.Unser Shaker Peg Rail wird genau in der Form hergestellt, wie es im Shaker Museum Enfield vorzufinden ist.Das Peg-Rail ist ein sinnvolle Erfindung, die es ermÃ¶glicht, Dinge griffbereit und Ã1⁄4bersichtlich aufzubewahren. So kÃ¶nnen TÃ¶pfe, Schere, Hundeleine und sogar StÃ1⁄4hle einfach an die Wand gehÃ¤ngt werden.Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es fÃ1⁄4r einen farbigen Anstrich vorbereitet werden. ---
 ---

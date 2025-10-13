@@ -1,8 +1,8 @@
 ---
 title: '"BEECK Vorstreichfarbe PRO"'
-slug: 'vsfp'
+slug: vsfp
 type: '"produkte"'
-sku: 'Beeck VSF P'
+sku: Beeck VSF P
 price_cents: '30600000'
 in_stock: 'True'
 kategorie: '- Vorstreichfarbe PRO'
@@ -12,6 +12,5 @@ meta_title: '"WeiÃ er, matter Ã-llack fÃ1⁄4r professionelle Voranstriche au
 meta_description: '"Beeck Vorstreichfarbe Pro, deckend weiÃ er, fÃ1⁄4llender, rasch trocknender High Solid Voranstrich fÃ1⁄4r Holz im Innen- und AuÃ enbereich."'
 source: '"https://www.vertaefelungen.de/de/45-vorstreichfarbe"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  BEECK Vorstreichfarbe PROWeiÃ matter Ã-lvorlack fÃ1⁄4r professionelle Voranstriche auf Holz und Eisenmetall im Innen- und AuÃ enbereichVerwendungszweckDeckend weiÃ er, fÃ1⁄4llender, rasch trocknender High Solid Vorlack fÃ1⁄4r Holz, Holzwerkstoffe und Eisenmetalle im Innen- und AuÃ enbereich. Auch als Haftung vermittelnder Zwischenanstrich auf tragfÃ¤higen Altanstrichen auf Ã-l- und Alkydharzbasis. WeiÃ , bei getÃ¶nten bzw. volltonigen Schlusslackierungen entsprechend tÃ¶nbar. Weiterbehandlung im AuÃ enbereich mit BEECK StandÃ¶lauÃ enfarbe pro. Ideal fÃ1⁄4r HolzvertÃ¤felungen, Fenster, TÃ1⁄4ren und KlapplÃ¤den. ---
+beschreibung_md: BEECK Vorstreichfarbe PROWeiÃ matter Ã-lvorlack fÃ1⁄4r professionelle Voranstriche auf Holz und Eisenmetall im Innen- und AuÃ enbereichVerwendungszweckDeckend weiÃ er, fÃ1⁄4llender, rasch trocknender High Solid Vorlack fÃ1⁄4r Holz, Holzwerkstoffe und Eisenmetalle im Innen- und AuÃ enbereich. Auch als Haftung vermittelnder Zwischenanstrich auf tragfÃ¤higen Altanstrichen auf Ã-l- und Alkydharzbasis. WeiÃ , bei getÃ¶nten bzw. volltonigen Schlusslackierungen entsprechend tÃ¶nbar. Weiterbehandlung im AuÃ enbereich mit BEECK StandÃ¶lauÃ enfarbe pro. Ideal fÃ1⁄4r HolzvertÃ¤felungen, Fenster, TÃ1⁄4ren und KlapplÃ¤den. ---
 ---

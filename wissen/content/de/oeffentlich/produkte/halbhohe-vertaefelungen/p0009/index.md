@@ -1,8 +1,8 @@
 ---
 title: '"P0009 - Nadelstreif & Zierstab"'
-slug: 'p0009'
+slug: p0009
 type: '"produkte"'
-sku: 'P0009'
+sku: P0009
 price_cents: '443100000'
 in_stock: 'True'
 kategorie: '- Halbhohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"Nadelstreif und Zierleiste"'
 meta_description: '"Halbhohes Nadelstreifpaneel mit separaten Federn â " klassische WandvertÃ¤felung im Bausatz aus Kiefernholz. Ideal fÃ1⁄4r Altbau, Bad und stilvolle Interieurs."'
 source: '"https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/21-79-nadelstreif-paneel-mit-separaten-federn.html#/40-stabe-dreikantstab/42-bauform-halbhoch_122_cm/47-holzart-kiefer"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Was wir salop als "Nadelstreif" bezeichnen, ist die Kombination von Brett und Zierleiste. Beides sind separate Elemente, die sich mit Nut und Feder verbinden und im Wechsel aneinander reihen. Das Besondere ist, dass es unterschiedliche Zierleisten gibt, die zur Auswahl stehen. Eine klassische VertÃ¤felung, die sich fÃ1⁄4r Hotellerie und Bauernhaus gleichermaÃ en eignet. Die VertÃ¤felung kann pro Laufmeter bestellt werden. Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es fÃ1⁄4r einen farbigen Anstrich vorbereitet werden. ---
+beschreibung_md: Was wir salop als "Nadelstreif" bezeichnen, ist die Kombination von Brett und Zierleiste. Beides sind separate Elemente, die sich mit Nut und Feder verbinden und im Wechsel aneinander reihen. Das Besondere ist, dass es unterschiedliche Zierleisten gibt, die zur Auswahl stehen. Eine klassische VertÃ¤felung, die sich fÃ1⁄4r Hotellerie und Bauernhaus gleichermaÃ en eignet. Die VertÃ¤felung kann pro Laufmeter bestellt werden. Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es fÃ1⁄4r einen farbigen Anstrich vorbereitet werden. ---
 ---

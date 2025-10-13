@@ -1,8 +1,8 @@
 ---
 title: '"LÃ1⁄4ftungsrosette 7"'
-slug: 'blr7'
+slug: blr7
 type: '"produkte"'
-sku: 'BLR 7'
+sku: BLR 7
 price_cents: '46220000'
 in_stock: 'True'
 kategorie: '- LÃ1⁄4ftungsrosetten'
@@ -12,6 +12,5 @@ meta_title: '"blr7 â " LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach O
 meta_description: '"LÃ1⁄4ftungsrosette fÃ1⁄4r HolzvertÃ¤felungen"'
 source: '"https://www.vertaefelungen.de/de/lueftungsrosetten/75-lueftungsrosette-3.html"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach Originalvorlage nachgegossen.Messingguss, poliertDurchmesser ca. 28 mmHohe ca. 12 mm ---
+beschreibung_md: LÃ1⁄4ftungsrosette fÃ1⁄4r VertÃ¤felungen, nach Originalvorlage nachgegossen.Messingguss, poliertDurchmesser ca. 28 mmHohe ca. 12 mm ---
 ---

@@ -1,12 +1,10 @@
 ---
-title: 'Türbekleidung 18'
-slug: 'turbekleidung-18'
-type: 'produkte'
-beschreibung_md_de: |-
-  Tür- und Fensterrahmen nach Originalvorlage    TR 18, Maße: 150 x 40 mm
-beschreibung_md_en: |-
-  Door and window frame TR 18,
+title: Türbekleidung 18
+slug: turbekleidung-18
+type: produkte
+beschreibung_md_de: 'Tür- und Fensterrahmen nach Originalvorlage    TR 18, Maße: 150 x 40 mm'
+beschreibung_md_en: Door and window frame TR 18,
 last_sync: '2025-10-11'
-dimensions: '150 x 40 mm'
-'10': '33:31+02:00 ---  - -'
+dimensions: 150 x 40 mm
+'10': 33:31+02:00 ---  - -
 ---

@@ -1,8 +1,8 @@
 ---
 title: '"P0015 - Berlin - Alte Nationalgalerie"'
-slug: 'p0015'
+slug: p0015
 type: '"produkte"'
-sku: 'P0015'
+sku: P0015
 price_cents: '464290000'
 in_stock: 'True'
 kategorie: '- Halbhohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"Berliner HolzvertÃ¤felung - Alte Nationalgalerie"'
 meta_description: '"VertÃ¤felung â  Berlin Alte Nationalgalerieâ   â " halbhohe WandvertÃ¤felung im Stil des 19.â  ̄Jh. Kiefernholz-Bausatz fÃ1⁄4r museale RÃ¤ume & denkmalgerechte Sanierung."'
 source: '"https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/59-303-berlin-alte-nationalgalerie.html#/47-holzart-kiefer/55-bausatz-bausatz"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Ein gutes Beispiel fÃ1⁄4r eine flache VertÃ¤felung, die fÃ1⁄4r klare Strukturen sorgt und die ausgestellten Bilder in den Fokus rÃ1⁄4ckt. Der Bereich wirkt wie eine flache Balustrade mit viel Platz, um Bilder in unterschiedlichen Formaten auf AugenhÃ¶he zu hÃ¤ngen. ---
+beschreibung_md: Ein gutes Beispiel fÃ1⁄4r eine flache VertÃ¤felung, die fÃ1⁄4r klare Strukturen sorgt und die ausgestellten Bilder in den Fokus rÃ1⁄4ckt. Der Bereich wirkt wie eine flache Balustrade mit viel Platz, um Bilder in unterschiedlichen Formaten auf AugenhÃ¶he zu hÃ¤ngen. ---
 ---

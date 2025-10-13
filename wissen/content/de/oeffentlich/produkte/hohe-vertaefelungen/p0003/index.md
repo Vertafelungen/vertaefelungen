@@ -1,8 +1,8 @@
 ---
 title: '"P0003 - London - V&A - Morris Room"'
-slug: 'p0003'
+slug: p0003
 type: '"produkte"'
-sku: 'P0003'
+sku: P0003
 price_cents: '1526790000'
 in_stock: 'True'
 kategorie: '- Hohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"VertÃ¤felung von William Morris aus dem â  Green Dining Roomâ 
 meta_description: '"VertÃ¤felung â  London V&A Morris Roomâ   â " hohe WandvertÃ¤felung im Arts-and-Crafts-Stil. Bausatz aus Kiefernholz fÃ1⁄4r anspruchsvolle Interieurkonzepte."'
 source: '"https://www.vertaefelungen.de/de/hohe-vertaefelungen/27-259-london-va-morris-room.html#/47-holzart-kiefer/55-bausatz-bausatz"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Sir Henry Cole, der GrÃ1⁄4ndungsdirektor des South Kensington Museums, hat gutes GespÃ1⁄4r bewiesen, als er 1861 den jungen William Morris mit der Gestaltung des "Green Dining Roomâ  , dem heutigen â  Morris Roomâ  , beauftragte. Morris, spÃ¤ter einer der berÃ1⁄4hmtesten Vertreter der Arts-and-Crafts-Bewegung, schlug einen Entwurf vor, der aus einer VertÃ¤felung im Stil der elisabethanischen Neorenaissance mit Elementen des Gothic Revival bestand. Morris holte sich zur Ausgestaltung die Hilfe seiner Freunde, den Architekten Philip Webb und den Malers Edward Burne-Jones. Der Originalzustand ist erhalten und fÃ1⁄4r Besucher geÃ¶ffnet. Das Paneel hat eine HÃ¶he von 214 cm und ist im Original grÃ1⁄4n gestrichen. ---
+beschreibung_md: Sir Henry Cole, der GrÃ1⁄4ndungsdirektor des South Kensington Museums, hat gutes GespÃ1⁄4r bewiesen, als er 1861 den jungen William Morris mit der Gestaltung des "Green Dining Roomâ  , dem heutigen â  Morris Roomâ  , beauftragte. Morris, spÃ¤ter einer der berÃ1⁄4hmtesten Vertreter der Arts-and-Crafts-Bewegung, schlug einen Entwurf vor, der aus einer VertÃ¤felung im Stil der elisabethanischen Neorenaissance mit Elementen des Gothic Revival bestand. Morris holte sich zur Ausgestaltung die Hilfe seiner Freunde, den Architekten Philip Webb und den Malers Edward Burne-Jones. Der Originalzustand ist erhalten und fÃ1⁄4r Besucher geÃ¶ffnet. Das Paneel hat eine HÃ¶he von 214 cm und ist im Original grÃ1⁄4n gestrichen. ---
 ---

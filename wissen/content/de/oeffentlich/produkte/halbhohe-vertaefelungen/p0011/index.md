@@ -1,8 +1,8 @@
 ---
 title: '"P0011 - Weimar - Goethehaus am Frauenplan"'
-slug: 'p0011'
+slug: p0011
 type: '"produkte"'
-sku: 'P0011'
+sku: P0011
 price_cents: '526790000'
 in_stock: 'True'
 kategorie: '- Halbhohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"Goethes TreppengelÃ¤nder als HolzvertÃ¤felung"'
 meta_description: '"VertÃ¤felung â  Weimar Goethehausâ   â " halbhohe WandvertÃ¤felung nach originalem Vorbild. Kiefernholz-Bausatz fÃ1⁄4r museale RÃ¤ume und klassisches Wohnen."'
 source: '"https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/52-weimar-goethehaus-am-frauenplan.html"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen BÃ1⁄4rgertum und einfachem Bauerhaus. ---
+beschreibung_md: Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen BÃ1⁄4rgertum und einfachem Bauerhaus. ---
 ---

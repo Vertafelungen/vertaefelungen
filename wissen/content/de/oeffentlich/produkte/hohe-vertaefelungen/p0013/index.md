@@ -1,8 +1,8 @@
 ---
 title: '"P0013 - Berlin - MommsenstraÃ e"'
-slug: 'p0013'
+slug: p0013
 type: '"produkte"'
-sku: 'P0013'
+sku: P0013
 price_cents: '964290000'
 in_stock: 'True'
 kategorie: '- Hohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"Hohe VertÃ¤felung mit doppelreihiger Kassetten"'
 meta_description: '"VertÃ¤felung â  Berlin Mommsenstr.â   â " hohe WandvertÃ¤felung im Stil der Jahrhundertwende. Bausatz in Kiefernholz fÃ1⁄4r klassische Interieurs und Altbauten"'
 source: '"https://www.vertaefelungen.de/de/hohe-vertaefelungen/53-291-berlin-mommsenstr.html#/47-holzart-kiefer/55-bausatz-bausatz"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Die Berliner MommsenstraÃ e liegt zwischen KantstraÃ e und KurfÃ1⁄4rstendamm in einem sehr mondÃ¤nen, schicken Wohnviertel mit vielen Galerien und Boutiquen.Â Die hier gezeigte VertÃ¤felung Ã1⁄4berzeugt durch ihren gleichmÃ¤Ã igen Rhythmus. Sie lÃ¤sst sich besonders gut farblich gestalten. ---
+beschreibung_md: Die Berliner MommsenstraÃ e liegt zwischen KantstraÃ e und KurfÃ1⁄4rstendamm in einem sehr mondÃ¤nen, schicken Wohnviertel mit vielen Galerien und Boutiquen.Â Die hier gezeigte VertÃ¤felung Ã1⁄4berzeugt durch ihren gleichmÃ¤Ã igen Rhythmus. Sie lÃ¤sst sich besonders gut farblich gestalten. ---
 ---

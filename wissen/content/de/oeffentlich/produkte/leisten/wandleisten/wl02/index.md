@@ -1,8 +1,8 @@
 ---
 title: '"Wandleiste 02 â  Dom-Profilâ  "'
-slug: 'wl02'
+slug: wl02
 type: '"produkte"'
-sku: 'WL 02'
+sku: WL 02
 price_cents: '14360000'
 in_stock: 'True'
 kategorie: '- Wandleisten'
@@ -12,6 +12,5 @@ meta_title: '"wl02 â " â  Dom-Profilâ   Massive Holzleiste 20 x 40 mm, symmet
 meta_description: '"â  Dom-Profilâ   Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab. Als Wandleiste zur direkten Montage auf der verputzen Wand.<b."'
 source: '"https://www.vertaefelungen.de/de/wandleisten/77-341-wl-02.html#/66-holzart_wl-kiefer"'
 last_updated: '"2025-09-01"'
-beschreibung_md: |-
-  â  Dom-Profilâ   Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab.Als Wandleiste zur direkten Montage auf der verputzen Wand.Mit dieser Leiste kÃ¶nnen Rahmen oder Kassetten gebildet werden, mit denen sich groÃ e WandflÃ¤chen gliedern und einteilen lassen. ---
+beschreibung_md: â  Dom-Profilâ   Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab.Als Wandleiste zur direkten Montage auf der verputzen Wand.Mit dieser Leiste kÃ¶nnen Rahmen oder Kassetten gebildet werden, mit denen sich groÃ e WandflÃ¤chen gliedern und einteilen lassen. ---
 ---

@@ -1,8 +1,8 @@
 ---
 title: '"P0005 - Berlin - BleibtreustraÃ e"'
-slug: 'p0005'
+slug: p0005
 type: '"produkte"'
-sku: 'P0005'
+sku: P0005
 price_cents: '901790000'
 in_stock: 'True'
 kategorie: '- Halbhohe VertÃ¤felungen'
@@ -12,6 +12,5 @@ meta_title: '"VertÃ¤felung aus Berlin Charlottenburg"'
 meta_description: '"VertÃ¤felung â  Berlin BleibtreustraÃ eâ   â " halbhohe WandvertÃ¤felung im Berliner Stil. Kiefernholz-Bausatz fÃ1⁄4r stilvolle Interieurs und Altbau-Sanierungen."'
 source: '"https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/32-267-berlin-bleibtreustrasse.html#/47-holzart-kiefer/55-bausatz-bausatz"'
 last_updated: '"2025-08-20"'
-beschreibung_md: |-
-  Sehr eindrucksvoll und trotzdem recht einfach aufgebaut.Durch die aneinander gereihten â  Fensterâ   mit den DreipassbÃ¶gen als Abschluss, entsteht eine neogotische VertÃ¤felung. Solches Interieur verhilft einem grÃ1⁄4nderzeitlichen Hauseingang zu Ansehen und WÃ1⁄4rde. ---
+beschreibung_md: Sehr eindrucksvoll und trotzdem recht einfach aufgebaut.Durch die aneinander gereihten â  Fensterâ   mit den DreipassbÃ¶gen als Abschluss, entsteht eine neogotische VertÃ¤felung. Solches Interieur verhilft einem grÃ1⁄4nderzeitlichen Hauseingang zu Ansehen und WÃ1⁄4rde. ---
 ---
