@@ -2,8 +2,6 @@ name: SSOT → Markdown Sync
 
 on:
   workflow_dispatch: {}
-  schedule:
-    - cron: "0 4 * * *"   # optional: täglicher Sync 04:00 UTC; bei Bedarf entfernen
   push:
     branches: [ main ]
     paths:
@@ -41,18 +39,20 @@ jobs:
         run: |
           python scripts/ssot_generator.py
 
-      - name: Guard validation (strict, all content)
+      # NEU: FAQ reparieren & markieren (managed_by: faq), damit Guard & Prune sie akzeptieren
+      - name: Repair & mark FAQ content
         run: |
-          python scripts/guard_validate.py --mode all
-
-      - name: Commit & Push if changes
-        run: |
+          python scripts/faq_repair_and_mark.py
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           if git diff --cached --quiet; then
-            echo "No changes to commit."
+            echo "No FAQ changes to commit."
           else
-            git commit -m "chore(ssot): sync + strict guard"
+            git commit -m "fix(faq): repair & mark FAQ content (managed_by: faq)"
             git push
           fi
+
+      - name: Guard validation (strict, all content)
+        run: |
+          python scripts/guard_validate.py --mode all
