@@ -2,6 +2,8 @@
 title: FAQ
 slug: faq
 type: page
+lang: 'de'
+managed_by: 'faq'
 description: Häufige Fragen zu historischen Holzvertäfelungen.
 menu:
   main:
