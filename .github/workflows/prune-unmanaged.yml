@@ -1,0 +1,48 @@
+name: Prune unmanaged content
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: "Wirklich löschen? (true/false)"
+        required: true
+        default: "false"
+
+permissions:
+  contents: write
+
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wissen
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run prune (dry-run by default)
+        env:
+          PRUNE_CONFIRM: ${{ github.event.inputs.confirm }}
+        run: |
+          python scripts/prune_unmanaged.py
+
+      - name: Commit deletions (only when PRUNE_CONFIRM=true)
+        if: ${{ github.event.inputs.confirm == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to prune."
+          else
+            git commit -m "prune: remove unmanaged legacy content [skip ci]"
+            git push
+          fi
