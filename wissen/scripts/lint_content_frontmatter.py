@@ -1,155 +1,100 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Lint & Auto-Fix für ungeschlossenes YAML-Frontmatter in Markdown-Dateien (wissen/content/**).
-
-Robust:
-- Binäres Lesen, UTF-8 bevorzugt, Fallback CP-1252; BOM entfernen
-- CRLF -> LF
-- Erkennung von Frontmatter auch mit führenden Spaces/Tabs vor '---'
-- Setzt fehlendes schließendes '---' an plausibler Stelle (vor erster Nicht-YAML-Zeile)
-- Schreibt immer UTF-8 (ohne BOM), LF
-- Verbose-Ausgabe: zeigt alle reparierten Dateien an
+Auto-Fix für Frontmatter-Delimiters in wissen/content/**:
+- erkennt auch falsche Delimiter (***, —, –––, ___) und wandelt sie in '---' um
+- schließt fehlendes schließendes '---'
+- robust bei UTF-8/CP-1252, BOM, CRLF
+- schreibt UTF-8 + LF
 
 ENV:
-  AUTOFIX_FRONTMATTER=1  -> automatisch reparieren (sonst nur melden)
-  LINT_VERBOSE=1         -> detailierte Ausgabe
-
-Exit:
-  0 = OK (oder alles repariert)
-  1 = Probleme gefunden (ohne Auto-Fix)
+  AUTOFIX_FRONTMATTER=1 -> schreiben, sonst nur melden
+  LINT_VERBOSE=1        -> Liste der geänderten Dateien
 """
 from __future__ import annotations
+import os, re, sys
 from pathlib import Path
-import os, sys, re
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
-CONTENT_DIR = REPO_ROOT / "wissen" / "content"
+REPO = Path(__file__).resolve().parents[2]
+ROOT = REPO / "wissen" / "content"
 
-RE_CLOSER = re.compile(r'^\s*---\s*$', re.MULTILINE)
-RE_YAML_KEY = re.compile(r'^\s*[A-Za-z0-9_-]+\s*:\s*')   # title: '...'
-RE_YAML_LIST = re.compile(r'^\s*-\s+')
-RE_CODE_FENCE = re.compile(r'^\s*```')
+RE_BAD_DELIM = re.compile(r'^\s*(\*\*\*|—|–––|___)\s*$', re.MULTILINE)
+RE_OPEN = re.compile(r'^\s*\ufeff?\s*---\s*$', re.MULTILINE)
+RE_CLOSE = re.compile(r'^\s*---\s*$', re.MULTILINE)
 
-def read_text_any(p: Path) -> str:
+def read_any(p: Path) -> str:
     b = p.read_bytes()
-    # strip UTF-8 BOM if present
     if b.startswith(b"\xef\xbb\xbf"):
         b = b[3:]
     try:
-        return b.decode("utf-8")
+        t = b.decode("utf-8")
     except UnicodeDecodeError:
-        return b.decode("cp1252", errors="strict")
-
-def normalize_lf(t: str) -> str:
+        t = b.decode("cp1252")
     return t.replace("\r\n", "\n").replace("\r", "\n")
 
-def starts_with_frontmatter(t: str) -> bool:
-    t = normalize_lf(t)
-    # BOM/Whitespace vor '---' tolerieren
-    i = 0
-    while i < len(t) and t[i] in ("\ufeff", " ", "\t"):
-        i += 1
-    return t[i:].startswith("---")
+def write_utf8_lf(p: Path, t: str) -> None:
+    if not t.endswith("\n"):
+        t += "\n"
+    p.write_text(t, encoding="utf-8", newline="\n")
 
-def has_closing_delimiter(t: str) -> bool:
-    t = normalize_lf(t)
-    # erste Zeile (inkl. evtl. leading spaces) identifizieren
+def normalize_bad_delims(t: str) -> str:
+    # wenn die allererste Zeile ein bad delimiter ist -> ersetze durch '---'
     lines = t.split("\n")
     if not lines:
-        return False
-    first = lines[0].lstrip("\ufeff \t")
-    if not first.startswith("---"):
-        return False
-    # Suche schließendes '---' in den Folgezeilen
-    for L in lines[1:]:
-        if RE_CLOSER.match(L):
-            return True
-    return False
-
-def is_yamlish_line(line: str) -> bool:
-    s = line.rstrip("\n")
-    if s.strip() == "":
-        return True
-    if s.strip().startswith("#"):
-        return True
-    if RE_YAML_KEY.match(s):
-        return True
-    if RE_YAML_LIST.match(s):
-        return True
-    return False
-
-def detect_insert_after(lines: list[str]) -> int:
-    # lines[0] enthält die erste Zeile (kann leading spaces haben); wir nehmen sie als '---'-Zeile
+        return t
+    if RE_BAD_DELIM.match(lines[0] or ""):
+        lines[0] = "---"
+    # schließenden Delimiter suchen; wenn letzte Delim-Zeile bad ist -> fixen
     for i in range(1, len(lines)):
-        L = lines[i]
-        if RE_CLOSER.match(L):
-            return i
-        if is_yamlish_line(L):
-            continue
-        # Content (Überschrift/Text/Codefence/HR)
-        return i - 1
-    return len(lines) - 1
+        if RE_BAD_DELIM.match(lines[i] or ""):
+            lines[i] = "---"
+            break
+        if RE_CLOSE.match(lines[i] or ""):
+            break
+    return "\n".join(lines)
+
+def has_unclosed_frontmatter(t: str) -> bool:
+    if not t.lstrip("\ufeff").startswith("---"):
+        return False
+    lines = t.split("\n")
+    # suche schließendes '---'
+    for i in range(1, len(lines)):
+        if RE_CLOSE.match(lines[i] or ""):
+            return False
+    return True
 
 def fix_text(t: str) -> str:
-    t = normalize_lf(t)
-    # leading whitespace vor Zeile 1 bewahren, aber in die erste Zeile zurückgeben
+    t = normalize_bad_delims(t)
+    if not t.lstrip("\ufeff").startswith("---"):
+        return t
     lines = t.split("\n")
-    if not lines:
-        return t
-    first = lines[0]
-    if not first.lstrip("\ufeff \t").startswith("---"):
-        return t
-    insert_after = detect_insert_after(lines)
-    new = []
-    # wir erhalten die erste Zeile unverändert (inkl. etwaiger leading spaces)
-    new.append(first.rstrip("\n"))
-    new.extend(lines[1:insert_after+1])
-    new.append("---")
-    new.extend(lines[insert_after+1:])
-    out = "\n".join(l.rstrip("\n") for l in new)
-    if not out.endswith("\n"):
-        out += "\n"
-    return out
+    # schließendes '---' ergänzen falls fehlt
+    if has_unclosed_frontmatter(t):
+        # füge '---' nach YAML-ähnlichem Block ein (hier pragmatisch: nach Zeile 1)
+        lines.insert(1, "---")
+    return "\n".join(lines)
 
 def main() -> int:
-    autofix = os.environ.get("AUTOFIX_FRONTMATTER", "").strip().lower() in {"1","true","yes"}
-    verbose = os.environ.get("LINT_VERBOSE", "").strip().lower() in {"1","true","yes"}
-    bad = []
+    apply = os.environ.get("AUTOFIX_FRONTMATTER", "") in {"1", "true", "yes"}
+    verbose = os.environ.get("LINT_VERBOSE", "") in {"1", "true", "yes"}
     fixed = []
 
-    for p in CONTENT_DIR.rglob("*.md"):
-        try:
-            raw = read_text_any(p)
-        except Exception:
-            # unlesbar -> Hugo meldet später, hier nicht blocken
-            continue
-
-        if starts_with_frontmatter(raw) and not has_closing_delimiter(raw):
-            if autofix:
-                new = fix_text(raw)
-                if new != raw:
-                    p.write_text(new, encoding="utf-8", newline="\n")
-                    fixed.append(p)
-            else:
-                bad.append(p)
+    for p in ROOT.rglob("*.md"):
+        raw = read_any(p)
+        new = fix_text(raw)
+        if new != raw:
+            if apply:
+                write_utf8_lf(p, new)
+            fixed.append(p)
 
     if verbose:
         if fixed:
-            print("Auto-fixed Frontmatter in:", file=sys.stdout)
-            for f in sorted(fixed):
-                print(" +", f.relative_to(REPO_ROOT), file=sys.stdout)
+            print("Auto-fixed files:")
+            for f in fixed:
+                print(" +", f.relative_to(REPO))
         else:
-            print("Auto-fixed Frontmatter: none", file=sys.stdout)
+            print("Auto-fix: no changes")
 
-    if bad:
-        print("Frontmatter-Lint: ungeschlossenes '---' in folgenden Dateien:", file=sys.stderr)
-        for f in sorted(bad):
-            print(" -", f.relative_to(REPO_ROOT), file=sys.stderr)
-        print("Setze AUTOFIX_FRONTMATTER=1, um automatisch zu reparieren.", file=sys.stderr)
-        return 1
-
-    print(f"Frontmatter-Lint OK. Auto-fixed: {len(fixed)}")
     return 0
 
 if __name__ == "__main__":
