@@ -7,6 +7,10 @@ on:
         description: "Wirklich löschen? (true/false)"
         required: true
         default: "false"
+      allowlist:
+        description: "Zusätzliche Ordnerpräfixe, Komma-getrennt (optional)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -28,9 +32,10 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Run prune (dry-run by default)
+      - name: Run prune (dry-run or delete)
         env:
           PRUNE_CONFIRM: ${{ github.event.inputs.confirm }}
+          PRUNE_ALLOWLIST: ${{ github.event.inputs.allowlist }}
         run: |
           python scripts/prune_unmanaged.py
 
