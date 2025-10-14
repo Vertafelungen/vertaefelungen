@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Strict Guard für alle Markdown-Dateien unter wissen/content/**.
+Strict Guard für Markdown unter wissen/content/**.
 
-Prüft:
-- UTF-8 dekodierbar (BOM toleriert), Zeilenenden auf LF normalisiert (nur Check, keine Änderung)
-- Frontmatter-Delimiters: nur '---' zulässig (keine '***', '–––' etc.)
-- YAML parsebar (ruamel.yaml, safe)
-- Verbotene CP-1252/Smart-Quote/Steuerzeichen im Header & Body
-- Typen: price_cents=int, in_stock=bool, images/tags/keywords/listenfelder=list (falls vorhanden)
-- Optionaler Modus:
-    --mode managed  -> nur Dateien mit 'managed_by:' im Header
-    --mode all      -> gesamte Site (Default)
+Prüft immer (alle Dateien):
+- UTF-8 dekodierbar (BOM toleriert)
+- nur '---' als Frontmatter-Delimiter
+- YAML parsebar (falls Frontmatter vorhanden)
+- keine CP-1252/Smart-Quote/Steuerzeichen in Header/Body
 
-Exit 0: OK, Exit 1: Fehler gefunden (alle werden gelistet)
+SSOT-Typregeln (price_cents=int, in_stock=bool, Listenfelder=list)
+- werden NUR angewendet, wenn 'managed_by:' im Frontmatter steht
+  (also für Generator-/FAQ-Content, nicht für Legacy-Altbestände).
+
+Aufruf:
+  --mode all      -> gesamter Content (Default)
+  --mode managed  -> nur Dateien mit 'managed_by:' im Header
 """
 from __future__ import annotations
 import argparse, re, sys, unicodedata
@@ -105,43 +107,43 @@ def main() -> int:
             errors.append(f"{p}: not UTF-8 decodable")
             continue
 
-        # verbotene Delimiter
+        # falsche Delimiter
         if RE_FORBIDDEN_DELIMS.search(text):
             errors.append(f"{p}: forbidden frontmatter delimiter detected (only '---' allowed)")
 
         # Frontmatter vorhanden?
         fm = split_frontmatter(text)
         header = fm[1]
-        if header is None:
-            # keine Frontmatter -> ok für Hugo, aber Bad-Unicode dennoch prüfen
-            bad = find_bad_unicode(text)
-            if bad:
-                errors.append(f"{p}: forbidden unicode in body {bad}")
-            continue
+        body = fm[2] if fm else text
 
-        # Modus-Filter
-        if args.mode == "managed":
-            if "managed_by:" not in header:
-                continue
-
-        # Bad unicode
-        bad_h = find_bad_unicode(header)
-        bad_b = find_bad_unicode(fm[2])
+        # Sonderzeichen-Prüfung immer
+        bad_h = find_bad_unicode(header or "")
+        bad_b = find_bad_unicode(body or "")
         if bad_h:
             errors.append(f"{p}: forbidden unicode in header {bad_h}")
         if bad_b:
             errors.append(f"{p}: forbidden unicode in body {bad_b}")
 
-        # YAML prüfen
+        if header is None:
+            # keine Frontmatter → keine YAML/Typ-Checks nötig
+            continue
+
+        # YAML parsebar?
         ok_yaml, data = parse_yaml(header)
         if not ok_yaml:
             errors.append(f"{p}: YAML not parseable")
             continue
 
-        # Typen prüfen
-        t_errs = check_types(data)
-        for e in t_errs:
-            errors.append(f"{p}: {e}")
+        # Mode-Filter
+        managed = ("managed_by" in data and str(data["managed_by"]).strip() != "")
+        if args.mode == "managed" and not managed:
+            continue
+
+        # Typregeln nur für managed Dateien anwenden
+        if managed:
+            t_errs = check_types(data)
+            for e in t_errs:
+                errors.append(f"{p}: {e}")
 
     if errors:
         print("Guard violations:", file=sys.stderr)
