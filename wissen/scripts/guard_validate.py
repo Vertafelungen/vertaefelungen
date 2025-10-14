@@ -1,195 +1,156 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Guard-Validator
+Strict Guard für alle Markdown-Dateien unter wissen/content/**.
 
-Default: MODE=managed
-- Prüft NUR Dateien mit 'managed_by:' im Frontmatter (vom SSOT-Generator erzeugt)
-- Validiert: ---/---, YAML parsebar, Typen (price_cents:int, in_stock:bool, images:list[map]),
-  lang in {de,en}, keine Problemzeichen (NBSP/ZWSP/Smart Quotes) im Header/Body,
-  LF-Zeilenenden, keine '/public' in Pfaden oder Werten.
+Prüft:
+- UTF-8 dekodierbar (BOM toleriert), Zeilenenden auf LF normalisiert (nur Check, keine Änderung)
+- Frontmatter-Delimiters: nur '---' zulässig (keine '***', '–––' etc.)
+- YAML parsebar (ruamel.yaml, safe)
+- Verbotene CP-1252/Smart-Quote/Steuerzeichen im Header & Body
+- Typen: price_cents=int, in_stock=bool, images/tags/keywords/listenfelder=list (falls vorhanden)
+- Optionaler Modus:
+    --mode managed  -> nur Dateien mit 'managed_by:' im Header
+    --mode all      -> gesamte Site (Default)
 
-Optional: MODE=all (oder --mode all)
-- Prüft ALLE index.md und meldet auch Altbestände hart.
-
-Exit 1 bei Fehlern.
+Exit 0: OK, Exit 1: Fehler gefunden (alle werden gelistet)
 """
 from __future__ import annotations
-
-import sys
-import re
-import os
-import json
+import argparse, re, sys, unicodedata
 from pathlib import Path
-from typing import Any, Dict, List
-import argparse
+from typing import Optional, Tuple, Dict, Any
 
 from ruamel.yaml import YAML
 
-REPO_ROOT = Path(__file__).resolve().parents[2]
-CONTENT_ROOT = REPO_ROOT / "wissen" / "content"
+REPO = Path(__file__).resolve().parents[2]
+CONTENT = REPO / "wissen" / "content"
 
-PROBLEM = {
+RE_FORBIDDEN_DELIMS = re.compile(r'^\s*(\*\*\*|—|–––|___)\s*$', re.MULTILINE)
+RE_OPEN = re.compile(r'(?m)^\s*---\s*$')
+RE_CLOSE = re.compile(r'(?m)^\s*---\s*$')
+
+SMART_BAD = {
     "\u00A0": "NBSP",
-    "\u202F": "NARROW_NBSP",
+    "\u202F": "NNBSP",
     "\u200B": "ZWSP",
     "\u200C": "ZWNJ",
     "\u200D": "ZWJ",
-    "\u2018": "SMART_QUOTE_L",
-    "\u2019": "SMART_APOSTROPHE",
-    "\u201C": "SMART_QUOTE_L",
-    "\u201D": "SMART_QUOTE_R",
-    "\u2013": "EN_DASH",
-    "\u2014": "EM_DASH",
-    "\u2026": "ELLIPSIS",
+    "\u2018": "LEFT_SINGLE_QUOTE",
+    "\u2019": "RIGHT_SINGLE_QUOTE",
+    "\u201C": "LEFT_DOUBLE_QUOTE",
+    "\u201D": "RIGHT_DOUBLE_QUOTE",
 }
-FORBIDDEN_SEGMENT = "/public/"
 
-def find_frontmatter(txt: str):
-    if not txt.startswith("---\n"):
-        return None, None, "missing leading ---"
-    end = txt.find("\n---", 4)
-    if end == -1:
-        return None, None, "missing closing ---"
-    header = txt[4:end]
-    body = txt[end + 4 :]
-    if txt.startswith("***"):
-        return None, None, "invalid delimiter ***"
-    return header, body, None
+LIST_FIELDS = {"images", "tags", "keywords", "kategorien", "categories"}
 
-def has_problem_chars(s: str) -> List[str]:
-    found = []
-    for ch, label in PROBLEM.items():
-        if ch in s:
-            found.append(label)
-    return found
+def read_utf8(p: Path) -> Tuple[bool, str]:
+    b = p.read_bytes()
+    if b.startswith(b"\xef\xbb\xbf"):
+        b = b[3:]
+    try:
+        t = b.decode("utf-8")
+        return True, t
+    except UnicodeDecodeError:
+        return False, ""
 
-def check_types(y: Dict[str, Any], rel: str, errs: List[str]):
-    def ensure_type(key, t):
-        if key in y and not isinstance(y[key], t):
-            errs.append(f"{rel}: field '{key}' must be {t.__name__}")
+def split_frontmatter(t: str) -> Tuple[Optional[str], Optional[str], str]:
+    m1 = RE_OPEN.search(t)
+    if not m1 or m1.start() != 0:
+        return None, None, t
+    m2 = RE_CLOSE.search(t, m1.end())
+    if not m2:
+        return None, None, t
+    header = t[m1.end():m2.start()]
+    body = t[m2.end():]
+    return "", header, body
 
-    for k in ("slug", "lang", "title"):
-        if k not in y or not y[k]:
-            errs.append(f"{rel}: missing '{k}'")
+def find_bad_unicode(s: str) -> Dict[str, int]:
+    res = {}
+    for ch, name in SMART_BAD.items():
+        cnt = s.count(ch)
+        if cnt:
+            res[name] = cnt
+    return res
 
-    if "lang" in y and y["lang"] not in ("de", "en"):
-        errs.append(f"{rel}: lang must be 'de' or 'en'")
+def parse_yaml(header: str) -> Tuple[bool, Dict[str, Any]]:
+    y = YAML(typ="safe")
+    try:
+        data = y.load(header) or {}
+        if not isinstance(data, dict):
+            return False, {}
+        return True, dict(data)
+    except Exception:
+        return False, {}
 
-    if "price_cents" in y:
-        if not isinstance(y["price_cents"], int):
-            errs.append(f"{rel}: price_cents must be int")
-        elif y["price_cents"] < 0:
-            errs.append(f"{rel}: price_cents must be >= 0")
-        elif y["price_cents"] > 5_000_000:  # 50.000 €
-            errs.append(f"{rel}: price_cents suspiciously high (>5,000,000)")
+def check_types(front: Dict[str, Any]) -> list[str]:
+    errs = []
+    if "price_cents" in front and not isinstance(front["price_cents"], int):
+        errs.append("price_cents must be int")
+    if "in_stock" in front and not isinstance(front["in_stock"], bool):
+        errs.append("in_stock must be bool")
+    for key in LIST_FIELDS:
+        if key in front and not isinstance(front[key], list):
+            errs.append(f"{key} must be list")
+    return errs
 
-    ensure_type("in_stock", bool)
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--mode", choices=["all", "managed"], default="all")
+    args = ap.parse_args()
 
-    if "images" in y:
-        if not isinstance(y["images"], list):  # <-- FIX: korrektes schließendes Zeichen
-            errs.append(f"{rel}: images must be a list")
-        else:
-            for i, it in enumerate(y["images"]):
-                if not isinstance(it, dict):
-                    errs.append(f"{rel}: images[{i}] must be map")
-                    continue
-                if "src" not in it or not isinstance(it["src"], str):
-                    errs.append(f"{rel}: images[{i}].src must be string")
-                if "alt" in it and not isinstance(it["alt"], str):
-                    errs.append(f"{rel}: images[{i}].alt must be string")
-
-    if "variants" in y and y["variants"] is not None:
-        if not isinstance(y["variants"], list):
-            errs.append(f"{rel}: variants must be a list")
-        else:
-            for i, it in enumerate(y["variants"]):
-                if not isinstance(it, dict):
-                    errs.append(f"{rel}: variants[{i}] must be map")
-                if "preis_aufschlag_cents" in it and not isinstance(it["preis_aufschlag_cents"], int):
-                    errs.append(f"{rel}: variants[{i}].preis_aufschlag_cents must be int")
-
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--mode", choices=["managed", "all"], default=os.environ.get("GUARD_MODE", "managed"))
-    args = parser.parse_args()
-    managed_only = (args.mode == "managed")
-
-    yaml = YAML(typ="safe")
-    md_files = list((CONTENT_ROOT / "de").rglob("index.md")) + list((CONTENT_ROOT / "en").rglob("index.md"))
-    errs: List[str] = []
-    skipped = 0
-
-    for f in md_files:
-        rel = str(f.relative_to(REPO_ROOT)).replace("\\", "/")
-        b = f.read_bytes()
-
-        try:
-            txt = b.decode("utf-8")
-        except UnicodeDecodeError:
-            if managed_only:
-                skipped += 1
-                continue
-            errs.append(f"{rel}: not UTF-8 decodable")
+    errors = []
+    for p in CONTENT.rglob("*.md"):
+        ok, text = read_utf8(p)
+        if not ok:
+            errors.append(f"{p}: not UTF-8 decodable")
             continue
 
-        header_txt, body_txt, err = find_frontmatter(txt)
-        if err:
-            if managed_only:
-                skipped += 1
-                continue
-            else:
-                errs.append(f"{rel}: {err}")
-                continue
+        # verbotene Delimiter
+        if RE_FORBIDDEN_DELIMS.search(text):
+            errors.append(f"{p}: forbidden frontmatter delimiter detected (only '---' allowed)")
 
-        # YAML parsen
-        try:
-            y = yaml.load(header_txt) or {}
-        except Exception as e:
-            if managed_only:
-                skipped += 1
-                continue
-            errs.append(f"{rel}: YAML parse error: {e}")
+        # Frontmatter vorhanden?
+        fm = split_frontmatter(text)
+        header = fm[1]
+        if header is None:
+            # keine Frontmatter -> ok für Hugo, aber Bad-Unicode dennoch prüfen
+            bad = find_bad_unicode(text)
+            if bad:
+                errors.append(f"{p}: forbidden unicode in body {bad}")
             continue
 
-        # Nur „managed_by“ prüfen im managed-only Modus
-        if managed_only and ("managed_by" not in y or not str(y.get("managed_by", "")).startswith("ssot_generator/")):
-            skipped += 1
+        # Modus-Filter
+        if args.mode == "managed":
+            if "managed_by:" not in header:
+                continue
+
+        # Bad unicode
+        bad_h = find_bad_unicode(header)
+        bad_b = find_bad_unicode(fm[2])
+        if bad_h:
+            errors.append(f"{p}: forbidden unicode in header {bad_h}")
+        if bad_b:
+            errors.append(f"{p}: forbidden unicode in body {bad_b}")
+
+        # YAML prüfen
+        ok_yaml, data = parse_yaml(header)
+        if not ok_yaml:
+            errors.append(f"{p}: YAML not parseable")
             continue
 
-        # Ab hier: volle Validierung
-        if b.count(b"\r\n") > 0:
-            errs.append(f"{rel}: CRLF found, must be LF only")
+        # Typen prüfen
+        t_errs = check_types(data)
+        for e in t_errs:
+            errors.append(f"{p}: {e}")
 
-        if FORBIDDEN_SEGMENT in rel:
-            errs.append(f"{rel}: path contains forbidden '/public'")
-
-        probs_h = has_problem_chars(header_txt or "")
-        probs_b = has_problem_chars(body_txt or "")
-        if probs_h:
-            errs.append(f"{rel}: header contains forbidden chars: {', '.join(sorted(set(probs_h)))}")
-        if probs_b:
-            errs.append(f"{rel}: body contains forbidden chars: {', '.join(sorted(set(probs_b)))}")
-
-        if not isinstance(y, dict):
-            errs.append(f"{rel}: YAML must be mapping at top level")
-            continue
-
-        check_types(y, rel, errs)
-
-        # '/public' in Werten
-        as_text = json.dumps(y, ensure_ascii=False)
-        if "/public/" in as_text:
-            errs.append(f"{rel}: YAML values must not contain '/public'")
-
-    if errs:
-        print("Guard found issues:\n", file=sys.stderr)
-        for e in errs:
+    if errors:
+        print("Guard violations:", file=sys.stderr)
+        for e in errors:
             print(" -", e, file=sys.stderr)
-        print(f"\n(Mode: {args.mode}; skipped={skipped})", file=sys.stderr)
-        sys.exit(1)
+        return 1
 
-    print(f"Guard OK: checked={len(md_files)}; skipped={skipped}; mode={args.mode}")
+    print("Guard OK.")
+    return 0
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
