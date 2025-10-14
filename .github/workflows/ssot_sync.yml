@@ -6,6 +6,7 @@ on:
     branches: [ main ]
     paths:
       - 'wissen/scripts/**'
+      - 'wissen/requirements-ssot.txt'
       - '.github/workflows/ssot_sync.yml'
 
 permissions:
@@ -31,7 +32,11 @@ jobs:
       - name: Install deps (SSOT)
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements-ssot.txt
+          if [ -f requirements-ssot.txt ]; then
+            pip install -r requirements-ssot.txt
+          else
+            pip install pandas requests python-slugify text-unidecode Unidecode ruamel.yaml tzdata
+          fi
 
       - name: Generate content from SSOT
         env:
@@ -39,7 +44,18 @@ jobs:
         run: |
           python scripts/ssot_generator.py
 
-      # NEU: FAQ reparieren & markieren (managed_by: faq), damit Guard & Prune sie akzeptieren
+      - name: Commit & Push SSOT changes (if any)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No SSOT generator changes."
+          else
+            git commit -m "chore(ssot): sync content from CSV"
+            git push
+          fi
+
       - name: Repair & mark FAQ content
         run: |
           python scripts/faq_repair_and_mark.py
