@@ -2,58 +2,48 @@ name: SSOT → Markdown Sync
 
 on:
   workflow_dispatch: {}
+  schedule:
+    - cron: "0 4 * * *"   # optional: täglicher Sync 04:00 UTC; bei Bedarf entfernen
   push:
     branches: [ main ]
     paths:
-      - 'wissen/scripts/ssot_generator.py'
-      - 'wissen/scripts/guard_validate.py'
-      - 'wissen/ssot/**'                # <<< lokale CSV ändert → neu bauen
-      - 'requirements-ssot.txt'
+      - 'wissen/scripts/**'
       - '.github/workflows/ssot_sync.yml'
 
 permissions:
   contents: write
 
-concurrency:
-  group: ssot-sync
-  cancel-in-progress: true
-
 jobs:
   ssot-sync:
     runs-on: ubuntu-latest
-    env:
-      SSOT_CSV_PATH: wissen/ssot/SSOT.csv   # <<< Lokaler CSV-Pfad fürs Skript
+    defaults:
+      run:
+        working-directory: wissen
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Verify local CSV exists
-        run: |
-          test -f "$SSOT_CSV_PATH" || { echo "CSV not found at $SSOT_CSV_PATH"; exit 2; }
-          file "$SSOT_CSV_PATH" || true
-          head -n 2 "$SSOT_CSV_PATH" || true
-
       - name: Setup Python 3.12
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      - name: Install deps
+      - name: Install deps (SSOT)
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements-ssot.txt
 
-      - name: Generate content from SSOT (local CSV)
-        run: |
-          python wissen/scripts/ssot_generator.py
-
-      - name: Guard validation (managed files only)
+      - name: Generate content from SSOT
         env:
-          GUARD_MODE: managed
+          GSHEET_CSV_URL: ${{ secrets.GSHEET_CSV_URL }}
         run: |
-          python wissen/scripts/guard_validate.py --mode managed
+          python scripts/ssot_generator.py
+
+      - name: Guard validation (strict, all content)
+        run: |
+          python scripts/guard_validate.py --mode all
 
       - name: Commit & Push if changes
         run: |
@@ -63,6 +53,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore(ssot): regenerate content (local CSV)"
+            git commit -m "chore(ssot): sync + strict guard"
             git push
           fi
