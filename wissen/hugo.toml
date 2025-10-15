@@ -1,13 +1,56 @@
-baseURL = "http://localhost:1315/wissen/"
-title   = "Wissensdatenbank ? Vert?felung & Lambris"
+baseURL = "https://www.vertaefelungen.de/wissen/"
+title   = "Wissensdatenbank · Vertäfelung & Lambris"
 theme   = "papermod"
 
+# Mehrsprachigkeit
 defaultContentLanguage = "de"
-defaultContentLanguageInSubdir = true
+defaultContentLanguageInSubdir = true  # erzeugt /de/… und /en/… URLs
 enableRobotsTXT = true
+canonifyURLs = true
 
+# Paginierung
 [pagination]
   pagerSize = 20
 
+# Ausgaben (Home zusätzlich JSON/RSS für Suche/Feeds)
 [outputs]
-home = ["HTML", "RSS", "JSON"]
+  home = ["HTML", "RSS", "JSON"]
+
+# (Optional) Permalinks – FAQ bekommt seine URL aus der Frontmatter ("url"),
+# Produkte können hier bei Bedarf zentral gesteuert werden.
+# [permalinks]
+#   produkte = "/produkte/:slug/"
+
+# PaperMod – nur sinnvolle Defaults; bei Bedarf später erweitern
+[params]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowToc = true
+
+# Sprachen
+[languages]
+
+  [languages.de]
+    languageName = "Deutsch"
+    languageCode = "de"
+    weight = 1
+    title = "Wissensdatenbank · Vertäfelung & Lambris"
+    # contentDir bleibt der Standard (content/de)
+
+  [languages.en]
+    languageName = "English"
+    languageCode = "en"
+    weight = 2
+    title = "Knowledge Base · Wainscoting & Panelling"
+    # contentDir bleibt der Standard (content/en)
+
+# (Optional) Markup – saubere Heading-IDs etc.
+[markup]
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 2
+  [markup.goldmark.renderer]
+    unsafe = true
