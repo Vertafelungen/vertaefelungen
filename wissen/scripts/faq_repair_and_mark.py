@@ -20,11 +20,10 @@ Leistet:
   * title: aus YAML oder erster H1 '# ...' oder Dateiname
   * slug: aus Titel (slugify) oder aus Pfad
 - Body normalisieren:
+  * **ersetzt Smart Quotes/NBSP/ZWSP etc. (ASCII-safe)**
   * '- - -' → '---'
   * nach Header genau eine Leerzeile
 - Schreiben: UTF-8 (ohne BOM), LF
-
-Nach der Reparatur sind die Dateien für Guard/Hugo valide und vor Prune geschützt.
 """
 from __future__ import annotations
 import re, unicodedata
@@ -46,18 +45,18 @@ RE_CLOSER_LINE   = re.compile(r'^\s*---\s*$', re.UNICODE)
 KEY_RE = re.compile(r'(?<!\S)([A-Za-z0-9_-]{1,64})\s*:\s*')
 
 REPLACEMENTS = {
-    "\u00A0": " ",
-    "\u202F": " ",
-    "\u200B": "",
-    "\u200C": "",
-    "\u200D": "",
-    "\u2018": "'",
-    "\u2019": "'",
-    "\u201C": '"',
-    "\u201D": '"',
-    "\u2013": "-",
-    "\u2014": "-",
-    "\u2026": "...",
+    "\u00A0": " ",   # NBSP
+    "\u202F": " ",   # NNBSP
+    "\u200B": "",    # ZWSP
+    "\u200C": "",    # ZWNJ
+    "\u200D": "",    # ZWJ
+    "\u2018": "'",   # ‘
+    "\u2019": "'",   # ’
+    "\u201C": '"',   # “
+    "\u201D": '"',   # ”
+    "\u2013": "-",   # –
+    "\u2014": "-",   # —
+    "\u2026": "...", # …
 }
 
 ORDER = ["title", "slug", "type", "lang", "managed_by"]
@@ -105,7 +104,7 @@ def split_frontmatter_allow_inline(t: str) -> Tuple[bool, str, str]:
             break
         header_lines.append(lines[i])
     if close_idx == -1:
-        # fehlender closer -> wir behandeln als "kein FM" (neu schreiben)
+        # fehlender closer -> behandeln als "kein FM"
         return (False, "", t)
 
     header = "\n".join(header_lines)
@@ -163,23 +162,26 @@ def order_mapping(m: dict) -> dict:
     return ordered
 
 def normalize_body(body: str) -> str:
+    # Erst kompletten Body normalisieren (Smart Quotes/NBSP/ZWSP etc.)
+    body = normalize_text(body)
+    # typische Artefakte korrigieren
     lines = body.split("\n")
     out = []
     for ln in lines:
         out.append("---" if ln.strip() == "- - -" else ln.rstrip())
     text = "\n".join(out).lstrip("\n")
-    # exakt eine Leerzeile am Anfang des Bodys
+    # exakt eine Leerzeile nach Frontmatter
     if text and not text.startswith("\n"):
         text = "\n" + text
     return text
 
 def extract_lang_from_path(p: Path) -> str:
-    # wissen/content/<lang>/...
     parts = p.relative_to(ROOT).parts
     return parts[0] if parts else "de"
 
 def extract_title_from_body(body: str) -> str:
-    for ln in body.split("\n"):
+    body_n = normalize_text(body)
+    for ln in body_n.split("\n"):
         s = ln.strip()
         if s.startswith("# "):
             return s[2:].strip()
@@ -188,23 +190,16 @@ def extract_title_from_body(body: str) -> str:
     return ""
 
 def ensure_core_fields(p: Path, data: dict, body: str) -> dict:
-    # managed_by
     data.setdefault("managed_by", SQS("faq"))
-    # type
     data.setdefault("type", SQS("faq"))
-    # lang
-    lang = data.get("lang")
-    if not lang:
+    if not data.get("lang"):
         data["lang"] = SQS(extract_lang_from_path(p))
-    # title
     if not data.get("title"):
         t = extract_title_from_body(body)
         if not t:
-            # Dateiname (ohne index.md)
             stem = p.parent.name if p.name == "index.md" else p.stem
             t = stem.replace("-", " ").replace("_", " ").strip()
         data["title"] = SQS(t)
-    # slug
     if not data.get("slug"):
         data["slug"] = SQS(slugify(str(data.get("title", "")) or p.stem))
     return data
@@ -214,33 +209,30 @@ def repair_faq_file(p: Path) -> tuple[bool, bool]:
     has_fm, header, body = split_frontmatter_allow_inline(raw)
 
     if not has_fm:
-        # komplett neuer Header
         data: dict = {}
-        data = ensure_core_fields(p, data, body)
-        new_header = dump_yaml(order_mapping(data))
         new_body = normalize_body(body)
+        data = ensure_core_fields(p, data, new_body)
+        new_header = dump_yaml(order_mapping(data))
         write_text_utf8_lf(p, f"---\n{new_header}\n---{new_body}")
         return (True, True)
 
-    # vorhandenes Frontmatter sanitisieren
     header_norm = normalize_text(header)
     parsed = try_yaml_parse(header_norm)
 
     if parsed is None:
-        # flachen Header zerlegen & bauen
         kv = tokenize_flat_header(header_norm)
         data = sanitize_kv_map(kv) if kv else {}
     else:
         data = parsed
 
-    data = ensure_core_fields(p, data, body)
+    # Body zuerst normalisieren, dann Felder ableiten
+    new_body = normalize_body(body)
+    data = ensure_core_fields(p, data, new_body)
     new_header = dump_yaml(order_mapping(data))
     if try_yaml_parse(new_header) is None:
-        # Sollte praktisch nicht passieren – Minimalheader
-        data = ensure_core_fields(p, {}, body)
+        data = ensure_core_fields(p, {}, new_body)
         new_header = dump_yaml(order_mapping(data))
 
-    new_body = normalize_body(body)
     new_text = f"---\n{new_header}\n---{new_body}"
     if new_text != raw:
         write_text_utf8_lf(p, new_text)
