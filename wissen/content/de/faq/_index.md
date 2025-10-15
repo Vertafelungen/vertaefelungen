@@ -1,9 +1,10 @@
 ---
 title: FAQ
-slug: faq
+slug: 'faq'
 type: page
 lang: de
 managed_by: faq
+url: '/faq/faq/'
 description: Häufige Fragen zu historischen Holzvertäfelungen.
 menu:
   main:
