@@ -1,12 +1,11 @@
 ---
-title: 'tuer fensterrahmen'
+title: tuer fensterrahmen
 slug: 'tuer-fensterrahmen'
-type: 'faq'
-lang: 'de'
-managed_by: 'faq'
+type: faq
+lang: de
+managed_by: faq
 url: '/faq/themen/tuer-fensterrahmen/'
 ---
-
 # tuer fensterrahmen
 *** title: "Profilierte Tür- und Fensterumrahmungen: Formen, Funktion, Restaurierung" slug: "faq-profilierte-tuer-fensterumrahmungen" kategorie: "FAQ" tags: ["Türumrahmung", "Fensterumrahmung", "Profilleisten", "Altbau", "Restaurierung", "Innenausbau"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "FAQ zu profilierten Tür- und Fensterumrahmungen aus Holz: Bauformen, Verwendung, Herstellung und Besonderheiten in Altbauten." ***  # FAQ: Profilierte Tür- und Fensterumrahmungen
 
