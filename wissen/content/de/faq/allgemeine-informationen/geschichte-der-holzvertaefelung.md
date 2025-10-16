@@ -1,12 +1,15 @@
 ---
-title: Geschichte der Holzvertäfelung
+title: 'Geschichte der Holzvertäfelung'
 slug: 'geschichte-der-holzvertafelung'
-type: allgemeine-informationen
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/allgemeine-informationen/geschichte-der-holzvertafelung/'
 draft: false
 ---
+
+# Geschichte der Holzvertäfelung
+
 ## 1. Mittelalter (ca. 1100-1500)
 ### Funktionalität und Symbolik
 
