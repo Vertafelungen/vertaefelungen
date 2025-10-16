@@ -3,15 +3,17 @@
 """
 Beautify/Normalize all FAQ Markdown in wissen/content/**/faq/**.
 
-Neu/Erweitert:
-- Entfernt Meta-Artefaktzeilen im Body (z.B. '*** title: ... slug: ... ***')
-- H1 spiegelt immer exakt den Frontmatter-Titel
-- Entfernt 'FAQ:'-Präfixe aus Titeln
-- Clean/canonical title (aus erster H1 oder YAML), Markdown-Reste raus, ~80 Zeichen Kappung
-- Konvertiert inline ' ## ' zu echten Überschriften
-- Kurz-Slug (<=64) + passende URL
-- Normalisiert Smart Quotes / NBSP / ZWSP (Header & Body)
-- UTF-8 (ohne BOM), LF, exakt eine Leerzeile nach Frontmatter
+Neu:
+- Entfernt Inline-Metazeilen im Body (z. B. '*** title: "…" slug: "…" … ***')
+- H1 wird immer auf den Frontmatter-'title' gesetzt (wenn vorhanden)
+
+Weiterhin:
+- Clean/canonical title (Fallbacks, Kürzung ~80 Zeichen)
+- Slug kurz (<=64) + passende url
+- Body beginnt mit '# <Titel>' (ersetzen/insert)
+- Inline ' ## ' -> echte Überschriften
+- Smart Quotes / NBSP / ZWSP etc. normalisieren
+- UTF-8 (ohne BOM), LF, genau eine Leerzeile nach Frontmatter
 - Idempotent: schreibt nur bei echten Änderungen
 """
 from __future__ import annotations
@@ -46,10 +48,7 @@ REPLACEMENTS = {
     "\u2026": "...",
 }
 
-# Body-Zeilen, die wie alte Inline-Metadaten aussehen (entferfen)
-RE_META_LINE_FULL = re.compile(r"^\s*\*{3}.*\*{3}\s*$")              # *** ... ***
-RE_META_KV_LINE   = re.compile(r"^\s*(title|slug|kategorie|tags|erstellt_?am|letzte_?aenderung|sichtbar|sprache|sprachversion|beschreibung)\s*:\s*.+$", re.I)
-
+# ---------- IO & helpers ----------
 def read_text_any(p: Path) -> str:
     b = p.read_bytes()
     if b.startswith(b"\xef\xbb\xbf"):
@@ -73,6 +72,7 @@ def norm(s: str) -> str:
     return "\n".join(ln.rstrip() for ln in s.split("\n"))
 
 def strip_inline_md(text: str) -> str:
+    """remove simple inline markdown from a one-line title candidate"""
     s = re.sub(r"[#*_`~]+", "", text)
     s = re.sub(r"\s+", " ", s).strip()
     return s
@@ -86,6 +86,7 @@ def short_slug(s: str, maxlen: int = 64) -> str:
     return f"{base[:keep].rstrip('-')}-{digest}"
 
 def after_faq_parts(p: Path) -> List[str]:
+    """return path parts after 'faq' segment"""
     parts = list(p.relative_to(ROOT).parts)
     if "faq" in parts:
         i = parts.index("faq")
@@ -102,6 +103,7 @@ def faq_url_for(p: Path, slug: str) -> str:
         parts = [slug]
     return "/faq/" + "/".join(parts) + "/"
 
+# ---------- frontmatter ----------
 def split_frontmatter(t: str) -> Tuple[bool, str, str]:
     t = t.lstrip("\ufeff")
     lines = t.split("\n")
@@ -147,63 +149,82 @@ def first_h1(body: str) -> str:
             return strip_inline_md(s[2:])
     return ""
 
-def strip_faq_prefix(title: str) -> str:
-    t = title.strip()
-    t = re.sub(r"^(faq\s*[:\-–]\s*)", "", t, flags=re.I)
-    return t.strip()
+def clamp_title(s: str, width: int = 80) -> str:
+    s = s.strip()
+    if len(s) <= width:
+        return s
+    cut = s[:width].rsplit(" ", 1)[0]
+    return cut if cut else s[:width]
 
 def derive_title(data_title: Optional[str], body: str) -> str:
+    """
+    Erzeuge einen brauchbaren Titel, falls Frontmatter 'title' fehlt.
+    """
     h1 = first_h1(body)
     if h1:
-        return strip_faq_prefix(h1)
+        return clamp_title(h1)
     cand = (data_title or "").strip()
     if not cand:
         return ""
     cand = cand.split("##", 1)[0]
-    cand = strip_faq_prefix(strip_inline_md(cand))
-    if len(cand) > 80:
-        cut = cand[:80].rsplit(" ", 1)[0]
-        cand = cut if cut else cand[:80]
-    return cand
+    cand = strip_inline_md(cand)
+    return clamp_title(cand)
 
-def clean_meta_artifacts(lines: List[str]) -> List[str]:
-    """Entfernt *** ... ***-Zeilen und offensichtliche KV-Metazeilen im Body."""
+# ---------- body cleanup ----------
+META_LINE_RE = re.compile(
+    r"""^\s*
+        \*{3}               # beginnt mit ***
+        [^*]*               # irgendwas (keine weiteren *)
+        (title:|slug:|kategorie:|tags:|erstellt_am:|sichtbar:|sprachversion:|beschreibung:)
+        .*                  # Rest
+        \*{3}\s*$
+    """,
+    re.IGNORECASE | re.VERBOSE,
+)
+
+TRIPLE_META_START_RE = re.compile(r"^\s*\*{3}\s*(title:|slug:)", re.IGNORECASE)
+
+def remove_inline_meta_lines(lines: List[str]) -> List[str]:
+    """
+    Entfernt Alt-Metazeilen, z. B.:
+    *** title: "…" slug: "…" … ***
+    oder Zeilen, die mit '*** title:' / '*** slug:' beginnen.
+    """
     out: List[str] = []
     for ln in lines:
         s = ln.strip()
-        if RE_META_LINE_FULL.match(s):
-            continue
-        if RE_META_KV_LINE.match(s):
+        if META_LINE_RE.match(s) or TRIPLE_META_START_RE.match(s):
             continue
         out.append(ln)
     return out
 
-def beautify_body(body: str, title: str) -> str:
+def beautify_body(body: str, final_title: str) -> str:
+    """Normalize body, ensure H1(title), convert inline ' ## ' to headings."""
     b = norm(body)
     lines = b.split("\n")
 
-    # führende Leerzeilen weg
+    # 1) Inline-Metazeilen herausfiltern
+    lines = remove_inline_meta_lines(lines)
+
+    # 2) führende Leerzeilen entfernen
     while lines and not lines[0].strip():
         lines.pop(0)
 
-    # Artefakt-Metazeilen entfernen (*** ... ***, KV im Body)
-    lines = clean_meta_artifacts(lines)
-
-    # H1 ersetzen/setzen (exakt Frontmatter-Titel)
+    # 3) H1 setzen/ersetzen
     if lines and lines[0].strip().startswith("# "):
-        lines[0] = f"# {title}"
+        lines[0] = f"# {final_title}"
     else:
-        lines.insert(0, f"# {title}")
+        lines.insert(0, f"# {final_title}")
 
     b = "\n".join(lines)
 
-    # inline " ## " -> echte Heading-Zeilen
+    # 4) Inline ' ## ' -> echte Überschrift
     b = re.sub(r"\s+##\s+", "\n\n## ", b)
 
-    # Leerzeile vor jeder H2 sicherstellen
+    # 5) Leerzeile vor Überschrift sicherstellen
     b = re.sub(r"\n(## )", r"\n\n\1", b)
 
-    # doppelte Leerzeilen begrenzen
+    # 6) Max. 2 aufeinanderfolgende Leerzeilen
     b = re.sub(r"\n{3,}", "\n\n", b)
 
     return b.lstrip("\n")
@@ -216,22 +237,31 @@ def order_mapping(m: dict) -> dict:
             res[k] = m[k]
     return res
 
+# ---------- main normalize ----------
 def normalize_file(p: Path) -> bool:
     raw = read_text_any(p)
     has, header, body = split_frontmatter(raw)
     if not has:
+        # Wir erwarten in FAQ-Dateien Frontmatter (Repair/Seed sorgt dafür)
         return False
 
     data = yaml_parse(header) or {}
-    data_title = data.get("title") if isinstance(data.get("title"), str) else ""
-    title = derive_title(data_title, body)
-    if not title:
-        stem = p.parent.name if p.name == "index.md" else p.stem
-        title = strip_inline_md(stem.replace("-", " ").replace("_", " ").strip())
-    title = strip_faq_prefix(title)
 
+    # 1) effektiver Titel: wenn YAML 'title' vorhanden -> exakt diesen verwenden
+    fm_title = data.get("title") if isinstance(data.get("title"), str) else ""
+    if fm_title and fm_title.strip():
+        title = clamp_title(strip_inline_md(fm_title))
+    else:
+        title = derive_title("", body)
+        if not title:
+            stem = p.parent.name if p.name == "index.md" else p.stem
+            title = strip_inline_md(stem.replace("-", " ").replace("_", " ").strip())
+        title = clamp_title(title)
+
+    # 2) Body hübschen + H1 = title
     new_body = beautify_body(body, title)
 
+    # 3) Pflichtfelder & Konsistenz
     lang = data.get("lang") or ("de" if "content/de/" in str(p) else "en")
     data["lang"] = SQS(str(lang))
     data["type"] = SQS("faq")
@@ -240,7 +270,7 @@ def normalize_file(p: Path) -> bool:
     data["title"] = SQS(title)
     new_slug = short_slug(title, 64)
     data["slug"] = SQS(new_slug)
-    data["url"]  = SQS(faq_url_for(p, new_slug))
+    data["url"] = SQS(faq_url_for(p, new_slug))
 
     new_header = yaml_dump(order_mapping(data))
     new = f"---\n{new_header}\n---\n\n{new_body}"
