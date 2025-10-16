@@ -1,12 +1,11 @@
 ---
-title: 'planung bestellung'
+title: planung bestellung
 slug: 'planung-bestellung'
-type: 'faq'
-lang: 'de'
-managed_by: 'faq'
+type: faq
+lang: de
+managed_by: faq
 url: '/faq/ablaeufe/planung-bestellung/'
 ---
-
 # planung bestellung
 *** title: "Planung & Bestellung: Ablauf und Hinweise" slug: "faq-planung-bestellung" kategorie: "FAQ" tags: ["Bestellvorgang", "Planung", "Auftragsabwicklung", "Kundeninformation", "Vertäfelung & Lambris"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "Antworten auf häufige Fragen zum Ablauf der Planung und Bestellung bei Vertäfelung & Lambris - von der Anfrage bis zur Lieferung." ***  # FAQ: Planung & Bestellung
 
