@@ -1,0 +1,64 @@
+name: FAQ Beautify (DE & EN)
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Nur prüfen (true) oder Änderungen committen (false)"
+        required: true
+        default: "false"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: faq-beautify
+  cancel-in-progress: true
+
+jobs:
+  beautify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f wissen/requirements-ssot.txt ]; then
+            pip install -r wissen/requirements-ssot.txt
+          else
+            pip install ruamel.yaml python-slugify
+          fi
+
+      - name: Run FAQ Beautifier
+        run: |
+          set -e
+          python wissen/scripts/faq_beautify.py
+
+      - name: Commit & push changes
+        if: ${{ github.event.inputs.dry_run != 'true' }}
+        run: |
+          set -e
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(faq): beautify titles/slug/url/headings (DE & EN)"
+            git push
+          fi
+
+      - name: Show changed files (dry-run)
+        if: ${{ github.event.inputs.dry_run == 'true' }}
+        run: |
+          git --no-pager diff --name-only
