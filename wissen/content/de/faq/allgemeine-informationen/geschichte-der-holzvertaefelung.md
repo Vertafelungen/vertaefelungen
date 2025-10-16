@@ -1,10 +1,13 @@
 ---
 title: Geschichte der Holzvertäfelung
-slug: geschichte-der-holzvertaefelung
+slug: 'geschichte-der-holzvertafelung'
 type: allgemeine-informationen
+lang: 'de'
+managed_by: 'faq'
+url: '/faq/allgemeine-informationen/geschichte-der-holzvertafelung/'
 draft: false
 ---
-## 1. Mittelalter (ca. 1100–1500)
+## 1. Mittelalter (ca. 1100-1500)
 ### Funktionalität und Symbolik
 
 **Stilmerkmale:**
@@ -13,7 +16,7 @@ draft: false
 
 ---
 
-Im Mittelalter dienten Vertäfelungen vor allem dem Wandschutz. In Klöstern und Burgen finden sich früh Beispiele aus Eiche oder Fichte – oft roh, selten profiliert.
+Im Mittelalter dienten Vertäfelungen vor allem dem Wandschutz. In Klöstern und Burgen finden sich früh Beispiele aus Eiche oder Fichte - oft roh, selten profiliert.
 
 - Senkrechte Bretter
 - Gelegentlich mit Fasen oder geschnitzten Rankenmotiven
@@ -21,7 +24,7 @@ Im Mittelalter dienten Vertäfelungen vor allem dem Wandschutz. In Klöstern und
 - **Kloster Maulbronn (Baden-Württemberg):** Reste spätmittelalterlicher Wandverkleidungen um 1470
 - **Burg Eltz (Rheinland-Pfalz):** Gotische Holzvertäfelungen mit einfachen Maßwerkfüllungen
 
-## 2. Renaissance (ca. 1500–1650)
+## 2. Renaissance (ca. 1500-1650)
 ### Geometrische Klarheit und Repräsentation
 
 Mit der Renaissance hielt die Paneelvertäfelung Einzug in bürgerliche Stadthäuser. Architektonische Prinzipien der Antike wurden nun auch auf Innenräume übertragen.
@@ -39,7 +42,7 @@ Mit der Renaissance hielt die Paneelvertäfelung Einzug in bürgerliche Stadthä
 
 ---
 
-## 3. Barock & Rokoko (ca. 1650–1780)
+## 3. Barock & Rokoko (ca. 1650-1780)
 ### Opulenz und Bewegung
 
 In der Barockzeit wurde die Wandvertäfelung zum Medium für Inszenierung. Rahmenfüllungen, Voluten, geschnitzte Ornamente und Vergoldung dominierten.
@@ -57,7 +60,7 @@ In der Barockzeit wurde die Wandvertäfelung zum Medium für Inszenierung. Rahme
 
 ---
 
-## 4. Klassizismus (ca. 1780–1840)
+## 4. Klassizismus (ca. 1780-1840)
 ### Rückkehr zur Ordnung
 
 Als Gegenreaktion zum Rokoko wurde der Klassizismus streng und architektonisch. Vertäfelungen folgten nun klaren Ordnungsprinzipien.
@@ -75,7 +78,7 @@ Als Gegenreaktion zum Rokoko wurde der Klassizismus streng und architektonisch. 
 
 ---
 
-## 5. Historismus (ca. 1840–1910)
+## 5. Historismus (ca. 1840-1910)
 ### Zitat vergangener Epochen
 
 Im 19. Jahrhundert wurden historische Stile bewusst zitiert. Vertäfelungen griffen gotische, renaissancezeitliche oder barocke Motive auf.
@@ -90,7 +93,7 @@ Im 19. Jahrhundert wurden historische Stile bewusst zitiert. Vertäfelungen grif
 
 ---
 
-## 6. Jugendstil (ca. 1890–1914)
+## 6. Jugendstil (ca. 1890-1914)
 ### Ornament und Linie
 
 Vertäfelungen des Jugendstils verschmelzen mit Wandgestaltung, Möbeln und Türrahmen. Organische Formen stehen im Vordergrund.
@@ -126,6 +129,6 @@ Mit der Moderne verschwand die klassische Vertäfelung weitgehend. In gehobenen 
 
 ## Fazit: Zwischen Funktion und Repräsentation
 
-Holzvertäfelungen sind mehr als Wandverkleidung – sie sind Ausdruck der Zeit, des Geschmacks und des handwerklichen Könnens. Ob rustikal, verspielt oder streng geometrisch: Jede Epoche hat der Vertäfelung ihren Stempel aufgedrückt.
+Holzvertäfelungen sind mehr als Wandverkleidung - sie sind Ausdruck der Zeit, des Geschmacks und des handwerklichen Könnens. Ob rustikal, verspielt oder streng geometrisch: Jede Epoche hat der Vertäfelung ihren Stempel aufgedrückt.
 
 Wer heute historisch restauriert oder rekonstruiert, bewegt sich stets in einem Spannungsfeld zwischen Tradition, Materialität und gestalterischer Authentizität.

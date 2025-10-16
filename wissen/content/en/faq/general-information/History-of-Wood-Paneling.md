@@ -1,7 +1,10 @@
 ---
 title: Geschichte der Holzvertäfelung
-slug: geschichte-der-holzvertaefelung
+slug: 'geschichte-der-holzvertafelung'
 type: 'allgemeine-informationen --- ## 1. Mittelalter (ca. 1100-1500) ### Funktionalität und Symbolik  **Stilmerkmale:**  **Material:**  **Beispiele:** --- In the Middle Ages, paneling served primarily to protect walls. Early examples can be found in monasteries and castles, often made of oak or fir - unadorned, rarely profiled. - Vertical boards - Occasionally chamfered or with carved vine motifs - Oak, fir, or larch - **Maulbronn Monastery (Baden-Württemberg):** Remnants of late medieval wood paneling from around 1470 - **Eltz Castle (Rhineland-Palatinate):** Gothic wood paneling with simple tracery panels  ## 2. Renaissance (c. 1500-1650)### Geometric Clarity and Representation During the Renaissance, paneled wall systems became common in bourgeois townhouses. Architectural principles from antiquity were applied to interiors.  **Stylistic'
+lang: 'en'
+managed_by: 'faq'
+url: '/faq/general-information/geschichte-der-holzvertafelung/'
 features: '**  - Plain, flush-mounted panels    - Smooth, unornamented surfaces  **Examples:**  - **Haus Schminke (Löbau):** Functionalist interiors with minimal wood paneling    - **Haus Lange & Haus Esters (Krefeld):** Refined walnut and mahogany paneling in a minimalist context  ---  ##'
 Augsburg: '** Wood paneling with inlays and Mannerist detailing  ---  ## 3. Baroque & Rococo (c. 1650-1780)### Opulence and Movement In the Baroque period, paneling became a medium of theatrical display. Framed panels, volutes, carved ornaments, and gilded decoration dominated.  **Stylistic'
 scheme: '**  - Often painted white or light gray  **Examples:**  - **Charlottenhof Palace (Potsdam):** Classically inspired wall paneling    - **Villa Hamilton (Dessau-Wörlitz):** Representative of early Prussian Neoclassicism  ---  ## 5. Historicism (c. 1840-1910)### Referencing the Past In the 19th century, historical styles were consciously revived. Paneling reflected Neo-Gothic, Neo-Renaissance, or Neo-Baroque design.  **Stylistic'
