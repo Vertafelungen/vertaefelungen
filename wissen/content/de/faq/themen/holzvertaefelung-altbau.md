@@ -1,11 +1,12 @@
 ---
-title: holzvertaefelung altbau
+title: 'holzvertaefelung altbau'
 slug: 'holzvertaefelung-altbau'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/holzvertaefelung-altbau/'
 ---
+
 # holzvertaefelung altbau
 *** title: "Holzvertäfelung im Altbau: Herkunft, Funktion, Stilkunde, Restaurierung" slug: "faq-holzvertaefelung-altbau" kategorie: "FAQ" tags: ["Holzvertäfelung", "Altbau", "Denkmalpflege", "Stilkunde", "Restaurierung", "Innenausbau"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "Umfassende FAQ zu Holzvertäfelungen im Altbau: Herkunft, Funktion, Stilkunde, Restaurierung, Bauformen und Besonderheiten." ***  # FAQ: Holzvertäfelung im Altbau
 

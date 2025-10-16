@@ -1,11 +1,12 @@
 ---
-title: leinoel
+title: 'leinoel'
 slug: 'leinoel'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/leinoel/'
 ---
+
 # leinoel
 *** title: "Leinöl als Holzschutzmittel" slug: "faq-leinoel" kategorie: "FAQ" tags: ["Leinöl", "Holzschutz", "Oberflächenbehandlung", "Denkmalpflege", "Naturöl", "Firnis"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "Umfassende FAQ zu Leinöl als Holzschutzmittel, inklusive Unterschiede zwischen Leinöl Natur und Leinölfirnis, typische Eigenschaften und Geruch." ***  # FAQ: Leinöl als Holzschutzmittel in der Denkmalpflege
 

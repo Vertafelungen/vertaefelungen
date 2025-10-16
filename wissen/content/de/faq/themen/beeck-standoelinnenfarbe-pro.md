@@ -1,11 +1,12 @@
 ---
-title: beeck standoelinnenfarbe pro
+title: 'beeck standoelinnenfarbe pro'
 slug: 'beeck-standoelinnenfarbe-pro'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/beeck-standoelinnenfarbe-pro/'
 ---
+
 # beeck standoelinnenfarbe pro
 *** title: "Beeck Standölinnenfarbe Pro: FAQ" slug: "faq-beeck-standoelinnenfarbe-pro" kategorie: "FAQ" tags: ["Beeck", "Standölinnenfarbe Pro", "Leinöl‐Standöl", "Innenfarbe", "Restaurierung"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "Häufig gestellte Fragen zur hochwertigen Leinöl‐Standölfarbe Beeck Standölinnenfarbe Pro - Eigenschaften, Anwendung, Farbtonoptionen." ***  # FAQ: Beeck Standölinnenfarbe Pro
 

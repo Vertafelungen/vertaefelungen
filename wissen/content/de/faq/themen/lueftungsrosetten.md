@@ -1,11 +1,12 @@
 ---
-title: lueftungsrosetten
+title: 'lueftungsrosetten'
 slug: 'lueftungsrosetten'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/lueftungsrosetten/'
 ---
+
 # lueftungsrosetten
 *** title: "Lüftungsrosetten für historische Holzvertäfelungen" slug: "faq-lueftungsrosetten-de" kategorie: "FAQ" tags: ["Lüftungsrosetten", "Vertäfelung", "Hinterlüftung", "Feuchteschutz", "Restaurierung", "Denkmal"] erstellt_am: "2025-07-29" letzte_aenderung: "2025-07-29" sichtbar: true sprachversion: "de" beschreibung: "FAQ zur Funktion, Gestaltung, Verfügbarkeit und Nachfertigung von Lüftungsrosetten (Lüftungsgittern) für Gründerzeit-Vertäfelungen." ***  # FAQ: Lüftungsrosetten für historische Holzvertäfelungen
 

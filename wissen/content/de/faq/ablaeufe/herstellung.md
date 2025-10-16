@@ -1,11 +1,12 @@
 ---
-title: herstellung
+title: 'herstellung'
 slug: 'herstellung'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/ablaeufe/herstellung/'
 ---
+
 # herstellung
 *** title: "Herstellung: Prozess & Nachhaltigkeit" slug: "faq-herstellung" kategorie: "FAQ" tags: ["Herstellung", "Fertigung", "Massivholz", "CAD", "Nachhaltigkeit"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "Antworten auf häufige Fragen zum Herstellungsprozess von Vertäfelungen - von Vermessung über Fertigung bis zur Nachhaltigkeit." ***  # FAQ: Herstellung
 
