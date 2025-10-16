@@ -2,8 +2,8 @@
 title: Geschichte der Holzvertäfelung
 slug: 'geschichte-der-holzvertafelung'
 type: allgemeine-informationen
-lang: 'de'
-managed_by: 'faq'
+lang: de
+managed_by: faq
 url: '/faq/allgemeine-informationen/geschichte-der-holzvertafelung/'
 draft: false
 ---
