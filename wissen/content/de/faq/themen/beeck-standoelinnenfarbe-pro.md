@@ -1,13 +1,13 @@
 ---
-title: beeck standoelinnenfarbe pro
+title: 'beeck standoelinnenfarbe pro'
 slug: 'beeck-standoelinnenfarbe-pro'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/beeck-standoelinnenfarbe-pro/'
 ---
+
 # beeck standoelinnenfarbe pro
-*** title: "Beeck Standölinnenfarbe Pro: FAQ" slug: "faq-beeck-standoelinnenfarbe-pro" kategorie: "FAQ" tags: ["Beeck", "Standölinnenfarbe Pro", "Leinöl‐Standöl", "Innenfarbe", "Restaurierung"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "Häufig gestellte Fragen zur hochwertigen Leinöl‐Standölfarbe Beeck Standölinnenfarbe Pro - Eigenschaften, Anwendung, Farbtonoptionen." ***  # FAQ: Beeck Standölinnenfarbe Pro
 
 ## 1. Was ist Beeck Standölinnenfarbe Pro und wozu wird sie verwendet? Beeck Standölinnenfarbe Pro ist eine deckend pigmentierte Leinöl‐Standölfarbe in **Malerqualität** für den Innenbereich - ideal für Türen, Möbel, Wand- und Deckenverkleidungen. Sie vernetzt durch oxidative Trocknung zu einem **diffusionsfähigen**, wasserfesten Öllackfilm mit seidenglänzender oder seidenmatter Oberfläche ([beeck.com](https://www.beeck.com/de/produkte/bmf-produkt.php?p=standoelinnenfarbe-pro-neu-2019)).  ***
 

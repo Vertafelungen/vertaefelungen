@@ -1,13 +1,13 @@
 ---
-title: profilierte wandleisten holz
+title: 'profilierte wandleisten holz'
 slug: 'profilierte-wandleisten-holz'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/profilierte-wandleisten-holz/'
 ---
+
 # profilierte wandleisten holz
-*** title: "Profilierte Wandleisten aus Holz: Formen, Verwendung, Restaurierung" slug: "faq-profilierte-wandleisten-holz" kategorie: "FAQ" tags: ["Wandleisten", "Profilleisten", "Holz", "Innenausbau", "Restaurierung", "Altbau"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "FAQ zu profilierten Wandleisten aus Holz: typische Formen, Verwendung, Montage und Besonderheiten im Altbau." ***  # FAQ: Profilierte Wandleisten aus Holz
 
 ## 1. Was sind profilierte Wandleisten? Profilierte Wandleisten sind dekorativ geformte Leisten aus Massivholz, die zur Gliederung, zum Schutz und zur Gestaltung von Wandflächen im Innenraum verwendet werden. Sie kommen vor allem im historischen Innenausbau, in Altbauten und bei der Restaurierung zum Einsatz.  ***
 

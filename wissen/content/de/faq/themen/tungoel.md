@@ -1,13 +1,13 @@
 ---
-title: tungoel
+title: 'tungoel'
 slug: 'tungoel'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/tungoel/'
 ---
+
 # tungoel
-*** title: "Tungöl als Holzschutzmittel" slug: "faq-tungoel" kategorie: "FAQ" tags: ["Tungöl", "Holzschutz", "Oberflächenbehandlung", "Naturöl", "Holzlack", "Denkmalpflege"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "FAQ zu Tungöl als Holzschutzmittel, inklusive Unterschiede zwischen Tungöl Natur und Tungöl-Holzlack, Eigenschaften und Geruch." ***  # FAQ: Tungöl als Holzschutzmittel in der Denkmalpflege
 
 ## 1. Was ist Tungöl und wofür wird es verwendet? Tungöl (auch Chinesisches Holzöl, gewonnen aus den Samen des Tungbaums, Aleurites fordii) ist ein traditionelles Naturöl zur Imprägnierung und Oberflächenbehandlung von Holz. Es dringt tief ein, polymerisiert (härtet) gut aus und bildet einen elastischen, wasserabweisenden Schutzfilm - beliebt für Möbel, Fußböden, Holzverkleidungen und im Denkmalschutz.  ***
 

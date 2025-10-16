@@ -1,13 +1,13 @@
 ---
-title: lieferung
+title: 'lieferung'
 slug: 'lieferung'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/ablaeufe/lieferung/'
 ---
+
 # lieferung
-*** title: "Lieferung: Versand & Montage" slug: "faq-lieferung" kategorie: "FAQ" tags: ["Lieferung", "Versand", "Montage", "Lieferbedingungen"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "Antworten auf häufig gestellte Fragen zur Lieferung, Verpackung und Montage von Vertäfelungen." ***  # FAQ: Lieferung
 
 ## 1. Wann erfolgt die Lieferung? - Die Lieferung erfolgt **nach Zahlungseingang der Restsumme**, sobald die Fertigung abgeschlossen ist.  - Du wirst vorab informiert und erhältst einen Liefertermin mit der Spedition.
 

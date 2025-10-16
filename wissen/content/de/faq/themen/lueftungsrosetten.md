@@ -1,13 +1,13 @@
 ---
-title: lueftungsrosetten
+title: 'lueftungsrosetten'
 slug: 'lueftungsrosetten'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/lueftungsrosetten/'
 ---
+
 # lueftungsrosetten
-*** title: "Lüftungsrosetten für historische Holzvertäfelungen" slug: "faq-lueftungsrosetten-de" kategorie: "FAQ" tags: ["Lüftungsrosetten", "Vertäfelung", "Hinterlüftung", "Feuchteschutz", "Restaurierung", "Denkmal"] erstellt_am: "2025-07-29" letzte_aenderung: "2025-07-29" sichtbar: true sprachversion: "de" beschreibung: "FAQ zur Funktion, Gestaltung, Verfügbarkeit und Nachfertigung von Lüftungsrosetten (Lüftungsgittern) für Gründerzeit-Vertäfelungen." ***  # FAQ: Lüftungsrosetten für historische Holzvertäfelungen
 
 ## 1. Wozu dienen Lüftungsrosetten in Vertäfelungen? Lüftungsrosetten (Ø 3-5 cm) finden sich in historischen Vertäfelungen, besonders aus der Gründerzeit. Sie ermöglichen eine Hinterlüftung hinter der Holzverkleidung und sorgen für Luft- und Feuchtigkeitsaustausch zwischen Wand und Holz.   Dadurch werden Kondensation, Schimmelbildung und Verwerfungen im Holz verhindert. Die Haltbarkeit wird erhöht, die Feuchte bleibt ausgeglichen und Schwind- sowie Quellen werden minimiert.  ***
 

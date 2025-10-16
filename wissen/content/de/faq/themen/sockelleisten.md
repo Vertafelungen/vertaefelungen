@@ -1,13 +1,13 @@
 ---
-title: sockelleisten
+title: 'sockelleisten'
 slug: 'sockelleisten'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/sockelleisten/'
 ---
+
 # sockelleisten
-*** title: "Fußleisten und Sockelleisten: Formen, Funktion, Restaurierung" slug: "faq-fussleisten-sockelleisten" kategorie: "FAQ" tags: ["Sockelleisten", "Fußleisten", "Altbau", "Innenausbau", "Holzleisten", "Restaurierung"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "FAQ zu Fußleisten und Sockelleisten: typische Profile, Verwendung, Materialien, Montage und Restaurierung im Altbau." ***  # FAQ: Fußleisten - Sockelleisten
 
 ## 1. Was sind Fußleisten und Sockelleisten? Fußleisten (auch Sockelleisten genannt) sind horizontale Leisten aus Holz, die den Übergang zwischen Wand und Boden abdecken. Sie schützen die Wand vor Stößen und Verschmutzung und sorgen für einen sauberen Abschluss des Bodenbelags.  ***
 

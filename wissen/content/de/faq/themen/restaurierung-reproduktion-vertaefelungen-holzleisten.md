@@ -1,13 +1,13 @@
 ---
-title: restaurierung reproduktion vertaefelungen holzleisten
+title: 'restaurierung reproduktion vertaefelungen holzleisten'
 slug: 'restaurierung-reproduktion-vertaefelungen-holzleisten'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/restaurierung-reproduktion-vertaefelungen-holzleisten/'
 ---
+
 # restaurierung reproduktion vertaefelungen holzleisten
-*** title: "Restaurierung und Reproduktion historischer Vertäfelungen und Holzleisten" slug: "faq-restaurierung-reproduktion-vertaefelungen-holzleisten" kategorie: "FAQ" tags: ["Restaurierung", "Reproduktion", "Vertäfelung", "Holzleisten", "Denkmalpflege", "Altbau"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "FAQ zur Restaurierung und originalgetreuen Reproduktion historischer Holzvertäfelungen und Leisten: Vorgehen, Materialien, Herausforderungen und Besonderheiten." ***  # FAQ: Restaurierung / Reproduktion historischer Vertäfelungen und Holzleisten
 
 ## 1. Was bedeutet Restaurierung und Reproduktion im Kontext historischer Vertäfelungen und Leisten? Restaurierung umfasst die behutsame Instandsetzung, Sicherung und Ergänzung originaler Bauteile unter Wahrung des historischen Bestands. Reproduktion bezeichnet die originalgetreue Neuanfertigung nach historischen Vorlagen, um fehlende oder zerstörte Elemente zu ersetzen.  ***
 

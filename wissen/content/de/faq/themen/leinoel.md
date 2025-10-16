@@ -1,13 +1,13 @@
 ---
-title: leinoel
+title: 'leinoel'
 slug: 'leinoel'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/themen/leinoel/'
 ---
+
 # leinoel
-*** title: "Leinöl als Holzschutzmittel" slug: "faq-leinoel" kategorie: "FAQ" tags: ["Leinöl", "Holzschutz", "Oberflächenbehandlung", "Denkmalpflege", "Naturöl", "Firnis"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "Umfassende FAQ zu Leinöl als Holzschutzmittel, inklusive Unterschiede zwischen Leinöl Natur und Leinölfirnis, typische Eigenschaften und Geruch." ***  # FAQ: Leinöl als Holzschutzmittel in der Denkmalpflege
 
 ## 1. Was ist Leinöl und wofür wird es verwendet? Leinöl ist ein natürliches Öl, das durch Kalt- oder Warmpressung aus den Samen des Flachses (Linum usitatissimum) gewonnen wird. Es wird seit Jahrhunderten zur Imprägnierung und Oberflächenbehandlung von Holz, aber auch als Bindemittel in Farben, Lacken und Kitten eingesetzt. Besonders im Bereich der Denkmalpflege ist Leinöl wegen seiner ausgezeichneten Holzschutzwirkung, Diffusionsoffenheit und natürlichen Zusammensetzung beliebt.  ***
 

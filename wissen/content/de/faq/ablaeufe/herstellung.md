@@ -1,13 +1,13 @@
 ---
-title: herstellung
+title: 'herstellung'
 slug: 'herstellung'
-type: faq
-lang: de
-managed_by: faq
+type: 'faq'
+lang: 'de'
+managed_by: 'faq'
 url: '/faq/ablaeufe/herstellung/'
 ---
+
 # herstellung
-*** title: "Herstellung: Prozess & Nachhaltigkeit" slug: "faq-herstellung" kategorie: "FAQ" tags: ["Herstellung", "Fertigung", "Massivholz", "CAD", "Nachhaltigkeit"] erstellt_am: "2025-07-28" letzte_aenderung: "2025-07-28" sichtbar: true sprachversion: "de" beschreibung: "Antworten auf häufige Fragen zum Herstellungsprozess von Vertäfelungen - von Vermessung über Fertigung bis zur Nachhaltigkeit." ***  # FAQ: Herstellung
 
 ## 1. Wie entsteht eine historische Vertäfelung? - Vorab wird die originale Vorlage detailgenau vermessen und mit 3D‐CAD erstellt. Dies dient der Planung und Anpassung an Ihren Raum, z. B. Kassettenbreiten, Fensterbänke oder Heizkörperverkleidungen. Anschließend entstehen Stücklisten und CNC‐fähige Baupläne für die Schreinerei.
 
