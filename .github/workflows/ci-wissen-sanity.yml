@@ -1,0 +1,22 @@
+name: CI Wissen Sanity
+on:
+  push:
+    paths:
+      - 'wissen/content/**'
+      - 'tools/check_links_and_assets.py'
+  pull_request:
+    paths:
+      - 'wissen/content/**'
+      - 'tools/check_links_and_assets.py'
+  workflow_dispatch: {}
+
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install --upgrade pip pyyaml
+      - run: python tools/check_links_and_assets.py
