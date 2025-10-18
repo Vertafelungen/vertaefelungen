@@ -1,14 +1,8 @@
-# Hugo build/cache
+# wissen/.gitignore
+# Version: v2025-10-18-1
+# Ignoriere nur die Hugo-Build-Ausgabe dieses Teilprojekts:
+
 /public/
-/resources/
-/hugo_stats.json
-.hugo_build.lock
 
-# Logs
-*.log
-
-# OS / Editor
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
+# Optional: lokale Build-Cache-Verzeichnisse
+/resources/_gen/
