@@ -70,6 +70,42 @@ jobs:
         run: |
           python tools/fix_pretty_links_and_images.py --root "wissen/content/de/oeffentlich/produkte/leisten" --apply
 
+      - name: Auto-fix pretty links (DE – gesamter Content-Baum)
+        if: ${{ github.event.inputs.apply == 'true' }}
+        run: |
+          python - <<'PY'
+          import re, sys
+          from pathlib import Path
+          ROOT = Path("wissen/content/de")
+          MD = re.compile(r'(?<!\!)\[[^\]]*\]\(([^)]+)\)')
+          def rewrite(h):
+              s = h.strip()
+              if s.startswith(("http://","https://","#")): return s
+              core, q, hsh = s, "", ""
+              if "?" in core: core, q = core.split("?",1); q="?"+q
+              if "#" in core: core, hsh = core.split("#",1); hsh="#"+hsh
+              # README.md / index.md -> Ordner
+              if core.lower().endswith("/readme.md") or core.lower().endswith("/index.md"):
+                  core = core.rsplit("/",1)[0] + "/"
+                  return core+q+hsh
+              if core.lower().endswith(".md"):
+                  core = core[:-3]
+                  if not core.endswith("/"): core += "/"
+              return core+q+hsh
+          changed = 0
+          for p in ROOT.rglob("*.md"):
+              t = p.read_text(encoding="utf-8", errors="replace")
+              def repl(m):
+                  href = m.group(1); new = rewrite(href)
+                  nonlocal_changed = (new != href)
+                  return m.group(0).replace(href,new,1)
+              new = MD.sub(lambda m: m.group(0).replace(m.group(1), rewrite(m.group(1)), 1), t)
+              if new != t:
+                  changed += 1
+                  p.write_text(new, encoding="utf-8")
+          print(f"Pretty-link fixes in {changed} Dateien.")
+          PY
+
       - name: Validate links & images
         if: ${{ github.event.inputs.apply == 'true' }}
         run: |
