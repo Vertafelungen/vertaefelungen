@@ -33,7 +33,7 @@ jobs:
         with:
           python-version: '3.12'
 
-      # Optional: zuerst ein Dry-Run als Planungs-Report
+      # Optionaler Planungsreport
       - name: Reorg (Dry-Run)
         shell: bash
         run: |
@@ -48,7 +48,7 @@ jobs:
           name: reorg-report-dry-run
           path: tools/reports/reorg-report-*.md
 
-      # Jetzt die Anwendung (APPLY)
+      # Anwenden
       - name: Reorg (Apply)
         shell: bash
         run: |
@@ -64,7 +64,7 @@ jobs:
           name: reorg-report-apply
           path: tools/reports/reorg-report-*.md
 
-      # Nur committen/pushen, wenn es tatsächlich Änderungen gibt
+      # Nur committen/pushen, wenn es Änderungen gibt
       - name: Detect changes
         id: detect
         shell: bash
@@ -76,13 +76,22 @@ jobs:
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
+      - name: Compute unique branch name
+        id: b
+        if: steps.detect.outputs.changed == 'true'
+        shell: bash
+        run: |
+          BRANCH="chore/reorg-wissen-${GITHUB_RUN_ID}"
+          echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
+          echo "Will push to branch: ${BRANCH}"
+
       - name: Configure git
         if: steps.detect.outputs.changed == 'true'
         run: |
-            git config user.name  "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit & push branch (no PR)
+      - name: Commit & push branch (unique)
         if: steps.detect.outputs.changed == 'true'
         shell: bash
         run: |
@@ -92,8 +101,7 @@ jobs:
             exit 0
           fi
           git commit -m "chore(wissen): reorg produkt-bundles (auto)"
-          # Push in neuen Branch, PR erstellst du anschließend manuell im UI
-          git push -u origin HEAD:chore/reorg-wissen
+          git push -u origin HEAD:${{ steps.b.outputs.branch }}
 
       - name: No changes – finish gracefully
         if: steps.detect.outputs.changed != 'true'
