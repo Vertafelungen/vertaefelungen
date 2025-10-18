@@ -1,15 +1,26 @@
 name: Refactor Wissen Bundles
-run-name: Refactor Wissen Bundles (${{ github.event.inputs.base_path || 'default' }})
 
 on:
   workflow_dispatch:
     inputs:
       base_path:
-        description: 'Basisordner (DE oder EN)'
+        description: 'Basisordner (DE: wissen/content/de/oeffentlich/produkte | EN: wissen/content/en/public/products)'
         required: true
         default: 'wissen/content/de/oeffentlich/produkte'
+      apply:
+        description: 'Änderungen anwenden? (false = Dry-Run)'
+        required: true
+        default: 'false'
+        type: choice
+        options: ['false','true']
+      normalize_two_digits:
+        description: 'YY auf zweistellig normalisieren?'
+        required: true
+        default: 'false'
+        type: choice
+        options: ['false','true']
       delete_duplicates:
-        description: 'Kategorie-Duplikate entfernen (pNNNN.md / pNNNN/)?'
+        description: 'Kategorie-Duplikate (pNNNN.md / pNNNN/) entfernen'
         required: true
         default: 'true'
         type: choice
@@ -17,92 +28,58 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   reorg:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
-      # Optionaler Planungsreport
-      - name: Reorg (Dry-Run)
-        shell: bash
+      - name: Dry-run reorg
         run: |
           python tools/reorg_wissen_products.py \
             --base "${{ github.event.inputs.base_path }}" \
+            $([ "${{ github.event.inputs.normalize_two_digits }}" = "true" ] && echo "--normalize-two-digits") \
             $([ "${{ github.event.inputs.delete_duplicates }}" = "true" ] && echo "--delete-duplicates")
 
-      - name: Upload report (Dry-Run)
-        if: always()
+      - name: Upload reorg report (dry-run)
         uses: actions/upload-artifact@v4
         with:
-          name: reorg-report-dry-run
+          name: reorg-report
           path: tools/reports/reorg-report-*.md
 
-      # Anwenden
-      - name: Reorg (Apply)
-        shell: bash
+      - name: Apply & stage changes
+        if: ${{ github.event.inputs.apply == 'true' }}
         run: |
           python tools/reorg_wissen_products.py \
             --base "${{ github.event.inputs.base_path }}" \
             --apply \
+            $([ "${{ github.event.inputs.normalize_two_digits }}" = "true" ] && echo "--normalize-two-digits") \
             $([ "${{ github.event.inputs.delete_duplicates }}" = "true" ] && echo "--delete-duplicates")
-
-      - name: Upload report (Apply)
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: reorg-report-apply
-          path: tools/reports/reorg-report-*.md
-
-      # Nur committen/pushen, wenn es Änderungen gibt
-      - name: Detect changes
-        id: detect
-        shell: bash
-        run: |
-          git status --porcelain
-          if git diff --quiet && git diff --cached --quiet; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Compute unique branch name
-        id: b
-        if: steps.detect.outputs.changed == 'true'
-        shell: bash
-        run: |
-          BRANCH="chore/reorg-wissen-${GITHUB_RUN_ID}"
-          echo "branch=${BRANCH}" >> $GITHUB_OUTPUT
-          echo "Will push to branch: ${BRANCH}"
-
-      - name: Configure git
-        if: steps.detect.outputs.changed == 'true'
-        run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit & push branch (unique)
-        if: steps.detect.outputs.changed == 'true'
-        shell: bash
-        run: |
           git add -A
-          if git diff --cached --quiet; then
-            echo "No staged changes. Skipping commit."
-            exit 0
-          fi
-          git commit -m "chore(wissen): reorg produkt-bundles (auto)"
-          git push -u origin HEAD:${{ steps.b.outputs.branch }}
 
-      - name: No changes – finish gracefully
-        if: steps.detect.outputs.changed != 'true'
-        run: echo "No changes to commit. Finishing."
+      - name: Validate links & images
+        if: ${{ github.event.inputs.apply == 'true' }}
+        run: |
+          python tools/validate_links_and_images.py --content-root "wissen/content"
+
+      - name: Create Pull Request
+        if: ${{ github.event.inputs.apply == 'true' }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/reorg-wissen
+          title: 'chore(wissen): Reorg Produkt-Bundles + Validation'
+          body: |
+            - Reorg der Produktbilder in Page-Bundles
+            - (optional) Entfernen von Kategorie-Duplikaten
+            - Link & Image Validation (blocking)
+            Siehe Report unter `tools/reports/`.
+          commit-message: 'chore(wissen): reorg produkt-bundles + validation (auto)'
+          labels: chore
