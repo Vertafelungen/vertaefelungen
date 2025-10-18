@@ -1,0 +1,75 @@
+name: Refactor Wissen Bundles
+run-name: Refactor Wissen Bundles (${{ github.event.inputs.base_path || 'default' }})
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_path:
+        description: 'Basisordner (DE oder EN)'
+        required: true
+        default: 'wissen/content/de/oeffentlich/produkte'
+      apply:
+        description: 'Änderungen anwenden? (false = Dry-Run)'
+        required: true
+        default: 'false'
+        type: choice
+        options: ['false','true']
+      delete_duplicates:
+        description: 'Kategorie-Duplikate entfernen (pNNNN.md / pNNNN/)?'
+        required: true
+        default: 'true'
+        type: choice
+        options: ['false','true']
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  reorg:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Reorg (Dry-Run)
+        run: |
+          python tools/reorg_wissen_products.py \
+            --base "${{ github.event.inputs.base_path }}" \
+            $([ "${{ github.event.inputs.delete_duplicates }}" = "true" ] && echo "--delete-duplicates")
+
+      - name: Upload report (Dry-Run)
+        uses: actions/upload-artifact@v4
+        with:
+          name: reorg-report
+          path: tools/reports/reorg-report-*.md
+
+      - name: Apply & create PR
+        if: ${{ github.event.inputs.apply == 'true' }}
+        run: |
+          python tools/reorg_wissen_products.py \
+            --base "${{ github.event.inputs.base_path }}" \
+            --apply \
+            $([ "${{ github.event.inputs.delete_duplicates }}" = "true" ] && echo "--delete-duplicates")
+          git add -A
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(wissen): reorg produkt-bundles (auto)"
+          git push -u origin HEAD:chore/reorg-wissen || true
+
+      - name: Open Pull Request
+        if: ${{ github.event.inputs.apply == 'true' }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/reorg-wissen
+          title: 'chore(wissen): Reorg Produkt-Bundles'
+          body: |
+            Automatischer Umbau der Bilder in Produkt-Page-Bundles.
+            Siehe Report unter `tools/reports/` (auch als Build-Artefakt).
+          commit-message: 'chore(wissen): reorg produkt-bundles (auto)'
+          labels: chore
