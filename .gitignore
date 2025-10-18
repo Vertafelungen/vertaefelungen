@@ -1,21 +1,53 @@
-# Hugo build output
-public/
-resources/_gen/
-.hugo_build.lock
+# .gitignore — Root
+# Version: v2025-10-18-1
+# Ziel: Nur Build-/Systemartefakte am Repo-Root ignorieren (ankern!);
+#       KEINE Content-Ordner tief im Baum versehentlich ausblenden.
 
-# System/IDE
+# --- Repo-Root Build-Ausgabe (ankern!) ---
+/public/
+/resources/_gen/
+# Falls du mehrere Sites hast, kannst du veröffentlichte Targets hier ergänzen:
+# /wissen/public/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+.eggs/
+.python-version
+.venv/
+venv/
+pip-wheel-metadata/
+
+# --- Node / Frontend ---
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.pnpm-store/
+pnpm-debug.log*
+.dist/
+.cache/
+*.log
+
+# --- OS / IDE ---
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
 .vscode/
 .idea/
+*.iml
 
-# Node
-node_modules/
-
-# Python
-__pycache__/
-*.pyc
-
-# Logs/Temp
-*.log
+# --- Archives / temp ---
+*.tmp
 *.bak
+*.old
+*.orig
+*.zip
+*.7z
+
+# --- Explicitly DO NOT ignore content trees ---
+!wissen/content/**
