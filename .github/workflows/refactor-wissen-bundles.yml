@@ -8,12 +8,6 @@ on:
         description: 'Basisordner (DE oder EN)'
         required: true
         default: 'wissen/content/de/oeffentlich/produkte'
-      apply:
-        description: 'Änderungen anwenden? (false = Dry-Run)'
-        required: true
-        default: 'false'
-        type: choice
-        options: ['false','true']
       delete_duplicates:
         description: 'Kategorie-Duplikate entfernen (pNNNN.md / pNNNN/)?'
         required: true
@@ -23,53 +17,84 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
 
 jobs:
   reorg:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
 
+      # Optional: zuerst ein Dry-Run als Planungs-Report
       - name: Reorg (Dry-Run)
+        shell: bash
         run: |
           python tools/reorg_wissen_products.py \
             --base "${{ github.event.inputs.base_path }}" \
             $([ "${{ github.event.inputs.delete_duplicates }}" = "true" ] && echo "--delete-duplicates")
 
       - name: Upload report (Dry-Run)
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: reorg-report
+          name: reorg-report-dry-run
           path: tools/reports/reorg-report-*.md
 
-      - name: Apply & create PR
-        if: ${{ github.event.inputs.apply == 'true' }}
+      # Jetzt die Anwendung (APPLY)
+      - name: Reorg (Apply)
+        shell: bash
         run: |
           python tools/reorg_wissen_products.py \
             --base "${{ github.event.inputs.base_path }}" \
             --apply \
             $([ "${{ github.event.inputs.delete_duplicates }}" = "true" ] && echo "--delete-duplicates")
-          git add -A
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore(wissen): reorg produkt-bundles (auto)"
-          git push -u origin HEAD:chore/reorg-wissen || true
 
-      - name: Open Pull Request
-        if: ${{ github.event.inputs.apply == 'true' }}
-        uses: peter-evans/create-pull-request@v6
+      - name: Upload report (Apply)
+        if: always()
+        uses: actions/upload-artifact@v4
         with:
-          branch: chore/reorg-wissen
-          title: 'chore(wissen): Reorg Produkt-Bundles'
-          body: |
-            Automatischer Umbau der Bilder in Produkt-Page-Bundles.
-            Siehe Report unter `tools/reports/` (auch als Build-Artefakt).
-          commit-message: 'chore(wissen): reorg produkt-bundles (auto)'
-          labels: chore
+          name: reorg-report-apply
+          path: tools/reports/reorg-report-*.md
+
+      # Nur committen/pushen, wenn es tatsächlich Änderungen gibt
+      - name: Detect changes
+        id: detect
+        shell: bash
+        run: |
+          git status --porcelain
+          if git diff --quiet && git diff --cached --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Configure git
+        if: steps.detect.outputs.changed == 'true'
+        run: |
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit & push branch (no PR)
+        if: steps.detect.outputs.changed == 'true'
+        shell: bash
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No staged changes. Skipping commit."
+            exit 0
+          fi
+          git commit -m "chore(wissen): reorg produkt-bundles (auto)"
+          # Push in neuen Branch, PR erstellst du anschließend manuell im UI
+          git push -u origin HEAD:chore/reorg-wissen
+
+      - name: No changes – finish gracefully
+        if: steps.detect.outputs.changed != 'true'
+        run: echo "No changes to commit. Finishing."
