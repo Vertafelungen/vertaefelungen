@@ -6,6 +6,10 @@
 # --- Repo-Root Build-Ausgabe (ankern!) ---
 /public/
 /resources/_gen/
+
+# Optionaler Airbag gegen Regressionen:
+!wissen/content/en/public/**
+
 # Falls du mehrere Sites hast, kannst du veröffentlichte Targets hier ergänzen:
 # /wissen/public/
 
