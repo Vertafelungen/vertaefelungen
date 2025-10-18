@@ -65,6 +65,11 @@ jobs:
             $([ "${{ github.event.inputs.delete_duplicates }}" = "true" ] && echo "--delete-duplicates")
           git add -A
 
+      - name: Auto-fix pretty links & image refs (DE leiste*)
+        if: ${{ github.event.inputs.apply == 'true' }}
+        run: |
+          python tools/fix_pretty_links_and_images.py --root "wissen/content/de/oeffentlich/produkte/leisten" --apply
+
       - name: Validate links & images
         if: ${{ github.event.inputs.apply == 'true' }}
         run: |
