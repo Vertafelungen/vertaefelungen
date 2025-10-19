@@ -1,75 +1,87 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-ssot_sync.py  v2025-10-19-2  (export_pfad_de / export_pfad_en aware)
+ssot_sync.py  v2025-10-20-1  (export_pfad aware + Sanitizer)
 
-Zweck
-- Synchronisiert die SSOT (CSV) → Markdown-Page-Bundles (DE & EN) unterhalb der
-  in der SSOT definierten Exportpfade (export_pfad_de / export_pfad_en).
-- Legt pro Produkt ein LEAF-BUNDLE {code}-{slug}/ an (index.md + Bilder).
-- Verschiebt/vereinheitlicht verstreute Bilder rekursiv (Altlasten aus Kategorien).
-- Kopiert Bilder DE → EN (inhaltsgleich, getrennte Bundles).
-- Pflegt aliases in index.md automatisch, wenn sich der Zielpfad (URL) ändert.
-- Idempotent: wiederholbar, bewahrt vorhandene Bodies der index.md.
-
-Konventionen / Annahmen
-- Dieses Script wird mit CWD = <repo>/wissen ausgeführt (vgl. Workflow).
-- Content-Wurzeln:
-    DE_ROOT = "content/de"
-    EN_ROOT = "content/en"
-- SSOT liegt (Default) unter "ssot/SSOT.csv".
-- In SSOT existieren Spalten (mindestens):
-    code, slug_de, slug_en, export_pfad_de, export_pfad_en, bilder_liste
-  Optional (werden in Frontmatter übernommen, typ-sicher):
-    title_de/title_en, description_de/description_en, price_cents, in_stock
-- bilder_liste enthält nur Dateinamen (keine Pfade), z. B. "p0009-01.jpg, p0009-02.png".
-
-Hugo / SEO / Struktur
-- Produkte werden als Leaf-Bundles unterhalb der Exportpfade geführt, z. B.:
-    content/de/oeffentlich/produkte/halbhohe-vertaefelungen/p0009-<slug_de>/
-    content/en/public/products/<export_pfad_en>/p0009-<slug_en>/
-- Kategorien sind Branch-Bundles (nur _index.md/README.md); Produkt-Assets liegen NICHT
-  im Kategorie-Root. Das Script räumt ggf. Altlasten (p0009/*) rekursiv dorthin weg.
-- Bei Pfadwechseln werden alte URLs automatisch als aliases erfasst.
+Funktion
+- Liest SSOT (CSV) und synchronisiert DE/EN-Produkt-Page-Bundles gemäß
+  export_pfad_de / export_pfad_en:
+    DE: wissen/content/de/<export_pfad_de>/<code>-<slug_de>/
+    EN: wissen/content/en/<export_pfad_en>/<code>-<slug_en>/
+- Schreibt sauber formatiertes Frontmatter mit ruamel.yaml (UTF-8, stabile Quotes).
+- Säubert Texte konsequent (NFC, CP-1252 Smartquotes/Dashes/Ellipsis → ASCII,
+  NBSP→Space, ZWSP/Steuerzeichen raus, CRLF→LF).
+- Räumt Altlasten auf: sammelt verstreute Bilder rekursiv ein und verschiebt
+  sie ins Ziel-Bundle (kollisionssicher, optional Duplikate löschen).
+- Kopiert Bilder aus DE-Bundle 1:1 ins EN-Bundle.
+- Setzt automatisch `aliases`, wenn sich der Bundle-Pfad (URL) geändert hat.
+- Idempotent; vorhandene Body-Inhalte bleiben erhalten.
 
 CLI
   Dry-Run:
     python scripts/ssot_sync.py
   Anwenden:
     python scripts/ssot_sync.py --apply
-  Weitere Optionen:
-    --csv pfad             (Default: ssot/SSOT.csv)
-    --de-root pfad         (Default: content/de)
-    --en-root pfad         (Default: content/en)
+  Optionen:
+    --csv pfad               (Default: ssot/SSOT.csv)
+    --de-root pfad           (Default: content/de)
+    --en-root pfad           (Default: content/en)
+    --normalize-two-digits   (z.B. -1 → -01)
+    --delete-duplicates      (identische Alt-Dateien nach Move löschen)
     --report pfad
-    --delete-duplicates    (Duplikate am Alt-Ort nach Move löschen, wenn gleich)
-    --normalize-two-digits (Bildsuffix -1 → -01, -2 → -02, ... sofern vorhanden)
 
-Exit-Codes
-- 0: OK (dry-run/real) – Report erzeugt.
-- 1: Report mit Fehlern (z. B. invalid code, fehlende Bildernamen-Formate);
-     der Workflow zeigt das im PR an.
-
+Exit-Code
+- 0: OK  (Report geschrieben)
+- 1: Warn-/Fehlerliste vorhanden (Details im Report/STDERR)
 """
 
 from __future__ import annotations
-import argparse, csv, re, shutil, sys, hashlib
+import argparse, csv, re, shutil, sys, hashlib, unicodedata
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, List, Tuple, Optional, Set
-import yaml
+from typing import Dict, List, Tuple, Optional
+from ruamel.yaml import YAML
 
-# ----------------------------- Konfiguration -----------------------------
+# ---------- Konstanten ----------
 
-RE_CODE = re.compile(r"^[psw]\d{4}$", re.I)
+RE_CODE   = re.compile(r"^[psw]\d{4}$", re.I)
 RE_BUNDLE = re.compile(r"^[psw]\d{4}-.+$", re.I)
-IMG_NAME = re.compile(r"^[psw]\d{4}-(\d{1,2})\.(png|jpg|jpeg|webp|avif)$", re.I)
-IMG_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".avif"}
+IMG_NAME  = re.compile(r"^[psw]\d{4}-(\d{1,2})\.(png|jpg|jpeg|webp|avif)$", re.I)
+IMG_EXTS  = {".png", ".jpg", ".jpeg", ".webp", ".avif"}
 
-# ----------------------------- Hilfsfunktionen ---------------------------
+ZWSP_CODES = {0x200B, 0x200C, 0x200D, 0x2060, 0xFEFF}  # ZWSP/ZWNJ/ZWJ/WORD JOINER/BOM
+KEEP_CTRL  = {0x0009, 0x000A}  # Tab, LF ok
 
-def slugify_basic(s: str) -> str:
-    s = (s or "").strip().lower()
+CP1252_MAP = {
+    0x2018: "'", 0x2019: "'", 0x201A: "'", 0x2039: "<", 0x203A: ">",
+    0x201C: '"', 0x201D: '"', 0x201E: '"',
+    0x2013: "-",  0x2014: "-",  0x2212: "-",   # en/em dash, minus
+    0x2026: "...",                            # ellipsis
+    0x00A0: " ",                              # NBSP
+}
+
+# ---------- Utilities ----------
+
+def yaml_emitter() -> YAML:
+    y = YAML()
+    y.default_flow_style = False
+    y.allow_unicode = True
+    y.explicit_start = False
+    y.width = 4096
+    return y
+
+def clean_text(s: str) -> str:
+    """Unicode-NFC, CP-1252-Fixes, ZWSP/Steuerzeichen raus, EOL vereinheitlichen, Trim."""
+    if s is None:
+        return ""
+    s = unicodedata.normalize("NFC", str(s)).replace("\r\n", "\n").replace("\r", "\n")
+    s = "".join(CP1252_MAP.get(ord(ch), ch) for ch in s)
+    s = "".join(ch for ch in s if (ord(ch) not in ZWSP_CODES and (ord(ch) >= 32 or ord(ch) in KEEP_CTRL)))
+    s = "\n".join(line.rstrip() for line in s.split("\n"))
+    return s.strip()
+
+def slugify_ascii(s: str) -> str:
+    s = clean_text(s).lower()
     s = re.sub(r"[ä]", "ae", s)
     s = re.sub(r"[ö]", "oe", s)
     s = re.sub(r"[ü]", "ue", s)
@@ -81,31 +93,27 @@ def slugify_basic(s: str) -> str:
 
 def to_bool(v: str) -> Optional[bool]:
     if v is None: return None
-    t = str(v).strip().lower()
+    t = clean_text(v).lower()
     if t in {"true","1","yes","ja","y"}: return True
     if t in {"false","0","no","nein","n"}: return False
     return None
 
 def to_int(v: str) -> Optional[int]:
     try:
-        return int(str(v).strip())
+        return int(clean_text(v))
     except Exception:
         return None
 
-def read_csv_rows(path: Path) -> List[Dict[str,str]]:
-    with path.open("r", encoding="utf-8", newline="") as f:
-        return list(csv.DictReader(f))
-
 def normalize_two_digits(name: str) -> str:
-    """
-    p0009-1.jpg -> p0009-01.jpg  (nur wenn genau -\d{1} vorkommt)
-    """
     m = IMG_NAME.match(name)
     if not m: return name
     num = m.group(1)
     if len(num) == 1:
         return re.sub(r"-(\d)\.", r"-0\1.", name)
     return name
+
+def ensure_dir(d: Path):
+    d.mkdir(parents=True, exist_ok=True)
 
 def file_sha1(p: Path) -> str:
     h = hashlib.sha1()
@@ -114,30 +122,27 @@ def file_sha1(p: Path) -> str:
             h.update(chunk)
     return h.hexdigest()
 
-def ensure_dir(d: Path):
-    d.mkdir(parents=True, exist_ok=True)
+def read_csv_rows(path: Path) -> List[Dict[str,str]]:
+    with path.open("r", encoding="utf-8", newline="") as f:
+        return list(csv.DictReader(f))
 
 def split_frontmatter(md_text: str) -> Tuple[Dict, str]:
     if md_text.startswith("---"):
         parts = md_text.split("\n---", 1)
         if len(parts) == 2:
-            fm_raw = parts[0][3:]  # cut first '---'
+            fm_raw = parts[0][3:]
             body = parts[1].lstrip("\n")
+            y = yaml_emitter()
             try:
-                fm = yaml.safe_load(fm_raw) or {}
-                if not isinstance(fm, dict):
-                    fm = {}
+                fm = y.load(fm_raw) or {}
+                if not isinstance(fm, dict): fm = {}
             except Exception:
                 fm = {}
             return fm, body
     return {}, md_text
 
-def dump_frontmatter(fm: Dict) -> str:
-    return "---\n" + yaml.safe_dump(fm, allow_unicode=True, sort_keys=False).rstrip() + "\n---\n"
-
 def read_md(path: Path) -> Tuple[Dict, str]:
-    if not path.exists():
-        return {}, ""
+    if not path.exists(): return {}, ""
     txt = path.read_text(encoding="utf-8", errors="replace")
     return split_frontmatter(txt)
 
@@ -146,26 +151,24 @@ def write_index(bundle_dir: Path, fm_new: Dict, keep_body_from: Optional[Path]):
     idx = bundle_dir / "index.md"
     body = ""
     if keep_body_from and keep_body_from.exists():
-        fm_old, body = read_md(keep_body_from)
+        _, body = read_md(keep_body_from)
+        body = clean_text(body)
     elif idx.exists():
-        fm_old, body = read_md(idx)
-    idx.write_text(dump_frontmatter(fm_new) + (body if body else ""), encoding="utf-8")
+        _, body = read_md(idx)
+        body = clean_text(body)
+    y = yaml_emitter()
+    from io import StringIO
+    sio = StringIO()
+    y.dump(fm_new, sio)
+    fm_text = "---\n" + sio.getvalue().rstrip() + "\n---\n"
+    idx.write_text(fm_text + (body if body else ""), encoding="utf-8")
 
 def path_to_url(content_lang_root: Path, bundle_dir: Path) -> str:
-    """
-    content_lang_root = <repo>/wissen/content/de  oder .../en
-    bundle_dir = .../wissen/content/de/<export_path>/<code>-<slug>/
-    -> /wissen/de/<export_path>/<code>-<slug>/
-    """
-    # <repo>/wissen is cwd; we add /wissen prefix explicitly
     rel = bundle_dir.relative_to(content_lang_root).as_posix().strip("/")
-    lang = content_lang_root.name.lower()  # 'de' | 'en'
+    lang = content_lang_root.name.lower()
     return f"/wissen/{lang}/{rel}/"
 
 def find_existing_bundles(content_lang_root: Path, code: str) -> List[Path]:
-    """
-    Suche nach Ordnern <irgendwo>/<code>-<irgendwas> unterhalb content_lang_root.
-    """
     hits = []
     for p in content_lang_root.rglob(f"{code}-*"):
         if p.is_dir() and RE_BUNDLE.match(p.name):
@@ -173,8 +176,7 @@ def find_existing_bundles(content_lang_root: Path, code: str) -> List[Path]:
     return hits
 
 def move_or_delete_duplicate(src: Path, dst: Path, delete_duplicates: bool, log: List[str]):
-    if not src.exists():
-        return
+    if not src.exists(): return
     if dst.exists():
         try:
             if file_sha1(src) == file_sha1(dst):
@@ -182,24 +184,21 @@ def move_or_delete_duplicate(src: Path, dst: Path, delete_duplicates: bool, log:
                     src.unlink()
                     log.append(f"DELETE duplicate {src}")
                 else:
-                    log.append(f"SKIP duplicate (keep both) {src} ~ {dst}")
+                    log.append(f"SKIP duplicate {src} ~ {dst}")
                 return
             else:
-                # Name-Kollision mit unterschiedlichem Inhalt -> umbenennen
                 stem, ext = dst.stem, dst.suffix
                 i = 2
                 while True:
                     cand = dst.with_name(f"{stem}-{i}{ext}")
                     if not cand.exists():
                         shutil.move(str(src), str(cand))
-                        log.append(f"RENAME-MOVE {src} -> {cand} (collision content)")
+                        log.append(f"RENAME-MOVE {src} -> {cand}")
                         return
                     i += 1
         except Exception:
-            # Fallback: nicht vergleichen -> nicht löschen
-            log.append(f"SKIP collision (no hash) {src} vs {dst}")
+            log.append(f"SKIP collision (no hash) {src} ~ {dst}")
             return
-    # normaler Move
     ensure_dir(dst.parent)
     shutil.move(str(src), str(dst))
     log.append(f"MOVE {src} -> {dst}")
@@ -207,18 +206,10 @@ def move_or_delete_duplicate(src: Path, dst: Path, delete_duplicates: bool, log:
 def sweep_recursively_for_code_images(content_lang_root: Path, code: str, target_bundle: Path,
                                       normalize_two_digit: bool, delete_duplicates: bool,
                                       log: List[str]):
-    """
-    Sammelt verstreute Bilder (Altlasten) rekursiv ein:
-    - .../<kategorie>/**/p0009-*.{ext}
-    - .../<kategorie>/p0009/p0009-*.{ext}
-    und verschiebt sie ins target_bundle.
-    """
     for p in content_lang_root.rglob("*"):
         if p.is_file() and p.suffix.lower() in IMG_EXTS and p.name.lower().startswith(f"{code}-"):
-            # schon am Ziel?
             try:
                 p.relative_to(target_bundle)
-                # liegt bereits im Bundle
                 continue
             except ValueError:
                 pass
@@ -228,49 +219,40 @@ def sweep_recursively_for_code_images(content_lang_root: Path, code: str, target
             dst = target_bundle / name
             move_or_delete_duplicate(p, dst, delete_duplicates, log)
 
-# ----------------------------- SSOT Parsing ------------------------------
+# ---------- SSOT-Parsing ----------
 
 def parse_row(row: Dict[str,str]) -> Tuple[Dict[str,object], List[str]]:
     errs: List[str] = []
-
-    code = (row.get("code") or row.get("produkt_code") or "").strip().lower()
+    code = clean_text((row.get("code") or row.get("produkt_code") or "")).lower()
     if not RE_CODE.match(code):
         errs.append(f"invalid code '{code}'")
 
-    # Slugs
-    slug_de = (row.get("slug_de") or "").strip()
-    slug_en = (row.get("slug_en") or "").strip()
-    if not slug_de:
-        slug_de = slugify_basic(row.get("title_de") or row.get("titel_de") or "")
-    if not slug_en:
-        slug_en = slugify_basic(row.get("title_en") or row.get("titel_en") or "")
+    slug_de = clean_text(row.get("slug_de") or "")
+    slug_en = clean_text(row.get("slug_en") or "")
+    if not slug_de: slug_de = slugify_ascii(row.get("title_de") or row.get("titel_de") or "")
+    if not slug_en: slug_en = slugify_ascii(row.get("title_en") or row.get("titel_en") or "")
 
-    # Exportpfade
-    exp_de = (row.get("export_pfad_de") or "").strip().strip("/")
-    exp_en = (row.get("export_pfad_en") or "").strip().strip("/")
-    if not exp_de:
-        errs.append("missing export_pfad_de")
-    if not exp_en:
-        errs.append("missing export_pfad_en")
+    exp_de = clean_text(row.get("export_pfad_de") or "").strip().strip("/")
+    exp_en = clean_text(row.get("export_pfad_en") or "").strip().strip("/")
+    if not exp_de: errs.append("missing export_pfad_de")
+    if not exp_en: errs.append("missing export_pfad_en")
 
-    # Bilderliste
-    bilder_raw = (row.get("bilder_liste") or row.get("bilder") or "").strip()
+    bilder_raw = clean_text(row.get("bilder_liste") or row.get("bilder") or "")
     bilder = [b.strip() for b in bilder_raw.split(",") if b.strip()]
-    invalid_imgs = [b for b in bilder if not IMG_NAME.match(b)]
-    # wir normalisieren später, daher nur harte Fehler bei komplett falschem Muster
-    really_bad = [b for b in invalid_imgs if not re.match(r"^[psw]\d{4}-\d+\.", b, re.I)]
+    really_bad = [b for b in bilder if not re.match(r"^[psw]\d{4}-\d+\.", b, re.I)]
     if really_bad:
         errs.append(f"invalid image names: {', '.join(really_bad)}")
 
-    # Frontmatter-Felder
-    title_de = (row.get("title_de") or row.get("titel_de") or "").strip() or code.upper()
-    title_en = (row.get("title_en") or row.get("titel_en") or "").strip() or f"{code.upper()} – TODO English title"
-    desc_de  = (row.get("description_de") or row.get("beschreibung_de") or "").strip()
-    desc_en  = (row.get("description_en") or "").strip()
+    title_de = clean_text(row.get("title_de") or row.get("titel_de") or "") or code.upper()
+    title_en = clean_text(row.get("title_en") or row.get("titel_en") or "") or f"{code.upper()} – TODO English title"
+    desc_de  = clean_text(row.get("description_de") or row.get("beschreibung_de") or "")
+    desc_en  = clean_text(row.get("description_en") or "")
+
     price_cents_raw = row.get("price_cents")
     price_cents = to_int(price_cents_raw)
     if price_cents is None and price_cents_raw not in (None, ""):
         errs.append(f"price_cents not int: '{price_cents_raw}'")
+
     in_stock_raw = row.get("in_stock")
     in_stock = to_bool(in_stock_raw)
     if in_stock is None and in_stock_raw not in (None, ""):
@@ -301,17 +283,16 @@ def build_frontmatter(data: Dict[str,object], lang: str, aliases: List[str]) -> 
         fm["price_cents"] = int(data["price_cents"])
     if data["in_stock"] is not None:
         fm["in_stock"] = bool(data["in_stock"])
-    if data["description_de"] and lang=="de":
-        fm["description"] = data["description_de"]
-    if data["description_en"] and lang=="en":
-        fm["description"] = data["description_en"]
+    desc = data["description_de"] if lang=="de" else data["description_en"]
+    if desc:
+        fm["description"] = desc
     if data["bilder"]:
         fm["bilder"] = [normalize_two_digits(b) for b in data["bilder"]]
     if aliases:
         fm["aliases"] = sorted(set(aliases))
     return fm
 
-# ----------------------------- Hauptlogik --------------------------------
+# ---------- Main ----------
 
 def main():
     ap = argparse.ArgumentParser()
@@ -319,9 +300,9 @@ def main():
     ap.add_argument("--de-root", default="content/de")
     ap.add_argument("--en-root", default="content/en")
     ap.add_argument("--apply", action="store_true")
-    ap.add_argument("--report", default=None)
-    ap.add_argument("--delete-duplicates", action="store_true")
     ap.add_argument("--normalize-two-digits", action="store_true")
+    ap.add_argument("--delete-duplicates", action="store_true")
+    ap.add_argument("--report", default=None)
     args = ap.parse_args()
 
     cwd = Path.cwd().resolve()  # erwartet: <repo>/wissen
@@ -330,8 +311,8 @@ def main():
     en_root  = (cwd / args.en_root).resolve()
 
     assert csv_path.exists(), f"CSV not found: {csv_path}"
-    assert de_root.exists(), f"DE root not found: {de_root}"
-    assert en_root.exists(), f"EN root not found: {en_root}"
+    assert de_root.exists(),  f"DE root not found: {de_root}"
+    assert en_root.exists(),  f"EN root not found: {en_root}"
 
     rows = read_csv_rows(csv_path)
 
@@ -346,41 +327,30 @@ def main():
         data, errs = parse_row(row)
         if errs:
             errors.append(f"{data.get('code','?')}: " + "; ".join(errs))
-
         code = data["code"]
         if not RE_CODE.match(code):
             continue
 
-        # Ziel-Bundles (DE/EN)
-        bundle_de = de_root / data["export_pfad_de"].strip("/") / f"{code}-{data['slug_de']}"
-        bundle_en = en_root / data["export_pfad_en"].strip("/") / f"{code}-{data['slug_en']}"
+        bundle_de = de_root / data["export_pfad_de"] / f"{code}-{data['slug_de']}"
+        bundle_en = en_root / data["export_pfad_en"] / f"{code}-{data['slug_en']}"
 
-        # Alte Bundles finden (DE/EN) – für aliases & Body-Übernahme
         old_bundles_de = [p for p in find_existing_bundles(de_root, code) if p.resolve() != bundle_de.resolve()]
         old_bundles_en = [p for p in find_existing_bundles(en_root, code) if p.resolve() != bundle_en.resolve()]
 
-        # Aliases aus alten Orten ermitteln
-        aliases_de: List[str] = []
-        for ob in old_bundles_de:
-            aliases_de.append(path_to_url(de_root, ob))
-        aliases_en: List[str] = []
-        for ob in old_bundles_en:
-            aliases_en.append(path_to_url(en_root, ob))
+        aliases_de = [path_to_url(de_root, ob) for ob in old_bundles_de]
+        aliases_en = [path_to_url(en_root, ob) for ob in old_bundles_en]
 
-        # Bestehende Aliases im Ziel übernehmen
         fm_existing_de, _ = read_md(bundle_de / "index.md")
         if isinstance(fm_existing_de.get("aliases"), list):
-            aliases_de.extend([str(a) for a in fm_existing_de["aliases"]])
+            aliases_de.extend([clean_text(a) for a in fm_existing_de["aliases"]])
 
         fm_existing_en, _ = read_md(bundle_en / "index.md")
         if isinstance(fm_existing_en.get("aliases"), list):
-            aliases_en.extend([str(a) for a in fm_existing_en["aliases"]])
+            aliases_en.extend([clean_text(a) for a in fm_existing_en["aliases"]])
 
-        # Frontmatter bauen
         fm_de = build_frontmatter(data, "de", aliases_de)
         fm_en = build_frontmatter(data, "en", aliases_en)
 
-        # index.md schreiben (Body erhalten – bevorzugt vom Zielort)
         if args.apply:
             existed = (bundle_de / "index.md").exists()
             write_index(bundle_de, fm_de, keep_body_from=bundle_de / "index.md")
@@ -393,7 +363,7 @@ def main():
         actions.append(f"ENSURE bundle: {bundle_de}")
         actions.append(f"ENSURE bundle: {bundle_en}")
 
-        # Rekursives Einsammeln alter Bilder in DE
+        # Bilder (DE) – Altlasten einsammeln
         sweep_recursively_for_code_images(
             de_root, code, bundle_de,
             normalize_two_digit=args.normalize_two_digits,
@@ -401,33 +371,30 @@ def main():
             log=moved
         )
 
-        # Bilder aus liste in DE-Bundle sicherstellen (umbenennen falls nötig)
+        # Bilder laut Liste (DE) ins Bundle sicherstellen
         for b in data["bilder"]:
             name = normalize_two_digits(b) if args.normalize_two_digits else b
-            # Quelle: überall unter DE (falls Altlasten), ansonsten bereits im Bundle
-            # Wir prüfen zuerst im Bundle selbst:
+            target = bundle_de / name
+            if target.exists():
+                continue
+            # Quelle suchen (Bundle zuerst, dann global)
             src = None
-            candidate = bundle_de / name
-            if candidate.exists():
-                src = candidate
-            else:
-                # sonst global suchen (langsamer, aber zuverlässig)
+            for p in [bundle_de] + list(de_root.rglob("")):
+                cand = p / name if p == bundle_de else None
+                if cand and cand.exists():
+                    src = cand; break
+            if not src:
                 for p in de_root.rglob(name):
-                    if p.is_file():
-                        src = p
-                        break
-            if src and (bundle_de / name).resolve() != src.resolve():
-                # verschieben ins Bundle
+                    if p.is_file(): src = p; break
+            if src:
                 if args.apply:
-                    move_or_delete_duplicate(src, bundle_de / name, args.delete_duplicates, moved)
+                    move_or_delete_duplicate(src, target, args.delete_duplicates, moved)
                 else:
-                    moved.append(f"Would MOVE {src} -> {bundle_de / name}")
+                    moved.append(f"Would MOVE {src} -> {target}")
             else:
-                # wenn gar nicht gefunden, als Fehler notieren
-                if not candidate.exists():
-                    errors.append(f"{code}: image missing in DE: {name}")
+                errors.append(f"{code}: image missing in DE: {name}")
 
-        # EN: Bilder 1:1 aus DE-Bundle kopieren
+        # EN: Bilder 1:1 aus DE kopieren
         for b in data["bilder"]:
             name = normalize_two_digits(b) if args.normalize_two_digits else b
             src = bundle_de / name
@@ -440,13 +407,10 @@ def main():
                         copied.append(f"COPY {src} -> {dst}")
                     else:
                         copied.append(f"Would COPY {src} -> {dst}")
-                else:
-                    # Optional: Hash vergleichen, ansonsten belassen
-                    pass
             else:
                 errors.append(f"{code}: image not found in DE bundle for EN copy: {name}")
 
-        # Alte leere Bundle-Ordner entfernen (optional)
+        # Alte leere Bundles wegräumen
         if args.apply:
             for ob in old_bundles_de:
                 try:
@@ -463,35 +427,25 @@ def main():
                 except Exception:
                     pass
 
-    # Report schreiben
+    # Report
     ts = datetime.now().strftime("%Y%m%d-%H%M%S")
     rep = Path(args.report) if args.report else Path("scripts/reports")/f"ssot-sync-exportpfade-{ts}.md"
     ensure_dir(rep.parent)
     lines: List[str] = [
         f"# SSOT Sync Report ({ts})",
-        "",
-        f"CSV: {csv_path}",
-        f"DE root: {de_root}",
-        f"EN root: {en_root}",
-        ""
+        "", f"CSV: {csv_path}",
+        f"DE root: {de_root}", f"EN root: {en_root}", ""
     ]
-    if created:
-        lines += [f"## Created ({len(created)})"] + [f"- {p}" for p in created] + [""]
-    if updated:
-        lines += [f"## Updated ({len(updated)})"] + [f"- {p}" for p in updated] + [""]
-    if moved:
-        lines += [f"## Moved ({len(moved)})"] + [f"- {p}" for p in moved[:1000]] + [""]
-    if copied:
-        lines += [f"## Copied ({len(copied)})"] + [f"- {p}" for p in copied[:1000]] + [""]
-    if actions:
-        lines += [f"## Actions ({len(actions)})"] + [f"- {p}" for p in actions[:1000]] + [""]
-    if errors:
-        lines += [f"## Errors ({len(errors)})"] + [f"- {e}" for e in errors] + [""]
+    if created: lines += [f"## Created ({len(created)})"] + [f"- {p}" for p in created] + [""]
+    if updated: lines += [f"## Updated ({len(updated)})"] + [f"- {p}" for p in updated] + [""]
+    if moved:   lines += [f"## Moved ({len(moved)})"] + [f"- {p}" for p in moved[:1000]] + [""]
+    if copied:  lines += [f"## Copied ({len(copied)})"] + [f"- {p}" for p in copied[:1000]] + [""]
+    if actions: lines += [f"## Actions ({len(actions)})"] + [f"- {p}" for p in actions[:1000]] + [""]
+    if errors:  lines += [f"## Errors ({len(errors)})"] + [f"- {e}" for e in errors] + [""]
 
     rep.write_text("\n".join(lines), encoding="utf-8")
     print(f"Report: {rep}")
 
-    # Exit-Code – zeige Fehler im Workflow an (PR bleibt trotzdem möglich)
     if errors:
         print("\n".join(errors), file=sys.stderr)
         sys.exit(1)
