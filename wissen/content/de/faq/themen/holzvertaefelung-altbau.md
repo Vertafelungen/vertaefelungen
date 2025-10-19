@@ -1,12 +1,11 @@
 ---
-title: 'holzvertaefelung altbau'
+title: holzvertaefelung altbau
 slug: 'holzvertaefelung-altbau'
-type: 'faq'
-lang: 'de'
-managed_by: 'faq'
+type: faq
+lang: de
+managed_by: faq
 url: '/faq/themen/holzvertaefelung-altbau/'
 ---
-
 # holzvertaefelung altbau
 
 ## 1. Was versteht man unter Holzvertäfelung im Altbau? Holzvertäfelung bezeichnet die flächige Bekleidung von Wänden (und teils Decken) mit Paneelen, Rahmenfüllungen oder Profilbrettern aus Massivholz. In Altbauten - insbesondere im Gründerzeit- und Jugendstil - prägen sie als gestalterisches und schützendes Element das Raumbild.  ***

@@ -1,12 +1,11 @@
 ---
-title: 'herstellung'
+title: herstellung
 slug: 'herstellung'
-type: 'faq'
-lang: 'de'
-managed_by: 'faq'
+type: faq
+lang: de
+managed_by: faq
 url: '/faq/ablaeufe/herstellung/'
 ---
-
 # herstellung
 
 ## 1. Wie entsteht eine historische Vertäfelung? - Vorab wird die originale Vorlage detailgenau vermessen und mit 3D‐CAD erstellt. Dies dient der Planung und Anpassung an Ihren Raum, z. B. Kassettenbreiten, Fensterbänke oder Heizkörperverkleidungen. Anschließend entstehen Stücklisten und CNC‐fähige Baupläne für die Schreinerei.
