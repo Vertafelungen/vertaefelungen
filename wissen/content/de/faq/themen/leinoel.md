@@ -1,12 +1,11 @@
 ---
-title: 'leinoel'
+title: leinoel
 slug: 'leinoel'
-type: 'faq'
-lang: 'de'
-managed_by: 'faq'
+type: faq
+lang: de
+managed_by: faq
 url: '/faq/themen/leinoel/'
 ---
-
 # leinoel
 
 ## 1. Was ist Leinöl und wofür wird es verwendet? Leinöl ist ein natürliches Öl, das durch Kalt- oder Warmpressung aus den Samen des Flachses (Linum usitatissimum) gewonnen wird. Es wird seit Jahrhunderten zur Imprägnierung und Oberflächenbehandlung von Holz, aber auch als Bindemittel in Farben, Lacken und Kitten eingesetzt. Besonders im Bereich der Denkmalpflege ist Leinöl wegen seiner ausgezeichneten Holzschutzwirkung, Diffusionsoffenheit und natürlichen Zusammensetzung beliebt.  ***

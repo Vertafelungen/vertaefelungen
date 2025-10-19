@@ -1,12 +1,11 @@
 ---
-title: 'sockelleisten'
+title: sockelleisten
 slug: 'sockelleisten'
-type: 'faq'
-lang: 'de'
-managed_by: 'faq'
+type: faq
+lang: de
+managed_by: faq
 url: '/faq/themen/sockelleisten/'
 ---
-
 # sockelleisten
 
 ## 1. Was sind Fußleisten und Sockelleisten? Fußleisten (auch Sockelleisten genannt) sind horizontale Leisten aus Holz, die den Übergang zwischen Wand und Boden abdecken. Sie schützen die Wand vor Stößen und Verschmutzung und sorgen für einen sauberen Abschluss des Bodenbelags.  ***

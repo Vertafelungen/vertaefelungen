@@ -1,12 +1,11 @@
 ---
-title: 'tuer fensterrahmen'
+title: tuer fensterrahmen
 slug: 'tuer-fensterrahmen'
-type: 'faq'
-lang: 'de'
-managed_by: 'faq'
+type: faq
+lang: de
+managed_by: faq
 url: '/faq/themen/tuer-fensterrahmen/'
 ---
-
 # tuer fensterrahmen
 
 ## 1. Was versteht man unter profilierten Tür- und Fensterumrahmungen? Profilierte Tür- und Fensterumrahmungen sind dekorativ gestaltete Leisten und Bekleidungen aus Holz, die Türen und Fenster im Innenraum einrahmen. Sie dienen sowohl der gestalterischen Gliederung als auch dem Schutz der Laibungskanten.  ***

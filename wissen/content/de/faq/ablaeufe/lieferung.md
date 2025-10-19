@@ -1,12 +1,11 @@
 ---
-title: 'lieferung'
+title: lieferung
 slug: 'lieferung'
-type: 'faq'
-lang: 'de'
-managed_by: 'faq'
+type: faq
+lang: de
+managed_by: faq
 url: '/faq/ablaeufe/lieferung/'
 ---
-
 # lieferung
 
 ## 1. Wann erfolgt die Lieferung? - Die Lieferung erfolgt **nach Zahlungseingang der Restsumme**, sobald die Fertigung abgeschlossen ist.  - Du wirst vorab informiert und erhältst einen Liefertermin mit der Spedition.
