@@ -78,10 +78,10 @@ jobs:
           path: wissen/scripts/reports/ssot-sync-exportpfade-*.md
           if-no-files-found: ignore
 
-      # Guard/Validator über gesamten Wissen-Content (DE+EN)
+      # 🔧 KORREKTUR: Validator-Pfad liegt unter wissen/scripts/, nicht wissen/tools/
       - name: Validate links & images (DE+EN)
         run: |
-          python tools/validate_links_and_images.py --content-root "content"
+          python scripts/validate_links_and_images.py --content-root "content"
 
       - name: Stage changes
         run: |
