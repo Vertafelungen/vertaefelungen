@@ -1,0 +1,154 @@
+name: Build & Deploy Wissen (Hugo)
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ main ]
+    paths:
+      - 'wissen/content/**'
+      - 'wissen/config.*'
+      - 'wissen/hugo.toml'
+      - 'wissen/layouts/**'
+      - 'wissen/assets/**'
+      - 'wissen/static/**'
+      - 'wissen/scripts/lint_content_frontmatter.py'
+      - 'wissen/scripts/sanitize_legacy_frontmatter.py'
+      - 'wissen/scripts/fix_legacy_yaml_format.py'
+      - '.github/workflows/build-and-deploy-wissen.yml'
+  workflow_run:
+    workflows: ["SSOT → Markdown Sync"]
+    types: [completed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-deploy-wissen
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: wissen
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python deps for build utilities
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruamel.yaml
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.125.7'
+          extended: true
+
+      - name: Frontmatter auto-fix
+        env:
+          AUTOFIX_FRONTMATTER: "1"
+          LINT_VERBOSE: "1"
+        run: |
+          python scripts/lint_content_frontmatter.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No frontmatter fixes to commit."
+          else
+            git commit -m "fix(frontmatter): auto-close YAML delimiters [skip ci]"
+            git push
+          fi
+
+      - name: Sanitize legacy YAML frontmatter
+        env:
+          SANITIZE_APPLY: "1"
+        run: |
+          python scripts/sanitize_legacy_frontmatter.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No sanitizer changes to commit."
+          else
+            git commit -m "fix(frontmatter): sanitize legacy YAML (quote & normalize) [skip ci]"
+            git push
+          fi
+
+      - name: Fix legacy YAML formatting (flat → proper)
+        run: |
+          python scripts/fix_legacy_yaml_format.py
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No legacy formatting changes."
+          else
+            git commit -m "fix(frontmatter): normalize legacy YAML header [skip ci]"
+            git push
+          fi
+
+      - name: Build (minified)
+        env:
+          HUGO_ENV: production
+        run: hugo --minify
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wissen-public
+          path: wissen/public
+
+  deploy-sftp:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check SFTP secrets
+        id: s
+        shell: bash
+        env:
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          if [[ -n "$SFTP_HOST" && -n "$SFTP_USERNAME" && -n "$SFTP_PASSWORD" ]]; then
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Download artifact
+        if: steps.s.outputs.ok == 'true'
+        uses: actions/download-artifact@v4
+        with:
+          name: wissen-public
+          path: ./public
+
+      - name: Deploy via SFTP
+        if: steps.s.outputs.ok == 'true'
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          port: ${{ secrets.SFTP_PORT || '22' }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          local_path: ./public/
+          remote_path: ${{ secrets.SFTP_TARGET || '/wissen' }}
+          delete_remote_files: false
+          sftp_command_args: "-o StrictHostKeyChecking=no"
+
+      - name: Skip deploy (no SFTP secrets)
+        if: steps.s.outputs.ok != 'true'
+        run: echo "SFTP secrets missing -> skipping deploy."
