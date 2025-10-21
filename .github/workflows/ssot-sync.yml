@@ -81,7 +81,7 @@ jobs:
       # 🔧 KORREKTUR: Validator-Pfad liegt unter wissen/scripts/, nicht wissen/tools/
       - name: Validate links & images (DE+EN)
         run: |
-          python scripts/validate_links_and_images.py --content-root "content"
+          python tools/validate_links_and_images.py --content-root "content"
 
       - name: Stage changes
         run: |
