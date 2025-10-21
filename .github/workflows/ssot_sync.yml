@@ -46,7 +46,7 @@ jobs:
         env:
           SSOT_CSV_PATH: ssot/SSOT.csv
         run: |
-          python scripts/ssot_generator.py
+          python scripts/ssot_sync.py
 
       - name: Repair & mark FAQ content (keine SSOT-Abhängigkeit)
         run: |
