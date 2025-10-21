@@ -1,0 +1,72 @@
+name: SSOT → Markdown Sync
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [ main ]
+    paths:
+      - 'wissen/ssot/SSOT.csv'
+      - 'wissen/scripts/**'
+      - 'wissen/requirements-ssot.txt'
+      - '.github/workflows/ssot_sync.yml'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  ssot-sync:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wissen
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps (SSOT)
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements-ssot.txt ]; then
+            pip install -r requirements-ssot.txt
+          else
+            pip install pandas requests python-slugify text-unidecode Unidecode ruamel.yaml tzdata
+          fi
+
+      # SSOT aus Repo lesen (kein Google-Download nötig)
+      - name: Generate content from SSOT (repo CSV)
+        env:
+          SSOT_CSV_PATH: ssot/SSOT.csv
+        run: |
+          python scripts/ssot_generator.py
+
+      - name: Repair & mark FAQ content (keine SSOT-Abhängigkeit)
+        run: |
+          python scripts/faq_repair_and_mark.py
+
+      # Vor dem Commit validieren – GATEKEEPER
+      - name: Guard validation (strict, all content)
+        run: |
+          python scripts/guard_validate.py --mode all
+
+      # Änderungen für PR vorbereiten
+      - name: Stage changes
+        run: |
+          git add -A
+
+      # PR erstellen (statt direkt auf main pushen)
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/ssot-sync
+          title: 'chore(wissen): SSOT → Markdown sync'
+          commit-message: 'chore(wissen): SSOT → Markdown sync'
+          labels: chore
