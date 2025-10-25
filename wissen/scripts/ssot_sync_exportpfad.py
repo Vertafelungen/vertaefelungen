@@ -3,15 +3,17 @@
 """
 SSOT → Markdown Page Bundles (export_pfad aware, no image renaming)
 
-- Primärschlüssel: product_id (Fallback: reference; sonst aus slug_de/slug_en extrahieren)
+- Primärschlüssel: product_id (Fallback: reference; sonst aus slug_de/slug_en extrahiert)
 - Zielstruktur:
     DE: content/de/<export_pfad_de>/<pk>-<slug_de>/
     EN: content/en/<export_pfad_en>/<pk>-<slug_en>/
-- index.md wird geschrieben/aktualisiert (translationKey=pk; aliases bei Umzug)
-- Bilder aus `bilder_liste` werden im gesamten DE-Produkte-Baum gesucht,
-  in das DE-Produktbundle VERSCHOBEN (Dateiname unverändert) und 1:1 nach EN kopiert
+- index.md: translationKey=pk; aliases bei Umzug
+- Bilder aus `bilder_liste`:
+    * Einmalig aus Kategorie-Bäumen MOVEN (Kategorien langfristig bildfrei)
+    * Wenn Bild bereits verschoben/liegt in anderem Produkt-Bundle → COPY
+    * Keine Umbenennung; Dateinamen bleiben exakt wie gelistet
 - Zeilen ohne brauchbaren pk werden still SKIPPED (kein Abbruch)
-- Idempotent; Report mit created/updated/moved/copied/aliases/skipped/errors
+- Nach jedem Move wird der Bildindex aktualisiert (keine „stale path“-Fehler)
 """
 
 from __future__ import annotations
@@ -35,7 +37,7 @@ def _normkey(s: str) -> str:
     s = s.replace("ä","ae").replace("ö","oe").replace("ü","ue").replace("ß","ss")
     return s
 
-def read_csv_utf8_auto(path: Path) -> List[Dict[str,str]]:
+def read_csv_utf8_auto(path: Path):
     raw = path.read_text(encoding="utf-8", errors="replace")
     try:
         dialect = csv.Sniffer().sniff(raw[:2048], delimiters=",;|\t")
@@ -43,10 +45,7 @@ def read_csv_utf8_auto(path: Path) -> List[Dict[str,str]]:
     except Exception:
         delim = ","
     rows = list(csv.DictReader(io.StringIO(raw), delimiter=delim))
-    # Header normalisieren
-    norm = []
-    for r in rows:
-        norm.append({ _normkey(k): ("" if v is None else v) for k, v in r.items() })
+    norm = [{ _normkey(k): ("" if v is None else v) for k, v in r.items() } for r in rows]
     return norm
 
 def clean(s: Optional[str]) -> str:
@@ -65,7 +64,7 @@ def slugify(s: str) -> str:
 
 # ---------- Frontmatter / Markdown ----------
 
-def read_frontmatter_and_body(p: Path) -> Tuple[Dict, str]:
+def read_frontmatter_and_body(p: Path):
     if not p.exists(): return {}, ""
     txt = p.read_text(encoding="utf-8", errors="replace")
     if txt.startswith("---"):
@@ -100,9 +99,12 @@ def write_index(bundle_dir: Path, fm_new: Dict, keep_body_from: Optional[Path]):
 
 # ---------- Paths, URLs, Images ----------
 
+PK_REGEX = re.compile(r"^(p\d{3,5}|sl\d{3,5}|wl\d{3,5}|tr\d{3,5}|l\d{3,5}|s\d{3,5})", re.IGNORECASE)
+BUNDLE_DIRNAME_REGEX = re.compile(r"^(p|sl|wl|tr|l|s)\d{3,5}-", re.IGNORECASE)
+
 def bundle_url(content_lang_root: Path, bundle_dir: Path) -> str:
     rel = bundle_dir.relative_to(content_lang_root).as_posix().strip("/")
-    lang = content_lang_root.name.lower()  # 'de' | 'en'
+    lang = content_lang_root.name.lower()
     return f"/wissen/{lang}/{rel}/"
 
 def find_existing_bundles(content_lang_root: Path, pk: str) -> List[Path]:
@@ -112,6 +114,12 @@ def find_existing_bundles(content_lang_root: Path, pk: str) -> List[Path]:
             hits.append(p)
     return hits
 
+def is_in_product_bundle(p: Path) -> bool:
+    for parent in [p] + list(p.parents):
+        if BUNDLE_DIRNAME_REGEX.match(parent.name):
+            return True
+    return False
+
 def list_all_images(root: Path) -> Dict[str, List[Path]]:
     from collections import defaultdict
     m = defaultdict(list)
@@ -120,18 +128,22 @@ def list_all_images(root: Path) -> Dict[str, List[Path]]:
             m[p.name.lower()].append(p)
     return m
 
-# ---------- Produkt-Key (pk) ----------
+def refresh_index_entry(index: Dict[str, List[Path]], name: str, old: Optional[Path], new: Optional[Path]):
+    key = name.lower()
+    lst = index.get(key, [])
+    if old is not None:
+        lst = [p for p in lst if p.resolve() != old.resolve()]
+    if new is not None:
+        lst.append(new)
+    index[key] = lst
 
-PK_REGEX = re.compile(r"^(p\d{3,5}|sl\d{3,5}|wl\d{3,5}|tr\d{3,5}|l\d{3,5}|s\d{3,5})", re.IGNORECASE)
+# ---------- Produkt-Key ----------
 
 def get_pk(row: Dict[str,str]) -> str:
-    # 1) product_id
     v = clean(row.get("product_id"))
     if v: return v.lower()
-    # 2) reference (falls vorhanden)
     v = clean(row.get("reference"))
     if v: return v.lower()
-    # 3) aus slug_de / slug_en extrahieren
     for k in ("slug_de","slug_en","slug"):
         v = clean(row.get(k))
         if not v: 
@@ -156,7 +168,7 @@ def main():
     ap.add_argument("--remove-empty-old-bundles", action="store_true")
     args = ap.parse_args()
 
-    repo_wissen = Path.cwd().resolve()   # erwartet: <repo>/wissen
+    repo_wissen = Path.cwd().resolve()
     csv_path = (repo_wissen / args.csv).resolve()
     de_root  = (repo_wissen / args.de_root).resolve()
     en_root  = (repo_wissen / args.en_root).resolve()
@@ -168,7 +180,8 @@ def main():
 
     de_products_root = de_root / "oeffentlich" / "produkte"
     assert de_products_root.exists(), f"DE products root missing: {de_products_root}"
-    de_images_index = list_all_images(de_products_root)
+    img_index = list_all_images(de_products_root)
+    processed_sources: set[Path] = set()
 
     created, updated, moved, copied, aliases_set, errors, skipped = [], [], [], [], [], [], []
 
@@ -206,7 +219,6 @@ def main():
         if isinstance(fm_exist_en.get("aliases"), list):
             alias_en.extend([str(a) for a in fm_exist_en["aliases"]])
 
-        # Minimales Frontmatter (weitere Felder kannst du hier ergänzen)
         fm_de = {"title": clean(r.get("titel_de") or pk), "lang": "de", "translationKey": pk}
         fm_en = {"title": clean(r.get("titel_en") or pk), "lang": "en", "translationKey": pk}
         if alias_de: fm_de["aliases"] = sorted(set(alias_de))
@@ -223,28 +235,57 @@ def main():
 
         # Bilder → DE
         for name in bilder:
-            if (bundle_de / name).exists():
+            dst_de = bundle_de / name
+            if dst_de.exists():
                 continue
-            hits = de_images_index.get(name.lower(), [])
-            if not hits:
+
+            key = name.lower()
+            # Liste existierender Quellen JETZT (Index wurde ggf. verändert)
+            sources = [p for p in img_index.get(key, []) if p.exists()]
+            # Wenn leer: versuchen im ganzen DE-Baum nochmal zu suchen (z. B. nach Moves)
+            if not sources:
+                for p in de_products_root.rglob(name):
+                    if p.is_file():
+                        sources.append(p)
+                if sources:
+                    img_index[key] = sources  # aktualisieren
+
+            if not sources:
                 errors.append(f"{pk}: image missing in repo (DE): {name}")
                 continue
+
+            # Bevorzugt Quelle unterhalb export_pfad_de
             chosen = None
             pref_root = de_root / exp_de.strip("/")
-            for c in hits:
+            for c in sources:
                 try:
                     c.relative_to(pref_root)
                     chosen = c; break
                 except Exception:
                     continue
             if not chosen:
-                chosen = hits[0]
+                chosen = sources[0]
+
+            # Move nur 1x aus Kategorie-Wurzel; sonst Copy
+            do_move = False
+            if chosen not in processed_sources:
+                # Kategorie-Asset? (nicht in einem Produkt-Bundle)
+                do_move = not is_in_product_bundle(chosen)
+
             if args.apply:
-                bundle_de.mkdir(parents=True, exist_ok=True)
-                dst = bundle_de / chosen.name
-                if not dst.exists():
-                    shutil.move(str(chosen), str(dst))
-                    moved.append(f"MOVE {chosen} -> {dst}")
+                dst_de.parent.mkdir(parents=True, exist_ok=True)
+                if do_move:
+                    # MOVE
+                    shutil.move(str(chosen), str(dst_de))
+                    moved.append(f"MOVE {chosen} -> {dst_de}")
+                    processed_sources.add(chosen)
+                    # Index aktualisieren
+                    refresh_index_entry(img_index, name, old=chosen, new=dst_de)
+                else:
+                    # COPY
+                    shutil.copy2(chosen, dst_de)
+                    copied.append(f"COPY {chosen} -> {dst_de}")
+                    refresh_index_entry(img_index, name, old=None, new=dst_de)
 
         # Bilder → EN spiegeln
         for name in bilder:
@@ -289,7 +330,6 @@ def main():
     rep.write_text("\n".join(lines), encoding="utf-8")
     print(f"Report: {rep}")
 
-    # Nur echte Fehler schalten rot:
     if errors:
         print("\n".join(errors), file=sys.stderr)
         sys.exit(1)
