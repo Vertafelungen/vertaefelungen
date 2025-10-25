@@ -1,0 +1,115 @@
+name: SSOT → Markdown Sync (export_pfad; no image renaming; PR-gated)
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: 'Änderungen anwenden (false = Dry-Run)'
+        required: true
+        default: 'true'
+        type: choice
+        options: ['false','true']
+      remove_empty_old_bundles:
+        description: 'Leere alte Produkt-Bundles entfernen'
+        required: true
+        default: 'false'
+        type: choice
+        options: ['false','true']
+  push:
+    branches: [ main ]
+    paths:
+      - 'wissen/ssot/SSOT.csv'
+      - 'wissen/scripts/ssot_sync_exportpfad.py'
+      - '.github/workflows/ssot-sync-exportpfad.yml'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: ssot-sync-exportpfad-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ssot-sync:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wissen
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruamel.yaml
+
+      - name: Run SSOT export-pfad sync (no rename)
+        id: run_sync
+        continue-on-error: true
+        run: |
+          python scripts/ssot_sync_exportpfad.py \
+            --csv "ssot/SSOT.csv" \
+            --de-root "content/de" \
+            --en-root "content/en" \
+            $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply") \
+            $([ "${{ github.event.inputs.remove_empty_old_bundles || 'false' }}" = "true" ] && echo "--remove-empty-old-bundles")
+
+      - name: Upload SSOT report
+        uses: actions/upload-artifact@v4
+        with:
+          name: ssot-sync-exportpfad-report
+          path: wissen/scripts/reports/ssot-sync-exportpfade-*.md
+          if-no-files-found: ignore
+
+      # === Eure bestehende „grüne“ Format-/Validierkette ===
+      # Reihenfolge: Sanitize → Fix YAML → Repair Body → Pretty Links → Lint Frontmatter → Guard (Gate)
+      - name: Sanitize legacy frontmatter
+        run: |
+          python sanitize_legacy_frontmatter.py --root "content"
+
+      - name: Fix legacy YAML format
+        run: |
+          python fix_legacy_yaml_format.py --root "content"
+
+      - name: Repair legacy Markdown body
+        run: |
+          python repair_legacy_md.py --root "content"
+
+      - name: Fix pretty links and images
+        run: |
+          python fix_pretty_links_and_images.py --root "content"
+
+      - name: Lint content frontmatter
+        run: |
+          python lint_content_frontmatter.py --root "content"
+
+      - name: Guard validate (hard gate)
+        run: |
+          python guard_validate.py --content-root "content"
+
+      - name: Stage changes
+        run: |
+          git add -A
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/ssot-sync-exportpfad
+          title: 'chore(wissen): SSOT → Markdown sync (export_pfad; no rename)'
+          commit-message: 'chore(wissen): SSOT → Markdown sync (export_pfad; no rename)'
+          labels: chore
+
+      - name: Note sync status
+        if: steps.run_sync.outcome != 'success'
+        run: |
+          echo "::warning::SSOT-Sync meldete Issues (siehe Report/PR). Änderungen sind für Review bereitgestellt."
