@@ -87,7 +87,7 @@ jobs:
 
       - name: Fix pretty links and images
         run: |
-          python tools/fix_pretty_links_and_images.py --root "content"
+          python ../tools/fix_pretty_links_and_images.py --root "content"
 
       - name: Lint content frontmatter
         run: |
