@@ -95,7 +95,7 @@ jobs:
 
       - name: Guard validate (hard gate)
         run: |
-          python scripts/guard_validate.py --root "content"
+          python scripts/guard_validate.py --mode all
 
       - name: Stage changes
         run: |
