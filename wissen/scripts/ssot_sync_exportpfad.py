@@ -2,25 +2,24 @@
 # -*- coding: utf-8 -*-
 """
 SSOT → Markdown Page Bundles (export_pfad aware, no image renaming)
-- Legt pro Produkt ein Leaf-Bundle unterhalb export_pfad_de/en an:
-    DE: content/de/<export_pfad_de>/<code>-<slug_de>/
-    EN: content/en/<export_pfad_en>/<code>-<slug_en>/
-- Schreibt index.md (Frontmatter aus SSOT; translationKey=code; aliases für Alt-URLs).
-- Verschiebt alle im SSOT (bilder_liste) aufgeführten Bilddateien in das DE-Produktbundle
-  (SUCHE im gesamten DE-Produktbaum) – Dateinamen bleiben exakt wie gelistet.
-- Kopiert diese Bilder 1:1 ins EN-Bundle (gleiche Dateinamen).
-- Entfernt KEINE Kategorieordner; räumt leere alte Produkt-Bundles auf Wunsch.
-- Idempotent; erzeugt Report (moved/copied/missing/aliases).
+
+- Primärschlüssel: product_id (Fallback: reference; sonst aus slug_de/slug_en extrahieren)
+- Zielstruktur:
+    DE: content/de/<export_pfad_de>/<pk>-<slug_de>/
+    EN: content/en/<export_pfad_en>/<pk>-<slug_en>/
+- index.md wird geschrieben/aktualisiert (translationKey=pk; aliases bei Umzug)
+- Bilder aus `bilder_liste` werden im gesamten DE-Produkte-Baum gesucht,
+  in das DE-Produktbundle VERSCHOBEN (Dateiname unverändert) und 1:1 nach EN kopiert
+- Zeilen ohne brauchbaren pk werden still SKIPPED (kein Abbruch)
+- Idempotent; Report mit created/updated/moved/copied/aliases/skipped/errors
 """
 
 from __future__ import annotations
-import argparse, csv, io, os, re, shutil, sys
+import argparse, csv, io, re, shutil, sys
 from pathlib import Path
 from typing import Dict, List, Tuple, Optional
 from datetime import datetime
 from ruamel.yaml import YAML
-
-# ---------- Helpers ----------
 
 yaml = YAML()
 yaml.default_flow_style = False
@@ -29,15 +28,26 @@ yaml.width = 4096
 
 IMG_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".avif", ".gif"}
 
+# ---------- CSV / Text Utils ----------
+
+def _normkey(s: str) -> str:
+    s = (s or "").strip().lower()
+    s = s.replace("ä","ae").replace("ö","oe").replace("ü","ue").replace("ß","ss")
+    return s
+
 def read_csv_utf8_auto(path: Path) -> List[Dict[str,str]]:
     raw = path.read_text(encoding="utf-8", errors="replace")
-    # Dialekt schnüffeln
     try:
         dialect = csv.Sniffer().sniff(raw[:2048], delimiters=",;|\t")
         delim = dialect.delimiter
     except Exception:
         delim = ","
-    return list(csv.DictReader(io.StringIO(raw), delimiter=delim))
+    rows = list(csv.DictReader(io.StringIO(raw), delimiter=delim))
+    # Header normalisieren
+    norm = []
+    for r in rows:
+        norm.append({ _normkey(k): ("" if v is None else v) for k, v in r.items() })
+    return norm
 
 def clean(s: Optional[str]) -> str:
     return (s or "").strip()
@@ -53,8 +63,7 @@ def slugify(s: str) -> str:
     t = re.sub(r"-{2,}", "-", t)
     return t.strip("-") or "item"
 
-def ensure_dir(d: Path):
-    d.mkdir(parents=True, exist_ok=True)
+# ---------- Frontmatter / Markdown ----------
 
 def read_frontmatter_and_body(p: Path) -> Tuple[Dict, str]:
     if not p.exists(): return {}, ""
@@ -80,7 +89,7 @@ def dump_frontmatter(fm: Dict) -> str:
     return "---\n" + s.getvalue().rstrip() + "\n---\n"
 
 def write_index(bundle_dir: Path, fm_new: Dict, keep_body_from: Optional[Path]):
-    ensure_dir(bundle_dir)
+    bundle_dir.mkdir(parents=True, exist_ok=True)
     idx = bundle_dir / "index.md"
     body = ""
     if keep_body_from and keep_body_from.exists():
@@ -89,21 +98,21 @@ def write_index(bundle_dir: Path, fm_new: Dict, keep_body_from: Optional[Path]):
         _, body = read_frontmatter_and_body(idx)
     idx.write_text(dump_frontmatter(fm_new) + (body if body else ""), encoding="utf-8")
 
+# ---------- Paths, URLs, Images ----------
+
 def bundle_url(content_lang_root: Path, bundle_dir: Path) -> str:
     rel = bundle_dir.relative_to(content_lang_root).as_posix().strip("/")
     lang = content_lang_root.name.lower()  # 'de' | 'en'
     return f"/wissen/{lang}/{rel}/"
 
-def find_existing_bundles(content_lang_root: Path, code: str) -> List[Path]:
-    # sehr großzügig: jede Dir, die mit "<code>-" beginnt, gilt als altes Bundle
+def find_existing_bundles(content_lang_root: Path, pk: str) -> List[Path]:
     hits = []
-    for p in content_lang_root.rglob(f"{code}-*"):
+    for p in content_lang_root.rglob(f"{pk}-*"):
         if p.is_dir():
             hits.append(p)
     return hits
 
 def list_all_images(root: Path) -> Dict[str, List[Path]]:
-    # Map: basename.lower() -> [fullpath,...]
     from collections import defaultdict
     m = defaultdict(list)
     for p in root.rglob("*"):
@@ -111,7 +120,31 @@ def list_all_images(root: Path) -> Dict[str, List[Path]]:
             m[p.name.lower()].append(p)
     return m
 
-# ---------- Core ----------
+# ---------- Produkt-Key (pk) ----------
+
+PK_REGEX = re.compile(r"^(p\d{3,5}|sl\d{3,5}|wl\d{3,5}|tr\d{3,5}|l\d{3,5}|s\d{3,5})", re.IGNORECASE)
+
+def get_pk(row: Dict[str,str]) -> str:
+    # 1) product_id
+    v = clean(row.get("product_id"))
+    if v: return v.lower()
+    # 2) reference (falls vorhanden)
+    v = clean(row.get("reference"))
+    if v: return v.lower()
+    # 3) aus slug_de / slug_en extrahieren
+    for k in ("slug_de","slug_en","slug"):
+        v = clean(row.get(k))
+        if not v: 
+            continue
+        m = PK_REGEX.match(v)
+        if m:
+            return m.group(1).lower()
+        t = v.split("-",1)[0].lower()
+        if PK_REGEX.match(t):
+            return t
+    return ""
+
+# ---------- Main ----------
 
 def main():
     ap = argparse.ArgumentParser()
@@ -133,43 +166,39 @@ def main():
 
     rows = read_csv_utf8_auto(csv_path)
 
-    # Index aller vorhandenen Bilder im DE-Produkte-Baum (einmalig)
     de_products_root = de_root / "oeffentlich" / "produkte"
     assert de_products_root.exists(), f"DE products root missing: {de_products_root}"
     de_images_index = list_all_images(de_products_root)
 
-    created, updated, moved, copied, aliases_set, errors = [], [], [], [], [], []
+    created, updated, moved, copied, aliases_set, errors, skipped = [], [], [], [], [], [], []
 
     for r in rows:
-        code = clean(r.get("code") or r.get("produkt_code") or r.get("product_code"))
-        if not code:
-            errors.append("row without code")
+        pk = get_pk(r)
+        if not pk:
+            skipped.append("row without product_id/reference/slug")
             continue
 
-        slug_de = clean(r.get("slug_de")) or slugify(clean(r.get("title_de") or r.get("titel_de") or code))
-        slug_en = clean(r.get("slug_en")) or slugify(clean(r.get("title_en") or r.get("titel_en") or code))
+        slug_de = clean(r.get("slug_de")) or slugify(clean(r.get("titel_de") or pk))
+        slug_en = clean(r.get("slug_en")) or slugify(clean(r.get("titel_en") or pk))
 
         exp_de = clean(r.get("export_pfad_de"))
         exp_en = clean(r.get("export_pfad_en"))
-        if not exp_de: errors.append(f"{code}: missing export_pfad_de")
-        if not exp_en: errors.append(f"{code}: missing export_pfad_en")
         if not exp_de or not exp_en:
+            skipped.append(f"{pk}: missing export path")
             continue
 
-        bilder_raw = clean(r.get("bilder_liste") or r.get("bilder") or "")
+        bilder_raw = clean(r.get("bilder_liste") or "")
         bilder = [b.strip() for b in re.split(r"[,\n;]", bilder_raw) if b.strip()]
 
-        # Ziel-Bundles
-        bundle_de = de_root / exp_de.strip("/") / f"{code}-{slug_de}"
-        bundle_en = en_root / exp_en.strip("/") / f"{code}-{slug_en}"
+        bundle_de = de_root / exp_de.strip("/") / f"{pk}-{slug_de}"
+        bundle_en = en_root / exp_en.strip("/") / f"{pk}-{slug_en}"
 
-        # Aliases aus alten Bundles sammeln (DE+EN)
-        old_de = [p for p in find_existing_bundles(de_root, code) if p.resolve() != bundle_de.resolve()]
-        old_en = [p for p in find_existing_bundles(en_root, code) if p.resolve() != bundle_en.resolve()]
+        # Aliases bei Umzug
+        old_de = [p for p in find_existing_bundles(de_root, pk) if p.resolve() != bundle_de.resolve()]
+        old_en = [p for p in find_existing_bundles(en_root, pk) if p.resolve() != bundle_en.resolve()]
         alias_de = [bundle_url(de_root, p) for p in old_de]
         alias_en = [bundle_url(en_root, p) for p in old_en]
 
-        # Existierende Aliases mitnehmen
         fm_exist_de, _ = read_frontmatter_and_body(bundle_de / "index.md")
         fm_exist_en, _ = read_frontmatter_and_body(bundle_en / "index.md")
         if isinstance(fm_exist_de.get("aliases"), list):
@@ -177,15 +206,12 @@ def main():
         if isinstance(fm_exist_en.get("aliases"), list):
             alias_en.extend([str(a) for a in fm_exist_en["aliases"]])
 
-        # Frontmatter bauen (nur Kernfelder; übrige kommen aus SSOT – optional erweiterbar)
-        fm_de = {"title": clean(r.get("title_de") or r.get("titel_de") or code),
-                 "lang": "de", "translationKey": code}
-        fm_en = {"title": clean(r.get("title_en") or r.get("titel_en") or code),
-                 "lang": "en", "translationKey": code}
+        # Minimales Frontmatter (weitere Felder kannst du hier ergänzen)
+        fm_de = {"title": clean(r.get("titel_de") or pk), "lang": "de", "translationKey": pk}
+        fm_en = {"title": clean(r.get("titel_en") or pk), "lang": "en", "translationKey": pk}
         if alias_de: fm_de["aliases"] = sorted(set(alias_de))
         if alias_en: fm_en["aliases"] = sorted(set(alias_en))
 
-        # index.md schreiben/aktualisieren
         if args.apply:
             existed = (bundle_de / "index.md").exists()
             write_index(bundle_de, fm_de, keep_body_from=bundle_de / "index.md")
@@ -195,88 +221,75 @@ def main():
             write_index(bundle_en, fm_en, keep_body_from=bundle_en / "index.md")
             (updated if existed else created).append(bundle_en.as_posix())
 
-        # Bilder einsammeln (DE): exakt die Namen aus bilder_liste – ohne Umbenennung
+        # Bilder → DE
         for name in bilder:
-            key = name.lower()
-            # Falls bereits im Ziel-Bundle vorhanden, ok
             if (bundle_de / name).exists():
                 continue
-            # Sonst global im DE-Produkte-Baum nach Basename suchen
-            candidates = de_images_index.get(key, [])
-            if not candidates:
-                errors.append(f"{code}: image missing in repo (DE): {name}")
+            hits = de_images_index.get(name.lower(), [])
+            if not hits:
+                errors.append(f"{pk}: image missing in repo (DE): {name}")
                 continue
-            # Heuristik: bevorzuge Kandidaten, die unterhalb des export_pfad_de liegen
             chosen = None
             pref_root = de_root / exp_de.strip("/")
-            for c in candidates:
+            for c in hits:
                 try:
                     c.relative_to(pref_root)
                     chosen = c; break
                 except Exception:
                     continue
             if not chosen:
-                chosen = candidates[0]
-            # Verschieben
+                chosen = hits[0]
             if args.apply:
-                ensure_dir((bundle_de).resolve())
-                dst = bundle_de / chosen.name  # Name bleibt unverändert
+                bundle_de.mkdir(parents=True, exist_ok=True)
+                dst = bundle_de / chosen.name
                 if not dst.exists():
                     shutil.move(str(chosen), str(dst))
                     moved.append(f"MOVE {chosen} -> {dst}")
-                # Index neu aufbauen für den Fall mehrfacher Dateien mit gleichem Namen
-            # (kein else: dry-run weglassen, um Log schlank zu halten)
 
-        # Bilder nach EN spiegeln
+        # Bilder → EN spiegeln
         for name in bilder:
             src = bundle_de / name
             dst = bundle_en / name
             if src.exists():
                 if args.apply:
-                    ensure_dir(dst.parent)
+                    dst.parent.mkdir(parents=True, exist_ok=True)
                     if not dst.exists():
                         shutil.copy2(src, dst)
                         copied.append(f"COPY {src} -> {dst}")
             else:
-                errors.append(f"{code}: image not found in DE bundle for EN copy: {name}")
+                errors.append(f"{pk}: image not found in DE bundle for EN copy: {name}")
 
         if alias_de or alias_en:
-            aliases_set.append(code)
+            aliases_set.append(pk)
 
-        # Leere alte Bundle-Verzeichnisse optional löschen
         if args.apply and args.remove_empty_old_bundles:
             for ob in old_de + old_en:
                 try:
-                    # nur löschen, wenn wirklich leer
-                    any_files = any(ob.rglob("*"))
-                    if not any_files:
+                    if not any(ob.rglob("*")):
                         ob.rmdir()
                 except Exception:
                     pass
 
-    # Report schreiben
+    # Report
     ts = datetime.now().strftime("%Y%m%d-%H%M%S")
     rep = Path(args.report) if args.report else Path("scripts/reports")/f"ssot-sync-exportpfad-{ts}.md"
-    ensure_dir(rep.parent)
+    rep.parent.mkdir(parents=True, exist_ok=True)
     lines = [
-        f"# SSOT Sync Report ({ts})",
-        "",
-        f"CSV: {csv_path}",
-        f"DE root: {de_root}",
-        f"EN root: {en_root}",
-        ""
+        f"# SSOT Sync Report ({ts})", "",
+        f"CSV: {csv_path}", f"DE root: {de_root}", f"EN root: {en_root}", ""
     ]
     if created: lines += ["## Created"] + [f"- {p}" for p in created] + [""]
     if updated: lines += ["## Updated"] + [f"- {p}" for p in updated] + [""]
     if moved:   lines += ["## Moved"]   + [f"- {p}" for p in moved]   + [""]
     if copied:  lines += ["## Copied"]  + [f"- {p}" for p in copied]  + [""]
-    if aliases_set: lines += ["## Aliases set for codes"] + [f"- {c}" for c in sorted(set(aliases_set))] + [""]
+    if aliases_set: lines += ["## Aliases set for"] + [f"- {c}" for c in sorted(set(aliases_set))] + [""]
+    if skipped: lines += ["## Skipped (info)"] + [f"- {s}" for s in skipped[:200]] + [""]
     if errors:  lines += ["## Errors"]  + [f"- {e}" for e in errors]  + [""]
 
     rep.write_text("\n".join(lines), encoding="utf-8")
     print(f"Report: {rep}")
 
-    # Exit-Code: Fehler sichtbar machen (Gate entscheidet im nachgelagerten Step)
+    # Nur echte Fehler schalten rot:
     if errors:
         print("\n".join(errors), file=sys.stderr)
         sys.exit(1)
