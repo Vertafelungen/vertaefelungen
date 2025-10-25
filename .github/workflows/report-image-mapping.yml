@@ -1,0 +1,144 @@
+name: SSOT image mapping (read-only)
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  report-image-mapping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate sitemaps and SSOT↔Repo image mapping (read-only)
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import csv, io, re, sys
+          from collections import defaultdict
+
+          ROOT = Path(".").resolve()
+          SSOT = ROOT / "wissen" / "ssot" / "SSOT.csv"
+          DE_ROOT = ROOT / "wissen" / "content" / "de" / "oeffentlich" / "produkte"
+          EN_ROOT = ROOT / "wissen" / "content" / "en" / "public" / "products"
+          TMP = ROOT / ".tmp"
+          TMP.mkdir(parents=True, exist_ok=True)
+
+          def die(msg):
+            print(f"::error::{msg}", file=sys.stderr); sys.exit(1)
+
+          if not SSOT.exists(): die(f"SSOT.csv not found: {SSOT}")
+          if not DE_ROOT.exists(): die(f"DE products root not found: {DE_ROOT}")
+          # EN kann fehlen; Sitemap-EN wird dann leer erzeugt
+          if not EN_ROOT.exists():
+            print(f"::warning::EN products root not found: {EN_ROOT}")
+
+          # --- Read SSOT.csv with delimiter sniffing
+          raw = SSOT.read_text(encoding="utf-8", errors="replace")
+          try:
+            dialect = csv.Sniffer().sniff(raw[:2048], delimiters=",;|\t")
+            delim = dialect.delimiter
+          except Exception:
+            delim = ","
+          rows = list(csv.DictReader(io.StringIO(raw), delimiter=delim))
+          # normalize headers
+          norm_rows = []
+          for r in rows:
+            norm_rows.append({(k or "").strip().lower(): (v or "") for k,v in r.items()})
+          rows = norm_rows
+
+          def pick(d, keys):
+            for k in keys:
+              if k in d:
+                return d.get(k) or ""
+            return ""
+
+          # Build SSOT entries
+          ssot_entries = []
+          for r in rows:
+            code = (pick(r, ["code","produkt_code","product_code"]).strip() or "").lower()
+            if not code:
+              continue
+            bilder_raw = pick(r, ["bilder_liste","bilder","images","bilderliste"])
+            images = [b.strip() for b in re.split(r"[,\n;]", bilder_raw) if b.strip()]
+            exp_de = pick(r, ["export_pfad_de","export_de","pfad_de"]).strip()
+            exp_en = pick(r, ["export_pfad_en","export_en","pfad_en"]).strip()
+            ssot_entries.append({
+              "code": code,
+              "images": images,
+              "export_pfad_de": exp_de,
+              "export_pfad_en": exp_en,
+            })
+
+          # Collect all DE product images (category + product folders)
+          IMG_EXTS = {".png",".jpg",".jpeg",".webp",".avif",".gif"}
+          paths_by_name = defaultdict(list)
+          for p in DE_ROOT.rglob("*"):
+            if p.is_file() and p.suffix.lower() in IMG_EXTS:
+              rel = p.relative_to(ROOT).as_posix()
+              paths_by_name[p.name.lower()].append(rel)
+
+          # Sitemaps (DE/EN)
+          def sitemap(base: Path, outfile: Path):
+            lines = []
+            if base.exists():
+              for p in sorted(base.rglob("*")):
+                rel = p.relative_to(ROOT).as_posix()
+                lines.append(rel)
+            outfile.write_text("\n".join(lines) + ("\n" if lines else ""), encoding="utf-8")
+
+          sitemap(DE_ROOT, TMP / "sitemap_de.txt")
+          sitemap(EN_ROOT, TMP / "sitemap_en.txt")
+
+          # Mapping table (flat) + summary
+          flat_lines = ["code\timage\tstatus\trepo_paths"]
+          summary_lines = ["code\texport_pfad_de\texport_pfad_en\tlisted\tfound\tmissing\tmissing_names"]
+
+          for entry in ssot_entries:
+            code = entry["code"]
+            listed = entry["images"]
+            found_total = 0
+            missing = []
+            for img in listed:
+              hits = paths_by_name.get(img.lower(), [])
+              if hits:
+                found_total += len(hits)
+                flat_lines.append(f"{code}\t{img}\tfound\t{' | '.join(hits)}")
+              else:
+                missing.append(img)
+                flat_lines.append(f"{code}\t{img}\tMISSING\t")
+            summary_lines.append(
+              f"{code}\t{entry['export_pfad_de']}\t{entry['export_pfad_en']}\t{len(listed)}\t{found_total}\t{len(missing)}\t{', '.join(missing)}"
+            )
+
+          (TMP / "mapping.tsv").write_text("\n".join(flat_lines) + "\n", encoding="utf-8")
+          (TMP / "summary.tsv").write_text("\n".join(summary_lines) + "\n", encoding="utf-8")
+
+          print("Reports written to .tmp/:")
+          for f in ["mapping.tsv","summary.tsv","sitemap_de.txt","sitemap_en.txt"]:
+            print(" -", (TMP / f))
+          PY
+
+      - name: Upload reports (artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: image-mapping
+          path: |
+            .tmp/mapping.tsv
+            .tmp/summary.tsv
+            .tmp/sitemap_de.txt
+            .tmp/sitemap_en.txt
+          if-no-files-found: error
+          retention-days: 7
