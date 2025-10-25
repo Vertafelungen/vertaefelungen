@@ -12,14 +12,14 @@ on:
       remove_empty_old_bundles:
         description: 'Leere alte Produkt-Bundles entfernen'
         required: true
-        default: 'true'
+        default: 'false'
         type: choice
         options: ['false','true']
   push:
     branches: [ main ]
     paths:
       - 'wissen/ssot/SSOT.csv'
-      - 'wissen/scripts/**.py'
+      - 'wissen/scripts/ssot_sync_exportpfad.py'
       - '.github/workflows/ssot-sync-exportpfad.yml'
 
 permissions:
@@ -62,16 +62,17 @@ jobs:
             --de-root "content/de" \
             --en-root "content/en" \
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply") \
-            $([ "${{ github.event.inputs.remove_empty_old_bundles || 'true' }}" = "true" ] && echo "--remove-empty-old-bundles")
+            $([ "${{ github.event.inputs.remove_empty_old_bundles || 'false' }}" = "true" ] && echo "--remove-empty-old-bundles")
 
       - name: Upload SSOT report
         uses: actions/upload-artifact@v4
         with:
           name: ssot-sync-exportpfad-report
-          path: wissen/scripts/reports/ssot-sync-exportpfad-*.md
+          path: wissen/scripts/reports/ssot-sync-exportpfade-*.md
           if-no-files-found: ignore
 
-      # ===== eure bewährte Format-/Validierkette – mit korrekten Pfaden =====
+      # === Eure bestehende „grüne“ Format-/Validierkette ===
+      # Reihenfolge: Sanitize → Fix YAML → Repair Body → Pretty Links → Lint Frontmatter → Guard (Gate)
       - name: Sanitize legacy frontmatter
         run: |
           python scripts/sanitize_legacy_frontmatter.py --root "content"
