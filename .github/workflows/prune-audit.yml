@@ -1,0 +1,67 @@
+name: Prune Audit (wissen/content)
+
+on:
+  workflow_dispatch:
+    inputs:
+      allowlist_extra:
+        description: 'Zusätzliche Allowlist-Präfixe relativ zu wissen/content (kommagetrennt)'
+        required: false
+        default: ''
+  push:
+    branches: [ main ]
+    paths:
+      - 'wissen/scripts/prune_audit.py'
+      - '.github/workflows/prune-audit.yml'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: prune-audit-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .   # wir rufen das Skript mit Pfad auf
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run prune audit
+        id: run_audit
+        env:
+          # Feste Schutz-Prefixe + optionale Ergänzungen aus dem UI
+          PRUNE_ALLOWLIST: de/docs,de/faq,en/faq${{ github.event.inputs.allowlist_extra && format(',{0}', github.event.inputs.allowlist_extra) || '' }}
+        run: |
+          python wissen/scripts/prune_audit.py | tee audit.log
+
+      - name: Upload Audit Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: prune-audit-report
+          path: |
+            wissen/scripts/reports/prune-audit-*.md
+            wissen/scripts/reports/prune-audit-*.csv
+            audit.log
+          if-no-files-found: error
+
+      - name: Summarize
+        run: |
+          echo "### Prune Audit Ergebnis" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          last_md=$(ls -1 wissen/scripts/reports/prune-audit-*.md | tail -n 1)
+          echo "Report: \`${last_md}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Artifacts: **prune-audit-report**" >> $GITHUB_STEP_SUMMARY
