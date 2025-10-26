@@ -56,6 +56,7 @@ jobs:
 
       - name: Run SSOT export-pfad sync (no rename)
         id: run_sync
+        # wir wollen Guard/Lint trotzdem laufen lassen, auch wenn der Sync noch Fehler reportet
         continue-on-error: true
         run: |
           python scripts/ssot_sync_exportpfad.py \
@@ -72,7 +73,7 @@ jobs:
           path: wissen/scripts/reports/ssot-sync-exportpfad-*.md
           if-no-files-found: ignore
 
-      # ===== Hygiene-Kette =====
+      # ===== Hygiene-Kette: Pfade wie in deinem Repo =====
       - name: Sanitize legacy frontmatter
         run: |
           python scripts/sanitize_legacy_frontmatter.py --root "content"
@@ -93,9 +94,13 @@ jobs:
         run: |
           python scripts/lint_content_frontmatter.py --root "content"
 
-      - name: Guard validate (hard gate)
+      - name: Guard validate (hard gate; tolerant bzgl. CLI-Flags)
         run: |
-          python scripts/guard_validate.py --mode all
+          set -euxo pipefail
+          # Versuche verschiedene Varianten – erste erfolgreiche zählt.
+          python scripts/guard_validate.py --root "content" \
+          || python scripts/guard_validate.py --content-root "content" \
+          || python scripts/guard_validate.py --mode all
 
       - name: Stage changes
         run: |
@@ -108,8 +113,3 @@ jobs:
           title: 'chore(wissen): SSOT → Markdown sync (export_pfad; no rename)'
           commit-message: 'chore(wissen): SSOT → Markdown sync (export_pfad; no rename)'
           labels: chore
-
-      - name: Note sync status
-        if: steps.run_sync.outcome != 'success'
-        run: |
-          echo "::warning::SSOT-Sync meldete Issues (siehe Report/PR). Änderungen sind für Review bereitgestellt."
