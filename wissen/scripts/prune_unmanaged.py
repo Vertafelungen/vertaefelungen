@@ -1,104 +1,115 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Prune unmanaged Markdown unter wissen/content/**.
+Prune unmanaged Markdown files under wissen/content
 
-"Unmanaged" = Datei enthält KEIN 'managed_by:'.
-
-Sicherheit:
-- Default: DRY-RUN (PRUNE_CONFIRM != true) -> Exit 0 (grün) + Bericht
-- Confirm: echte Löschung + Commit (vom Workflow), Exit 0
-
-Allowlist (nie löschen), relativ zu wissen/content/:
-- BASIS: de/faq, en/faq, de/_templates, en/_templates
-- + optionale Präfixe via ENV PRUNE_ALLOWLIST (kommagetrennt)
-
-Löscht ausschließlich *.md (keine Verzeichnisse/Assets).
+- Löscht nur .md-Dateien, die KEIN 'managed_by:' im Frontmatter besitzen.
+- _index.md und README.md werden NIE gelöscht (Section-/Kategorieseiten-Schutz).
+- Zusätzliche Schutzpfade (Präfixe relativ zu wissen/content) via Env: PRUNE_ALLOWLIST="de/docs,de/faq,en/faq"
+- Dry-Run per Default; erst bei PRUNE_CONFIRM=true werden Dateien wirklich entfernt.
 """
+
 from __future__ import annotations
-import os
+import os, sys, re
 from pathlib import Path
-from typing import Iterable
+from typing import Iterable, List
 
-REPO = Path(__file__).resolve().parents[2]
-CONTENT = REPO / "wissen" / "content"
+SECTION_FILES = {"_index.md", "readme.md"}  # nie löschen
 
-BASE_ALLOWLIST = [
-    "de/faq",          # komplette FAQ-Struktur schützen
-    "en/faq",
-    "de/_templates",
-    "en/_templates",
-]
+def repo_root_from_here() -> Path:
+    # <repo>/wissen/scripts/prune_unmanaged.py  -> <repo>
+    here = Path(__file__).resolve()
+    return here.parents[2]  # .../wissen/scripts -> .../wissen -> <repo>
 
-def read_text_safely(p: Path) -> str:
-    b = p.read_bytes()
-    if b.startswith(b"\xef\xbb\xbf"):
-        b = b[3:]
+def normalize_prefixes(prefixes: str) -> List[str]:
+    if not prefixes:
+        return []
+    out = []
+    for raw in prefixes.split(","):
+        p = raw.strip().strip("/").replace("\\", "/")
+        if p:
+            out.append(p)
+    return out
+
+def is_allowed(path: Path, content_root: Path, allow_prefixes: List[str]) -> bool:
+    rel = path.relative_to(content_root).as_posix()
+    for pref in allow_prefixes:
+        if rel.startswith(pref):
+            return True
+    return False
+
+def read_frontmatter_block(p: Path) -> str:
     try:
-        return b.decode("utf-8")
+        txt = p.read_text(encoding="utf-8")
     except UnicodeDecodeError:
-        return b.decode("cp1252", errors="ignore")
+        # Fallback für alte Dateien
+        txt = p.read_text(encoding="cp1252", errors="replace")
+    if not txt.startswith("---"):
+        return ""
+    # Frontmatter bis zur nächsten Zeile mit '---'
+    end = txt.find("\n---", 3)
+    if end == -1:
+        return ""
+    return txt[3:end]  # ohne die erste '---'
 
-def load_allowlist() -> list[str]:
-    allow = list(BASE_ALLOWLIST)
-    extra = os.environ.get("PRUNE_ALLOWLIST", "").strip()
-    if extra:
-        allow.extend(x.strip().strip("/") for x in extra.split(",") if x.strip())
-    return [a.replace("\\", "/") for a in allow]
+def has_managed_by(frontmatter: str) -> bool:
+    # Nur im Frontmatter prüfen, nicht im Body.
+    # Zeilenweise tolerant gegen Whitespaces/Case.
+    for line in frontmatter.splitlines():
+        if re.match(r"^\s*managed_by\s*:", line, flags=re.IGNORECASE):
+            return True
+    return False
 
-def is_allowlisted(p: Path, allowlist: Iterable[str]) -> bool:
-    rel = p.relative_to(CONTENT).as_posix()
-    return any(rel.startswith(prefix) for prefix in allowlist)
-
-def is_unmanaged(p: Path) -> bool:
-    try:
-        return "managed_by:" not in read_text_safely(p)
-    except Exception:
-        return False
+def collect_candidates(content_root: Path, allow_prefixes: List[str]) -> List[Path]:
+    cands: List[Path] = []
+    for p in content_root.rglob("*.md"):
+        # Section-/Kategorieseiten nie löschen
+        if p.name.lower() in SECTION_FILES:
+            continue
+        # Allowlist (Präfix relativ zu content-root)
+        if is_allowed(p, content_root, allow_prefixes):
+            continue
+        fm = read_frontmatter_block(p)
+        if not has_managed_by(fm):
+            cands.append(p)
+    return sorted(cands, key=lambda x: x.as_posix())
 
 def main() -> int:
-    allowlist = load_allowlist()
-    confirm = os.environ.get("PRUNE_CONFIRM", "").lower() in {"1", "true", "yes"}
+    repo_root = repo_root_from_here()
+    content_root = (repo_root / "wissen" / "content").resolve()
+    if not content_root.exists():
+        print(f"Content root not found: {content_root}", file=sys.stderr)
+        return 2
 
-    candidates = []
-    for md in CONTENT.rglob("*.md"):
-        if is_allowlisted(md, allowlist):
-            continue
-        if is_unmanaged(md):
-            candidates.append(md)
+    confirm = (os.environ.get("PRUNE_CONFIRM", "false").strip().lower() == "true")
+    allow_env = os.environ.get("PRUNE_ALLOWLIST", "")  # z. B. "de/docs,de/faq,en/faq"
+    allow_prefixes = normalize_prefixes(allow_env)
 
-    summary_path = os.environ.get("GITHUB_STEP_SUMMARY")
-    lines = []
-    lines.append("### Prune unmanaged content\n")
-    lines.append(f"- Mode: {'DELETE' if confirm else 'DRY-RUN'}")
-    lines.append(f"- Candidates: **{len(candidates)}**\n")
-    if candidates:
-        lines.append("<details><summary>Dateien anzeigen</summary>\n")
-        for c in sorted(candidates):
-            lines.append(f"- `{c.relative_to(REPO)}`")
-        lines.append("\n</details>\n")
-    else:
-        lines.append("Keine Kandidaten gefunden.\n")
+    cands = collect_candidates(content_root, allow_prefixes)
 
-    print("\n".join(lines))
-    if summary_path:
-        Path(summary_path).write_text("\n".join(lines), encoding="utf-8")
+    mode = "REAL" if confirm else "DRY-RUN"
+    print(f"Prune unmanaged content\n\n    Mode: {mode}\n    Candidates: {len(cands)}\n")
+
+    # Übersicht zeigen
+    if cands:
+        print("Dateien anzeigen\n")
+        for p in cands:
+            rel = p.relative_to(content_root).as_posix()
+            print(f"    wissen/content/{rel}")
 
     if not confirm:
         return 0
 
+    # Real löschen
     deleted = 0
-    for c in candidates:
+    for p in cands:
         try:
-            c.unlink()
-            print(f"deleted: {c.relative_to(REPO)}")
+            p.unlink()
             deleted += 1
-        except FileNotFoundError:
-            pass
         except Exception as e:
-            print(f"warn: could not delete {c.relative_to(REPO)}: {e}")
+            print(f"[WARN] Could not delete {p}: {e}", file=sys.stderr)
 
-    print(f"Pruned {deleted} files.")
+    print(f"\nDeleted: {deleted}")
     return 0
 
 if __name__ == "__main__":
