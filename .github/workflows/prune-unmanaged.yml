@@ -1,26 +1,37 @@
-name: Prune unmanaged content
+name: Prune unmanaged Markdown (wissen/content)
 
 on:
   workflow_dispatch:
     inputs:
       confirm:
-        description: "Wirklich löschen? (true/false)"
+        description: 'WIRKLICH löschen? (false = Dry-Run)'
         required: true
-        default: "false"
-      allowlist:
-        description: "Zusätzliche Ordnerpräfixe, Komma-getrennt (optional)"
+        default: 'false'
+        type: choice
+        options: ['false','true']
+      allowlist_extra:
+        description: 'Zusätzliche Allowlist-Präfixe relativ zu wissen/content (kommagetrennt)'
         required: false
-        default: ""
+        default: ''
+  # Optional automatisch nach dem SSOT-Sync:
+  # workflow_run:
+  #   workflows: ['SSOT → Markdown Sync (export_pfad; no image renaming; PR-gated)']
+  #   types: [completed]
 
 permissions:
   contents: write
+  pull-requests: write
+
+concurrency:
+  group: prune-unmanaged-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   prune:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: wissen
+        working-directory: .   # wir rufen das Script mit Pfad auf
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -32,22 +43,44 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Run prune (dry-run or delete)
+      - name: Run prune (Dry-Run/Real je nach Input)
         env:
-          PRUNE_CONFIRM: ${{ github.event.inputs.confirm }}
-          PRUNE_ALLOWLIST: ${{ github.event.inputs.allowlist }}
+          PRUNE_CONFIRM: ${{ github.event.inputs.confirm || 'false' }}
+          PRUNE_ALLOWLIST: ${{ github.event.inputs.allowlist_extra || '' }}
         run: |
-          python scripts/prune_unmanaged.py
+          python wissen/scripts/prune_unmanaged.py
 
-      - name: Commit deletions (only when PRUNE_CONFIRM=true)
+      # OPTIONAL: leere Verzeichnisse entfernen (nur wenn wirklich löschen aktiv war)
+      - name: Remove empty directories (optional)
         if: ${{ github.event.inputs.confirm == 'true' }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          python - <<'PY'
+          from pathlib import Path
+          root = Path('wissen/content')
+          removed = 0
+          # von unten nach oben: tiefste Ordner zuerst
+          for d in sorted([p for p in root.rglob('*') if p.is_dir()],
+                          key=lambda p: len(p.parts), reverse=True):
+            try:
+              next(d.iterdir())
+            except StopIteration:
+              d.rmdir()
+              removed += 1
+            except Exception:
+              pass
+          print(f"Removed {removed} empty dirs")
+          PY
+
+      - name: Stage changes
+        if: ${{ github.event.inputs.confirm == 'true' }}
+        run: |
           git add -A
-          if git diff --cached --quiet; then
-            echo "Nothing to prune."
-          else
-            git commit -m "prune: remove unmanaged legacy content [skip ci]"
-            git push
-          fi
+
+      - name: Create Pull Request
+        if: ${{ github.event.inputs.confirm == 'true' }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          branch: chore/prune-unmanaged
+          title: 'chore(wissen): prune unmanaged markdown'
+          commit-message: 'chore(wissen): prune unmanaged markdown (auto)'
+          labels: chore,cleanup
