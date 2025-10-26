@@ -2,18 +2,24 @@
 # -*- coding: utf-8 -*-
 """
 SSOT → Markdown Page Bundles (export_pfad aware, no image renaming)
+Frontmatter jetzt mit:
+  - managed_by: ssot-sync
+  - last_synced: <YYYY-MM-DD>
 
+Highlights
 - Primärschlüssel: product_id (Fallback: reference; sonst aus slug_de/slug_en extrahiert)
 - Zielstruktur:
     DE: content/de/<export_pfad_de>/<pk>-<slug_de>/
     EN: content/en/<export_pfad_en>/<pk>-<slug_en>/
-- index.md: translationKey=pk; aliases bei Umzug
+- index.md:
+    * Merge bestehender Frontmatter + Update (title, lang, translationKey, aliases, managed_by, last_synced)
+    * Body bleibt erhalten
 - Bilder aus `bilder_liste`:
+    * Varianten robust (1↔01, '-'↔'_', Endungen)
     * Einmalig aus Kategorie-Bäumen MOVEN (Kategorien langfristig bildfrei)
-    * Wenn Bild bereits verschoben/liegt in anderem Produkt-Bundle → COPY
-    * Keine Umbenennung; Dateinamen bleiben exakt wie gelistet
-- Zeilen ohne brauchbaren pk werden still SKIPPED (kein Abbruch)
-- Nach jedem Move wird der Bildindex aktualisiert (keine „stale path“-Fehler)
+    * Wenn Quelle schon in Produkt-Bundle liegt → COPY
+    * Keine Umbenennung; Dateinamen bleiben unverändert
+- Zeilen ohne brauchbaren pk werden SKIPPED (Info), der Run bleibt grün; echte fehlende Bilder → Fehler (rot)
 """
 
 from __future__ import annotations
@@ -87,15 +93,39 @@ def dump_frontmatter(fm: Dict) -> str:
     yaml.dump(fm, s)
     return "---\n" + s.getvalue().rstrip() + "\n---\n"
 
-def write_index(bundle_dir: Path, fm_new: Dict, keep_body_from: Optional[Path]):
+def merge_frontmatter(existing: Dict, updates: Dict) -> Dict:
+    """
+    Bewahrt existierende Keys und überschreibt/ergänzt gezielt nur bekannte Felder.
+    'aliases' wird vereinigt (Set).
+    """
+    out = dict(existing or {})
+    # Aliases vereinigen (sofern vorhanden)
+    if "aliases" in updates:
+        new_aliases = list(dict.fromkeys([str(a) for a in (updates.get("aliases") or [])]))
+        old_aliases = out.get("aliases") or []
+        if isinstance(old_aliases, list):
+            combo = list(dict.fromkeys([str(a) for a in (old_aliases + new_aliases)]))
+        else:
+            combo = new_aliases
+        out["aliases"] = combo
+
+    # gezielt setzen/überschreiben
+    for k in ("title","lang","translationKey","managed_by","last_synced"):
+        v = updates.get(k, None)
+        if v is not None:
+            out[k] = v
+    return out
+
+def write_index(bundle_dir: Path, fm_updates: Dict):
+    """
+    Liest bestehende index.md (falls vorhanden), merged Frontmatter, setzt managed_by/last_synced und schreibt zurück.
+    Body bleibt erhalten.
+    """
     bundle_dir.mkdir(parents=True, exist_ok=True)
     idx = bundle_dir / "index.md"
-    body = ""
-    if keep_body_from and keep_body_from.exists():
-        _, body = read_frontmatter_and_body(keep_body_from)
-    elif idx.exists():
-        _, body = read_frontmatter_and_body(idx)
-    idx.write_text(dump_frontmatter(fm_new) + (body if body else ""), encoding="utf-8")
+    fm_exist, body = read_frontmatter_and_body(idx)
+    fm_merged = merge_frontmatter(fm_exist, fm_updates)
+    idx.write_text(dump_frontmatter(fm_merged) + (body if body else ""), encoding="utf-8")
 
 # ---------- Paths, URLs, Images ----------
 
@@ -136,6 +166,69 @@ def refresh_index_entry(index: Dict[str, List[Path]], name: str, old: Optional[P
     if new is not None:
         lst.append(new)
     index[key] = lst
+
+# --------- Bildnamen-Varianten (01/1, -, _, Ext) ----------
+
+def candidate_names(original: str) -> List[str]:
+    """
+    Liefert sinnvolle Namensvarianten, um SSOT/Repo-Divergenzen abzufangen:
+     - exakt wie angegeben
+     - 1-stellig ↔ 2-stellig (p0018-1.png <-> p0018-01.png)
+     - '-' ↔ '_' an der Stelle vor der Nummer
+     - Endung in {png,jpg,jpeg,webp,avif,gif} (case-insensitive)
+    """
+    name = original
+    stem, dot, ext = name.rpartition(".")
+    ext = ext or ""
+    base_noext = stem if dot else name
+    out = set()
+
+    # 1) original
+    out.add(original.lower())
+
+    # 2) Nummer erkennen (…-1, …-2 etc.)
+    m = re.search(r"([_-])(\d{1,2})$", base_noext)
+    if m:
+        sep, num = m.group(1), m.group(2)
+        # 1-stellig -> 2-stellig
+        if len(num) == 1:
+            out.add(f"{base_noext[:-1]}0{num}.{ext}".lower() if ext else f"{base_noext[:-1]}0{num}")
+        # 2-stellig -> 1-stellig (z. B. 01 -> 1)
+        if len(num) == 2 and num.startswith("0"):
+            out.add(f"{base_noext[:-2]}{num[1:]}.{ext}".lower() if ext else f"{base_noext[:-2]}{num[1:]}")
+        # '-' ↔ '_'
+        other_sep = "_" if sep == "-" else "-"
+        out.add((base_noext[:m.start(1)] + other_sep + num + (("." + ext) if ext else "")).lower())
+
+    # 3) alternative Endungen
+    for e in ["png","jpg","jpeg","webp","avif","gif"]:
+        if ext.lower() != e:
+            out.add((base_noext + "." + e).lower())
+
+    return list(out)
+
+def find_source_by_candidates(index: Dict[str, List[Path]], root: Path, name: str) -> Optional[Path]:
+    # 1) per Index
+    for cand in [name.lower()] + candidate_names(name):
+        for p in index.get(cand, []):
+            if p.exists():
+                return p
+    # 2) Fallback: filesystem search
+    for cand in [name] + candidate_names(name):
+        hits = list(root.rglob(cand))
+        if hits:
+            return hits[0]
+    return None
+
+def existing_variant_in_bundle(bundle: Path, name: str) -> Optional[str]:
+    # exakte Datei?
+    if (bundle / name).exists():
+        return name
+    # Varianten
+    for cand in candidate_names(name):
+        if (bundle / cand).exists():
+            return cand
+    return None
 
 # ---------- Produkt-Key ----------
 
@@ -185,6 +278,8 @@ def main():
 
     created, updated, moved, copied, aliases_set, errors, skipped = [], [], [], [], [], [], []
 
+    last_synced_str = datetime.utcnow().strftime("%Y-%m-%d")
+
     for r in rows:
         pk = get_pk(r)
         if not pk:
@@ -219,78 +314,76 @@ def main():
         if isinstance(fm_exist_en.get("aliases"), list):
             alias_en.extend([str(a) for a in fm_exist_en["aliases"]])
 
-        fm_de = {"title": clean(r.get("titel_de") or pk), "lang": "de", "translationKey": pk}
-        fm_en = {"title": clean(r.get("titel_en") or pk), "lang": "en", "translationKey": pk}
-        if alias_de: fm_de["aliases"] = sorted(set(alias_de))
-        if alias_en: fm_en["aliases"] = sorted(set(alias_en))
+        # --- Frontmatter Updates (DE/EN) inkl. managed_by & last_synced ---
+        fm_de_updates = {
+            "title": clean(r.get("titel_de") or pk),
+            "lang": "de",
+            "translationKey": pk,
+            "managed_by": "ssot-sync",
+            "last_synced": last_synced_str,
+        }
+        fm_en_updates = {
+            "title": clean(r.get("titel_en") or pk),
+            "lang": "en",
+            "translationKey": pk,
+            "managed_by": "ssot-sync",
+            "last_synced": last_synced_str,
+        }
+        if alias_de: fm_de_updates["aliases"] = sorted(set(alias_de))
+        if alias_en: fm_en_updates["aliases"] = sorted(set(alias_en))
 
         if args.apply:
             existed = (bundle_de / "index.md").exists()
-            write_index(bundle_de, fm_de, keep_body_from=bundle_de / "index.md")
+            write_index(bundle_de, fm_de_updates)
             (updated if existed else created).append(bundle_de.as_posix())
 
             existed = (bundle_en / "index.md").exists()
-            write_index(bundle_en, fm_en, keep_body_from=bundle_en / "index.md")
+            write_index(bundle_en, fm_en_updates)
             (updated if existed else created).append(bundle_en.as_posix())
+
+        # Merker: welche Datei im DE-Bundle letztlich vorliegt (für EN-Copy)
+        resolved_name_for_copy: Dict[str, str] = {}
 
         # Bilder → DE
         for name in bilder:
-            dst_de = bundle_de / name
-            if dst_de.exists():
+            # 0) liegt bereits als Variante im Bundle?
+            existing = existing_variant_in_bundle(bundle_de, name)
+            if existing:
+                resolved_name_for_copy[name] = existing
                 continue
 
-            key = name.lower()
-            # Liste existierender Quellen JETZT (Index wurde ggf. verändert)
-            sources = [p for p in img_index.get(key, []) if p.exists()]
-            # Wenn leer: versuchen im ganzen DE-Baum nochmal zu suchen (z. B. nach Moves)
-            if not sources:
-                for p in de_products_root.rglob(name):
-                    if p.is_file():
-                        sources.append(p)
-                if sources:
-                    img_index[key] = sources  # aktualisieren
-
-            if not sources:
+            # 1) Quelle im gesamten DE-Baum finden (inkl. Varianten)
+            chosen = find_source_by_candidates(img_index, de_products_root, name)
+            if not chosen:
                 errors.append(f"{pk}: image missing in repo (DE): {name}")
                 continue
 
-            # Bevorzugt Quelle unterhalb export_pfad_de
-            chosen = None
-            pref_root = de_root / exp_de.strip("/")
-            for c in sources:
-                try:
-                    c.relative_to(pref_root)
-                    chosen = c; break
-                except Exception:
-                    continue
-            if not chosen:
-                chosen = sources[0]
-
-            # Move nur 1x aus Kategorie-Wurzel; sonst Copy
+            # 2) Move nur 1x aus Kategorie-Bäumen; sonst Copy
             do_move = False
             if chosen not in processed_sources:
-                # Kategorie-Asset? (nicht in einem Produkt-Bundle)
                 do_move = not is_in_product_bundle(chosen)
 
+            # 3) Ausführen
             if args.apply:
+                dst_de = bundle_de / chosen.name  # Zielname = Quellname (keine Umbenennung)
                 dst_de.parent.mkdir(parents=True, exist_ok=True)
                 if do_move:
-                    # MOVE
                     shutil.move(str(chosen), str(dst_de))
                     moved.append(f"MOVE {chosen} -> {dst_de}")
                     processed_sources.add(chosen)
-                    # Index aktualisieren
-                    refresh_index_entry(img_index, name, old=chosen, new=dst_de)
+                    refresh_index_entry(img_index, chosen.name, old=chosen, new=dst_de)
                 else:
-                    # COPY
-                    shutil.copy2(chosen, dst_de)
-                    copied.append(f"COPY {chosen} -> {dst_de}")
-                    refresh_index_entry(img_index, name, old=None, new=dst_de)
+                    if not dst_de.exists():
+                        shutil.copy2(chosen, dst_de)
+                        copied.append(f"COPY {chosen} -> {dst_de}")
+                        refresh_index_entry(img_index, chosen.name, old=None, new=dst_de)
+                resolved_name_for_copy[name] = dst_de.name
 
-        # Bilder → EN spiegeln
+        # Bilder → EN spiegeln (mit der tatsächlich im DE-Bundle vorhandenen Variante)
         for name in bilder:
-            src = bundle_de / name
-            dst = bundle_en / name
+            eff = resolved_name_for_copy.get(name) or existing_variant_in_bundle(bundle_de, name) or name
+            src = bundle_de / eff
+            dst = bundle_en / eff
             if src.exists():
                 if args.apply:
                     dst.parent.mkdir(parents=True, exist_ok=True)
@@ -312,7 +405,7 @@ def main():
                     pass
 
     # Report
-    ts = datetime.now().strftime("%Y%m%d-%H%M%S")
+    ts = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
     rep = Path(args.report) if args.report else Path("scripts/reports")/f"ssot-sync-exportpfad-{ts}.md"
     rep.parent.mkdir(parents=True, exist_ok=True)
     lines = [
