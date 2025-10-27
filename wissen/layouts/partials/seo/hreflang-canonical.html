@@ -1,0 +1,7 @@
+{{- /* layouts/partials/seo/hreflang-canonical.html */ -}}
+<link rel="canonical" href="{{ .Permalink }}" />
+{{- $all := .AllTranslations -}}
+{{- range $all }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}" />
+{{- end -}}
+<link rel="alternate" hreflang="x-default" href="{{ .Permalink }}" />
