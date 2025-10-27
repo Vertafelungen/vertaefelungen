@@ -1,7 +1,0 @@
----
-title: Oxidrot - BEECK Standölinnenfarbe PRO
-lang: de
-translationKey: '105'
-managed_by: ssot-sync
-last_synced: '2025-10-26'
----
