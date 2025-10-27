@@ -1,3 +1,6 @@
+# SSOT → Markdown Sync (export_pfad; copy images from ssot/bilder)
+# Version: 2025-10-27 05:00 Europe/Berlin
+
 name: SSOT → Markdown Sync (export_pfad; no image renaming; PR-gated)
 
 on:
@@ -19,6 +22,7 @@ on:
     branches: [ main ]
     paths:
       - 'wissen/ssot/SSOT.csv'
+      - 'wissen/ssot/bilder/**'      # NEU: trigger, wenn zentrale Bilder geändert werden
       - 'wissen/scripts/**.py'
       - 'tools/**.py'
       - '.github/workflows/ssot-sync-exportpfad.yml'
@@ -54,15 +58,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install ruamel.yaml
 
-      - name: Run SSOT export-pfad sync (no rename)
+      - name: Run SSOT export-pfad sync (copy from ssot/bilder)
         id: run_sync
-        # wir wollen Guard/Lint trotzdem laufen lassen, auch wenn der Sync noch Fehler reportet
         continue-on-error: true
         run: |
           python scripts/ssot_sync_exportpfad.py \
             --csv "ssot/SSOT.csv" \
             --de-root "content/de" \
             --en-root "content/en" \
+            --img-root "ssot/bilder" \
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply") \
             $([ "${{ github.event.inputs.remove_empty_old_bundles || 'true' }}" = "true" ] && echo "--remove-empty-old-bundles")
 
@@ -97,7 +101,6 @@ jobs:
       - name: Guard validate (hard gate; tolerant bzgl. CLI-Flags)
         run: |
           set -euxo pipefail
-          # Versuche verschiedene Varianten – erste erfolgreiche zählt.
           python scripts/guard_validate.py --root "content" \
           || python scripts/guard_validate.py --content-root "content" \
           || python scripts/guard_validate.py --mode all
@@ -110,6 +113,6 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: chore/ssot-sync-exportpfad
-          title: 'chore(wissen): SSOT → Markdown sync (export_pfad; no rename)'
-          commit-message: 'chore(wissen): SSOT → Markdown sync (export_pfad; no rename)'
+          title: 'chore(wissen): SSOT → Markdown sync (export_pfad; copy from ssot/bilder)'
+          commit-message: 'chore(wissen): SSOT → Markdown sync (export_pfad; copy from ssot/bilder)'
           labels: chore
