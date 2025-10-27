@@ -1,0 +1,47 @@
+{{- /* layouts/partials/seo/product-jsonld.html */ -}}
+{{- $p := . -}}
+{{- $prod := $p.Params.produkt -}}
+{{- if $prod }}
+{{- $name := cond (isset $p.Params "title") $p.Params.title $p.Title -}}
+{{- $desc := or $p.Params.seo.description (plainify ($p.Plain | truncate 500)) -}}
+{{- $brand := "Vertäfelung & Lambris" -}}
+{{- $images := slice -}}
+{{- if $prod.bilder }}
+  {{- range $i, $b := $prod.bilder }}
+    {{- $file := $b.datei -}}
+    {{- $res := $p.Resources.GetMatch (printf "**/%s" $file) -}}
+    {{- if not $res }}{{ $res = $p.Resources.GetMatch (printf "%s" $file) }}{{ end -}}
+    {{- if $res }}
+      {{- $images = $images | append $res.Permalink -}}
+    {{- else }}
+      {{- /* Fallback: relative concat (funktioniert, wenn Datei im Bundle liegt) */ -}}
+      {{- $images = $images | append (print $p.Permalink $file) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $availability := cond ($prod.verfuegbar) "http://schema.org/InStock" "http://schema.org/OutOfStock" -}}
+{{- $price := $prod.preis_basis -}}
+{{- $offers := dict -}}
+{{- if $price }}
+  {{- $offers = dict "@type" "Offer" "priceCurrency" "EUR" "price" (printf "%.2f" $price) "availability" $availability -}}
+{{- end -}}
+
+{{- $data := dict
+  "@context" "https://schema.org"
+  "@type" "Product"
+  "name" $name
+  "description" $desc
+  "sku" $prod.artikelnummer
+  "productID" $prod.id
+  "brand" (dict "@type" "Brand" "name" $brand)
+  "image" $images
+  "url" $p.Permalink
+-}}
+{{- if $offers }}{{ $data = merge $data (dict "offers" $offers) }}{{ end -}}
+
+{{- if $p.Params.seo.tags }}{{ $data = merge $data (dict "category" (delimit $p.Params.seo.tags ", ")) }}{{ end -}}
+{{- if $p.Params.refs.source_shop }}{{ $data = merge $data (dict "isBasedOn" $p.Params.refs.source_shop) }}{{ end -}}
+
+<script type="application/ld+json">{{ $data | jsonify }}</script>
+{{- end -}}
