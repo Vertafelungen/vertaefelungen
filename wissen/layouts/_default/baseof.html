@@ -3,12 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{ block "title" . }}{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
-  {{ partial "head/canonical.html" . }}
+  <title>{{ block "title" . }}{{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}{{ end }}</title>
+
+  {{/* Hreflang + Canonical: vermeidet Doppelungen.
+       seo/hreflang-canonical.html gibt canonical UND alternate aus. */}}
+  {{ if templates.Exists "partials/seo/hreflang-canonical.html" }}
+    {{ if .IsTranslated }}
+      {{ partial "seo/hreflang-canonical.html" . }}
+    {{ else }}
+      <link rel="canonical" href="{{ .Permalink }}" />
+    {{ end }}
+  {{ end }}
+
+  {{/* Meta Description (SEO) */}}
+  {{ with .Params.seo.description }}
+    <meta name="description" content="{{ . | plainify }}">
+  {{ else }}
+    {{ with .Summary }}
+      <meta name="description" content="{{ . | plainify }}">
+    {{ end }}
+  {{ end }}
+
+  {{/* (Optional) Site-weites JSON-LD (Organization/WebSite), nur wenn Partial existiert */}}
+  {{ if templates.Exists "partials/seo/site-jsonld.html" }}
+    {{ partial "seo/site-jsonld.html" . }}
+  {{ end }}
+
+  {{/* Product JSON-LD nur auf Produktseiten */}}
   {{ if .Params.produkt }}
-  {{ partial "seo/product-jsonld.html" . }}
-  {{ partial "seo/hreflang-canonical.html" . }}
-{{ end }}
+    {{ if templates.Exists "partials/seo/product-jsonld.html" }}
+      {{ partial "seo/product-jsonld.html" . }}
+    {{ end }}
+  {{ end }}
 </head>
 <body>
   <header style="padding:1rem;border-bottom:1px solid #ddd">
