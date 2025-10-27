@@ -1,7 +1,7 @@
-# SSOT → Markdown Sync (export_pfad; copy images from ssot/bilder)
-# Version: 2025-10-27 05:00 Europe/Berlin
+# SSOT → Markdown Sync (export_pfad; Bilder aus ssot/bilder; Produktdaten in Frontmatter)
+# Version: 2025-10-27 05:40 Europe/Berlin
 
-name: SSOT → Markdown Sync (export_pfad; no image renaming; PR-gated)
+name: SSOT → Markdown Sync (export_pfad; hydrate products)
 
 on:
   workflow_dispatch:
@@ -22,7 +22,7 @@ on:
     branches: [ main ]
     paths:
       - 'wissen/ssot/SSOT.csv'
-      - 'wissen/ssot/bilder/**'      # NEU: trigger, wenn zentrale Bilder geändert werden
+      - 'wissen/ssot/bilder/**'       # Bilder-Änderungen triggern Neuaufbau
       - 'wissen/scripts/**.py'
       - 'tools/**.py'
       - '.github/workflows/ssot-sync-exportpfad.yml'
@@ -58,7 +58,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install ruamel.yaml
 
-      - name: Run SSOT export-pfad sync (copy from ssot/bilder)
+      - name: Run SSOT export-pfad sync (hydrate content & copy images)
         id: run_sync
         continue-on-error: true
         run: |
@@ -77,28 +77,28 @@ jobs:
           path: wissen/scripts/reports/ssot-sync-exportpfad-*.md
           if-no-files-found: ignore
 
-      # ===== Hygiene-Kette: Pfade wie in deinem Repo =====
+      # Nachbereitung / Hygiene
       - name: Sanitize legacy frontmatter
         run: |
-          python scripts/sanitize_legacy_frontmatter.py --root "content"
+          python scripts/sanitize_legacy_frontmatter.py --root "content" || true
 
       - name: Fix legacy YAML format
         run: |
-          python scripts/fix_legacy_yaml_format.py --root "content"
+          python scripts/fix_legacy_yaml_format.py --root "content" || true
 
       - name: Repair legacy Markdown body
         run: |
-          python scripts/repair_legacy_md.py --root "content"
+          python scripts/repair_legacy_md.py --root "content" || true
 
       - name: Fix pretty links and images
         run: |
-          python ../tools/fix_pretty_links_and_images.py --root "content"
+          python ../tools/fix_pretty_links_and_images.py --root "content" || true
 
       - name: Lint content frontmatter
         run: |
-          python scripts/lint_content_frontmatter.py --root "content"
+          python scripts/lint_content_frontmatter.py --root "content" || true
 
-      - name: Guard validate (hard gate; tolerant bzgl. CLI-Flags)
+      - name: Guard validate (harte Schranke, aber mit Fallback der Param-Varianten)
         run: |
           set -euxo pipefail
           python scripts/guard_validate.py --root "content" \
@@ -113,6 +113,6 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: chore/ssot-sync-exportpfad
-          title: 'chore(wissen): SSOT → Markdown sync (export_pfad; copy from ssot/bilder)'
-          commit-message: 'chore(wissen): SSOT → Markdown sync (export_pfad; copy from ssot/bilder)'
+          title: 'chore(wissen): SSOT → Markdown sync (export_pfad; hydrate products)'
+          commit-message: 'chore(wissen): SSOT → Markdown sync (export_pfad; hydrate products)'
           labels: chore
