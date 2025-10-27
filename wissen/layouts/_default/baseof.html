@@ -7,6 +7,7 @@
   {{ partial "head/canonical.html" . }}
   {{ if .Params.produkt }}
   {{ partial "seo/product-jsonld.html" . }}
+  {{ partial "seo/hreflang-canonical.html" . }}
 {{ end }}
 </head>
 <body>
