@@ -147,6 +147,7 @@ jobs:
           local_path: ./public/
           remote_path: ${{ secrets.SFTP_TARGET || '/wissen' }}
           delete_remote_files: false
+          sftp_command_args: "-o StrictHostKeyChecking=no"
 
       - name: Skip deploy (no SFTP secrets)
         if: steps.s.outputs.ok != 'true'
