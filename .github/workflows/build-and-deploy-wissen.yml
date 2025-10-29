@@ -145,7 +145,7 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           local_path: ./public/
-          remote_path: ${{ secrets.SFTP_TARGET || '/wissen' }}
+          remote_path: ${{ secrets.SFTP_TARGET || '/holzvertaefelung-store/wissen' }}
           delete_remote_files: false
           sftp_command_args: "-o StrictHostKeyChecking=no"
 
