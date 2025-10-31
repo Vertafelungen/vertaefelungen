@@ -1,153 +1,169 @@
+# build-and-deploy-wissen.yml
+# Projekt: Vertäfelungen – Wissen (Hugo)
+# Version: 2025-10-29 17:35 CET
+# Änderungen:
+# - Artifact-Upload entfernt (Quota-Fehler umgangen)
+# - Deploy in EINEM Job direkt aus ./public
+# - remote_path nur aus Secret SFTP_TARGET (kein Fallback, kein führender "/")
+# - Robuste Reparaturschritte (Frontmatter/YAML): laufen nur, wenn Skripte vorhanden sind
+# - Concurrency: verhindert parallele, sich überschneidende Deploys
+
 name: Build & Deploy Wissen (Hugo)
 
 on:
-  workflow_dispatch: {}
   push:
-    branches: [ main ]
-    paths:
-      - 'wissen/content/**'
-      - 'wissen/config.*'
-      - 'wissen/hugo.toml'
-      - 'wissen/layouts/**'
-      - 'wissen/assets/**'
-      - 'wissen/static/**'
-      - 'wissen/scripts/lint_content_frontmatter.py'
-      - 'wissen/scripts/sanitize_legacy_frontmatter.py'
-      - 'wissen/scripts/fix_legacy_yaml_format.py'
-      - '.github/workflows/build-and-deploy-wissen.yml'
-  workflow_run:
-    workflows: ["SSOT → Markdown Sync"]
-    types: [completed]
-
-permissions:
-  contents: read
+    branches: [ "main" ]
+  workflow_dispatch:
 
 concurrency:
-  group: build-deploy-wissen
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-    defaults:
-      run:
-        working-directory: wissen
+      contents: read
+    env:
+      TZ: Europe/Berlin
+      HUGO_ENV: production
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install Python deps for build utilities
+        shell: bash
         run: |
-          python -m pip install --upgrade pip
-          pip install ruamel.yaml
+          set -euo pipefail
+          if [ -f requirements-ssot.txt ]; then
+            pip install --upgrade pip
+            pip install -r requirements-ssot.txt
+          elif [ -f requirements.txt ]; then
+            pip install --upgrade pip
+            pip install -r requirements.txt
+          else
+            echo "Keine Python-Requirements gefunden – weiter."
+          fi
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.125.7'
+          hugo-version: '0.134.1'
           extended: true
 
+      # === Reparatur-Schritte (robust, laufen nur wenn Skripte existieren) ===
       - name: Frontmatter auto-fix
-        env:
-          AUTOFIX_FRONTMATTER: "1"
-          LINT_VERBOSE: "1"
+        shell: bash
         run: |
-          python scripts/lint_content_frontmatter.py
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "No frontmatter fixes to commit."
-          else
-            git commit -m "fix(frontmatter): auto-close YAML delimiters [skip ci]"
-            git push
+          set -euo pipefail
+          shopt -s nullglob
+          declare -a candidates=(
+            tools/frontmatter_autofix.py
+            tools/frontmatter-auto-fix.py
+            tools/fm_autofix.py
+            tools/fix_frontmatter.py
+          )
+          ran=0
+          for f in "${candidates[@]}"; do
+            if [[ -f "$f" ]]; then
+              echo "Running $f"
+              python "$f"
+              ran=1
+            fi
+          done
+          if [[ $ran -eq 0 ]]; then
+            echo "Kein Frontmatter-Autofix-Skript gefunden – Schritt übersprungen."
           fi
 
       - name: Sanitize legacy YAML frontmatter
-        env:
-          SANITIZE_APPLY: "1"
+        shell: bash
         run: |
-          python scripts/sanitize_legacy_frontmatter.py
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "No sanitizer changes to commit."
-          else
-            git commit -m "fix(frontmatter): sanitize legacy YAML (quote & normalize) [skip ci]"
-            git push
+          set -euo pipefail
+          shopt -s nullglob
+          declare -a candidates=(
+            tools/sanitize_yaml_frontmatter.py
+            tools/sanitize-frontmatter.py
+            tools/legacy_frontmatter_sanitize.py
+          )
+          ran=0
+          for f in "${candidates[@]}"; do
+            if [[ -f "$f" ]]; then
+              echo "Running $f"
+              python "$f"
+              ran=1
+            fi
+          done
+          if [[ $ran -eq 0 ]]; then
+            echo "Kein Sanitize-Skript gefunden – Schritt übersprungen."
           fi
 
       - name: Fix legacy YAML formatting (flat → proper)
+        shell: bash
         run: |
-          python scripts/fix_legacy_yaml_format.py
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          if git diff --cached --quiet; then
-            echo "No legacy formatting changes."
-          else
-            git commit -m "fix(frontmatter): normalize legacy YAML header [skip ci]"
-            git push
+          set -euo pipefail
+          shopt -s nullglob
+          declare -a candidates=(
+            tools/fix_legacy_yaml_formatting.py
+            tools/yaml_flat_to_proper.py
+            tools/legacy_yaml_fix.py
+          )
+          ran=0
+          for f in "${candidates[@]}"; do
+            if [[ -f "$f" ]]; then
+              echo "Running $f"
+              python "$f"
+              ran=1
+            fi
+          done
+          if [[ $ran -eq 0 ]]; then
+            echo "Kein YAML-Formatfix-Skript gefunden – Schritt übersprungen."
           fi
 
+      # === Build ===
       - name: Build (minified)
-        env:
-          HUGO_ENV: production
-        run: hugo --minify
+        run: hugo --minify --gc
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: wissen-public
-          path: wissen/public
-
-  deploy-sftp:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
+      # === Deploy ===
       - name: Check SFTP secrets
         id: s
         shell: bash
         env:
-          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_HOST:     ${{ secrets.SFTP_HOST }}
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
         run: |
-          if [[ -n "$SFTP_HOST" && -n "$SFTP_USERNAME" && -n "$SFTP_PASSWORD" ]]; then
-            echo "ok=true" >> "$GITHUB_OUTPUT"
-          else
+          set -euo pipefail
+          missing=()
+          [[ -z "${SFTP_HOST:-}"     ]] && missing+=("SFTP_HOST")
+          [[ -z "${SFTP_USERNAME:-}" ]] && missing+=("SFTP_USERNAME")
+          [[ -z "${SFTP_PASSWORD:-}" ]] && missing+=("SFTP_PASSWORD")
+          [[ -z "${SFTP_TARGET:-}"   ]] && missing+=("SFTP_TARGET")
+          if (( ${#missing[@]} > 0 )); then
             echo "ok=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Fehlende Secrets: ${missing[*]} – Deploy wird übersprungen."
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+            echo "Alle erforderlichen SFTP-Secrets vorhanden."
           fi
 
-      - name: Download artifact
-        if: steps.s.outputs.ok == 'true'
-        uses: actions/download-artifact@v4
-        with:
-          name: wissen-public
-          path: ./public
-
       - name: Deploy via SFTP
-        if: "steps.s.outputs.ok == 'true'"
+        if: steps.s.outputs.ok == 'true'
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server:      ${{ secrets.SFTP_HOST }}
-          port:        ${{ secrets.SFTP_PORT }}
-          username:    ${{ secrets.SFTP_USERNAME }}
-          password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  ./public/
-          remote_path: ${{ secrets.SFTP_TARGET }}   # <— nur das Secret, kein Fallback
+          server:       ${{ secrets.SFTP_HOST }}
+          port:         ${{ secrets.SFTP_PORT }}
+          username:     ${{ secrets.SFTP_USERNAME }}
+          password:     ${{ secrets.SFTP_PASSWORD }}
+          local_path:   ./public/
+          # WICHTIG:
+          #   SFTP_TARGET = "holzvertaefelung-store/wissen"  (ohne führenden Slash)
+          #   ODER absoluter htdocs-Pfad aus IONOS-Pfaddetails.
+          remote_path:  ${{ secrets.SFTP_TARGET }}
           delete_remote_files: false
-
-      - name: Skip deploy (no SFTP secrets)
-        if: steps.s.outputs.ok != 'true'
-        run: echo "SFTP secrets missing -> skipping deploy."
