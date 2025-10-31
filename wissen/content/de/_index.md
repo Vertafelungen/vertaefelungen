@@ -1,6 +1,6 @@
 ---
-title: "Wissensdatenbank · Vertäfelung & Lambris"
-description: "Einstiege: Produkte & FAQ – historische Vertäfelungen, Leisten, Oberflächen."
+Titel: "Wissensdatenbank · Vertäfelung & Lambris"
+Beschreibung: "Einstiege: Produkte & FAQ – historische Vertäfelungen, Leisten, Oberflächen."
 type: "home"
 ---
 
