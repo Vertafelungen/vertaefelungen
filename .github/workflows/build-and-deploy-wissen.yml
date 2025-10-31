@@ -1,12 +1,12 @@
-# build-and-deploy-wissen.yml
+# .github/workflows/build-and-deploy-wissen.yml
 # Projekt: Vertäfelungen – Wissen (Hugo)
-# Version: 2025-10-29 17:35 CET
+# Version: 2025-10-31 08:20 CET
 # Änderungen:
-# - Artifact-Upload entfernt (Quota-Fehler umgangen)
-# - Deploy in EINEM Job direkt aus ./public
-# - remote_path nur aus Secret SFTP_TARGET (kein Fallback, kein führender "/")
-# - Robuste Reparaturschritte (Frontmatter/YAML): laufen nur, wenn Skripte vorhanden sind
-# - Concurrency: verhindert parallele, sich überschneidende Deploys
+# - Upload des Ordners 'public' verhindert (strip root): Inhalte werden in ./.deploy gespiegelt
+# - Deploy direkt aus ./.deploy
+# - Reparatur-Schritte robust (laufen nur, wenn Skripte vorhanden sind)
+# - remote_path ausschließlich aus Secret SFTP_TARGET
+# - Kein Artifact-Upload (Quota-Problem umgangen)
 
 name: Build & Deploy Wissen (Hugo)
 
@@ -42,10 +42,10 @@ jobs:
         run: |
           set -euo pipefail
           if [ -f requirements-ssot.txt ]; then
-            pip install --upgrade pip
+            python -m pip install --upgrade pip
             pip install -r requirements-ssot.txt
           elif [ -f requirements.txt ]; then
-            pip install --upgrade pip
+            python -m pip install --upgrade pip
             pip install -r requirements.txt
           else
             echo "Keine Python-Requirements gefunden – weiter."
@@ -57,77 +57,58 @@ jobs:
           hugo-version: '0.134.1'
           extended: true
 
-      # === Reparatur-Schritte (robust, laufen nur wenn Skripte existieren) ===
+      # === Reparatur-Schritte (laufen nur, wenn vorhanden) ===
       - name: Frontmatter auto-fix
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
-          declare -a candidates=(
-            tools/frontmatter_autofix.py
-            tools/frontmatter-auto-fix.py
-            tools/fm_autofix.py
-            tools/fix_frontmatter.py
-          )
-          ran=0
-          for f in "${candidates[@]}"; do
+          for f in tools/frontmatter_autofix.py tools/frontmatter-auto-fix.py tools/fm_autofix.py tools/fix_frontmatter.py; do
             if [[ -f "$f" ]]; then
               echo "Running $f"
               python "$f"
-              ran=1
             fi
           done
-          if [[ $ran -eq 0 ]]; then
-            echo "Kein Frontmatter-Autofix-Skript gefunden – Schritt übersprungen."
-          fi
 
       - name: Sanitize legacy YAML frontmatter
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
-          declare -a candidates=(
-            tools/sanitize_yaml_frontmatter.py
-            tools/sanitize-frontmatter.py
-            tools/legacy_frontmatter_sanitize.py
-          )
-          ran=0
-          for f in "${candidates[@]}"; do
+          for f in tools/sanitize_yaml_frontmatter.py tools/sanitize-frontmatter.py tools/legacy_frontmatter_sanitize.py; do
             if [[ -f "$f" ]]; then
               echo "Running $f"
               python "$f"
-              ran=1
             fi
           done
-          if [[ $ran -eq 0 ]]; then
-            echo "Kein Sanitize-Skript gefunden – Schritt übersprungen."
-          fi
 
       - name: Fix legacy YAML formatting (flat → proper)
         shell: bash
         run: |
           set -euo pipefail
           shopt -s nullglob
-          declare -a candidates=(
-            tools/fix_legacy_yaml_formatting.py
-            tools/yaml_flat_to_proper.py
-            tools/legacy_yaml_fix.py
-          )
-          ran=0
-          for f in "${candidates[@]}"; do
+          for f in tools/fix_legacy_yaml_formatting.py tools/yaml_flat_to_proper.py tools/legacy_yaml_fix.py; do
             if [[ -f "$f" ]]; then
               echo "Running $f"
               python "$f"
-              ran=1
             fi
           done
-          if [[ $ran -eq 0 ]]; then
-            echo "Kein YAML-Formatfix-Skript gefunden – Schritt übersprungen."
-          fi
 
       # === Build ===
       - name: Build (minified)
         run: hugo --minify --gc
+
+      # === Deploy-Payload vorbereiten: NUR Inhalte von ./public → ./.deploy ===
+      - name: Prepare deploy payload (strip ./public root)
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf ./.deploy
+          mkdir -p ./.deploy
+          # kopiert Inhalte von public/ (ohne die zusätzliche Ebene)
+          cp -a ./public/. ./.deploy/
+          # kleiner Marker zur Kontrolle
+          date -u +%Y-%m-%dT%H:%M:%SZ > ./.deploy/.deploy-stamp
 
       # === Deploy ===
       - name: Check SFTP secrets
@@ -161,9 +142,8 @@ jobs:
           port:         ${{ secrets.SFTP_PORT }}
           username:     ${{ secrets.SFTP_USERNAME }}
           password:     ${{ secrets.SFTP_PASSWORD }}
-          local_path:   ./public/
-          # WICHTIG:
-          #   SFTP_TARGET = "holzvertaefelung-store/wissen"  (ohne führenden Slash)
-          #   ODER absoluter htdocs-Pfad aus IONOS-Pfaddetails.
+          local_path:   ./.deploy/
+          # HINWEIS: Secret SFTP_TARGET = "holzvertaefelung-store/wissen" (ohne führenden Slash)
+          # ODER absoluter htdocs-Pfad aus IONOS-Pfaddetails.
           remote_path:  ${{ secrets.SFTP_TARGET }}
           delete_remote_files: false
