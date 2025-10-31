@@ -1,12 +1,12 @@
-# .github/workflows/build-and-deploy-wissen.yml
-# Projekt: Vertäfelungen – Wissen (Hugo)
-# Version: 2025-10-31 08:20 CET
-# Änderungen:
-# - Upload des Ordners 'public' verhindert (strip root): Inhalte werden in ./.deploy gespiegelt
-# - Deploy direkt aus ./.deploy
-# - Reparatur-Schritte robust (laufen nur, wenn Skripte vorhanden sind)
-# - remote_path ausschließlich aus Secret SFTP_TARGET
-# - Kein Artifact-Upload (Quota-Problem umgangen)
+# build-and-deploy-wissen.yml
+# Vertäfelungen – Wissen (Hugo)
+# Version: 2025-10-31 09:05 CET
+# Änderungen ggü. vorher:
+# - Kein Upload des Ordnernamens mehr (public/.deploy) – nur Inhalte von public/*
+# - Deploy via appleboy/scp-action (SCP ≙ SSH, IONOS unterstützt SSH)
+# - Serverseitiges Aufräumen alter Ordner (.deploy, public) vor dem Kopieren
+# - Reparaturschritte bleiben erhalten (laufen nur, wenn Skripte vorhanden sind)
+# - remote-Ziel ausschließlich aus Secret SFTP_TARGET
 
 name: Build & Deploy Wissen (Hugo)
 
@@ -98,24 +98,13 @@ jobs:
       - name: Build (minified)
         run: hugo --minify --gc
 
-      # === Deploy-Payload vorbereiten: NUR Inhalte von ./public → ./.deploy ===
-      - name: Prepare deploy payload (strip ./public root)
-        shell: bash
-        run: |
-          set -euo pipefail
-          rm -rf ./.deploy
-          mkdir -p ./.deploy
-          # kopiert Inhalte von public/ (ohne die zusätzliche Ebene)
-          cp -a ./public/. ./.deploy/
-          # kleiner Marker zur Kontrolle
-          date -u +%Y-%m-%dT%H:%M:%SZ > ./.deploy/.deploy-stamp
-
-      # === Deploy ===
-      - name: Check SFTP secrets
-        id: s
+      # === Secret-Check ===
+      - name: Check deploy secrets
+        id: sec
         shell: bash
         env:
           SFTP_HOST:     ${{ secrets.SFTP_HOST }}
+          SFTP_PORT:     ${{ secrets.SFTP_PORT }}
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
           SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
@@ -123,27 +112,47 @@ jobs:
           set -euo pipefail
           missing=()
           [[ -z "${SFTP_HOST:-}"     ]] && missing+=("SFTP_HOST")
+          [[ -z "${SFTP_PORT:-}"     ]] && missing+=("SFTP_PORT")
           [[ -z "${SFTP_USERNAME:-}" ]] && missing+=("SFTP_USERNAME")
           [[ -z "${SFTP_PASSWORD:-}" ]] && missing+=("SFTP_PASSWORD")
           [[ -z "${SFTP_TARGET:-}"   ]] && missing+=("SFTP_TARGET")
           if (( ${#missing[@]} > 0 )); then
             echo "ok=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::Fehlende Secrets: ${missing[*]} – Deploy wird übersprungen."
+            echo "::error::Fehlende Secrets: ${missing[*]}"
+            exit 1
           else
             echo "ok=true" >> "$GITHUB_OUTPUT"
-            echo "Alle erforderlichen SFTP-Secrets vorhanden."
           fi
 
-      - name: Deploy via SFTP
-        if: steps.s.outputs.ok == 'true'
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      # === Serverseitig aufräumen: alte Fehlordner löschen ===
+      - name: SSH cleanup on server (remove legacy .deploy/public)
+        if: steps.sec.outputs.ok == 'true'
+        uses: appleboy/ssh-action@v1.0.3
         with:
-          server:       ${{ secrets.SFTP_HOST }}
-          port:         ${{ secrets.SFTP_PORT }}
-          username:     ${{ secrets.SFTP_USERNAME }}
-          password:     ${{ secrets.SFTP_PASSWORD }}
-          local_path:   ./.deploy/
-          # HINWEIS: Secret SFTP_TARGET = "holzvertaefelung-store/wissen" (ohne führenden Slash)
-          # ODER absoluter htdocs-Pfad aus IONOS-Pfaddetails.
-          remote_path:  ${{ secrets.SFTP_TARGET }}
-          delete_remote_files: false
+          host:     ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port:     ${{ secrets.SFTP_PORT }}
+          script_stop: true
+          script: |
+            set -e
+            cd "$HOME/${{ secrets.SFTP_TARGET }}"
+            # Sicherheitshalber nur innerhalb des Zielordners arbeiten:
+            pwd
+            rm -rf .deploy public
+            mkdir -p .
+            date -u +%Y-%m-%dT%H:%M:%SZ > deploy-stamp.txt
+
+      # === Deploy: NUR Inhalte von ./public/* kopieren ===
+      - name: Deploy via SCP (copy contents of public/*)
+        if: steps.sec.outputs.ok == 'true'
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host:     ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port:     ${{ secrets.SFTP_PORT }}
+          source:   "public/*"
+          target:   "$HOME/${{ secrets.SFTP_TARGET }}/"
+          overwrite: true
+          strip_components: 0
