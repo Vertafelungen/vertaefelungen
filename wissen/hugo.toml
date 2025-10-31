@@ -1,56 +1,83 @@
+# hugo.toml
+# Vertäfelungen – Wissen
+# Version: 2025-10-31 08:45 CET
+
 baseURL = "https://www.vertaefelungen.de/wissen/"
 title   = "Wissensdatenbank · Vertäfelung & Lambris"
-theme   = "papermod"
-
-# Mehrsprachigkeit
-defaultContentLanguage = "de"
-defaultContentLanguageInSubdir = true  # erzeugt /de/… und /en/… URLs
+theme   = "PaperMod"
 enableRobotsTXT = true
-canonifyURLs = true
+canonifyURLs    = true
+relativeURLs    = false
+paginate        = 12
+defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = true
 
-# Paginierung
-[pagination]
-  pagerSize = 20
-
-# Ausgaben (Home zusätzlich JSON/RSS für Suche/Feeds)
+# Ausgabeformate
 [outputs]
-  home = ["HTML", "RSS", "JSON"]
+home    = ["HTML", "RSS", "JSON"]
+section = ["HTML", "RSS"]
+page    = ["HTML"]
+taxonomy = ["HTML"]
+term     = ["HTML"]
 
-# (Optional) Permalinks – FAQ bekommt seine URL aus der Frontmatter ("url"),
-# Produkte können hier bei Bedarf zentral gesteuert werden.
-# [permalinks]
-#   produkte = "/produkte/:slug/"
+# Sitemap
+[sitemap]
+  changefreq = "weekly"
+  filename   = "sitemap.xml"
+  priority   = 0.6
 
-# PaperMod – nur sinnvolle Defaults; bei Bedarf später erweitern
-[params]
-  defaultTheme = "auto"
-  ShowReadingTime = true
-  ShowBreadCrumbs = true
-  ShowPostNavLinks = true
-  ShowToc = true
-
-# Sprachen
+# Sprachkonfiguration
 [languages]
 
   [languages.de]
     languageName = "Deutsch"
-    languageCode = "de"
     weight = 1
+    contentDir = "content/de"
     title = "Wissensdatenbank · Vertäfelung & Lambris"
-    # contentDir bleibt der Standard (content/de)
+
+    [languages.de.params]
+      description = "Fachwissen zu historischen Holzvertäfelungen, Leisten & Oberflächen – Planung, Restaurierung, Reproduktion."
+
+    # Menü: Links zu Produkten & FAQ
+    [languages.de.menu]
+      [[languages.de.menu.main]]
+        identifier = "produkte"
+        name = "Produkte"
+        url  = "/de/oeffentlich/produkte/"
+        weight = 10
+      [[languages.de.menu.main]]
+        identifier = "faq"
+        name = "FAQ"
+        url  = "/de/oeffentlich/faq/"
+        weight = 20
 
   [languages.en]
     languageName = "English"
-    languageCode = "en"
     weight = 2
-    title = "Knowledge Base · Wainscoting & Panelling"
-    # contentDir bleibt der Standard (content/en)
+    contentDir = "content/en"
+    title = "Knowledge Base · Panelling & Lambris"
 
-# (Optional) Markup – saubere Heading-IDs etc.
-[markup]
-  [markup.tableOfContents]
-    endLevel = 3
-    ordered = false
-    startLevel = 2
-  [markup.goldmark.renderer]
-    unsafe = true
+    [languages.en.params]
+      description = "Knowledge on historical wood panelling, mouldings & finishes – planning, restoration, reproduction."
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "products"
+        name = "Products"
+        url  = "/en/public/products/"
+        weight = 10
+      [[languages.en.menu.main]]
+        identifier = "faq"
+        name = "FAQ"
+        url  = "/en/public/faq/"
+        weight = 20
+
+# Optional: Taxonomien
+[taxonomies]
+  category = "categories"
+  tag      = "tags"
+
+# (Optional) Pretty URLs / Permalinks
+# Hinweis: Da eure Inhalte aktuell unter /de/oeffentlich/* liegen,
+# lassen wir Permalinks unverändert. Wenn ihr später /de/produkte/* ohne "oeffentlich"
+# wollt, können wir das via "module mounts" oder Inhalts-Umbau lösen.
