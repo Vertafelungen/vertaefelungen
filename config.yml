@@ -1,9 +1,8 @@
 # config.yml – Vertäfelungen Wissen
-# Stand: 2025-10-31
-
+# Fix: Mounts + Theme-Ordner "papermod"
 baseURL: "https://www.vertaefelungen.de/wissen/"
 title: "Wissensdatenbank · Vertäfelung & Lambris"
-theme: "PaperMod"
+theme: "papermod"                  # <-- exakt wie der Ordnername
 
 enableRobotsTXT: true
 canonifyURLs: true
@@ -13,20 +12,18 @@ paginate: 12
 defaultContentLanguage: de
 defaultContentLanguageInSubdir: true
 
-# >>> WICHTIG: Mounts verbinden wissen/* mit den Hugo-Standardpfaden
 module:
   mounts:
-    - source: "wissen/content"
+    - source: "wissen/content"     # Content liegt unter wissen/
       target: "content"
     - source: "wissen/layouts"
       target: "layouts"
     - source: "wissen/archetypes"
       target: "archetypes"
-    - source: "static"           # static liegt im Repo-Root
+    - source: "wissen/themes"      # <-- WICHTIG: Themes mounten
+      target: "themes"
+    - source: "static"             # static liegt im Repo-Root
       target: "static"
-    # Falls das Theme im Ordner wissen/themes/PaperMod liegt, Mount aktivieren:
-    # - source: "wissen/themes"
-    #   target: "themes"
 
 outputs:
   home: ["HTML", "RSS", "JSON"]
@@ -51,7 +48,6 @@ languages:
   de:
     languageName: "Deutsch"
     weight: 1
-    # dank Mounts liegt der Content jetzt logisch unter /content/de
     contentDir: "content/de"
     params:
       locale: "de_DE"
