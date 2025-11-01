@@ -1,28 +1,32 @@
-# config.yml – Vertäfelungen Wissen
-# Fix: Mounts + Theme-Ordner "papermod"
+# config.yml – Vertäfelungen Wissen (Root)
 baseURL: "https://www.vertaefelungen.de/wissen/"
 title: "Wissensdatenbank · Vertäfelung & Lambris"
-theme: "papermod"                  # <-- exakt wie der Ordnername
+
+# Theme-Setup
+theme: "papermod"             # Ordner heißt wissen/themes/papermod
+themesDir: "wissen/themes"    # <-- statt Mount: hier den Theme-Ordner bekannt machen
 
 enableRobotsTXT: true
 canonifyURLs: true
 relativeURLs: false
-paginate: 12
+
+# Neues Schema statt 'paginate'
+pagination:
+  pagerSize: 12
 
 defaultContentLanguage: de
 defaultContentLanguageInSubdir: true
 
+# Nur gültige Mount-Ziele verwenden (KEIN 'themes' mounten!)
 module:
   mounts:
-    - source: "wissen/content"     # Content liegt unter wissen/
+    - source: "wissen/content"
       target: "content"
     - source: "wissen/layouts"
       target: "layouts"
     - source: "wissen/archetypes"
       target: "archetypes"
-    - source: "wissen/themes"      # <-- WICHTIG: Themes mounten
-      target: "themes"
-    - source: "static"             # static liegt im Repo-Root
+    - source: "static"
       target: "static"
 
 outputs:
