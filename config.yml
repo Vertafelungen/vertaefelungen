@@ -1,36 +1,96 @@
+# config.yml – Vertäfelungen Wissen
+# Stand: 2025-10-31
+
 baseURL: "https://www.vertaefelungen.de/wissen/"
-title: "Wissensdatenbank | Vertäfelung & Lambris"
+title: "Wissensdatenbank · Vertäfelung & Lambris"
+theme: "PaperMod"
+
+enableRobotsTXT: true
+canonifyURLs: true
+relativeURLs: false
+paginate: 12
+
 defaultContentLanguage: de
 defaultContentLanguageInSubdir: true
-enableRobotsTXT: true
 
-languages:
-  de:
-    languageName: Deutsch
-    weight: 1
-    contentDir: content/de
-    params:
-      locale: de_DE
-  en:
-    languageName: English
-    weight: 2
-    contentDir: content/en
-    params:
-      locale: en_GB
-
-# Permalinks so, dass deine bestehenden Bereiche sauber bleiben
-permalinks:
-  # alles unterhalb von content/de/oeffentlich/** bleibt unter /de/… sichtbar
-  # Produkte (Sheet) landen unter /de/oeffentlich/produkte/<slug>/
-  produkte: "/de/oeffentlich/produkte/:slug/"
-  faq_de:   "/de/oeffentlich/faq/:sections/:slug/"
-  products: "/en/public/products/:slug/"
-  faq_en:   "/en/public/faq/:sections/:slug/"
+# >>> WICHTIG: Mounts verbinden wissen/* mit den Hugo-Standardpfaden
+module:
+  mounts:
+    - source: "wissen/content"
+      target: "content"
+    - source: "wissen/layouts"
+      target: "layouts"
+    - source: "wissen/archetypes"
+      target: "archetypes"
+    - source: "static"           # static liegt im Repo-Root
+      target: "static"
+    # Falls das Theme im Ordner wissen/themes/PaperMod liegt, Mount aktivieren:
+    # - source: "wissen/themes"
+    #   target: "themes"
 
 outputs:
-  home: ["HTML"]
+  home: ["HTML", "RSS", "JSON"]
+  section: ["HTML", "RSS"]
+  page: ["HTML"]
+
+sitemap:
+  changefreq: "weekly"
+  filename: "sitemap.xml"
+  priority: 0.6
+
+taxonomies:
+  category: "categories"
+  tag: "tags"
 
 markup:
   goldmark:
     renderer:
       unsafe: true
+
+languages:
+  de:
+    languageName: "Deutsch"
+    weight: 1
+    # dank Mounts liegt der Content jetzt logisch unter /content/de
+    contentDir: "content/de"
+    params:
+      locale: "de_DE"
+      homeInfoParams:
+        Title: "Wissensdatenbank · Vertäfelung & Lambris"
+        Content: >
+          - **[Produkte](/de/oeffentlich/produkte/)**
+          - **[FAQ](/de/oeffentlich/faq/)**
+
+    menu:
+      main:
+        - identifier: "produkte"
+          name: "Produkte"
+          url: "/de/oeffentlich/produkte/"
+          weight: 10
+        - identifier: "faq"
+          name: "FAQ"
+          url: "/de/oeffentlich/faq/"
+          weight: 20
+
+  en:
+    languageName: "English"
+    weight: 2
+    contentDir: "content/en"
+    params:
+      locale: "en_GB"
+      homeInfoParams:
+        Title: "Knowledge Base · Panelling & Lambris"
+        Content: >
+          - **[Products](/en/public/products/)**
+          - **[FAQ](/en/public/faq/)**
+
+    menu:
+      main:
+        - identifier: "products"
+          name: "Products"
+          url: "/en/public/products/"
+          weight: 10
+        - identifier: "faq"
+          name: "FAQ"
+          url: "/en/public/faq/"
+          weight: 20
