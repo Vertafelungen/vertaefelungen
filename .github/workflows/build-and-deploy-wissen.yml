@@ -1,6 +1,6 @@
 # build-and-deploy-wissen.yml
 # Vertäfelungen – Wissen (Hugo)
-# Version: 2025-11-02 10:09 CET
+# Version: 2025-11-02 10:19 CET
 
 name: Build & Deploy Wissen (Hugo)
 
@@ -40,10 +40,15 @@ jobs:
         env:
           HUGO_ENV: production
         run: |
-          # Immer die Produktions-Config nutzen
           hugo --minify --gc --config "hugo.prod.toml"
-          # sichtbarer Zeitstempel
           date -u +"%Y-%m-%dT%H:%M:%SZ  $GITHUB_SHA" > public/deploy-stamp.txt
+
+      # kleine Sicherung: zeige, dass der Build-Output da ist
+      - name: Inspect build output
+        run: |
+          pwd
+          du -sh public || true
+          find public -maxdepth 2 -type f | head -n 50
 
       - name: Check deploy secrets (hart brechen wenn was fehlt)
         run: |
@@ -53,7 +58,6 @@ jobs:
           test -n "${{ secrets.SFTP_PORT }}"        || (echo "Missing secret SFTP_PORT" && exit 1)
           test -n "${{ secrets.SFTP_TARGET }}"      || (echo "Missing secret SFTP_TARGET" && exit 1)
 
-      # Vorsichtige Zielbereinigung: nur Inhalte im Wissen-Ordner
       - name: SSH cleanup target (wissen)
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -64,20 +68,21 @@ jobs:
           script: |
             set -e
             cd "${{ secrets.SFTP_TARGET }}"
-            # Entferne alte Artefakte, aber lass den Ordner und .htaccess existieren
             rm -f index.html robots.txt sitemap.xml deploy-stamp.txt version.json
             rm -rf de en faq .deploy .deploy-stamp .hugo_build_lock
 
-      - name: Deploy via SCP (public/* -> TARGET)
+      - name: Deploy via SCP (wissen/public -> TARGET)
         uses: appleboy/scp-action@v0.1.7
         with:
           host:     ${{ secrets.SFTP_HOST }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port:     ${{ secrets.SFTP_PORT }}
-          source:   "public/*"
+          # Wichtig: Pfad relativ zum Repo-Root!
+          source:   "wissen/public/**"
           target:   ${{ secrets.SFTP_TARGET }}
-          strip_components: 1
+          # 'wissen/public' abstreifen => 2 Komponenten
+          strip_components: 2
           overwrite: true
 
       - name: Done
