@@ -1,33 +1,286 @@
+--- PATH: wissen/hugo.prod.toml
 baseURL = "https://www.vertaefelungen.de/wissen/"
-title = "Wissensdatenbank | Vertäfelung & Lambris"
+title   = "Wissen · Vertäfelung & Lambris"
+theme   = "PaperMod"
+
+# Wichtige Defaults
 defaultContentLanguage = "de"
 defaultContentLanguageInSubdir = true
 enableRobotsTXT = true
 paginate = 10
 canonifyURLs = true
-relativeURLs = false
+
+# Ausgaben (Home auch JSON für spätere Feeds)
+[outputs]
+home    = ["HTML", "RSS", "JSON"]
+section = ["HTML", "RSS"]
+page    = ["HTML"]
+
+# Sitemap-Feinschliff
+[sitemap]
+  changefreq = "weekly"
+  priority   = 0.7
+
+# Markup (UTF-8, saubere Headings & Anchors)
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel   = 4
 
 [languages]
 
   [languages.de]
     languageName = "Deutsch"
     weight = 1
-    contentDir = "content/de"
+    title  = "Wissen · Vertäfelung & Lambris"
+    contentDir = "wissen/content/de"
+
     [languages.de.params]
-      locale = "de_DE"
+      description = "Fachwissen, Produkte und FAQ zu historischen Holzvertäfelungen. Vertäfelung & Lambris."
+
+    [languages.de.menu]
+      [[languages.de.menu.main]]
+        identifier = "home"
+        name = "Start"
+        url  = "/de/"
+        weight = 10
+
+      [[languages.de.menu.main]]
+        identifier = "produkte"
+        name = "Produkte"
+        url  = "/de/oeffentlich/produkte/"
+        weight = 20
+
+      [[languages.de.menu.main]]
+        identifier = "faq"
+        name = "FAQ"
+        url  = "/de/oeffentlich/faq/"
+        weight = 30
 
   [languages.en]
     languageName = "English"
     weight = 2
-    contentDir = "content/en"
+    title  = "Knowledge · Vertäfelung & Lambris"
+    contentDir = "wissen/content/en"
+
     [languages.en.params]
-      locale = "en_GB"
+      description = "Knowledge base, products and FAQs on historical wood panelling. Vertäfelung & Lambris."
 
-[permalinks]
-  produkte = "/de/oeffentlich/produkte/:slug/"
-  faq_de   = "/de/public/faq/:sections/:slug/"
-  products = "/en/public/products/:slug/"
-  faq_en   = "/en/public/faq/:sections/:slug/"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "home"
+        name = "Start"
+        url  = "/en/"
+        weight = 10
 
-[markup.goldmark.renderer]
-  unsafe = true
+      [[languages.en.menu.main]]
+        identifier = "products"
+        name = "Products"
+        url  = "/en/public/products/"
+        weight = 20
+
+      [[languages.en.menu.main]]
+        identifier = "faq"
+        name = "FAQ"
+        url  = "/en/public/faq/"
+        weight = 30
+
+[params]
+  env = "production"
+  # PaperMod Kern-Parameter
+  defaultTheme = "auto"
+  disableThemeToggle = true
+  ShowReadingTime = false
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  disableSpecial1stPost = true
+  comments = false
+
+  # Brand
+  label = { text = "Vertäfelung & Lambris", icon = "", iconHeight = 0 }
+
+  # Socials (kannst du später pflegen)
+  socialIcons = []
+
+  # Suche (später für Algolia oder Lunr nutzbar)
+  # assets = { disableHLJS = false }
+
+# Permalinks optional (PaperMod Standard ist ok)
+# [permalinks]
+#   products = "/:sections/:slug/"
+
+--- PATH: wissen/layouts/_default/baseof.html
+{{- /* Base-Template – kompatibel zu PaperMod, erweitert um JSON-LD */ -}}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}" dir="ltr">
+  <head>
+    {{ partial "head.html" . -}}
+    {{- /* Low-risk SEO Quick Wins */ -}}
+    {{ partial "seo/organization.json" . -}}
+    {{ partial "seo/breadcrumb.json" . -}}
+  </head>
+
+  <body class="{{ if .IsHome }}home{{ else if .IsPage }}single{{ else }}list{{ end }}">
+    {{ partial "header.html" . -}}
+    <main class="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ partial "footer.html" . -}}
+    {{ partial "scripts.html" . -}}
+  </body>
+</html>
+
+--- PATH: wissen/layouts/partials/seo/organization.json
+{{- /* Minimal & valide Organization – feste Domain, da Wissen unter /wissen/ hängt */ -}}
+{{- $data := dict
+  "@context" "https://schema.org"
+  "@type"    "Organization"
+  "@id"      "https://www.vertaefelungen.de/#organization"
+  "url"      "https://www.vertaefelungen.de/"
+  "name"     "Vertäfelung & Lambris"
+-}}
+<script type="application/ld+json">{{ $data | jsonify }}</script>
+
+--- PATH: wissen/layouts/partials/seo/breadcrumb.json
+{{- /* Dynamische Breadcrumbs: Home + Current (low-risk, universell gültig) */ -}}
+{{- $items := slice (dict
+    "@type" "ListItem"
+    "position" 1
+    "name" (cond (eq .Site.Language.Lang "de") "Start" "Start")
+    "item" .Site.Home.Permalink
+  )
+-}}
+{{- if not .IsHome -}}
+  {{- $items = $items | append (dict
+      "@type" "ListItem"
+      "position" 2
+      "name" (cond (eq .Kind "section") .Title .Title)
+      "item" .Permalink
+    )
+  -}}
+{{- end -}}
+<script type="application/ld+json">{{ dict
+  "@context" "https://schema.org"
+  "@type"    "BreadcrumbList"
+  "itemListElement" $items
+| jsonify }}</script>
+
+--- PATH: wissen/content/de/_index.md
+---
+title: "Wissen"
+description: "Fachwissen, Produkte und FAQ zu historischen Holzvertäfelungen – fundiert, präzise und praxisnah."
+layout: "list"
+---
+
+Willkommen in der Wissensbasis von **Vertäfelung & Lambris**.  
+Hier findest du Produkte, Anwendungsfälle und Antworten auf häufige Fragen rund um historische Vertäfelungen.
+
+**Schnellzugriff**
+
+- 👉 [Produkte]({{< relref "oeffentlich/produkte/_index.md" >}})
+- ❓ [FAQ]({{< relref "oeffentlich/faq/_index.md" >}})
+
+---
+
+## Wofür steht diese Wissensseite?
+Kurz: *LLMO, SEO und belastbares Fachwissen.*  
+Alle Inhalte entstehen aus unserer **SSOT-Pipeline** und sind auf Reproduzierbarkeit und Zitierfähigkeit ausgelegt.
+
+--- PATH: wissen/content/de/oeffentlich/_index.md
+---
+title: "Öffentlich · Deutsch"
+description: "Alle öffentlich zugänglichen Bereiche in deutscher Sprache."
+layout: "list"
+---
+
+Diese Sektion bündelt **Produkte** und **FAQ**.
+
+- 👉 [Produkte (Alle Kategorien)]({{< relref "produkte/_index.md" >}})
+- ❓ [FAQ]({{< relref "../oeffentlich/faq/_index.md" >}})
+
+--- PATH: wissen/content/de/oeffentlich/produkte/_index.md
+---
+title: "Produkte"
+description: "Katalog: Vertäfelungen, Leisten, Zubehör – strukturiert aus der Single Source of Truth."
+layout: "list"
+---
+
+Hier findest du alle Produktbereiche.  
+Die Detailseiten werden automatisiert aus der **SSOT** befüllt.
+
+**Einstieg**
+- **Vertäfelungen (halbhoch/hoch)** – Profile, Höhen, Stilkunde  
+- **Leisten** – Türbekleidungen, Sockelleisten  
+- **Öle & Farben** – z. B. Leinöl, Tungöl, BEECK-Systeme  
+- **Zubehör** – Montage & Pflege
+
+--- PATH: wissen/content/de/oeffentlich/faq/_index.md
+---
+title: "FAQ · Häufige Fragen"
+description: "Antworten zu Aufbau, Materialien, Oberflächen und Restaurierung historischer Holzvertäfelungen."
+layout: "list"
+---
+
+Hier sammeln wir präzise Antworten auf häufige Fragen – kompakt, technisch belastbar und verlinkt auf weiterführende Inhalte.
+
+**Empfohlene Einstiege**
+- [Leinöl als Holzschutzmittel]({{< relref "../../de/oeffentlich/faq/leinöl/_index.md" >}}) <!-- Beispiel-Link; kann später ersetzt werden -->
+- [Holzprofile: Formen & Herstellung]({{< relref "../../de/oeffentlich/faq/holzprofile/_index.md" >}})
+
+--- PATH: wissen/content/en/_index.md
+---
+title: "Knowledge"
+description: "Knowledge base, products and FAQs on historical wood panelling."
+layout: "list"
+---
+
+Welcome to the knowledge base of **Vertäfelung & Lambris**.
+
+**Quick access**
+- 👉 [Products]({{< relref "public/products/_index.md" >}})
+- ❓ [FAQ]({{< relref "public/faq/_index.md" >}})
+
+--- PATH: wissen/content/en/public/_index.md
+---
+title: "Public · English"
+description: "All public sections in English."
+layout: "list"
+---
+
+This section groups **Products** and **FAQs**.
+
+- 👉 [Products (All categories)]({{< relref "products/_index.md" >}})
+- ❓ [FAQ]({{< relref "faq/_index.md" >}})
+
+--- PATH: wissen/content/en/public/products/_index.md
+---
+title: "Products"
+description: "Catalogue: panelling systems, mouldings, accessories – structured from our SSOT."
+layout: "list"
+---
+
+Browse all product areas.  
+Detail pages are generated from the **Single Source of Truth**.
+
+**Start here**
+- **Wall panelling (dado/full height)**  
+- **Mouldings** – casings, skirtings  
+- **Oils & paints** – e.g., linseed, tung, BEECK systems  
+- **Accessories** – installation & care
+
+--- PATH: wissen/content/en/public/faq/_index.md
+---
+title: "FAQ"
+description: "Concise, technically sound answers on historical wood panelling."
+layout: "list"
+---
+
+We collect precise answers to recurring questions – with pointers to deeper references.
+
+**Suggested entries**
+- Surface treatments (oils/varnishes)  
+- Profile geometry & fabrication
