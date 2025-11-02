@@ -1,84 +1,57 @@
 # build-and-deploy-wissen.yml
 # Vertäfelungen – Wissen (Hugo)
-# Version: 2025-11-02 08:05 CET
+# Version: 2025-11-02 09:43 CET
 
 name: Build & Deploy Wissen (Hugo)
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
     paths:
-      - 'wissen/**'
-      - 'static/**'
-      - 'content/**'
-      - 'themes/**'
-      - 'config.yml'
-      - 'hugo.*.toml'
-      - 'hugo.toml'
-      - 'hugo.dev.toml'
-      - 'hugo.prod.toml'
+      - "wissen/**"
+      - ".github/workflows/build-and-deploy-wissen.yml"
   workflow_dispatch:
-
-concurrency:
-  group: wissen-deploy
-  cancel-in-progress: true
-
-permissions:
-  contents: read
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout (with submodules)
         uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Python 3.12
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install Python deps for build utilities (optional)
-        if: ${{ hashFiles('requirements-ssot.txt') != '' }}
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements-ssot.txt
-
-      - name: Setup Hugo
+      - name: Setup Hugo (extended)
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.128.0'
+          hugo-version: "latest"
           extended: true
 
-      - name: Build (minified)
-        env:
-          HUGO_ENVIRONMENT: production
-          HUGO_ENV: production
+      # --- Build ---
+      - name: Build (minified, production)
         run: |
-          hugo --minify --gc
+          hugo --minify -gc -s wissen --environment production
 
-      # ---- Secrets-Check (nur SFTP_USERNAME) ----
+      # --- Secrets check (hard fail if missing) ---
       - name: Check deploy secrets
+        shell: bash
         env:
-          SFTP_HOST:     ${{ secrets.SFTP_HOST }}
+          SFTP_HOST: ${{ secrets.SFTP_HOST }}
+          SFTP_PORT: ${{ secrets.SFTP_PORT }}
           SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
           SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-          SFTP_PORT:     ${{ secrets.SFTP_PORT }}
-          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
+          SFTP_TARGET: ${{ secrets.SFTP_TARGET }}
         run: |
-          set -e
-          test -n "$SFTP_HOST"     || (echo 'Missing secret SFTP_HOST' && exit 1)
-          test -n "$SFTP_USERNAME" || (echo 'Missing secret SFTP_USERNAME' && exit 1)
-          test -n "$SFTP_PASSWORD" || (echo 'Missing secret SFTP_PASSWORD' && exit 1)
-          test -n "$SFTP_PORT"     || (echo 'Missing secret SFTP_PORT' && exit 1)
-          test -n "$SFTP_TARGET"   || (echo 'Missing secret SFTP_TARGET' && exit 1)
-          echo "Secrets OK. Deploy target: $SFTP_TARGET"
+          test -n "$SFTP_HOST"      || { echo "Missing secret SFTP_HOST" && exit 1; }
+          test -n "$SFTP_PORT"      || { echo "Missing secret SFTP_PORT" && exit 1; }
+          test -n "$SFTP_USERNAME"  || { echo "Missing secret SFTP_USERNAME" && exit 1; }
+          test -n "$SFTP_PASSWORD"  || { echo "Missing secret SFTP_PASSWORD" && exit 1; }
+          test -n "$SFTP_TARGET"    || { echo "Missing secret SFTP_TARGET" && exit 1; }
+          echo "All required secrets present."
 
-      # ---- Cleanup NUR im Ziel (/wissen), .htaccess bleibt bestehen ----
+      # --- Cleanup remote target (safe guarded) ---
       - name: SSH cleanup target (${{ secrets.SFTP_TARGET }})
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -87,35 +60,26 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           port:     ${{ secrets.SFTP_PORT }}
           script: |
-            set -e
-            echo "Vorher in ${{ secrets.SFTP_TARGET }}:"
-            ls -la "${{ secrets.SFTP_TARGET }}" || true
+            set -euo pipefail
+            TARGET="${{ secrets.SFTP_TARGET }}"
+            # Safety guard: nur auf die zwei erlaubten Ziele reagieren
+            case "$TARGET" in
+              wissen|holzvertaefelung-store/wissen) ;;
+              *) echo "Refuse to clean unexpected target: $TARGET" ; exit 1 ;;
+            esac
+            mkdir -p "$TARGET"
+            rm -rf "$TARGET"/*
 
-            rm -rf \
-              "${{ secrets.SFTP_TARGET }}/de" \
-              "${{ secrets.SFTP_TARGET }}/en" \
-              "${{ secrets.SFTP_TARGET }}/assets" \
-              "${{ secrets.SFTP_TARGET }}/site" \
-              "${{ secrets.SFTP_TARGET }}/public" \
-              "${{ secrets.SFTP_TARGET }}/index.html" \
-              "${{ secrets.SFTP_TARGET }}/sitemap.xml" \
-              "${{ secrets.SFTP_TARGET }}/version.json" \
-              "${{ secrets.SFTP_TARGET }}/robots.txt" || true
-
-            echo "Nachher in ${{ secrets.SFTP_TARGET }}:"
-            ls -la "${{ secrets.SFTP_TARGET }}" || true
-
-      # ---- Upload via SFTP: public/* -> /wissen ----
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      # --- Deploy via SCP ---
+      - name: Deploy via SCP (copy wissen/public/* → ${{ secrets.SFTP_TARGET }})
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server:      ${{ secrets.SFTP_HOST }}
-          port:        ${{ secrets.SFTP_PORT }}
-          username:    ${{ secrets.SFTP_USERNAME }}
-          password:    ${{ secrets.SFTP_PASSWORD }}
-          local_path:  public/*
-          remote_path: ${{ secrets.SFTP_TARGET }}/
-          sftp_only:   true
-          delete_remote_files: false
-          # Falls Host-Key-Probleme auftreten:
-          # sftp_args: "-o StrictHostKeyChecking=no"
+          host:              ${{ secrets.SFTP_HOST }}
+          username:          ${{ secrets.SFTP_USERNAME }}
+          password:          ${{ secrets.SFTP_PASSWORD }}
+          port:              ${{ secrets.SFTP_PORT }}
+          source:            "wissen/public/*"
+          target:            ${{ secrets.SFTP_TARGET }}
+          strip_components:  2
+          overwrite:         true
+
