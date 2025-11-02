@@ -1,8 +1,33 @@
-# Production overrides (werden zusätzlich zu hugo.toml geladen)
-[params]
-environment = "production"
+baseURL = "https://www.vertaefelungen.de/wissen/"
+title = "Wissensdatenbank | Vertäfelung & Lambris"
+defaultContentLanguage = "de"
+defaultContentLanguageInSubdir = true
+enableRobotsTXT = true
+paginate = 10
+canonifyURLs = true
+relativeURLs = false
 
-# Keine Drafts/Stubs in Prod
-buildDrafts = false
-buildFuture = false
-buildExpired = false
+[languages]
+
+  [languages.de]
+    languageName = "Deutsch"
+    weight = 1
+    contentDir = "content/de"
+    [languages.de.params]
+      locale = "de_DE"
+
+  [languages.en]
+    languageName = "English"
+    weight = 2
+    contentDir = "content/en"
+    [languages.en.params]
+      locale = "en_GB"
+
+[permalinks]
+  produkte = "/de/oeffentlich/produkte/:slug/"
+  faq_de   = "/de/public/faq/:sections/:slug/"
+  products = "/en/public/products/:slug/"
+  faq_en   = "/en/public/faq/:sections/:slug/"
+
+[markup.goldmark.renderer]
+  unsafe = true
