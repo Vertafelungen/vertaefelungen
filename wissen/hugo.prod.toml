@@ -1,51 +1,8 @@
-# hugo.prod.toml
-# Version: 2025-10-07 13:55 Europe/Berlin
-baseURL = "https://www.vertaefelungen.de/wissen/"
-title   = "Wissen – Vertäfelung & Lambris"
+# Production overrides (werden zusätzlich zu hugo.toml geladen)
+[params]
+environment = "production"
 
-defaultContentLanguage = "de"
-defaultContentLanguageInSubdir = true
-enableGitInfo = true
-
-# Frontmatter-Priorität für Lastmod: zuerst Git, dann Felder in der Datei
-[frontmatter]
-  lastmod = [":git", "lastmod", "date", "publishDate"]
-
-# Sitemap-Parameter (Hugo erzeugt /wissen/sitemap.xml)
-[sitemap]
-  changefreq = "weekly"
-  filename   = "sitemap.xml"
-  priority   = 0.5
-
-# Ausgaben: Home liefert zusätzlich SITEMAP (und optional RSS bei Bedarf)
-[outputs]
-  page    = ["HTML"]
-  home    = ["HTML", "SITEMAP"]
-  section = ["HTML"]
-
-# Taxonomien (für Filter/Listen nutzbar)
-[taxonomies]
-  kategorie = "kategorien"
-  tag       = "tags"
-
-# Permalinks – saubere, stabile URLs
-[permalinks]
-  produkte = "/produkte/:slug/"
-  faq      = "/faq/:slug/"
-
-# Sprachen
-[languages]
-  [languages.de]
-    languageName = "Deutsch"
-    weight = 1
-    contentDir = "content/de"
-  [languages.en]
-    languageName = "English"
-    weight = 2
-    contentDir = "content/en"
-
-# Markdown-Renderer: erlaubt HTML in Markdown (z. B. für Shortcodes/Einbettungen)
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+# Keine Drafts/Stubs in Prod
+buildDrafts = false
+buildFuture = false
+buildExpired = false
