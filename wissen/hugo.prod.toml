@@ -1,4 +1,3 @@
---- PATH: wissen/hugo.prod.toml
 baseURL = "https://www.vertaefelungen.de/wissen/"
 title   = "Wissen · Vertäfelung & Lambris"
 theme   = "PaperMod"
