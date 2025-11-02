@@ -1,3 +1,7 @@
+# build-and-deploy-wissen.yml
+# Vertäfelungen – Wissen (Hugo)
+# Version: 2025-11-02 08:05 CET
+
 name: Build & Deploy Wissen (Hugo)
 
 on:
@@ -50,10 +54,6 @@ jobs:
           hugo-version: '0.128.0'
           extended: true
 
-      # Optional: eigene Vorverarbeitungs-/Fix-Schritte hier einfügen
-      # - name: Frontmatter auto-fix
-      #   run: python tools/whatever.py
-
       - name: Build (minified)
         env:
           HUGO_ENVIRONMENT: production
@@ -61,16 +61,24 @@ jobs:
         run: |
           hugo --minify --gc
 
+      # ---- Secrets-Check (nur SFTP_USERNAME) ----
       - name: Check deploy secrets
+        env:
+          SFTP_HOST:     ${{ secrets.SFTP_HOST }}
+          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
+          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
+          SFTP_PORT:     ${{ secrets.SFTP_PORT }}
+          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
         run: |
-          test -n "${{ secrets.SFTP_HOST }}"      || (echo 'Missing secret SFTP_HOST' && exit 1)
-          test -n "${{ secrets.SFTP_USERNAME }}"      || (echo 'Missing secret SFTP_USERNAME' && exit 1)
-          test -n "${{ secrets.SFTP_PASSWORD }}"  || (echo 'Missing secret SFTP_PASSWORD' && exit 1)
-          test -n "${{ secrets.SFTP_PORT }}"      || (echo 'Missing secret SFTP_PORT' && exit 1)
-          test -n "${{ secrets.SFTP_TARGET }}"    || (echo 'Missing secret SFTP_TARGET' && exit 1)
-          echo "Secrets OK. Deploy target: ${{ secrets.SFTP_TARGET }}"
+          set -e
+          test -n "$SFTP_HOST"     || (echo 'Missing secret SFTP_HOST' && exit 1)
+          test -n "$SFTP_USERNAME" || (echo 'Missing secret SFTP_USERNAME' && exit 1)
+          test -n "$SFTP_PASSWORD" || (echo 'Missing secret SFTP_PASSWORD' && exit 1)
+          test -n "$SFTP_PORT"     || (echo 'Missing secret SFTP_PORT' && exit 1)
+          test -n "$SFTP_TARGET"   || (echo 'Missing secret SFTP_TARGET' && exit 1)
+          echo "Secrets OK. Deploy target: $SFTP_TARGET"
 
-      # --- Cleanup direkt im Zielordner (nur Altlasten, .htaccess bleibt bestehen) ---
+      # ---- Cleanup NUR im Ziel (/wissen), .htaccess bleibt bestehen ----
       - name: SSH cleanup target (${{ secrets.SFTP_TARGET }})
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -83,7 +91,6 @@ jobs:
             echo "Vorher in ${{ secrets.SFTP_TARGET }}:"
             ls -la "${{ secrets.SFTP_TARGET }}" || true
 
-            # Altlasten entfernen – .htaccess bleibt
             rm -rf \
               "${{ secrets.SFTP_TARGET }}/de" \
               "${{ secrets.SFTP_TARGET }}/en" \
@@ -98,14 +105,17 @@ jobs:
             echo "Nachher in ${{ secrets.SFTP_TARGET }}:"
             ls -la "${{ secrets.SFTP_TARGET }}" || true
 
-      # --- Upload: nur die Inhalte von public/* → /wissen (SFTP_TARGET) ---
-      - name: Deploy via SCP (copy public/* → ${{ secrets.SFTP_TARGET }})
-        uses: appleboy/scp-action@v0.1.7
+      # ---- Upload via SFTP: public/* -> /wissen ----
+      - name: Deploy via SFTP
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          host:     ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USERNAME }}
-          password: ${{ secrets.SFTP_PASSWORD }}
-          port:     ${{ secrets.SFTP_PORT }}
-          source: "public/*"
-          target: "${{ secrets.SFTP_TARGET }}/"
-          overwrite: true
+          server:      ${{ secrets.SFTP_HOST }}
+          port:        ${{ secrets.SFTP_PORT }}
+          username:    ${{ secrets.SFTP_USERNAME }}
+          password:    ${{ secrets.SFTP_PASSWORD }}
+          local_path:  public/*
+          remote_path: ${{ secrets.SFTP_TARGET }}/
+          sftp_only:   true
+          delete_remote_files: false
+          # Falls Host-Key-Probleme auftreten:
+          # sftp_args: "-o StrictHostKeyChecking=no"
