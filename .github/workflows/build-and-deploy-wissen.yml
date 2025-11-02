@@ -1,158 +1,111 @@
-# build-and-deploy-wissen.yml
-# Vertäfelungen – Wissen (Hugo)
-# Version: 2025-10-31 09:05 CET
-# Änderungen ggü. vorher:
-# - Kein Upload des Ordnernamens mehr (public/.deploy) – nur Inhalte von public/*
-# - Deploy via appleboy/scp-action (SCP ≙ SSH, IONOS unterstützt SSH)
-# - Serverseitiges Aufräumen alter Ordner (.deploy, public) vor dem Kopieren
-# - Reparaturschritte bleiben erhalten (laufen nur, wenn Skripte vorhanden sind)
-# - remote-Ziel ausschließlich aus Secret SFTP_TARGET
-
 name: Build & Deploy Wissen (Hugo)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
+    paths:
+      - 'wissen/**'
+      - 'static/**'
+      - 'content/**'
+      - 'themes/**'
+      - 'config.yml'
+      - 'hugo.*.toml'
+      - 'hugo.toml'
+      - 'hugo.dev.toml'
+      - 'hugo.prod.toml'
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: wissen-deploy
   cancel-in-progress: true
+
+permissions:
+  contents: read
 
 jobs:
   build-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    env:
-      TZ: Europe/Berlin
-      HUGO_ENV: production
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
 
       - name: Setup Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"
+          python-version: '3.12'
 
-      - name: Install Python deps for build utilities
-        shell: bash
+      - name: Install Python deps for build utilities (optional)
+        if: ${{ hashFiles('requirements-ssot.txt') != '' }}
         run: |
-          set -euo pipefail
-          if [ -f requirements-ssot.txt ]; then
-            python -m pip install --upgrade pip
-            pip install -r requirements-ssot.txt
-          elif [ -f requirements.txt ]; then
-            python -m pip install --upgrade pip
-            pip install -r requirements.txt
-          else
-            echo "Keine Python-Requirements gefunden – weiter."
-          fi
+          python -m pip install --upgrade pip
+          pip install -r requirements-ssot.txt
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
+        uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.134.1'
+          hugo-version: '0.128.0'
           extended: true
 
-      # === Reparatur-Schritte (laufen nur, wenn vorhanden) ===
-      - name: Frontmatter auto-fix
-        shell: bash
-        run: |
-          set -euo pipefail
-          shopt -s nullglob
-          for f in tools/frontmatter_autofix.py tools/frontmatter-auto-fix.py tools/fm_autofix.py tools/fix_frontmatter.py; do
-            if [[ -f "$f" ]]; then
-              echo "Running $f"
-              python "$f"
-            fi
-          done
+      # Optional: eigene Vorverarbeitungs-/Fix-Schritte hier einfügen
+      # - name: Frontmatter auto-fix
+      #   run: python tools/whatever.py
 
-      - name: Sanitize legacy YAML frontmatter
-        shell: bash
-        run: |
-          set -euo pipefail
-          shopt -s nullglob
-          for f in tools/sanitize_yaml_frontmatter.py tools/sanitize-frontmatter.py tools/legacy_frontmatter_sanitize.py; do
-            if [[ -f "$f" ]]; then
-              echo "Running $f"
-              python "$f"
-            fi
-          done
-
-      - name: Fix legacy YAML formatting (flat → proper)
-        shell: bash
-        run: |
-          set -euo pipefail
-          shopt -s nullglob
-          for f in tools/fix_legacy_yaml_formatting.py tools/yaml_flat_to_proper.py tools/legacy_yaml_fix.py; do
-            if [[ -f "$f" ]]; then
-              echo "Running $f"
-              python "$f"
-            fi
-          done
-
-      # === Build ===
       - name: Build (minified)
-        run: hugo --minify --gc
-
-      # === Secret-Check ===
-      - name: Check deploy secrets
-        id: sec
-        shell: bash
         env:
-          SFTP_HOST:     ${{ secrets.SFTP_HOST }}
-          SFTP_PORT:     ${{ secrets.SFTP_PORT }}
-          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
-          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-          SFTP_TARGET:   ${{ secrets.SFTP_TARGET }}
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
         run: |
-          set -euo pipefail
-          missing=()
-          [[ -z "${SFTP_HOST:-}"     ]] && missing+=("SFTP_HOST")
-          [[ -z "${SFTP_PORT:-}"     ]] && missing+=("SFTP_PORT")
-          [[ -z "${SFTP_USERNAME:-}" ]] && missing+=("SFTP_USERNAME")
-          [[ -z "${SFTP_PASSWORD:-}" ]] && missing+=("SFTP_PASSWORD")
-          [[ -z "${SFTP_TARGET:-}"   ]] && missing+=("SFTP_TARGET")
-          if (( ${#missing[@]} > 0 )); then
-            echo "ok=false" >> "$GITHUB_OUTPUT"
-            echo "::error::Fehlende Secrets: ${missing[*]}"
-            exit 1
-          else
-            echo "ok=true" >> "$GITHUB_OUTPUT"
-          fi
+          hugo --minify --gc
 
-      # === Serverseitig aufräumen: alte Fehlordner löschen ===
-      - name: SSH cleanup on server (remove legacy .deploy/public)
-        if: steps.sec.outputs.ok == 'true'
+      - name: Check deploy secrets
+        run: |
+          test -n "${{ secrets.SFTP_HOST }}"      || (echo 'Missing secret SFTP_HOST' && exit 1)
+          test -n "${{ secrets.SFTP_USER }}"      || (echo 'Missing secret SFTP_USER' && exit 1)
+          test -n "${{ secrets.SFTP_PASSWORD }}"  || (echo 'Missing secret SFTP_PASSWORD' && exit 1)
+          test -n "${{ secrets.SFTP_PORT }}"      || (echo 'Missing secret SFTP_PORT' && exit 1)
+          test -n "${{ secrets.SFTP_TARGET }}"    || (echo 'Missing secret SFTP_TARGET' && exit 1)
+          echo "Secrets OK. Deploy target: ${{ secrets.SFTP_TARGET }}"
+
+      # --- Cleanup direkt im Zielordner (nur Altlasten, .htaccess bleibt bestehen) ---
+      - name: SSH cleanup target (${{ secrets.SFTP_TARGET }})
         uses: appleboy/ssh-action@v1.0.3
         with:
           host:     ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USERNAME }}
+          username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port:     ${{ secrets.SFTP_PORT }}
-          script_stop: true
           script: |
             set -e
-            cd "$HOME/${{ secrets.SFTP_TARGET }}"
-            # Sicherheitshalber nur innerhalb des Zielordners arbeiten:
-            pwd
-            rm -rf .deploy public
-            mkdir -p .
-            date -u +%Y-%m-%dT%H:%M:%SZ > deploy-stamp.txt
+            echo "Vorher in ${{ secrets.SFTP_TARGET }}:"
+            ls -la "${{ secrets.SFTP_TARGET }}" || true
 
-      # === Deploy: NUR Inhalte von ./public/* kopieren ===
-      - name: Deploy via SCP (copy contents of public/*)
-        if: steps.sec.outputs.ok == 'true'
+            # Altlasten entfernen – .htaccess bleibt
+            rm -rf \
+              "${{ secrets.SFTP_TARGET }}/de" \
+              "${{ secrets.SFTP_TARGET }}/en" \
+              "${{ secrets.SFTP_TARGET }}/assets" \
+              "${{ secrets.SFTP_TARGET }}/site" \
+              "${{ secrets.SFTP_TARGET }}/public" \
+              "${{ secrets.SFTP_TARGET }}/index.html" \
+              "${{ secrets.SFTP_TARGET }}/sitemap.xml" \
+              "${{ secrets.SFTP_TARGET }}/version.json" \
+              "${{ secrets.SFTP_TARGET }}/robots.txt" || true
+
+            echo "Nachher in ${{ secrets.SFTP_TARGET }}:"
+            ls -la "${{ secrets.SFTP_TARGET }}" || true
+
+      # --- Upload: nur die Inhalte von public/* → /wissen (SFTP_TARGET) ---
+      - name: Deploy via SCP (copy public/* → ${{ secrets.SFTP_TARGET }})
         uses: appleboy/scp-action@v0.1.7
         with:
           host:     ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USERNAME }}
+          username: ${{ secrets.SFTP_USER }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port:     ${{ secrets.SFTP_PORT }}
-          source:   "public/*"
-          target:   "$HOME/${{ secrets.SFTP_TARGET }}/"
+          source: "public/*"
+          target: "${{ secrets.SFTP_TARGET }}/"
           overwrite: true
-          strip_components: 0
