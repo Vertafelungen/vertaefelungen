@@ -1,58 +1,60 @@
 # build-and-deploy-wissen.yml
 # Vertäfelungen – Wissen (Hugo)
-# Version: 2025-11-02 09:43 CET
+# Version: 2025-11-02 10:09 CET
 
 name: Build & Deploy Wissen (Hugo)
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ main ]
     paths:
-      - "wissen/**"
-      - ".github/workflows/build-and-deploy-wissen.yml"
+      - 'wissen/**'
+      - '.github/workflows/build-and-deploy-wissen.yml'
   workflow_dispatch:
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: wissen
 
     steps:
-      - name: Checkout (with submodules)
+      - name: Checkout (mit Submodules)
         uses: actions/checkout@v4
         with:
           submodules: recursive
-          fetch-depth: 0
+
+      - name: Setup Python 3.12 (für Hilfs-Tools)
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
 
       - name: Setup Hugo (extended)
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: "latest"
+          hugo-version: '0.128.2'
           extended: true
 
-      # --- Build ---
-      - name: Build (minified, production)
-        run: |
-          hugo --minify -gc -s wissen --environment production
-
-      # --- Secrets check (hard fail if missing) ---
-      - name: Check deploy secrets
-        shell: bash
+      - name: Build (production)
         env:
-          SFTP_HOST: ${{ secrets.SFTP_HOST }}
-          SFTP_PORT: ${{ secrets.SFTP_PORT }}
-          SFTP_USERNAME: ${{ secrets.SFTP_USERNAME }}
-          SFTP_PASSWORD: ${{ secrets.SFTP_PASSWORD }}
-          SFTP_TARGET: ${{ secrets.SFTP_TARGET }}
+          HUGO_ENV: production
         run: |
-          test -n "$SFTP_HOST"      || { echo "Missing secret SFTP_HOST" && exit 1; }
-          test -n "$SFTP_PORT"      || { echo "Missing secret SFTP_PORT" && exit 1; }
-          test -n "$SFTP_USERNAME"  || { echo "Missing secret SFTP_USERNAME" && exit 1; }
-          test -n "$SFTP_PASSWORD"  || { echo "Missing secret SFTP_PASSWORD" && exit 1; }
-          test -n "$SFTP_TARGET"    || { echo "Missing secret SFTP_TARGET" && exit 1; }
-          echo "All required secrets present."
+          # Immer die Produktions-Config nutzen
+          hugo --minify --gc --config "hugo.prod.toml"
+          # sichtbarer Zeitstempel
+          date -u +"%Y-%m-%dT%H:%M:%SZ  $GITHUB_SHA" > public/deploy-stamp.txt
 
-      # --- Cleanup remote target (safe guarded) ---
-      - name: SSH cleanup target (${{ secrets.SFTP_TARGET }})
+      - name: Check deploy secrets (hart brechen wenn was fehlt)
+        run: |
+          test -n "${{ secrets.SFTP_HOST }}"        || (echo "Missing secret SFTP_HOST" && exit 1)
+          test -n "${{ secrets.SFTP_USERNAME }}"    || (echo "Missing secret SFTP_USERNAME" && exit 1)
+          test -n "${{ secrets.SFTP_PASSWORD }}"    || (echo "Missing secret SFTP_PASSWORD" && exit 1)
+          test -n "${{ secrets.SFTP_PORT }}"        || (echo "Missing secret SFTP_PORT" && exit 1)
+          test -n "${{ secrets.SFTP_TARGET }}"      || (echo "Missing secret SFTP_TARGET" && exit 1)
+
+      # Vorsichtige Zielbereinigung: nur Inhalte im Wissen-Ordner
+      - name: SSH cleanup target (wissen)
         uses: appleboy/ssh-action@v1.0.3
         with:
           host:     ${{ secrets.SFTP_HOST }}
@@ -60,26 +62,23 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           port:     ${{ secrets.SFTP_PORT }}
           script: |
-            set -euo pipefail
-            TARGET="${{ secrets.SFTP_TARGET }}"
-            # Safety guard: nur auf die zwei erlaubten Ziele reagieren
-            case "$TARGET" in
-              wissen|holzvertaefelung-store/wissen) ;;
-              *) echo "Refuse to clean unexpected target: $TARGET" ; exit 1 ;;
-            esac
-            mkdir -p "$TARGET"
-            rm -rf "$TARGET"/*
+            set -e
+            cd "${{ secrets.SFTP_TARGET }}"
+            # Entferne alte Artefakte, aber lass den Ordner und .htaccess existieren
+            rm -f index.html robots.txt sitemap.xml deploy-stamp.txt version.json
+            rm -rf de en faq .deploy .deploy-stamp .hugo_build_lock
 
-      # --- Deploy via SCP ---
-      - name: Deploy via SCP (copy wissen/public/* → ${{ secrets.SFTP_TARGET }})
+      - name: Deploy via SCP (public/* -> TARGET)
         uses: appleboy/scp-action@v0.1.7
         with:
-          host:              ${{ secrets.SFTP_HOST }}
-          username:          ${{ secrets.SFTP_USERNAME }}
-          password:          ${{ secrets.SFTP_PASSWORD }}
-          port:              ${{ secrets.SFTP_PORT }}
-          source:            "wissen/public/*"
-          target:            ${{ secrets.SFTP_TARGET }}
-          strip_components:  2
-          overwrite:         true
+          host:     ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USERNAME }}
+          password: ${{ secrets.SFTP_PASSWORD }}
+          port:     ${{ secrets.SFTP_PORT }}
+          source:   "public/*"
+          target:   ${{ secrets.SFTP_TARGET }}
+          strip_components: 1
+          overwrite: true
 
+      - name: Done
+        run: echo "Deployed to ${{ secrets.SFTP_TARGET }}"
