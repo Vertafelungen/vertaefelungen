@@ -64,7 +64,7 @@ jobs:
       - name: Check deploy secrets
         run: |
           test -n "${{ secrets.SFTP_HOST }}"      || (echo 'Missing secret SFTP_HOST' && exit 1)
-          test -n "${{ secrets.SFTP_USER }}"      || (echo 'Missing secret SFTP_USER' && exit 1)
+          test -n "${{ secrets.SFTP_USERNAME }}"      || (echo 'Missing secret SFTP_USERNAME' && exit 1)
           test -n "${{ secrets.SFTP_PASSWORD }}"  || (echo 'Missing secret SFTP_PASSWORD' && exit 1)
           test -n "${{ secrets.SFTP_PORT }}"      || (echo 'Missing secret SFTP_PORT' && exit 1)
           test -n "${{ secrets.SFTP_TARGET }}"    || (echo 'Missing secret SFTP_TARGET' && exit 1)
@@ -75,7 +75,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host:     ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
+          username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port:     ${{ secrets.SFTP_PORT }}
           script: |
@@ -103,7 +103,7 @@ jobs:
         uses: appleboy/scp-action@v0.1.7
         with:
           host:     ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
+          username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port:     ${{ secrets.SFTP_PORT }}
           source: "public/*"
