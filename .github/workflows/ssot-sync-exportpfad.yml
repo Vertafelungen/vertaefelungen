@@ -1,5 +1,5 @@
-# SSOT → Markdown Sync (export_pfad; Bilder aus ssot/bilder; Produktdaten in Frontmatter)
-# Version: 2025-12-27 18:59 Europe/Berlin
+# SSOT → Markdown Sync (export_pfad; hydrate products)
+# Version: 2025-12-27 19:10 Europe/Berlin
 
 name: SSOT → Markdown Sync (export_pfad; hydrate products)
 
@@ -7,26 +7,27 @@ on:
   workflow_dispatch:
     inputs:
       apply:
-        description: 'Änderungen anwenden (false = Dry-Run)'
+        description: "Änderungen anwenden (false = Dry-Run)"
         required: true
-        default: 'true'
+        default: "true"
         type: choice
-        options: ['false','true']
+        options: ["false", "true"]
       remove_empty_old_bundles:
-        description: 'Leere alte Produkt-Bundles entfernen'
+        description: "Leere alte Produkt-Bundles entfernen"
         required: true
-        default: 'true'
+        default: "true"
         type: choice
-        options: ['false','true']
+        options: ["false", "true"]
+
   push:
-    branches: [ main ]
+    branches: [main]
     paths:
-      - 'wissen/ssot/SSOT.csv'
-      - 'wissen/ssot/categories.csv'
-      - 'wissen/ssot/bilder/**'       # Bilder-Änderungen triggern Neuaufbau
-      - 'wissen/scripts/**.py'
-      - 'tools/**.py'
-      - '.github/workflows/ssot-sync-exportpfad.yml'
+      - "wissen/ssot/SSOT.csv"
+      - "wissen/ssot/categories.csv"
+      - "wissen/ssot/bilder/**"
+      - "wissen/scripts/**.py"
+      - "tools/**.py"
+      - ".github/workflows/ssot-sync-exportpfad.yml"
 
 permissions:
   contents: write
@@ -52,7 +53,7 @@ jobs:
       - name: Setup Python 3.12
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Install deps
         run: |
@@ -69,12 +70,15 @@ jobs:
             --en-root "content/en" \
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply")
 
-      - name: Upload Categories report
+      # Wichtig: Artifact-Quota darf den Job NICHT mehr failen
+      - name: Upload Categories report (non-blocking)
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: categories-sync-report
           path: wissen/scripts/reports/categories-sync-*.md
           if-no-files-found: ignore
+          retention-days: 1
 
       - name: Run SSOT export-pfad sync (hydrate content & copy images)
         id: run_sync
@@ -88,12 +92,15 @@ jobs:
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply") \
             $([ "${{ github.event.inputs.remove_empty_old_bundles || 'true' }}" = "true" ] && echo "--remove-empty-old-bundles")
 
-      - name: Upload SSOT report
+      # Wichtig: Artifact-Quota darf den Job NICHT mehr failen
+      - name: Upload SSOT report (non-blocking)
+        continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
           name: ssot-sync-exportpfad-report
           path: wissen/scripts/reports/ssot-sync-exportpfad-*.md
           if-no-files-found: ignore
+          retention-days: 1
 
       - name: Sanitize legacy frontmatter
         run: |
@@ -129,6 +136,6 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: chore/ssot-sync-exportpfad
-          title: 'chore(wissen): SSOT → Markdown sync (export_pfad; hydrate products)'
-          commit-message: 'chore(wissen): SSOT → Markdown sync (export_pfad; hydrate products)'
+          title: "chore(wissen): SSOT → Markdown sync (export_pfad; hydrate products)"
+          commit-message: "chore(wissen): SSOT → Markdown sync (export_pfad; hydrate products)"
           labels: chore
