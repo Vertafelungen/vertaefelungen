@@ -3,7 +3,7 @@ File: wissen/layouts/partials/product/gallery.html
 Version: 2025-12-28 18:00 CET
 
 Wichtig:
-- KEIN absURL auf RelPermalink/Resource-URLs (verhindert /wissen/wissen/)
+- Wir nutzen Permalinks für Bilder, um mit canonifyURLs und baseURL-Pfaden keine doppelten Präfixe wie /wissen/wissen/ zu erzeugen.
 - Priorität: SSOT (.Params.produkt.bilder) -> Fallback: Page Resources (Leaf Bundle)
 */}}
 
@@ -19,11 +19,12 @@ Wichtig:
       {{- $src := "" -}}
 
       {{- if $res -}}
-        {{- /* RelPermalink ist bereits korrekt (enthält in Prod /wissen/) */ -}}
-        {{- $src = $res.RelPermalink -}}
+        {{- /* Permalink bewahrt das korrekte /wissen/-Präfix ohne Verdopplung. */ -}}
+        {{- $src = $res.Permalink -}}
       {{- else -}}
         {{- /* Fallback: Datei relativ zum Seitenordner */ -}}
-        {{- $src = printf "%s%s" $.RelPermalink $fn -}}
+        {{- $pageBase := strings.TrimSuffix $.Permalink "/" -}}
+        {{- $src = printf "%s/%s" $pageBase $fn -}}
       {{- end -}}
 
       {{- $alt := "" -}}
@@ -40,9 +41,9 @@ Wichtig:
 
 {{- /* 2) Fallback: alle Page Resources images */ -}}
 {{- if not $items -}}
-  {{- with .Resources.ByType "image" -}}
+  {{- with .Resources.Match "*.{png,jpg,jpeg,webp}" -}}
     {{- range . -}}
-      {{- $items = $items | append (dict "src" .RelPermalink "alt" $.Title) -}}
+      {{- $items = $items | append (dict "src" .Permalink "alt" $.Title) -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
