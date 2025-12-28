@@ -1,22 +1,25 @@
-{{- /* product/gallery.html | v2025-12-28 12:00 CET
-      Fix: keine absURL-Anwendung auf RelPermalink (verhindert /wissen/wissen/)
-      Support:
-      - SSOT-Struktur: .Params.produkt.bilder[*].datei + alt_de/alt_en
-      - Fallback: Page Resources (Leaf Bundle)
-      - Backward compat: .Params.images (Strings)
-*/ -}}
+{{/* 
+File: wissen/layouts/partials/product/gallery.html
+Version: 2025-12-28 18:00 CET
+
+Wichtig:
+- KEIN absURL auf RelPermalink/Resource-URLs (verhindert /wissen/wissen/)
+- Priorität: SSOT (.Params.produkt.bilder) -> Fallback: Page Resources (Leaf Bundle)
+*/}}
 
 {{- $items := slice -}}
 
-{{- /* 1) Prefer SSOT structure: .Params.produkt.bilder */ -}}
+{{- /* 1) SSOT: .Params.produkt.bilder */ -}}
 {{- with .Params.produkt.bilder -}}
   {{- range . -}}
     {{- $fn := .datei | default "" -}}
     {{- if $fn -}}
+
       {{- $res := $.Resources.GetMatch $fn -}}
       {{- $src := "" -}}
+
       {{- if $res -}}
-        {{- /* RelPermalink ist bereits korrekt relativ zur Site (inkl. /wissen/) */ -}}
+        {{- /* RelPermalink ist bereits korrekt (enthält in Prod /wissen/) */ -}}
         {{- $src = $res.RelPermalink -}}
       {{- else -}}
         {{- /* Fallback: Datei relativ zum Seitenordner */ -}}
@@ -25,9 +28,9 @@
 
       {{- $alt := "" -}}
       {{- if eq $.Lang "de" -}}
-        {{- $alt = .alt_de | default $.Title -}}
+        {{- $alt = (or .alt_de .alt_en $.Title) -}}
       {{- else -}}
-        {{- $alt = .alt_en | default .alt_de | default $.Title -}}
+        {{- $alt = (or .alt_en .alt_de $.Title) -}}
       {{- end -}}
 
       {{- $items = $items | append (dict "src" $src "alt" $alt) -}}
@@ -35,21 +38,7 @@
   {{- end -}}
 {{- end -}}
 
-{{- /* 2) Backward compat: .Params.images (list of strings/urls) */ -}}
-{{- if not $items -}}
-  {{- with .Params.images -}}
-    {{- range . -}}
-      {{- $raw := . -}}
-      {{- $src := $raw -}}
-      {{- if not (or (hasPrefix $raw "http://") (hasPrefix $raw "https://") (hasPrefix $raw "/")) -}}
-        {{- $src = printf "%s%s" $.RelPermalink $raw -}}
-      {{- end -}}
-      {{- $items = $items | append (dict "src" $src "alt" $.Title) -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-
-{{- /* 3) Fallback: all page resources of type image */ -}}
+{{- /* 2) Fallback: alle Page Resources images */ -}}
 {{- if not $items -}}
   {{- with .Resources.ByType "image" -}}
     {{- range . -}}
