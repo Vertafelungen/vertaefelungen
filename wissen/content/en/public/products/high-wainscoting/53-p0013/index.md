@@ -3,7 +3,7 @@ title: P0013 - Berlin - Mommsenstr.
 lang: en
 translationKey: '53'
 managed_by: ssot-sync
-last_synced: '2025-10-27'
+last_synced: '2025-12-28'
 produkt:
   id: '53'
   artikelnummer: P0013

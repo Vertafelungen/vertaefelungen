@@ -3,7 +3,7 @@ title: P0018 - Berlin - Invalidenstraße
 lang: en
 translationKey: '57'
 managed_by: ssot-sync
-last_synced: '2025-10-27'
+last_synced: '2025-12-28'
 produkt:
   id: '57'
   artikelnummer: P0018
@@ -15,21 +15,21 @@ produkt:
   - bezeichnung: Eiche, Bausatz
     preis_aufschlag: 548.67
   bilder:
-  - datei: p0018-1.png
+  - datei: p0018-01.png
     alt_en: Classical wall panelling with floral Jugendstil tiles dandelion motif from Invalidenstrasse Berlin 1570 mm
-  - datei: p0018-2.png
+  - datei: p0018-02.png
     alt_en: Classical wall panelling with floral Jugendstil tiles dandelion motif full view Invalidenstrasse Berlin
-  - datei: p0018-3.png
+  - datei: p0018-03.png
     alt_en: Classical wall panelling with floral Jugendstil tiles dandelion motif corner view Invalidenstrasse Berlin
-  - datei: p0018-4.png
+  - datei: p0018-04.png
     alt_en: Classical wall panelling with floral Jugendstil ceramic tiles detailed view Invalidenstrasse Berlin
-  - datei: p0018-6.png
+  - datei: p0018-06.png
     alt_en: Historic wall panelling with Jugendstil ceramic tiles partial view template Invalidenstrasse Berlin
-  - datei: p0018-5.png
+  - datei: p0018-05.png
     alt_en: Detail view classical wall panelling with Jugendstil ceramic tiles Berlin historic template Invalidenstrasse
-  - datei: p0018-7.png
+  - datei: p0018-07.png
     alt_en: Historic Berlin café interior with wooden panelling Jugendstil ceramic tiles and decorative panels
-  - datei: p0018-8.png
+  - datei: p0018-08.png
     alt_en: Art Nouveau wall panelling with wooden frame and historic tiles in Berlin café interior design
 seo:
   title: P0018 - Berlin - Invalidenstraße

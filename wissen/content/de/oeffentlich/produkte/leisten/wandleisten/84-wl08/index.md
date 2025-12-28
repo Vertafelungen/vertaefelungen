@@ -3,7 +3,7 @@ title: Wandleiste 08
 lang: de
 translationKey: '84'
 managed_by: ssot-sync
-last_synced: '2025-10-27'
+last_synced: '2025-12-28'
 produkt:
   id: '84'
   artikelnummer: WL08

@@ -1,14 +1,33 @@
 ---
-title: "Produkte"
-description: "Produktübersicht in der Wissensbasis von Vertäfelung & Lambris: Vertäfelungen, Leisten, Öle/Farben, Lüftungsgitter und Rosetten."
-translationKey: "products-root"
-managed_by: "manual"
-version: "2025-12-26 18:32 CET"
+version: 2025-12-28 10:45 UTC
+managed_by: categories.csv
+last_synced: 2025-12-28 10:45 UTC
+lang: de
+translationKey: products-root
+title: Produkte
+description: 'Produktübersicht: Vertäfelungen, Leisten, Öle & Farben sowie Lüftungsrosetten.'
+weight: 10
+type: products
 seo:
-  meta_description: "Produktübersicht: Vertäfelungen, Leisten, Öle/Farben, Lüftungsgitter und Rosetten – Vertäfelung & Lambris."
-  robots: "index,follow"
+  meta_title: Produkte - Vertäfelung & Lambris
+  meta_description: Übersicht aller Produktkategorien der Wissensseite von Vertäfelung & Lambris.
+  robots: index,follow
+  canonical: ''
+  og_image: ''
+  is_public: true
+schema:
+  breadcrumb: true
+  itemlist: true
+  organization: true
+nav:
+  show: true
+  parent_key: ''
+cascade:
+  category:
+    key: products-root
+    parent_key: ''
+    is_public: true
+  seo:
+    robots: index,follow
 ---
-
-Diese Seite ist der Einstieg in den Produktbereich der Wissensbasis. Du findest hier Produktdaten, Varianten und zugehörige Bilder.
-
-Nutze die Unterkategorien, um schneller zum passenden Produktbereich zu gelangen.
+Wähle eine Kategorie, um Unterkategorien und Produkte zu sehen.

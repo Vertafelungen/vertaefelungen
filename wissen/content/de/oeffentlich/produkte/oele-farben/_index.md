@@ -1,14 +1,33 @@
 ---
-title: "Öle & Farben"
-description: "Übersicht Öle & Farben: traditionelle Anstriche und Holzschutzsysteme (z. B. Leinöl, Standöl, Pigmentfarben) für Innenräume."
-translationKey: "oil-paints-root"
-managed_by: "manual"
-version: "2025-12-26 18:32 CET"
+version: 2025-12-28 10:45 UTC
+managed_by: categories.csv
+last_synced: 2025-12-28 10:45 UTC
+lang: de
+translationKey: oil-paints-root
+title: Öle & Farben
+description: Öle, Farben und Oberflächensysteme für historische Holzoberflächen - mit Fokus auf kompatible Materialien, handwerkliche Verarbeitung und Denkmalpflege.
+weight: 40
+type: products
 seo:
-  meta_description: "Öle & Farben: traditionelle Anstriche und Holzschutzsysteme – Vertäfelung & Lambris."
-  robots: "index,follow"
+  meta_title: Öle & Farben - Oberflächensysteme für historische Holzarbeiten
+  meta_description: 'Öle & Farben für historische Holzoberflächen: Leinöl/Tung/Balsam, Standöl- und Ölfarb-Systeme. Übersicht, Varianten und Hinweise - Vertäfelung & Lambris.'
+  robots: index,follow
+  canonical: ''
+  og_image: ''
+  is_public: true
+schema:
+  breadcrumb: true
+  itemlist: true
+  organization: true
+nav:
+  show: true
+  parent_key: products-root
+cascade:
+  category:
+    key: oil-paints-root
+    parent_key: products-root
+    is_public: true
+  seo:
+    robots: index,follow
 ---
-
-Hier findest du Öle und Farbsysteme für Holzoberflächen – mit Fokus auf handwerklicher Verarbeitung und historisch kompatiblen Systemen.
-
-Wähle eine Marke/Produktlinie, um Farbtöne, Gebinde und Varianten zu sehen.
+Öle und Farben bestimmen nicht nur den Farbton, sondern auch Diffusionsverhalten, Haptik, Reparaturfähigkeit und langfristige Alterung.\n\n## Unterkategorien\n- **Leinöl, Tung, Balsam** - klassische Öle/Harze für Holzschutz, Grundierung und Pflege.\n- **Standöl / Ölfarben** - robuste, diffusionsoffene Anstriche (z. B. pigmentierte Systeme).\n\nWähle eine Unterkategorie, um passende Produkte, Varianten und Anwendungshinweise zu sehen.
