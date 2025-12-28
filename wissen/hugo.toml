@@ -22,6 +22,23 @@ home = ["HTML"]
     contentDir = "content/de"
     [languages.de.params]
       locale = "de_DE"
+    [languages.de.menu]
+      [[languages.de.menu.main]]
+        name = "Startseite"
+        url = "/de/"
+        weight = 10
+      [[languages.de.menu.main]]
+        name = "Produkte"
+        url = "/de/oeffentlich/produkte/"
+        weight = 20
+      [[languages.de.menu.main]]
+        name = "FAQ"
+        url = "/de/oeffentlich/faq/"
+        weight = 30
+      [[languages.de.menu.main]]
+        name = "Wissen"
+        url = "/de/"
+        weight = 40
 
   [languages.en]
     languageName = "English"
@@ -29,6 +46,23 @@ home = ["HTML"]
     contentDir = "content/en"
     [languages.en.params]
       locale = "en_GB"
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        name = "Home"
+        url = "/en/"
+        weight = 10
+      [[languages.en.menu.main]]
+        name = "Products"
+        url = "/en/public/products/"
+        weight = 20
+      [[languages.en.menu.main]]
+        name = "FAQ"
+        url = "/en/public/faq/"
+        weight = 30
+      [[languages.en.menu.main]]
+        name = "Knowledge"
+        url = "/en/"
+        weight = 40
 
 [permalinks]
   # DE

@@ -1,3 +1,31 @@
-<footer>
-  <small>&copy; {{ now.Year }} Vertäfelung &amp; Lambris</small>
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div>
+      <p class="footer-title">Vertäfelungen.de</p>
+      <p class="footer-text">Wissen, Produkte und FAQs zu historischen Holzvertäfelungen, Lambris und Paneelen.</p>
+      <div class="footer-meta">
+        <span>&copy; {{ now.Year }} Vertäfelung &amp; Lambris</span>
+        <span>Wissensbereich</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="footer-title">Navigation</p>
+      <ul class="footer-nav">
+        {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </div>
+
+    <div>
+      <p class="footer-title">Sprachen</p>
+      <p class="footer-text">
+        {{ range $index, $site := .Sites }}
+          <a href="{{ $site.Home.RelPermalink }}">{{ $site.Language.LanguageName }}</a>{{ if lt (add $index 1) (len $.Sites) }} · {{ end }}
+        {{ end }}
+      </p>
+      <p class="footer-text">Fragen? Schau in die <a href="{{ "/de/oeffentlich/faq/" | relURL }}">FAQ</a> oder den <a href="{{ "/de/oeffentlich/produkte/" | relURL }}">Produktkatalog</a>.</p>
+    </div>
+  </div>
 </footer>

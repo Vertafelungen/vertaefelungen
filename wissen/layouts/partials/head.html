@@ -1,10 +1,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
-<link rel="canonical" href="{{ .Permalink }}">
-<style>
-  body{font:16px/1.5 system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0}
-  .container{max-width:960px;margin:2rem auto;padding:0 1rem}
-  header,footer{background:#f6f6f6;padding:0.75rem 1rem}
-  h1{margin-top:0}
-</style>
+
+{{/* Hreflang + Canonical: vermeidet Doppelungen. */}}
+{{ if templates.Exists "partials/seo/hreflang-canonical.html" }}
+  {{ if .IsTranslated }}
+    {{ partial "seo/hreflang-canonical.html" . }}
+  {{ else }}
+    <link rel="canonical" href="{{ .Permalink }}" />
+  {{ end }}
+{{ end }}
+
+{{/* Meta Description (SEO) */}}
+{{ with .Params.seo.description }}
+  <meta name="description" content="{{ . | plainify }}">
+{{ else }}
+  {{ with .Summary }}
+    <meta name="description" content="{{ . | plainify }}">
+  {{ end }}
+{{ end }}
+
+{{ if templates.Exists "partials/seo/site-jsonld.html" }}
+  {{ partial "seo/site-jsonld.html" . }}
+{{ end }}
+{{ if .Params.produkt }}
+  {{ if templates.Exists "partials/seo/product-jsonld.html" }}
+    {{ partial "seo/product-jsonld.html" . }}
+  {{ end }}
+{{ end }}
+
+{{ $options := dict "targetPath" "css/site.css" "outputStyle" "compressed" "enableSourceMap" true }}
+{{ $style := resources.Get "css/site.css" | resources.ToCSS $options | resources.Fingerprint "sha512" }}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">

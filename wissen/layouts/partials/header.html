@@ -1,5 +1,31 @@
-<header>
-  <strong><a href="{{ "/" | relURL }}">Vertäfelung &amp; Lambris</a></strong> ·
-  <a href="{{ "de/" | relURL }}">DE</a> ·
-  <a href="{{ "en/" | relURL }}">EN</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{{ "/" | relURL }}">
+      <span class="brand__mark">VL</span>
+      <span class="brand__text">
+        <span class="brand__title">Vertäfelungen.de</span>
+        <span class="brand__subtitle">Massgeschneiderte Lambris &amp; Paneele</span>
+      </span>
+    </a>
+
+    <div class="nav-wrap" role="navigation" aria-label="Hauptmenü">
+      <nav class="main-nav">
+        {{ $current := .RelPermalink }}
+        {{ range .Site.Menus.main }}
+          <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+        {{ end }}
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" aria-label="Sprachumschaltung">
+          {{ range $index, $site := .Sites }}
+            {{ $isActive := eq $site.Language.Lang $.Site.Language.Lang }}
+            <a class="{{ if $isActive }}is-active{{ end }}" href="{{ $site.Home.RelPermalink }}">{{ upper $site.Language.Lang }}</a>{{ if lt (add $index 1) (len $.Sites) }}<span aria-hidden="true">·</span>{{ end }}
+          {{ end }}
+        </div>
+        <a class="button button--filled" href="{{ "/de/oeffentlich/produkte/" | relURL }}">Produkte</a>
+        <a class="button" href="{{ "/de/oeffentlich/faq/" | relURL }}">FAQ</a>
+      </div>
+    </div>
+  </div>
 </header>
