@@ -1,8 +1,33 @@
 ---
-title: STANDÖLINNENFARBE PRO Mischtöne
+version: 2025-12-28 10:45 UTC
+managed_by: categories.csv
+last_synced: 2025-12-28 10:45 UTC
 lang: de
-managed_by: ssot-sync
-last_synced: '2025-10-27'
-kategorie_slug: sip-m
+translationKey: beeck-sip-pro-mixed
+title: Standölinnenfarbe Pro Mischtöne
+description: 'BEECK Standölinnenfarbe Pro Mischtöne (SIP-M): Nuancen und Mischrezepturen für standölbasierte, diffusionsoffene Innenanstriche.'
+weight: 20
+type: products
+seo:
+  meta_title: Standölinnenfarbe Pro Mischtöne - BEECK Nuancen (SIP-M)
+  meta_description: 'BEECK Standölinnenfarbe Pro Mischtöne (SIP-M): Nuancen, Gebinde und Varianten für standölbasierte Innenanstriche.'
+  robots: index,follow
+  canonical: ''
+  og_image: ''
+  is_public: true
+schema:
+  breadcrumb: true
+  itemlist: true
+  organization: true
+nav:
+  show: true
+  parent_key: beeck-stand-oil-paints
+cascade:
+  category:
+    key: beeck-sip-pro-mixed
+    parent_key: beeck-stand-oil-paints
+    is_public: true
+  seo:
+    robots: index,follow
 ---
-STANDÖLINNENFARBE PRO Mischtöne – Übersicht der Produkte.
+Hier sind die **Misch- und Nuanciertöne** der BEECK Standölinnenfarbe Pro gebündelt. Mischtöne eignen sich für fein abgestimmte Farbkonzepte und historische Farbwirkungen.\n\nWähle einen Mischtön, um Produktdaten, Gebindegrößen, Varianten und Bilder zu sehen.

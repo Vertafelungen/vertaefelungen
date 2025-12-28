@@ -1,14 +1,33 @@
 ---
-title: "Oils & Paints"
-description: "Overview of oils and paints: traditional finishes and wood protection systems for interior joinery (e.g. linseed oil, stand oil, pigments)."
-translationKey: "oil-paints-root"
-managed_by: "manual"
-version: "2025-12-26 18:32 CET"
+version: 2025-12-28 10:45 UTC
+managed_by: categories.csv
+last_synced: 2025-12-28 10:45 UTC
+lang: en
+translationKey: oil-paints-root
+title: Oils & Paints
+description: Oils, paints and finishing systems for historic wood surfaces - focused on compatible materials, craft application and heritage contexts.
+weight: 40
+type: products
 seo:
-  meta_description: "Oils & paints: traditional finishes and wood protection systems – Vertäfelung & Lambris."
-  robots: "index,follow"
+  meta_title: Oils & Paints - Finishes for Historic Woodwork
+  meta_description: 'Oils & paints for historic wood surfaces: linseed/tung/balsam and stand-oil/oil-paint systems. Overviews, variants and notes - Vertäfelung & Lambris.'
+  robots: index,follow
+  canonical: ''
+  og_image: ''
+  is_public: true
+schema:
+  breadcrumb: true
+  itemlist: true
+  organization: true
+nav:
+  show: true
+  parent_key: products-root
+cascade:
+  category:
+    key: oil-paints-root
+    parent_key: products-root
+    is_public: true
+  seo:
+    robots: index,follow
 ---
-
-This section covers oils and paint systems for wood surfaces – with a focus on practical application and historically compatible finishes.
-
-Select a brand/product line to view colours, pack sizes and variants.
+Oils and paints influence not only colour, but also vapour behaviour, feel, repairability and long-term ageing.\n\n## Subcategories\n- **Linseed, tung & balsam** - classic oils/resins for protection, priming and maintenance.\n- **Stand oil / oil paints** - durable, vapour-open paint systems (e.g. pigmented finishes).\n\nChoose a subcategory to view products, variants and application notes.

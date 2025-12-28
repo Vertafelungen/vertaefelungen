@@ -1,14 +1,33 @@
 ---
-title: "Leisten"
-description: "Übersicht Leisten: Profile für Innenräume (z. B. Wand-/Deckenleisten, Türbekleidungen, Sockelleisten) im historischen Kontext."
-translationKey: "mouldings-root"
-managed_by: "manual"
-version: "2025-12-26 18:32 CET"
+version: 2025-12-28 10:45 UTC
+managed_by: categories.csv
+last_synced: 2025-12-28 10:45 UTC
+lang: de
+translationKey: mouldings-root
+title: Leisten
+description: 'Leisten für historische Innenräume: Wandleisten, Türrahmen/Türbekleidungen und Sockelleisten - als rekonstruierte Profile nach Vorbildern oder als kompatible Standardprofile.'
+weight: 30
+type: products
 seo:
-  meta_description: "Leisten-Übersicht: Profile für Innenräume – Wand-/Deckenleisten, Türbekleidungen, Sockelleisten. Vertäfelung & Lambris."
-  robots: "index,follow"
+  meta_title: Leisten - Wandleisten, Türbekleidungen und Sockelleisten
+  meta_description: 'Leisten für historische Innenräume: Wandleisten, Türrahmen/Türbekleidungen und Sockelleisten. Produktübersichten, Varianten und Maße - Vertäfelung & Lambris.'
+  robots: index,follow
+  canonical: ''
+  og_image: ''
+  is_public: true
+schema:
+  breadcrumb: true
+  itemlist: true
+  organization: true
+nav:
+  show: true
+  parent_key: products-root
+cascade:
+  category:
+    key: mouldings-root
+    parent_key: products-root
+    is_public: true
+  seo:
+    robots: index,follow
 ---
-
-Leisten strukturieren Räume: Sockel, Türbekleidungen und Wand-/Deckenprofile sind zentrale Elemente historischer Innenausbauten.
-
-Wähle eine Unterkategorie oder ein konkretes Profil, um Details, Maße und Varianten zu sehen.
+Leisten sind das "Vokabular" historischer Innenausbauten: Sie fassen Öffnungen, gliedern Wandflächen und definieren Übergänge.\n\n## Unterkategorien\n- **Wandleisten** - Profile zur Gliederung von Wandflächen, Feldern und Gesimsen.\n- **Türrahmen / Türbekleidungen** - Profile zur Fassung von Türen und Durchgängen.\n- **Sockelleisten** - Abschluss am Boden, Schutz- und Proportionsleiste.\n\nWähle eine Unterkategorie, um passende Profile, Maße, Varianten und Bilder zu sehen.
