@@ -1,52 +1,74 @@
-{{/* 
-  File: wissen/layouts/partials/product/gallery.html
-  Version: 2025-12-28 12:40 CET
+{{- /* product/gallery.html | v2025-12-28 12:00 CET
+      Fix: keine absURL-Anwendung auf RelPermalink (verhindert /wissen/wissen/)
+      Support:
+      - SSOT-Struktur: .Params.produkt.bilder[*].datei + alt_de/alt_en
+      - Fallback: Page Resources (Leaf Bundle)
+      - Backward compat: .Params.images (Strings)
+*/ -}}
 
-  Rendert Produktbilder aus:
-  1) .Params.produkt.bilder (SSOT-Metadaten: datei + alt_de/alt_en)
-  2) Fallback: .Resources.ByType "image"
-*/}}
+{{- $items := slice -}}
 
-{{- $p := .Params.produkt -}}
-{{- $hasMetaImages := and $p $p.bilder (gt (len $p.bilder) 0) -}}
-
-{{- if $hasMetaImages -}}
-  <div class="product-gallery">
-    {{- range $i, $img := $p.bilder -}}
-      {{- $fn := $img.datei -}}
-      {{- if $fn -}}
-        {{- $res := $.Resources.GetMatch $fn -}}
-        {{- $src := "" -}}
-        {{- if $res -}}
-          {{- $src = $res.RelPermalink -}}
-        {{- else -}}
-          {{- /* Fallback: Datei liegt im Output im gleichen Ordner wie die Seite */ -}}
-          {{- $src = printf "%s%s" $.RelPermalink $fn -}}
-        {{- end -}}
-
-        {{- $alt := "" -}}
-        {{- if eq $.Lang "de" -}}
-          {{- $alt = (or $img.alt_de $img.alt_en $.Title) -}}
-        {{- else -}}
-          {{- $alt = (or $img.alt_en $img.alt_de $.Title) -}}
-        {{- end -}}
-
-        <figure class="product-gallery__item">
-          <img src="{{ $src }}" alt="{{ $alt | safeHTMLAttr }}" loading="lazy" decoding="async" />
-        </figure>
+{{- /* 1) Prefer SSOT structure: .Params.produkt.bilder */ -}}
+{{- with .Params.produkt.bilder -}}
+  {{- range . -}}
+    {{- $fn := .datei | default "" -}}
+    {{- if $fn -}}
+      {{- $res := $.Resources.GetMatch $fn -}}
+      {{- $src := "" -}}
+      {{- if $res -}}
+        {{- /* RelPermalink ist bereits korrekt relativ zur Site (inkl. /wissen/) */ -}}
+        {{- $src = $res.RelPermalink -}}
+      {{- else -}}
+        {{- /* Fallback: Datei relativ zum Seitenordner */ -}}
+        {{- $src = printf "%s%s" $.RelPermalink $fn -}}
       {{- end -}}
+
+      {{- $alt := "" -}}
+      {{- if eq $.Lang "de" -}}
+        {{- $alt = .alt_de | default $.Title -}}
+      {{- else -}}
+        {{- $alt = .alt_en | default .alt_de | default $.Title -}}
+      {{- end -}}
+
+      {{- $items = $items | append (dict "src" $src "alt" $alt) -}}
     {{- end -}}
-  </div>
-
-{{- else -}}
-  {{- /* Fallback: alle Bilder aus dem Leaf Bundle anzeigen */ -}}
-  {{- with .Resources.ByType "image" -}}
-    <div class="product-gallery">
-      {{- range . -}}
-        <figure class="product-gallery__item">
-          <img src="{{ .RelPermalink }}" alt="{{ $.Title | safeHTMLAttr }}" loading="lazy" decoding="async" />
-        </figure>
-      {{- end -}}
-    </div>
   {{- end -}}
+{{- end -}}
+
+{{- /* 2) Backward compat: .Params.images (list of strings/urls) */ -}}
+{{- if not $items -}}
+  {{- with .Params.images -}}
+    {{- range . -}}
+      {{- $raw := . -}}
+      {{- $src := $raw -}}
+      {{- if not (or (hasPrefix $raw "http://") (hasPrefix $raw "https://") (hasPrefix $raw "/")) -}}
+        {{- $src = printf "%s%s" $.RelPermalink $raw -}}
+      {{- end -}}
+      {{- $items = $items | append (dict "src" $src "alt" $.Title) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* 3) Fallback: all page resources of type image */ -}}
+{{- if not $items -}}
+  {{- with .Resources.ByType "image" -}}
+    {{- range . -}}
+      {{- $items = $items | append (dict "src" .RelPermalink "alt" $.Title) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $items -}}
+<div class="product-gallery">
+  {{- range $items -}}
+    <figure class="product-gallery__item">
+      <img
+        src="{{ .src | safeURL }}"
+        alt="{{ .alt | plainify | safeHTMLAttr }}"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+  {{- end -}}
+</div>
 {{- end -}}
