@@ -1,7 +1,7 @@
 ---
-version: 2025-12-28 10:45 UTC
+version: 2025-12-28 19:54 UTC
 managed_by: categories.csv
-last_synced: 2025-12-28 10:45 UTC
+last_synced: 2025-12-28 19:54 UTC
 lang: en
 translationKey: wall-mouldings
 title: Wall Mouldings
