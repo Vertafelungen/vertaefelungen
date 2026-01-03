@@ -8,6 +8,9 @@ title: Halbhohe Vertäfelungen
 description: Halbhohe Vertäfelungen (Lambris bis ca. Brüstungshöhe) nach historischen Vorbildern - flexibel kombinierbar, ideal für Altbau-Räume und gut mit Farbkonzepten abstimmbar.
 weight: 10
 type: products
+url: '/de/produkte/halbhohe-vertaefelungen/'
+aliases:
+  - '/de/oeffentlich/produkte/halbhohe-vertaefelungen/'
 seo:
   meta_title: Halbhohe Vertäfelungen - Lambris nach historischen Vorbildern
   meta_description: 'Halbhohe Vertäfelungen (Lambris) nach historischen Vorbildern: Varianten, Details und Projektablauf. Rekonstruktion, Visualisierung und Umsetzung für Altbau-Interieurs.'

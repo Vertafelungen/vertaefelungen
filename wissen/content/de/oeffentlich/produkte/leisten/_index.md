@@ -8,6 +8,9 @@ title: Leisten
 description: 'Leisten für historische Innenräume: Wandleisten, Türrahmen/Türbekleidungen und Sockelleisten - als rekonstruierte Profile nach Vorbildern oder als kompatible Standardprofile.'
 weight: 30
 type: products
+url: '/de/produkte/leisten/'
+aliases:
+  - '/de/oeffentlich/produkte/leisten/'
 seo:
   meta_title: Leisten - Wandleisten, Türbekleidungen und Sockelleisten
   meta_description: 'Leisten für historische Innenräume: Wandleisten, Türrahmen/Türbekleidungen und Sockelleisten. Produktübersichten, Varianten und Maße - Vertäfelung & Lambris.'

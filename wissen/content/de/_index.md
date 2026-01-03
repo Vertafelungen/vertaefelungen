@@ -7,7 +7,7 @@ Beschreibung: 'Einstiege: Produkte & FAQ - historische Vertäfelungen, Leisten, 
 Diese Wissenssammlung bündelt Fachinhalte zu historischen Holzvertäfelungen, Leisten & Oberflächen.
 
 ### Bereiche
-- **[Produkte](/de/oeffentlich/produkte/)** – Produktkatalog mit Bundles, Varianten & technischen Details
-- **[FAQ](/de/oeffentlich/faq/)** – Grundlagen, Richtlinien, Verarbeitung, Restaurierung
+- **[Produkte](/de/produkte/)** – Produktkatalog mit Bundles, Varianten & technischen Details
+- **[FAQ](/de/faq/)** – Grundlagen, Richtlinien, Verarbeitung, Restaurierung
 
 > Tipp: Die Navigation oben führt ebenfalls direkt zu *Produkte* und *FAQ*.

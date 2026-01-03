@@ -8,6 +8,9 @@ title: Produkte
 description: 'Produktübersicht: Vertäfelungen, Leisten, Öle & Farben sowie Lüftungsrosetten.'
 weight: 10
 type: products
+url: '/de/produkte/'
+aliases:
+  - '/de/oeffentlich/produkte/'
 seo:
   meta_title: Produkte - Vertäfelung & Lambris
   meta_description: Übersicht aller Produktkategorien der Wissensseite von Vertäfelung & Lambris.

@@ -8,6 +8,9 @@ title: Beeck Standölfarben
 description: Standölbasierte Innenfarben und Systemkomponenten von BEECK - robuste, diffusionsoffene Ölfarb-Anstriche für Holzoberflächen und Altbau-Interieurs.
 weight: 20
 type: products
+url: '/de/produkte/oele-farben/beeck/'
+aliases:
+  - '/de/oeffentlich/produkte/oele-farben/beeck/'
 seo:
   meta_title: BEECK Standölfarben - Standölinnenfarbe Pro & Systemkomponenten
   meta_description: 'BEECK Standölfarben für Innenräume: Standölinnenfarbe Pro (Vollton/Mischtöne) und Vorstreichfarbe Pro. Varianten, Gebinde und Hinweise - Vertäfelung & Lambris.'

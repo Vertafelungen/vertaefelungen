@@ -4,6 +4,9 @@ description: "Beeck Standöl – Produktlinien (z. B. SIP-V/SIP-M) und Farbtöne
 translationKey: "beeck-stand-oil"
 managed_by: "manual"
 version: "2025-12-26 18:32 CET"
+url: '/de/produkte/oele-farben/beeck/standoel/'
+aliases:
+  - '/de/oeffentlich/produkte/oele-farben/beeck/standoel/'
 seo:
   meta_description: "Beeck Standöl – Produktlinien und Farbtöne für traditionelle Ölfarbanstriche. Vertäfelung & Lambris."
   robots: "index,follow"

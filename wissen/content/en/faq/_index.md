@@ -1,10 +1,12 @@
 ---
-title: Knowledge - English
-slug: 'knowledge-english'
+title: FAQ
+slug: 'faq'
 type: faq
 lang: en
 managed_by: faq
-url: '/faq/knowledge-english/'
+url: '/en/faq/'
+aliases:
+  - '/en/public/faq/'
 description: Knowledge base on historical wood panelling, wainscoting, mouldings and restoration (EN).
 ---
 # Knowledge - English

@@ -8,6 +8,9 @@ title: Wandleisten
 description: 'Wandleisten zur Gliederung historischer Wandflächen: Profile für Felder, Rahmungen, Gesimse und Übergänge - mit Varianten, Maßen und Bildmaterial.'
 weight: 10
 type: products
+url: '/de/produkte/leisten/wandleisten/'
+aliases:
+  - '/de/oeffentlich/produkte/leisten/wandleisten/'
 seo:
   meta_title: Wandleisten - Profile für historische Wandflächen
   meta_description: 'Wandleisten für historische Innenräume: Profile für Felder, Rahmungen und Wandteilungen. Varianten, Maße und Bilder - Vertäfelung & Lambris.'
