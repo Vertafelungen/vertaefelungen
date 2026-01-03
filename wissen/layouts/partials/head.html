@@ -2,14 +2,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
 
-{{/* Hreflang + Canonical: vermeidet Doppelungen. */}}
+{{/* Canonical + Hreflang */}}
+{{- $canonical := partial "seo/canonical-url.html" . -}}
+{{- $robots := "index,follow" -}}
+{{- with .Params.robots }}
+  {{- $robots = . -}}
+{{- else }}
+  {{- with .Params.seo.robots }}
+    {{- if . }}
+      {{- $robots = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $knowledgeURL := $canonical -}}
+{{- with .Params.knowledge_url }}
+  {{- $knowledgeURL = . | absURL -}}
+{{- end -}}
+
 {{ if templates.Exists "partials/seo/hreflang-canonical.html" }}
-  {{ if .IsTranslated }}
-    {{ partial "seo/hreflang-canonical.html" . }}
-  {{ else }}
-    <link rel="canonical" href="{{ .Permalink }}" />
-  {{ end }}
+  {{ partial "seo/hreflang-canonical.html" (dict "page" . "canonical" $canonical) }}
 {{ end }}
+<meta name="robots" content="{{ $robots }}">
+<meta name="knowledge_url" content="{{ $knowledgeURL }}">
 
 {{/* Meta Description (SEO) */}}
 {{ with .Params.seo.description }}

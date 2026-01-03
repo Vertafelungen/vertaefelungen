@@ -1,0 +1,15 @@
+{{- /* Compute canonical URL with optional overrides */ -}}
+{{- $page := . -}}
+{{- $canonical := $page.Permalink -}}
+
+{{- with $page.Params.canonical_override }}
+  {{- $canonical = . | absURL -}}
+{{- else }}
+  {{- with $page.Params.seo.canonical }}
+    {{- if . }}
+      {{- $canonical = . | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $canonical -}}
