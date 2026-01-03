@@ -25,7 +25,7 @@
           <a href="{{ $site.Home.RelPermalink }}">{{ $site.Language.LanguageName }}</a>{{ if lt (add $index 1) (len $.Sites) }} · {{ end }}
         {{ end }}
       </p>
-      <p class="footer-text">Fragen? Schau in die <a href="{{ "/de/oeffentlich/faq/" | relURL }}">FAQ</a> oder den <a href="{{ "/de/oeffentlich/produkte/" | relURL }}">Produktkatalog</a>.</p>
+      <p class="footer-text">Fragen? Schau in die <a href="{{ "de/oeffentlich/faq/" | absURL }}">FAQ</a> oder den <a href="{{ "de/oeffentlich/produkte/" | absURL }}">Produktkatalog</a>.</p>
     </div>
   </div>
 </footer>
