@@ -8,6 +8,9 @@ title: Sockelleisten
 description: 'Sockelleisten als historisch kompatible Profile: Abschluss am Boden, Schutz der Wandzone und proportionierendes Gestaltungselement - geeignet für Altbau-Interieurs.'
 weight: 30
 type: products
+url: '/de/produkte/leisten/sockelleisten/'
+aliases:
+  - '/de/oeffentlich/produkte/leisten/sockelleisten/'
 seo:
   meta_title: Sockelleisten - historische Profile für Altbau-Innenräume
   meta_description: 'Sockelleisten für Altbau und historische Innenräume: Profilformen, Varianten und Maße. Übersicht und Auswahl - Vertäfelung & Lambris.'

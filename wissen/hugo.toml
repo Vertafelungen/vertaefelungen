@@ -29,11 +29,11 @@ home = ["HTML"]
         weight = 10
       [[languages.de.menu.main]]
         name = "Produkte"
-        url = "/de/oeffentlich/produkte/"
+        url = "/de/produkte/"
         weight = 20
       [[languages.de.menu.main]]
         name = "FAQ"
-        url = "/de/oeffentlich/faq/"
+        url = "/de/faq/"
         weight = 30
       [[languages.de.menu.main]]
         name = "Wissen"
@@ -53,11 +53,11 @@ home = ["HTML"]
         weight = 10
       [[languages.en.menu.main]]
         name = "Products"
-        url = "/en/public/products/"
+        url = "/en/products/"
         weight = 20
       [[languages.en.menu.main]]
         name = "FAQ"
-        url = "/en/public/faq/"
+        url = "/en/faq/"
         weight = 30
       [[languages.en.menu.main]]
         name = "Knowledge"
@@ -66,8 +66,8 @@ home = ["HTML"]
 
 [permalinks]
   # DE
-  produkte = "/de/oeffentlich/produkte/:slug/"
-  faq_de   = "/de/oeffentlich/faq/:sections/:slug/"
+  produkte = "/de/produkte/:slug/"
+  faq_de   = "/de/faq/:sections/:slug/"
   # EN
-  products = "/en/public/products/:slug/"
-  faq_en   = "/en/public/faq/:sections/:slug/"
+  products = "/en/products/:slug/"
+  faq_en   = "/en/faq/:sections/:slug/"

@@ -8,6 +8,9 @@ title: Hohe Vertäfelungen
 description: Hohe Vertäfelungen (Wandtäfelungen bis zur Tür-/Brüstungshöhe oder darüber) nach historischen Vorbildern - rekonstruierbar, variantenfähig und für Altbau-Interieurs geeignet.
 weight: 20
 type: products
+url: '/de/produkte/hohe-vertaefelungen/'
+aliases:
+  - '/de/oeffentlich/produkte/hohe-vertaefelungen/'
 seo:
   meta_title: Hohe Vertäfelungen - historische Wandtäfelung nach Maß
   meta_description: 'Hohe Vertäfelungen nach historischen Vorbildern: Varianten, Details und Projektablauf. Rekonstruktion, Visualisierung und Umsetzung für Altbau-Interieurs.'
