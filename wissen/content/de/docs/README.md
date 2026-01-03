@@ -1,1 +1,0 @@
-# Docs  Diese Übersicht listet alle enthaltenen Produkte mit Beschreibung:  - [naming](./naming/):  - [roadmap](./roadmap/):  - [sitemap_vertaefelungen](./sitemap_vertaefelungen/):   ***  Diese Inhalte stammen von [vertaefelungen.de](https://www.vertaefelungen.de) und unterliegen der CC BY-NC-ND 4.0 Lizenz. Autor: Vertäfelung & Lambris 
