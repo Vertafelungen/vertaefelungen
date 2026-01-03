@@ -1,6 +1,6 @@
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand" href="{{ "/" | relURL }}">
+    <a class="brand" href="{{ .Site.Home.RelPermalink }}">
       <span class="brand__mark">VL</span>
       <span class="brand__text">
         <span class="brand__title">Vertäfelungen.de</span>
@@ -23,8 +23,8 @@
             <a class="{{ if $isActive }}is-active{{ end }}" href="{{ $site.Home.RelPermalink }}">{{ upper $site.Language.Lang }}</a>{{ if lt (add $index 1) (len $.Sites) }}<span aria-hidden="true">·</span>{{ end }}
           {{ end }}
         </div>
-        <a class="button button--filled" href="{{ "/de/oeffentlich/produkte/" | relURL }}">Produkte</a>
-        <a class="button" href="{{ "/de/oeffentlich/faq/" | relURL }}">FAQ</a>
+        <a class="button button--filled" href="{{ "de/oeffentlich/produkte/" | absURL }}">Produkte</a>
+        <a class="button" href="{{ "de/oeffentlich/faq/" | absURL }}">FAQ</a>
       </div>
     </div>
   </div>
