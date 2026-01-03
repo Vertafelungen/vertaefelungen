@@ -49,7 +49,6 @@ Dieses Repository enthält **ausschließlich öffentlich bestimmte Inhalte**.
 
 - Preis- oder Kalkulationslogiken
 - Zugangsdaten, Tokens oder Secrets
-- PrestaShop-Interna
 - interne Geschäftsprozesse oder Kundendaten
 
 ---
