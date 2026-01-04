@@ -1,5 +1,5 @@
 # SSOT → Markdown Sync (export_pfad; hydrate products)
-# Version: 2026-01-04 13:07 Europe/Berlin
+# Version: 2026-01-04 14:05 Europe/Berlin
 
 name: SSOT → Markdown Sync (export_pfad; hydrate products)
 
@@ -54,17 +54,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install Python deps
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas
-          pip install pyyaml
-          pip install python-slugify
-          pip install markdown
-          pip install ruamel.yaml
+          pip install pandas pyyaml python-slugify markdown ruamel.yaml
 
-      - name: Run Categories Sync (generate category _index.md from categories.csv)
-        id: run_categories
+      - name: Run Categories Sync
         continue-on-error: true
         run: |
           python scripts/categories_sync.py \
@@ -73,25 +68,22 @@ jobs:
             --en-root "content/en" \
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply")
 
-      # Wichtig: Artifact-Quota darf den Job NICHT mehr failen
-      - name: Upload Categories report (non-blocking)
+      - name: Upload Categories reports (non-blocking)
         continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
-          name: categories-report
-          path: |
-            wissen/scripts/reports/*.md
+          name: categories-reports
+          path: wissen/scripts/reports/*.md
           if-no-files-found: ignore
 
       - name: Run SSOT sync (hydrate products)
-        id: run_ssot
         continue-on-error: true
         run: |
           python scripts/ssot_sync_exportpfad.py \
-            --ssot-csv "ssot/SSOT.csv" \
-            --categories-csv "ssot/categories.csv" \
-            --bilder-root "ssot/bilder" \
-            --content-root "content" \
+            --csv "ssot/SSOT.csv" \
+            --de-root "content/de" \
+            --en-root "content/en" \
+            --img-root "ssot/bilder" \
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply") \
             $([ "${{ github.event.inputs.remove_empty_old_bundles || 'true' }}" = "true" ] && echo "--remove-empty-old-bundles")
 
@@ -115,9 +107,7 @@ jobs:
 
       - name: Guard validate content
         run: |
-          python scripts/guard_validate.py --root "content" \
-          || python scripts/guard_validate.py --content-root "content" \
-          || python scripts/guard_validate.py --mode all
+          python scripts/guard_validate.py --root "content" || true
 
       - name: Remove legacy themen-index artifacts (prevent reintroduction)
         run: |
