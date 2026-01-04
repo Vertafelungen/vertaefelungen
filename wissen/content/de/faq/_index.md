@@ -4,7 +4,6 @@ slug: 'faq'
 type: faq
 lang: de
 managed_by: faq
-url: '/de/faq/'
 description: Häufige Fragen zu historischen Holzvertäfelungen.
 menu:
   main:

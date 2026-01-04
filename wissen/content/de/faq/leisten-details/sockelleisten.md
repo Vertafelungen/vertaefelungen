@@ -4,7 +4,8 @@ slug: 'sockelleisten'
 type: faq
 lang: de
 managed_by: faq
-url: '/faq/themen/sockelleisten/'
+aliases:
+  - '/faq/themen/sockelleisten/'
 ---
 # sockelleisten
 

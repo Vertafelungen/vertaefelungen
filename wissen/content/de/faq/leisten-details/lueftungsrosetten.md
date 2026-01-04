@@ -4,7 +4,8 @@ slug: 'lueftungsrosetten'
 type: faq
 lang: de
 managed_by: faq
-url: '/faq/themen/lueftungsrosetten/'
+aliases:
+  - '/faq/themen/lueftungsrosetten/'
 ---
 # lueftungsrosetten
 

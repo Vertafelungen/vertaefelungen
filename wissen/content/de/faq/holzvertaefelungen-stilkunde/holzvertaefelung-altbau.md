@@ -4,7 +4,8 @@ slug: 'holzvertaefelung-altbau'
 type: faq
 lang: de
 managed_by: faq
-url: '/faq/themen/holzvertaefelung-altbau/'
+aliases:
+  - '/faq/themen/holzvertaefelung-altbau/'
 ---
 # holzvertaefelung altbau
 

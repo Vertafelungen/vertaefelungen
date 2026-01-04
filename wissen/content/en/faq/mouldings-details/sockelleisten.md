@@ -4,7 +4,8 @@ slug: 'todo-translate-sockelleisten'
 type: faq
 lang: en
 managed_by: faq
-url: '/faq/themen/todo-translate-sockelleisten/'
+aliases:
+  - '/faq/themen/todo-translate-sockelleisten/'
 translationKey: faq:90c55fa32a
 ---
 # TODO: Translate: sockelleisten
