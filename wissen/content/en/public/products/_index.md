@@ -1,7 +1,7 @@
 ---
-version: 2026-01-04 13:51 UTC
+version: 2026-01-04 13:53 UTC
 managed_by: categories.csv
-last_synced: 2026-01-04 13:51 UTC
+last_synced: 2026-01-04 13:53 UTC
 lang: en
 translationKey: products-root
 title: Products
