@@ -3,7 +3,7 @@ title: Türbekleidung 03
 lang: de
 translationKey: '120'
 managed_by: ssot-sync
-last_synced: '2025-12-28'
+last_synced: '2026-01-04'
 produkt:
   id: '120'
   artikelnummer: TR03

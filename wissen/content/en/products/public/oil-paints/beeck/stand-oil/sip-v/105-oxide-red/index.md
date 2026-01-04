@@ -3,7 +3,7 @@ title: Oxide Red - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '105'
 managed_by: ssot-sync
-last_synced: '2025-12-28'
+last_synced: '2026-01-04'
 produkt:
   id: '105'
   artikelnummer: OXIDROT

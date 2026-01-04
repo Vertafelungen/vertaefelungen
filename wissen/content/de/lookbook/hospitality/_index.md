@@ -1,4 +1,4 @@
 ---
-title: "Hospitality"
-description: "Lookbook-Beispiele aus Hospitality-Umgebungen."
+title: Hospitality
+description: Lookbook-Beispiele aus Hospitality-Umgebungen.
 ---

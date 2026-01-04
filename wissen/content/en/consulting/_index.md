@@ -1,4 +1,4 @@
 ---
-title: "Consulting"
-description: "Notes on consulting services and planning support."
+title: Consulting
+description: Notes on consulting services and planning support.
 ---

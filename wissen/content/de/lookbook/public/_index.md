@@ -1,4 +1,4 @@
 ---
-title: "Öffentlich"
-description: "Lookbook-Beispiele aus öffentlichen Projekten."
+title: Öffentlich
+description: Lookbook-Beispiele aus öffentlichen Projekten.
 ---

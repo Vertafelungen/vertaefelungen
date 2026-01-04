@@ -1,6 +1,6 @@
 ---
-title: "Processes"
-description: "Overview of key processes such as production, delivery, and ordering."
+title: Processes
+description: Overview of key processes such as production, delivery, and ordering.
 ---
 # TODO: Translate: Ablaeufe Diese Übersicht listet alle enthaltenen Produkte mit
 

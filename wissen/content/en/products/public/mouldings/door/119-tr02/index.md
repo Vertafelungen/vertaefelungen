@@ -3,7 +3,7 @@ title: Door Frame 02
 lang: en
 translationKey: '119'
 managed_by: ssot-sync
-last_synced: '2025-12-28'
+last_synced: '2026-01-04'
 produkt:
   id: '119'
   artikelnummer: TR02
