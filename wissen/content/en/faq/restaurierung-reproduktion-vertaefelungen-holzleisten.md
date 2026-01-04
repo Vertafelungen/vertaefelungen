@@ -4,8 +4,7 @@ slug: 'todo-translate-restaurierung-reproduktion-vertaefelungen-5ff7d9'
 type: faq
 lang: en
 managed_by: faq
-aliases:
-  - '/faq/themen/todo-translate-restaurierung-reproduktion-vertaefelungen-5ff7d9/'
+url: '/faq/themen/todo-translate-restaurierung-reproduktion-vertaefelungen-5ff7d9/'
 translationKey: faq:b5155e4b7b
 ---
 # TODO: Translate: restaurierung reproduktion vertaefelungen holzleisten

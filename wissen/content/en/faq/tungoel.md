@@ -4,8 +4,7 @@ slug: 'todo-translate-tungoel'
 type: faq
 lang: en
 managed_by: faq
-aliases:
-  - '/faq/themen/todo-translate-tungoel/'
+url: '/faq/themen/todo-translate-tungoel/'
 translationKey: faq:d5383a7f64
 ---
 # TODO: Translate: tungoel

@@ -4,8 +4,7 @@ slug: 'leinoel'
 type: faq
 lang: de
 managed_by: faq
-aliases:
-  - '/faq/themen/leinoel/'
+url: '/faq/themen/leinoel/'
 ---
 # leinoel
 

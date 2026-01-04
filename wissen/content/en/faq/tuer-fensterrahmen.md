@@ -4,8 +4,7 @@ slug: 'todo-translate-tuer-fensterrahmen'
 type: faq
 lang: en
 managed_by: faq
-aliases:
-  - '/faq/themen/todo-translate-tuer-fensterrahmen/'
+url: '/faq/themen/todo-translate-tuer-fensterrahmen/'
 translationKey: faq:221c29df9c
 ---
 # TODO: Translate: tuer fensterrahmen
