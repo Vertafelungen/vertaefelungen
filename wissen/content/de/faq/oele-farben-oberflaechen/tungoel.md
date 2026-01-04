@@ -4,7 +4,8 @@ slug: 'tungoel'
 type: faq
 lang: de
 managed_by: faq
-url: '/faq/themen/tungoel/'
+aliases:
+  - '/faq/themen/tungoel/'
 ---
 # tungoel
 

@@ -4,7 +4,8 @@ slug: 'tuer-fensterrahmen'
 type: faq
 lang: de
 managed_by: faq
-url: '/faq/themen/tuer-fensterrahmen/'
+aliases:
+  - '/faq/themen/tuer-fensterrahmen/'
 ---
 # tuer fensterrahmen
 

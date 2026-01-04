@@ -4,7 +4,8 @@ slug: 'beeck-standoelinnenfarbe-pro'
 type: faq
 lang: de
 managed_by: faq
-url: '/faq/themen/beeck-standoelinnenfarbe-pro/'
+aliases:
+  - '/faq/themen/beeck-standoelinnenfarbe-pro/'
 ---
 # beeck standoelinnenfarbe pro
 

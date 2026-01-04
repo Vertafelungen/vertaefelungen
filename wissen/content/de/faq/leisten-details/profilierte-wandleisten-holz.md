@@ -4,7 +4,8 @@ slug: 'profilierte-wandleisten-holz'
 type: faq
 lang: de
 managed_by: faq
-url: '/faq/themen/profilierte-wandleisten-holz/'
+aliases:
+  - '/faq/themen/profilierte-wandleisten-holz/'
 ---
 # profilierte wandleisten holz
 
