@@ -4,8 +4,7 @@ slug: 'todo-translate-lueftungsrosetten'
 type: faq
 lang: en
 managed_by: faq
-aliases:
-  - '/faq/themen/todo-translate-lueftungsrosetten/'
+url: '/faq/themen/todo-translate-lueftungsrosetten/'
 translationKey: faq:c9d5a07d91
 ---
 # TODO: Translate: lueftungsrosetten

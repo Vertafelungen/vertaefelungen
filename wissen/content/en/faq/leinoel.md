@@ -4,8 +4,7 @@ slug: 'todo-translate-leinoel'
 type: faq
 lang: en
 managed_by: faq
-aliases:
-  - '/faq/themen/todo-translate-leinoel/'
+url: '/faq/themen/todo-translate-leinoel/'
 translationKey: faq:4010c7d4a7
 ---
 # TODO: Translate: leinoel

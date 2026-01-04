@@ -4,8 +4,7 @@ slug: 'todo-translate-profilierte-wandleisten-holz'
 type: faq
 lang: en
 managed_by: faq
-aliases:
-  - '/faq/themen/todo-translate-profilierte-wandleisten-holz/'
+url: '/faq/themen/todo-translate-profilierte-wandleisten-holz/'
 translationKey: faq:b6eb803947
 ---
 # TODO: Translate: profilierte wandleisten holz

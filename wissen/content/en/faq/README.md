@@ -4,8 +4,7 @@ slug: 'todo-translate-faq-diese-ubersicht-listet-alle-enthaltene-d89adf'
 type: faq
 lang: en
 managed_by: faq
-aliases:
-  - '/faq/todo-translate-faq-diese-ubersicht-listet-alle-enthaltene-d89adf/'
+url: '/faq/todo-translate-faq-diese-ubersicht-listet-alle-enthaltene-d89adf/'
 translationKey: faq:8ec9a00bfd
 ---
 # TODO: Translate: Faq Diese Übersicht listet alle enthaltenen Produkte mit

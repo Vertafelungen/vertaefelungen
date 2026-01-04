@@ -4,8 +4,7 @@ slug: 'todo-translate-holzvertaefelung-altbau'
 type: faq
 lang: en
 managed_by: faq
-aliases:
-  - '/faq/themen/todo-translate-holzvertaefelung-altbau/'
+url: '/faq/themen/todo-translate-holzvertaefelung-altbau/'
 translationKey: faq:8255d39a4b
 ---
 # TODO: Translate: holzvertaefelung altbau
