@@ -4,15 +4,24 @@
 <p class="lead">Alles Wissenswerte rund um historische Holzvertäfelungen, Lambris, Paneele und die passenden Oberflächen. Steige über Produkte oder die FAQ ein.</p>
 
 <div class="card-grid" style="margin: 1.5rem 0;">
+  {{ $productSection := cond (eq .Site.Language.Lang "de") "produktinfo" "products" }}
+  {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
+  {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
+    {{ $productLink = .RelPermalink }}
+  {{ end }}
+  {{ $faqLink := printf "/%s/faq/" .Site.Language.Lang | relURL }}
+  {{ with site.GetPage (printf "/%s/faq" .Site.Language.Lang) }}
+    {{ $faqLink = .RelPermalink }}
+  {{ end }}
   <div class="card">
     <h3>Produkte</h3>
     <p>Bundles, Varianten und technische Details aus dem Produktkatalog.</p>
-    <a class="button button--filled" href="{{ "de/produkte/" | absURL }}">Zum Katalog</a>
+    <a class="button button--filled" href="{{ $productLink }}">Zum Katalog</a>
   </div>
   <div class="card">
     <h3>FAQ</h3>
     <p>Grundlagen, Verarbeitung, Restaurierung und Richtlinien im Überblick.</p>
-    <a class="button" href="{{ "de/faq/" | absURL }}">FAQ öffnen</a>
+    <a class="button" href="{{ $faqLink }}">FAQ öffnen</a>
   </div>
   <div class="card">
     <h3>Sprache wählen</h3>

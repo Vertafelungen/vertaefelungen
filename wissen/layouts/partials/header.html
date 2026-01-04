@@ -23,8 +23,18 @@
             <a class="{{ if $isActive }}is-active{{ end }}" href="{{ $site.Home.RelPermalink }}">{{ upper $site.Language.Lang }}</a>{{ if lt (add $index 1) (len $.Sites) }}<span aria-hidden="true">·</span>{{ end }}
           {{ end }}
         </div>
-        <a class="button button--filled" href="{{ "de/produkte/" | absURL }}">Produkte</a>
-        <a class="button" href="{{ "de/faq/" | absURL }}">FAQ</a>
+        {{ $productSection := cond (eq .Site.Language.Lang "de") "produktinfo" "products" }}
+        {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
+        {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
+          {{ $productLink = .RelPermalink }}
+        {{ end }}
+        {{ $faqLink := printf "/%s/faq/" .Site.Language.Lang | relURL }}
+        {{ with site.GetPage (printf "/%s/faq" .Site.Language.Lang) }}
+          {{ $faqLink = .RelPermalink }}
+        {{ end }}
+        {{ $productLabel := cond (eq .Site.Language.Lang "de") "Produkte" "Products" }}
+        <a class="button button--filled" href="{{ $productLink }}">{{ $productLabel }}</a>
+        <a class="button" href="{{ $faqLink }}">FAQ</a>
       </div>
     </div>
   </div>

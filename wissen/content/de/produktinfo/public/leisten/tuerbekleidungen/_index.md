@@ -8,9 +8,7 @@ title: Türbekleidungen
 description: 'Türbekleidungen (Türrahmen- und Bekleidungsprofile) für historische Innenräume: saubere Fassung von Türen und Durchgängen, mit Varianten, Maßen und Bildmaterial.'
 weight: 20
 type: products
-url: '/de/produkte/leisten/tuerbekleidungen/'
-aliases:
-  - '/de/oeffentlich/produkte/leisten/tuerbekleidungen/'
+url: '/de/produktinfo/leisten/tuerbekleidungen/'
 seo:
   meta_title: Türbekleidungen - Profile für Türen und Durchgänge
   meta_description: 'Türbekleidungen für historische Innenräume: Profile zur Fassung von Türen und Durchgängen. Varianten, Maße und Bilder - Vertäfelung & Lambris.'

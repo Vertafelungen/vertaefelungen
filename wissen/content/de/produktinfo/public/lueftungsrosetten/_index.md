@@ -8,9 +8,7 @@ title: Lüftungsrosetten
 description: 'Lüftungsrosetten für historische Innenräume: dekorative Abdeckungen für Lüftungsöffnungen (z. B. Wand-/Türlüftung), passend zu klassischen Profil- und Vertäfelungssystemen.'
 weight: 50
 type: products
-url: '/de/produkte/lueftungsrosetten/'
-aliases:
-  - '/de/oeffentlich/produkte/lueftungsrosetten/'
+url: '/de/produktinfo/lueftungsrosetten/'
 seo:
   meta_title: Lüftungsrosetten - Abdeckungen für Lüftungsöffnungen im Altbau
   meta_description: 'Lüftungsrosetten für historische Innenräume: Varianten, Maße und Bilder. Dekorative Abdeckungen passend zu Vertäfelungen und Leisten - Vertäfelung & Lambris.'

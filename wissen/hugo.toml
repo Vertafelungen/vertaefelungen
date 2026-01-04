@@ -29,7 +29,7 @@ home = ["HTML"]
         weight = 10
       [[languages.de.menu.main]]
         name = "Produkte"
-        url = "/de/produkte/"
+        url = "/de/produktinfo/"
         weight = 20
       [[languages.de.menu.main]]
         name = "FAQ"
@@ -64,10 +64,10 @@ home = ["HTML"]
         url = "/en/"
         weight = 40
 
-[permalinks]
-  # DE
-  produkte = "/de/produkte/:slug/"
-  faq_de   = "/de/faq/:sections/:slug/"
-  # EN
-  products = "/en/products/:slug/"
-  faq_en   = "/en/faq/:sections/:slug/"
+[languages.de.permalinks]
+  produktinfo = "/de/produktinfo/:sections/:slug/"
+  faq = "/de/faq/:sections/:slug/"
+
+[languages.en.permalinks]
+  products = "/en/products/:sections/:slug/"
+  faq = "/en/faq/:sections/:slug/"
