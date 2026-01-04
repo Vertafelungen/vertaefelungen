@@ -1,7 +1,7 @@
 ---
-version: 2026-01-04 10:32 UTC
+version: 2026-01-04 12:37 UTC
 managed_by: categories.csv
-last_synced: 2026-01-04 10:32 UTC
+last_synced: 2026-01-04 12:37 UTC
 lang: en
 translationKey: oils-linseed-tung-balsam
 title: Linseed, Tung & Balsam
