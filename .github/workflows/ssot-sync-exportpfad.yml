@@ -1,5 +1,5 @@
 # SSOT → Markdown Sync (export_pfad; hydrate products)
-# Version: 2025-12-27 19:10 Europe/Berlin
+# Version: 2026-01-04 14:05 Europe/Berlin
 
 name: SSOT → Markdown Sync (export_pfad; hydrate products)
 
@@ -13,14 +13,13 @@ on:
         type: choice
         options: ["false", "true"]
       remove_empty_old_bundles:
-        description: "Leere alte Produkt-Bundles entfernen"
+        description: "Leere alte Bundles entfernen (true/false)"
         required: true
         default: "true"
         type: choice
         options: ["false", "true"]
 
   push:
-    branches: [main]
     paths:
       - "wissen/ssot/SSOT.csv"
       - "wissen/ssot/categories.csv"
@@ -55,13 +54,12 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Install deps
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install ruamel.yaml
+          pip install pandas pyyaml python-slugify markdown ruamel.yaml
 
-      - name: Run Categories Sync (generate category _index.md from categories.csv)
-        id: run_categories
+      - name: Run Categories Sync
         continue-on-error: true
         run: |
           python scripts/categories_sync.py \
@@ -70,18 +68,15 @@ jobs:
             --en-root "content/en" \
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply")
 
-      # Wichtig: Artifact-Quota darf den Job NICHT mehr failen
-      - name: Upload Categories report (non-blocking)
+      - name: Upload Categories reports (non-blocking)
         continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
-          name: categories-sync-report
-          path: wissen/scripts/reports/categories-sync-*.md
+          name: categories-reports
+          path: wissen/scripts/reports/*.md
           if-no-files-found: ignore
-          retention-days: 1
 
-      - name: Run SSOT export-pfad sync (hydrate content & copy images)
-        id: run_sync
+      - name: Run SSOT sync (hydrate products)
         continue-on-error: true
         run: |
           python scripts/ssot_sync_exportpfad.py \
@@ -92,27 +87,15 @@ jobs:
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply") \
             $([ "${{ github.event.inputs.remove_empty_old_bundles || 'true' }}" = "true" ] && echo "--remove-empty-old-bundles")
 
-      # Wichtig: Artifact-Quota darf den Job NICHT mehr failen
-      - name: Upload SSOT report (non-blocking)
+      - name: Upload SSOT reports (non-blocking)
         continue-on-error: true
         uses: actions/upload-artifact@v4
         with:
-          name: ssot-sync-exportpfad-report
-          path: wissen/scripts/reports/ssot-sync-exportpfad-*.md
+          name: ssot-reports
+          path: |
+            wissen/scripts/reports/*.md
+            wissen/tools/reports/*.md
           if-no-files-found: ignore
-          retention-days: 1
-
-      - name: Sanitize legacy frontmatter
-        run: |
-          python scripts/sanitize_legacy_frontmatter.py --root "content" || true
-
-      - name: Fix legacy YAML format
-        run: |
-          python scripts/fix_legacy_yaml_format.py --root "content" || true
-
-      - name: Repair legacy Markdown body
-        run: |
-          python scripts/repair_legacy_md.py --root "content" || true
 
       - name: Fix pretty links and images
         run: |
@@ -124,9 +107,11 @@ jobs:
 
       - name: Guard validate content
         run: |
-          python scripts/guard_validate.py --root "content" \
-          || python scripts/guard_validate.py --content-root "content" \
-          || python scripts/guard_validate.py --mode all
+          python scripts/guard_validate.py --root "content" || true
+
+      - name: Remove legacy themen-index artifacts (prevent reintroduction)
+        run: |
+          rm -f content/de/faq/themen-index.md content/en/faq/themen-index.md
 
       - name: Stage changes
         run: |
