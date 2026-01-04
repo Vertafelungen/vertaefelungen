@@ -1,4 +1,4 @@
 ---
-title: "Privat"
-description: "Lookbook-Beispiele aus privaten Projekten."
+title: Privat
+description: Lookbook-Beispiele aus privaten Projekten.
 ---

@@ -1,4 +1,4 @@
 ---
-title: "Residential"
-description: "Lookbook entries from residential projects."
+title: Residential
+description: Lookbook entries from residential projects.
 ---

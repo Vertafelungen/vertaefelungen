@@ -1,4 +1,4 @@
 ---
-title: "Produktinfo"
-description: "Kurzinfos zu Produkten, Materialien und Merkmalen."
+title: Produktinfo
+description: Kurzinfos zu Produkten, Materialien und Merkmalen.
 ---
