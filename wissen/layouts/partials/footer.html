@@ -25,7 +25,17 @@
           <a href="{{ $site.Home.RelPermalink }}">{{ $site.Language.LanguageName }}</a>{{ if lt (add $index 1) (len $.Sites) }} · {{ end }}
         {{ end }}
       </p>
-      <p class="footer-text">Fragen? Schau in die <a href="{{ "de/faq/" | absURL }}">FAQ</a> oder den <a href="{{ "de/produkte/" | absURL }}">Produktkatalog</a>.</p>
+      {{ $productSection := cond (eq .Site.Language.Lang "de") "produktinfo" "products" }}
+      {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
+      {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
+        {{ $productLink = .RelPermalink }}
+      {{ end }}
+      {{ $faqLink := printf "/%s/faq/" .Site.Language.Lang | relURL }}
+      {{ with site.GetPage (printf "/%s/faq" .Site.Language.Lang) }}
+        {{ $faqLink = .RelPermalink }}
+      {{ end }}
+      {{ $productsLabel := cond (eq .Site.Language.Lang "de") "Produktkatalog" "Product catalogue" }}
+      <p class="footer-text">Fragen? Schau in die <a href="{{ $faqLink }}">FAQ</a> oder den <a href="{{ $productLink }}">{{ $productsLabel }}</a>.</p>
     </div>
   </div>
 </footer>

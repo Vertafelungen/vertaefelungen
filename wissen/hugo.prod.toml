@@ -23,11 +23,13 @@ relativeURLs = false
     [languages.en.params]
       locale = "en_GB"
 
-[permalinks]
-  produkte = "/de/produkte/:slug/"
-  faq_de   = "/de/faq/:sections/:slug/"
-  products = "/en/products/:slug/"
-  faq_en   = "/en/faq/:sections/:slug/"
+[languages.de.permalinks]
+  produktinfo = "/de/produktinfo/:sections/:slug/"
+  faq = "/de/faq/:sections/:slug/"
+
+[languages.en.permalinks]
+  products = "/en/products/:sections/:slug/"
+  faq = "/en/faq/:sections/:slug/"
 
 [markup.goldmark.renderer]
   unsafe = true

@@ -8,9 +8,7 @@ title: Öle & Farben
 description: Öle, Farben und Oberflächensysteme für historische Holzoberflächen - mit Fokus auf kompatible Materialien, handwerkliche Verarbeitung und Denkmalpflege.
 weight: 40
 type: products
-url: '/de/produkte/oele-farben/'
-aliases:
-  - '/de/oeffentlich/produkte/oele-farben/'
+url: '/de/produktinfo/oele-farben/'
 seo:
   meta_title: Öle & Farben - Oberflächensysteme für historische Holzarbeiten
   meta_description: 'Öle & Farben für historische Holzoberflächen: Leinöl/Tung/Balsam, Standöl- und Ölfarb-Systeme. Übersicht, Varianten und Hinweise - Vertäfelung & Lambris.'

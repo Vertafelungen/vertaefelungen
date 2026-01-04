@@ -5,8 +5,6 @@ type: faq
 lang: de
 managed_by: faq
 url: '/de/faq/'
-aliases:
-  - '/de/oeffentlich/faq/'
 description: Häufige Fragen zu historischen Holzvertäfelungen.
 menu:
   main:
