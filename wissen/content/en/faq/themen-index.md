@@ -1,6 +1,6 @@
 ---
-title: "Themen"
-description: "Collection of topic-focused FAQ entries."
+title: Themen
+description: Collection of topic-focused FAQ entries.
 ---
 # TODO: Translate: Themen Diese Übersicht listet alle enthaltenen Produkte mit
 

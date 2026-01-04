@@ -1,6 +1,6 @@
 ---
-title: "Produkte"
-description: "FAQ content related to products and variations."
+title: Produkte
+description: FAQ content related to products and variations.
 ---
 # TODO: Translate: Produkte Diese Übersicht listet alle enthaltenen Produkte mit
 

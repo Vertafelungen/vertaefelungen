@@ -3,7 +3,7 @@ title: Wandleiste 06
 lang: de
 translationKey: '81'
 managed_by: ssot-sync
-last_synced: '2025-12-28'
+last_synced: '2026-01-04'
 produkt:
   id: '81'
   artikelnummer: WL06

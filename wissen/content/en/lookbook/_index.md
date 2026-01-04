@@ -1,4 +1,4 @@
 ---
-title: "Lookbook"
-description: "Portfolio highlights and visual inspiration."
+title: Lookbook
+description: Portfolio highlights and visual inspiration.
 ---

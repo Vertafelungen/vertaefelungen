@@ -1,4 +1,4 @@
 ---
-title: "Products"
-description: "Information about products, materials, and specifications."
+title: Products
+description: Information about products, materials, and specifications.
 ---

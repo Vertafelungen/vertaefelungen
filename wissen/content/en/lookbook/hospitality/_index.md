@@ -1,4 +1,4 @@
 ---
-title: "Hospitality"
-description: "Lookbook entries from hospitality environments."
+title: Hospitality
+description: Lookbook entries from hospitality environments.
 ---
