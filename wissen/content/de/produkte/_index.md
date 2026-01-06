@@ -2,15 +2,15 @@
 version: 2026-01-06 06:02 UTC
 managed_by: categories.csv
 last_synced: 2026-01-06 06:02 UTC
-lang: en
+lang: de
 translationKey: products-root
-title: Products
-description: 'Product overview: wainscoting, mouldings, oils & paints, and ventilation rosettes.'
+title: Produkte
+description: 'Produktübersicht: Vertäfelungen, Leisten, Öle & Farben sowie Lüftungsrosetten.'
 weight: 10
 type: products
 seo:
-  meta_title: Products - Vertäfelung & Lambris
-  meta_description: Overview of all product categories on the knowledge site by Vertäfelung & Lambris.
+  meta_title: Produkte - Vertäfelung & Lambris
+  meta_description: Übersicht aller Produktkategorien der Wissensseite von Vertäfelung & Lambris.
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -30,4 +30,4 @@ cascade:
   seo:
     robots: index,follow
 ---
-Choose a category to view subcategories and products.
+Wähle eine Kategorie, um Unterkategorien und Produkte zu sehen.
