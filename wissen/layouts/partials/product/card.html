@@ -1,0 +1,150 @@
+{{/*
+  File: wissen/layouts/partials/product/card.html
+  Purpose: Render a resilient card for entries in the products section list pages.
+  Notes:
+    - Works for both "produkt" (SSOT-managed product bundles) and editorial pages (e.g., guides/FAQ living under /produkte).
+    - Avoids hard dependencies on optional params so builds do not fail on partial data.
+  Version: 2026-01-09 09:00 CET
+*/}}
+
+{{- $lang := .Site.Language.Lang | default .Lang | default "de" -}}
+{{- $title := .Params.seo.title | default .Title -}}
+
+{{- $desc := "" -}}
+{{- with .Params.seo.description -}}
+  {{- $desc = . -}}
+{{- else -}}
+  {{- with .Summary -}}
+    {{- $desc = . | plainify -}}
+  {{- end -}}
+{{- end -}}
+{{- $desc = $desc | plainify -}}
+{{- if gt (len $desc) 0 -}}
+  {{- $desc = $desc | truncate 170 -}}
+{{- end -}}
+
+{{- $shop := "" -}}
+{{- with .Params.refs -}}
+  {{- with .source_shop -}}
+    {{- $shop = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $hasProduct := false -}}
+{{- with .Params.produkt -}}
+  {{- $hasProduct = true -}}
+{{- end -}}
+
+{{- $priceStr := "" -}}
+{{- with .Params.produkt.preis_basis -}}
+  {{- $raw := printf "%.2f" . -}}
+  {{- if eq $lang "de" -}}
+    {{- $raw = replace $raw "." "," -}}
+  {{- end -}}
+  {{- $priceStr = $raw -}}
+{{- end -}}
+
+{{- $sku := "" -}}
+{{- with .Params.produkt.artikelnummer -}}
+  {{- $sku = . -}}
+{{- end -}}
+
+{{- $available := "" -}}
+{{- with .Params.produkt.verfuegbar -}}
+  {{- if . -}}
+    {{- $available = "available" -}}
+  {{- else -}}
+    {{- $available = "unavailable" -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $imgURL := "" -}}
+{{- $imgAlt := $title -}}
+{{- with .Params.produkt.bilder -}}
+  {{- if gt (len .) 0 -}}
+    {{- $first := index . 0 -}}
+    {{- with $first.datei -}}
+      {{- $res := $.Resources.GetMatch . -}}
+      {{- if $res -}}
+        {{- $imgURL = $res.RelPermalink -}}
+        {{- if eq $lang "en" -}}
+          {{- with $first.alt_en -}}{{- $imgAlt = . -}}{{- end -}}
+        {{- else -}}
+          {{- with $first.alt_de -}}{{- $imgAlt = . -}}{{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+<div class="rounded-2xl border border-slate-200 overflow-hidden bg-white shadow-sm hover:shadow-md transition">
+  <a href="{{ .RelPermalink }}" class="block focus:outline-none focus:ring-2 focus:ring-slate-400">
+    {{- if $imgURL -}}
+      <div class="w-full bg-slate-50">
+        <img
+          src="{{ $imgURL }}"
+          alt="{{ $imgAlt | plainify }}"
+          loading="lazy"
+          class="w-full aspect-[4/3] object-cover"
+        />
+      </div>
+    {{- end -}}
+
+    <div class="p-4 space-y-2">
+      {{- if $sku -}}
+        <div class="text-xs tracking-wide uppercase text-slate-500">{{ $sku }}</div>
+      {{- else if not $hasProduct -}}
+        <div class="text-xs tracking-wide uppercase text-slate-500">
+          {{- if eq $lang "de" -}}Ratgeber{{- else -}}Guide{{- end -}}
+        </div>
+      {{- end -}}
+
+      <h3 class="text-lg font-semibold leading-snug text-slate-900">
+        {{ $title }}
+      </h3>
+
+      {{- if gt (len $desc) 0 -}}
+        <p class="text-sm leading-relaxed text-slate-600">
+          {{ $desc }}
+        </p>
+      {{- end -}}
+
+      <div class="pt-2 flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          {{- if gt (len $priceStr) 0 -}}
+            <span class="text-sm font-semibold text-slate-900">
+              {{- if eq $lang "de" -}}ab {{- else -}}from {{- end -}}{{ $priceStr }}&nbsp;€
+            </span>
+          {{- end -}}
+
+          {{- if eq $available "available" -}}
+            <span class="text-xs px-2 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200">
+              {{- if eq $lang "de" -}}verfügbar{{- else -}}available{{- end -}}
+            </span>
+          {{- else if eq $available "unavailable" -}}
+            <span class="text-xs px-2 py-1 rounded-full bg-amber-50 text-amber-900 border border-amber-200">
+              {{- if eq $lang "de" -}}auf Anfrage{{- else -}}on request{{- end -}}
+            </span>
+          {{- end -}}
+        </div>
+
+        <span class="text-sm text-slate-700 underline underline-offset-4">
+          {{- if eq $lang "de" -}}Details{{- else -}}Details{{- end -}}
+        </span>
+      </div>
+    </div>
+  </a>
+
+  {{- if $shop -}}
+    <div class="px-4 pb-4">
+      <a
+        href="{{ $shop }}"
+        class="inline-flex items-center justify-center text-sm font-semibold px-3 py-2 rounded-xl border border-slate-300 hover:bg-slate-50"
+        rel="nofollow noopener"
+        target="_blank"
+      >
+        {{- if eq $lang "de" -}}Zum Shop{{- else -}}Go to shop{{- end -}}
+      </a>
+    </div>
+  {{- end -}}
+</div>
