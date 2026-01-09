@@ -1,3 +1,5 @@
+# legacy redirects ensured by prune PR #52
+
 RewriteEngine On
 
 # Wenn Datei/Ordner existiert, nichts umschreiben
