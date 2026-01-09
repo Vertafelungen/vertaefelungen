@@ -25,7 +25,7 @@
           <a href="{{ $site.Home.RelPermalink }}">{{ $site.Language.LanguageName }}</a>{{ if lt (add $index 1) (len $.Sites) }} · {{ end }}
         {{ end }}
       </p>
-      {{ $productSection := cond (eq .Site.Language.Lang "de") "produktinfo" "products" }}
+      {{ $productSection := cond (eq .Site.Language.Lang "de") "produkte" "products" }}
       {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
       {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
         {{ $productLink = .RelPermalink }}

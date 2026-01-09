@@ -24,20 +24,20 @@ home = ["HTML"]
       locale = "de_DE"
     [languages.de.menu]
       [[languages.de.menu.main]]
-        name = "Startseite"
-        url = "/de/"
+        name = "Shop"
+        url = "de/shop/"
         weight = 10
       [[languages.de.menu.main]]
-        name = "Produkte"
-        url = "/de/produktinfo/"
+        name = "FAQ"
+        url = "de/faq/"
         weight = 20
       [[languages.de.menu.main]]
-        name = "FAQ"
-        url = "/de/faq/"
+        name = "Produkte"
+        url = "de/produkte/"
         weight = 30
       [[languages.de.menu.main]]
-        name = "Wissen"
-        url = "/de/"
+        name = "Lookbook"
+        url = "de/lookbook/"
         weight = 40
 
   [languages.en]
@@ -48,24 +48,24 @@ home = ["HTML"]
       locale = "en_GB"
     [languages.en.menu]
       [[languages.en.menu.main]]
-        name = "Home"
-        url = "/en/"
+        name = "Shop"
+        url = "en/shop/"
         weight = 10
       [[languages.en.menu.main]]
-        name = "Products"
-        url = "/en/products/"
+        name = "FAQ"
+        url = "en/faq/"
         weight = 20
       [[languages.en.menu.main]]
-        name = "FAQ"
-        url = "/en/faq/"
+        name = "Products"
+        url = "en/products/"
         weight = 30
       [[languages.en.menu.main]]
-        name = "Knowledge"
-        url = "/en/"
+        name = "Lookbook"
+        url = "en/lookbook/"
         weight = 40
 
 [languages.de.permalinks]
-  produktinfo = "/de/produktinfo/:sections/:slug/"
+  produkte = "/de/produkte/:sections/:slug/"
   faq = "/de/faq/:sections/:slug/"
 
 [languages.en.permalinks]

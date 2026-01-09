@@ -12,6 +12,11 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /wissen/
+  # Legacy knowledge redirects
+  RewriteRule ^de/oeffentlich/produkte/?$ /wissen/de/produkte/ [R=301,L]
+  RewriteRule ^de/produktinfo/?$ /wissen/de/produkte/ [R=301,L]
+  RewriteRule ^de/produktinfo/(.*)$ /wissen/de/produkte/$1 [R=301,L]
+  RewriteRule ^en/produkte/?$ /wissen/en/products/ [R=301,L]
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule . - [L]
