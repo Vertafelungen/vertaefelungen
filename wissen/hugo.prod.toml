@@ -24,7 +24,7 @@ relativeURLs = false
       locale = "en_GB"
 
 [languages.de.permalinks]
-  produktinfo = "/de/produktinfo/:sections/:slug/"
+  produkte = "/de/produkte/:sections/:slug/"
   faq = "/de/faq/:sections/:slug/"
 
 [languages.en.permalinks]

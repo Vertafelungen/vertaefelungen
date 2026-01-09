@@ -4,7 +4,7 @@
 <p class="lead">Alles Wissenswerte rund um historische Holzvertäfelungen, Lambris, Paneele und die passenden Oberflächen. Steige über Produkte oder die FAQ ein.</p>
 
 <div class="card-grid" style="margin: 1.5rem 0;">
-  {{ $productSection := cond (eq .Site.Language.Lang "de") "produktinfo" "products" }}
+  {{ $productSection := cond (eq .Site.Language.Lang "de") "produkte" "products" }}
   {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
   {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
     {{ $productLink = .RelPermalink }}

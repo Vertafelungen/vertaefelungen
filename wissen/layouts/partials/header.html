@@ -23,7 +23,7 @@
             <a class="{{ if $isActive }}is-active{{ end }}" href="{{ $site.Home.RelPermalink }}">{{ upper $site.Language.Lang }}</a>{{ if lt (add $index 1) (len $.Sites) }}<span aria-hidden="true">·</span>{{ end }}
           {{ end }}
         </div>
-        {{ $productSection := cond (eq .Site.Language.Lang "de") "produktinfo" "products" }}
+        {{ $productSection := cond (eq .Site.Language.Lang "de") "produkte" "products" }}
         {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
         {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
           {{ $productLink = .RelPermalink }}
