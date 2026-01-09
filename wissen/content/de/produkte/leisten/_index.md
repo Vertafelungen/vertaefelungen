@@ -1,7 +1,7 @@
 ---
-version: 2026-01-09 13:32 UTC
+version: 2026-01-09 14:55 UTC
 managed_by: categories.csv
-last_synced: 2026-01-09 13:32 UTC
+last_synced: 2026-01-09 14:55 UTC
 lang: de
 translationKey: mouldings-root
 title: Leisten
