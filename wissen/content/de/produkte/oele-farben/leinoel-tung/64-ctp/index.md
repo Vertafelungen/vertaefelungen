@@ -5,7 +5,7 @@ title: Citrusterpene
 lang: de
 translationKey: '64'
 managed_by: ssot-sync
-last_synced: '2026-01-06'
+last_synced: '2026-01-09'
 produkt:
   id: '64'
   artikelnummer: CTP
