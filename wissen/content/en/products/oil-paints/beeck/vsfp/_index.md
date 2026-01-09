@@ -1,7 +1,7 @@
 ---
-version: 2026-01-09 12:32 UTC
+version: 2026-01-09 13:13 UTC
 managed_by: categories.csv
-last_synced: 2026-01-09 12:32 UTC
+last_synced: 2026-01-09 13:13 UTC
 lang: en
 translationKey: beeck-primer-pro
 title: Primer Coat PRO
