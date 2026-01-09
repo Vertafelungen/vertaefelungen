@@ -5,7 +5,7 @@ title: P0009 - Board & Batten
 lang: en
 translationKey: '21'
 managed_by: ssot-sync
-last_synced: '2026-01-06'
+last_synced: '2026-01-09'
 produkt:
   id: '21'
   artikelnummer: P0009

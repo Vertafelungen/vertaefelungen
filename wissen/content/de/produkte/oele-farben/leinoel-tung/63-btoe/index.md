@@ -5,7 +5,7 @@ title: Balsamterpentinöl
 lang: de
 translationKey: '63'
 managed_by: ssot-sync
-last_synced: '2026-01-06'
+last_synced: '2026-01-09'
 produkt:
   id: '63'
   artikelnummer: BTOE

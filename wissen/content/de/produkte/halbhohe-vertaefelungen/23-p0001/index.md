@@ -5,7 +5,7 @@ title: P0001 - Berlin - Winsstraße
 lang: de
 translationKey: '23'
 managed_by: ssot-sync
-last_synced: '2026-01-06'
+last_synced: '2026-01-09'
 produkt:
   id: '23'
   artikelnummer: P0001

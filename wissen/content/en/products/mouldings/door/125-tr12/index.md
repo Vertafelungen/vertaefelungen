@@ -5,7 +5,7 @@ title: Door Frame 12
 lang: en
 translationKey: '125'
 managed_by: ssot-sync
-last_synced: '2026-01-06'
+last_synced: '2026-01-09'
 produkt:
   id: '125'
   artikelnummer: TR12

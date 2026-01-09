@@ -5,7 +5,7 @@ title: Weiß - BEECK Standölinnenfarbe PRO
 lang: de
 translationKey: '94'
 managed_by: ssot-sync
-last_synced: '2026-01-06'
+last_synced: '2026-01-09'
 produkt:
   id: '94'
   artikelnummer: WEISS

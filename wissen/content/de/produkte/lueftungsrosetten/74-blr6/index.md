@@ -5,7 +5,7 @@ title: Lüftungsrosette 6
 lang: de
 translationKey: '74'
 managed_by: ssot-sync
-last_synced: '2026-01-06'
+last_synced: '2026-01-09'
 produkt:
   id: '74'
   artikelnummer: BLR6
