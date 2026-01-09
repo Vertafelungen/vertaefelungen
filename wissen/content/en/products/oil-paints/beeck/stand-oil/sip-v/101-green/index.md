@@ -5,7 +5,7 @@ title: Green - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '101'
 managed_by: ssot-sync
-last_synced: '2026-01-06'
+last_synced: '2026-01-09'
 produkt:
   id: '101'
   artikelnummer: GRUEN
