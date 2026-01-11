@@ -13,11 +13,11 @@ produkt:
   preis_basis: 49.58
   varianten: []
   bilder:
-  - datei: blr6-1.png
+  - datei: blr6-01.png
     alt_de: Runde Lüftungsscheibe aus Messing mit acht Schlitzen
-  - datei: blr6-2.png
+  - datei: blr6-02.png
     alt_de: montiert auf Holzfläche
-  - datei: blr6-3.png
+  - datei: blr6-03.png
     alt_de: frontal aufgenommen
 seo:
   title: blr6 - Lüftungsrosette für Vertäfelungen, nach Originalvorl

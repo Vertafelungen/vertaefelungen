@@ -13,11 +13,11 @@ produkt:
   preis_basis: 46.22
   varianten: []
   bilder:
-  - datei: blr7-1.png
+  - datei: blr7-01.png
     alt_de: Runde Messinglüftung mit drei Öffnungen flach auf Holzfläche montiert 40 mm Durchmesser
-  - datei: blr7-2.png
+  - datei: blr7-02.png
     alt_de: Messinglüftung mit drei Öffnungen daneben Zollstock zeigt Maßangabe von knapp vier Zentimetern
-  - datei: blr7-3.png
+  - datei: blr7-03.png
     alt_de: Runde Messinglüftung mit drei Öffnungen schräg von unten fotografiert auf Holzfläche
 seo:
   title: blr7 - Lüftungsrosette für Vertäfelungen, nach Originalvorl

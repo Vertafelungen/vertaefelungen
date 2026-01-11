@@ -13,9 +13,9 @@ produkt:
   preis_basis: 60.0
   varianten: []
   bilder:
-  - datei: sl0006-1.png
+  - datei: sl0006-01.png
     alt_en: Isolated technical drawing of skirting profile SOL0006 58/18 with precise profile contour and 58 mm height
-  - datei: sl0006-2.png
+  - datei: sl0006-02.png
     alt_en: Room view showing installed skirting profile SOL0006 58/18 as subtle wall finishing trim in interior corner
 seo:
   title: SL0006 - with cyma 58/18

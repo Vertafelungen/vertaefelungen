@@ -17,11 +17,11 @@ produkt:
   - bezeichnung: Eiche
     preis_aufschlag: 67.23
   bilder:
-  - datei: sl0007-1.png
+  - datei: sl0007-01.png
     alt_en: Skirting board four part 450 mm Neo Baroque Art Nouveau mix Wagner salons Augustiner Munich
-  - datei: sl0007-2.png
+  - datei: sl0007-02.png
     alt_en: Skirting board four part 450 mm Neo Baroque Art Nouveau corner view Wagner salons Augustiner
-  - datei: sl0007-3.png
+  - datei: sl0007-03.png
     alt_en: Skirting board four part 450 mm Neo Baroque Art Nouveau wall view miter Wagner salons Augustiner
 seo:
   title: P0033 - Munich - Augustiner Brewery Motherhouse

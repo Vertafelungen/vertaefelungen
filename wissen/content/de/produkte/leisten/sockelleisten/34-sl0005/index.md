@@ -13,9 +13,9 @@ produkt:
   preis_basis: 17.15
   varianten: []
   bilder:
-  - datei: sl0005-1.png
+  - datei: sl0005-01.png
     alt_de: Sockelleiste SOL 0005 abgerundet 16/80 in Raumecke mit Wandansicht und Profilquerschnitt
-  - datei: sl0005-2.png
+  - datei: sl0005-02.png
     alt_de: Sockelleiste SOL 0005 abgerundet 16/80 in technischer Darstellung mit Höhe 80 mm
 seo:
   title: Sockelleiste mit abgerundeter Oberkante - Höhe 8 cm

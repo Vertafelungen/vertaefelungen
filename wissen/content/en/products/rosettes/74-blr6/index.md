@@ -13,11 +13,11 @@ produkt:
   preis_basis: 49.58
   varianten: []
   bilder:
-  - datei: blr6-1.png
+  - datei: blr6-01.png
     alt_en: Round brass ventilation disc with eight slots
-  - datei: blr6-2.png
+  - datei: blr6-02.png
     alt_en: mounted on wooden surface
-  - datei: blr6-3.png
+  - datei: blr6-03.png
     alt_en: front view
 seo:
   title: Ventilation Rosette 6

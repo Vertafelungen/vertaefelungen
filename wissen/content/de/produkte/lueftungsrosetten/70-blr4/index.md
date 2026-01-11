@@ -13,11 +13,11 @@ produkt:
   preis_basis: 41.18
   varianten: []
   bilder:
-  - datei: blr4-1.png
+  - datei: blr4-01.png
     alt_de: Messing-Lüftungsrosette mit fünfblättriger Öffnung montiert auf Holzfläche
-  - datei: blr4-2.png
+  - datei: blr4-02.png
     alt_de: Messing-Lüftungsrosette mit Maßstab zur Größenangabe auf Holzfläche
-  - datei: blr4-3.png
+  - datei: blr4-03.png
     alt_de: Messing-Lüftungsrosette mit fünf Öffnungen flach liegend auf Holzfläche fotografiert
 seo:
   title: blr4 - Formschöne Lüftungsrosette für Vertäfelungen.M

@@ -13,9 +13,9 @@ produkt:
   preis_basis: 49.75
   varianten: []
   bilder:
-  - datei: sl0004-1.png
+  - datei: sl0004-01.png
     alt_en: Isolated technical drawing of a two-part skirting board SOL0004 with 175 mm height and stepped profile
-  - datei: sl0004-4.png
+  - datei: sl0004-04.png
     alt_en: Skirting board SOL0004 two-part 45/175 mounted in a room corner as technical view with visible profile contour
 seo:
   title: SL0004 - 2-piece high skirting board 175/45

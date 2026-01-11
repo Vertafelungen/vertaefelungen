@@ -13,9 +13,9 @@ produkt:
   preis_basis: 35.94
   varianten: []
   bilder:
-  - datei: sl0001-1.png
+  - datei: sl0001-01.png
     alt_en: Technische Zeichnung einer Hamburger Sockelleiste 25/170 mit 170 mm Höhe und markantem Profil
-  - datei: sl0001-2.png
+  - datei: sl0001-02.png
     alt_en: Detaillierte Darstellung der Hamburger Sockelleiste 25/170 in einer Raumecke mit Profilansicht und Wandmontage
 seo:
   title: SL0001 - Hamburg skirting board 170/25

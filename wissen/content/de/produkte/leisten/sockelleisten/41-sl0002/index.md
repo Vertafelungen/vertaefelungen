@@ -13,9 +13,9 @@ produkt:
   preis_basis: 27.88
   varianten: []
   bilder:
-  - datei: sl0002-1.png
+  - datei: sl0002-01.png
     alt_de: Sockelleiste Hamburger Leiste 25/120 mit geschwungener Profilkante
-  - datei: sl0002-2.png
+  - datei: sl0002-02.png
     alt_de: Höhe 120 mm
 seo:
   title: Hamburger Leiste, 12 cm Höhe

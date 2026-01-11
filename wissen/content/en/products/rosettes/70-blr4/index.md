@@ -13,11 +13,11 @@ produkt:
   preis_basis: 41.18
   varianten: []
   bilder:
-  - datei: blr4-1.png
+  - datei: blr4-01.png
     alt_en: Brass ventilation rosette with five-petal opening mounted on wooden surface
-  - datei: blr4-2.png
+  - datei: blr4-02.png
     alt_en: Brass ventilation rosette with measuring scale for size reference on wooden surface
-  - datei: blr4-3.png
+  - datei: blr4-03.png
     alt_en: Brass ventilation rosette with five openings lying flat on wooden surface photographed
 seo:
   title: Ventilation Rosette 4
