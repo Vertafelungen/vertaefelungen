@@ -1,9 +1,21 @@
 # Build QA
 
-## Struktur-Minimalcheck
+## Struktur-Allowlist-Check
 
-Die folgenden Pfade müssen im generierten Struktur-Tree vorhanden sein:
+### Base directories
+- de: `wissen/content/de`
+- en: `wissen/content/en`
 
-- `produkte/oele-farben/beeck/standoel/sip-m/_index.md`
-- `produkte/oele-farben/beeck/standoel/sip-v/_index.md`
-- `produkte/oele-farben/beeck/vsfp/index.md`
+### Allowlist counts
+- de: 243
+- en: 242
+
+### Missing counts
+- de: 0
+- en: 0
+
+### Missing (de)
+- (none)
+
+### Missing (en)
+- (none)
