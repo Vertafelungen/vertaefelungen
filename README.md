@@ -1,5 +1,5 @@
 # Vertäfelung & Lambris – Wissensseite / Knowledge Base
-# 03.Jan.2026 | 15:47
+# 11.Jan.2026 | 21:18
 
 ## Deutsch
 
