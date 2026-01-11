@@ -7,6 +7,12 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
+# EN: legacy consulting/style-guide -> faq
+RewriteRule ^en/consulting/?$ en/faq/consulting/ [R=301,L]
+RewriteRule ^en/consulting/(.*)$ en/faq/consulting/$1 [R=301,L]
+RewriteRule ^en/style-guide/?$ en/faq/style-guide/ [R=301,L]
+RewriteRule ^en/style-guide/(.*)$ en/faq/style-guide/$1 [R=301,L]
+
 # DE: alte Prefixe -> neue
 RewriteRule ^de/oeffentlich/produkte/?$ de/produkte/ [R=301,L]
 RewriteRule ^de/oeffentlich/produkte/(.*)$ de/produkte/$1 [R=301,L]
