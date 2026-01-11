@@ -1,0 +1,308 @@
+# SSOT Sync Report (20260111-181949)
+
+CSV: /home/runner/work/vertaefelungen/vertaefelungen/wissen/ssot/SSOT.csv
+DE root: /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de
+EN root: /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en
+IMG root: /home/runner/work/vertaefelungen/vertaefelungen/wissen/ssot/bilder
+
+## Created
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/112-oxide-green
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/hohe-vertaefelungen/55-p0014
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/high-wainscoting/55-p0014
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/32-p0005
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/32-p0005
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/105-oxide-red
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/vsfp/109-vsfp
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/vsfp/109-vsfp
+
+## Updated
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/113-pastel-green
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/hohe-vertaefelungen/24-p0002
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/high-wainscoting/24-p0002
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/hohe-vertaefelungen/27-p0003
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/high-wainscoting/27-p0003
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/hohe-vertaefelungen/47-p0017
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/high-wainscoting/47-p0017
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/hohe-vertaefelungen/53-p0013
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/high-wainscoting/53-p0013
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/21-p0009
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/21-p0009
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/23-p0001
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/23-p0001
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/31-p0004
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/31-p0004
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/33-p0006
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/33-p0006
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/35-p0022
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/35-p0022
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/38-p0010
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/38-p0010
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/52-p0011
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/52-p0011
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/57-p0018
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/57-p0018
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/halbhohe-vertaefelungen/59-p0015
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/dado-panel/59-p0015
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/sockelleisten/26-sl0007
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/skirtings/26-sl0007
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/sockelleisten/34-sl0005
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/skirtings/34-sl0005
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/sockelleisten/40-sl0001
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/skirtings/40-sl0001
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/sockelleisten/41-sl0002
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/skirtings/41-sl0002
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/sockelleisten/42-sl0003
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/skirtings/42-sl0003
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/sockelleisten/44-sl0004
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/skirtings/44-sl0004
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/sockelleisten/45-sl0006
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/skirtings/45-sl0006
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/lueftungsrosetten/60-blr3
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/rosettes/60-blr3
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/lueftungsrosetten/70-blr4
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/rosettes/70-blr4
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/lueftungsrosetten/71-blr1
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/rosettes/71-blr1
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/lueftungsrosetten/72-blr2
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/rosettes/72-blr2
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/lueftungsrosetten/73-blr5
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/rosettes/73-blr5
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/lueftungsrosetten/74-blr6
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/rosettes/74-blr6
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/lueftungsrosetten/75-blr7
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/rosettes/75-blr7
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/114-tr06
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/114-tr06
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/115-tr07
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/115-tr07
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/116-tr01-160
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/116-tr01-160
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/117-tr01-120
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/117-tr01-120
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/118-tr01-200
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/118-tr01-200
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/119-tr02
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/119-tr02
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/120-tr03
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/120-tr03
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/121-tr04
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/121-tr04
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/122-tr05
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/122-tr05
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/123-tr09
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/123-tr09
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/124-tr11
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/124-tr11
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/125-tr12
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/125-tr12
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/126-tr13
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/126-tr13
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/127-tr14
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/127-tr14
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/128-tr15
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/128-tr15
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/129-tr17
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/129-tr17
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/tuerbekleidungen/130-tr18
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/door/130-tr18
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/76-wl01
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/76-wl01
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/77-wl02
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/77-wl02
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/78-wl03
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/78-wl03
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/79-wl04
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/79-wl04
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/80-wl05
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/80-wl05
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/81-wl06
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/81-wl06
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/82-wl07
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/82-wl07
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/84-wl08
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/84-wl08
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/85-wl09
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/85-wl09
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/86-wl10
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/86-wl10
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/87-wl11
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/87-wl11
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/88-wl12
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/88-wl12
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/89-wl13
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/89-wl13
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/90-wl14
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/90-wl14
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/leisten/wandleisten/91-wl15
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/mouldings/wall/91-wl15
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/61-loen
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/61-loen
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/62-loef
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/62-loef
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/63-btoe
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/63-btoe
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/64-ctp
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/64-ctp
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/65-toel
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/65-toel
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/69-toen
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/69-toen
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/94-weiss
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/94-white
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/98-schwarz
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/98-black
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/99-umbra
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/99-umber
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/100-braun
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/100-brown
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/101-gruen
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/101-green
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/102-zitronengelb
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/102-lemon-yellow
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/103-maisgelb
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/103-maize-yellow
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/104-ocker
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/104-ochre
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/105-oxidrot
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/106-ultrablau
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/106-ultra-blue
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/107-weinrot
+- /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/107-wine-red
+
+## Copied
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/klassikgruen01.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/112-oxide-green/klassikgruen01.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/klassikgruen02.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/112-oxide-green/klassikgruen02.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/klassikgruen03.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/112-oxide-green/klassikgruen03.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/klassikgruen-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/112-oxide-green/klassikgruen-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/112-oxide-green/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/lindgruen01.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/113-pastel-green/lindgruen01.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/lindgruen02.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/113-pastel-green/lindgruen02.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/lindgruen03.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/113-pastel-green/lindgruen03.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/lindgruen-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/113-pastel-green/lindgruen-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-m/113-pastel-green/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/61-loen/loen.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/61-loen/loen.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/62-loef/loef.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/62-loef/loef.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/63-btoe/btoe.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/63-btoe/btoe.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/64-ctp/ctp.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/64-ctp/ctp.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/65-toel/toel.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/65-toel/toel.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/leinoel-tung/69-toen/toen.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/oil-tung/69-toen/toen.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/94-weiss/weiss.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/94-white/weiss.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/94-weiss/weiss-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/94-white/weiss-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/94-weiss/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/94-white/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/98-schwarz/schwarz.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/98-black/schwarz.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/98-schwarz/schwarz-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/98-black/schwarz-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/98-schwarz/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/98-black/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/99-umbra/umbra.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/99-umber/umbra.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/99-umbra/umbra-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/99-umber/umbra-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/99-umbra/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/99-umber/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/100-braun/braun.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/100-brown/braun.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/100-braun/braun-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/100-brown/braun-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/100-braun/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/100-brown/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/101-gruen/gruen.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/101-green/gruen.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/101-gruen/gruen-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/101-green/gruen-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/101-gruen/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/101-green/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/102-zitronengelb/zitronengelb.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/102-lemon-yellow/zitronengelb.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/102-zitronengelb/zitronengelb-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/102-lemon-yellow/zitronengelb-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/102-zitronengelb/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/102-lemon-yellow/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/103-maisgelb/maisgelb.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/103-maize-yellow/maisgelb.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/103-maisgelb/maisgelb-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/103-maize-yellow/maisgelb-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/103-maisgelb/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/103-maize-yellow/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/104-ocker/ocker.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/104-ochre/ocker.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/104-ocker/ocker-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/104-ochre/ocker-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/104-ocker/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/104-ochre/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/105-oxidrot/oxidrot.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/105-oxide-red/oxidrot.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/105-oxidrot/oxidrot-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/105-oxide-red/oxidrot-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/105-oxidrot/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/105-oxide-red/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/106-ultrablau/ultrablau.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/106-ultra-blue/ultrablau.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/106-ultrablau/ultrablau-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/106-ultra-blue/ultrablau-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/106-ultrablau/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/106-ultra-blue/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/107-weinrot/weinrot.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/107-wine-red/weinrot.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/107-weinrot/weinrot-farbfaecher.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/107-wine-red/weinrot-farbfaecher.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/standoel/sip-v/107-weinrot/sip_gebinde.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/standoil/sip-v/107-wine-red/sip_gebinde.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/ssot/bilder/vsfp.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/vsfp/109-vsfp/vsfp.png
+- COPY /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/de/produkte/oele-farben/beeck/vsfp/109-vsfp/vsfp.png -> /home/runner/work/vertaefelungen/vertaefelungen/wissen/content/en/products/oil-paint/beeck/vsfp/109-vsfp/vsfp.png
+
+## Aliases set for
+- 100
+- 101
+- 102
+- 103
+- 104
+- 105
+- 106
+- 107
+- 109
+- 112
+- 113
+- 114
+- 115
+- 116
+- 117
+- 118
+- 119
+- 120
+- 121
+- 122
+- 123
+- 124
+- 125
+- 126
+- 127
+- 128
+- 129
+- 130
+- 21
+- 23
+- 24
+- 26
+- 27
+- 31
+- 32
+- 33
+- 34
+- 35
+- 38
+- 40
+- 41
+- 42
+- 44
+- 45
+- 47
+- 52
+- 53
+- 55
+- 57
+- 59
+- 60
+- 61
+- 62
+- 63
+- 64
+- 65
+- 69
+- 70
+- 71
+- 72
+- 73
+- 74
+- 75
+- 76
+- 77
+- 78
+- 79
+- 80
+- 81
+- 82
+- 84
+- 85
+- 86
+- 87
+- 88
+- 89
+- 90
+- 91
+- 94
+- 98
+- 99
