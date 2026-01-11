@@ -202,6 +202,7 @@ products/oil-paint/beeck/standoil/sip-v/99-umber/
 products/oil-paint/beeck/standoil/sip-v/99-umber/index.md
 products/oil-paint/beeck/vsfp/
 products/oil-paint/beeck/vsfp/index.md
+products/oil-paint/beeck/vsfp/vsfp.png
 products/oil-paint/oil-tung/
 products/oil-paint/oil-tung/_index.md
 products/oil-paint/oil-tung/61-loen/
