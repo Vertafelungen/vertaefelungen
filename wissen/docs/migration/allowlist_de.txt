@@ -202,6 +202,7 @@ produkte/oele-farben/beeck/standoel/sip-v/99-umbra/
 produkte/oele-farben/beeck/standoel/sip-v/99-umbra/index.md
 produkte/oele-farben/beeck/vsfp/
 produkte/oele-farben/beeck/vsfp/index.md
+produkte/oele-farben/beeck/vsfp/vsfp.png
 produkte/oele-farben/leinoel-tung/
 produkte/oele-farben/leinoel-tung/_index.md
 produkte/oele-farben/leinoel-tung/61-loen/
