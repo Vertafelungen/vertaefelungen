@@ -1,0 +1,1063 @@
+# EN/DE structure audit (allowlist comparison)
+
+## DE
+
+### Missing vs allowlist_de (0)
+
+- _None_
+
+### Extras vs allowlist_de (268)
+
+- `faq/beratung/montage/`
+- `faq/beratung/montage/Montage-Anleitung.pdf`
+- `faq/beratung/visualisierung/`
+- `faq/beratung/visualisierung/Visualisierung-Prozess.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-1-1-a.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-1-1-b.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-1-1-c.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-1-1-d.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-1-1-e.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-1-2.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-1.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-3.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-5.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-7.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-1-9.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-2-1-1.png`
+- `produkte/halbhohe-vertaefelungen/21-p0009/p0009-2-1-2.png`
+- `produkte/halbhohe-vertaefelungen/23-p0001/p0001-01.png`
+- `produkte/halbhohe-vertaefelungen/23-p0001/p0001-02.png`
+- `produkte/halbhohe-vertaefelungen/23-p0001/p0001-03.png`
+- `produkte/halbhohe-vertaefelungen/23-p0001/p0001-04.png`
+- `produkte/halbhohe-vertaefelungen/23-p0001/p0001-05.png`
+- `produkte/halbhohe-vertaefelungen/23-p0001/p0001-06.png`
+- `produkte/halbhohe-vertaefelungen/23-p0001/p0001-07.png`
+- `produkte/halbhohe-vertaefelungen/23-p0001/p0001-08.png`
+- `produkte/halbhohe-vertaefelungen/23-p0001/p0001-09.png`
+- `produkte/halbhohe-vertaefelungen/31-p0004/p0004-01.png`
+- `produkte/halbhohe-vertaefelungen/31-p0004/p0004-02.png`
+- `produkte/halbhohe-vertaefelungen/31-p0004/p0004-03.png`
+- `produkte/halbhohe-vertaefelungen/31-p0004/p0004-04.png`
+- `produkte/halbhohe-vertaefelungen/31-p0004/p0004-05.png`
+- `produkte/halbhohe-vertaefelungen/31-p0004/p0004-06.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-01.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-02.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-03.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-04.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-05.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-06.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-07.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-08.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-09.png`
+- `produkte/halbhohe-vertaefelungen/32-p0005/p0005-10.png`
+- `produkte/halbhohe-vertaefelungen/33-p0006/p0006-01.png`
+- `produkte/halbhohe-vertaefelungen/33-p0006/p0006-02.png`
+- `produkte/halbhohe-vertaefelungen/33-p0006/p0006-03.png`
+- `produkte/halbhohe-vertaefelungen/33-p0006/p0006-04.png`
+- `produkte/halbhohe-vertaefelungen/33-p0006/p0006-05.png`
+- `produkte/halbhohe-vertaefelungen/33-p0006/p0006-06.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-01.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-02.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-03.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-04.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-05.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-06.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-07.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-08.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-09.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-10.png`
+- `produkte/halbhohe-vertaefelungen/35-p0022/p0022-11.png`
+- `produkte/halbhohe-vertaefelungen/38-p0010/p0010-01.png`
+- `produkte/halbhohe-vertaefelungen/38-p0010/p0010-02.png`
+- `produkte/halbhohe-vertaefelungen/38-p0010/p0010-03.png`
+- `produkte/halbhohe-vertaefelungen/38-p0010/p0010-04.png`
+- `produkte/halbhohe-vertaefelungen/38-p0010/p0010-05.png`
+- `produkte/halbhohe-vertaefelungen/38-p0010/p0010-06.png`
+- `produkte/halbhohe-vertaefelungen/38-p0010/p0010-07.png`
+- `produkte/halbhohe-vertaefelungen/38-p0010/p0010-08.png`
+- `produkte/halbhohe-vertaefelungen/52-p0011/p0011-01.png`
+- `produkte/halbhohe-vertaefelungen/52-p0011/p0011-02.png`
+- `produkte/halbhohe-vertaefelungen/52-p0011/p0011-03.png`
+- `produkte/halbhohe-vertaefelungen/52-p0011/p0011-04.png`
+- `produkte/halbhohe-vertaefelungen/52-p0011/p0011-05.png`
+- `produkte/halbhohe-vertaefelungen/57-p0018/p0018-01.png`
+- `produkte/halbhohe-vertaefelungen/57-p0018/p0018-02.png`
+- `produkte/halbhohe-vertaefelungen/57-p0018/p0018-03.png`
+- `produkte/halbhohe-vertaefelungen/57-p0018/p0018-04.png`
+- `produkte/halbhohe-vertaefelungen/57-p0018/p0018-05.png`
+- `produkte/halbhohe-vertaefelungen/57-p0018/p0018-06.png`
+- `produkte/halbhohe-vertaefelungen/57-p0018/p0018-07.png`
+- `produkte/halbhohe-vertaefelungen/57-p0018/p0018-08.png`
+- `produkte/halbhohe-vertaefelungen/59-p0015/p0015-01.png`
+- `produkte/halbhohe-vertaefelungen/59-p0015/p0015-02.png`
+- `produkte/halbhohe-vertaefelungen/59-p0015/p0015-03.png`
+- `produkte/halbhohe-vertaefelungen/59-p0015/p0015-04.png`
+- `produkte/halbhohe-vertaefelungen/59-p0015/p0015-05.png`
+- `produkte/halbhohe-vertaefelungen/59-p0015/p0015-06.png`
+- `produkte/halbhohe-vertaefelungen/59-p0015/p0015-07.png`
+- `produkte/halbhohe-vertaefelungen/59-p0015/p0015-08.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-01.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-02.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-03.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-04.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-05.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-06.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-07.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-08.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-09.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-10.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-11.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-12.png`
+- `produkte/hohe-vertaefelungen/24-p0002/p0002-13.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-01.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-02.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-03.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-04.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-05.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-06.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-07.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-08.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-09.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-10.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-11.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-12.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-13.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-14.png`
+- `produkte/hohe-vertaefelungen/27-p0003/p0003-15.png`
+- `produkte/hohe-vertaefelungen/47-p0017/p0017-01.png`
+- `produkte/hohe-vertaefelungen/47-p0017/p0017-02.png`
+- `produkte/hohe-vertaefelungen/47-p0017/p0017-03.png`
+- `produkte/hohe-vertaefelungen/47-p0017/p0017-04.png`
+- `produkte/hohe-vertaefelungen/47-p0017/p0017-05.png`
+- `produkte/hohe-vertaefelungen/47-p0017/p0017-06.png`
+- `produkte/hohe-vertaefelungen/47-p0017/p0017-07.png`
+- `produkte/hohe-vertaefelungen/53-p0013/p0013-01.png`
+- `produkte/hohe-vertaefelungen/53-p0013/p0013-02.png`
+- `produkte/hohe-vertaefelungen/53-p0013/p0013-03.png`
+- `produkte/hohe-vertaefelungen/53-p0013/p0013-04.png`
+- `produkte/hohe-vertaefelungen/53-p0013/p0013-05.png`
+- `produkte/hohe-vertaefelungen/53-p0013/p0013-06.png`
+- `produkte/hohe-vertaefelungen/53-p0013/p0013-07.png`
+- `produkte/hohe-vertaefelungen/53-p0013/p0013-08.png`
+- `produkte/hohe-vertaefelungen/53-p0013/p0013-09.png`
+- `produkte/hohe-vertaefelungen/55-p0014/`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-01.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-02.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-03.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-04.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-05.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-06.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-07.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-08.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-09.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-10.png`
+- `produkte/hohe-vertaefelungen/55-p0014/p0014-11.png`
+- `produkte/leisten/sockelleisten/26-sl0007/sl0007-01.png`
+- `produkte/leisten/sockelleisten/26-sl0007/sl0007-02.png`
+- `produkte/leisten/sockelleisten/26-sl0007/sl0007-03.png`
+- `produkte/leisten/sockelleisten/34-sl0005/sl0005-01.png`
+- `produkte/leisten/sockelleisten/34-sl0005/sl0005-02.png`
+- `produkte/leisten/sockelleisten/40-sl0001/sl0001-01.png`
+- `produkte/leisten/sockelleisten/40-sl0001/sl0001-02.png`
+- `produkte/leisten/sockelleisten/41-sl0002/sl0002-01.png`
+- `produkte/leisten/sockelleisten/41-sl0002/sl0002-02.png`
+- `produkte/leisten/sockelleisten/42-sl0003/sl0003-01.png`
+- `produkte/leisten/sockelleisten/42-sl0003/sl0003-02.png`
+- `produkte/leisten/sockelleisten/44-sl0004/sl0004-01.png`
+- `produkte/leisten/sockelleisten/44-sl0004/sl0004-04.png`
+- `produkte/leisten/sockelleisten/45-sl0006/sl0006-01.png`
+- `produkte/leisten/sockelleisten/45-sl0006/sl0006-02.png`
+- `produkte/leisten/tuerbekleidungen/114-tr06/tr06.png`
+- `produkte/leisten/tuerbekleidungen/115-tr07/tr07.png`
+- `produkte/leisten/tuerbekleidungen/116-tr01-160/tr01-160.png`
+- `produkte/leisten/tuerbekleidungen/117-tr01-120/tr01-120.png`
+- `produkte/leisten/tuerbekleidungen/118-tr01-200/tr01-200.png`
+- `produkte/leisten/tuerbekleidungen/119-tr02/tr02.png`
+- `produkte/leisten/tuerbekleidungen/120-tr03/tr03.png`
+- `produkte/leisten/tuerbekleidungen/121-tr04/tr04.png`
+- `produkte/leisten/tuerbekleidungen/122-tr05/tr05.png`
+- `produkte/leisten/tuerbekleidungen/123-tr09/tr09.png`
+- `produkte/leisten/tuerbekleidungen/124-tr11/tr11.png`
+- `produkte/leisten/tuerbekleidungen/125-tr12/tr12.png`
+- `produkte/leisten/tuerbekleidungen/126-tr13/tr13.png`
+- `produkte/leisten/tuerbekleidungen/127-tr14/tr14.png`
+- `produkte/leisten/tuerbekleidungen/128-tr15/tr15.png`
+- `produkte/leisten/tuerbekleidungen/129-tr17/tr17.png`
+- `produkte/leisten/tuerbekleidungen/130-tr18/tr18.png`
+- `produkte/leisten/wandleisten/76-wl01/wl01.png`
+- `produkte/leisten/wandleisten/77-wl02/wl02.png`
+- `produkte/leisten/wandleisten/78-wl03/wl03.png`
+- `produkte/leisten/wandleisten/79-wl04/wl04.png`
+- `produkte/leisten/wandleisten/80-wl05/wl05.png`
+- `produkte/leisten/wandleisten/81-wl06/wl06.png`
+- `produkte/leisten/wandleisten/82-wl07/wl07.png`
+- `produkte/leisten/wandleisten/84-wl08/wl08.png`
+- `produkte/leisten/wandleisten/85-wl09/wl09.png`
+- `produkte/leisten/wandleisten/86-wl10/wl10.png`
+- `produkte/leisten/wandleisten/87-wl11/wl11.png`
+- `produkte/leisten/wandleisten/88-wl12/wl12.png`
+- `produkte/leisten/wandleisten/89-wl13/wl13.png`
+- `produkte/leisten/wandleisten/90-wl14/wl14.png`
+- `produkte/leisten/wandleisten/91-wl15/wl15.png`
+- `produkte/lueftungsrosetten/60-blr3/blr3-01.png`
+- `produkte/lueftungsrosetten/60-blr3/blr3-02.png`
+- `produkte/lueftungsrosetten/60-blr3/blr3-03.png`
+- `produkte/lueftungsrosetten/60-blr3/blr3-04.png`
+- `produkte/lueftungsrosetten/60-blr3/blr3-05.png`
+- `produkte/lueftungsrosetten/70-blr4/blr4-01.png`
+- `produkte/lueftungsrosetten/70-blr4/blr4-02.png`
+- `produkte/lueftungsrosetten/70-blr4/blr4-03.png`
+- `produkte/lueftungsrosetten/71-blr1/blr1-01.png`
+- `produkte/lueftungsrosetten/71-blr1/blr1-02.png`
+- `produkte/lueftungsrosetten/71-blr1/blr1-03.png`
+- `produkte/lueftungsrosetten/71-blr1/blr1-04.png`
+- `produkte/lueftungsrosetten/71-blr1/blr1-05.png`
+- `produkte/lueftungsrosetten/72-blr2/blr2-01.png`
+- `produkte/lueftungsrosetten/72-blr2/blr2-02.png`
+- `produkte/lueftungsrosetten/72-blr2/blr2-03.png`
+- `produkte/lueftungsrosetten/72-blr2/blr2-04.png`
+- `produkte/lueftungsrosetten/72-blr2/blr2-05.png`
+- `produkte/lueftungsrosetten/73-blr5/blr5-01.png`
+- `produkte/lueftungsrosetten/73-blr5/blr5-02.png`
+- `produkte/lueftungsrosetten/73-blr5/blr5-03.png`
+- `produkte/lueftungsrosetten/74-blr6/blr6-01.png`
+- `produkte/lueftungsrosetten/74-blr6/blr6-02.png`
+- `produkte/lueftungsrosetten/74-blr6/blr6-03.png`
+- `produkte/lueftungsrosetten/75-blr7/blr7-01.png`
+- `produkte/lueftungsrosetten/75-blr7/blr7-02.png`
+- `produkte/lueftungsrosetten/75-blr7/blr7-03.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/klassikgruen-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/klassikgruen01.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/klassikgruen02.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/klassikgruen03.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/112-klassikgruen/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/lindgruen-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/lindgruen01.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/lindgruen02.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/lindgruen03.png`
+- `produkte/oele-farben/beeck/standoel/sip-m/113-lindgruen/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/100-braun/braun-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/100-braun/braun.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/100-braun/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/101-gruen/gruen-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/101-gruen/gruen.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/101-gruen/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/102-zitronengelb/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/102-zitronengelb/zitronengelb-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/102-zitronengelb/zitronengelb.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/103-maisgelb/maisgelb-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/103-maisgelb/maisgelb.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/103-maisgelb/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/104-ocker/ocker-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/104-ocker/ocker.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/104-ocker/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/105-oxidrot/oxidrot-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/105-oxidrot/oxidrot.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/105-oxidrot/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/106-ultrablau/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/106-ultrablau/ultrablau-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/106-ultrablau/ultrablau.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/107-weinrot/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/107-weinrot/weinrot-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/107-weinrot/weinrot.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/94-weiss/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/94-weiss/weiss-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/94-weiss/weiss.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/98-schwarz/schwarz-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/98-schwarz/schwarz.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/98-schwarz/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/99-umbra/sip_gebinde.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/99-umbra/umbra-farbfaecher.png`
+- `produkte/oele-farben/beeck/standoel/sip-v/99-umbra/umbra.png`
+- `produkte/oele-farben/leinoel-tung/61-loen/loen.png`
+- `produkte/oele-farben/leinoel-tung/62-loef/loef.png`
+- `produkte/oele-farben/leinoel-tung/63-btoe/btoe.png`
+- `produkte/oele-farben/leinoel-tung/64-ctp/ctp.png`
+- `produkte/oele-farben/leinoel-tung/65-toel/toel.png`
+- `produkte/oele-farben/leinoel-tung/69-toen/toen.png`
+
+## EN
+
+### Missing vs allowlist_en (1)
+
+- `products/oil-paint/beeck/vsfp/vsfp.png`
+
+### Extras vs allowlist_en (657)
+
+- `consulting/`
+- `consulting/Installation-Guide.pdf`
+- `consulting/Visualization-Process.png`
+- `products/dado-panel/21-p0009/p0009-1-1-1-a.png`
+- `products/dado-panel/21-p0009/p0009-1-1-1-b.png`
+- `products/dado-panel/21-p0009/p0009-1-1-1-c.png`
+- `products/dado-panel/21-p0009/p0009-1-1-1-d.png`
+- `products/dado-panel/21-p0009/p0009-1-1-1-e.png`
+- `products/dado-panel/21-p0009/p0009-1-1-2.png`
+- `products/dado-panel/21-p0009/p0009-1-1.png`
+- `products/dado-panel/21-p0009/p0009-1-3.png`
+- `products/dado-panel/21-p0009/p0009-1-5.png`
+- `products/dado-panel/21-p0009/p0009-1-7.png`
+- `products/dado-panel/21-p0009/p0009-1-9.png`
+- `products/dado-panel/21-p0009/p0009-2-1-1.png`
+- `products/dado-panel/21-p0009/p0009-2-1-2.png`
+- `products/dado-panel/23-p0001/p0001-01.png`
+- `products/dado-panel/23-p0001/p0001-02.png`
+- `products/dado-panel/23-p0001/p0001-03.png`
+- `products/dado-panel/23-p0001/p0001-04.png`
+- `products/dado-panel/23-p0001/p0001-05.png`
+- `products/dado-panel/23-p0001/p0001-06.png`
+- `products/dado-panel/23-p0001/p0001-07.png`
+- `products/dado-panel/23-p0001/p0001-08.png`
+- `products/dado-panel/23-p0001/p0001-09.png`
+- `products/dado-panel/31-p0004/p0004-01.png`
+- `products/dado-panel/31-p0004/p0004-02.png`
+- `products/dado-panel/31-p0004/p0004-03.png`
+- `products/dado-panel/31-p0004/p0004-04.png`
+- `products/dado-panel/31-p0004/p0004-05.png`
+- `products/dado-panel/31-p0004/p0004-06.png`
+- `products/dado-panel/32-p0005/`
+- `products/dado-panel/32-p0005/p0005-01.png`
+- `products/dado-panel/32-p0005/p0005-02.png`
+- `products/dado-panel/32-p0005/p0005-03.png`
+- `products/dado-panel/32-p0005/p0005-04.png`
+- `products/dado-panel/32-p0005/p0005-05.png`
+- `products/dado-panel/32-p0005/p0005-06.png`
+- `products/dado-panel/32-p0005/p0005-07.png`
+- `products/dado-panel/32-p0005/p0005-08.png`
+- `products/dado-panel/32-p0005/p0005-09.png`
+- `products/dado-panel/32-p0005/p0005-10.png`
+- `products/dado-panel/33-p0006/p0006-01.png`
+- `products/dado-panel/33-p0006/p0006-02.png`
+- `products/dado-panel/33-p0006/p0006-03.png`
+- `products/dado-panel/33-p0006/p0006-04.png`
+- `products/dado-panel/33-p0006/p0006-05.png`
+- `products/dado-panel/33-p0006/p0006-06.png`
+- `products/dado-panel/35-p0022/p0022-01.png`
+- `products/dado-panel/35-p0022/p0022-02.png`
+- `products/dado-panel/35-p0022/p0022-03.png`
+- `products/dado-panel/35-p0022/p0022-04.png`
+- `products/dado-panel/35-p0022/p0022-05.png`
+- `products/dado-panel/35-p0022/p0022-06.png`
+- `products/dado-panel/35-p0022/p0022-07.png`
+- `products/dado-panel/35-p0022/p0022-08.png`
+- `products/dado-panel/35-p0022/p0022-09.png`
+- `products/dado-panel/35-p0022/p0022-10.png`
+- `products/dado-panel/35-p0022/p0022-11.png`
+- `products/dado-panel/38-p0010/p0010-01.png`
+- `products/dado-panel/38-p0010/p0010-02.png`
+- `products/dado-panel/38-p0010/p0010-03.png`
+- `products/dado-panel/38-p0010/p0010-04.png`
+- `products/dado-panel/38-p0010/p0010-05.png`
+- `products/dado-panel/38-p0010/p0010-06.png`
+- `products/dado-panel/38-p0010/p0010-07.png`
+- `products/dado-panel/38-p0010/p0010-08.png`
+- `products/dado-panel/52-p0011/p0011-01.png`
+- `products/dado-panel/52-p0011/p0011-02.png`
+- `products/dado-panel/52-p0011/p0011-03.png`
+- `products/dado-panel/52-p0011/p0011-04.png`
+- `products/dado-panel/52-p0011/p0011-05.png`
+- `products/dado-panel/57-p0018/p0018-01.png`
+- `products/dado-panel/57-p0018/p0018-02.png`
+- `products/dado-panel/57-p0018/p0018-03.png`
+- `products/dado-panel/57-p0018/p0018-04.png`
+- `products/dado-panel/57-p0018/p0018-05.png`
+- `products/dado-panel/57-p0018/p0018-06.png`
+- `products/dado-panel/57-p0018/p0018-07.png`
+- `products/dado-panel/57-p0018/p0018-08.png`
+- `products/dado-panel/59-p0015/p0015-01.png`
+- `products/dado-panel/59-p0015/p0015-02.png`
+- `products/dado-panel/59-p0015/p0015-03.png`
+- `products/dado-panel/59-p0015/p0015-04.png`
+- `products/dado-panel/59-p0015/p0015-05.png`
+- `products/dado-panel/59-p0015/p0015-06.png`
+- `products/dado-panel/59-p0015/p0015-07.png`
+- `products/dado-panel/59-p0015/p0015-08.png`
+- `products/high-wainscoting/24-p0002/p0002-01.png`
+- `products/high-wainscoting/24-p0002/p0002-02.png`
+- `products/high-wainscoting/24-p0002/p0002-03.png`
+- `products/high-wainscoting/24-p0002/p0002-04.png`
+- `products/high-wainscoting/24-p0002/p0002-05.png`
+- `products/high-wainscoting/24-p0002/p0002-06.png`
+- `products/high-wainscoting/24-p0002/p0002-07.png`
+- `products/high-wainscoting/24-p0002/p0002-08.png`
+- `products/high-wainscoting/24-p0002/p0002-09.png`
+- `products/high-wainscoting/24-p0002/p0002-10.png`
+- `products/high-wainscoting/24-p0002/p0002-11.png`
+- `products/high-wainscoting/24-p0002/p0002-12.png`
+- `products/high-wainscoting/24-p0002/p0002-13.png`
+- `products/high-wainscoting/27-p0003/p0003-01.png`
+- `products/high-wainscoting/27-p0003/p0003-02.png`
+- `products/high-wainscoting/27-p0003/p0003-03.png`
+- `products/high-wainscoting/27-p0003/p0003-04.png`
+- `products/high-wainscoting/27-p0003/p0003-05.png`
+- `products/high-wainscoting/27-p0003/p0003-06.png`
+- `products/high-wainscoting/27-p0003/p0003-07.png`
+- `products/high-wainscoting/27-p0003/p0003-08.png`
+- `products/high-wainscoting/27-p0003/p0003-09.png`
+- `products/high-wainscoting/27-p0003/p0003-10.png`
+- `products/high-wainscoting/27-p0003/p0003-11.png`
+- `products/high-wainscoting/27-p0003/p0003-12.png`
+- `products/high-wainscoting/27-p0003/p0003-13.png`
+- `products/high-wainscoting/27-p0003/p0003-14.png`
+- `products/high-wainscoting/27-p0003/p0003-15.png`
+- `products/high-wainscoting/47-p0017/p0017-01.png`
+- `products/high-wainscoting/47-p0017/p0017-02.png`
+- `products/high-wainscoting/47-p0017/p0017-03.png`
+- `products/high-wainscoting/47-p0017/p0017-04.png`
+- `products/high-wainscoting/47-p0017/p0017-05.png`
+- `products/high-wainscoting/47-p0017/p0017-06.png`
+- `products/high-wainscoting/47-p0017/p0017-07.png`
+- `products/high-wainscoting/53-p0013/p0013-01.png`
+- `products/high-wainscoting/53-p0013/p0013-02.png`
+- `products/high-wainscoting/53-p0013/p0013-03.png`
+- `products/high-wainscoting/53-p0013/p0013-04.png`
+- `products/high-wainscoting/53-p0013/p0013-05.png`
+- `products/high-wainscoting/53-p0013/p0013-06.png`
+- `products/high-wainscoting/53-p0013/p0013-07.png`
+- `products/high-wainscoting/53-p0013/p0013-08.png`
+- `products/high-wainscoting/53-p0013/p0013-09.png`
+- `products/high-wainscoting/55-p0014/`
+- `products/high-wainscoting/55-p0014/p0014-01.png`
+- `products/high-wainscoting/55-p0014/p0014-02.png`
+- `products/high-wainscoting/55-p0014/p0014-03.png`
+- `products/high-wainscoting/55-p0014/p0014-04.png`
+- `products/high-wainscoting/55-p0014/p0014-05.png`
+- `products/high-wainscoting/55-p0014/p0014-06.png`
+- `products/high-wainscoting/55-p0014/p0014-07.png`
+- `products/high-wainscoting/55-p0014/p0014-08.png`
+- `products/high-wainscoting/55-p0014/p0014-09.png`
+- `products/high-wainscoting/55-p0014/p0014-10.png`
+- `products/high-wainscoting/55-p0014/p0014-11.png`
+- `products/mouldings/door/114-tr06/tr06.png`
+- `products/mouldings/door/115-tr07/tr07.png`
+- `products/mouldings/door/116-tr01-160/tr01-160.png`
+- `products/mouldings/door/117-tr01-120/tr01-120.png`
+- `products/mouldings/door/118-tr01-200/tr01-200.png`
+- `products/mouldings/door/119-tr02/tr02.png`
+- `products/mouldings/door/120-tr03/tr03.png`
+- `products/mouldings/door/121-tr04/tr04.png`
+- `products/mouldings/door/122-tr05/tr05.png`
+- `products/mouldings/door/123-tr09/tr09.png`
+- `products/mouldings/door/124-tr11/tr11.png`
+- `products/mouldings/door/125-tr12/tr12.png`
+- `products/mouldings/door/126-tr13/tr13.png`
+- `products/mouldings/door/127-tr14/tr14.png`
+- `products/mouldings/door/128-tr15/tr15.png`
+- `products/mouldings/door/129-tr17/tr17.png`
+- `products/mouldings/door/130-tr18/tr18.png`
+- `products/mouldings/skirtings/26-sl0007/sl0007-01.png`
+- `products/mouldings/skirtings/26-sl0007/sl0007-02.png`
+- `products/mouldings/skirtings/26-sl0007/sl0007-03.png`
+- `products/mouldings/skirtings/34-sl0005/sl0005-01.png`
+- `products/mouldings/skirtings/34-sl0005/sl0005-02.png`
+- `products/mouldings/skirtings/40-sl0001/sl0001-01.png`
+- `products/mouldings/skirtings/40-sl0001/sl0001-02.png`
+- `products/mouldings/skirtings/41-sl0002/sl0002-01.png`
+- `products/mouldings/skirtings/41-sl0002/sl0002-02.png`
+- `products/mouldings/skirtings/42-sl0003/sl0003-01.png`
+- `products/mouldings/skirtings/42-sl0003/sl0003-02.png`
+- `products/mouldings/skirtings/44-sl0004/sl0004-01.png`
+- `products/mouldings/skirtings/44-sl0004/sl0004-04.png`
+- `products/mouldings/skirtings/45-sl0006/sl0006-01.png`
+- `products/mouldings/skirtings/45-sl0006/sl0006-02.png`
+- `products/mouldings/wall/76-wl01/wl01.png`
+- `products/mouldings/wall/77-wl02/wl02.png`
+- `products/mouldings/wall/78-wl03/wl03.png`
+- `products/mouldings/wall/79-wl04/wl04.png`
+- `products/mouldings/wall/80-wl05/wl05.png`
+- `products/mouldings/wall/81-wl06/wl06.png`
+- `products/mouldings/wall/82-wl07/wl07.png`
+- `products/mouldings/wall/84-wl08/wl08.png`
+- `products/mouldings/wall/85-wl09/wl09.png`
+- `products/mouldings/wall/86-wl10/wl10.png`
+- `products/mouldings/wall/87-wl11/wl11.png`
+- `products/mouldings/wall/88-wl12/wl12.png`
+- `products/mouldings/wall/89-wl13/wl13.png`
+- `products/mouldings/wall/90-wl14/wl14.png`
+- `products/mouldings/wall/91-wl15/wl15.png`
+- `products/oil-paints/`
+- `products/oil-paints/_index.md`
+- `products/oil-paints/beeck/`
+- `products/oil-paints/beeck/stand-oil/`
+- `products/oil-paints/beeck/stand-oil/sip-m/`
+- `products/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/`
+- `products/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/klassikgruen-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/klassikgruen01.png`
+- `products/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/klassikgruen02.png`
+- `products/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/klassikgruen03.png`
+- `products/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/`
+- `products/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/lindgruen-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/lindgruen01.png`
+- `products/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/lindgruen02.png`
+- `products/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/lindgruen03.png`
+- `products/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/`
+- `products/oil-paints/beeck/stand-oil/sip-v/100-brown/`
+- `products/oil-paints/beeck/stand-oil/sip-v/100-brown/braun-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/100-brown/braun.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/100-brown/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/101-green/`
+- `products/oil-paints/beeck/stand-oil/sip-v/101-green/gruen-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/101-green/gruen.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/101-green/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/`
+- `products/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/zitronengelb-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/zitronengelb.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/`
+- `products/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/maisgelb-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/maisgelb.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/104-ochre/`
+- `products/oil-paints/beeck/stand-oil/sip-v/104-ochre/ocker-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/104-ochre/ocker.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/104-ochre/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/105-oxide-red/`
+- `products/oil-paints/beeck/stand-oil/sip-v/105-oxide-red/oxidrot-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/105-oxide-red/oxidrot.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/105-oxide-red/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/`
+- `products/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/ultrablau-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/ultrablau.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/107-wine-red/`
+- `products/oil-paints/beeck/stand-oil/sip-v/107-wine-red/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/107-wine-red/weinrot-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/107-wine-red/weinrot.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/94-white/`
+- `products/oil-paints/beeck/stand-oil/sip-v/94-white/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/94-white/weiss-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/94-white/weiss.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/98-black/`
+- `products/oil-paints/beeck/stand-oil/sip-v/98-black/schwarz-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/98-black/schwarz.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/98-black/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/99-umber/`
+- `products/oil-paints/beeck/stand-oil/sip-v/99-umber/sip_gebinde.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/99-umber/umbra-farbfaecher.png`
+- `products/oil-paints/beeck/stand-oil/sip-v/99-umber/umbra.png`
+- `products/oil-paints/beeck/vsfp/`
+- `products/oil-paints/beeck/vsfp/109-vsfp/`
+- `products/oil-paints/beeck/vsfp/109-vsfp/vsfp.png`
+- `products/oil-paints/oil-tung/`
+- `products/oil-paints/oil-tung/61-loen/`
+- `products/oil-paints/oil-tung/61-loen/loen.png`
+- `products/oil-paints/oil-tung/62-loef/`
+- `products/oil-paints/oil-tung/62-loef/loef.png`
+- `products/oil-paints/oil-tung/63-btoe/`
+- `products/oil-paints/oil-tung/63-btoe/btoe.png`
+- `products/oil-paints/oil-tung/64-ctp/`
+- `products/oil-paints/oil-tung/64-ctp/ctp.png`
+- `products/oil-paints/oil-tung/65-toel/`
+- `products/oil-paints/oil-tung/65-toel/toel.png`
+- `products/oil-paints/oil-tung/69-toen/`
+- `products/oil-paints/oil-tung/69-toen/toen.png`
+- `products/public/`
+- `products/public/dado-panel/`
+- `products/public/dado-panel/21-p0009/`
+- `products/public/dado-panel/21-p0009/p0009-1-1-1-a.png`
+- `products/public/dado-panel/21-p0009/p0009-1-1-1-b.png`
+- `products/public/dado-panel/21-p0009/p0009-1-1-1-c.png`
+- `products/public/dado-panel/21-p0009/p0009-1-1-1-d.png`
+- `products/public/dado-panel/21-p0009/p0009-1-1-1-e.png`
+- `products/public/dado-panel/21-p0009/p0009-1-1-2.png`
+- `products/public/dado-panel/21-p0009/p0009-1-1.png`
+- `products/public/dado-panel/21-p0009/p0009-1-3.png`
+- `products/public/dado-panel/21-p0009/p0009-1-5.png`
+- `products/public/dado-panel/21-p0009/p0009-1-7.png`
+- `products/public/dado-panel/21-p0009/p0009-1-9.png`
+- `products/public/dado-panel/21-p0009/p0009-2-1-1.png`
+- `products/public/dado-panel/21-p0009/p0009-2-1-2.png`
+- `products/public/dado-panel/23-p0001/`
+- `products/public/dado-panel/23-p0001/p0001-01.png`
+- `products/public/dado-panel/23-p0001/p0001-02.png`
+- `products/public/dado-panel/23-p0001/p0001-03.png`
+- `products/public/dado-panel/23-p0001/p0001-04.png`
+- `products/public/dado-panel/23-p0001/p0001-05.png`
+- `products/public/dado-panel/23-p0001/p0001-06.png`
+- `products/public/dado-panel/23-p0001/p0001-07.png`
+- `products/public/dado-panel/23-p0001/p0001-08.png`
+- `products/public/dado-panel/23-p0001/p0001-09.png`
+- `products/public/dado-panel/31-p0004/`
+- `products/public/dado-panel/31-p0004/p0004-01.png`
+- `products/public/dado-panel/31-p0004/p0004-02.png`
+- `products/public/dado-panel/31-p0004/p0004-03.png`
+- `products/public/dado-panel/31-p0004/p0004-04.png`
+- `products/public/dado-panel/31-p0004/p0004-05.png`
+- `products/public/dado-panel/31-p0004/p0004-06.png`
+- `products/public/dado-panel/32-p0005/`
+- `products/public/dado-panel/32-p0005/p0005-01.png`
+- `products/public/dado-panel/32-p0005/p0005-02.png`
+- `products/public/dado-panel/32-p0005/p0005-03.png`
+- `products/public/dado-panel/32-p0005/p0005-04.png`
+- `products/public/dado-panel/32-p0005/p0005-05.png`
+- `products/public/dado-panel/32-p0005/p0005-06.png`
+- `products/public/dado-panel/32-p0005/p0005-07.png`
+- `products/public/dado-panel/32-p0005/p0005-08.png`
+- `products/public/dado-panel/32-p0005/p0005-09.png`
+- `products/public/dado-panel/32-p0005/p0005-10.png`
+- `products/public/dado-panel/33-p0006/`
+- `products/public/dado-panel/33-p0006/p0006-01.png`
+- `products/public/dado-panel/33-p0006/p0006-02.png`
+- `products/public/dado-panel/33-p0006/p0006-03.png`
+- `products/public/dado-panel/33-p0006/p0006-04.png`
+- `products/public/dado-panel/33-p0006/p0006-05.png`
+- `products/public/dado-panel/33-p0006/p0006-06.png`
+- `products/public/dado-panel/35-p0022/`
+- `products/public/dado-panel/35-p0022/p0022-01.png`
+- `products/public/dado-panel/35-p0022/p0022-02.png`
+- `products/public/dado-panel/35-p0022/p0022-03.png`
+- `products/public/dado-panel/35-p0022/p0022-04.png`
+- `products/public/dado-panel/35-p0022/p0022-05.png`
+- `products/public/dado-panel/35-p0022/p0022-06.png`
+- `products/public/dado-panel/35-p0022/p0022-07.png`
+- `products/public/dado-panel/35-p0022/p0022-08.png`
+- `products/public/dado-panel/35-p0022/p0022-09.png`
+- `products/public/dado-panel/35-p0022/p0022-10.png`
+- `products/public/dado-panel/35-p0022/p0022-11.png`
+- `products/public/dado-panel/38-p0010/`
+- `products/public/dado-panel/38-p0010/p0010-01.png`
+- `products/public/dado-panel/38-p0010/p0010-02.png`
+- `products/public/dado-panel/38-p0010/p0010-03.png`
+- `products/public/dado-panel/38-p0010/p0010-04.png`
+- `products/public/dado-panel/38-p0010/p0010-05.png`
+- `products/public/dado-panel/38-p0010/p0010-06.png`
+- `products/public/dado-panel/38-p0010/p0010-07.png`
+- `products/public/dado-panel/38-p0010/p0010-08.png`
+- `products/public/dado-panel/52-p0011/`
+- `products/public/dado-panel/52-p0011/p0011-01.png`
+- `products/public/dado-panel/52-p0011/p0011-02.png`
+- `products/public/dado-panel/52-p0011/p0011-03.png`
+- `products/public/dado-panel/52-p0011/p0011-04.png`
+- `products/public/dado-panel/52-p0011/p0011-05.png`
+- `products/public/dado-panel/57-p0018/`
+- `products/public/dado-panel/57-p0018/p0018-01.png`
+- `products/public/dado-panel/57-p0018/p0018-02.png`
+- `products/public/dado-panel/57-p0018/p0018-03.png`
+- `products/public/dado-panel/57-p0018/p0018-04.png`
+- `products/public/dado-panel/57-p0018/p0018-05.png`
+- `products/public/dado-panel/57-p0018/p0018-06.png`
+- `products/public/dado-panel/57-p0018/p0018-07.png`
+- `products/public/dado-panel/57-p0018/p0018-08.png`
+- `products/public/dado-panel/59-p0015/`
+- `products/public/dado-panel/59-p0015/p0015-01.png`
+- `products/public/dado-panel/59-p0015/p0015-02.png`
+- `products/public/dado-panel/59-p0015/p0015-03.png`
+- `products/public/dado-panel/59-p0015/p0015-04.png`
+- `products/public/dado-panel/59-p0015/p0015-05.png`
+- `products/public/dado-panel/59-p0015/p0015-06.png`
+- `products/public/dado-panel/59-p0015/p0015-07.png`
+- `products/public/dado-panel/59-p0015/p0015-08.png`
+- `products/public/high-wainscoting/`
+- `products/public/high-wainscoting/24-p0002/`
+- `products/public/high-wainscoting/24-p0002/p0002-01.png`
+- `products/public/high-wainscoting/24-p0002/p0002-02.png`
+- `products/public/high-wainscoting/24-p0002/p0002-03.png`
+- `products/public/high-wainscoting/24-p0002/p0002-04.png`
+- `products/public/high-wainscoting/24-p0002/p0002-05.png`
+- `products/public/high-wainscoting/24-p0002/p0002-06.png`
+- `products/public/high-wainscoting/24-p0002/p0002-07.png`
+- `products/public/high-wainscoting/24-p0002/p0002-08.png`
+- `products/public/high-wainscoting/24-p0002/p0002-09.png`
+- `products/public/high-wainscoting/24-p0002/p0002-10.png`
+- `products/public/high-wainscoting/24-p0002/p0002-11.png`
+- `products/public/high-wainscoting/24-p0002/p0002-12.png`
+- `products/public/high-wainscoting/24-p0002/p0002-13.png`
+- `products/public/high-wainscoting/27-p0003/`
+- `products/public/high-wainscoting/27-p0003/p0003-01.png`
+- `products/public/high-wainscoting/27-p0003/p0003-02.png`
+- `products/public/high-wainscoting/27-p0003/p0003-03.png`
+- `products/public/high-wainscoting/27-p0003/p0003-04.png`
+- `products/public/high-wainscoting/27-p0003/p0003-05.png`
+- `products/public/high-wainscoting/27-p0003/p0003-06.png`
+- `products/public/high-wainscoting/27-p0003/p0003-07.png`
+- `products/public/high-wainscoting/27-p0003/p0003-08.png`
+- `products/public/high-wainscoting/27-p0003/p0003-09.png`
+- `products/public/high-wainscoting/27-p0003/p0003-10.png`
+- `products/public/high-wainscoting/27-p0003/p0003-11.png`
+- `products/public/high-wainscoting/27-p0003/p0003-12.png`
+- `products/public/high-wainscoting/27-p0003/p0003-13.png`
+- `products/public/high-wainscoting/27-p0003/p0003-14.png`
+- `products/public/high-wainscoting/27-p0003/p0003-15.png`
+- `products/public/high-wainscoting/47-p0017/`
+- `products/public/high-wainscoting/47-p0017/p0017-01.png`
+- `products/public/high-wainscoting/47-p0017/p0017-02.png`
+- `products/public/high-wainscoting/47-p0017/p0017-03.png`
+- `products/public/high-wainscoting/47-p0017/p0017-04.png`
+- `products/public/high-wainscoting/47-p0017/p0017-05.png`
+- `products/public/high-wainscoting/47-p0017/p0017-06.png`
+- `products/public/high-wainscoting/47-p0017/p0017-07.png`
+- `products/public/high-wainscoting/53-p0013/`
+- `products/public/high-wainscoting/53-p0013/p0013-01.png`
+- `products/public/high-wainscoting/53-p0013/p0013-02.png`
+- `products/public/high-wainscoting/53-p0013/p0013-03.png`
+- `products/public/high-wainscoting/53-p0013/p0013-04.png`
+- `products/public/high-wainscoting/53-p0013/p0013-05.png`
+- `products/public/high-wainscoting/53-p0013/p0013-06.png`
+- `products/public/high-wainscoting/53-p0013/p0013-07.png`
+- `products/public/high-wainscoting/53-p0013/p0013-08.png`
+- `products/public/high-wainscoting/53-p0013/p0013-09.png`
+- `products/public/high-wainscoting/55-p0014/`
+- `products/public/high-wainscoting/55-p0014/p0014-01.png`
+- `products/public/high-wainscoting/55-p0014/p0014-02.png`
+- `products/public/high-wainscoting/55-p0014/p0014-03.png`
+- `products/public/high-wainscoting/55-p0014/p0014-04.png`
+- `products/public/high-wainscoting/55-p0014/p0014-05.png`
+- `products/public/high-wainscoting/55-p0014/p0014-06.png`
+- `products/public/high-wainscoting/55-p0014/p0014-07.png`
+- `products/public/high-wainscoting/55-p0014/p0014-08.png`
+- `products/public/high-wainscoting/55-p0014/p0014-09.png`
+- `products/public/high-wainscoting/55-p0014/p0014-10.png`
+- `products/public/high-wainscoting/55-p0014/p0014-11.png`
+- `products/public/mouldings/`
+- `products/public/mouldings/door/`
+- `products/public/mouldings/door/114-tr06/`
+- `products/public/mouldings/door/114-tr06/tr06.png`
+- `products/public/mouldings/door/115-tr07/`
+- `products/public/mouldings/door/115-tr07/tr07.png`
+- `products/public/mouldings/door/116-tr01-160/`
+- `products/public/mouldings/door/116-tr01-160/tr01-160.png`
+- `products/public/mouldings/door/117-tr01-120/`
+- `products/public/mouldings/door/117-tr01-120/tr01-120.png`
+- `products/public/mouldings/door/118-tr01-200/`
+- `products/public/mouldings/door/118-tr01-200/tr01-200.png`
+- `products/public/mouldings/door/119-tr02/`
+- `products/public/mouldings/door/119-tr02/tr02.png`
+- `products/public/mouldings/door/120-tr03/`
+- `products/public/mouldings/door/120-tr03/tr03.png`
+- `products/public/mouldings/door/121-tr04/`
+- `products/public/mouldings/door/121-tr04/tr04.png`
+- `products/public/mouldings/door/122-tr05/`
+- `products/public/mouldings/door/122-tr05/tr05.png`
+- `products/public/mouldings/door/123-tr09/`
+- `products/public/mouldings/door/123-tr09/tr09.png`
+- `products/public/mouldings/door/124-tr11/`
+- `products/public/mouldings/door/124-tr11/tr11.png`
+- `products/public/mouldings/door/125-tr12/`
+- `products/public/mouldings/door/125-tr12/tr12.png`
+- `products/public/mouldings/door/126-tr13/`
+- `products/public/mouldings/door/126-tr13/tr13.png`
+- `products/public/mouldings/door/127-tr14/`
+- `products/public/mouldings/door/127-tr14/tr14.png`
+- `products/public/mouldings/door/128-tr15/`
+- `products/public/mouldings/door/128-tr15/tr15.png`
+- `products/public/mouldings/door/129-tr17/`
+- `products/public/mouldings/door/129-tr17/tr17.png`
+- `products/public/mouldings/door/130-tr18/`
+- `products/public/mouldings/door/130-tr18/tr18.png`
+- `products/public/mouldings/skirtings/`
+- `products/public/mouldings/skirtings/26-sl0007/`
+- `products/public/mouldings/skirtings/26-sl0007/sl0007-01.png`
+- `products/public/mouldings/skirtings/26-sl0007/sl0007-02.png`
+- `products/public/mouldings/skirtings/26-sl0007/sl0007-03.png`
+- `products/public/mouldings/skirtings/34-sl0005/`
+- `products/public/mouldings/skirtings/34-sl0005/sl0005-01.png`
+- `products/public/mouldings/skirtings/34-sl0005/sl0005-02.png`
+- `products/public/mouldings/skirtings/40-sl0001/`
+- `products/public/mouldings/skirtings/40-sl0001/sl0001-01.png`
+- `products/public/mouldings/skirtings/40-sl0001/sl0001-02.png`
+- `products/public/mouldings/skirtings/41-sl0002/`
+- `products/public/mouldings/skirtings/41-sl0002/sl0002-01.png`
+- `products/public/mouldings/skirtings/41-sl0002/sl0002-02.png`
+- `products/public/mouldings/skirtings/42-sl0003/`
+- `products/public/mouldings/skirtings/42-sl0003/sl0003-01.png`
+- `products/public/mouldings/skirtings/42-sl0003/sl0003-02.png`
+- `products/public/mouldings/skirtings/44-sl0004/`
+- `products/public/mouldings/skirtings/44-sl0004/sl0004-01.png`
+- `products/public/mouldings/skirtings/44-sl0004/sl0004-04.png`
+- `products/public/mouldings/skirtings/45-sl0006/`
+- `products/public/mouldings/skirtings/45-sl0006/sl0006-01.png`
+- `products/public/mouldings/skirtings/45-sl0006/sl0006-02.png`
+- `products/public/mouldings/wall/`
+- `products/public/mouldings/wall/76-wl01/`
+- `products/public/mouldings/wall/76-wl01/wl01.png`
+- `products/public/mouldings/wall/77-wl02/`
+- `products/public/mouldings/wall/77-wl02/wl02.png`
+- `products/public/mouldings/wall/78-wl03/`
+- `products/public/mouldings/wall/78-wl03/wl03.png`
+- `products/public/mouldings/wall/79-wl04/`
+- `products/public/mouldings/wall/79-wl04/wl04.png`
+- `products/public/mouldings/wall/80-wl05/`
+- `products/public/mouldings/wall/80-wl05/wl05.png`
+- `products/public/mouldings/wall/81-wl06/`
+- `products/public/mouldings/wall/81-wl06/wl06.png`
+- `products/public/mouldings/wall/82-wl07/`
+- `products/public/mouldings/wall/82-wl07/wl07.png`
+- `products/public/mouldings/wall/84-wl08/`
+- `products/public/mouldings/wall/84-wl08/wl08.png`
+- `products/public/mouldings/wall/85-wl09/`
+- `products/public/mouldings/wall/85-wl09/wl09.png`
+- `products/public/mouldings/wall/86-wl10/`
+- `products/public/mouldings/wall/86-wl10/wl10.png`
+- `products/public/mouldings/wall/87-wl11/`
+- `products/public/mouldings/wall/87-wl11/wl11.png`
+- `products/public/mouldings/wall/88-wl12/`
+- `products/public/mouldings/wall/88-wl12/wl12.png`
+- `products/public/mouldings/wall/89-wl13/`
+- `products/public/mouldings/wall/89-wl13/wl13.png`
+- `products/public/mouldings/wall/90-wl14/`
+- `products/public/mouldings/wall/90-wl14/wl14.png`
+- `products/public/mouldings/wall/91-wl15/`
+- `products/public/mouldings/wall/91-wl15/wl15.png`
+- `products/public/oil-paints/`
+- `products/public/oil-paints/beeck/`
+- `products/public/oil-paints/beeck/stand-oil/`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/klassikgruen-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/klassikgruen01.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/klassikgruen02.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/klassikgruen03.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/112-oxide-green/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/lindgruen-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/lindgruen01.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/lindgruen02.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/lindgruen03.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/100-brown/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/100-brown/braun-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/100-brown/braun.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/100-brown/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/101-green/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/101-green/gruen-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/101-green/gruen.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/101-green/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/zitronengelb-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/zitronengelb.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/maisgelb-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/maisgelb.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/104-ochre/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/104-ochre/ocker-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/104-ochre/ocker.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/104-ochre/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/105-oxide-red/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/105-oxide-red/oxidrot-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/105-oxide-red/oxidrot.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/105-oxide-red/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/ultrablau-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/ultrablau.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/107-wine-red/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/107-wine-red/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/107-wine-red/weinrot-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/107-wine-red/weinrot.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/94-white/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/94-white/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/94-white/weiss-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/94-white/weiss.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/98-black/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/98-black/schwarz-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/98-black/schwarz.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/98-black/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/99-umber/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/99-umber/sip_gebinde.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/99-umber/umbra-farbfaecher.png`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/99-umber/umbra.png`
+- `products/public/oil-paints/beeck/vsfp/`
+- `products/public/oil-paints/beeck/vsfp/109-vsfp/`
+- `products/public/oil-paints/beeck/vsfp/109-vsfp/vsfp.png`
+- `products/public/oil-paints/oil-tung/`
+- `products/public/oil-paints/oil-tung/61-loen/`
+- `products/public/oil-paints/oil-tung/61-loen/loen.png`
+- `products/public/oil-paints/oil-tung/62-loef/`
+- `products/public/oil-paints/oil-tung/62-loef/loef.png`
+- `products/public/oil-paints/oil-tung/63-btoe/`
+- `products/public/oil-paints/oil-tung/63-btoe/btoe.png`
+- `products/public/oil-paints/oil-tung/64-ctp/`
+- `products/public/oil-paints/oil-tung/64-ctp/ctp.png`
+- `products/public/oil-paints/oil-tung/65-toel/`
+- `products/public/oil-paints/oil-tung/65-toel/toel.png`
+- `products/public/oil-paints/oil-tung/69-toen/`
+- `products/public/oil-paints/oil-tung/69-toen/toen.png`
+- `products/public/rosettes/`
+- `products/public/rosettes/60-blr3/`
+- `products/public/rosettes/60-blr3/blr3-01.png`
+- `products/public/rosettes/60-blr3/blr3-02.png`
+- `products/public/rosettes/60-blr3/blr3-03.png`
+- `products/public/rosettes/60-blr3/blr3-04.png`
+- `products/public/rosettes/60-blr3/blr3-05.png`
+- `products/public/rosettes/70-blr4/`
+- `products/public/rosettes/70-blr4/blr4-01.png`
+- `products/public/rosettes/70-blr4/blr4-02.png`
+- `products/public/rosettes/70-blr4/blr4-03.png`
+- `products/public/rosettes/71-blr1/`
+- `products/public/rosettes/71-blr1/blr1-01.png`
+- `products/public/rosettes/71-blr1/blr1-02.png`
+- `products/public/rosettes/71-blr1/blr1-03.png`
+- `products/public/rosettes/71-blr1/blr1-04.png`
+- `products/public/rosettes/71-blr1/blr1-05.png`
+- `products/public/rosettes/72-blr2/`
+- `products/public/rosettes/72-blr2/blr2-01.png`
+- `products/public/rosettes/72-blr2/blr2-02.png`
+- `products/public/rosettes/72-blr2/blr2-03.png`
+- `products/public/rosettes/72-blr2/blr2-04.png`
+- `products/public/rosettes/72-blr2/blr2-05.png`
+- `products/public/rosettes/73-blr5/`
+- `products/public/rosettes/73-blr5/blr5-01.png`
+- `products/public/rosettes/73-blr5/blr5-02.png`
+- `products/public/rosettes/73-blr5/blr5-03.png`
+- `products/public/rosettes/74-blr6/`
+- `products/public/rosettes/74-blr6/blr6-01.png`
+- `products/public/rosettes/74-blr6/blr6-02.png`
+- `products/public/rosettes/74-blr6/blr6-03.png`
+- `products/public/rosettes/75-blr7/`
+- `products/public/rosettes/75-blr7/blr7-01.png`
+- `products/public/rosettes/75-blr7/blr7-02.png`
+- `products/public/rosettes/75-blr7/blr7-03.png`
+- `products/rosettes/60-blr3/blr3-01.png`
+- `products/rosettes/60-blr3/blr3-02.png`
+- `products/rosettes/60-blr3/blr3-03.png`
+- `products/rosettes/60-blr3/blr3-04.png`
+- `products/rosettes/60-blr3/blr3-05.png`
+- `products/rosettes/70-blr4/blr4-01.png`
+- `products/rosettes/70-blr4/blr4-02.png`
+- `products/rosettes/70-blr4/blr4-03.png`
+- `products/rosettes/71-blr1/blr1-01.png`
+- `products/rosettes/71-blr1/blr1-02.png`
+- `products/rosettes/71-blr1/blr1-03.png`
+- `products/rosettes/71-blr1/blr1-04.png`
+- `products/rosettes/71-blr1/blr1-05.png`
+- `products/rosettes/72-blr2/blr2-01.png`
+- `products/rosettes/72-blr2/blr2-02.png`
+- `products/rosettes/72-blr2/blr2-03.png`
+- `products/rosettes/72-blr2/blr2-04.png`
+- `products/rosettes/72-blr2/blr2-05.png`
+- `products/rosettes/73-blr5/blr5-01.png`
+- `products/rosettes/73-blr5/blr5-02.png`
+- `products/rosettes/73-blr5/blr5-03.png`
+- `products/rosettes/74-blr6/blr6-01.png`
+- `products/rosettes/74-blr6/blr6-02.png`
+- `products/rosettes/74-blr6/blr6-03.png`
+- `products/rosettes/75-blr7/blr7-01.png`
+- `products/rosettes/75-blr7/blr7-02.png`
+- `products/rosettes/75-blr7/blr7-03.png`
+- `style-guide/`
+- `style-guide/Glossary.csv`
+
+### EN misplacements (same last segment as allowlist)
+
+- `consulting/` → move candidate for `faq/consulting/`
+- `products/oil-paints/_index.md` → move candidate for `shop/_index.md`, `faq/_index.md`, `faq/consulting/_index.md`, `faq/consulting/catalogue-and-download/_index.md`, `faq/style-guide/_index.md`, `faq/style-guide/styles/_index.md`, `faq/about-us/_index.md`, `products/_index.md`, `products/dado-panel/_index.md`, `products/high-wainscoting/_index.md`, `products/mouldings/_index.md`, `products/mouldings/skirtings/_index.md`, `products/mouldings/door/_index.md`, `products/mouldings/wall/_index.md`, `products/oil-paint/_index.md`, `products/oil-paint/beeck/_index.md`, `products/oil-paint/beeck/standoil/_index.md`, `products/oil-paint/beeck/standoil/sip-m/_index.md`, `products/oil-paint/beeck/standoil/sip-v/_index.md`, `products/oil-paint/oil-tung/_index.md`, `products/rosettes/_index.md`, `lookbook/_index.md`
+- `products/oil-paints/beeck/` → move candidate for `products/oil-paint/beeck/`
+- `products/oil-paints/beeck/stand-oil/sip-m/` → move candidate for `products/oil-paint/beeck/standoil/sip-m/`
+- `products/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/` → move candidate for `products/oil-paint/beeck/standoil/sip-m/113-pastel-green/`
+- `products/oil-paints/beeck/stand-oil/sip-v/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/`
+- `products/oil-paints/beeck/stand-oil/sip-v/100-brown/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/100-brown/`
+- `products/oil-paints/beeck/stand-oil/sip-v/101-green/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/101-green/`
+- `products/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/102-lemon-yellow/`
+- `products/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/103-maize-yellow/`
+- `products/oil-paints/beeck/stand-oil/sip-v/104-ochre/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/104-ochre/`
+- `products/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/106-ultra-blue/`
+- `products/oil-paints/beeck/stand-oil/sip-v/107-wine-red/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/107-wine-red/`
+- `products/oil-paints/beeck/stand-oil/sip-v/94-white/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/94-white/`
+- `products/oil-paints/beeck/stand-oil/sip-v/98-black/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/98-black/`
+- `products/oil-paints/beeck/stand-oil/sip-v/99-umber/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/99-umber/`
+- `products/oil-paints/beeck/vsfp/` → move candidate for `products/oil-paint/beeck/vsfp/`
+- `products/oil-paints/beeck/vsfp/109-vsfp/vsfp.png` → move candidate for `products/oil-paint/beeck/vsfp/vsfp.png`
+- `products/oil-paints/oil-tung/` → move candidate for `products/oil-paint/oil-tung/`
+- `products/oil-paints/oil-tung/61-loen/` → move candidate for `products/oil-paint/oil-tung/61-loen/`
+- `products/oil-paints/oil-tung/62-loef/` → move candidate for `products/oil-paint/oil-tung/62-loef/`
+- `products/oil-paints/oil-tung/63-btoe/` → move candidate for `products/oil-paint/oil-tung/63-btoe/`
+- `products/oil-paints/oil-tung/64-ctp/` → move candidate for `products/oil-paint/oil-tung/64-ctp/`
+- `products/oil-paints/oil-tung/65-toel/` → move candidate for `products/oil-paint/oil-tung/65-toel/`
+- `products/oil-paints/oil-tung/69-toen/` → move candidate for `products/oil-paint/oil-tung/69-toen/`
+- `products/public/` → move candidate for `lookbook/public/`
+- `products/public/dado-panel/` → move candidate for `products/dado-panel/`
+- `products/public/dado-panel/21-p0009/` → move candidate for `products/dado-panel/21-p0009/`
+- `products/public/dado-panel/23-p0001/` → move candidate for `products/dado-panel/23-p0001/`
+- `products/public/dado-panel/31-p0004/` → move candidate for `products/dado-panel/31-p0004/`
+- `products/public/dado-panel/33-p0006/` → move candidate for `products/dado-panel/33-p0006/`
+- `products/public/dado-panel/35-p0022/` → move candidate for `products/dado-panel/35-p0022/`
+- `products/public/dado-panel/38-p0010/` → move candidate for `products/dado-panel/38-p0010/`
+- `products/public/dado-panel/52-p0011/` → move candidate for `products/dado-panel/52-p0011/`
+- `products/public/dado-panel/57-p0018/` → move candidate for `products/dado-panel/57-p0018/`
+- `products/public/dado-panel/59-p0015/` → move candidate for `products/dado-panel/59-p0015/`
+- `products/public/high-wainscoting/` → move candidate for `products/high-wainscoting/`
+- `products/public/high-wainscoting/24-p0002/` → move candidate for `products/high-wainscoting/24-p0002/`
+- `products/public/high-wainscoting/27-p0003/` → move candidate for `products/high-wainscoting/27-p0003/`
+- `products/public/high-wainscoting/47-p0017/` → move candidate for `products/high-wainscoting/47-p0017/`
+- `products/public/high-wainscoting/53-p0013/` → move candidate for `products/high-wainscoting/53-p0013/`
+- `products/public/mouldings/` → move candidate for `products/mouldings/`
+- `products/public/mouldings/door/` → move candidate for `products/mouldings/door/`
+- `products/public/mouldings/door/114-tr06/` → move candidate for `products/mouldings/door/114-tr06/`
+- `products/public/mouldings/door/115-tr07/` → move candidate for `products/mouldings/door/115-tr07/`
+- `products/public/mouldings/door/116-tr01-160/` → move candidate for `products/mouldings/door/116-tr01-160/`
+- `products/public/mouldings/door/117-tr01-120/` → move candidate for `products/mouldings/door/117-tr01-120/`
+- `products/public/mouldings/door/118-tr01-200/` → move candidate for `products/mouldings/door/118-tr01-200/`
+- `products/public/mouldings/door/119-tr02/` → move candidate for `products/mouldings/door/119-tr02/`
+- `products/public/mouldings/door/120-tr03/` → move candidate for `products/mouldings/door/120-tr03/`
+- `products/public/mouldings/door/121-tr04/` → move candidate for `products/mouldings/door/121-tr04/`
+- `products/public/mouldings/door/122-tr05/` → move candidate for `products/mouldings/door/122-tr05/`
+- `products/public/mouldings/door/123-tr09/` → move candidate for `products/mouldings/door/123-tr09/`
+- `products/public/mouldings/door/124-tr11/` → move candidate for `products/mouldings/door/124-tr11/`
+- `products/public/mouldings/door/125-tr12/` → move candidate for `products/mouldings/door/125-tr12/`
+- `products/public/mouldings/door/126-tr13/` → move candidate for `products/mouldings/door/126-tr13/`
+- `products/public/mouldings/door/127-tr14/` → move candidate for `products/mouldings/door/127-tr14/`
+- `products/public/mouldings/door/128-tr15/` → move candidate for `products/mouldings/door/128-tr15/`
+- `products/public/mouldings/door/129-tr17/` → move candidate for `products/mouldings/door/129-tr17/`
+- `products/public/mouldings/door/130-tr18/` → move candidate for `products/mouldings/door/130-tr18/`
+- `products/public/mouldings/skirtings/` → move candidate for `products/mouldings/skirtings/`
+- `products/public/mouldings/skirtings/26-sl0007/` → move candidate for `products/mouldings/skirtings/26-sl0007/`
+- `products/public/mouldings/skirtings/34-sl0005/` → move candidate for `products/mouldings/skirtings/34-sl0005/`
+- `products/public/mouldings/skirtings/40-sl0001/` → move candidate for `products/mouldings/skirtings/40-sl0001/`
+- `products/public/mouldings/skirtings/41-sl0002/` → move candidate for `products/mouldings/skirtings/41-sl0002/`
+- `products/public/mouldings/skirtings/42-sl0003/` → move candidate for `products/mouldings/skirtings/42-sl0003/`
+- `products/public/mouldings/skirtings/44-sl0004/` → move candidate for `products/mouldings/skirtings/44-sl0004/`
+- `products/public/mouldings/skirtings/45-sl0006/` → move candidate for `products/mouldings/skirtings/45-sl0006/`
+- `products/public/mouldings/wall/` → move candidate for `products/mouldings/wall/`
+- `products/public/mouldings/wall/76-wl01/` → move candidate for `products/mouldings/wall/76-wl01/`
+- `products/public/mouldings/wall/77-wl02/` → move candidate for `products/mouldings/wall/77-wl02/`
+- `products/public/mouldings/wall/78-wl03/` → move candidate for `products/mouldings/wall/78-wl03/`
+- `products/public/mouldings/wall/79-wl04/` → move candidate for `products/mouldings/wall/79-wl04/`
+- `products/public/mouldings/wall/80-wl05/` → move candidate for `products/mouldings/wall/80-wl05/`
+- `products/public/mouldings/wall/81-wl06/` → move candidate for `products/mouldings/wall/81-wl06/`
+- `products/public/mouldings/wall/82-wl07/` → move candidate for `products/mouldings/wall/82-wl07/`
+- `products/public/mouldings/wall/84-wl08/` → move candidate for `products/mouldings/wall/84-wl08/`
+- `products/public/mouldings/wall/85-wl09/` → move candidate for `products/mouldings/wall/85-wl09/`
+- `products/public/mouldings/wall/86-wl10/` → move candidate for `products/mouldings/wall/86-wl10/`
+- `products/public/mouldings/wall/87-wl11/` → move candidate for `products/mouldings/wall/87-wl11/`
+- `products/public/mouldings/wall/88-wl12/` → move candidate for `products/mouldings/wall/88-wl12/`
+- `products/public/mouldings/wall/89-wl13/` → move candidate for `products/mouldings/wall/89-wl13/`
+- `products/public/mouldings/wall/90-wl14/` → move candidate for `products/mouldings/wall/90-wl14/`
+- `products/public/mouldings/wall/91-wl15/` → move candidate for `products/mouldings/wall/91-wl15/`
+- `products/public/oil-paints/beeck/` → move candidate for `products/oil-paint/beeck/`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/` → move candidate for `products/oil-paint/beeck/standoil/sip-m/`
+- `products/public/oil-paints/beeck/stand-oil/sip-m/113-pastel-green/` → move candidate for `products/oil-paint/beeck/standoil/sip-m/113-pastel-green/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/100-brown/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/100-brown/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/101-green/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/101-green/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/102-lemon-yellow/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/102-lemon-yellow/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/103-maize-yellow/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/103-maize-yellow/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/104-ochre/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/104-ochre/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/106-ultra-blue/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/106-ultra-blue/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/107-wine-red/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/107-wine-red/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/94-white/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/94-white/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/98-black/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/98-black/`
+- `products/public/oil-paints/beeck/stand-oil/sip-v/99-umber/` → move candidate for `products/oil-paint/beeck/standoil/sip-v/99-umber/`
+- `products/public/oil-paints/beeck/vsfp/` → move candidate for `products/oil-paint/beeck/vsfp/`
+- `products/public/oil-paints/beeck/vsfp/109-vsfp/vsfp.png` → move candidate for `products/oil-paint/beeck/vsfp/vsfp.png`
+- `products/public/oil-paints/oil-tung/` → move candidate for `products/oil-paint/oil-tung/`
+- `products/public/oil-paints/oil-tung/61-loen/` → move candidate for `products/oil-paint/oil-tung/61-loen/`
+- `products/public/oil-paints/oil-tung/62-loef/` → move candidate for `products/oil-paint/oil-tung/62-loef/`
+- `products/public/oil-paints/oil-tung/63-btoe/` → move candidate for `products/oil-paint/oil-tung/63-btoe/`
+- `products/public/oil-paints/oil-tung/64-ctp/` → move candidate for `products/oil-paint/oil-tung/64-ctp/`
+- `products/public/oil-paints/oil-tung/65-toel/` → move candidate for `products/oil-paint/oil-tung/65-toel/`
+- `products/public/oil-paints/oil-tung/69-toen/` → move candidate for `products/oil-paint/oil-tung/69-toen/`
+- `products/public/rosettes/` → move candidate for `products/rosettes/`
+- `products/public/rosettes/60-blr3/` → move candidate for `products/rosettes/60-blr3/`
+- `products/public/rosettes/70-blr4/` → move candidate for `products/rosettes/70-blr4/`
+- `products/public/rosettes/71-blr1/` → move candidate for `products/rosettes/71-blr1/`
+- `products/public/rosettes/72-blr2/` → move candidate for `products/rosettes/72-blr2/`
+- `products/public/rosettes/73-blr5/` → move candidate for `products/rosettes/73-blr5/`
+- `products/public/rosettes/74-blr6/` → move candidate for `products/rosettes/74-blr6/`
+- `products/public/rosettes/75-blr7/` → move candidate for `products/rosettes/75-blr7/`
+- `style-guide/` → move candidate for `faq/style-guide/`
