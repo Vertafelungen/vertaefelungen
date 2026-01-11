@@ -6,10 +6,6 @@ lang: de
 managed_by: faq
 url: '/de/faq/'
 description: Häufige Fragen zu historischen Holzvertäfelungen.
-menu:
-  main:
-    name: FAQ
-    weight: 50
 ---
 # FAQ
 <!-- Übersichtsseite für FAQ (optional).

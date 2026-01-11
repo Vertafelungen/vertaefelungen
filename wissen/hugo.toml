@@ -25,19 +25,19 @@ home = ["HTML"]
     [languages.de.menu]
       [[languages.de.menu.main]]
         name = "Shop"
-        url = "de/shop/"
+        url = "/wissen/de/shop/"
         weight = 10
       [[languages.de.menu.main]]
         name = "FAQ"
-        url = "de/faq/"
+        url = "/wissen/de/faq/"
         weight = 20
       [[languages.de.menu.main]]
         name = "Produkte"
-        url = "de/produkte/"
+        url = "/wissen/de/produkte/"
         weight = 30
       [[languages.de.menu.main]]
         name = "Lookbook"
-        url = "de/lookbook/"
+        url = "/wissen/de/lookbook/"
         weight = 40
 
   [languages.en]
@@ -49,19 +49,19 @@ home = ["HTML"]
     [languages.en.menu]
       [[languages.en.menu.main]]
         name = "Shop"
-        url = "en/shop/"
+        url = "/wissen/en/shop/"
         weight = 10
       [[languages.en.menu.main]]
         name = "FAQ"
-        url = "en/faq/"
+        url = "/wissen/en/faq/"
         weight = 20
       [[languages.en.menu.main]]
         name = "Products"
-        url = "en/products/"
+        url = "/wissen/en/products/"
         weight = 30
       [[languages.en.menu.main]]
         name = "Lookbook"
-        url = "en/lookbook/"
+        url = "/wissen/en/lookbook/"
         weight = 40
 
 [languages.de.permalinks]
