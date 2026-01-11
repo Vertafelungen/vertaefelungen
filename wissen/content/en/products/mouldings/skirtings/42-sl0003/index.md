@@ -13,9 +13,9 @@ produkt:
   preis_basis: 35.38
   varianten: []
   bilder:
-  - datei: sl0003-1.png
+  - datei: sl0003-01.png
     alt_en: Kreuzberg skirting board 28/165 mounted in room corner
-  - datei: sl0003-2.png
+  - datei: sl0003-02.png
     alt_en: tall profile strip with precise shadow effect
 seo:
   title: SL0003 - Kreuzberg skirting board 165/28

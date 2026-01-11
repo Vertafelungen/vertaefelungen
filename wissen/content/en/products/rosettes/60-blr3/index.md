@@ -13,15 +13,15 @@ produkt:
   preis_basis: 49.58
   varianten: []
   bilder:
-  - datei: blr3-1.png
+  - datei: blr3-01.png
     alt_en: Ventilation rosette BLR3 made of brass mounted on wooden surface
-  - datei: blr3-2.png
+  - datei: blr3-02.png
     alt_en: Ventilation rosette BLR3 brass with measuring tape for size reference
-  - datei: blr3-3.png
+  - datei: blr3-03.png
     alt_en: Ventilation rosette BLR3 brass piece lying flat on wooden base
-  - datei: blr3-4.png
+  - datei: blr3-04.png
     alt_en: Historical brass ventilation rosette BLR3 in aged wood paneling
-  - datei: blr3-5.png
+  - datei: blr3-05.png
     alt_en: Ventilation rosette BLR3 brass rosette integrated into complete wood paneling
 seo:
   title: Ventilation Rosette 3

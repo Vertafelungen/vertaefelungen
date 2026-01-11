@@ -17,11 +17,11 @@ produkt:
   - bezeichnung: Eiche
     preis_aufschlag: 67.23
   bilder:
-  - datei: sl0007-1.png
+  - datei: sl0007-01.png
     alt_de: Sockelleiste vierteilig 450 mm Neobarock Jugendstil Mischung Wagner Salons Augustiner München
-  - datei: sl0007-2.png
+  - datei: sl0007-02.png
     alt_de: Sockelleiste vierteilig 450 mm Neobarock Jugendstil Mischung Eckansicht Wagner Salons Augustiner
-  - datei: sl0007-3.png
+  - datei: sl0007-03.png
     alt_de: Sockelleiste vierteilig 450 mm Neobarock Jugendstil Mischung Wandansicht Gehrung Wagner Salons Augustiner
 seo:
   title: Sockelleiste aus dem Augustiner Stammhaus in München

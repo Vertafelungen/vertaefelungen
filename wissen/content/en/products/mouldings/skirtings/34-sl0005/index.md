@@ -13,9 +13,9 @@ produkt:
   preis_basis: 17.15
   varianten: []
   bilder:
-  - datei: sl0005-1.png
+  - datei: sl0005-01.png
     alt_en: Skirting board SOL 0005 rounded 16/80 in room corner with wall view and profile cross section
-  - datei: sl0005-2.png
+  - datei: sl0005-02.png
     alt_en: Skirting board SOL 0005 rounded 16/80 in technical view with 80 mm height
 seo:
   title: SL0005 - rounded upper edge 80/16

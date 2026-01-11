@@ -13,15 +13,15 @@ produkt:
   preis_basis: 49.58
   varianten: []
   bilder:
-  - datei: blr3-1.png
+  - datei: blr3-01.png
     alt_de: Belüftungsrosette BLR3 aus Messing auf Holzfläche montiert
-  - datei: blr3-2.png
+  - datei: blr3-02.png
     alt_de: Belüftungsrosette BLR3 aus Messing mit Maßband zur Größenangabe
-  - datei: blr3-3.png
+  - datei: blr3-03.png
     alt_de: Belüftungsrosette BLR3 in Messing flach auf Holzuntergrund liegend
-  - datei: blr3-4.png
+  - datei: blr3-04.png
     alt_de: historische Belüftungsrosette BLR3 aus Messing in gealterter Holzvertäfelung
-  - datei: blr3-5.png
+  - datei: blr3-05.png
     alt_de: Belüftungsrosette BLR3 Messingrosette in kompletter Holzvertäfelung eingesetzt
 seo:
   title: blr3 - Lüftungsrosette für Vertäfelungen, nach Originalvorl

@@ -13,15 +13,15 @@ produkt:
   preis_basis: 54.62
   varianten: []
   bilder:
-  - datei: blr1-1.png
+  - datei: blr1-01.png
     alt_en: Brass ventilation rosette with quatrefoil cutout
-  - datei: blr1-2.png
+  - datei: blr1-02.png
     alt_en: mounted in wood panelling
-  - datei: blr1-3.png
+  - datei: blr1-03.png
     alt_en: close-up view
-  - datei: blr1-4.png
+  - datei: blr1-04.png
     alt_en: Brass ventilation rosette with quatrefoil cutout
-  - datei: blr1-5.png
+  - datei: blr1-05.png
     alt_en: shown beside tape measure for size reference
 seo:
   title: Ventilation Rosette 1

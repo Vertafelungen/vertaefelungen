@@ -13,15 +13,15 @@ produkt:
   preis_basis: 49.58
   varianten: []
   bilder:
-  - datei: blr2-1.png
+  - datei: blr2-01.png
     alt_de: Messing-Lüftungsrosette mit verschlungenem Rankenornament auf Holzplatte
-  - datei: blr2-2.png
+  - datei: blr2-02.png
     alt_de: Messing-Lüftungsrosette mit Maßstab zur Größenangabe auf Holzplatte
-  - datei: blr2-3.png
+  - datei: blr2-03.png
     alt_de: Messing-Lüftungsrosette seitlich fotografiert mit Reliefstruktur
-  - datei: blr2-4.png
+  - datei: blr2-04.png
     alt_de: historische Patina-Lüftungsrosette in dunkler Holzvertäfelung eingelassen
-  - datei: blr2-5.png
+  - datei: blr2-05.png
     alt_de: Holzvertäfelung mit mehreren eingelassenen Lüftungsrosetten in gleichmäßigem Raster
 seo:
   title: blr2 - Lüftungsrosette für Vertäfelungen, nach Originalvorl

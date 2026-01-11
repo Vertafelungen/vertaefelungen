@@ -13,9 +13,9 @@ produkt:
   preis_basis: 49.75
   varianten: []
   bilder:
-  - datei: sl0004-1.png
+  - datei: sl0004-01.png
     alt_de: Freigestellte technische Zeichnung einer zweiteiligen Sockelleiste SOL0004 mit 175 mm Höhe und gestuftem Profil
-  - datei: sl0004-4.png
+  - datei: sl0004-04.png
     alt_de: Sockelleiste SOL0004 zweiteilig 45/175 montiert in einer Raumecke als technische Darstellung mit sichtbarem Profilverlauf
 seo:
   title: 2teilige Hohe Sockelleiste, 17,5 cm Höhe

@@ -13,9 +13,9 @@ produkt:
   preis_basis: 35.38
   varianten: []
   bilder:
-  - datei: sl0003-1.png
+  - datei: sl0003-01.png
     alt_de: Kreuzberger Sockelleiste 28/165 montiert in Raumecke
-  - datei: sl0003-2.png
+  - datei: sl0003-02.png
     alt_de: umlaufende hohe Profilleiste mit Schattenwirkung
 seo:
   title: Kreuzberger Leiste, 16,5 cm Höhe

@@ -13,15 +13,15 @@ produkt:
   preis_basis: 49.58
   varianten: []
   bilder:
-  - datei: blr2-1.png
+  - datei: blr2-01.png
     alt_en: Brass ventilation rosette with interlaced scroll ornament on wooden panel
-  - datei: blr2-2.png
+  - datei: blr2-02.png
     alt_en: Brass ventilation rosette with scale ruler for size reference on wooden panel
-  - datei: blr2-3.png
+  - datei: blr2-03.png
     alt_en: Brass ventilation rosette side view showing relief structure
-  - datei: blr2-4.png
+  - datei: blr2-04.png
     alt_en: Historical patina ventilation rosette set into dark wooden paneling
-  - datei: blr2-5.png
+  - datei: blr2-05.png
     alt_en: Wooden paneling with multiple embedded ventilation rosettes in regular grid
 seo:
   title: Ventilation Rosette 2

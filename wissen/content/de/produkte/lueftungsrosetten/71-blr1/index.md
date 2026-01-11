@@ -13,15 +13,15 @@ produkt:
   preis_basis: 54.62
   varianten: []
   bilder:
-  - datei: blr1-1.png
+  - datei: blr1-01.png
     alt_de: Belüftungsrosette aus Messing mit Vierpass-Durchbruch
-  - datei: blr1-2.png
+  - datei: blr1-02.png
     alt_de: montiert in Holzverkleidung
-  - datei: blr1-3.png
+  - datei: blr1-03.png
     alt_de: Nahaufnahme
-  - datei: blr1-4.png
+  - datei: blr1-04.png
     alt_de: Belüftungsrosette aus Messing mit Vierpass-Durchbruch
-  - datei: blr1-5.png
+  - datei: blr1-05.png
     alt_de: neben Maßband zur Größenreferenz
 seo:
   title: blr1 - Formschöne Lüftungsrosette für Vertäfelungen, Abguss

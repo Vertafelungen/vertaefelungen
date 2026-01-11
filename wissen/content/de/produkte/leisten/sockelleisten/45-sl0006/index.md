@@ -13,9 +13,9 @@ produkt:
   preis_basis: 60.0
   varianten: []
   bilder:
-  - datei: sl0006-1.png
+  - datei: sl0006-01.png
     alt_de: Freigestellte technische Zeichnung der Karniesleiste SOL0006 58/18 mit klarer Profilkontur und Maßangabe 58 mm
-  - datei: sl0006-2.png
+  - datei: sl0006-02.png
     alt_de: Raumansicht mit montierter Karniesleiste SOL0006 58/18 als dezente Wandabschlussleiste in Innenraumecke
 seo:
   title: Sockelleiste mit Karnies, Höhe 5,8 cm

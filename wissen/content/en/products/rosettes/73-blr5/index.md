@@ -13,11 +13,11 @@ produkt:
   preis_basis: 54.62
   varianten: []
   bilder:
-  - datei: blr5-1.png
+  - datei: blr5-01.png
     alt_en: Round brass ventilation grille with nine teardrop-shaped openings and central screw on wooden surface
-  - datei: blr5-3.png
+  - datei: blr5-03.png
     alt_en: Brass round ventilation grille with nine openings beside ruler showing around five centimeters on wood
-  - datei: blr5-2.png
+  - datei: blr5-02.png
     alt_en: Round brass ventilation grille with nine openings photographed in angled light from the side
 seo:
   title: Ventilation Rosette 5

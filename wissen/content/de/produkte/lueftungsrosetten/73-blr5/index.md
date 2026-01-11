@@ -13,11 +13,11 @@ produkt:
   preis_basis: 54.62
   varianten: []
   bilder:
-  - datei: blr5-1.png
+  - datei: blr5-01.png
     alt_de: Rundes Messing-Lüftungsgitter mit neun tropfenförmigen Öffnungen und mittiger Schraube
-  - datei: blr5-3.png
+  - datei: blr5-03.png
     alt_de: Messing-Lüftungsgitter mit neun Öffnungen neben Zollstockmaß ca. fünf Zentimeter auf Holz
-  - datei: blr5-2.png
+  - datei: blr5-02.png
     alt_de: Rundes Messing-Lüftungsgitter mit neun Öffnungen im Schräglicht von der Seite fotografiert
 seo:
   title: blr5 - Lüftungsrosette für Vertäfelungen, nach Originalvorl

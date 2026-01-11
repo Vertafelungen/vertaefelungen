@@ -13,11 +13,11 @@ produkt:
   preis_basis: 46.22
   varianten: []
   bilder:
-  - datei: blr7-1.png
+  - datei: blr7-01.png
     alt_en: Round brass vent with three openings flat mounted on wooden surface about 40 mm diameter
-  - datei: blr7-2.png
+  - datei: blr7-02.png
     alt_en: Brass vent with three openings with measuring tape beside showing size indication nearly four centimeters
-  - datei: blr7-3.png
+  - datei: blr7-03.png
     alt_en: Round brass vent with three openings photographed diagonally from below on wooden surface
 seo:
   title: Ventilation Rosette 7

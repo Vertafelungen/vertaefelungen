@@ -13,9 +13,9 @@ produkt:
   preis_basis: 27.88
   varianten: []
   bilder:
-  - datei: sl0002-1.png
+  - datei: sl0002-01.png
     alt_en: Skirting board Hamburger Leiste 25/120 with curved profile edge height 120 mm technical drawing
-  - datei: sl0002-2.png
+  - datei: sl0002-02.png
     alt_en: Skirting board Hamburger Leiste 25/120 mounted on a white wall in a corner classic design with profiled upper edge
 seo:
   title: SL0002 - Hamburg skirting board 18/120
