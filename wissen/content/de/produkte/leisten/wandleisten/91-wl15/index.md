@@ -5,7 +5,7 @@ title: Wandleiste 15
 lang: de
 translationKey: '91'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-11'
 produkt:
   id: '91'
   artikelnummer: WL15
