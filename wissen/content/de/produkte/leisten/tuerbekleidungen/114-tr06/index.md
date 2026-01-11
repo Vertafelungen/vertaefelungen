@@ -5,7 +5,7 @@ title: Türbekleidung 06
 lang: de
 translationKey: '114'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-11'
 produkt:
   id: '114'
   artikelnummer: TR06

@@ -5,7 +5,7 @@ title: Wandleiste 02 „Dom-Profil"
 lang: de
 translationKey: '77'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-11'
 produkt:
   id: '77'
   artikelnummer: WL02

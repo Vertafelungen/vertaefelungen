@@ -5,7 +5,7 @@ title: Door Frame 11
 lang: en
 translationKey: '124'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-11'
 produkt:
   id: '124'
   artikelnummer: TR11

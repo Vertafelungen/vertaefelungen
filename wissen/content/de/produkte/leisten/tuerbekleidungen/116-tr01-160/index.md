@@ -5,7 +5,7 @@ title: Türbekleidung 01 / 160
 lang: de
 translationKey: '116'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-11'
 produkt:
   id: '116'
   artikelnummer: TR01-160

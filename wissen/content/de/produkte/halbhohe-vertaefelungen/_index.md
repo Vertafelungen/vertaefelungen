@@ -1,7 +1,7 @@
 ---
-version: 2026-01-09 15:01 UTC
+version: 2026-01-11 18:19 UTC
 managed_by: categories.csv
-last_synced: 2026-01-09 15:01 UTC
+last_synced: 2026-01-11 18:19 UTC
 lang: de
 translationKey: dado-panel
 title: Halbhohe Vertäfelungen

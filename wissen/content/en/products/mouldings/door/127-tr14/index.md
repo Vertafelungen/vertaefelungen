@@ -5,7 +5,7 @@ title: Door Frame 14
 lang: en
 translationKey: '127'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-11'
 produkt:
   id: '127'
   artikelnummer: TR14

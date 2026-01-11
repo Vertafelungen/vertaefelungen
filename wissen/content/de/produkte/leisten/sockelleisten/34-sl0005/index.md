@@ -5,7 +5,7 @@ title: SL0005 - abgerundete Oberkante 80/16
 lang: de
 translationKey: '34'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-11'
 produkt:
   id: '34'
   artikelnummer: SL0005
