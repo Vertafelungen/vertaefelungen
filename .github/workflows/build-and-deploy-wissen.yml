@@ -30,17 +30,20 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Setup Hugo (extended)
-        uses: peaceiris/actions-hugo@v3
+      - name: Cache Hugo binary
+        uses: actions/cache@v4
         with:
-          hugo-version: '0.128.2'
-          extended: true
+          path: wissen/tools/hugo
+          key: hugo-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('wissen/tools/hugo/VERSION') }}
+
+      - name: Install Hugo (repo-local)
+        run: ./tools/hugo/install.sh
 
       - name: Build (production)
         env:
           HUGO_ENV: production
         run: |
-          hugo --minify --gc --config "hugo.prod.toml"
+          ./tools/hugo/hugo --minify --gc --config "hugo.prod.toml"
           date -u +"%Y-%m-%dT%H:%M:%SZ  $GITHUB_SHA" > public/deploy-stamp.txt
 
       # kleine Sicherung: zeige, dass der Build-Output da ist
