@@ -45,7 +45,7 @@ Der **Shop** auf www.vertaefelungen.de ist dagegen auf **Bestellung, Preislogik 
 
   <a
     class="bridge-cta"
-    href="{{< relref "beratung/_index.md" >}}?utm_source=wissen&utm_medium=bridge&utm_campaign=beratung"
+    href="{{< relref "faq/beratung/" >}}?utm_source=wissen&utm_medium=bridge&utm_campaign=beratung"
     data-cta="beratung-starten"
   >
     Beratung starten

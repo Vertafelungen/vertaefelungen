@@ -19,3 +19,6 @@
 
 ### Missing (en)
 - (none)
+
+## Notes
+- Previous build failures were caused by outdated Hugo ref targets after moving consulting/beratung under `faq/`.
