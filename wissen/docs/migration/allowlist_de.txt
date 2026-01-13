@@ -9,6 +9,7 @@ faq/beratung/beauftragung.md
 faq/beratung/herstellung.md
 faq/beratung/lieferung.md
 faq/beratung/montage.md
+faq/beratung/visualisierung.md
 faq/beratung/katalog-und-download/
 faq/beratung/katalog-und-download/_index.md
 faq/beratung/katalog-und-download/katalog.md
