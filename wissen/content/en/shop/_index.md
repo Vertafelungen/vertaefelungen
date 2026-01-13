@@ -34,7 +34,7 @@ The **shop** on www.vertaefelungen.de is optimized for **ordering, pricing logic
 
   <a
     class="bridge-cta"
-    href="{{< relref "consulting/_index.md" >}}?utm_source=wissen&utm_medium=bridge&utm_campaign=consulting"
+    href="{{< relref "faq/consulting/" >}}?utm_source=wissen&utm_medium=bridge&utm_campaign=consulting"
     data-cta="start-consulting"
   >
     Start consulting
