@@ -1,20 +1,13 @@
 {{/*
   File: wissen/layouts/partials/product/single.html
   Purpose: Dedicated layout for product detail pages.
-  Version: 2026-01-10 10:20 CET
+  Version: 2026-01-13 22:05 CET
 */}}
 
 {{- $intro := or .Params.intro .Params.teaser .Params.subtitle -}}
 {{- $shopURL := "" -}}
 {{- with .Params.refs.source_shop -}}
   {{- $shopURL = . -}}
-{{- end -}}
-
-{{- $beratungURL := "" -}}
-{{- with .Site.GetPage "faq/beratung/visualisierung" -}}
-  {{- $beratungURL = .Permalink -}}
-{{- else -}}
-  {{- $beratungURL = "/faq/beratung/visualisierung/" | relLangURL -}}
 {{- end -}}
 
 <article class="space-y-8">
@@ -110,11 +103,6 @@
       </a>
     {{- end -}}
 
-    <a
-      class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-800 hover:bg-slate-50"
-      href="{{ $beratungURL }}"
-    >
-      Beratung / Visualisierung
-    </a>
+    {{/* Visualisierung-CTA entfernt, da visualisierung.md nicht (mehr) existieren soll. */}}
   </section>
 </article>
