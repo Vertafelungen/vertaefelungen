@@ -7,7 +7,7 @@
 - en: `wissen/content/en`
 
 ### Allowlist counts
-- de: 243
+- de: 244
 - en: 243
 
 ### Missing counts
