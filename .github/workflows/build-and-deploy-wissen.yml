@@ -30,24 +30,52 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Read Hugo version
+        id: hugover
+        working-directory: .
+        run: echo "version=$(cat wissen/tools/hugo/VERSION)" >> "$GITHUB_OUTPUT"
+
+      - name: Detect arch
+        id: arch
+        working-directory: .
+        run: |
+          case "$(uname -m)" in
+            x86_64) arch="amd64" ;;
+            aarch64|arm64) arch="arm64" ;;
+            *) arch="$(uname -m)" ;;
+          esac
+          echo "arch=$arch" >> "$GITHUB_OUTPUT"
+
       - name: Cache Hugo binary
         uses: actions/cache@v4
         with:
-          path: wissen/tools/hugo
-          key: hugo-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('wissen/tools/hugo/VERSION') }}
+          path: wissen/tools/hugo/
+          key: hugo-${{ runner.os }}-${{ steps.arch.outputs.arch }}-${{ steps.hugover.outputs.version }}
+          restore-keys: |
+            hugo-${{ runner.os }}-${{ steps.arch.outputs.arch }}-
+            hugo-${{ runner.os }}-
 
       - name: Install Hugo (repo-local)
-        run: ./tools/hugo/install.sh
+        working-directory: .
+        run: |
+          chmod +x wissen/tools/hugo/install.sh wissen/tools/hugo/hugo
+          ./wissen/tools/hugo/install.sh
+
+      - name: Hugo version
+        working-directory: .
+        run: ./wissen/tools/hugo/hugo version
 
       - name: Build (production)
+        working-directory: .
         env:
           HUGO_ENV: production
         run: |
-          ./tools/hugo/hugo --minify --gc --config "hugo.prod.toml"
-          date -u +"%Y-%m-%dT%H:%M:%SZ  $GITHUB_SHA" > public/deploy-stamp.txt
+          ./wissen/tools/hugo/hugo -s wissen --minify --gc --config "wissen/hugo.prod.toml"
+          date -u +"%Y-%m-%dT%H:%M:%SZ  $GITHUB_SHA" > wissen/public/deploy-stamp.txt
 
       # kleine Sicherung: zeige, dass der Build-Output da ist
       - name: Inspect build output
+        working-directory: wissen
         run: |
           pwd
           du -sh public || true
