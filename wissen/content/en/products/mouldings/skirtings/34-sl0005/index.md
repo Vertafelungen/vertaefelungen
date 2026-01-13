@@ -5,7 +5,7 @@ title: SL0005 - rounded upper edge 80/16
 lang: en
 translationKey: '34'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-13'
 produkt:
   id: '34'
   artikelnummer: SL0005

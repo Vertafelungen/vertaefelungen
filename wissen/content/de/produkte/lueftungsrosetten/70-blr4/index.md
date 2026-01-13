@@ -5,7 +5,7 @@ title: Lüftungsrosette 4
 lang: de
 translationKey: '70'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-13'
 produkt:
   id: '70'
   artikelnummer: BLR4

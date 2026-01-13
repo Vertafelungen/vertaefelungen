@@ -5,7 +5,7 @@ title: Door Frame 01 / 200
 lang: en
 translationKey: '118'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-13'
 produkt:
   id: '118'
   artikelnummer: TR01-200

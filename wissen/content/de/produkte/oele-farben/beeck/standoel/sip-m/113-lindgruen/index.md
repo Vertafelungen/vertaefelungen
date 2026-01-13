@@ -5,7 +5,7 @@ title: Lindgrün - BEECK Standölinnenfarbe PRO
 lang: de
 translationKey: '113'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-13'
 produkt:
   id: '113'
   artikelnummer: LINDGRUEN

@@ -1,11 +1,12 @@
 ---
 aliases:
 - /wissen/en/products/public/dado-panel/57-p0018/
+- /wissen/en/products/high-wainscoting/57-p0014/
 title: P0018 - Berlin - Invalidenstraße
 lang: en
 translationKey: '57'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-13'
 produkt:
   id: '57'
   artikelnummer: P0018

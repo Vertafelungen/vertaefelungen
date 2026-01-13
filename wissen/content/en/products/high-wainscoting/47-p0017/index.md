@@ -5,7 +5,7 @@ title: P0017 - High pinstripe panel with shaker peg rail
 lang: en
 translationKey: '47'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-13'
 produkt:
   id: '47'
   artikelnummer: P0017

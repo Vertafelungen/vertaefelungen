@@ -5,7 +5,7 @@ title: Wandleiste 05 „Hohe Welle"
 lang: de
 translationKey: '80'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-13'
 produkt:
   id: '80'
   artikelnummer: WL05

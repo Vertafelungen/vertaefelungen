@@ -5,7 +5,7 @@ title: SL0006 - mit Karnies 58/18
 lang: de
 translationKey: '45'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-13'
 produkt:
   id: '45'
   artikelnummer: SL0006

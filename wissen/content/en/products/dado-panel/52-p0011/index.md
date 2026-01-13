@@ -5,7 +5,7 @@ title: P0011 - Weimar - Goethe's house am Frauenplan
 lang: en
 translationKey: '52'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-13'
 produkt:
   id: '52'
   artikelnummer: P0011
