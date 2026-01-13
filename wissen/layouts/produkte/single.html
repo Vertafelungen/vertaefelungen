@@ -1,31 +1,73 @@
 {{ define "main" }}
-<article class="container mx-auto px-4 py-8">
-  <header class="mb-6">
-    <h1 class="text-3xl font-semibold">{{ .Title }}</h1>
-    {{ partial "product/gallery.html" . }}
+<article class="container mx-auto px-4 py-8 product-page">
+  <nav class="breadcrumbs" aria-label="{{ i18n "breadcrumbs_label" | default "Breadcrumbs" }}">
+    <a href="{{ .Site.Home.RelPermalink }}">{{ i18n "breadcrumbs_home" | default "Start" }}</a>
+    {{- range .Ancestors.Reverse -}}
+      {{- if not .IsHome -}}
+        <span aria-hidden="true">/</span>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      {{- end -}}
+    {{- end -}}
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ .Title }}</span>
+  </nav>
+
+  <header class="product-hero mb-6">
+    <h1 class="text-3xl font-semibold product-title">{{ .Title }}</h1>
+    {{ with .Params.seo.description }}
+      <p class="lead product-intro">{{ . }}</p>
+    {{ end }}
   </header>
 
+  {{ partial "gallery.html" . }}
+
+  {{- $techItems := slice -}}
+  {{- with .Params.produkt.artikelnummer -}}
+    {{- $techItems = $techItems | append (dict "label" (i18n "product_sku" | default "Artikelnummer") "value" .) -}}
+  {{- end -}}
+  {{- with .Params.produkt.preis_basis -}}
+    {{- $techItems = $techItems | append (dict "label" (i18n "product_base_price" | default "Basispreis") "value" (printf "%.2f €" .)) -}}
+  {{- end -}}
+  {{- with .Params.produkt.verfuegbar -}}
+    {{- $availability := cond . (i18n "product_available" | default "Verfügbar") (i18n "product_unavailable" | default "Nicht verfügbar") -}}
+    {{- $techItems = $techItems | append (dict "label" (i18n "product_status" | default "Status") "value" $availability) -}}
+  {{- end -}}
+  {{- with .Params.technische_daten -}}
+    {{- if reflect.IsMap . -}}
+      {{- range $label, $value := . -}}
+        {{- $techItems = $techItems | append (dict "label" $label "value" $value) -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{ if or $techItems .Params.merkmale }}
+    <section class="product-specs">
+      <h2 class="section-title">{{ i18n "product_specs" | default "Technische Daten" }}</h2>
+      {{ if $techItems }}
+        <dl class="spec-grid">
+          {{ range $techItems }}
+            <div>
+              <dt>{{ .label }}</dt>
+              <dd>{{ .value }}</dd>
+            </div>
+          {{ end }}
+        </dl>
+      {{ end }}
+      {{ with .Params.merkmale }}
+        <ul class="feature-list">
+          {{ range . }}
+            <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      {{ end }}
+    </section>
+  {{ end }}
+
   <section class="prose max-w-none">
-    {{ if eq .Lang "de" }}
-      {{ with .Params.beschreibung_md_de }}{{ . | markdownify }}{{ end }}
-    {{ else }}
-      {{ with .Params.beschreibung_md_en }}{{ . | markdownify }}{{ end }}
-    {{ end }}
+    {{ .Content }}
   </section>
 
-  {{ with .Params.varianten }}
-  <section class="mt-8">
-    <h2 class="text-xl font-semibold mb-2">{{ i18n "varianten_preise" | default "Varianten & Preise" }}</h2>
-    <table class="w-full border-collapse">
-      <thead><tr><th>Variante</th><th>Preis</th><th>Einheit</th><th>SKU</th></tr></thead>
-      <tbody>
-        {{ range . }}
-          <tr><td>{{ .name }}</td><td>{{ with .preis }}{{ printf "%.2f" . }} €{{ end }}</td><td>{{ .einheit }}</td><td>{{ .sku }}</td></tr>
-        {{ end }}
-      </tbody>
-    </table>
-  </section>
-  {{ end }}
+  {{ partial "cta.html" . }}
 
   {{ partial "product/jsonld.html" (dict "ctx" .) }}
 </article>

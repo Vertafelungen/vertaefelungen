@@ -1,0 +1,49 @@
+{{/*
+File: wissen/layouts/partials/gallery.html
+Purpose: Render a resilient product gallery using only Page Resources.
+*/}}
+
+{{- $images := .Resources.Match "*.{png,jpg,jpeg,webp}" -}}
+{{- $images = sort $images "Name" "asc" -}}
+
+{{- $altMap := dict -}}
+{{- with .Params.produkt.bilder -}}
+  {{- range . -}}
+    {{- $alt := "" -}}
+    {{- if eq $.Lang "de" -}}
+      {{- $alt = (or .alt_de .alt_en) -}}
+    {{- else -}}
+      {{- $alt = (or .alt_en .alt_de) -}}
+    {{- end -}}
+    {{- if and .datei $alt -}}
+      {{- $altMap = merge $altMap (dict .datei $alt) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $images -}}
+  <div class="product-gallery">
+    {{- range $images -}}
+      {{- $name := .Name -}}
+      {{- $baseName := or .File.BaseFileName $name -}}
+      {{- $fallbackAlt := $baseName | replace "-" " " | humanize -}}
+      {{- $alt := or (index $altMap $name) $fallbackAlt $.Title -}}
+      <figure class="product-gallery__item">
+        <img
+          src="{{ .RelPermalink }}"
+          alt="{{ $alt | plainify | safeHTMLAttr }}"
+          loading="lazy"
+          decoding="async"
+        />
+      </figure>
+    {{- end -}}
+  </div>
+{{- else -}}
+  <div class="product-gallery__empty">
+    {{- if eq .Lang "de" -}}
+      Keine Produktbilder verfügbar.
+    {{- else -}}
+      No product images available.
+    {{- end -}}
+  </div>
+{{- end -}}

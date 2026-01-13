@@ -1,0 +1,29 @@
+{{/*
+File: wissen/layouts/partials/cta.html
+Purpose: Render product CTAs for shop and consulting.
+*/}}
+
+{{- $shopLink := .Params.refs.source_shop -}}
+{{- $consultSlug := cond (eq .Lang "de") "beratung" "consulting" -}}
+{{- $consultPage := site.GetPage (printf "/%s/faq/%s" .Lang $consultSlug) -}}
+{{- $consultLink := "" -}}
+{{- if $consultPage -}}
+  {{- $consultLink = $consultPage.RelPermalink -}}
+{{- end -}}
+
+{{- if or $shopLink $consultLink -}}
+  <section class="cta-block" aria-label="{{ i18n "cta_section_label" | default "Call to action" }}">
+    <div class="cta-card">
+      <h2 class="section-title">{{ i18n "cta_title" | default "Fragen zu Varianten oder Planung?" }}</h2>
+      <p>{{ i18n "cta_text" | default "Wir helfen gerne beim Auswählen der passenden Vertäfelung oder bei der Visualisierung." }}</p>
+      <div class="cta-actions">
+        {{- if $shopLink -}}
+          <a class="button button--filled" href="{{ $shopLink }}">{{ i18n "cta_shop_label" | default "Preise & Varianten im Shop ansehen" }}</a>
+        {{- end -}}
+        {{- if $consultLink -}}
+          <a class="button" href="{{ $consultLink }}">{{ i18n "cta_consult_label" | default "Beratung / Visualisierung anfragen" }}</a>
+        {{- end -}}
+      </div>
+    </div>
+  </section>
+{{- end -}}

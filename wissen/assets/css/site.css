@@ -292,6 +292,108 @@ td {
   margin-bottom: 0.75rem;
 }
 
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.breadcrumbs a {
+  color: var(--text-muted);
+}
+
+.breadcrumbs a:hover,
+.breadcrumbs a:focus {
+  color: var(--brand-primary);
+  text-decoration: none;
+}
+
+.product-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.product-gallery__item {
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 0.5rem;
+  background: #fff;
+}
+
+.product-gallery__item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.product-gallery__empty {
+  border: 1px dashed var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  background: var(--bg-light);
+  color: var(--text-muted);
+  margin: 1.5rem 0;
+}
+
+.product-specs {
+  margin: 2rem 0;
+}
+
+.spec-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem 1.5rem;
+  margin: 0 0 1rem;
+}
+
+.spec-grid div {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.spec-grid dt {
+  font-weight: 600;
+}
+
+.spec-grid dd {
+  margin: 0.2rem 0 0;
+  color: var(--text-muted);
+}
+
+.feature-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+}
+
+.cta-block {
+  margin-top: 2.5rem;
+}
+
+.cta-card {
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.25rem;
+  background: var(--bg-light);
+}
+
+.cta-card p {
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+}
+
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
 /* Utility classes used in product templates (lightweight design system) */
 .mx-auto {
   margin-left: auto;

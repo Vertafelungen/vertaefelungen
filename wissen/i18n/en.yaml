@@ -8,3 +8,29 @@ menu_lookbook:
   other: "Lookbook"
 varianten_preise:
   other: "Variants & prices"
+breadcrumbs_label:
+  other: "Breadcrumbs"
+breadcrumbs_home:
+  other: "Home"
+product_sku:
+  other: "SKU"
+product_base_price:
+  other: "Base price"
+product_status:
+  other: "Status"
+product_available:
+  other: "Available"
+product_unavailable:
+  other: "Unavailable"
+product_specs:
+  other: "Technical details"
+cta_section_label:
+  other: "Product call to action"
+cta_title:
+  other: "Questions about variants or planning?"
+cta_text:
+  other: "We help with selecting the right paneling or preparing a visualization."
+cta_shop_label:
+  other: "View prices & variants in the shop"
+cta_consult_label:
+  other: "Request consulting / visualization"

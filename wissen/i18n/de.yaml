@@ -8,3 +8,29 @@ menu_lookbook:
   other: "Lookbook"
 varianten_preise:
   other: "Varianten & Preise"
+breadcrumbs_label:
+  other: "Brotkrumen"
+breadcrumbs_home:
+  other: "Start"
+product_sku:
+  other: "Artikelnummer"
+product_base_price:
+  other: "Basispreis"
+product_status:
+  other: "Status"
+product_available:
+  other: "Verfügbar"
+product_unavailable:
+  other: "Nicht verfügbar"
+product_specs:
+  other: "Technische Daten"
+cta_section_label:
+  other: "Produkt-CTA"
+cta_title:
+  other: "Fragen zu Varianten oder Planung?"
+cta_text:
+  other: "Wir helfen gerne beim Auswählen der passenden Vertäfelung oder bei der Visualisierung."
+cta_shop_label:
+  other: "Preise & Varianten im Shop ansehen"
+cta_consult_label:
+  other: "Beratung / Visualisierung anfragen"

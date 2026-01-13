@@ -9,11 +9,6 @@
 <article>
   <header>
     <h1>{{ .Title }}</h1>
-
-    {{/* Produktbilder: nur wenn es ein SSOT-Produkt ist */}}
-    {{ with .Params.produkt }}
-      {{ partial "product/gallery.html" $ }}
-    {{ end }}
   </header>
 
   {{ .Content }}
