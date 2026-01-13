@@ -1,60 +1,44 @@
-{{/* 
+{{/*
 File: wissen/layouts/partials/product/gallery.html
-Version: 2025-12-28 18:00 CET
+Version: 2026-01-10 10:20 CET
 
 Wichtig:
+- Wir nutzen ausschließlich Page Resources (Leaf Bundle).
 - Wir nutzen Permalinks für Bilder, um mit canonifyURLs und baseURL-Pfaden keine doppelten Präfixe wie /wissen/wissen/ zu erzeugen.
-- Priorität: SSOT (.Params.produkt.bilder) -> Fallback: Page Resources (Leaf Bundle)
 */}}
 
-{{- $items := slice -}}
-
-{{- /* 1) SSOT: .Params.produkt.bilder */ -}}
+{{- $altScratch := newScratch -}}
 {{- with .Params.produkt.bilder -}}
   {{- range . -}}
     {{- $fn := .datei | default "" -}}
     {{- if $fn -}}
-
-      {{- $res := $.Resources.GetMatch $fn -}}
-      {{- $src := "" -}}
-
-      {{- if $res -}}
-        {{- /* Permalink bewahrt das korrekte /wissen/-Präfix ohne Verdopplung. */ -}}
-        {{- $src = $res.Permalink -}}
-      {{- else -}}
-        {{- /* Fallback: Datei relativ zum Seitenordner */ -}}
-        {{- $pageBase := strings.TrimSuffix $.Permalink "/" -}}
-        {{- $src = printf "%s/%s" $pageBase $fn -}}
-      {{- end -}}
-
       {{- $alt := "" -}}
       {{- if eq $.Lang "de" -}}
-        {{- $alt = (or .alt_de .alt_en $.Title) -}}
+        {{- $alt = (or .alt_de .alt_en "") -}}
       {{- else -}}
-        {{- $alt = (or .alt_en .alt_de $.Title) -}}
+        {{- $alt = (or .alt_en .alt_de "") -}}
       {{- end -}}
-
-      {{- $items = $items | append (dict "src" $src "alt" $alt) -}}
+      {{- $altScratch.Set $fn $alt -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
 
-{{- /* 2) Fallback: alle Page Resources images */ -}}
-{{- if not $items -}}
-  {{- with .Resources.Match "*.{png,jpg,jpeg,webp}" -}}
-    {{- range . -}}
-      {{- $items = $items | append (dict "src" .Permalink "alt" $.Title) -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
+{{- $images := .Resources.Match "*.{png,jpg,jpeg,webp}" -}}
+{{- $images = sort $images "Name" -}}
 
-{{- if $items -}}
+{{- if gt (len $images) 0 -}}
 <div class="product-gallery">
-  {{- range $items -}}
+  {{- range $images -}}
+    {{- $filename := path.Base .Name -}}
+    {{- $alt := $altScratch.Get $filename -}}
+    {{- if not $alt -}}
+      {{- $stem := strings.TrimSuffix $filename (path.Ext $filename) -}}
+      {{- $alt = replace (replace $stem "-" " ") "_" " " -}}
+    {{- end -}}
     <figure class="product-gallery__item">
       <img
-        src="{{ .src | safeURL }}"
-        alt="{{ .alt | plainify | safeHTMLAttr }}"
+        src="{{ .Permalink | safeURL }}"
+        alt="{{ $alt | plainify | safeHTMLAttr }}"
         loading="lazy"
         decoding="async"
       />
