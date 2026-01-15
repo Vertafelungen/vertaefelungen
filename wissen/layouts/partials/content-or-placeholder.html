@@ -1,0 +1,33 @@
+{{- $page := .page -}}
+{{- $class := .class | default "prose" -}}
+{{- $raw := strings.TrimSpace $page.RawContent -}}
+{{- $raw = $raw | replaceRE "(?s)<!--\\s*placeholder\\s*-->" "" | replaceRE "(?s)\{\{<\\s*placeholder\\s*>\}\}" "" | strings.TrimSpace -}}
+{{- $content := strings.TrimSpace $page.Content -}}
+
+{{- if or (eq $content "") (eq $raw "") -}}
+  {{- $consultingPath := cond (eq $page.Language.Lang "de") "/de/faq/beratung/" "/en/faq/consulting/" -}}
+  {{- $consultingLink := $consultingPath -}}
+  {{- with site.GetPage (printf "/%s/faq/%s" $page.Language.Lang (cond (eq $page.Language.Lang "de") "beratung" "consulting")) -}}
+    {{- $consultingLink = .RelPermalink -}}
+  {{- end -}}
+  {{- $contactPath := cond (eq $page.Language.Lang "de") "/de/kontakt/" "/en/contact/" -}}
+  {{- $contactLink := $contactPath -}}
+  {{- with site.GetPage (printf "/%s/%s" $page.Language.Lang (cond (eq $page.Language.Lang "de") "kontakt" "contact")) -}}
+    {{- $contactLink = .RelPermalink -}}
+  {{- end -}}
+  {{- $shopUrl := cond (eq $page.Language.Lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
+
+  <div class="placeholder">
+    <p class="placeholder__title">{{ i18n "placeholder_title" }}</p>
+    <p class="placeholder__text">{{ i18n "placeholder_text" }}</p>
+    <div class="placeholder__actions">
+      <a class="button button--primary" href="{{ $consultingLink }}">{{ i18n "placeholder_cta_consulting" }}</a>
+      <a class="button button--ghost" href="{{ $contactLink }}">{{ i18n "placeholder_cta_contact" }}</a>
+      <a class="button" href="{{ $shopUrl }}">{{ i18n "placeholder_cta_shop" }}</a>
+    </div>
+  </div>
+{{- else -}}
+  <div class="{{ $class }}">
+    {{ $page.Content }}
+  </div>
+{{- end -}}

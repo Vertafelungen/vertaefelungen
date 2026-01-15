@@ -6,19 +6,15 @@
 {{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-<article>
-  <h1>{{ .Title }}</h1>
+<article class="page">
+  <header class="page-hero">
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}
+      <p class="page-hero__lead">{{ . }}</p>
+    {{ end }}
+  </header>
 
-  {{ with .Description }}
-    <p style="max-width: 70ch; color:#444;">{{ . }}</p>
-  {{ end }}
-
-  {{ if .Content }}
-    <div style="max-width: 80ch;">
-      {{ .Content }}
-    </div>
-    <hr/>
-  {{ end }}
+  {{ partial "content-or-placeholder.html" (dict "page" . "class" "prose") }}
 
   {{- $lblPages := "Einträge" -}}
   {{- if eq .Lang "en" -}}
@@ -35,12 +31,22 @@
   {{- end -}}
 
   {{ if gt (len $pages) 0 }}
-    <h2>{{ $lblPages }}</h2>
-    <ul>
+    <h2 class="section-title">{{ $lblPages }}</h2>
+    <div class="card-grid">
       {{ range $pages.ByTitle }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        <article class="card">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          {{ with .Description }}
+            <p>{{ . }}</p>
+          {{ else }}
+            {{ with .Summary }}
+              <p>{{ . | plainify }}</p>
+            {{ end }}
+          {{ end }}
+          <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "read_more_label" }}</a>
+        </article>
       {{ end }}
-    </ul>
+    </div>
   {{ end }}
 </article>
 {{ end }}

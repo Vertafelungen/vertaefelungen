@@ -1,50 +1,53 @@
-{{ define "title" }}Start – {{ .Site.Title }}{{ end }}
+{{ define "title" }}{{ i18n "home_title" }} – {{ .Site.Title }}{{ end }}
 {{ define "main" }}
-<h1>{{ .Site.Title }}</h1>
-<p class="lead">Alles Wissenswerte rund um historische Holzvertäfelungen, Lambris, Paneele und die passenden Oberflächen. Steige über Produkte oder die FAQ ein.</p>
+{{- $lang := .Site.Language.Lang -}}
+{{- $faqPage := site.GetPage (printf "/%s/faq" $lang) -}}
+{{- $productsPage := site.GetPage (printf "/%s/%s" $lang (cond (eq $lang "de") "produkte" "products")) -}}
+{{- $lookbookPage := site.GetPage (printf "/%s/lookbook" $lang) -}}
+{{- $aboutPage := site.GetPage (printf "/%s/faq/%s" $lang (cond (eq $lang "de") "ueber-uns" "about-us")) -}}
+{{- $shopUrl := cond (eq $lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
 
-<div class="card-grid" style="margin: 1.5rem 0;">
-  {{ $productSection := cond (eq .Site.Language.Lang "de") "produkte" "products" }}
-  {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
-  {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
-    {{ $productLink = .RelPermalink }}
-  {{ end }}
-  {{ $faqLink := printf "/%s/faq/" .Site.Language.Lang | relURL }}
-  {{ with site.GetPage (printf "/%s/faq" .Site.Language.Lang) }}
-    {{ $faqLink = .RelPermalink }}
-  {{ end }}
-  <div class="card">
-    <h3>Produkte</h3>
-    <p>Bundles, Varianten und technische Details aus dem Produktkatalog.</p>
-    <a class="button button--filled" href="{{ $productLink }}">Zum Katalog</a>
-  </div>
-  <div class="card">
-    <h3>FAQ</h3>
-    <p>Grundlagen, Verarbeitung, Restaurierung und Richtlinien im Überblick.</p>
-    <a class="button" href="{{ $faqLink }}">FAQ öffnen</a>
-  </div>
-  <div class="card">
-    <h3>Sprache wählen</h3>
-    <p>Schalte zwischen Deutsch und Englisch um, um passende Inhalte zu sehen.</p>
-    <div class="lang-switch">
-      {{ range .Sites }}
-        <a class="{{ if eq .Language.Lang $.Site.Language.Lang }}is-active{{ end }}" href="{{ .Home.RelPermalink }}">{{ upper .Language.Lang }}</a>
+<section class="page-hero">
+  <h1 class="page-hero__title">{{ i18n "home_title" }}</h1>
+  <p class="page-hero__lead">{{ i18n "home_lead" }}</p>
+</section>
+
+<section>
+  <h2 class="section-title">{{ i18n "home_section_title" }}</h2>
+  <div class="card-grid">
+    <article class="card">
+      <h3>{{ i18n "home_tile_shop_title" }}</h3>
+      <p>{{ i18n "home_tile_shop_text" }}</p>
+      <a class="button button--primary" href="{{ $shopUrl }}">{{ i18n "home_tile_shop_cta" }}</a>
+    </article>
+    <article class="card">
+      <h3>{{ i18n "home_tile_faq_title" }}</h3>
+      <p>{{ i18n "home_tile_faq_text" }}</p>
+      {{ with $faqPage }}
+        <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "home_tile_faq_cta" }}</a>
       {{ end }}
-    </div>
+    </article>
+    <article class="card">
+      <h3>{{ i18n "home_tile_products_title" }}</h3>
+      <p>{{ i18n "home_tile_products_text" }}</p>
+      {{ with $productsPage }}
+        <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "home_tile_products_cta" }}</a>
+      {{ end }}
+    </article>
+    <article class="card">
+      <h3>{{ i18n "home_tile_lookbook_title" }}</h3>
+      <p>{{ i18n "home_tile_lookbook_text" }}</p>
+      {{ with $lookbookPage }}
+        <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "home_tile_lookbook_cta" }}</a>
+      {{ end }}
+    </article>
+    <article class="card">
+      <h3>{{ i18n "home_tile_about_title" }}</h3>
+      <p>{{ i18n "home_tile_about_text" }}</p>
+      {{ with $aboutPage }}
+        <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "home_tile_about_cta" }}</a>
+      {{ end }}
+    </article>
   </div>
-</div>
-
-<h2>Sektionen ({{ .Site.Language.Lang }})</h2>
-<div class="card-grid">
-  {{ range .Site.Sections }}
-    <div class="card">
-      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-      <p>{{ len .Pages }} Seiten</p>
-    </div>
-  {{ else }}
-    <div class="card">
-      <p>Keine Sektionen gefunden.</p>
-    </div>
-  {{ end }}
-</div>
+</section>
 {{ end }}

@@ -1,40 +1,39 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="{{ .Site.Home.RelPermalink }}">
-      <span class="brand__mark">VL</span>
+      <span class="brand__logo" aria-hidden="true">V</span>
       <span class="brand__text">
         <span class="brand__title">Vertäfelungen.de</span>
-        <span class="brand__subtitle">Massgeschneiderte Lambris &amp; Paneele</span>
+        <span class="brand__subtitle">
+          {{ if eq .Site.Language.Lang "de" }}Wissen &amp; Inspiration{{ else }}Knowledge &amp; inspiration{{ end }}
+        </span>
       </span>
     </a>
 
-    <div class="nav-wrap" role="navigation" aria-label="Hauptmenü">
-      <nav class="main-nav">
-        {{ $current := .RelPermalink }}
-        {{ range .Site.Menus.main }}
-          <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
-        {{ end }}
-      </nav>
+    <div class="site-header__nav" role="navigation" aria-label="{{ i18n "header_nav_label" }}">
+      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="{{ i18n "header_toggle_label" }}" aria-controls="main-nav">
+      <label class="nav-toggle__button" for="nav-toggle" aria-label="{{ i18n "header_toggle_label" }}">
+        <span class="nav-toggle__icon"></span>
+      </label>
 
-      <div class="header-actions">
-        <div class="lang-switch" aria-label="Sprachumschaltung">
-          {{ range $index, $site := .Sites }}
-            {{ $isActive := eq $site.Language.Lang $.Site.Language.Lang }}
-            <a class="{{ if $isActive }}is-active{{ end }}" href="{{ $site.Home.RelPermalink }}">{{ upper $site.Language.Lang }}</a>{{ if lt (add $index 1) (len $.Sites) }}<span aria-hidden="true">·</span>{{ end }}
+      <div class="nav-panel" id="main-nav">
+        <nav class="main-nav">
+          {{ $current := .RelPermalink }}
+          {{ range .Site.Menus.main }}
+            <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
           {{ end }}
+        </nav>
+
+        <div class="header-actions">
+          <div class="lang-switch" aria-label="{{ i18n "language_switch_label" }}">
+            {{ range $index, $site := .Sites }}
+              {{ $isActive := eq $site.Language.Lang $.Site.Language.Lang }}
+              <a class="{{ if $isActive }}is-active{{ end }}" href="{{ $site.Home.RelPermalink }}">{{ upper $site.Language.Lang }}</a>{{ if lt (add $index 1) (len $.Sites) }}<span aria-hidden="true">·</span>{{ end }}
+            {{ end }}
+          </div>
+          {{ $shopUrl := cond (eq .Site.Language.Lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" }}
+          <a class="button button--primary" href="{{ $shopUrl }}">{{ i18n "header_shop_label" }}</a>
         </div>
-        {{ $productSection := cond (eq .Site.Language.Lang "de") "produkte" "products" }}
-        {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
-        {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
-          {{ $productLink = .RelPermalink }}
-        {{ end }}
-        {{ $faqLink := printf "/%s/faq/" .Site.Language.Lang | relURL }}
-        {{ with site.GetPage (printf "/%s/faq" .Site.Language.Lang) }}
-          {{ $faqLink = .RelPermalink }}
-        {{ end }}
-        {{ $productLabel := cond (eq .Site.Language.Lang "de") "Produkte" "Products" }}
-        <a class="button button--filled" href="{{ $productLink }}">{{ $productLabel }}</a>
-        <a class="button" href="{{ $faqLink }}">FAQ</a>
       </div>
     </div>
   </div>
