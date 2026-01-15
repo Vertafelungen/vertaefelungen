@@ -1,5 +1,6 @@
 <footer class="site-footer">
   <div class="container site-footer__inner">
+
     <div>
       <p class="footer-title">Vertäfelungen.de</p>
       <p class="footer-text">{{ i18n "footer_tagline" }}</p>
@@ -12,31 +13,73 @@
     <div>
       <p class="footer-title">{{ i18n "footer_legal_title" }}</p>
       <ul class="footer-nav">
-        {{- $legalLinks := slice -}}
+
         {{- if eq .Site.Language.Lang "de" -}}
-          {{- $legalLinks = slice
-            (dict "key" "legal_imprint" "path" "impressum" "fallback" "/de/impressum/")
-            (dict "key" "legal_privacy" "path" "datenschutz" "fallback" "/de/datenschutz/")
-            (dict "key" "legal_terms" "path" "agb" "fallback" "/de/agb/")
-            (dict "key" "legal_withdrawal" "path" "widerruf" "fallback" "/de/widerruf/")
-            (dict "key" "legal_contact" "path" "kontakt" "fallback" "/de/kontakt/")
-          -}}
+
+          {{- with site.GetPage "/de/impressum" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_imprint" }}</a></li>
+          {{- else -}}
+            <li><a href="/de/impressum/">{{ i18n "legal_imprint" }}</a></li>
+          {{- end -}}
+
+          {{- with site.GetPage "/de/datenschutz" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_privacy" }}</a></li>
+          {{- else -}}
+            <li><a href="/de/datenschutz/">{{ i18n "legal_privacy" }}</a></li>
+          {{- end -}}
+
+          {{- with site.GetPage "/de/agb" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_terms" }}</a></li>
+          {{- else -}}
+            <li><a href="/de/agb/">{{ i18n "legal_terms" }}</a></li>
+          {{- end -}}
+
+          {{- with site.GetPage "/de/widerruf" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_withdrawal" }}</a></li>
+          {{- else -}}
+            <li><a href="/de/widerruf/">{{ i18n "legal_withdrawal" }}</a></li>
+          {{- end -}}
+
+          {{- with site.GetPage "/de/kontakt" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_contact" }}</a></li>
+          {{- else -}}
+            <li><a href="/de/kontakt/">{{ i18n "legal_contact" }}</a></li>
+          {{- end -}}
+
         {{- else -}}
-          {{- $legalLinks = slice
-            (dict "key" "legal_imprint" "path" "imprint" "fallback" "/en/imprint/")
-            (dict "key" "legal_privacy" "path" "privacy" "fallback" "/en/privacy/")
-            (dict "key" "legal_terms" "path" "terms" "fallback" "/en/terms/")
-            (dict "key" "legal_withdrawal" "path" "withdrawal" "fallback" "/en/withdrawal/")
-            (dict "key" "legal_contact" "path" "contact" "fallback" "/en/contact/")
-          -}}
+
+          {{- with site.GetPage "/en/imprint" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_imprint" }}</a></li>
+          {{- else -}}
+            <li><a href="/en/imprint/">{{ i18n "legal_imprint" }}</a></li>
+          {{- end -}}
+
+          {{- with site.GetPage "/en/privacy" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_privacy" }}</a></li>
+          {{- else -}}
+            <li><a href="/en/privacy/">{{ i18n "legal_privacy" }}</a></li>
+          {{- end -}}
+
+          {{- with site.GetPage "/en/terms" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_terms" }}</a></li>
+          {{- else -}}
+            <li><a href="/en/terms/">{{ i18n "legal_terms" }}</a></li>
+          {{- end -}}
+
+          {{- with site.GetPage "/en/withdrawal" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_withdrawal" }}</a></li>
+          {{- else -}}
+            <li><a href="/en/withdrawal/">{{ i18n "legal_withdrawal" }}</a></li>
+          {{- end -}}
+
+          {{- with site.GetPage "/en/contact" -}}
+            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_contact" }}</a></li>
+          {{- else -}}
+            <li><a href="/en/contact/">{{ i18n "legal_contact" }}</a></li>
+          {{- end -}}
+
         {{- end -}}
 
-        {{- range $legalLinks -}}
-          {{- $p := site.GetPage (printf "/%s/%s" $.Site.Language.Lang .path) -}}
-          {{- $hasPage := and $p (ne $p.RelPermalink "") -}}
-          {{- $url := cond $hasPage $p.RelPermalink .fallback -}}
-          <li><a href="{{ $url }}">{{ i18n .key }}</a></li>
-        {{- end -}}
       </ul>
     </div>
 
@@ -49,5 +92,6 @@
       </ul>
       <p class="footer-text">{{ i18n "footer_help_text" }}</p>
     </div>
+
   </div>
 </footer>
