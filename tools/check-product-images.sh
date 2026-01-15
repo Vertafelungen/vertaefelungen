@@ -35,10 +35,9 @@ for page in "${pages[@]}"; do
 
   while IFS= read -r src; do
     src_path=$(echo "$src" | sed -E 's#^https?://[^/]+##')
-    if [[ "$public_root" == */wissen ]]; then
-      src_path="${src_path#/wissen}"
-    fi
+    src_path="${src_path#/wissen}"
     src_path="${src_path#/}"
+
     file_path="$public_root/$src_path"
     if [[ ! -f "$file_path" ]]; then
       echo "Missing referenced image: $file_path (from $page_path)" >&2
