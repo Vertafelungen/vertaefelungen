@@ -1,42 +1,53 @@
 {{- $page := .page -}}
 {{- $class := .class | default "prose" -}}
 
-{{- $raw := strings.TrimSpace $page.RawContent -}}
-{{- /* Remove HTML placeholder comment and shortcode placeholder markers */ -}}
-{{- $raw = $raw
-  | replaceRE `(?s)<!--\s*placeholder\s*-->` ``
-  | replaceRE `(?s)\{\{<\s*placeholder\s*>\}\}` ``
-  | strings.TrimSpace
--}}
+{{- /* Raw content without placeholder markers */ -}}
+{{- $raw := $page.RawContent | default "" -}}
+{{- $raw = replaceRE `(?s)<!--\s*placeholder\s*-->` `` $raw -}}
+{{- $raw = replaceRE `(?s)\{\{<\s*placeholder\s*>\}\}` `` $raw -}}
+{{- $raw = trim $raw -}}
 
-{{- $content := strings.TrimSpace $page.Content -}}
+{{- /* Rendered HTML content */ -}}
+{{- $content := trim ($page.Content | default "") -}}
 
 {{- if or (eq $content "") (eq $raw "") -}}
-  {{- $consultingPath := cond (eq $page.Language.Lang "de") "/de/faq/beratung/" "/en/faq/consulting/" -}}
-  {{- $consultingLink := $consultingPath -}}
-  {{- with site.GetPage (printf "/%s/faq/%s" $page.Language.Lang (cond (eq $page.Language.Lang "de") "beratung" "consulting")) -}}
+
+  {{- /* Language-aware links */ -}}
+  {{- $lang := $page.Language.Lang -}}
+
+  {{- $consultingLink := cond (eq $lang "de") "/de/faq/beratung/" "/en/faq/consulting/" -}}
+  {{- with site.GetPage (printf "/%s/faq/%s" $lang (cond (eq $lang "de") "beratung" "consulting")) -}}
     {{- $consultingLink = .RelPermalink -}}
   {{- end -}}
 
-  {{- $contactPath := cond (eq $page.Language.Lang "de") "/de/kontakt/" "/en/contact/" -}}
-  {{- $contactLink := $contactPath -}}
-  {{- with site.GetPage (printf "/%s/%s" $page.Language.Lang (cond (eq $page.Language.Lang "de") "kontakt" "contact")) -}}
+  {{- $contactLink := cond (eq $lang "de") "/de/kontakt/" "/en/contact/" -}}
+  {{- with site.GetPage (printf "/%s/%s" $lang (cond (eq $lang "de") "kontakt" "contact")) -}}
     {{- $contactLink = .RelPermalink -}}
   {{- end -}}
 
-  {{- $shopUrl := cond (eq $page.Language.Lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
+  {{- $shopUrl := cond (eq $lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
 
   <div class="placeholder">
     <p class="placeholder__title">{{ i18n "placeholder_title" }}</p>
     <p class="placeholder__text">{{ i18n "placeholder_text" }}</p>
+
     <div class="placeholder__actions">
-      <a class="button button--primary" href="{{ $consultingLink }}">{{ i18n "placeholder_cta_consulting" }}</a>
-      <a class="button button--ghost" href="{{ $contactLink }}">{{ i18n "placeholder_cta_contact" }}</a>
-      <a class="button" href="{{ $shopUrl }}">{{ i18n "placeholder_cta_shop" }}</a>
+      <a class="button button--primary" href="{{ $consultingLink }}">
+        {{ i18n "placeholder_cta_consulting" }}
+      </a>
+      <a class="button button--ghost" href="{{ $contactLink }}">
+        {{ i18n "placeholder_cta_contact" }}
+      </a>
+      <a class="button" href="{{ $shopUrl }}">
+        {{ i18n "placeholder_cta_shop" }}
+      </a>
     </div>
   </div>
+
 {{- else -}}
+
   <div class="{{ $class }}">
     {{- $page.Content | safeHTML -}}
   </div>
+
 {{- end -}}
