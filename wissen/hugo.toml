@@ -39,6 +39,10 @@ home = ["HTML"]
         name = "Lookbook"
         url = "/wissen/de/lookbook/"
         weight = 40
+      [[languages.de.menu.main]]
+        name = "Über uns"
+        url = "/wissen/de/ueber-uns/"
+        weight = 50
 
   [languages.en]
     languageName = "English"
@@ -63,6 +67,10 @@ home = ["HTML"]
         name = "Lookbook"
         url = "/wissen/en/lookbook/"
         weight = 40
+      [[languages.en.menu.main]]
+        name = "About us"
+        url = "/wissen/en/about-us/"
+        weight = 50
 
 [languages.de.permalinks]
   produkte = "/de/produkte/:sections/:slug/"

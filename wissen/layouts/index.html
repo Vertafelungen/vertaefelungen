@@ -1,10 +1,16 @@
-{{ define "title" }}Start – {{ .Site.Title }}{{ end }}
+{{ define "title" }}{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}{{ end }}
 {{ define "main" }}
-<h1>{{ .Site.Title }}</h1>
-<p class="lead">Alles Wissenswerte rund um historische Holzvertäfelungen, Lambris, Paneele und die passenden Oberflächen. Steige über Produkte oder die FAQ ein.</p>
+{{ $isDE := eq .Site.Language.Lang "de" }}
+<section class="home-hero">
+  <h1>{{ .Title | default .Site.Title }}</h1>
+  {{ with .Params.lead }}
+    <p class="lead">{{ . }}</p>
+  {{ end }}
+  {{ .Content }}
+</section>
 
 <div class="card-grid" style="margin: 1.5rem 0;">
-  {{ $productSection := cond (eq .Site.Language.Lang "de") "produkte" "products" }}
+  {{ $productSection := cond $isDE "produkte" "products" }}
   {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
   {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
     {{ $productLink = .RelPermalink }}
@@ -13,38 +19,28 @@
   {{ with site.GetPage (printf "/%s/faq" .Site.Language.Lang) }}
     {{ $faqLink = .RelPermalink }}
   {{ end }}
+  {{ $shopLabel := cond $isDE "Shop" "Shop" }}
+  {{ $shopDescription := cond $isDE "Direkt zum Shop und zu den Produktkategorien." "Head to the shop and browse product categories." }}
+  {{ $productsLabel := cond $isDE "Produkte" "Products" }}
+  {{ $productsDescription := cond $isDE "Bundles, Varianten und technische Details aus dem Produktkatalog." "Bundles, variants, and technical details from the product catalogue." }}
+  {{ $productsCta := cond $isDE "Zum Katalog" "Browse products" }}
+  {{ $faqDescription := cond $isDE "Grundlagen, Verarbeitung, Restaurierung und Richtlinien im Überblick." "Basics, craftsmanship, restoration, and guidance at a glance." }}
+  {{ $faqCta := cond $isDE "FAQ öffnen" "Open FAQ" }}
+
   <div class="card">
-    <h3>Produkte</h3>
-    <p>Bundles, Varianten und technische Details aus dem Produktkatalog.</p>
-    <a class="button button--filled" href="{{ $productLink }}">Zum Katalog</a>
+    <h3>{{ $shopLabel }}</h3>
+    <p>{{ $shopDescription }}</p>
+    <a class="button button--filled" href="{{ printf "https://www.vertaefelungen.de/?utm_source=wissen&utm_medium=home&utm_campaign=shop" }}">{{ if $isDE }}Zum Shop{{ else }}Go to shop{{ end }}</a>
+  </div>
+  <div class="card">
+    <h3>{{ $productsLabel }}</h3>
+    <p>{{ $productsDescription }}</p>
+    <a class="button button--filled" href="{{ $productLink }}">{{ $productsCta }}</a>
   </div>
   <div class="card">
     <h3>FAQ</h3>
-    <p>Grundlagen, Verarbeitung, Restaurierung und Richtlinien im Überblick.</p>
-    <a class="button" href="{{ $faqLink }}">FAQ öffnen</a>
+    <p>{{ $faqDescription }}</p>
+    <a class="button" href="{{ $faqLink }}">{{ $faqCta }}</a>
   </div>
-  <div class="card">
-    <h3>Sprache wählen</h3>
-    <p>Schalte zwischen Deutsch und Englisch um, um passende Inhalte zu sehen.</p>
-    <div class="lang-switch">
-      {{ range .Sites }}
-        <a class="{{ if eq .Language.Lang $.Site.Language.Lang }}is-active{{ end }}" href="{{ .Home.RelPermalink }}">{{ upper .Language.Lang }}</a>
-      {{ end }}
-    </div>
-  </div>
-</div>
-
-<h2>Sektionen ({{ .Site.Language.Lang }})</h2>
-<div class="card-grid">
-  {{ range .Site.Sections }}
-    <div class="card">
-      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-      <p>{{ len .Pages }} Seiten</p>
-    </div>
-  {{ else }}
-    <div class="card">
-      <p>Keine Sektionen gefunden.</p>
-    </div>
-  {{ end }}
 </div>
 {{ end }}

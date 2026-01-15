@@ -6,6 +6,9 @@ lang: de
 translationKey: products-root
 title: Produkte
 description: 'Produktübersicht: Vertäfelungen, Leisten, Öle & Farben sowie Lüftungsrosetten.'
+aliases:
+  - /wissen/de/produkte/produkte/
+  - /wissen/de/oeffentlich/produkte/
 weight: 10
 type: products
 seo:

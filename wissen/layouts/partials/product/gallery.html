@@ -8,6 +8,7 @@ Wichtig:
 */}}
 
 {{- $altScratch := newScratch -}}
+{{- $orderedFiles := slice -}}
 {{- with .Params.produkt.bilder -}}
   {{- range . -}}
     {{- $fn := .datei | default "" -}}
@@ -19,29 +20,52 @@ Wichtig:
         {{- $alt = (or .alt_en .alt_de "") -}}
       {{- end -}}
       {{- $altScratch.Set $fn $alt -}}
+      {{- $orderedFiles = $orderedFiles | append $fn -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
 
-{{- $images := .Resources.Match "*.{png,jpg,jpeg,webp}" -}}
-{{- $images = sort $images "Name" -}}
+{{- $galleryItems := slice -}}
+{{- if gt (len $orderedFiles) 0 -}}
+  {{- range $orderedFiles -}}
+    {{- $resource := $.Resources.GetMatch . -}}
+    {{- if $resource -}}
+      {{- $galleryItems = $galleryItems | append (dict "resource" $resource "filename" .) -}}
+    {{- else -}}
+      {{- warnf "Missing product image resource %q for %s" . $.RelPermalink -}}
+      {{- $galleryItems = $galleryItems | append (dict "resource" nil "filename" .) -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- $fallback := .Resources.Match "*.{png,jpg,jpeg,webp}" -}}
+  {{- range sort $fallback "Name" -}}
+    {{- $galleryItems = $galleryItems | append (dict "resource" . "filename" (path.Base .Name)) -}}
+  {{- end -}}
+{{- end -}}
 
-{{- if gt (len $images) 0 -}}
+{{- if gt (len $galleryItems) 0 -}}
 <div class="product-gallery">
-  {{- range $images -}}
-    {{- $filename := path.Base .Name -}}
+  {{- range $galleryItems -}}
+    {{- $resource := .resource -}}
+    {{- $filename := .filename -}}
     {{- $alt := $altScratch.Get $filename -}}
     {{- if not $alt -}}
       {{- $stem := strings.TrimSuffix $filename (path.Ext $filename) -}}
       {{- $alt = replace (replace $stem "-" " ") "_" " " -}}
     {{- end -}}
-    <figure class="product-gallery__item">
-      <img
-        src="{{ .Permalink | safeURL }}"
-        alt="{{ $alt | plainify | safeHTMLAttr }}"
-        loading="lazy"
-        decoding="async"
-      />
+    <figure class="product-gallery__item{{ if not $resource }} product-gallery__item--missing{{ end }}">
+      {{- if $resource -}}
+        <img
+          src="{{ $resource.Permalink | safeURL }}"
+          alt="{{ $alt | plainify | safeHTMLAttr }}"
+          loading="lazy"
+          decoding="async"
+        />
+      {{- else -}}
+        <div class="product-gallery__placeholder" role="img" aria-label="{{ if eq $.Lang "de" }}Bild fehlt im Bundle{{ else }}Image missing in bundle{{ end }}">
+          <span>{{ if eq $.Lang "de" }}Bild fehlt im Bundle{{ else }}Image missing in bundle{{ end }}</span>
+        </div>
+      {{- end -}}
     </figure>
   {{- end -}}
 </div>
