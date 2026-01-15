@@ -8,3 +8,79 @@ menu_lookbook:
   other: "Lookbook"
 varianten_preise:
   other: "Varianten & Preise"
+header_nav_label:
+  other: "Hauptnavigation"
+header_toggle_label:
+  other: "Menü öffnen"
+language_switch_label:
+  other: "Sprache auswählen"
+header_shop_label:
+  other: "Zum Shop"
+footer_tagline:
+  other: "Wissen, Produkte und FAQs zu historischen Holzvertäfelungen, Lambris und Paneelen."
+footer_meta_knowledge:
+  other: "Wissensbereich"
+footer_legal_title:
+  other: "Rechtliches"
+legal_imprint:
+  other: "Impressum"
+legal_privacy:
+  other: "Datenschutz"
+legal_terms:
+  other: "AGB"
+legal_withdrawal:
+  other: "Widerruf"
+legal_contact:
+  other: "Kontakt"
+footer_explore_title:
+  other: "Mehr entdecken"
+footer_help_text:
+  other: "Fragen? Schau in die FAQ oder sprich mit uns."
+placeholder_title:
+  other: "Diese Seite ist im Aufbau"
+placeholder_text:
+  other: "Wir sammeln gerade Inhalte zu diesem Thema. Bis dahin helfen wir gern persönlich oder im Shop weiter."
+placeholder_cta_consulting:
+  other: "Beratung"
+placeholder_cta_contact:
+  other: "Kontakt"
+placeholder_cta_shop:
+  other: "Zum Shop"
+read_more_label:
+  other: "Mehr erfahren"
+home_title:
+  other: "Wissensseite"
+home_lead:
+  other: "Die Wissensseite bündelt Orientierung, Stilwissen und Produktdetails rund um historische Holzvertäfelungen."
+home_section_title:
+  other: "Direkt einsteigen"
+home_tile_shop_title:
+  other: "Shop"
+home_tile_shop_text:
+  other: "Zum Sortiment, Preisen und aktuellen Angeboten im Hauptshop."
+home_tile_shop_cta:
+  other: "Shop öffnen"
+home_tile_faq_title:
+  other: "FAQ"
+home_tile_faq_text:
+  other: "Antworten zu Planung, Restaurierung und Verarbeitung."
+home_tile_faq_cta:
+  other: "FAQ ansehen"
+home_tile_products_title:
+  other: "Produkte"
+home_tile_products_text:
+  other: "Kategorien, Varianten und technische Details im Überblick."
+home_tile_products_cta:
+  other: "Produktbereiche"
+home_tile_lookbook_title:
+  other: "Lookbook"
+home_tile_lookbook_text:
+  other: "Inspiration aus Referenzen und Projektbeispielen."
+home_tile_lookbook_cta:
+  other: "Lookbook öffnen"
+home_tile_about_title:
+  other: "Über uns"
+home_tile_about_text:
+  other: "Erfahre mehr über Vertäfelung & Lambris und unsere Fertigung."
+home_tile_about_cta:
+  other: "Mehr zu uns"

@@ -6,9 +6,12 @@
 {{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-<article>
-  <header>
-    <h1>{{ .Title }}</h1>
+<article class="page">
+  <header class="page-hero">
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}
+      <p class="page-hero__lead">{{ . }}</p>
+    {{ end }}
 
     {{/* Produktbilder: nur wenn es ein SSOT-Produkt ist */}}
     {{ with .Params.produkt }}
@@ -16,6 +19,6 @@
     {{ end }}
   </header>
 
-  {{ .Content }}
+  {{ partial "content-or-placeholder.html" (dict "page" . "class" "prose") }}
 </article>
 {{ end }}

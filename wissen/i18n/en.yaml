@@ -8,3 +8,79 @@ menu_lookbook:
   other: "Lookbook"
 varianten_preise:
   other: "Variants & prices"
+header_nav_label:
+  other: "Primary navigation"
+header_toggle_label:
+  other: "Open menu"
+language_switch_label:
+  other: "Choose language"
+header_shop_label:
+  other: "Visit shop"
+footer_tagline:
+  other: "Knowledge, products, and FAQs about historic wall panelling, wainscoting, and mouldings."
+footer_meta_knowledge:
+  other: "Knowledge base"
+footer_legal_title:
+  other: "Legal"
+legal_imprint:
+  other: "Imprint"
+legal_privacy:
+  other: "Privacy"
+legal_terms:
+  other: "Terms & conditions"
+legal_withdrawal:
+  other: "Withdrawal"
+legal_contact:
+  other: "Contact"
+footer_explore_title:
+  other: "Explore"
+footer_help_text:
+  other: "Need help? Browse the FAQ or get in touch."
+placeholder_title:
+  other: "This page is in progress"
+placeholder_text:
+  other: "We are preparing content for this topic. Until then, feel free to reach out or visit the shop."
+placeholder_cta_consulting:
+  other: "Consulting"
+placeholder_cta_contact:
+  other: "Contact"
+placeholder_cta_shop:
+  other: "Visit shop"
+read_more_label:
+  other: "Learn more"
+home_title:
+  other: "Knowledge"
+home_lead:
+  other: "Our knowledge hub brings together guidance, style insights, and product details about historic wall panelling."
+home_section_title:
+  other: "Start here"
+home_tile_shop_title:
+  other: "Shop"
+home_tile_shop_text:
+  other: "Browse the range, pricing, and current offers in the main shop."
+home_tile_shop_cta:
+  other: "Open shop"
+home_tile_faq_title:
+  other: "FAQ"
+home_tile_faq_text:
+  other: "Answers on planning, restoration, and installation."
+home_tile_faq_cta:
+  other: "View FAQ"
+home_tile_products_title:
+  other: "Products"
+home_tile_products_text:
+  other: "Categories, variants, and technical details at a glance."
+home_tile_products_cta:
+  other: "Product overview"
+home_tile_lookbook_title:
+  other: "Lookbook"
+home_tile_lookbook_text:
+  other: "Inspiration from references and project examples."
+home_tile_lookbook_cta:
+  other: "Open lookbook"
+home_tile_about_title:
+  other: "About us"
+home_tile_about_text:
+  other: "Learn more about Vertäfelung & Lambris and our craft."
+home_tile_about_cta:
+  other: "About the team"

@@ -2,40 +2,50 @@
   <div class="container site-footer__inner">
     <div>
       <p class="footer-title">Vertäfelungen.de</p>
-      <p class="footer-text">Wissen, Produkte und FAQs zu historischen Holzvertäfelungen, Lambris und Paneelen.</p>
+      <p class="footer-text">{{ i18n "footer_tagline" }}</p>
       <div class="footer-meta">
         <span>&copy; {{ now.Year }} Vertäfelung &amp; Lambris</span>
-        <span>Wissensbereich</span>
+        <span>{{ i18n "footer_meta_knowledge" }}</span>
       </div>
     </div>
 
     <div>
-      <p class="footer-title">Navigation</p>
+      <p class="footer-title">{{ i18n "footer_legal_title" }}</p>
       <ul class="footer-nav">
-        {{ range .Site.Menus.main }}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- $legalLinks := slice -}}
+        {{- if eq .Site.Language.Lang "de" -}}
+          {{- $legalLinks = slice
+            (dict "key" "legal_imprint" "path" "impressum" "fallback" "/de/impressum/")
+            (dict "key" "legal_privacy" "path" "datenschutz" "fallback" "/de/datenschutz/")
+            (dict "key" "legal_terms" "path" "agb" "fallback" "/de/agb/")
+            (dict "key" "legal_withdrawal" "path" "widerruf" "fallback" "/de/widerruf/")
+            (dict "key" "legal_contact" "path" "kontakt" "fallback" "/de/kontakt/")
+          -}}
+        {{- else -}}
+          {{- $legalLinks = slice
+            (dict "key" "legal_imprint" "path" "imprint" "fallback" "/en/imprint/")
+            (dict "key" "legal_privacy" "path" "privacy" "fallback" "/en/privacy/")
+            (dict "key" "legal_terms" "path" "terms" "fallback" "/en/terms/")
+            (dict "key" "legal_withdrawal" "path" "withdrawal" "fallback" "/en/withdrawal/")
+            (dict "key" "legal_contact" "path" "contact" "fallback" "/en/contact/")
+          -}}
+        {{- end -}}
+        {{ range $legalLinks }}
+          {{- $page := site.GetPage (printf "/%s/%s" $.Site.Language.Lang .path) -}}
+          {{- $url := cond $page $page.RelPermalink .fallback -}}
+          <li><a href="{{ $url }}">{{ i18n .key }}</a></li>
         {{ end }}
       </ul>
     </div>
 
     <div>
-      <p class="footer-title">Sprachen</p>
-      <p class="footer-text">
-        {{ range $index, $site := .Sites }}
-          <a href="{{ $site.Home.RelPermalink }}">{{ $site.Language.LanguageName }}</a>{{ if lt (add $index 1) (len $.Sites) }} · {{ end }}
+      <p class="footer-title">{{ i18n "footer_explore_title" }}</p>
+      <ul class="footer-nav">
+        {{ range .Site.Menus.main }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
         {{ end }}
-      </p>
-      {{ $productSection := cond (eq .Site.Language.Lang "de") "produkte" "products" }}
-      {{ $productLink := printf "/%s/%s/" .Site.Language.Lang $productSection | relURL }}
-      {{ with site.GetPage (printf "/%s/%s" .Site.Language.Lang $productSection) }}
-        {{ $productLink = .RelPermalink }}
-      {{ end }}
-      {{ $faqLink := printf "/%s/faq/" .Site.Language.Lang | relURL }}
-      {{ with site.GetPage (printf "/%s/faq" .Site.Language.Lang) }}
-        {{ $faqLink = .RelPermalink }}
-      {{ end }}
-      {{ $productsLabel := cond (eq .Site.Language.Lang "de") "Produktkatalog" "Product catalogue" }}
-      <p class="footer-text">Fragen? Schau in die <a href="{{ $faqLink }}">FAQ</a> oder den <a href="{{ $productLink }}">{{ $productsLabel }}</a>.</p>
+      </ul>
+      <p class="footer-text">{{ i18n "footer_help_text" }}</p>
     </div>
   </div>
 </footer>
