@@ -30,20 +30,22 @@
             (dict "key" "legal_contact" "path" "contact" "fallback" "/en/contact/")
           -}}
         {{- end -}}
-        {{ range $legalLinks }}
-          {{- $page := site.GetPage (printf "/%s/%s" $.Site.Language.Lang .path) -}}
-          {{- $url := cond $page $page.RelPermalink .fallback -}}
+
+        {{- range $legalLinks -}}
+          {{- $p := site.GetPage (printf "/%s/%s" $.Site.Language.Lang .path) -}}
+          {{- $hasPage := and $p (ne $p.RelPermalink "") -}}
+          {{- $url := cond $hasPage $p.RelPermalink .fallback -}}
           <li><a href="{{ $url }}">{{ i18n .key }}</a></li>
-        {{ end }}
+        {{- end -}}
       </ul>
     </div>
 
     <div>
       <p class="footer-title">{{ i18n "footer_explore_title" }}</p>
       <ul class="footer-nav">
-        {{ range .Site.Menus.main }}
+        {{- range .Site.Menus.main -}}
           <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-        {{ end }}
+        {{- end -}}
       </ul>
       <p class="footer-text">{{ i18n "footer_help_text" }}</p>
     </div>
