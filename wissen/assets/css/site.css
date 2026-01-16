@@ -745,3 +745,8 @@ td {
 .border-amber-200 {
   border-color: #fde68a;
 }
+
+.entry-cards { display: grid; gap: 1rem; }
+.entry-card { display: block; text-decoration: none; }
+.entry-card:focus { outline: 2px solid currentColor; outline-offset: 3px; }
+.entry-card__inner { height: 100%; }
