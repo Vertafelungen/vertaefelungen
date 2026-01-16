@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header" style="position: relative; z-index: 10; pointer-events: auto;">
   <div class="container site-header__inner">
     <a class="brand" href="{{ .Site.Home.RelPermalink }}">
       <span class="brand__logo" aria-hidden="true">V</span>
@@ -21,7 +21,7 @@
           {{- $current := .RelPermalink -}}
 
           {{- range .Site.Menus.main -}}
-            {{- $label := .Name | title }}  <!-- Titel-Casing für Produktsichtbarkeit -->
+            {{- $label := .Name | title }}  <!-- Sicherstellen, dass die Großbuchstaben und Umlaute gesetzt sind -->
             <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
           {{- end -}}
         </nav>
