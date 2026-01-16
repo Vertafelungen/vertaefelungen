@@ -21,7 +21,7 @@
           {{- $current := .RelPermalink -}}
 
           {{- range .Site.Menus.main -}}
-            {{- $label := .Name | title }}  <!-- Sicherstellen, dass die Großbuchstaben und Umlaute gesetzt sind -->
+            {{- $label := .Name | title }}  <!-- Titel-Casing für Produktsichtbarkeit -->
             <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
           {{- end -}}
         </nav>
