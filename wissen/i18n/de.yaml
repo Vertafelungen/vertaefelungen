@@ -6,6 +6,8 @@ menu_products:
   other: "Produkte"
 menu_lookbook:
   other: "Lookbook"
+menu_about:
+  other: "Über uns"
 varianten_preise:
   other: "Varianten & Preise"
 header_nav_label:

@@ -87,7 +87,11 @@
       <p class="footer-title">{{ i18n "footer_explore_title" }}</p>
       <ul class="footer-nav">
         {{- range .Site.Menus.main -}}
-          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+          {{- $label := .Name -}}
+          {{- with .Identifier -}}
+            {{- $label = i18n . -}}
+          {{- end -}}
+          <li><a href="{{ .URL }}">{{ $label }}</a></li>
         {{- end -}}
       </ul>
       <p class="footer-text">{{ i18n "footer_help_text" }}</p>
