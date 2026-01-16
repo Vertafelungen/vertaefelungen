@@ -17,25 +17,33 @@
       </label>
 
       <div class="nav-panel" id="main-nav">
-        <nav class="main-nav">
-          {{ $current := .RelPermalink }}
-          {{ range .Site.Menus.main }}
-            {{ $label := .Name }}
-            {{ with .Identifier }}
-              {{ $label = i18n . }}
-            {{ end }}
-            <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
-          {{ end }}
+        <nav class="main-nav" aria-label="{{ i18n "header_nav_label" }}">
+          {{- $current := .RelPermalink -}}
+
+          {{- range .Site.Menus.main -}}
+            {{- $label := .Name -}}
+            {{- if not $label -}}
+              {{- $label = .Identifier | default "" | replace "-" " " | title -}}
+            {{- end -}}
+
+            {{- $isActive := or
+                  (eq $current .URL)
+                  (eq (strings.TrimSuffix "/" $current) (strings.TrimSuffix "/" .URL))
+                -}}
+
+            <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
+          {{- end -}}
         </nav>
 
         <div class="header-actions">
           <div class="lang-switch" aria-label="{{ i18n "language_switch_label" }}">
-            {{ range $index, $site := .Sites }}
-              {{ $isActive := eq $site.Language.Lang $.Site.Language.Lang }}
+            {{- range $index, $site := .Sites -}}
+              {{- $isActive := eq $site.Language.Lang $.Site.Language.Lang -}}
               <a class="{{ if $isActive }}is-active{{ end }}" href="{{ $site.Home.RelPermalink }}">{{ upper $site.Language.Lang }}</a>{{ if lt (add $index 1) (len $.Sites) }}<span aria-hidden="true">·</span>{{ end }}
-            {{ end }}
+            {{- end -}}
           </div>
-          {{ $shopUrl := cond (eq .Site.Language.Lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" }}
+
+          {{- $shopUrl := cond (eq .Site.Language.Lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
           <a class="button button--primary" href="{{ $shopUrl }}">{{ i18n "header_shop_label" }}</a>
         </div>
       </div>
