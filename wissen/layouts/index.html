@@ -4,8 +4,16 @@
 {{- $faqPage := site.GetPage (printf "/%s/faq" $lang) -}}
 {{- $productsPage := site.GetPage (printf "/%s/%s" $lang (cond (eq $lang "de") "produkte" "products")) -}}
 {{- $lookbookPage := site.GetPage (printf "/%s/lookbook" $lang) -}}
-{{- $aboutPage := site.GetPage (printf "/%s/faq/%s" $lang (cond (eq $lang "de") "ueber-uns" "about-us")) -}}
+{{- $aboutPage := site.GetPage (printf "/%s/%s" $lang (cond (eq $lang "de") "ueber-uns" "about-us")) -}}
 {{- $shopUrl := cond (eq $lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
+{{- $faqFallback := cond (eq $lang "de") "/de/faq/" "/en/faq/" -}}
+{{- $productsFallback := cond (eq $lang "de") "/de/produkte/" "/en/products/" -}}
+{{- $lookbookFallback := cond (eq $lang "de") "/de/lookbook/" "/en/lookbook/" -}}
+{{- $aboutFallback := cond (eq $lang "de") "/de/ueber-uns/" "/en/about-us/" -}}
+{{- $faqUrl := cond $faqPage $faqPage.RelPermalink $faqFallback -}}
+{{- $productsUrl := cond $productsPage $productsPage.RelPermalink $productsFallback -}}
+{{- $lookbookUrl := cond $lookbookPage $lookbookPage.RelPermalink $lookbookFallback -}}
+{{- $aboutUrl := cond $aboutPage $aboutPage.RelPermalink $aboutFallback -}}
 
 <section class="page-hero">
   <h1 class="page-hero__title">{{ i18n "home_title" }}</h1>
@@ -15,39 +23,26 @@
 <section>
   <h2 class="section-title">{{ i18n "home_section_title" }}</h2>
   <div class="card-grid">
-    <article class="card">
+    <a class="entry-card" href="{{ $shopUrl }}">
       <h3>{{ i18n "home_tile_shop_title" }}</h3>
       <p>{{ i18n "home_tile_shop_text" }}</p>
-      <a class="button button--primary" href="{{ $shopUrl }}">{{ i18n "home_tile_shop_cta" }}</a>
-    </article>
-    <article class="card">
+    </a>
+    <a class="entry-card" href="{{ $faqUrl }}">
       <h3>{{ i18n "home_tile_faq_title" }}</h3>
       <p>{{ i18n "home_tile_faq_text" }}</p>
-      {{ with $faqPage }}
-        <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "home_tile_faq_cta" }}</a>
-      {{ end }}
-    </article>
-    <article class="card">
+    </a>
+    <a class="entry-card" href="{{ $productsUrl }}">
       <h3>{{ i18n "home_tile_products_title" }}</h3>
       <p>{{ i18n "home_tile_products_text" }}</p>
-      {{ with $productsPage }}
-        <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "home_tile_products_cta" }}</a>
-      {{ end }}
-    </article>
-    <article class="card">
+    </a>
+    <a class="entry-card" href="{{ $lookbookUrl }}">
       <h3>{{ i18n "home_tile_lookbook_title" }}</h3>
       <p>{{ i18n "home_tile_lookbook_text" }}</p>
-      {{ with $lookbookPage }}
-        <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "home_tile_lookbook_cta" }}</a>
-      {{ end }}
-    </article>
-    <article class="card">
+    </a>
+    <a class="entry-card" href="{{ $aboutUrl }}">
       <h3>{{ i18n "home_tile_about_title" }}</h3>
       <p>{{ i18n "home_tile_about_text" }}</p>
-      {{ with $aboutPage }}
-        <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "home_tile_about_cta" }}</a>
-      {{ end }}
-    </article>
+    </a>
   </div>
 </section>
 {{ end }}
