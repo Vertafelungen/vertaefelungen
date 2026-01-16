@@ -20,7 +20,11 @@
         <nav class="main-nav">
           {{ $current := .RelPermalink }}
           {{ range .Site.Menus.main }}
-            <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+            {{ $label := .Name }}
+            {{ with .Identifier }}
+              {{ $label = i18n . }}
+            {{ end }}
+            <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
           {{ end }}
         </nav>
 
