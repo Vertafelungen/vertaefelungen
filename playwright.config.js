@@ -1,12 +1,12 @@
-const { defineConfig } = require('@playwright/test');
+// playwright.config.js
+import { defineConfig } from '@playwright/test';
 
-module.exports = defineConfig({
-  testDir: './tests/e2e',
-  timeout: 60000,
-  retries: 1,
+export default defineConfig({
   use: {
-    baseURL: 'https://www.vertaefelungen.de/wissen',
+    baseURL: 'https://www.vertaefelungen.de/wissen/',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
+  retries: 1,
+  timeout: 60000,
 });
