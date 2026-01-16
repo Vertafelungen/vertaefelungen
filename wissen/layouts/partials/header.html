@@ -21,17 +21,8 @@
           {{- $current := .RelPermalink -}}
 
           {{- range .Site.Menus.main -}}
-            {{- $label := .Name -}}
-            {{- if not $label -}}
-              {{- $label = .Identifier | default "" | replace "-" " " | title -}}
-            {{- end -}}
-
-            {{- $isActive := or
-                  (eq $current .URL)
-                  (eq (strings.TrimSuffix "/" $current) (strings.TrimSuffix "/" .URL))
-                -}}
-
-            <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
+            {{- $label := .Name | title }}  <!-- Sicherstellen, dass die Großbuchstaben und Umlaute gesetzt sind -->
+            <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
           {{- end -}}
         </nav>
 
