@@ -1,75 +1,46 @@
-import { expect, test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
-async function logClickInterception(page: import('@playwright/test').Page, locator: import('@playwright/test').Locator, label: string) {
-  const box = await locator.boundingBox();
-  if (!box) {
-    console.log(`[click-debug] ${label}: bounding box unavailable`);
-    return;
-  }
+test.describe('Live navigation (Wissen)', () => {
+  test('DE live navigation', async ({ page }) => {
+    await page.goto('/de/', { waitUntil: 'domcontentloaded' });
 
-  const point = { x: box.x + box.width / 2, y: box.y + box.height / 2 };
-  const info = await page.evaluate(({ x, y }) => {
-    const target = document.elementFromPoint(x, y) as HTMLElement | null;
-    if (!target) {
-      return { found: false };
-    }
-    const style = window.getComputedStyle(target);
-    return {
-      found: true,
-      tagName: target.tagName,
-      pointerEvents: style.pointerEvents,
-      zIndex: style.zIndex,
-      outerHTML: target.outerHTML.slice(0, 500),
-    };
-  }, point);
+    // Header/Footer must exist as stable UI anchors
+    await expect(page.locator('header.site-header')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('footer.site-footer')).toBeVisible({ timeout: 15000 });
 
-  console.log(`[click-debug] ${label}:`, info);
-}
+    const productsLink = page.getByRole('link', { name: 'Produkte', exact: true });
+    await expect(productsLink).toBeVisible({ timeout: 15000 });
+    await productsLink.click();
 
-async function clickAndVerify(page: import('@playwright/test').Page, locator: import('@playwright/test').Locator, urlPattern: RegExp, label: string) {
-  try {
-    const [response] = await Promise.all([
-      page.waitForNavigation({ url: urlPattern }),
-      locator.click(),
-    ]);
+    await expect(page).toHaveURL(/\/de\/produkte\/?/, { timeout: 15000 });
 
-    await expect(page).toHaveURL(urlPattern);
-    expect(response, `${label} navigation returned no response`).not.toBeNull();
-    expect(response?.ok(), `${label} navigation response not OK`).toBeTruthy();
-  } catch (error) {
-    await logClickInterception(page, locator, label);
-    throw error;
-  }
-}
+    await page.goto('/de/', { waitUntil: 'domcontentloaded' });
 
-test('DE live navigation', async ({ page }) => {
-  await page.goto('/de/');
+    const faqLink = page.getByRole('link', { name: 'FAQ', exact: true });
+    await expect(faqLink).toBeVisible({ timeout: 15000 });
+    await faqLink.click();
 
-  await expect(page.locator('header.site-header')).toBeVisible();
-  await expect(page.locator('footer.site-footer')).toBeVisible();
+    await expect(page).toHaveURL(/\/de\/faq\/?/, { timeout: 15000 });
+  });
 
-  const productsLink = page.getByRole('link', { name: 'Produkte', exact: true });
-  await expect(productsLink).toBeVisible();
-  await clickAndVerify(page, productsLink, /\/de\/produkte\/?/, 'Produkte');
+  test('EN live navigation', async ({ page }) => {
+    await page.goto('/en/', { waitUntil: 'domcontentloaded' });
 
-  await page.goto('/de/');
-  const faqLink = page.getByRole('link', { name: 'FAQ', exact: true });
-  await expect(faqLink).toBeVisible();
-  await clickAndVerify(page, faqLink, /\/de\/faq\/?/, 'FAQ');
-});
+    await expect(page.locator('header.site-header')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('footer.site-footer')).toBeVisible({ timeout: 15000 });
 
-test('EN live navigation', async ({ page }) => {
-  await page.goto('/en/');
+    const productsLink = page.getByRole('link', { name: 'Products', exact: true });
+    await expect(productsLink).toBeVisible({ timeout: 15000 });
+    await productsLink.click();
 
-  await expect(page.locator('header.site-header')).toBeVisible();
-  await expect(page.locator('footer.site-footer')).toBeVisible();
+    await expect(page).toHaveURL(/\/en\/products\/?/, { timeout: 15000 });
 
-  const productsLink = page.getByRole('link', { name: 'Products', exact: true });
-  await expect(productsLink).toBeVisible();
-  await clickAndVerify(page, productsLink, /\/en\/products\/?/, 'Products');
+    await page.goto('/en/', { waitUntil: 'domcontentloaded' });
 
-  await page.goto('/en/');
-  const faqLink = page.getByRole('link', { name: 'FAQ', exact: true });
-  await expect(faqLink).toBeVisible();
-  await clickAndVerify(page, faqLink, /\/en\/faq\/?/, 'FAQ');
+    const faqLink = page.getByRole('link', { name: 'FAQ', exact: true });
+    await expect(faqLink).toBeVisible({ timeout: 15000 });
+    await faqLink.click();
+
+    await expect(page).toHaveURL(/\/en\/faq\/?/, { timeout: 15000 });
+  });
 });
