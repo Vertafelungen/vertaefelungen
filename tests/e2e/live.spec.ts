@@ -21,8 +21,11 @@ test.describe('Live navigation (Wissen)', () => {
     await expect(page.locator('header.site-header')).toBeVisible({ timeout: 20000 });
     await expect(page.locator('footer.site-footer')).toBeVisible({ timeout: 20000 });
 
-    // Header menu: only assert if link exists (menu may still be under construction).
-    const productsLink = page.getByRole('link', { name: 'Produkte', exact: true });
+    // Header menu: scope to header nav to avoid strict mode violations (same link text elsewhere).
+    const headerNav = page.locator('header.site-header nav#main-nav');
+    const scopedHeaderNav = (await headerNav.count()) ? headerNav : page.locator('header.site-header nav');
+    await expect(scopedHeaderNav).toBeVisible({ timeout: 20000 });
+    const productsLink = scopedHeaderNav.getByRole('link', { name: 'Produkte', exact: true });
     if (await productsLink.count()) {
       await expect(productsLink).toBeVisible({ timeout: 20000 });
       await productsLink.click();
@@ -43,7 +46,10 @@ test.describe('Live navigation (Wissen)', () => {
     await expect(page.locator('header.site-header')).toBeVisible({ timeout: 20000 });
     await expect(page.locator('footer.site-footer')).toBeVisible({ timeout: 20000 });
 
-    const productsLink = page.getByRole('link', { name: 'Products', exact: true });
+    const headerNav = page.locator('header.site-header nav#main-nav');
+    const scopedHeaderNav = (await headerNav.count()) ? headerNav : page.locator('header.site-header nav');
+    await expect(scopedHeaderNav).toBeVisible({ timeout: 20000 });
+    const productsLink = scopedHeaderNav.getByRole('link', { name: 'Products', exact: true });
     if (await productsLink.count()) {
       await expect(productsLink).toBeVisible({ timeout: 20000 });
       await productsLink.click();
