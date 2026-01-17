@@ -1,7 +1,7 @@
-﻿---
+---
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/99-umbra/
-title: Umbra - BEECK StandÃ¶linnenfarbe PRO
+title: Umbra - BEECK Standölinnenfarbe PRO
 translationKey: '99'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -25,21 +25,20 @@ produkt:
     preis_aufschlag: 556.35
   bilder:
   - datei: umbra.png
-    alt_de: BEECK StandÃ¶linnenfarbe PRO Umbra seidenmatt fÃ¼r Holz innen Deckende LeinÃ¶lfarbe fÃ¼r TÃ¼ren VertÃ¤felungen Denkmalschutz
+    alt_de: BEECK Standölinnenfarbe PRO Umbra seidenmatt für Holz innen Deckende Leinölfarbe für Türen Vertäfelungen Denkmalschutz
   - datei: umbra-farbfaecher.png
     alt_de: ''
   - datei: sip_gebinde.png
     alt_de: ''
 seo:
-  title: Umbra, BEECK StandÃ¶linnnenfarbe PRO, deckend, fÃ¼r Holz im Innenbereich
-  description: Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ¼r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen.
+  title: Umbra, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich
+  description: Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/99-395-umbra.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt
 ---
-BEECK StandÃ¶linnenfarbe PRO
-Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
+BEECK Standölinnenfarbe PRO
+Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
 
 Verwendungszweck
-LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ã–lfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ã–llackfilm.
-
+Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.

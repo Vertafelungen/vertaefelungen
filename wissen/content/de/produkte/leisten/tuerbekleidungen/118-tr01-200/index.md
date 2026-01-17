@@ -1,7 +1,7 @@
-﻿---
+---
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/118-tr01-200/
-title: TÃ¼rbekleidung 01 / 200
+title: Türbekleidung 01 / 200
 translationKey: '118'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -17,13 +17,12 @@ produkt:
     preis_aufschlag: 5.0
   bilder:
   - datei: tr01-200.png
-    alt_de: TÃ¼rrahmen TR 01 200 aus Kiefernholz 200 x 24 mm massiv breites Profil ideal fÃ¼r Innenausbau TÃ¼ren und Fenster robust und stabil nach MaÃŸ bestellbar
+    alt_de: Türrahmen TR 01 200 aus Kiefernholz 200 x 24 mm massiv breites Profil ideal für Innenausbau Türen und Fenster robust und stabil nach Maß bestellbar
 seo:
-  title: tr01-200 - TÃ¼r- und Fensterrahmen TR 01 / 200, MaÃŸe
-  description: 'Als TÃ¼r- oder Fensterrahmen einsetzbar, MaÃŸe: 200 x 24 mm Kiefer oder White Wood, LÃ¤nge nach Wunsch, andere HÃ¶lzer (zB. Eiche) auf Anfrage'
+  title: tr01-200 - Tür- und Fensterrahmen TR 01 / 200, Maße
+  description: 'Als Tür- oder Fensterrahmen einsetzbar, Maße: 200 x 24 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage'
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/118-530-tr01-200.html#/66-holzart_wl-kiefer
 ---
-TÃ¼r- und Fensterrahmen TR 01 / 200, MaÃŸe: 200 x 24 mm
-
+Tür- und Fensterrahmen TR 01 / 200, Maße: 200 x 24 mm

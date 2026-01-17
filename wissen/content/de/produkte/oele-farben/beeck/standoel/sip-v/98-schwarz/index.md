@@ -1,7 +1,7 @@
-﻿---
+---
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/98-schwarz/
-title: Schwarz - BEECK StandÃ¶linnenfarbe PRO
+title: Schwarz - BEECK Standölinnenfarbe PRO
 translationKey: '98'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -25,21 +25,20 @@ produkt:
     preis_aufschlag: 556.35
   bilder:
   - datei: schwarz.png
-    alt_de: BEECK StandÃ¶linnenfarbe PRO Schwarz seidenmatt LeinÃ¶lfarbe deckend Innenbereich Holzlackierung denkmalgerecht tiefschwarz
+    alt_de: BEECK Standölinnenfarbe PRO Schwarz seidenmatt Leinölfarbe deckend Innenbereich Holzlackierung denkmalgerecht tiefschwarz
   - datei: schwarz-farbfaecher.png
     alt_de: ''
   - datei: sip_gebinde.png
     alt_de: ''
 seo:
-  title: StandÃ¶lfarbe Schwarz, deckend, fÃ¼r Holz im Innenbereich
-  description: Beeck StandÃ¶linnenfarbe Pro ist eine reine LeinÃ¶lfarbe fÃ¼r professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung.
+  title: Standölfarbe Schwarz, deckend, für Holz im Innenbereich
+  description: Beeck Standölinnenfarbe Pro ist eine reine Leinölfarbe für professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/98-389-schwarz.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt
 ---
-BEECK StandÃ¶linnenfarbe PRO
-Volltonfarbe, deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
+BEECK Standölinnenfarbe PRO
+Volltonfarbe, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
 
 Verwendungszweck
-LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ã–lfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ã–llackfilm.
-
+Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.

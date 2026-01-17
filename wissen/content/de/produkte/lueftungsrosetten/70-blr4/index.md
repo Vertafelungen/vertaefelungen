@@ -1,7 +1,7 @@
-﻿---
+---
 aliases:
 - /wissen/de/produktinfo/public/lueftungsrosetten/70-blr4/
-title: LÃ¼ftungsrosette 4
+title: Lüftungsrosette 4
 translationKey: '70'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -13,21 +13,20 @@ produkt:
   varianten: []
   bilder:
   - datei: blr4-01.png
-    alt_de: Messing-LÃ¼ftungsrosette mit fÃ¼nfblÃ¤ttriger Ã–ffnung montiert auf HolzflÃ¤che
+    alt_de: Messing-Lüftungsrosette mit fünfblättriger Öffnung montiert auf Holzfläche
   - datei: blr4-02.png
-    alt_de: Messing-LÃ¼ftungsrosette mit MaÃŸstab zur GrÃ¶ÃŸenangabe auf HolzflÃ¤che
+    alt_de: Messing-Lüftungsrosette mit Maßstab zur Größenangabe auf Holzfläche
   - datei: blr4-03.png
-    alt_de: Messing-LÃ¼ftungsrosette mit fÃ¼nf Ã–ffnungen flach liegend auf HolzflÃ¤che fotografiert
+    alt_de: Messing-Lüftungsrosette mit fünf Öffnungen flach liegend auf Holzfläche fotografiert
 seo:
-  title: blr4 - FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen.M
-  description: FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen. Messing gefrÃ¤st, OberflÃ¤che geschlichtet. Durchmesser 45 mm. HÃ¶he ca. 4 mm.
+  title: blr4 - Formschöne Lüftungsrosette für Vertäfelungen.M
+  description: Formschöne Lüftungsrosette für Vertäfelungen. Messing gefräst, Oberfläche geschlichtet. Durchmesser 45 mm. Höhe ca. 4 mm.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/lueftungsrosetten/70-lueftungsrosette-4.html
 ---
-FormschÃ¶ne LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen.
-Messing gefrÃ¤st, OberflÃ¤che geschlichtet
+Formschöne Lüftungsrosette für Vertäfelungen.
+Messing gefräst, Oberfläche geschlichtet
 
 Durchmesser 45 mm
-HÃ¶he ca. 4 mm
-
+Höhe ca. 4 mm

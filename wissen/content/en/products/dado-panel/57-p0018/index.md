@@ -1,8 +1,8 @@
-﻿---
+---
 aliases:
 - /wissen/en/products/public/dado-panel/57-p0018/
 - /wissen/en/products/high-wainscoting/57-p0014/
-title: P0018 - Berlin - InvalidenstraÃŸe
+title: P0018 - Berlin - Invalidenstraße
 translationKey: '57'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -30,12 +30,12 @@ produkt:
   - datei: p0018-05.png
     alt_en: Detail view classical wall panelling with Jugendstil ceramic tiles Berlin historic template Invalidenstrasse
   - datei: p0018-07.png
-    alt_en: Historic Berlin cafÃ© interior with wooden panelling Jugendstil ceramic tiles and decorative panels
+    alt_en: Historic Berlin café interior with wooden panelling Jugendstil ceramic tiles and decorative panels
   - datei: p0018-08.png
-    alt_en: Art Nouveau wall panelling with wooden frame and historic tiles in Berlin cafÃ© interior design
+    alt_en: Art Nouveau wall panelling with wooden frame and historic tiles in Berlin café interior design
 seo:
-  title: P0018 - Berlin - InvalidenstraÃŸe
-  description: '"Berlin InvalidenstraÃŸe" paneling - half-height wall cladding in Berlin neoclassical style. Pine kit for hallways and traditional renovation projects.'
+  title: P0018 - Berlin - Invalidenstraße
+  description: '"Berlin Invalidenstraße" paneling - half-height wall cladding in Berlin neoclassical style. Pine kit for hallways and traditional renovation projects.'
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/57-p0018-berlin-invalidenstrasse.html
@@ -44,4 +44,3 @@ The Balzer bakery was located here 130 years ago. All the walls are covered with
 Today they're serving burgers and the setting, well, looks a bit scruffy. I hope that the next tenant knows what to do with this treasure.
 The combination of panelling and tiles is often found in restaurants and food shops. Tiles bring another decorative element into play. You can cover larger areas and divide them into sections using frames.
 The tiles used in this example are from the GOLEM manufactory.
-

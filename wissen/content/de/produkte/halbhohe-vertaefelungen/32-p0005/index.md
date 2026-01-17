@@ -1,5 +1,5 @@
-﻿---
-title: P0005 - Berlin - BleibtreustraÃŸe
+---
+title: P0005 - Berlin - Bleibtreustraße
 translationKey: '32'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -15,32 +15,31 @@ produkt:
     preis_aufschlag: 640.12
   bilder:
   - datei: p0005-01.png
-    alt_de: Brusthohe GrÃ¼nderzeit VertÃ¤felung P0005 Bleibtreustr Berlin mit Arkaden Pilastern Gesimsprofil
+    alt_de: Brusthohe Gründerzeit Vertäfelung P0005 Bleibtreustr Berlin mit Arkaden Pilastern Gesimsprofil
   - datei: p0005-02.png
-    alt_de: Eckansicht GrÃ¼nderzeit KassettenvertÃ¤felung P0005 Bleibtreustr Berlin mit Arkaden Pilastern Gesimsprofil
+    alt_de: Eckansicht Gründerzeit Kassettenvertäfelung P0005 Bleibtreustr Berlin mit Arkaden Pilastern Gesimsprofil
   - datei: p0005-03.png
-    alt_de: Gesamtansicht GrÃ¼nderzeit KassettenvertÃ¤felung P0005 Bleibtreustr Berlin umlaufende Lambris mit Arkaden und Gesimsprofil
+    alt_de: Gesamtansicht Gründerzeit Kassettenvertäfelung P0005 Bleibtreustr Berlin umlaufende Lambris mit Arkaden und Gesimsprofil
   - datei: p0005-04.png
-    alt_de: Detailansicht GrÃ¼nderzeit KassettenvertÃ¤felung P0005 Bleibtreustr Berlin Gesimsabschluss mit Schmuckprofilen und FÃ¼llungen
+    alt_de: Detailansicht Gründerzeit Kassettenvertäfelung P0005 Bleibtreustr Berlin Gesimsabschluss mit Schmuckprofilen und Füllungen
   - datei: p0005-05.png
-    alt_de: Sockelansicht GrÃ¼nderzeit KassettenvertÃ¤felung P0005 Bleibtreustr Berlin profilierte Lambris mit ZierknÃ¤ufen
+    alt_de: Sockelansicht Gründerzeit Kassettenvertäfelung P0005 Bleibtreustr Berlin profilierte Lambris mit Zierknäufen
   - datei: p0005-06.png
-    alt_de: Detailansicht klassizistische KassettenvertÃ¤felung P0005 Bleibtreustr Berlin mit profiliertem Bogenabschluss
+    alt_de: Detailansicht klassizistische Kassettenvertäfelung P0005 Bleibtreustr Berlin mit profiliertem Bogenabschluss
   - datei: p0005-07.png
-    alt_de: Detailansicht Sockel klassizistische KassettenvertÃ¤felung P0005 BleibtreustraÃŸe Berlin mit Profilrahmung
+    alt_de: Detailansicht Sockel klassizistische Kassettenvertäfelung P0005 Bleibtreustraße Berlin mit Profilrahmung
   - datei: p0005-08.png
-    alt_de: Originalansicht klassizistische KassettenvertÃ¤felung P0005 BleibtreustraÃŸe Berlin mit profilierten Pilastern und rundbogigen Blendfeldern
+    alt_de: Originalansicht klassizistische Kassettenvertäfelung P0005 Bleibtreustraße Berlin mit profilierten Pilastern und rundbogigen Blendfeldern
   - datei: p0005-09.png
-    alt_de: Brusthohe KassettenvertÃ¤felung P0005 Bleibtreustr Berlin mit profiliertem Sockel und Gesims in Eiche
+    alt_de: Brusthohe Kassettenvertäfelung P0005 Bleibtreustr Berlin mit profiliertem Sockel und Gesims in Eiche
   - datei: p0005-10.png
-    alt_de: Historisches EntrÃ©e P0005 Bleibtreustr Berlin mit EichenvertÃ¤felung
+    alt_de: Historisches Entrée P0005 Bleibtreustr Berlin mit Eichenvertäfelung
 seo:
-  title: VertÃ¤felung aus Berlin Charlottenburg
-  description: VertÃ¤felung â€žBerlin BleibtreustraÃŸe" - halbhohe WandvertÃ¤felung im Berliner Stil. Kiefernholz-Bausatz fÃ¼r stilvolle Interieurs und Altbau-Sanierungen.
+  title: Vertäfelung aus Berlin Charlottenburg
+  description: Vertäfelung „Berlin Bleibtreustraße" - halbhohe Wandvertäfelung im Berliner Stil. Kiefernholz-Bausatz für stilvolle Interieurs und Altbau-Sanierungen.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/32-267-berlin-bleibtreustrasse.html#/47-holzart-kiefer/55-bausatz-bausatz
 ---
 Sehr eindrucksvoll und trotzdem recht einfach aufgebaut.
-Durch die aneinander gereihten â€žFenster" mit den DreipassbÃ¶gen als Abschluss, entsteht eine neogotische VertÃ¤felung. Solches Interieur verhilft einem grÃ¼nderzeitlichen Hauseingang zu Ansehen und WÃ¼rde.
-
+Durch die aneinander gereihten „Fenster" mit den Dreipassbögen als Abschluss, entsteht eine neogotische Vertäfelung. Solches Interieur verhilft einem gründerzeitlichen Hauseingang zu Ansehen und Würde.

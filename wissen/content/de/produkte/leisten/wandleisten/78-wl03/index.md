@@ -1,7 +1,7 @@
-﻿---
+---
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/78-wl03/
-title: Wandleiste 03 â€žRiffelleiste"
+title: Wandleiste 03 „Riffelleiste"
 translationKey: '78'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -29,5 +29,4 @@ Riffelleiste - Massive Holzleiste 10 x 40 mm.
 In Kiefer oder White Wood, andere Holzarten aus Anfrage.
 
 Als Wandleiste zur direkten Montage auf der verputzen Wand.
-Mit dieser Leiste kÃ¶nnen Rahmen oder Kassetten gebildet werden, mit denen sich groÃŸe WandflÃ¤chen gliedern und einteilen lassen.
-
+Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.

@@ -1,7 +1,7 @@
-﻿---
+---
 aliases:
 - /wissen/en/products/public/dado-panel/23-p0001/
-title: P0001 - Berlin - WinsstraÃŸe
+title: P0001 - Berlin - Winsstraße
 translationKey: '23'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -35,13 +35,12 @@ produkt:
   - datei: p0001-09.png
     alt_en: Historic entrance hall Berlin Winsstrasse with half-height panelling P0001 and Jugendstil mosaic tiles
 seo:
-  title: P0001 - Berlin - WinsstraÃŸe
-  description: '"Berlin Winsstr." paneling - half-height wall paneling in historicist style. Pine wood kit for elegant interiors and classic GrÃ¼nderzeit renovations.'
+  title: P0001 - Berlin - Winsstraße
+  description: '"Berlin Winsstr." paneling - half-height wall paneling in historicist style. Pine wood kit for elegant interiors and classic Gründerzeit renovations.'
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/23-251-p0001-berlin-winsstr.html#/47-type_of_wood-pine_oiled/55-bausatz-row_kit
 ---
-The Wins quarter around Winsstrasse in Berlin Prenzlauer Berg is a residential area with a high quality of life. The atmosphere is characterised by street cafÃ©s, book and wine shops and the well-preserved old buildings also contribute to the cosy atmosphere. The stucco-decorated entrances are very varied. There are Art Nouveau tiles, marble and wood panelling like this one.
+The Wins quarter around Winsstrasse in Berlin Prenzlauer Berg is a residential area with a high quality of life. The atmosphere is characterised by street cafés, book and wine shops and the well-preserved old buildings also contribute to the cosy atmosphere. The stucco-decorated entrances are very varied. There are Art Nouveau tiles, marble and wood panelling like this one.
 
 This wainscoting has an original height of 110 cm and strong profiles with long, horizontal picture-frame-mouldings, which can be easily adapted to individual room dimensions. We manufacture the panel in oak or pine. On request, it can be prepared for a coat of coloured paint.
-

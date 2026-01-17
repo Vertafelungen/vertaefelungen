@@ -1,5 +1,5 @@
-﻿---
-title: P0014 - LÃ¼beck - Schiffergesellschaft
+---
+title: P0014 - Lübeck - Schiffergesellschaft
 translationKey: '55'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -15,36 +15,35 @@ produkt:
     preis_aufschlag: 914.46
   bilder:
   - datei: p0014-01.png
-    alt_de: Frontalansicht historische LÃ¼becker WandvertÃ¤felung Schiffergesellschaft 2570 mm hoch mit Sockelzone groÃŸen rechteckigen Paneelen und profiliertem Gesimsabschluss
+    alt_de: Frontalansicht historische Lübecker Wandvertäfelung Schiffergesellschaft 2570 mm hoch mit Sockelzone großen rechteckigen Paneelen und profiliertem Gesimsabschluss
   - datei: p0014-02.png
-    alt_de: Historische LÃ¼becker WandvertÃ¤felung Schiffergesellschaft Eckansicht mit Sockelzone groÃŸen rechteckigen Paneelen und profiliertem Gesimsabschluss typische LÃ¼becker Gliederung
+    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Eckansicht mit Sockelzone großen rechteckigen Paneelen und profiliertem Gesimsabschluss typische Lübecker Gliederung
   - datei: p0014-03.png
-    alt_de: Historische LÃ¼becker WandvertÃ¤felung Schiffergesellschaft Gesamtansicht mit umlaufender EcklÃ¶sung Sockelzone groÃŸen rechteckigen Paneelen und profiliertem oberen Gesims typische LÃ¼becker Gliederung
+    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Gesamtansicht mit umlaufender Ecklösung Sockelzone großen rechteckigen Paneelen und profiliertem oberen Gesims typische Lübecker Gliederung
   - datei: p0014-04.png
-    alt_de: Historische LÃ¼becker WandvertÃ¤felung Schiffergesellschaft Detailansicht oberes profiliertes Gesims mit klassischer Rahmung und markanter Auskragung
+    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Detailansicht oberes profiliertes Gesims mit klassischer Rahmung und markanter Auskragung
   - datei: p0014-05.png
-    alt_de: Historische LÃ¼becker WandvertÃ¤felung Schiffergesellschaft Detailansicht der oberen Eckausbildung mit Gesims und profilierter Rahmung
+    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Detailansicht der oberen Eckausbildung mit Gesims und profilierter Rahmung
   - datei: p0014-06.png
-    alt_de: Historische LÃ¼becker WandvertÃ¤felung Schiffergesellschaft Detailansicht der vertikalen PaneelÃ¼bergÃ¤nge mit profilierter Rahmung
+    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Detailansicht der vertikalen Paneelübergänge mit profilierter Rahmung
   - datei: p0014-07.png
-    alt_de: Historische LÃ¼becker WandvertÃ¤felung Schiffergesellschaft Detailansicht des profilierten Sockelbereichs mit Paneelen
+    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Detailansicht des profilierten Sockelbereichs mit Paneelen
   - datei: p0014-08.png
-    alt_de: Fassade der historischen Schiffergesellschaft LÃ¼beck mit Backstein Treppengiebel und reprÃ¤sentativem Eingangsportal
+    alt_de: Fassade der historischen Schiffergesellschaft Lübeck mit Backstein Treppengiebel und repräsentativem Eingangsportal
   - datei: p0014-09.png
-    alt_de: Historische HolzvertÃ¤felung mit Kassettenfeldern und ornamentiertem Fries in der Schiffergesellschaft LÃ¼beck
+    alt_de: Historische Holzvertäfelung mit Kassettenfeldern und ornamentiertem Fries in der Schiffergesellschaft Lübeck
   - datei: p0014-10.png
-    alt_de: Historischer Innenraum der Schiffergesellschaft LÃ¼beck mit geschnitzter HolzsÃ¤ule Heiligenfigur VertÃ¤felung und Schiffsmodellen
+    alt_de: Historischer Innenraum der Schiffergesellschaft Lübeck mit geschnitzter Holzsäule Heiligenfigur Vertäfelung und Schiffsmodellen
   - datei: p0014-11.png
-    alt_de: Detail der HolzvertÃ¤felung in der Schiffergesellschaft LÃ¼beck mit geschnitztem Kopfrelief und Ornamenten
+    alt_de: Detail der Holzvertäfelung in der Schiffergesellschaft Lübeck mit geschnitztem Kopfrelief und Ornamenten
 seo:
-  title: HolzvertÃ¤felung aus der LÃ¼becker Schiffergesellschaft
-  description: VertÃ¤felung â€žLÃ¼beck Schiffergesellschaft" - hohe WandvertÃ¤felung im hanseatischen Stil. Bausatz aus Kiefernholz fÃ¼r historische Interieurs & GaststÃ¤tten.
+  title: Holzvertäfelung aus der Lübecker Schiffergesellschaft
+  description: Vertäfelung „Lübeck Schiffergesellschaft" - hohe Wandvertäfelung im hanseatischen Stil. Bausatz aus Kiefernholz für historische Interieurs & Gaststätten.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/hohe-vertaefelungen/55-295-luebeck-schiffergesellschaft.html#/47-holzart-kiefer/55-bausatz-bausatz
 ---
-Die Schiffergesellschaft LÃ¼beck besteht seit 1401. Sie wurde gegrÃ¼ndet, um Witwen und Waisen von auf See gebliebenen Seefahrern Speisen und Wohnraum zu gewÃ¤hren.
-Der Innenraum ist reich mit Schiffsmodellen und kuriosen Dingen geschmÃ¼ckt, die von LÃ¼becker KapitÃ¤nen Ã¼ber die Jahrhunderte auf ihren Fahrten zusammengetragen wurden. Um 1868 wurde beschlossen im Gildesaal einen Restaurantbetrieb einzurichten, der bis heute geÃ¶ffnet ist.
+Die Schiffergesellschaft Lübeck besteht seit 1401. Sie wurde gegründet, um Witwen und Waisen von auf See gebliebenen Seefahrern Speisen und Wohnraum zu gewähren.
+Der Innenraum ist reich mit Schiffsmodellen und kuriosen Dingen geschmückt, die von Lübecker Kapitänen über die Jahrhunderte auf ihren Fahrten zusammengetragen wurden. Um 1868 wurde beschlossen im Gildesaal einen Restaurantbetrieb einzurichten, der bis heute geöffnet ist.
 
-Die VertÃ¤felung der AuÃŸenwÃ¤nde des Gildesaals ist typisch fÃ¼r LÃ¼beck. Einen Ã¤hnlichen Aufbau mit einem flachen Feld mit Bildschnitzerei oben und 2 stehenden Kassetten unten, gibt es auch in der Jakobi- und in der Aegidienkirche. Jedoch sind die Schnitzereien der Schiffergesellschaft um einiges humorvoller.
-
+Die Vertäfelung der Außenwände des Gildesaals ist typisch für Lübeck. Einen ähnlichen Aufbau mit einem flachen Feld mit Bildschnitzerei oben und 2 stehenden Kassetten unten, gibt es auch in der Jakobi- und in der Aegidienkirche. Jedoch sind die Schnitzereien der Schiffergesellschaft um einiges humorvoller.
