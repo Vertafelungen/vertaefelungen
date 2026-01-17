@@ -1,0 +1,14 @@
+{{- /* Determine if a page should be indexed (no "noindex" robots flag) */ -}}
+{{- $page := . -}}
+{{- $robots := "" -}}
+{{- with $page.Params.robots -}}
+  {{- $robots = . -}}
+{{- else -}}
+  {{- with $page.Params.seo.robots -}}
+    {{- $robots = . -}}
+  {{- end -}}
+{{- end -}}
+{{- if and $robots (in (lower $robots) "noindex") -}}
+  {{- return false -}}
+{{- end -}}
+{{- return true -}}
