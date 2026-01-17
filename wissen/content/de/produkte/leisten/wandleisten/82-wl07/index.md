@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/82-wl07/
 title: Wandleiste 07
-lang: de
 translationKey: '82'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -30,4 +29,5 @@ Holzleiste 15 x 30 mm
 In Kiefer oder White Wood, andere Holzarten aus Anfrage
 
 Als Wandleiste zur direkten Montage auf der verputzen Wand.
-Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
+Mit dieser Leiste kÃ¶nnen Rahmen oder Kassetten gebildet werden, mit denen sich groÃŸe WandflÃ¤chen gliedern und einteilen lassen.
+

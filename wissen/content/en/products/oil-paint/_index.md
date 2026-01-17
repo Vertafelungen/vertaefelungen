@@ -1,8 +1,7 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: oil-paints-root
 title: Oils & Paints
 description: Oils, paints and finishing systems for historic wood surfaces - focused on compatible materials, craft application and heritage contexts.
@@ -10,7 +9,7 @@ weight: 40
 type: products
 seo:
   meta_title: Oils & Paints - Finishes for Historic Woodwork
-  meta_description: 'Oils & paints for historic wood surfaces: linseed/tung/balsam and stand-oil/oil-paint systems. Overviews, variants and notes - Vertäfelung & Lambris.'
+  meta_description: 'Oils & paints for historic wood surfaces: linseed/tung/balsam and stand-oil/oil-paint systems. Overviews, variants and notes - VertÃ¤felung & Lambris.'
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -31,3 +30,4 @@ cascade:
     robots: index,follow
 ---
 Oils and paints influence not only colour, but also vapour behaviour, feel, repairability and long-term ageing.\n\n## Subcategories\n- **Linseed, tung & balsam** - classic oils/resins for protection, priming and maintenance.\n- **Stand oil / oil paints** - durable, vapour-open paint systems (e.g. pigmented finishes).\n\nChoose a subcategory to view products, variants and application notes.
+

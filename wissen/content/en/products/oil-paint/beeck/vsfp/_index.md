@@ -1,8 +1,7 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: beeck-primer-pro
 title: Primer Coat PRO
 description: 'System component as primer/undercoat: improves adhesion, levelling and the subsequent stand-oil paint build-up (BEECK PRO system).'
@@ -31,3 +30,4 @@ cascade:
     robots: index,follow
 ---
 **Primer Coat PRO** is the system primer/undercoat for stand-oil paint finishes. It supports an even substrate and improves adhesion of the subsequent coats.\n\nChoose a product/variant to view details, pack sizes and system notes.
+

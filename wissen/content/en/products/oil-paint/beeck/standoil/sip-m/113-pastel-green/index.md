@@ -1,8 +1,7 @@
----
+﻿---
 title: Pastel Green - BEECK Interior Stand-Oil Paint PRO
 description: Placeholder content.
 robots: noindex,follow
-lang: en
 translationKey: '113'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -12,41 +11,41 @@ produkt:
   verfuegbar: true
   preis_basis: 57.15
   varianten:
-  - bezeichnung: 0,75 L, seidenmatt, Lindgrün 01
+  - bezeichnung: 0,75 L, seidenmatt, LindgrÃ¼n 01
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 0.0
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 01
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 01
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 102.35
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 01
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 01
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 556.35
   bilder:
   - datei: lindgruen01.png
@@ -69,3 +68,4 @@ refs:
 # Index
 
 Content follows.
+

@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/lueftungsrosetten/75-blr7/
-title: Lüftungsrosette 7
-lang: de
+title: LÃ¼ftungsrosette 7
 translationKey: '75'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -14,20 +13,21 @@ produkt:
   varianten: []
   bilder:
   - datei: blr7-01.png
-    alt_de: Runde Messinglüftung mit drei Öffnungen flach auf Holzfläche montiert 40 mm Durchmesser
+    alt_de: Runde MessinglÃ¼ftung mit drei Ã–ffnungen flach auf HolzflÃ¤che montiert 40 mm Durchmesser
   - datei: blr7-02.png
-    alt_de: Messinglüftung mit drei Öffnungen daneben Zollstock zeigt Maßangabe von knapp vier Zentimetern
+    alt_de: MessinglÃ¼ftung mit drei Ã–ffnungen daneben Zollstock zeigt MaÃŸangabe von knapp vier Zentimetern
   - datei: blr7-03.png
-    alt_de: Runde Messinglüftung mit drei Öffnungen schräg von unten fotografiert auf Holzfläche
+    alt_de: Runde MessinglÃ¼ftung mit drei Ã–ffnungen schrÃ¤g von unten fotografiert auf HolzflÃ¤che
 seo:
-  title: blr7 - Lüftungsrosette für Vertäfelungen, nach Originalvorl
-  description: Lüftungsrosette für Holzvertäfelungen
+  title: blr7 - LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorl
+  description: LÃ¼ftungsrosette fÃ¼r HolzvertÃ¤felungen
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/lueftungsrosetten/75-lueftungsrosette-3.html
 ---
-Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
+LÃ¼ftungsrosette fÃ¼r VertÃ¤felungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert
 
 Durchmesser ca. 28 mm
 Hohe ca. 12 mm
+

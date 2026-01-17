@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/80-wl05/
-title: Wandleiste 05 „Hohe Welle"
-lang: de
+title: Wandleiste 05 â€žHohe Welle"
 translationKey: '80'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -30,4 +29,5 @@ refs:
 In Kiefer oder White Wood, andere Holzarten aus Anfrage
 
 Als Wandleiste zur direkten Montage auf der verputzen Wand.
-Mit dieser Leiste können Rahmen oder Kassetten gebildet werden, mit denen sich große Wandflächen gliedern und einteilen lassen.
+Mit dieser Leiste kÃ¶nnen Rahmen oder Kassetten gebildet werden, mit denen sich groÃŸe WandflÃ¤chen gliedern und einteilen lassen.
+

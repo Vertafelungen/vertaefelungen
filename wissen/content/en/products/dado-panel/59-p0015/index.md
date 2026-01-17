@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/dado-panel/59-p0015/
 title: P0015 - Berlin - Alte Nationalgalerie
-lang: en
 translationKey: '59'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -41,3 +40,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/59-303-p0015-berlin-alte-nationalgalerie.html#/47-type_of_wood-pine_oiled/55-bausatz-row_kit
 ---
 A good example of panelling that provides clear structures and puts the pictures on display centre stage. The surface looks like a flat balustrade with plenty of space at the top to hang pictures in different formats at eye level.
+

@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/106-ultrablau/
-title: Ultrablau - BEECK Standölinnenfarbe PRO
-lang: de
+title: Ultrablau - BEECK StandÃ¶linnenfarbe PRO
 translationKey: '106'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -26,20 +25,21 @@ produkt:
     preis_aufschlag: 556.35
   bilder:
   - datei: ultrablau.png
-    alt_de: BEECK Standölinnenfarbe PRO Ultrablau seidenmatt Leinölfarbe deckend Innenbereich Holzlackierung denkmalgerecht tiefblau
+    alt_de: BEECK StandÃ¶linnenfarbe PRO Ultrablau seidenmatt LeinÃ¶lfarbe deckend Innenbereich Holzlackierung denkmalgerecht tiefblau
   - datei: ultrablau-farbfaecher.png
     alt_de: ''
   - datei: sip_gebinde.png
     alt_de: ''
 seo:
-  title: Ultrablau, BEECK Standölinnnenfarbe PRO, deckend
-  description: Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.
+  title: Ultrablau, BEECK StandÃ¶linnnenfarbe PRO, deckend
+  description: Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ¼r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/106-437-ultra-blau.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt
 ---
-BEECK Standölinnenfarbe PRO
-Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
+BEECK StandÃ¶linnenfarbe PRO
+Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
 
 Verwendungszweck
-Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
+LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ã–lfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ã–llackfilm.
+

@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/leinoel-tung/62-loef/
-title: Leinölfirnis
-lang: de
+title: LeinÃ¶lfirnis
 translationKey: '62'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -22,13 +21,14 @@ produkt:
     preis_aufschlag: 226.05
   bilder:
   - datei: loef.png
-    alt_de: Leinölfirnis mit Sikkativ 1 Liter schnelltrocknend Endbehandlung Innenbereich 24 Stunden Trocknung natürlich
+    alt_de: LeinÃ¶lfirnis mit Sikkativ 1 Liter schnelltrocknend Endbehandlung Innenbereich 24 Stunden Trocknung natÃ¼rlich
 seo:
-  title: loef - Leinölfirnis mit Sikkativen.Im Innenbereich al
-  description: Leinölfirnis - oxidativ trocknendes Holzöl für Grundierung, Holzschutz & Restaurierung. Lösemittelfrei, tief eindringend, ideal für innen & außen.
+  title: loef - LeinÃ¶lfirnis mit Sikkativen.Im Innenbereich al
+  description: LeinÃ¶lfirnis - oxidativ trocknendes HolzÃ¶l fÃ¼r Grundierung, Holzschutz & Restaurierung. LÃ¶semittelfrei, tief eindringend, ideal fÃ¼r innen & auÃŸen.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/62-326-leinolfirnis.html#/63-1_25_5_10_20_liter-1_liter
 ---
-Leinölfirnis mit Sikkativen.
+LeinÃ¶lfirnis mit Sikkativen.
 Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
+

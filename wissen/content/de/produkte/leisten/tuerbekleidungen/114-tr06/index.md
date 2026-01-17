@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/114-tr06/
-title: Türbekleidung 06
-lang: de
+title: TÃ¼rbekleidung 06
 translationKey: '114'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -18,12 +17,13 @@ produkt:
     preis_aufschlag: 15.42
   bilder:
   - datei: tr06.png
-    alt_de: Türrahmen TR 06 aus Kiefernholz 115 x 26 mm massiv individuell anfertigbar ideal für Innenausbau Türen und Fenster natürliche Holzoptik nach Maß bestellbar
+    alt_de: TÃ¼rrahmen TR 06 aus Kiefernholz 115 x 26 mm massiv individuell anfertigbar ideal fÃ¼r Innenausbau TÃ¼ren und Fenster natÃ¼rliche Holzoptik nach MaÃŸ bestellbar
 seo:
-  title: 'tr06 - Tür- und Fensterrahmen TR 06, Maße: 115 x'
-  description: 'Als Tür- oder Fensterrahmen einsetzbar, Maße: 115x26 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage'
+  title: 'tr06 - TÃ¼r- und Fensterrahmen TR 06, MaÃŸe: 115 x'
+  description: 'Als TÃ¼r- oder Fensterrahmen einsetzbar, MaÃŸe: 115x26 mm Kiefer oder White Wood, LÃ¤nge nach Wunsch, andere HÃ¶lzer (zB. Eiche) auf Anfrage'
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/114-522-tr06.html#/66-holzart_wl-kiefer
 ---
-Tür- und Fensterrahmen TR 06, Maße: 115 x 26 mm
+TÃ¼r- und Fensterrahmen TR 06, MaÃŸe: 115 x 26 mm
+

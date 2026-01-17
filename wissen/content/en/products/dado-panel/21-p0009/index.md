@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/dado-panel/21-p0009/
 title: P0009 - Board & Batten
-lang: en
 translationKey: '21'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -92,3 +91,4 @@ The special feature are the differently profiled decorative trims.
 A classic paneling that is suitable for city and country homes alike.
 
 The paneling can be ordered per linear meter. We manufacture the panel from solid wood in oak or pine. On request, it can be prepared for a colored coating.
+

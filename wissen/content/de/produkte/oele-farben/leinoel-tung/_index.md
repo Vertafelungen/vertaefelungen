@@ -1,16 +1,15 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: oils-linseed-tung-balsam
-title: Leinöl, Tung, Balsam
-description: Klassische Öle und Harze für Holzschutz, Grundierung und Pflege - besonders relevant für Restaurierung und denkmalgerechte Oberflächen.
+title: LeinÃ¶l, Tung, Balsam
+description: Klassische Ã–le und Harze fÃ¼r Holzschutz, Grundierung und Pflege - besonders relevant fÃ¼r Restaurierung und denkmalgerechte OberflÃ¤chen.
 weight: 10
 type: products
 seo:
-  meta_title: Leinöl, Tung, Balsam - Öle und Harze für Holzoberflächen
-  meta_description: 'Leinöl, Tungöl und Balsam: traditionelle Öle/Harze für Holzschutz, Grundierung und Pflege. Übersicht, Varianten und Anwendung - Vertäfelung & Lambris.'
+  meta_title: LeinÃ¶l, Tung, Balsam - Ã–le und Harze fÃ¼r HolzoberflÃ¤chen
+  meta_description: 'LeinÃ¶l, TungÃ¶l und Balsam: traditionelle Ã–le/Harze fÃ¼r Holzschutz, Grundierung und Pflege. Ãœbersicht, Varianten und Anwendung - VertÃ¤felung & Lambris.'
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -30,4 +29,5 @@ cascade:
   seo:
     robots: index,follow
 ---
-In dieser Unterkategorie sind traditionelle Öle und Harze gebündelt, die je nach Rezeptur als Grundierung, Schutz- oder Pflegesystem eingesetzt werden.\n\n**Typische Themen:**\n- Penetration und Trocknung (oxidativ / polymerisierend)\n- Schichtaufbau (dünn, wiederholbar, reparierfähig)\n- Kompatibilität mit Altanstrichen und Holzarten\n\nWähle ein Produkt, um Eigenschaften, Varianten und Anwendungshinweise zu sehen.
+In dieser Unterkategorie sind traditionelle Ã–le und Harze gebÃ¼ndelt, die je nach Rezeptur als Grundierung, Schutz- oder Pflegesystem eingesetzt werden.\n\n**Typische Themen:**\n- Penetration und Trocknung (oxidativ / polymerisierend)\n- Schichtaufbau (dÃ¼nn, wiederholbar, reparierfÃ¤hig)\n- KompatibilitÃ¤t mit Altanstrichen und Holzarten\n\nWÃ¤hle ein Produkt, um Eigenschaften, Varianten und Anwendungshinweise zu sehen.
+

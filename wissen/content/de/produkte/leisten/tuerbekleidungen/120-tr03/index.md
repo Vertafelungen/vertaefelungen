@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/120-tr03/
-title: Türbekleidung 03
-lang: de
+title: TÃ¼rbekleidung 03
 translationKey: '120'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -18,12 +17,13 @@ produkt:
     preis_aufschlag: 26.14
   bilder:
   - datei: tr03.png
-    alt_de: Türrahmen TR 03 aus Kiefernholz 160 x 42 mm massiv besonders breit und stabil ideal für Innenausbau Türen und Fenster edles Design nach Maß bestellbar
+    alt_de: TÃ¼rrahmen TR 03 aus Kiefernholz 160 x 42 mm massiv besonders breit und stabil ideal fÃ¼r Innenausbau TÃ¼ren und Fenster edles Design nach MaÃŸ bestellbar
 seo:
-  title: 'tr03 - Tür- und Fensterrahmen TR 03, Maße: 160 X'
-  description: 'Als Tür- oder Fensterrahmen einsetzbar, Maße: 160 x 42 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage'
+  title: 'tr03 - TÃ¼r- und Fensterrahmen TR 03, MaÃŸe: 160 X'
+  description: 'Als TÃ¼r- oder Fensterrahmen einsetzbar, MaÃŸe: 160 x 42 mm Kiefer oder White Wood, LÃ¤nge nach Wunsch, andere HÃ¶lzer (zB. Eiche) auf Anfrage'
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/119-532-tr02.html#/66-holzart_wl-kiefer
 ---
-Tür- und Fensterrahmen TR 03, Maße: 160 X 42 mm
+TÃ¼r- und Fensterrahmen TR 03, MaÃŸe: 160 X 42 mm
+

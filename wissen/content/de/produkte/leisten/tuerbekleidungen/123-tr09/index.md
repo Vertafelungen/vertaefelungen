@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/123-tr09/
-title: Türbekleidung 09
-lang: de
+title: TÃ¼rbekleidung 09
 translationKey: '123'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -18,13 +17,14 @@ produkt:
     preis_aufschlag: 11.66
   bilder:
   - datei: tr09.png
-    alt_de: Türrahmen TR 09 aus Kiefernholz 115 x 26 mm massiv klassisches Design ideal für Innenausbau Türen und Fenster vielseitig einsetzbar nach Maß bestellbar
+    alt_de: TÃ¼rrahmen TR 09 aus Kiefernholz 115 x 26 mm massiv klassisches Design ideal fÃ¼r Innenausbau TÃ¼ren und Fenster vielseitig einsetzbar nach MaÃŸ bestellbar
 seo:
-  title: tr09 - Tür- und Fensterrahmen nach Originalvorlage TR
-  description: 'Als Tür- oder Fensterrahmen einsetzbar, Maße: 115 x 26 mm Kiefer oder White Wood, Länge nach Wunsch, andere Hölzer (zB. Eiche) auf Anfrage'
+  title: tr09 - TÃ¼r- und Fensterrahmen nach Originalvorlage TR
+  description: 'Als TÃ¼r- oder Fensterrahmen einsetzbar, MaÃŸe: 115 x 26 mm Kiefer oder White Wood, LÃ¤nge nach Wunsch, andere HÃ¶lzer (zB. Eiche) auf Anfrage'
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/123-540-tr09.html#/66-holzart_wl-kiefer
 ---
-Tür- und Fensterrahmen nach Originalvorlage
-TR 09, Maße: 115 x 26 mm
+TÃ¼r- und Fensterrahmen nach Originalvorlage
+TR 09, MaÃŸe: 115 x 26 mm
+

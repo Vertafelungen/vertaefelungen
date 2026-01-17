@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/rosettes/73-blr5/
 title: Ventilation Rosette 5
-lang: en
 translationKey: '73'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -31,3 +30,4 @@ Cast brass, polished
 
 Diameter approx. 58 mm
 Hight approx 13 mm
+

@@ -1,16 +1,15 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: beeck-sip-pro-solid
-title: Standölinnenfarbe Pro Volltonfarbe
-description: Fertig abgetönte Volltonfarben auf Standölbasis (BEECK SIP Pro) - robuste, diffusionsoffene Innenanstriche für Holzoberflächen.
+title: StandÃ¶linnenfarbe Pro Volltonfarbe
+description: Fertig abgetÃ¶nte Volltonfarben auf StandÃ¶lbasis (BEECK SIP Pro) - robuste, diffusionsoffene Innenanstriche fÃ¼r HolzoberflÃ¤chen.
 weight: 10
 type: products
 seo:
-  meta_title: Standölinnenfarbe Pro Volltonfarbe - BEECK Farbtöne (SIP-V)
-  meta_description: 'BEECK Standölinnenfarbe Pro als Volltonfarbe (SIP-V): Farbtöne, Gebinde und Varianten für robuste Innenanstriche auf Holz.'
+  meta_title: StandÃ¶linnenfarbe Pro Volltonfarbe - BEECK FarbtÃ¶ne (SIP-V)
+  meta_description: 'BEECK StandÃ¶linnenfarbe Pro als Volltonfarbe (SIP-V): FarbtÃ¶ne, Gebinde und Varianten fÃ¼r robuste Innenanstriche auf Holz.'
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -30,4 +29,5 @@ cascade:
   seo:
     robots: index,follow
 ---
-Hier findest du die **Volltonfarben** der BEECK Standölinnenfarbe Pro: fertig abgetönte Farbtöne mit standölbasierter Bindemittelmatrix.\n\n**Einsatzbereiche:** Holzbauteile im Innenraum (z. B. Vertäfelungen, Türen, Leisten) sowie passende mineralische Untergründe, sofern systemkonform.\n\nWähle einen Farbton, um Produktdaten, Gebindegrößen, Varianten und Bilder zu sehen.
+Hier findest du die **Volltonfarben** der BEECK StandÃ¶linnenfarbe Pro: fertig abgetÃ¶nte FarbtÃ¶ne mit standÃ¶lbasierter Bindemittelmatrix.\n\n**Einsatzbereiche:** Holzbauteile im Innenraum (z. B. VertÃ¤felungen, TÃ¼ren, Leisten) sowie passende mineralische UntergrÃ¼nde, sofern systemkonform.\n\nWÃ¤hle einen Farbton, um Produktdaten, GebindegrÃ¶ÃŸen, Varianten und Bilder zu sehen.
+

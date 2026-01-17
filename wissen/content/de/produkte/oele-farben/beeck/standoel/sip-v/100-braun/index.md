@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/100-braun/
-title: Braun - BEECK Standölinnenfarbe PRO
-lang: de
+title: Braun - BEECK StandÃ¶linnenfarbe PRO
 translationKey: '100'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -26,20 +25,21 @@ produkt:
     preis_aufschlag: 556.35
   bilder:
   - datei: braun.png
-    alt_de: BEECK Standölinnenfarbe PRO Braun seidenmatt für Holz innen Deckende Leinölfarbe für Türen Vertäfelungen Denkmalschutz
+    alt_de: BEECK StandÃ¶linnenfarbe PRO Braun seidenmatt fÃ¼r Holz innen Deckende LeinÃ¶lfarbe fÃ¼r TÃ¼ren VertÃ¤felungen Denkmalschutz
   - datei: braun-farbfaecher.png
     alt_de: ''
   - datei: sip_gebinde.png
     alt_de: ''
 seo:
-  title: Braun, BEECK Standölinnnenfarbe PRO, deckend, für Holz im Innenbereich
-  description: Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.
+  title: Braun, BEECK StandÃ¶linnnenfarbe PRO, deckend, fÃ¼r Holz im Innenbereich
+  description: Beeck StandÃ¶linnenfarbe Pro ist eine hoch pigentierte LeinÃ¶lfarbe fÃ¼r die Baudenkmalpflege / Restaurierung von Holzobjekten und VertÃ¤felungen in Innenbereichen.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/100-401-braun.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt
 ---
-BEECK Standölinnenfarbe PRO
-Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
+BEECK StandÃ¶linnenfarbe PRO
+Deckend pigmentiert, fÃ¼r Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
 
 Verwendungszweck
-Leinöl-Standölfarbe für farbige Holz-Behandlungen im Innenbereich, für Türen, Vertäfelungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ölfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfähigen und wasserfesten Öllackfilm.
+LeinÃ¶l-StandÃ¶lfarbe fÃ¼r farbige Holz-Behandlungen im Innenbereich, fÃ¼r TÃ¼ren, VertÃ¤felungen und Deckenverkleidungen. Bevorzugter Einsatz in der Baudenkmalpflege bei der stil- und materialgerechten Restaurierung alter Ã–lfarbanstriche. Vernetzt durch oxidative Trocknung zu einem diffusionsfÃ¤higen und wasserfesten Ã–llackfilm.
+

@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/skirtings/45-sl0006/
 title: SL0006 - with cyma 58/18
-lang: en
 translationKey: '45'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -25,3 +24,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/Skirting/45-sl0006-mit-karnies-58-18.html
 ---
 simple with cyma
+

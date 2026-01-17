@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/leisten/sockelleisten/42-sl0003/
 title: SL0003 - Kreuzberger Leiste 165/28
-lang: de
 translationKey: '42'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -18,10 +17,11 @@ produkt:
   - datei: sl0003-02.png
     alt_de: umlaufende hohe Profilleiste mit Schattenwirkung
 seo:
-  title: Kreuzberger Leiste, 16,5 cm Höhe
-  description: Eine echte Berliner Leiste, die für eine Wohnung in der Adalbertstr. nachgefräst wurde.
+  title: Kreuzberger Leiste, 16,5 cm HÃ¶he
+  description: Eine echte Berliner Leiste, die fÃ¼r eine Wohnung in der Adalbertstr. nachgefrÃ¤st wurde.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/sockelleisten/42-kreuzberger-leiste.html
 ---
-Eine echte Berliner Leiste, die für eine Wohnung in der Adalbertstr. nachgefräst wurde.
+Eine echte Berliner Leiste, die fÃ¼r eine Wohnung in der Adalbertstr. nachgefrÃ¤st wurde.
+

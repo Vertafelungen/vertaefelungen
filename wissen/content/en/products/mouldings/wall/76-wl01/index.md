@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/wall/76-wl01/
 title: Wall Moulding 01
-lang: en
 translationKey: '76'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -32,3 +31,4 @@ Available in pine or whitewood, other wood types on request
 The WL 01 wall moulding features a classically shaped, asymmetrical profile measuring 40 x 16 mm. The design combines a generously curved cyma recta (karnis) in the central section with finely tapering contours on the inner side.
 
 WL 01 is suitable for framing wall surfaces and creating elegant panel layouts. It is made from solid wood.
+

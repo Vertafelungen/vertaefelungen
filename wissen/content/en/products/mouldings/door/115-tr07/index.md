@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/115-tr07/
 title: Door Frame 07
-lang: en
 translationKey: '115'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -27,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/115-524-tr07.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 07, dimensions: 143 x 31 mm
+

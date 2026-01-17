@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/rosettes/72-blr2/
 title: Ventilation Rosette 2
-lang: en
 translationKey: '72'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -35,3 +34,4 @@ Cast brass, polished
 
 Diameter approx. 42 mm
 Hight approx 3 mm
+

@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/117-tr01-120/
 title: Door Frame 01 / 120
-lang: en
 translationKey: '117'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -27,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/117-528-tr01-120.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 01 / 120, dimensions: 120 x 18 mm
+

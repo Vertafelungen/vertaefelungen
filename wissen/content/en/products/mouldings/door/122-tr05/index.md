@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/122-tr05/
 title: Door Frame 05
-lang: en
 translationKey: '122'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -27,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/122-538-tr05.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 05, dimensions: 179 x 42 mm
+

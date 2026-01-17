@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/skirtings/44-sl0004/
 title: SL0004 - 2-piece high skirting board 175/45
-lang: en
 translationKey: '44'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -25,3 +24,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/Skirting/44-sl0004-2teilige-hohe-sockelleiste.html
 ---
 Richly profiled, high skirting board made up of 2 parts.
+

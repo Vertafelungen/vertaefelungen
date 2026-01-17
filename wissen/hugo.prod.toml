@@ -3,7 +3,8 @@ title = "Wissensdatenbank | Vertäfelung & Lambris"
 defaultContentLanguage = "de"
 defaultContentLanguageInSubdir = true
 enableRobotsTXT = true
-paginate = 10
+[pagination]
+pagerSize = 10
 canonifyURLs = true
 relativeURLs = false
 

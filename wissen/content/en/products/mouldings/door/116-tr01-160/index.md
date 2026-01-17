@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/116-tr01-160/
 title: Door Frame 01 / 160
-lang: en
 translationKey: '116'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -27,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/116-526-tr01-160.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 01 / 160, dimensions: 160 x 24 mm
+

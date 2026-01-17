@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/wall/80-wl05/
 title: Wall Moulding 05
-lang: en
 translationKey: '80'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -31,3 +30,4 @@ Available in pine or whitewood, other wood species available upon request.
 
 As a wall strip for direct installation on the plastered wall.
 This strip can be used to create frames or panels that can be used to divide and partition large wall surfaces.
+

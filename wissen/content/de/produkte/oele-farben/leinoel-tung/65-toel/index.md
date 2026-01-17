@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/leinoel-tung/65-toel/
-title: Tung Holzöllack
-lang: de
+title: Tung HolzÃ¶llack
 translationKey: '65'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -22,18 +21,19 @@ produkt:
     preis_aufschlag: 355.46
   bilder:
   - datei: toel.png
-    alt_de: Tung Holzöllack 1 Liter Tungöl Lackleinöl innen außen UV-beständig schnelltrocknend Hartrockenöl Schlussfirnis
+    alt_de: Tung HolzÃ¶llack 1 Liter TungÃ¶l LackleinÃ¶l innen auÃŸen UV-bestÃ¤ndig schnelltrocknend HartrockenÃ¶l Schlussfirnis
 seo:
   title: toel - <p style="margin:0px;font-style:normal;font-size:10.7px
-  description: Tungöl Lack - reines, härtendes Holzöl für stark beanspruchte Oberflächen. Lösemittelfrei, wetterfest, tief eindringend. Ideal für innen & außen.
+  description: TungÃ¶l Lack - reines, hÃ¤rtendes HolzÃ¶l fÃ¼r stark beanspruchte OberflÃ¤chen. LÃ¶semittelfrei, wetterfest, tief eindringend. Ideal fÃ¼r innen & auÃŸen.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/65-332-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter
 ---
-Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen.
+TungÃ¶l verkocht mit LackleinÃ¶l, LeinÃ¶lstandÃ¶l und Sikkativen.
 
-Anwendung innen und außen.
+Anwendung innen und auÃŸen.
 
 
 
-TUNG Holzöllack trocknet bedeutend schneller und härter als ein Leinölfirnisanstrich. Die Oberfläche ist anfänglich matt glänzend. Er wird eingesetzt als Schlussfirnis auf Leinölgrundierungen, da er weniger durch Wasser quillt und eine bessere UV Beständigkeit besitzt als ein Leinölfirnis. Sehr gut ist er auch zur Pflege aller Arten von Holz, auch Harthölzer, geeignet. Das legendäre Eburit Hartrockenöl basiert auf den gleichen Inhaltsstoffen wie unser Holzöllack.
+TUNG HolzÃ¶llack trocknet bedeutend schneller und hÃ¤rter als ein LeinÃ¶lfirnisanstrich. Die OberflÃ¤che ist anfÃ¤nglich matt glÃ¤nzend. Er wird eingesetzt als Schlussfirnis auf LeinÃ¶lgrundierungen, da er weniger durch Wasser quillt und eine bessere UV BestÃ¤ndigkeit besitzt als ein LeinÃ¶lfirnis. Sehr gut ist er auch zur Pflege aller Arten von Holz, auch HarthÃ¶lzer, geeignet. Das legendÃ¤re Eburit HartrockenÃ¶l basiert auf den gleichen Inhaltsstoffen wie unser HolzÃ¶llack.
+

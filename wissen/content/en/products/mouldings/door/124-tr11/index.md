@@ -1,8 +1,7 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/124-tr11/
 title: Door Frame 11
-lang: en
 translationKey: '124'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
@@ -27,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/124-542-tr11.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 11, dimensions: 118 x 23 mm
+
