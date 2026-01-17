@@ -1,36 +1,40 @@
 {{/* 
 File: wissen/layouts/partials/seo/is-indexable.html
-Version: 2026-01-17 18:09
+Version: 2026-01-17 12:00 Europe/Berlin (Fix: remove non-existent isString; keep behavior)
 Purpose:
-  Return true if the current page should be indexable.
+  Output a boolean indicating whether the current page should be indexable.
+Notes:
+  - Hugo partials do NOT support `return <value>`. This partial must output a boolean as its final expression.
+  - Hugo does not provide an `isString` template function. We use type detection via printf "%T".
 */}}
 
 {{- $noindex := false -}}
 
+{{/* Explicit noindex flag in front matter */}}
 {{- if .Params.noindex -}}
   {{- $noindex = true -}}
 {{- end -}}
 
+{{/* Allow robots param as string or slice (e.g. "noindex,nofollow" or ["noindex","nofollow"]) */}}
 {{- with .Params.robots -}}
-  {{- if reflect.IsSlice . -}}
+  {{- if eq (printf "%T" .) "string" -}}
+    {{- $r := lower . -}}
+    {{- if in $r "noindex" -}}
+      {{- $noindex = true -}}
+    {{- end -}}
+  {{- else -}}
     {{- range . -}}
       {{- if eq (lower .) "noindex" -}}
         {{- $noindex = true -}}
       {{- end -}}
     {{- end -}}
-  {{- else if reflect.IsMap . -}}
-    {{- if eq (lower (index . "index")) "noindex" -}}
-      {{- $noindex = true -}}
-    {{- end -}}
-  {{- else -}}
-    {{- if in (lower (printf "%v" .)) "noindex" -}}
-      {{- $noindex = true -}}
-    {{- end -}}
   {{- end -}}
 {{- end -}}
 
+{{/* Hugo drafts should not be indexable */}}
 {{- if .Draft -}}
   {{- $noindex = true -}}
 {{- end -}}
 
+{{/* Final output: boolean */}}
 {{- not $noindex -}}
