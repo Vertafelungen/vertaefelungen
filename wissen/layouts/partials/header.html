@@ -18,11 +18,13 @@
 
       <div class="nav-panel" id="main-nav">
         <nav class="main-nav" aria-label="{{ i18n "header_nav_label" }}">
-          {{- $current := .RelPermalink -}}
-
           {{- range .Site.Menus.main -}}
-            {{- $label := .Name | title }}  <!-- Sicherstellen, dass die Großbuchstaben und Umlaute gesetzt sind -->
-            <a class="main-nav__link{{ if eq $current .URL }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
+            {{- $label := .Name -}}
+            {{- with .Identifier -}}
+              {{- $label = i18n . -}}
+            {{- end -}}
+            {{- $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) -}}
+            <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
           {{- end -}}
         </nav>
 

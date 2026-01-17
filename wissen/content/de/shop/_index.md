@@ -8,11 +8,10 @@ date: 2026-01-11T14:00:00+01:00
 lastmod: 2026-01-11T14:00:00+01:00
 draft: false
 
-# Optional: wenn du Menüs über Front Matter steuerst
-# menu:
-#   main:
-#     name: "Shop"
-#     weight: 20
+menu:
+  main:
+    identifier: menu_shop
+    weight: 10
 
 # Optional: für CTA-Tracking ohne Inline-JS (z. B. via Matomo/GA/Plausible im Theme)
 # params:
