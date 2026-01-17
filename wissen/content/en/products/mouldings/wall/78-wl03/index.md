@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/wall/78-wl03/
 title: Wall Moulding 03
-lang: en
 translationKey: '78'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

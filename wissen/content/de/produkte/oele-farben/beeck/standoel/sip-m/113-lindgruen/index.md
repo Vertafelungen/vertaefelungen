@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-m/113-lindgruen/
 title: Lindgrün - BEECK Standölinnenfarbe PRO
-lang: de
 translationKey: '113'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

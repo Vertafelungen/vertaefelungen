@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: wall-mouldings
 title: Wall Mouldings
 description: 'Wall mouldings for structuring historic wall surfaces: profiles for panels, frames, cornice lines and transitions - with variants, dimensions and images.'

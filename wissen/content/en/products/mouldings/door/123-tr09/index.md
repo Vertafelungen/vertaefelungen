@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/door/123-tr09/
 title: Door Frame 09
-lang: en
 translationKey: '123'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: wall-mouldings
 title: Wandleisten
 description: 'Wandleisten zur Gliederung historischer Wandflächen: Profile für Felder, Rahmungen, Gesimse und Übergänge - mit Varianten, Maßen und Bildmaterial.'

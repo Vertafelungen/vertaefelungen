@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/hohe-vertaefelungen/53-p0013/
 title: P0013 - Berlin - Mommsenstraße
-lang: de
 translationKey: '53'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

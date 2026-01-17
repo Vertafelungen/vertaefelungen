@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/116-tr01-160/
 title: Türbekleidung 01 / 160
-lang: de
 translationKey: '116'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

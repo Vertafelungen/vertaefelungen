@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/94-weiss/
 title: Weiß - BEECK Standölinnenfarbe PRO
-lang: de
 translationKey: '94'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

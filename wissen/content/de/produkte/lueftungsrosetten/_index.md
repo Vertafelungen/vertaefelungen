@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: ventilation-rosettes
 title: Lüftungsrosetten
 description: 'Lüftungsrosetten für historische Innenräume: dekorative Abdeckungen für Lüftungsöffnungen (z. B. Wand-/Türlüftung), passend zu klassischen Profil- und Vertäfelungssystemen.'

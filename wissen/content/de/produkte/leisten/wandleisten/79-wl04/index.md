@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/79-wl04/
 title: Wandleiste 04 „Rundstableiste"
-lang: de
 translationKey: '79'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

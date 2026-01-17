@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/halbhohe-vertaefelungen/21-p0009/
 title: P0009 - Nadelstreif & Zierstab
-lang: de
 translationKey: '21'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

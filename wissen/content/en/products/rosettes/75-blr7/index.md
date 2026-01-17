@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/rosettes/75-blr7/
 title: Ventilation Rosette 7
-lang: en
 translationKey: '75'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

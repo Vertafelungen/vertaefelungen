@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: mouldings-root
 title: Mouldings
 description: 'Mouldings for historically informed interiors: wall mouldings, door surrounds/architraves and skirting boards - reconstructed from references or supplied as compatible standard profiles.'

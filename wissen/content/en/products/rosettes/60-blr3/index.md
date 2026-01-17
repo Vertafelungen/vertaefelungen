@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/rosettes/60-blr3/
 title: Ventilation Rosette 3
-lang: en
 translationKey: '60'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

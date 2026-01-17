@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/90-wl14/
 title: Wandleiste 14
-lang: de
 translationKey: '90'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

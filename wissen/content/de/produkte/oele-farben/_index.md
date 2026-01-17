@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: oil-paints-root
 title: Öle & Farben
 description: Öle, Farben und Oberflächensysteme für historische Holzoberflächen - mit Fokus auf kompatible Materialien, handwerkliche Verarbeitung und Denkmalpflege.

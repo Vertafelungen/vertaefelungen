@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/leinoel-tung/69-toen/
 title: Tungöl natur
-lang: de
 translationKey: '69'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

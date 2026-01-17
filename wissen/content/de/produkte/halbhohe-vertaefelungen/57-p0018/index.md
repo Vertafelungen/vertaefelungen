@@ -3,7 +3,6 @@ aliases:
 - /wissen/de/produktinfo/public/halbhohe-vertaefelungen/57-p0018/
 - /wissen/de/produkte/hohe-vertaefelungen/57-p0014/
 title: P0018 - Berlin - Invalidenstraße
-lang: de
 translationKey: '57'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

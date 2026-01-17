@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/sockelleisten/34-sl0005/
 title: SL0005 - abgerundete Oberkante 80/16
-lang: de
 translationKey: '34'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: beeck-sip-pro-mixed
 title: Standölinnenfarbe Pro Mischtöne
 description: 'BEECK Standölinnenfarbe Pro Mischtöne (SIP-M): Nuancen und Mischrezepturen für standölbasierte, diffusionsoffene Innenanstriche.'

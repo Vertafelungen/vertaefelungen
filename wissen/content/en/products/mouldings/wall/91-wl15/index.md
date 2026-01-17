@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/wall/91-wl15/
 title: Wall Moulding 15
-lang: en
 translationKey: '91'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

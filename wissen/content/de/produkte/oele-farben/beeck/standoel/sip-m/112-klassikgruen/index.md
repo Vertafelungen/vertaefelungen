@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-m/112-klassikgruen/
 title: Klassikgrün - BEECK Standölinnenfarbe PRO
-lang: de
 translationKey: '112'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

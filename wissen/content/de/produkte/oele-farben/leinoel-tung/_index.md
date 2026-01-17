@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: oils-linseed-tung-balsam
 title: Leinöl, Tung, Balsam
 description: Klassische Öle und Harze für Holzschutz, Grundierung und Pflege - besonders relevant für Restaurierung und denkmalgerechte Oberflächen.

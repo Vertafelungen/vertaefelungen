@@ -2,7 +2,6 @@
 title: restaurierung reproduktion vertaefelungen holzleisten
 slug: 'restaurierung-reproduktion-vertaefelungen-holzleisten'
 type: faq
-lang: de
 managed_by: faq
 url: '/faq/themen/restaurierung-reproduktion-vertaefelungen-holzleisten/'
 ---

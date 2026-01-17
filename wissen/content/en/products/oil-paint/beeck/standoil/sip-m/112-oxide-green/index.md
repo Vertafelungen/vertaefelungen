@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/oil-paint/beeck/standoil/sip-m/112-oxid-green/
 title: Oxide Green - BEECK Interior Stand-Oil Paint PRO
-lang: en
 translationKey: '112'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

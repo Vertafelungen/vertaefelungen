@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/126-tr13/
 title: Türbekleidung 13
-lang: de
 translationKey: '126'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: dado-panel
 title: Dado Panel
 description: Dado panel (low wall panelling up to typical dado/rail height) based on historic references - flexible combinations, ideal for period rooms and easy to integrate with colour schemes.

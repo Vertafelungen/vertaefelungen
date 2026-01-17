@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/119-tr02/
 title: Türbekleidung 02
-lang: de
 translationKey: '119'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/high-wainscoting/24-p0002/
 title: P0002 - Hamburg - Michel
-lang: en
 translationKey: '24'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

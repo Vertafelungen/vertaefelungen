@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/dado-panel/21-p0009/
 title: P0009 - Board & Batten
-lang: en
 translationKey: '21'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

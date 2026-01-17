@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/halbhohe-vertaefelungen/23-p0001/
 title: P0001 - Berlin - Winsstraße
-lang: de
 translationKey: '23'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

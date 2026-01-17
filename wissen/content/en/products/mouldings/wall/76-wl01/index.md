@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/wall/76-wl01/
 title: Wall Moulding 01
-lang: en
 translationKey: '76'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

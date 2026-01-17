@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: beeck-sip-pro-solid
 title: Interior Stand-Oil Paint PRO - Solid Colours
 description: Ready-mixed solid colours based on stand oil (BEECK SIP PRO) - durable, vapour-open interior finishes for wood surfaces.

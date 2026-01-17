@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: beeck-primer-pro
 title: Vorstreichfarbe Pro
 description: 'Systemkomponente als Grund-/Vorstreich: verbessert Haftung, Egalisierung und den nachfolgenden Standöl-Anstrichaufbau (BEECK Pro-System).'

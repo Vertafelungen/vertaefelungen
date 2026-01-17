@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/wall/82-wl07/
 title: Wall Moulding 07
-lang: en
 translationKey: '82'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

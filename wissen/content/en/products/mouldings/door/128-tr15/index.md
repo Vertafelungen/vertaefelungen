@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/door/128-tr15/
 title: Door Frame 15
-lang: en
 translationKey: '128'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

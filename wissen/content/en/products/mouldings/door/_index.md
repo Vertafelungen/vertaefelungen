@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: door-architraves
 title: Door Surrounds
 description: 'Door surrounds (architraves and casing profiles) for historic interiors: clean framing of doors and openings, with variants, dimensions and images.'

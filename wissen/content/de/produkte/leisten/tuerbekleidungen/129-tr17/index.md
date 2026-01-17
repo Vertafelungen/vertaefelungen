@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/129-tr17/
 title: Türbekleidung 17
-lang: de
 translationKey: '129'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

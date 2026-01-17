@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/102-zitronengelb/
 title: Zitronengelb - BEECK Standölinnenfarbe PRO
-lang: de
 translationKey: '102'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

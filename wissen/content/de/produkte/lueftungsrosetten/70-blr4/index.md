@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/lueftungsrosetten/70-blr4/
 title: Lüftungsrosette 4
-lang: de
 translationKey: '70'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

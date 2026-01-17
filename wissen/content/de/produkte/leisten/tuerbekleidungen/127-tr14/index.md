@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/127-tr14/
 title: Türbekleidung 14
-lang: de
 translationKey: '127'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

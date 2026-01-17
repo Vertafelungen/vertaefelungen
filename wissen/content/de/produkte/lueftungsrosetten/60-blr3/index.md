@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/lueftungsrosetten/60-blr3/
 title: Lüftungsrosette 3
-lang: de
 translationKey: '60'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

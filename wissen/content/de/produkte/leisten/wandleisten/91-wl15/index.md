@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/91-wl15/
 title: Wandleiste 15
-lang: de
 translationKey: '91'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

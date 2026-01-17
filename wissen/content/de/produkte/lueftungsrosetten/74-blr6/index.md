@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/lueftungsrosetten/74-blr6/
 title: Lüftungsrosette 6
-lang: de
 translationKey: '74'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: beeck-primer-pro
 title: Primer Coat PRO
 description: 'System component as primer/undercoat: improves adhesion, levelling and the subsequent stand-oil paint build-up (BEECK PRO system).'

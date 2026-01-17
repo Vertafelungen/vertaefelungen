@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/85-wl09/
 title: Wandleiste 09
-lang: de
 translationKey: '85'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

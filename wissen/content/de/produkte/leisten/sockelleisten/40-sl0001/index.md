@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/sockelleisten/40-sl0001/
 title: SL0001 - Hamburger Leiste 170/25
-lang: de
 translationKey: '40'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

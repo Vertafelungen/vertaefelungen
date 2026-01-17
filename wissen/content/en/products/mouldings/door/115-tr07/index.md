@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/door/115-tr07/
 title: Door Frame 07
-lang: en
 translationKey: '115'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/door/114-tr06/
 title: Door Frame 06
-lang: en
 translationKey: '114'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

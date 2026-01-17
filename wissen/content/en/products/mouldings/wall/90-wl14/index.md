@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/wall/90-wl14/
 title: Wall Moulding 14
-lang: en
 translationKey: '90'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
