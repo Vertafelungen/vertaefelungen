@@ -2,6 +2,7 @@
   "name": "vertaefelungen",
   "private": true,
   "scripts": {
+    "test:seo": "python wissen/scripts/seo_smoke_check.py",
     "test:e2e": "playwright test"
   },
   "devDependencies": {

@@ -3,15 +3,21 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {{- /* Alle regulären Seiten dieses Sprach-Builds */ -}}
   {{- range .Site.RegularPages -}}
-    <url>
-      <loc>{{ .Permalink }}</loc>
-      {{- with .Lastmod -}}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{- end -}}
-      {{- /* Alternate hreflang-Links (falls mehrsprachig) */ -}}
-      {{- with .AllTranslations -}}
-        {{- range . -}}
-          <xhtml:link rel="alternate" hreflang="{{ .Site.Language.Lang }}" href="{{ .Permalink }}" />
+    {{- if partial "seo/is-indexable.html" . -}}
+      {{- $canonical := partial "seo/canonical-url.html" . -}}
+      <url>
+        <loc>{{ $canonical }}</loc>
+        {{- with .Lastmod -}}<lastmod>{{ .Format "2006-01-02T15:04:05Z07:00" }}</lastmod>{{- end -}}
+        {{- /* Alternate hreflang-Links (falls mehrsprachig) */ -}}
+        {{- with .AllTranslations -}}
+          {{- range . -}}
+            {{- if partial "seo/is-indexable.html" . -}}
+              {{- $altCanonical := partial "seo/canonical-url.html" . -}}
+              <xhtml:link rel="alternate" hreflang="{{ .Lang }}" href="{{ $altCanonical }}" />
+            {{- end -}}
+          {{- end -}}
         {{- end -}}
-      {{- end -}}
-    </url>
+      </url>
+    {{- end -}}
   {{- end -}}
 </urlset>
