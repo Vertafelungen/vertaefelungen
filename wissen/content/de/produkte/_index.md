@@ -1,15 +1,11 @@
 ---
-version: 2026-01-09 15:01 UTC
+version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
-last_synced: 2026-01-09 15:01 UTC
+last_synced: 2026-01-17 14:37 UTC
 lang: de
 translationKey: products-root
 title: Produkte
 description: 'Produktübersicht: Vertäfelungen, Leisten, Öle & Farben sowie Lüftungsrosetten.'
-menu:
-  main:
-    identifier: menu_products
-    weight: 30
 weight: 10
 type: products
 seo:

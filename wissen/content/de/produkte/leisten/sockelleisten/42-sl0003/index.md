@@ -5,7 +5,7 @@ title: SL0003 - Kreuzberger Leiste 165/28
 lang: de
 translationKey: '42'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-17'
 produkt:
   id: '42'
   artikelnummer: SL0003

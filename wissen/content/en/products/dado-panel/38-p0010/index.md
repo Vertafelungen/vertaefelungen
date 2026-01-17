@@ -5,7 +5,7 @@ title: P0010 - Rome - St Peter's Basilica - Balustrade at the tomb of St Peter
 lang: en
 translationKey: '38'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-17'
 produkt:
   id: '38'
   artikelnummer: P0010

@@ -5,7 +5,7 @@ title: Door Frame 04
 lang: en
 translationKey: '121'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-17'
 produkt:
   id: '121'
   artikelnummer: TR04

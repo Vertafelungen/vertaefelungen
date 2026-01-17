@@ -5,7 +5,7 @@ title: SL0002 - Hamburger Leiste 120/18
 lang: de
 translationKey: '41'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-17'
 produkt:
   id: '41'
   artikelnummer: SL0002
