@@ -1,11 +1,12 @@
 ---
 aliases:
 - /wissen/de/produktinfo/public/halbhohe-vertaefelungen/31-p0004/
+- /wissen/de/produkte/halbhohe-vertaefelungen/31-p0005/
 title: P0004 - Berlin - Sophienstraße
 lang: de
 translationKey: '31'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-17'
 produkt:
   id: '31'
   artikelnummer: P0004

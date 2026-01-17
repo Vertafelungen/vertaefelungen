@@ -1,7 +1,7 @@
 ---
-version: 2026-01-09 15:01 UTC
+version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
-last_synced: 2026-01-09 15:01 UTC
+last_synced: 2026-01-17 14:37 UTC
 lang: en
 translationKey: skirting-boards
 title: Skirting Boards

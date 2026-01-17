@@ -5,7 +5,7 @@ title: Klassikgrün - BEECK Standölinnenfarbe PRO
 lang: de
 translationKey: '112'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-17'
 produkt:
   id: '112'
   artikelnummer: KLASSIKGRUEN

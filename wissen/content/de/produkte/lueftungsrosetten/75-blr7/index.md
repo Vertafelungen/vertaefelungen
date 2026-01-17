@@ -5,7 +5,7 @@ title: Lüftungsrosette 7
 lang: de
 translationKey: '75'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-17'
 produkt:
   id: '75'
   artikelnummer: BLR7

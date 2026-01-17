@@ -1,15 +1,11 @@
 ---
-version: 2026-01-09 15:01 UTC
+version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
-last_synced: 2026-01-09 15:01 UTC
+last_synced: 2026-01-17 14:37 UTC
 lang: en
 translationKey: products-root
 title: Products
 description: 'Product overview: wainscoting, mouldings, oils & paints, and ventilation rosettes.'
-menu:
-  main:
-    identifier: menu_products
-    weight: 30
 weight: 10
 type: products
 seo:

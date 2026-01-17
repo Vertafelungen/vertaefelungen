@@ -5,7 +5,7 @@ title: Wall Moulding 07
 lang: en
 translationKey: '82'
 managed_by: ssot-sync
-last_synced: '2026-01-09'
+last_synced: '2026-01-17'
 produkt:
   id: '82'
   artikelnummer: WL07
