@@ -12,6 +12,14 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /wissen/
+  # Canonicalize duplicate locale segments
+  RewriteRule ^de/de/(.*)$ /wissen/de/$1 [R=301,L]
+  RewriteRule ^en/en/(.*)$ /wissen/en/$1 [R=301,L]
+  # Canonicalize duplicate product segments (if any legacy URLs exist)
+  RewriteRule ^de/produkte/produkte/?$ /wissen/de/produkte/ [R=301,L]
+  RewriteRule ^de/produkte/produkte/(.*)$ /wissen/de/produkte/$1 [R=301,L]
+  RewriteRule ^en/products/products/?$ /wissen/en/products/ [R=301,L]
+  RewriteRule ^en/products/products/(.*)$ /wissen/en/products/$1 [R=301,L]
   # Legacy knowledge redirects
   RewriteRule ^de/oeffentlich/produkte/?$ /wissen/de/produkte/ [R=301,L]
   RewriteRule ^de/produktinfo/?$ /wissen/de/produkte/ [R=301,L]

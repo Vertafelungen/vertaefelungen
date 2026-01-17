@@ -7,6 +7,15 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
+# Canonicalize duplicate locale segments
+RewriteRule ^de/de/(.*)$ de/$1 [R=301,L]
+RewriteRule ^en/en/(.*)$ en/$1 [R=301,L]
+# Canonicalize duplicate product segments (if any legacy URLs exist)
+RewriteRule ^de/produkte/produkte/?$ de/produkte/ [R=301,L]
+RewriteRule ^de/produkte/produkte/(.*)$ de/produkte/$1 [R=301,L]
+RewriteRule ^en/products/products/?$ en/products/ [R=301,L]
+RewriteRule ^en/products/products/(.*)$ en/products/$1 [R=301,L]
+
 # EN: legacy consulting/style-guide -> faq
 RewriteRule ^en/consulting/?$ en/faq/consulting/ [R=301,L]
 RewriteRule ^en/consulting/(.*)$ en/faq/consulting/$1 [R=301,L]
