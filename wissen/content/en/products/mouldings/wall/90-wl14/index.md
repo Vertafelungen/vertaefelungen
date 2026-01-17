@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/wall/90-wl14/
 title: Wall Moulding 14
@@ -30,3 +30,4 @@ In pine or whitewood, other wood types upon request
 
 As a wall strip for direct mounting on the plastered wall.
 This strip can be used to create frames or panels that can be used to divide and partition large wall surfaces.
+

@@ -1,4 +1,4 @@
----
+﻿---
 title: Brown - BEECK Interior Stand-Oil Paint PRO
 description: Placeholder content.
 robots: noindex,follow
@@ -40,3 +40,4 @@ refs:
 # Index
 
 Content follows.
+

@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/rosettes/71-blr1/
 title: Ventilation Rosette 1
@@ -34,3 +34,4 @@ Cast brass, polished
 
 Diameter approx. 52 mm
 Hight approx 5 mm
+

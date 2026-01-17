@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/oil-paint/beeck/standoil/sip-m/112-oxid-green/
 title: Oxide Green - BEECK Interior Stand-Oil Paint PRO
@@ -11,41 +11,41 @@ produkt:
   verfuegbar: true
   preis_basis: 57.15
   varianten:
-  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 01
+  - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 01
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 0,75 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 0.0
-  - bezeichnung: 0,75 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 0,75 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 0.0
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 01
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 01
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 2,5 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 102.35
-  - bezeichnung: 2,5 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 2,5 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 102.35
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 01
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 01
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 02
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 02
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenmatt, Klassikgrün 03
+  - bezeichnung: 10 L, seidenmatt, KlassikgrÃ¼n 03
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 01
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 01
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 02
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 02
     preis_aufschlag: 556.35
-  - bezeichnung: 10 L, seidenglanz, Klassikgrün 03
+  - bezeichnung: 10 L, seidenglanz, KlassikgrÃ¼n 03
     preis_aufschlag: 556.35
   bilder:
   - datei: klassikgruen01.png
@@ -70,3 +70,4 @@ Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: sa
 
 Intended use
 Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
+

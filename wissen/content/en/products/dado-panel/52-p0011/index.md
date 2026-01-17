@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/dado-panel/52-p0011/
 title: P0011 - Weimar - Goethe's house am Frauenplan
@@ -34,3 +34,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/52-289-p0011-weimar-goethehaus-am-frauenplan.html#/47-type_of_wood-pine_oiled
 ---
 Goethe's home in Weimar is a successful blend of classicist bourgeoisie and simple farmhouse.
+

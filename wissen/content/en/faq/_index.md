@@ -1,4 +1,4 @@
----
+﻿---
 title: FAQ
 slug: 'faq'
 type: faq
@@ -11,3 +11,4 @@ menu:
     weight: 20
 ---
 # Knowledge - English
+

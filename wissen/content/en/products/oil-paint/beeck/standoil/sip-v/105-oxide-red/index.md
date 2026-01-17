@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/oil-paint/beeck/standoil/sip-v/105-oxid-red/
 title: Oxide Red - BEECK Interior Stand-Oil Paint PRO
@@ -42,3 +42,4 @@ Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: sa
 
 Intended use
 Linseed-based Stand-Oil paint for coloured interior wood treatments, for doors, panelling and ceiling cladding. Preferred use in the preservation of listed buildings for the restoration of old oil paint coats in keeping with the style and material. Forms its film by oxidative drying into a vapor-permeable and water-resistant oil enamel film.
+

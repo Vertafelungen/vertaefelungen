@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/126-tr13/
 title: Door Frame 13
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/126-546-tr13.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 13, dimensions: 103 x 23 mm
+

@@ -1,4 +1,4 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
@@ -8,8 +8,8 @@ description: 'Product overview: wainscoting, mouldings, oils & paints, and venti
 weight: 10
 type: products
 seo:
-  meta_title: Products - Vertäfelung & Lambris
-  meta_description: Overview of all product categories on the knowledge site by Vertäfelung & Lambris.
+  meta_title: Products - VertÃ¤felung & Lambris
+  meta_description: Overview of all product categories on the knowledge site by VertÃ¤felung & Lambris.
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -30,3 +30,4 @@ cascade:
     robots: index,follow
 ---
 Choose a category to view subcategories and products.
+

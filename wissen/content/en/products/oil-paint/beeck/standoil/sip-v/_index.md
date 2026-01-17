@@ -1,4 +1,4 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
@@ -30,3 +30,4 @@ cascade:
     robots: index,follow
 ---
 This section lists the **solid colours** of BEECK Interior Stand-Oil Paint PRO: ready-mixed shades based on a stand-oil binder.\n\n**Use cases:** interior wood elements (e.g. panelling, doors, mouldings) and compatible mineral substrates where system-appropriate.\n\nSelect a colour to view product data, pack sizes, variants and images.
+

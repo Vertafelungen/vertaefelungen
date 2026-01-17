@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/119-tr02/
 title: Door Frame 02
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/119-532-tr02.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 06, dimensions: 100 x 17 mm
+

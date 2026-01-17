@@ -1,4 +1,4 @@
----
+﻿---
 title: Linseed Oil Varnish
 description: Placeholder content.
 robots: noindex,follow
@@ -32,3 +32,4 @@ refs:
 # Index
 
 Content follows.
+

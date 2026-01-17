@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/rosettes/60-blr3/
 title: Ventilation Rosette 3
@@ -34,3 +34,4 @@ Cast brass, polished
 
 Diameter approx. 36 mm
 Hight approx 3 mm
+

@@ -1,4 +1,4 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
@@ -29,4 +29,5 @@ cascade:
   seo:
     robots: index,follow
 ---
-High wainscoting has a stronger architectural impact than low panelling: it structures wall surfaces, frames doors and openings, and reinforces a historic character in period interiors.\n\n**Typical use cases:** hallways, living rooms, dining rooms, staircases.\n\n**Workflow:** choose reference → measure/plan → 3D visualisation → fabrication & installation via partner joinery.\n\nIf you share room dimensions, ceiling height and the desired style, the suitable profiles and panel layout can be narrowed down efficiently.
+High wainscoting has a stronger architectural impact than low panelling: it structures wall surfaces, frames doors and openings, and reinforces a historic character in period interiors.\n\n**Typical use cases:** hallways, living rooms, dining rooms, staircases.\n\n**Workflow:** choose reference â†’ measure/plan â†’ 3D visualisation â†’ fabrication & installation via partner joinery.\n\nIf you share room dimensions, ceiling height and the desired style, the suitable profiles and panel layout can be narrowed down efficiently.
+

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Impressum"
 slug: "impressum"
 url: "/de/impressum/"
@@ -7,3 +7,4 @@ menu:
     identifier: legal_imprint
     weight: 10
 ---
+

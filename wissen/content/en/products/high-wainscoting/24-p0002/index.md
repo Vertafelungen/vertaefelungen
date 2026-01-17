@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/high-wainscoting/24-p0002/
 title: P0002 - Hamburg - Michel
@@ -51,3 +51,4 @@ refs:
 ---
 The tower hall of the Michel has high oak panelling dating from the reconstruction period of 1906-1912. The vertical panelling runs around the entire room and creates a clear, unobtrusive structure.
 The panelling consists of a clear base and head section with a 2-row, vertical coffered paneling that can be easily adapted to individual room dimensions. We manufacture the panelling true to the original in oak and also in pine. On request.
+

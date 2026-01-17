@@ -1,4 +1,4 @@
----
+﻿---
 title: "Widerruf"
 slug: "widerruf"
 url: "/de/widerruf/"
@@ -7,3 +7,4 @@ menu:
     identifier: legal_withdrawal
     weight: 40
 ---
+

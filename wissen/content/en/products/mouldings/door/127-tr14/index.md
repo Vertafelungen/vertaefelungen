@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/127-tr14/
 title: Door Frame 14
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/127-548-tr14.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 14, dimensions: 118 x 20 mm
+

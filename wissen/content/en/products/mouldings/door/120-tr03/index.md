@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/120-tr03/
 title: Door Frame 03
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/120-534-tr03.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 03, dimensions: 160 X 42 mm
+

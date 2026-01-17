@@ -1,15 +1,15 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
 translationKey: ventilation-rosettes
-title: Lüftungsrosetten
-description: 'Lüftungsrosetten für historische Innenräume: dekorative Abdeckungen für Lüftungsöffnungen (z. B. Wand-/Türlüftung), passend zu klassischen Profil- und Vertäfelungssystemen.'
+title: LÃ¼ftungsrosetten
+description: 'LÃ¼ftungsrosetten fÃ¼r historische InnenrÃ¤ume: dekorative Abdeckungen fÃ¼r LÃ¼ftungsÃ¶ffnungen (z. B. Wand-/TÃ¼rlÃ¼ftung), passend zu klassischen Profil- und VertÃ¤felungssystemen.'
 weight: 50
 type: products
 seo:
-  meta_title: Lüftungsrosetten - Abdeckungen für Lüftungsöffnungen im Altbau
-  meta_description: 'Lüftungsrosetten für historische Innenräume: Varianten, Maße und Bilder. Dekorative Abdeckungen passend zu Vertäfelungen und Leisten - Vertäfelung & Lambris.'
+  meta_title: LÃ¼ftungsrosetten - Abdeckungen fÃ¼r LÃ¼ftungsÃ¶ffnungen im Altbau
+  meta_description: 'LÃ¼ftungsrosetten fÃ¼r historische InnenrÃ¤ume: Varianten, MaÃŸe und Bilder. Dekorative Abdeckungen passend zu VertÃ¤felungen und Leisten - VertÃ¤felung & Lambris.'
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -29,4 +29,5 @@ cascade:
   seo:
     robots: index,follow
 ---
-Lüftungsrosetten verbinden Funktion und Gestaltung: Sie decken Lüftungsöffnungen sauber ab und integrieren sich optisch in historische Innenausbauten.\n\n**Typische Anwendungen:**\n- Wand- und Türlüftungen\n- Nebenräume, Flure, Sanitär- und Küchenbereiche (je nach Konzept)\n- Ergänzung zu Vertäfelungen, Leisten und Türbekleidungen\n\nWähle eine Rosette, um Maße, Varianten und Bilder zu sehen.
+LÃ¼ftungsrosetten verbinden Funktion und Gestaltung: Sie decken LÃ¼ftungsÃ¶ffnungen sauber ab und integrieren sich optisch in historische Innenausbauten.\n\n**Typische Anwendungen:**\n- Wand- und TÃ¼rlÃ¼ftungen\n- NebenrÃ¤ume, Flure, SanitÃ¤r- und KÃ¼chenbereiche (je nach Konzept)\n- ErgÃ¤nzung zu VertÃ¤felungen, Leisten und TÃ¼rbekleidungen\n\nWÃ¤hle eine Rosette, um MaÃŸe, Varianten und Bilder zu sehen.
+

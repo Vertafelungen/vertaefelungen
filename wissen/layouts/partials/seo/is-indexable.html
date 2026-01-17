@@ -1,10 +1,11 @@
 {{/* 
 File: wissen/layouts/partials/seo/is-indexable.html
-Version: 2026-01-17  (Fix for Hugo template return-arg error)
+Version: 2026-01-17 12:00 Europe/Berlin (Fix: remove non-existent isString; keep behavior)
 Purpose:
-  Return a boolean indicating whether the current page should be indexable.
+  Output a boolean indicating whether the current page should be indexable.
 Notes:
-  Hugo does NOT support `return <value>`. The partial must output a boolean as its final expression.
+  - Hugo partials do NOT support `return <value>`. This partial must output a boolean as its final expression.
+  - Hugo does not provide an `isString` template function. We use type detection via printf "%T".
 */}}
 
 {{- $noindex := false -}}
@@ -16,7 +17,7 @@ Notes:
 
 {{/* Allow robots param as string or slice (e.g. "noindex,nofollow" or ["noindex","nofollow"]) */}}
 {{- with .Params.robots -}}
-  {{- if (isString .) -}}
+  {{- if eq (printf "%T" .) "string" -}}
     {{- $r := lower . -}}
     {{- if in $r "noindex" -}}
       {{- $noindex = true -}}

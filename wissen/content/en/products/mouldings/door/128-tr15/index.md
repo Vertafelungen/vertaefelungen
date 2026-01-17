@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/128-tr15/
 title: Door Frame 15
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/128-550-tr15.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 15, dimensions: 117 x 19 mm
+

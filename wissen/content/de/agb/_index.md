@@ -1,4 +1,4 @@
----
+﻿---
 title: "AGB"
 slug: "agb"
 url: "/de/agb/"
@@ -7,3 +7,4 @@ menu:
     identifier: legal_terms
     weight: 30
 ---
+

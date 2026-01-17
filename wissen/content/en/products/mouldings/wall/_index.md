@@ -1,4 +1,4 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
@@ -9,7 +9,7 @@ weight: 10
 type: products
 seo:
   meta_title: Wall Mouldings - Profiles for Historic Wall Surfaces
-  meta_description: 'Wall mouldings for historic interiors: profiles for panels, frames and wall divisions. Variants, dimensions and images - Vertäfelung & Lambris.'
+  meta_description: 'Wall mouldings for historic interiors: profiles for panels, frames and wall divisions. Variants, dimensions and images - VertÃ¤felung & Lambris.'
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -30,3 +30,4 @@ cascade:
     robots: index,follow
 ---
 Wall mouldings articulate wall surfaces and define proportions: used for panel frames, horizontal divisions (e.g. dado/chair rail) or as finishing profiles.\n\n**Typical applications:** panel frames, wall divisions, transitions to ceiling or wainscoting.\n\nChoose a profile to view details, dimensions, variants and images.
+

@@ -1,4 +1,4 @@
----
+﻿---
 title: "Datenschutz"
 slug: "datenschutz"
 url: "/de/datenschutz/"
@@ -7,3 +7,4 @@ menu:
     identifier: legal_privacy
     weight: 20
 ---
+

@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/skirtings/42-sl0003/
 title: SL0003 - Kreuzberg skirting board 165/28
@@ -24,3 +24,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/Skirting/42-kreuzberger-leiste.html
 ---
 A genuine Berlin skirting board that was re-milled for an apartment in Adalbertstr.
+

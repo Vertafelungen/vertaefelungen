@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/rosettes/70-blr4/
 title: Ventilation Rosette 4
@@ -29,3 +29,4 @@ Elegant ventilation rosette based on the original design.
 Milled brass, smoothed surface
 Diameter 45 mm
 Hight approx. 4 mm
+

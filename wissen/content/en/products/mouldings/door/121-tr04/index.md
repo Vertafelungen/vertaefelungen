@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/121-tr04/
 title: Door Frame 04
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/121-536-tr04.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 04, dimensions: 160 X 34 mm
+

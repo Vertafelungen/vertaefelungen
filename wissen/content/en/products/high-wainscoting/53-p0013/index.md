@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/high-wainscoting/53-p0013/
 title: P0013 - Berlin - Mommsenstr.
@@ -41,5 +41,6 @@ seo:
 refs:
   source_shop: https://www.vertaefelungen.de/en/high-wainscoting/53-p0013-berlin-mommsenstr.html
 ---
-Berlin's Mommsenstraße is located between Kantstraße and Kurfürstendamm in a very sophisticated, chic residential area with many galleries and boutiques.
+Berlin's MommsenstraÃŸe is located between KantstraÃŸe and KurfÃ¼rstendamm in a very sophisticated, chic residential area with many galleries and boutiques.
 The paneling shown here impresses with its consistent rhythm. It lends itself particularly well to color design.
+

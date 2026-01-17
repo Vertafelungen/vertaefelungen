@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/high-wainscoting/27-p0003/
 title: P0003 - London - V&A - Morris Room
@@ -17,7 +17,7 @@ produkt:
     preis_aufschlag: 1097.35
   bilder:
   - datei: p0003-01.png
-    alt_en: Historical wall panelling by William Morris in the London Victoria and Albert Museum full view with panel fields and profiled cornice height 2120 mm reproduced trübte original
+    alt_en: Historical wall panelling by William Morris in the London Victoria and Albert Museum full view with panel fields and profiled cornice height 2120 mm reproduced trÃ¼bte original
   - datei: p0003-02.png
     alt_en: Historical wall panelling by William Morris in the London Victoria and Albert Museum corner view with continuous panel fields and profiled cornice
   - datei: p0003-03.png
@@ -54,3 +54,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/high-wainscoting/27-p0003-london-va-morris-room.html
 ---
 Sir Henry Cole, the founding director of the South Kensington Museum, showed great flair when he commissioned the young William Morris to design the "Green Dining Room", now known as the "Morris Room", in 1861. Morris, later one of the most famous representatives of the Arts and Crafts movement, proposed a design consisting of panelling in the style of the Elizabethan Neo-Renaissance and elements of Gothic Revival. Morris enlisted the help of his friends, the architect Philip Webb and the painter Edward Burne-Jones. The original state has been preserved and is open to visitors. The panel has a height of 214 cm and is painted green in its original colour.
+

@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/de/produktinfo/public/leisten/sockelleisten/41-sl0002/
 title: SL0002 - Hamburger Leiste 120/18
@@ -15,13 +15,14 @@ produkt:
   - datei: sl0002-01.png
     alt_de: Sockelleiste Hamburger Leiste 25/120 mit geschwungener Profilkante
   - datei: sl0002-02.png
-    alt_de: Höhe 120 mm
+    alt_de: HÃ¶he 120 mm
 seo:
-  title: Hamburger Leiste, 12 cm Höhe
-  description: Hamburger oder Berliner Leiste - beides das Gleiche! Wir bieten diese Fußleiste mit einer Höhe von 12 cm.
+  title: Hamburger Leiste, 12 cm HÃ¶he
+  description: Hamburger oder Berliner Leiste - beides das Gleiche! Wir bieten diese FuÃŸleiste mit einer HÃ¶he von 12 cm.
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/sockelleisten/41-hamburger-leiste-18-120.html
 ---
 Hamburger oder Berliner Leiste? Beides ist das gleiche. Leider ist die Herkunft der Begriffe nicht genauer zu belegen.
-Wir finden, dass sich dieses formschöne Profil auch in Dresden oder Augsburg einsetzen lässt.
+Wir finden, dass sich dieses formschÃ¶ne Profil auch in Dresden oder Augsburg einsetzen lÃ¤sst.
+

@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/118-tr01-200/
 title: Door Frame 01 / 200
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/118-530-tr01-200.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 01 / 200, dimensions: 200 x 24 mm
+

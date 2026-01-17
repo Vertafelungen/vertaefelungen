@@ -1,4 +1,4 @@
----
+﻿---
 title: "Imprint"
 slug: "imprint"
 url: "/en/imprint/"
@@ -7,3 +7,4 @@ menu:
     identifier: legal_imprint
     weight: 10
 ---
+

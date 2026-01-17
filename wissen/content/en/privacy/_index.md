@@ -1,4 +1,4 @@
----
+﻿---
 title: "Privacy"
 slug: "privacy"
 url: "/en/privacy/"
@@ -7,3 +7,4 @@ menu:
     identifier: legal_privacy
     weight: 20
 ---
+

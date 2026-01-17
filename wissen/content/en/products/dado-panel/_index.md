@@ -1,4 +1,4 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
@@ -29,4 +29,5 @@ cascade:
   seo:
     robots: index,follow
 ---
-Low panelling - often referred to as **dado panel** - structures wall surfaces, protects high-wear zones and gives rooms a historic proportion without visually "closing" the space.\n\n**Typical use cases:** hallways, dining rooms, children's rooms, stair runs, home offices.\n\n**Variants:** with/without chair rail, plain panels or profiled fields, integrated skirting and finishing mouldings.\n\n**Workflow:** choose reference → measure/plan → 3D visualisation → fabrication & installation via partner joinery.\n\nIf you share ceiling height, desired panelling height and style, the panel grid and profile set can be defined efficiently.
+Low panelling - often referred to as **dado panel** - structures wall surfaces, protects high-wear zones and gives rooms a historic proportion without visually "closing" the space.\n\n**Typical use cases:** hallways, dining rooms, children's rooms, stair runs, home offices.\n\n**Variants:** with/without chair rail, plain panels or profiled fields, integrated skirting and finishing mouldings.\n\n**Workflow:** choose reference â†’ measure/plan â†’ 3D visualisation â†’ fabrication & installation via partner joinery.\n\nIf you share ceiling height, desired panelling height and style, the panel grid and profile set can be defined efficiently.
+

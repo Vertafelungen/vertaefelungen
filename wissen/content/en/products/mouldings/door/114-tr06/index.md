@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/114-tr06/
 title: Door Frame 06
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/114-522-tr06.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 06, dimensions: 115 x 26 mm
+

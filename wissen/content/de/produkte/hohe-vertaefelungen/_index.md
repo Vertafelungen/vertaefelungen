@@ -1,15 +1,15 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
 translationKey: high-wainscoting
-title: Hohe Vertäfelungen
-description: Hohe Vertäfelungen (Wandtäfelungen bis zur Tür-/Brüstungshöhe oder darüber) nach historischen Vorbildern - rekonstruierbar, variantenfähig und für Altbau-Interieurs geeignet.
+title: Hohe VertÃ¤felungen
+description: Hohe VertÃ¤felungen (WandtÃ¤felungen bis zur TÃ¼r-/BrÃ¼stungshÃ¶he oder darÃ¼ber) nach historischen Vorbildern - rekonstruierbar, variantenfÃ¤hig und fÃ¼r Altbau-Interieurs geeignet.
 weight: 20
 type: products
 seo:
-  meta_title: Hohe Vertäfelungen - historische Wandtäfelung nach Maß
-  meta_description: 'Hohe Vertäfelungen nach historischen Vorbildern: Varianten, Details und Projektablauf. Rekonstruktion, Visualisierung und Umsetzung für Altbau-Interieurs.'
+  meta_title: Hohe VertÃ¤felungen - historische WandtÃ¤felung nach MaÃŸ
+  meta_description: 'Hohe VertÃ¤felungen nach historischen Vorbildern: Varianten, Details und Projektablauf. Rekonstruktion, Visualisierung und Umsetzung fÃ¼r Altbau-Interieurs.'
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -29,4 +29,5 @@ cascade:
   seo:
     robots: index,follow
 ---
-Hohe Vertäfelungen prägen den Raum deutlich stärker als halbhohe Lambris: Sie strukturieren Wandflächen, fassen Türen und Öffnungen ein und schaffen eine historische Anmutung im Altbau.\n\n**Typische Anwendungen:** Flure, Salons, Esszimmer, Treppenhäuser.\n\n**Projektablauf:** Bestand/Referenz auswählen → Maßaufnahme/Grundriss → 3D-Visualisierung → Fertigung & Montage durch Partnertischlerei.\n\nWenn du Maße, Raumhöhe und gewünschte Stilrichtung nennst, kann die Auswahl der passenden Profile und Felder gezielt eingegrenzt werden.
+Hohe VertÃ¤felungen prÃ¤gen den Raum deutlich stÃ¤rker als halbhohe Lambris: Sie strukturieren WandflÃ¤chen, fassen TÃ¼ren und Ã–ffnungen ein und schaffen eine historische Anmutung im Altbau.\n\n**Typische Anwendungen:** Flure, Salons, Esszimmer, TreppenhÃ¤user.\n\n**Projektablauf:** Bestand/Referenz auswÃ¤hlen â†’ MaÃŸaufnahme/Grundriss â†’ 3D-Visualisierung â†’ Fertigung & Montage durch Partnertischlerei.\n\nWenn du MaÃŸe, RaumhÃ¶he und gewÃ¼nschte Stilrichtung nennst, kann die Auswahl der passenden Profile und Felder gezielt eingegrenzt werden.
+

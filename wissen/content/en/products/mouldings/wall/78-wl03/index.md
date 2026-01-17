@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/wall/78-wl03/
 title: Wall Moulding 03
@@ -28,3 +28,4 @@ refs:
 Wooden moulding 10 x 40 mm
 As a wall moulding for direct installation on the plastered wall.
 This moulding can be used to create frames or cassettes to divide and structure large wall surfaces.
+

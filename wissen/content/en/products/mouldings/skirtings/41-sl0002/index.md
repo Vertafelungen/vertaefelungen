@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/skirtings/41-sl0002/
 title: SL0002 - Hamburg skirting board 18/120
@@ -25,3 +25,4 @@ refs:
 ---
 Hamburg or Berlin skirting board? Both are the same. Unfortunately, the origin of the terms cannot be proven more precisely.
 We think that this beautifully shaped profile can also be used in Dresden or Augsburg.
+

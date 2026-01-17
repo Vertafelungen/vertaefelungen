@@ -1,15 +1,15 @@
----
+﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
 translationKey: beeck-primer-pro
 title: Vorstreichfarbe Pro
-description: 'Systemkomponente als Grund-/Vorstreich: verbessert Haftung, Egalisierung und den nachfolgenden Standöl-Anstrichaufbau (BEECK Pro-System).'
+description: 'Systemkomponente als Grund-/Vorstreich: verbessert Haftung, Egalisierung und den nachfolgenden StandÃ¶l-Anstrichaufbau (BEECK Pro-System).'
 weight: 30
 type: products
 seo:
-  meta_title: Vorstreichfarbe Pro - Grund-/Vorstreich für BEECK Standölsysteme
-  meta_description: 'Vorstreichfarbe Pro als systemkonformer Grund-/Vorstreich: Varianten, Gebinde und Hinweise für den Standöl-Anstrichaufbau.'
+  meta_title: Vorstreichfarbe Pro - Grund-/Vorstreich fÃ¼r BEECK StandÃ¶lsysteme
+  meta_description: 'Vorstreichfarbe Pro als systemkonformer Grund-/Vorstreich: Varianten, Gebinde und Hinweise fÃ¼r den StandÃ¶l-Anstrichaufbau.'
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -29,4 +29,5 @@ cascade:
   seo:
     robots: index,follow
 ---
-Die **Vorstreichfarbe Pro** dient als systemkonformer Grund-/Vorstreich für Standöl-Anstriche. Sie unterstützt einen gleichmäßigen Untergrund und verbessert die Haftung des nachfolgenden Anstrichs.\n\nWähle ein Produkt bzw. eine Variante, um Details, Gebinde und Systemhinweise zu sehen.
+Die **Vorstreichfarbe Pro** dient als systemkonformer Grund-/Vorstreich fÃ¼r StandÃ¶l-Anstriche. Sie unterstÃ¼tzt einen gleichmÃ¤ÃŸigen Untergrund und verbessert die Haftung des nachfolgenden Anstrichs.\n\nWÃ¤hle ein Produkt bzw. eine Variante, um Details, Gebinde und Systemhinweise zu sehen.
+

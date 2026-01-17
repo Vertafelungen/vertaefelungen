@@ -1,4 +1,4 @@
----
+﻿---
 title: "Withdrawal"
 slug: "withdrawal"
 url: "/en/withdrawal/"
@@ -7,3 +7,4 @@ menu:
     identifier: legal_withdrawal
     weight: 40
 ---
+

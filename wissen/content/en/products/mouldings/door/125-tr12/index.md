@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/125-tr12/
 title: Door Frame 12
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/125-544-tr12.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 12, dimensions: 117 x 28 mm
+

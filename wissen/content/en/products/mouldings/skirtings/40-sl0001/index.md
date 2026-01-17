@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/skirtings/40-sl0001/
 title: SL0001 - Hamburg skirting board 170/25
@@ -13,7 +13,7 @@ produkt:
   varianten: []
   bilder:
   - datei: sl0001-01.png
-    alt_en: Technische Zeichnung einer Hamburger Sockelleiste 25/170 mit 170 mm Höhe und markantem Profil
+    alt_en: Technische Zeichnung einer Hamburger Sockelleiste 25/170 mit 170 mm HÃ¶he und markantem Profil
   - datei: sl0001-02.png
     alt_en: Detaillierte Darstellung der Hamburger Sockelleiste 25/170 in einer Raumecke mit Profilansicht und Wandmontage
 seo:
@@ -25,3 +25,4 @@ refs:
 ---
 Hamburg or Berlin skirting board? Both are the same. Unfortunately, the origin of the terms cannot be proven more precisely.
 We think that this beautifully shaped profile can also be used in Dresden or Augsburg.
+

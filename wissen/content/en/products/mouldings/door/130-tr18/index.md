@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/130-tr18/
 title: Door Frame 18
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/130-554-tr18.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 18, dimensions: 150 x 40 mm
+

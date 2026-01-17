@@ -1,4 +1,4 @@
----
+﻿---
 title: "Kontakt"
 slug: "kontakt"
 url: "/de/kontakt/"
@@ -7,3 +7,4 @@ menu:
     identifier: legal_contact
     weight: 50
 ---
+

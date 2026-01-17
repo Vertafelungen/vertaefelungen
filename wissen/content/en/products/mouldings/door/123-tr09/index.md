@@ -1,4 +1,4 @@
----
+﻿---
 aliases:
 - /wissen/en/products/public/mouldings/door/123-tr09/
 title: Door Frame 09
@@ -26,3 +26,4 @@ refs:
   source_shop: https://www.vertaefelungen.de/en/doorframe/123-540-tr09.html#/66-type_of_wood_wl-pine
 ---
 Door and window frame TR 09, dimensions: 115 x 26 mm
+
