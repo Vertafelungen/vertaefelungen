@@ -6,6 +6,10 @@ lang: de
 translationKey: products-root
 title: Produkte
 description: 'Produktübersicht: Vertäfelungen, Leisten, Öle & Farben sowie Lüftungsrosetten.'
+menu:
+  main:
+    identifier: menu_products
+    weight: 30
 weight: 10
 type: products
 seo:

@@ -6,6 +6,10 @@ lang: en
 translationKey: products-root
 title: Products
 description: 'Product overview: wainscoting, mouldings, oils & paints, and ventilation rosettes.'
+menu:
+  main:
+    identifier: menu_products
+    weight: 30
 weight: 10
 type: products
 seo:

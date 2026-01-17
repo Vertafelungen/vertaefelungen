@@ -7,6 +7,10 @@ description: "Go to the shop, browse product categories, or start consulting –
 date: 2026-01-11T14:00:00+01:00
 lastmod: 2026-01-11T14:00:00+01:00
 draft: false
+menu:
+  main:
+    identifier: menu_shop
+    weight: 10
 ---
 
 You are currently in the **knowledge section** of Vertäfelung & Lambris. This area focuses on background information, style guidance, construction details, and decision support – independent from cart and checkout.

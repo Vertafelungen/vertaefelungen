@@ -13,71 +13,12 @@
     <div>
       <p class="footer-title">{{ i18n "footer_legal_title" }}</p>
       <ul class="footer-nav">
-
-        {{- if eq .Site.Language.Lang "de" -}}
-
-          {{- with site.GetPage "/de/impressum" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_imprint" }}</a></li>
-          {{- else -}}
-            <li><a href="/de/impressum/">{{ i18n "legal_imprint" }}</a></li>
+        {{- range .Site.Menus.footer -}}
+          {{- $label := .Name -}}
+          {{- with .Identifier -}}
+            {{- $label = i18n . -}}
           {{- end -}}
-
-          {{- with site.GetPage "/de/datenschutz" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_privacy" }}</a></li>
-          {{- else -}}
-            <li><a href="/de/datenschutz/">{{ i18n "legal_privacy" }}</a></li>
-          {{- end -}}
-
-          {{- with site.GetPage "/de/agb" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_terms" }}</a></li>
-          {{- else -}}
-            <li><a href="/de/agb/">{{ i18n "legal_terms" }}</a></li>
-          {{- end -}}
-
-          {{- with site.GetPage "/de/widerruf" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_withdrawal" }}</a></li>
-          {{- else -}}
-            <li><a href="/de/widerruf/">{{ i18n "legal_withdrawal" }}</a></li>
-          {{- end -}}
-
-          {{- with site.GetPage "/de/kontakt" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_contact" }}</a></li>
-          {{- else -}}
-            <li><a href="/de/kontakt/">{{ i18n "legal_contact" }}</a></li>
-          {{- end -}}
-
-        {{- else -}}
-
-          {{- with site.GetPage "/en/imprint" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_imprint" }}</a></li>
-          {{- else -}}
-            <li><a href="/en/imprint/">{{ i18n "legal_imprint" }}</a></li>
-          {{- end -}}
-
-          {{- with site.GetPage "/en/privacy" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_privacy" }}</a></li>
-          {{- else -}}
-            <li><a href="/en/privacy/">{{ i18n "legal_privacy" }}</a></li>
-          {{- end -}}
-
-          {{- with site.GetPage "/en/terms" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_terms" }}</a></li>
-          {{- else -}}
-            <li><a href="/en/terms/">{{ i18n "legal_terms" }}</a></li>
-          {{- end -}}
-
-          {{- with site.GetPage "/en/withdrawal" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_withdrawal" }}</a></li>
-          {{- else -}}
-            <li><a href="/en/withdrawal/">{{ i18n "legal_withdrawal" }}</a></li>
-          {{- end -}}
-
-          {{- with site.GetPage "/en/contact" -}}
-            <li><a href="{{ .RelPermalink }}">{{ i18n "legal_contact" }}</a></li>
-          {{- else -}}
-            <li><a href="/en/contact/">{{ i18n "legal_contact" }}</a></li>
-          {{- end -}}
-
+          <li><a href="{{ .URL }}">{{ $label }}</a></li>
         {{- end -}}
 
       </ul>
