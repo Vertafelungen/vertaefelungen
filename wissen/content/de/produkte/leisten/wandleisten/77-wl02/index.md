@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/77-wl02/
 title: Wandleiste 02 „Dom-Profil"
-lang: de
 translationKey: '77'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

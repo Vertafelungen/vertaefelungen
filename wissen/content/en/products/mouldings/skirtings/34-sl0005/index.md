@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/skirtings/34-sl0005/
 title: SL0005 - rounded upper edge 80/16
-lang: en
 translationKey: '34'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

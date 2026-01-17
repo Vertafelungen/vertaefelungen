@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/dado-panel/33-p0006/
 title: P0006 - Leipzig - Ludwigstraße
-lang: en
 translationKey: '33'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

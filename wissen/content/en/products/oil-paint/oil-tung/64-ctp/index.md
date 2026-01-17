@@ -2,7 +2,6 @@
 title: Citrus terpene
 description: Placeholder content.
 robots: noindex,follow
-lang: en
 translationKey: '64'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

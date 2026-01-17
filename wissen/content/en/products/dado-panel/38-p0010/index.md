@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/dado-panel/38-p0010/
 title: P0010 - Rome - St Peter's Basilica - Balustrade at the tomb of St Peter
-lang: en
 translationKey: '38'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

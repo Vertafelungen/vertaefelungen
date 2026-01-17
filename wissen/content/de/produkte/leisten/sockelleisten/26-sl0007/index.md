@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/sockelleisten/26-sl0007/
 title: SL0007 - München - Augustiner Stammhaus - Sockelleiste 450/62
-lang: de
 translationKey: '26'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

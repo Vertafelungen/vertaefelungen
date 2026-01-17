@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: skirting-boards
 title: Sockelleisten
 description: 'Sockelleisten als historisch kompatible Profile: Abschluss am Boden, Schutz der Wandzone und proportionierendes Gestaltungselement - geeignet für Altbau-Interieurs.'

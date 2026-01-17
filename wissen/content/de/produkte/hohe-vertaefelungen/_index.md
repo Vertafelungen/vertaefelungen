@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: high-wainscoting
 title: Hohe Vertäfelungen
 description: Hohe Vertäfelungen (Wandtäfelungen bis zur Tür-/Brüstungshöhe oder darüber) nach historischen Vorbildern - rekonstruierbar, variantenfähig und für Altbau-Interieurs geeignet.

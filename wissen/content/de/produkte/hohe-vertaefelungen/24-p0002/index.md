@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/hohe-vertaefelungen/24-p0002/
 title: P0002 - Hamburger Michel
-lang: de
 translationKey: '24'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

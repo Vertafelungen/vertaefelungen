@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: high-wainscoting
 title: High Wainscoting
 description: High wainscoting (wall panelling up to door/rail height or higher) based on historic references - configurable variants and suitable for period interiors.

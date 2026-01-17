@@ -2,7 +2,6 @@
 title: Balsamic turpentine oil
 description: Placeholder content.
 robots: noindex,follow
-lang: en
 translationKey: '63'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

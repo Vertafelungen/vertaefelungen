@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/door/126-tr13/
 title: Door Frame 13
-lang: en
 translationKey: '126'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

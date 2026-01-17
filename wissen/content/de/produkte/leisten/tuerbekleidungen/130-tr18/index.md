@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/130-tr18/
 title: Türbekleidung 18
-lang: de
 translationKey: '130'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

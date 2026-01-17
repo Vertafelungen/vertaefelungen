@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/120-tr03/
 title: Türbekleidung 03
-lang: de
 translationKey: '120'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

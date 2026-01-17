@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/leinoel-tung/64-ctp/
 title: Citrusterpene
-lang: de
 translationKey: '64'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

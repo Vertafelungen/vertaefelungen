@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/leinoel-tung/62-loef/
 title: Leinölfirnis
-lang: de
 translationKey: '62'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

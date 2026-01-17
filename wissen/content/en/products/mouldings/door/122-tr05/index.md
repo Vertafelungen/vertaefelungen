@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/door/122-tr05/
 title: Door Frame 05
-lang: en
 translationKey: '122'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

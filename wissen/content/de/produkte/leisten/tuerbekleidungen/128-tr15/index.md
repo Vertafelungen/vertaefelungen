@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/128-tr15/
 title: Türbekleidung 15
-lang: de
 translationKey: '128'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

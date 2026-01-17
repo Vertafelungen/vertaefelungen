@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/dado-panel/35-p0022/
 title: P0022 - Lübeck - Rathaus - Langes Haus
-lang: en
 translationKey: '35'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/lueftungsrosetten/72-blr2/
 title: Lüftungsrosette 2
-lang: de
 translationKey: '72'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

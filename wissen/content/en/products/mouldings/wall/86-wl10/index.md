@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/wall/86-wl10/
 title: Wall Moulding 10
-lang: en
 translationKey: '86'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

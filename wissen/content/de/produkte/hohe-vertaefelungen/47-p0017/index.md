@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/hohe-vertaefelungen/47-p0017/
 title: P0017 - Hohes Nadelstreif-Paneel mit Shaker Peg Rail
-lang: de
 translationKey: '47'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

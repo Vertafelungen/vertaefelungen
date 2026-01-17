@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/halbhohe-vertaefelungen/38-p0010/
 title: P0010 - Rom - Petersdom - Balustrade am Petrusgrab
-lang: de
 translationKey: '38'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

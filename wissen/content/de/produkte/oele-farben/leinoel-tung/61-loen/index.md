@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/leinoel-tung/61-loen/
 title: Reines Leinöl, ohne Sikkativ
-lang: de
 translationKey: '61'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/halbhohe-vertaefelungen/59-p0015/
 title: P0015 - Berlin - Alte Nationalgalerie
-lang: de
 translationKey: '59'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

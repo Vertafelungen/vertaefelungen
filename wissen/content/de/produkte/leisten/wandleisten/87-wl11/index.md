@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/87-wl11/
 title: Wandleiste 11
-lang: de
 translationKey: '87'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

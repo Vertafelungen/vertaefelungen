@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/107-weinrot/
 title: Weinrot - BEECK Standölinnenfarbe PRO
-lang: de
 translationKey: '107'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

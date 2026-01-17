@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: skirting-boards
 title: Skirting Boards
 description: 'Skirting boards as historically compatible profiles: floor-level termination, wall protection and a proportional design element - suitable for period interiors.'

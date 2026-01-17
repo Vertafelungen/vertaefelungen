@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/sockelleisten/42-sl0003/
 title: SL0003 - Kreuzberger Leiste 165/28
-lang: de
 translationKey: '42'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

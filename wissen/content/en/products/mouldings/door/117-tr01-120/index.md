@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/door/117-tr01-120/
 title: Door Frame 01 / 120
-lang: en
 translationKey: '117'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

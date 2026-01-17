@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: oil-paints-root
 title: Oils & Paints
 description: Oils, paints and finishing systems for historic wood surfaces - focused on compatible materials, craft application and heritage contexts.

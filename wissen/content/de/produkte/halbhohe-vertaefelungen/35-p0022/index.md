@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/halbhohe-vertaefelungen/35-p0022/
 title: P0022 - Lübeck - Rathaus - Langes Haus
-lang: de
 translationKey: '35'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

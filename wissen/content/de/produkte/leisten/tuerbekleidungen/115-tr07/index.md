@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/tuerbekleidungen/115-tr07/
 title: Türbekleidung 07
-lang: de
 translationKey: '115'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

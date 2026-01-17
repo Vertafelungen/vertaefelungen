@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/high-wainscoting/53-p0013/
 title: P0013 - Berlin - Mommsenstr.
-lang: en
 translationKey: '53'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

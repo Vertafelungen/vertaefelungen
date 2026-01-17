@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/halbhohe-vertaefelungen/52-p0011/
 title: P0011 - Weimar - Goethehaus am Frauenplan
-lang: de
 translationKey: '52'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

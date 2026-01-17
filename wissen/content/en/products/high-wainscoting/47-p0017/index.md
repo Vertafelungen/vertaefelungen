@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/high-wainscoting/47-p0017/
 title: P0017 - High pinstripe panel with shaker peg rail
-lang: en
 translationKey: '47'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

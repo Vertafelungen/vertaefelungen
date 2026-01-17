@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/door/120-tr03/
 title: Door Frame 03
-lang: en
 translationKey: '120'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/leinoel-tung/63-btoe/
 title: Balsamterpentinöl
-lang: de
 translationKey: '63'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

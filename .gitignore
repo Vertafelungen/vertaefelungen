@@ -1,11 +1,13 @@
 # .gitignore — Root
-# Version: v2025-10-18-1
+# Version: v2026-01-17-1
 # Ziel: Nur Build-/Systemartefakte am Repo-Root ignorieren (ankern!);
 #       KEINE Content-Ordner tief im Baum versehentlich ausblenden.
 
 # --- Repo-Root Build-Ausgabe (ankern!) ---
 /public/
 /resources/_gen/
+/wissen/.hugo_build.lock
+/tools/hugo.exe
 
 # Optionaler Airbag gegen Regressionen:
 !wissen/content/en/public/**

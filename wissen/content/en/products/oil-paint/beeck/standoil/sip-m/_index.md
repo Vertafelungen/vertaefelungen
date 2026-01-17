@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: en
 translationKey: beeck-sip-pro-mixed
 title: Interior Stand-Oil Paint PRO - Mixed Tones
 description: 'BEECK Interior Stand-Oil Paint PRO mixed tones (SIP-M): nuanced shades and mixes for stand-oil-based, vapour-open interior finishes.'

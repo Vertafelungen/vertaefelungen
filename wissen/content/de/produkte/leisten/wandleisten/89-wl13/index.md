@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/89-wl13/
 title: Wandleiste 13
-lang: de
 translationKey: '89'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

@@ -2,7 +2,6 @@
 aliases:
 - /wissen/en/products/public/mouldings/wall/88-wl12/
 title: Wall Moulding 12
-lang: en
 translationKey: '88'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

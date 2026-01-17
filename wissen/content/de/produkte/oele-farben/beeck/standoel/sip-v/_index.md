@@ -2,7 +2,6 @@
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
-lang: de
 translationKey: beeck-sip-pro-solid
 title: Standölinnenfarbe Pro Volltonfarbe
 description: Fertig abgetönte Volltonfarben auf Standölbasis (BEECK SIP Pro) - robuste, diffusionsoffene Innenanstriche für Holzoberflächen.

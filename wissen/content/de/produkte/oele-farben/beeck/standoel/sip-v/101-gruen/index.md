@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/101-gruen/
 title: Grün - BEECK Standölinnenfarbe PRO
-lang: de
 translationKey: '101'
 managed_by: ssot-sync
 last_synced: '2026-01-17'

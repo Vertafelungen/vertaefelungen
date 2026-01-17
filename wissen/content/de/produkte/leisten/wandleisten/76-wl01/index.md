@@ -2,7 +2,6 @@
 aliases:
 - /wissen/de/produktinfo/public/leisten/wandleisten/76-wl01/
 title: Wandleiste 01
-lang: de
 translationKey: '76'
 managed_by: ssot-sync
 last_synced: '2026-01-17'
