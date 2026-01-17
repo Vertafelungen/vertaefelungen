@@ -1,14 +1,39 @@
-{{- /* Determine if a page should be indexed (no "noindex" robots flag) */ -}}
-{{- $page := . -}}
-{{- $robots := "" -}}
-{{- with $page.Params.robots -}}
-  {{- $robots = . -}}
-{{- else -}}
-  {{- with $page.Params.seo.robots -}}
-    {{- $robots = . -}}
+{{/* 
+File: wissen/layouts/partials/seo/is-indexable.html
+Version: 2026-01-17  (Fix for Hugo template return-arg error)
+Purpose:
+  Return a boolean indicating whether the current page should be indexable.
+Notes:
+  Hugo does NOT support `return <value>`. The partial must output a boolean as its final expression.
+*/}}
+
+{{- $noindex := false -}}
+
+{{/* Explicit noindex flag in front matter */}}
+{{- if .Params.noindex -}}
+  {{- $noindex = true -}}
+{{- end -}}
+
+{{/* Allow robots param as string or slice (e.g. "noindex,nofollow" or ["noindex","nofollow"]) */}}
+{{- with .Params.robots -}}
+  {{- if (isString .) -}}
+    {{- $r := lower . -}}
+    {{- if in $r "noindex" -}}
+      {{- $noindex = true -}}
+    {{- end -}}
+  {{- else -}}
+    {{- range . -}}
+      {{- if eq (lower .) "noindex" -}}
+        {{- $noindex = true -}}
+      {{- end -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
-{{- if and $robots (in (lower $robots) "noindex") -}}
-  {{- return false -}}
+
+{{/* Hugo drafts should not be indexable */}}
+{{- if .Draft -}}
+  {{- $noindex = true -}}
 {{- end -}}
-{{- return true -}}
+
+{{/* Final output: boolean */}}
+{{- not $noindex -}}
