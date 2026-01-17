@@ -83,9 +83,9 @@ home = ["HTML"]
         weight = 50
 
 [languages.de.permalinks]
-  produkte = "/de/produkte/:sections/:slug/"
-  faq = "/de/faq/:sections/:slug/"
+  produkte = "/produkte/:sections/:slug/"
+  faq = "/faq/:sections/:slug/"
 
 [languages.en.permalinks]
-  products = "/en/products/:sections/:slug/"
-  faq = "/en/faq/:sections/:slug/"
+  products = "/products/:sections/:slug/"
+  faq = "/faq/:sections/:slug/"

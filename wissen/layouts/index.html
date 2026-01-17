@@ -29,41 +29,41 @@
       <h1 class="home__title">{{ i18n "home_title" | default .Site.Title }}</h1>
       <p class="home__lead">{{ i18n "home_lead" }}</p>
 
-      <h2 class="home__section-title">{{ i18n "home_direct_entry" | default "Direkt einsteigen" }}</h2>
+      <h2 class="home__section-title">{{ i18n "home_section_title" | default "Direkt einsteigen" }}</h2>
 
       <div class="entry-cards">
-        <a class="entry-card" href="{{ $shopURL }}" aria-label="Shop">
+        <a class="entry-card" href="{{ $shopURL }}" aria-label="{{ i18n "home_tile_shop_title" | default "Shop" }}">
           <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "nav_shop" | default "Shop" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_card_shop" }}</p>
+            <h3 class="entry-card__title">{{ i18n "home_tile_shop_title" | default "Shop" }}</h3>
+            <p class="entry-card__text">{{ i18n "home_tile_shop_text" }}</p>
           </div>
         </a>
 
-        <a class="entry-card" href="{{ $faqURL }}" aria-label="FAQ">
+        <a class="entry-card" href="{{ $faqURL }}" aria-label="{{ i18n "home_tile_faq_title" | default "FAQ" }}">
           <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "nav_faq" | default "FAQ" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_card_faq" }}</p>
+            <h3 class="entry-card__title">{{ i18n "home_tile_faq_title" | default "FAQ" }}</h3>
+            <p class="entry-card__text">{{ i18n "home_tile_faq_text" }}</p>
           </div>
         </a>
 
-        <a class="entry-card" href="{{ $productsURL }}" aria-label="{{ i18n "nav_products" | default "Produkte" }}">
+        <a class="entry-card" href="{{ $productsURL }}" aria-label="{{ i18n "home_tile_products_title" | default "Produkte" }}">
           <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "nav_products" | default "Produkte" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_card_products" }}</p>
+            <h3 class="entry-card__title">{{ i18n "home_tile_products_title" | default "Produkte" }}</h3>
+            <p class="entry-card__text">{{ i18n "home_tile_products_text" }}</p>
           </div>
         </a>
 
-        <a class="entry-card" href="{{ $lookbookURL }}" aria-label="Lookbook">
+        <a class="entry-card" href="{{ $lookbookURL }}" aria-label="{{ i18n "home_tile_lookbook_title" | default "Lookbook" }}">
           <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "nav_lookbook" | default "Lookbook" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_card_lookbook" }}</p>
+            <h3 class="entry-card__title">{{ i18n "home_tile_lookbook_title" | default "Lookbook" }}</h3>
+            <p class="entry-card__text">{{ i18n "home_tile_lookbook_text" }}</p>
           </div>
         </a>
 
-        <a class="entry-card" href="{{ $aboutURL }}" aria-label="{{ i18n "nav_about" | default "Über uns" }}">
+        <a class="entry-card" href="{{ $aboutURL }}" aria-label="{{ i18n "home_tile_about_title" | default "Über uns" }}">
           <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "nav_about" | default "Über uns" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_card_about" }}</p>
+            <h3 class="entry-card__title">{{ i18n "home_tile_about_title" | default "Über uns" }}</h3>
+            <p class="entry-card__text">{{ i18n "home_tile_about_text" }}</p>
           </div>
         </a>
       </div>
