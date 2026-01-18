@@ -30,8 +30,6 @@ Notes:
   --surface: #ffffff;
   --surface-muted: #f5f2ed;
   --border-color: #e4ded5;
-  --container-max-width: 1200px;
-  --container-width: var(--container-max-width);
   --container-padding: clamp(1.5rem, 4vw, 2.5rem);
 
   /* Phase 3.2.2c: header sizing closer to main site */
@@ -622,6 +620,3 @@ th, td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border-color); 
 .text-amber-900 { color: #78350f; }
 .border-emerald-200 { border-color: #a7f3d0; }
 .border-amber-200 { border-color: #fde68a; }
-
-.entry-card { display: block; text-decoration: none; }
-.entry-card:focus { outline: 2px solid currentColor; outline-offset: 3px; }
