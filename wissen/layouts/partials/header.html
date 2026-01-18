@@ -4,21 +4,25 @@ Version: 2026-01-18  (Europe/Berlin)
 Purpose: Site header (brand, main navigation, language switch, shop CTA)
 Notes:
 - Logo asset served from /brand/logo-vl.png (Hugo static).
+- Use a dedicated wrapper + image class so existing .brand__logo styles (formerly for a text mark) do not hide the image.
 - Visual styling must be handled via CSS (no inline styles).
 -->
 
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="{{ .Site.Home.RelPermalink }}">
-      <img
-        class="brand__logo"
-        src="{{ "brand/logo-vl.png" | relURL }}"
-        alt="Vertäfelungen &amp; Lambris"
-        width="240"
-        height="48"
-        loading="eager"
-        decoding="async"
-      >
+      <span class="brand__mark" aria-hidden="true">
+        <img
+          class="brand__logo-img"
+          src="{{ `brand/logo-vl.png` | relURL }}"
+          alt="Vertäfelungen &amp; Lambris"
+          width="240"
+          height="48"
+          loading="eager"
+          decoding="async"
+        >
+      </span>
+
       <span class="brand__text">
         <span class="brand__title">Vertäfelungen.de</span>
         <span class="brand__subtitle">
