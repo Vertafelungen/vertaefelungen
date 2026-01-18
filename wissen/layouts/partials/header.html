@@ -1,4 +1,13 @@
-<header class="site-header" style="position: relative; z-index: 10; visibility: visible; display: block;">
+<!--
+File: wissen/layouts/partials/header.html
+Version: 2026-01-18  (Europe/Berlin)
+Purpose: Site header (brand, main navigation, language switch, shop CTA)
+Notes:
+- Keep this partial free of binary assets in PR 3.2.2 (Option A).
+- Visual styling must be handled via CSS (no inline styles).
+-->
+
+<header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="{{ .Site.Home.RelPermalink }}">
       <span class="brand__logo" aria-hidden="true">V</span>
@@ -11,7 +20,13 @@
     </a>
 
     <div class="site-header__nav" role="navigation" aria-label="{{ i18n "header_nav_label" }}">
-      <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="{{ i18n "header_toggle_label" }}" aria-controls="main-nav">
+      <input
+        class="nav-toggle"
+        type="checkbox"
+        id="nav-toggle"
+        aria-label="{{ i18n "header_toggle_label" }}"
+        aria-controls="main-nav"
+      >
       <label class="nav-toggle__button" for="nav-toggle" aria-label="{{ i18n "header_toggle_label" }}">
         <span class="nav-toggle__icon"></span>
       </label>
