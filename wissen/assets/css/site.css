@@ -1,3 +1,12 @@
+/*
+File: wissen/assets/css/site.css
+Version: 2026-01-18 (Europe/Berlin)
+Purpose: Knowledge site design tokens + layout (header/footer/components)
+Notes:
+- Phase 3.2.2b: Remove circular monogram styling for brand logo and support image logo like main site.
+- Uses .brand__mark + .brand__logo-img for the header logo.
+*/
+
 :root {
   --font-sans: "Rethink Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body: var(--font-sans);
@@ -133,6 +142,8 @@ a:focus-visible {
   gap: var(--space-4);
 }
 
+/* Brand / Logo (Phase 3.2.2b)
+   Goal: No circular monogram. Render image logo cleanly like main site. */
 .brand {
   display: inline-flex;
   align-items: center;
@@ -141,18 +152,35 @@ a:focus-visible {
   text-decoration: none;
 }
 
-.brand__logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--text-color);
-  color: #fff;
-  font-weight: 600;
+/* Wrapper for the image mark */
+.brand__mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.05rem;
-  letter-spacing: 0.02em;
+  line-height: 0;
+}
+
+/* The image logo itself */
+.brand__logo-img {
+  display: block;
+  height: 40px; /* visually close to main site header logo height */
+  width: auto;
+  max-width: 220px;
+}
+
+/* Backwards-compat: neutralize old circular monogram styling (no circle). */
+.brand__logo {
+  width: auto;
+  height: auto;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font-weight: inherit;
+  display: inline;
+  align-items: initial;
+  justify-content: initial;
+  font-size: inherit;
+  letter-spacing: normal;
 }
 
 .brand__text {
@@ -581,6 +609,12 @@ td {
 
   .site-main {
     padding: var(--space-6) 0;
+  }
+
+  /* keep logo readable on mobile */
+  .brand__logo-img {
+    height: 34px;
+    max-width: 200px;
   }
 }
 
