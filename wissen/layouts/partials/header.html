@@ -3,7 +3,9 @@ File: wissen/layouts/partials/header.html
 Version: 2026-01-18  (Europe/Berlin)
 Purpose: Site header aligned to main site (image brand left, centered main nav, actions right)
 Notes:
-- Header main navigation must only include: Shop, FAQ, Produkte/Products, Lookbook.
+- Header main navigation is intentionally deterministic:
+  DE: /wissen/de/shop/ /wissen/de/faq/ /wissen/de/produkte/ /wissen/de/lookbook/
+  EN: /wissen/en/shop/ /wissen/en/faq/ /wissen/en/products/ /wissen/en/lookbook/
 - "Über uns" is a footer item and must not appear in the header.
 - Logo asset served from brand/logo-vl.png via relURL (works under /wissen/).
 - No inline styles; styling via site.css.
@@ -39,31 +41,30 @@ Notes:
       </label>
 
       <div class="nav-panel" id="main-nav">
-        {{- $allowed := slice "shop" "faq" "produkte" "products" "lookbook" -}}
+        {{- $lang := .Site.Language.Lang -}}
+        {{- $base := printf "/wissen/%s/" $lang -}}
+
+        {{- $shopPath := cond (eq $lang "de") "shop/" "shop/" -}}
+        {{- $faqPath := cond (eq $lang "de") "faq/" "faq/" -}}
+        {{- $productsPath := cond (eq $lang "de") "produkte/" "products/" -}}
+        {{- $lookbookPath := "lookbook/" -}}
+
+        {{- $shopUrl := relURL (printf "%s%s" $base $shopPath) -}}
+        {{- $faqUrl := relURL (printf "%s%s" $base $faqPath) -}}
+        {{- $productsUrl := relURL (printf "%s%s" $base $productsPath) -}}
+        {{- $lookbookUrl := relURL (printf "%s%s" $base $lookbookPath) -}}
 
         <nav class="main-nav" aria-label="{{ i18n "header_nav_label" }}">
-          {{- range .Site.Menus.main -}}
-            {{- $id := lower (default "" .Identifier) -}}
-            {{- $name := lower (default "" .Name) -}}
-            {{- $url := lower (default "" .URL) -}}
+          <a class="main-nav__link{{ if hasPrefix .RelPermalink $shopUrl }} main-nav__link--active{{ end }}" href="{{ $shopUrl }}">Shop</a>
+          <a class="main-nav__link{{ if hasPrefix .RelPermalink $faqUrl }} main-nav__link--active{{ end }}" href="{{ $faqUrl }}">FAQ</a>
 
-            {{- $isAllowed := or (in $allowed $id) (in $allowed $name) -}}
-            {{- if not $isAllowed -}}
-              {{- /* fallback heuristics via URL */ -}}
-              {{- if or (in $url "/shop") (in $url "/faq") (in $url "/produkte") (in $url "/products") (in $url "/lookbook") -}}
-                {{- $isAllowed = true -}}
-              {{- end -}}
-            {{- end -}}
-
-            {{- if $isAllowed -}}
-              {{- $label := .Name -}}
-              {{- with .Identifier -}}
-                {{- $label = i18n . -}}
-              {{- end -}}
-              {{- $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) -}}
-              <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
-            {{- end -}}
+          {{- if eq $lang "de" -}}
+            <a class="main-nav__link{{ if hasPrefix .RelPermalink $productsUrl }} main-nav__link--active{{ end }}" href="{{ $productsUrl }}">Produkte</a>
+          {{- else -}}
+            <a class="main-nav__link{{ if hasPrefix .RelPermalink $productsUrl }} main-nav__link--active{{ end }}" href="{{ $productsUrl }}">Products</a>
           {{- end -}}
+
+          <a class="main-nav__link{{ if hasPrefix .RelPermalink $lookbookUrl }} main-nav__link--active{{ end }}" href="{{ $lookbookUrl }}">Lookbook</a>
         </nav>
 
         <div class="header-actions">
@@ -74,8 +75,8 @@ Notes:
             {{- end -}}
           </div>
 
-          {{- $shopUrl := cond (eq .Site.Language.Lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
-          <a class="button button--primary" href="{{ $shopUrl }}">{{ i18n "header_shop_label" }}</a>
+          {{- $shopCta := cond (eq $lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
+          <a class="button button--primary" href="{{ $shopCta }}">{{ i18n "header_shop_label" }}</a>
         </div>
       </div>
     </div>
