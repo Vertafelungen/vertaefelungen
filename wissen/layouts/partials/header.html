@@ -1,34 +1,29 @@
 <!--
 File: wissen/layouts/partials/header.html
 Version: 2026-01-18  (Europe/Berlin)
-Purpose: Site header (brand, main navigation, language switch, shop CTA)
+Purpose: Site header aligned to main site (image brand left, centered main nav, actions right)
 Notes:
-- Logo asset served from /brand/logo-vl.png (Hugo static).
-- Use a dedicated wrapper + image class so existing .brand__logo styles (formerly for a text mark) do not hide the image.
-- Visual styling must be handled via CSS (no inline styles).
+- Header main navigation must only include: Shop, FAQ, Produkte/Products, Lookbook.
+- "Über uns" is a footer item and must not appear in the header.
+- Logo asset served from brand/logo-vl.png via relURL (works under /wissen/).
+- No inline styles; styling via site.css.
 -->
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="brand" href="{{ .Site.Home.RelPermalink }}">
-      <span class="brand__mark" aria-hidden="true">
+    <a class="brand" href="{{ .Site.Home.RelPermalink }}" aria-label="Vertäfelungen &amp; Lambris">
+      <span class="brand__mark">
         <img
           class="brand__logo-img"
-          src="{{ `brand/logo-vl.png` | relURL }}"
+          src="{{ "brand/logo-vl.png" | relURL }}"
           alt="Vertäfelungen &amp; Lambris"
-          width="240"
-          height="48"
+          width="260"
+          height="52"
           loading="eager"
           decoding="async"
         >
       </span>
-
-      <span class="brand__text">
-        <span class="brand__title">Vertäfelungen.de</span>
-        <span class="brand__subtitle">
-          {{ if eq .Site.Language.Lang "de" }}Wissen &amp; Inspiration{{ else }}Knowledge &amp; inspiration{{ end }}
-        </span>
-      </span>
+      <span class="sr-only">Vertäfelungen &amp; Lambris</span>
     </a>
 
     <div class="site-header__nav" role="navigation" aria-label="{{ i18n "header_nav_label" }}">
@@ -44,14 +39,30 @@ Notes:
       </label>
 
       <div class="nav-panel" id="main-nav">
+        {{- $allowed := slice "shop" "faq" "produkte" "products" "lookbook" -}}
+
         <nav class="main-nav" aria-label="{{ i18n "header_nav_label" }}">
           {{- range .Site.Menus.main -}}
-            {{- $label := .Name -}}
-            {{- with .Identifier -}}
-              {{- $label = i18n . -}}
+            {{- $id := lower (default "" .Identifier) -}}
+            {{- $name := lower (default "" .Name) -}}
+            {{- $url := lower (default "" .URL) -}}
+
+            {{- $isAllowed := or (in $allowed $id) (in $allowed $name) -}}
+            {{- if not $isAllowed -}}
+              {{- /* fallback heuristics via URL */ -}}
+              {{- if or (in $url "/shop") (in $url "/faq") (in $url "/produkte") (in $url "/products") (in $url "/lookbook") -}}
+                {{- $isAllowed = true -}}
+              {{- end -}}
             {{- end -}}
-            {{- $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) -}}
-            <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
+
+            {{- if $isAllowed -}}
+              {{- $label := .Name -}}
+              {{- with .Identifier -}}
+                {{- $label = i18n . -}}
+              {{- end -}}
+              {{- $isActive := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) -}}
+              <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ .URL }}">{{ $label }}</a>
+            {{- end -}}
           {{- end -}}
         </nav>
 
