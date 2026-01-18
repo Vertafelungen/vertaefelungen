@@ -51,20 +51,12 @@ test.describe('Live navigation (Wissen)', () => {
     await expect(page.locator('header.site-header')).toBeVisible({ timeout: 20_000 });
     await expect(page.locator('footer.site-footer')).toBeVisible({ timeout: 20_000 });
 
-    // Header menu: scope to header nav to avoid strict mode violations (same link text elsewhere).
-    const headerNav = page.locator('header.site-header nav#main-nav');
-    const scopedHeaderNav = (await headerNav.count()) ? headerNav : page.locator('header.site-header nav');
-    await expect(scopedHeaderNav).toBeVisible({ timeout: 20_000 });
+    const primaryNav = page.getByTestId('primary-nav');
+    await expect(primaryNav).toBeVisible({ timeout: 20_000 });
+    await expect(primaryNav.locator('a')).toHaveCount(4);
 
-    const productsLink = scopedHeaderNav.getByRole('link', { name: 'Produkte', exact: true });
-    if (await productsLink.count()) {
-      await expect(productsLink).toBeVisible({ timeout: 20_000 });
-      await productsLink.click();
-      await expect(page).toHaveURL(/\/wissen\/de\/produkte\/?$/i, { timeout: 20_000 });
-    } else {
-      // Fallback: ensure the "Produkte" card exists on the start page.
-      await expect(page.getByRole('heading', { name: 'Produkte', exact: true })).toBeVisible({ timeout: 20_000 });
-    }
+    await expect(page.getByTestId('header-cta')).toBeVisible({ timeout: 20_000 });
+    await expect(primaryNav.locator('a[href*="ueber-uns"], a[href*="about-us"]')).toHaveCount(0);
   });
 
   test('EN live navigation', async ({ page }) => {
@@ -81,17 +73,11 @@ test.describe('Live navigation (Wissen)', () => {
     await expect(page.locator('header.site-header')).toBeVisible({ timeout: 20_000 });
     await expect(page.locator('footer.site-footer')).toBeVisible({ timeout: 20_000 });
 
-    const headerNav = page.locator('header.site-header nav#main-nav');
-    const scopedHeaderNav = (await headerNav.count()) ? headerNav : page.locator('header.site-header nav');
-    await expect(scopedHeaderNav).toBeVisible({ timeout: 20_000 });
+    const primaryNav = page.getByTestId('primary-nav');
+    await expect(primaryNav).toBeVisible({ timeout: 20_000 });
+    await expect(primaryNav.locator('a')).toHaveCount(4);
 
-    const productsLink = scopedHeaderNav.getByRole('link', { name: 'Products', exact: true });
-    if (await productsLink.count()) {
-      await expect(productsLink).toBeVisible({ timeout: 20_000 });
-      await productsLink.click();
-      await expect(page).toHaveURL(/\/wissen\/en\/products\/?$/i, { timeout: 20_000 });
-    } else {
-      await expect(page.getByRole('heading', { name: 'Products', exact: true })).toBeVisible({ timeout: 20_000 });
-    }
+    await expect(page.getByTestId('header-cta')).toBeVisible({ timeout: 20_000 });
+    await expect(primaryNav.locator('a[href*="ueber-uns"], a[href*="about-us"]')).toHaveCount(0);
   });
 });
