@@ -3,14 +3,22 @@ File: wissen/layouts/partials/header.html
 Version: 2026-01-18  (Europe/Berlin)
 Purpose: Site header (brand, main navigation, language switch, shop CTA)
 Notes:
-- Keep this partial free of binary assets in PR 3.2.2 (Option A).
+- Logo asset served from /brand/logo-vl.png (Hugo static).
 - Visual styling must be handled via CSS (no inline styles).
 -->
 
 <header class="site-header">
   <div class="container site-header__inner">
     <a class="brand" href="{{ .Site.Home.RelPermalink }}">
-      <span class="brand__logo" aria-hidden="true">V</span>
+      <img
+        class="brand__logo"
+        src="{{ "brand/logo-vl.png" | relURL }}"
+        alt="Vertäfelungen &amp; Lambris"
+        width="240"
+        height="48"
+        loading="eager"
+        decoding="async"
+      >
       <span class="brand__text">
         <span class="brand__title">Vertäfelungen.de</span>
         <span class="brand__subtitle">
