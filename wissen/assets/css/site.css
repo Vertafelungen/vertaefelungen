@@ -1,8 +1,10 @@
 :root {
-  --font-body: "Rethink Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "Rethink Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-body: var(--font-sans);
   --font-size-base: 16px;
   --text-color: #1f1d1a;
-  --text-muted: #5f5a54;
+  --muted-color: #5f5a54;
+  --text-muted: var(--muted-color);
   --link-color: #1f1d1a;
   --link-hover: #4c3d2c;
   --brand-accent: #9a7a4f;
@@ -10,9 +12,12 @@
   --surface: #ffffff;
   --surface-muted: #f5f2ed;
   --border-color: #e4ded5;
-  --container-width: 1200px;
+  --container-max-width: 1200px;
+  --container-width: var(--container-max-width);
   --header-height: 84px;
-  --shadow-soft: 0 16px 38px rgba(24, 20, 16, 0.08);
+  --radius: 18px;
+  --shadow: 0 16px 38px rgba(24, 20, 16, 0.08);
+  --shadow-soft: var(--shadow);
 
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -34,6 +39,46 @@ body {
   color: var(--text-color);
   background: var(--surface-muted);
   line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans);
+  color: var(--text-color);
+  margin: 0 0 var(--space-3);
+}
+
+h1 {
+  font-size: clamp(2.3rem, 3.2vw, 3.1rem);
+  line-height: 1.15;
+}
+
+h2 {
+  font-size: clamp(1.85rem, 2.4vw, 2.4rem);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+h4 {
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0 0 var(--space-4);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+small {
+  font-size: 0.875rem;
+  color: var(--muted-color);
 }
 
 img {
@@ -59,8 +104,14 @@ a:focus {
   text-underline-offset: 3px;
 }
 
+a:focus-visible {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+  text-decoration: none;
+}
+
 .container {
-  width: min(var(--container-width), calc(100% - (var(--space-6) * 2)));
+  width: min(var(--container-max-width), calc(100% - (var(--space-6) * 2)));
   margin: 0 auto;
 }
 
@@ -186,7 +237,7 @@ a:focus {
 .main-nav__link {
   font-weight: 500;
   padding: 0.35rem 0.4rem;
-  border-radius: 6px;
+  border-radius: var(--radius);
   color: var(--text-color);
 }
 
@@ -215,7 +266,7 @@ a:focus {
 .lang-switch a {
   color: var(--text-color);
   padding: 0.2rem 0.4rem;
-  border-radius: 6px;
+  border-radius: var(--radius);
 }
 
 .lang-switch a:hover,
@@ -250,11 +301,22 @@ a:focus {
   background: var(--surface);
 }
 
+.button--secondary {
+  border-color: var(--border-color);
+  color: var(--text-color);
+  background: var(--surface);
+}
+
 .button:hover,
 .button:focus {
   transform: translateY(-1px);
-  box-shadow: 0 12px 26px rgba(24, 20, 16, 0.12);
+  box-shadow: var(--shadow);
   text-decoration: none;
+}
+
+.button:focus-visible {
+  outline: 3px solid var(--link-color);
+  outline-offset: 3px;
 }
 
 .site-main {
@@ -309,10 +371,10 @@ a:focus {
 .entry-card {
   display: block;
   border: 1px solid var(--border-color);
-  border-radius: 18px;
+  border-radius: var(--radius);
   padding: var(--space-5);
   background: var(--surface);
-  box-shadow: 0 10px 24px rgba(24, 20, 16, 0.08);
+  box-shadow: var(--shadow);
   color: inherit;
   text-decoration: none;
   transition: box-shadow 0.2s ease, transform 0.2s ease;
@@ -343,10 +405,10 @@ a:focus {
 
 .card {
   border: 1px solid var(--border-color);
-  border-radius: 18px;
+  border-radius: var(--radius);
   padding: var(--space-5);
   background: var(--surface);
-  box-shadow: 0 10px 24px rgba(24, 20, 16, 0.08);
+  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -372,7 +434,7 @@ a:focus {
 }
 
 .prose p {
-  color: var(--text-muted);
+  color: var(--muted-color);
 }
 
 .prose h1,
@@ -392,7 +454,7 @@ a:focus {
 
 .placeholder {
   border: 1px dashed var(--border-color);
-  border-radius: 18px;
+  border-radius: var(--radius);
   padding: var(--space-5);
   background: var(--surface-muted);
   display: grid;
