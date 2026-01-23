@@ -1,1 +1,5 @@
-/*/hugo
+/hugo
+/hugo.exe
+/hugo_*
+/tmp/
+/downloads/
