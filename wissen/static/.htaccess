@@ -1,35 +1,39 @@
+# Version: 2026-01-23 00:00
+# Purpose: Force UTF-8 for /wissen to prevent mojibake (Ã¤/Ã¼/Ã¶)
+
+AddDefaultCharset UTF-8
+
+<IfModule mod_mime.c>
+  AddCharset UTF-8 .html .htm .css .js .json .xml .txt .svg
+</IfModule>
+
+# ---- existing rules below ----
 # legacy redirects ensured by prune PR #52
 
 RewriteEngine On
 
-# Wenn Datei/Ordner existiert, nichts umschreiben
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Canonicalize duplicate locale segments
 RewriteRule ^de/de/(.*)$ de/$1 [R=301,L]
 RewriteRule ^en/en/(.*)$ en/$1 [R=301,L]
-# Canonicalize duplicate product segments (if any legacy URLs exist)
 RewriteRule ^de/produkte/produkte/?$ de/produkte/ [R=301,L]
 RewriteRule ^de/produkte/produkte/(.*)$ de/produkte/$1 [R=301,L]
 RewriteRule ^en/products/products/?$ en/products/ [R=301,L]
 RewriteRule ^en/products/products/(.*)$ en/products/$1 [R=301,L]
 
-# EN: legacy consulting/style-guide -> faq
 RewriteRule ^en/consulting/?$ en/faq/consulting/ [R=301,L]
 RewriteRule ^en/consulting/(.*)$ en/faq/consulting/$1 [R=301,L]
 RewriteRule ^en/style-guide/?$ en/faq/style-guide/ [R=301,L]
 RewriteRule ^en/style-guide/(.*)$ en/faq/style-guide/$1 [R=301,L]
 
-# DE: alte Prefixe -> neue
 RewriteRule ^de/oeffentlich/produkte/?$ de/produkte/ [R=301,L]
 RewriteRule ^de/oeffentlich/produkte/(.*)$ de/produkte/$1 [R=301,L]
 RewriteRule ^de/produktinfo/public/(.*)$ de/produkte/$1 [R=301,L]
 RewriteRule ^de/produktinfo/?$ de/produkte/ [R=301,L]
 RewriteRule ^de/produktinfo/(.*)$ de/produkte/$1 [R=301,L]
 
-# EN (falls relevant; sonst trotzdem ok)
 RewriteRule ^en/public/products/?$ en/products/ [R=301,L]
 RewriteRule ^en/public/products/(.*)$ en/products/$1 [R=301,L]
 RewriteRule ^en/products/public/(.*)$ en/products/$1 [R=301,L]
