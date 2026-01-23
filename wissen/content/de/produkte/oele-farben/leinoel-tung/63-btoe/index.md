@@ -4,7 +4,7 @@ aliases:
 title: Balsamterpentinöl
 translationKey: '63'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '63'
   artikelnummer: BTOE
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/63-313-balsamterpentinol.html#/63-1_25_5_10_20_liter-1_liter
+lang: de
 ---
 Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.
 Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen.

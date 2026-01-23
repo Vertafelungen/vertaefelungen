@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 05
 translationKey: '122'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '122'
   artikelnummer: TR05
@@ -24,5 +24,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/122-538-tr05.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen TR 05, Maße: 179 x 42 mm

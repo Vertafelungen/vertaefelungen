@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 12
 translationKey: '125'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '125'
   artikelnummer: TR12
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/125-544-tr12.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 12, Maße: 117 x 28 mm

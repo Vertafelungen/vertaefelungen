@@ -4,7 +4,7 @@ aliases:
 title: P0022 - Lübeck - Rathaus - Langes Haus
 translationKey: '35'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '35'
   artikelnummer: P0022
@@ -44,5 +44,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/35-275-p0022-lubeck-rathaus-langes-haus.html#/47-type_of_wood-pine_oiled/55-bausatz-row_kit
+lang: en
 ---
 Town Hall Lübeck - The centre of the Hanseatic League. This is where from the 14th to the 18th century the Hansa Days took place, where co-operation was regulated. The city council still debates current issues here today. Lübeck is a very proud city, which is clearly demonstrated by its buildings. Inside and out. The entire length of the corridor on the upper hall way and in the „Long House" is stuffed with a coffered panelling. All rails and frames are made of oak, but the cassettes are of pine. This panelling was probably created during the renovation of 1893.

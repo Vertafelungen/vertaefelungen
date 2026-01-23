@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 09
 translationKey: '123'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '123'
   artikelnummer: TR09
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/123-540-tr09.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 09, Maße: 115 x 26 mm

@@ -4,7 +4,7 @@ aliases:
 title: Lüftungsrosette 3
 translationKey: '60'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '60'
   artikelnummer: BLR3
@@ -28,6 +28,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/lueftungsrosetten/60-lueftungsrosette-3.html
+lang: de
 ---
 Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert
