@@ -3,7 +3,12 @@
     {{- $child := . -}}
     {{- if eq $child.Params.managed_by "categories.csv" -}}
       {{- $hasChildren := gt (len $child.Pages) 0 -}}
-      {{- $plain := strings.TrimSpace $child.Plain -}}
+      {{- $ws := " \t\n\r" -}}
+      {{- $plain := "" -}}
+      {{- with $child.Plain -}}
+        {{- $plain = printf "%v" . -}}
+      {{- end -}}
+      {{- $plain = trim $plain $ws -}}
       {{- if and (not $hasChildren) (eq $plain "") -}}
         {{- $path := $child.RelPermalink -}}
         {{- with $child.File -}}
