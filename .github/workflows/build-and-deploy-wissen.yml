@@ -96,6 +96,7 @@ jobs:
           script: |
             set -e
             cd "${{ secrets.SFTP_TARGET }}"
+            rm -rf faq/themen
             rm -f index.html robots.txt sitemap.xml deploy-stamp.txt version.json
             rm -rf de en faq .deploy .deploy-stamp .hugo_build_lock
 

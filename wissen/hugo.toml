@@ -5,6 +5,7 @@ theme = "papermod"
 defaultContentLanguage = "de"
 defaultContentLanguageInSubdir = true
 enableRobotsTXT = true
+ignoreFiles = [".*faq/restaurierung/index\\.md$"]
 
 [outputs]
 home = ["HTML"]

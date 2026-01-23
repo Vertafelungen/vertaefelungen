@@ -5,6 +5,7 @@ defaultContentLanguageInSubdir = true
 enableRobotsTXT = true
 canonifyURLs = true
 relativeURLs = false
+ignoreFiles = [".*faq/restaurierung/index\\.md$"]
 
 [pagination]
   pagerSize = 10
