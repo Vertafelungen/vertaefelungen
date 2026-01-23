@@ -43,20 +43,23 @@ Notes:
       <div class="nav-panel" id="main-nav">
         {{- $lang := .Site.Language.Lang -}}
 
-        {{/* IMPORTANT:
-            relURL already prefixes the site base path (here: /wissen/).
-            Therefore, $base must NOT include "/wissen/" to avoid /wissen/wissen/... */}}
-        {{- $base := printf "/%s/" $lang -}}
+        {{- $shopUrl := "" -}}
+        {{- $faqUrl := "" -}}
+        {{- $productsUrl := "" -}}
+        {{- $lookbookUrl := "" -}}
 
-        {{- $shopPath := "shop/" -}}
-        {{- $faqPath := "faq/" -}}
-        {{- $productsPath := cond (eq $lang "de") "produkte/" "products/" -}}
-        {{- $lookbookPath := "lookbook/" -}}
-
-        {{- $shopUrl := relURL (printf "%s%s" $base $shopPath) -}}
-        {{- $faqUrl := relURL (printf "%s%s" $base $faqPath) -}}
-        {{- $productsUrl := relURL (printf "%s%s" $base $productsPath) -}}
-        {{- $lookbookUrl := relURL (printf "%s%s" $base $lookbookPath) -}}
+        {{- with site.GetPage (printf "/%s/shop" $lang) -}}
+          {{- $shopUrl = .RelPermalink -}}
+        {{- end -}}
+        {{- with site.GetPage (printf "/%s/faq" $lang) -}}
+          {{- $faqUrl = .RelPermalink -}}
+        {{- end -}}
+        {{- with site.GetPage (printf "/%s/%s" $lang (cond (eq $lang "de") "produkte" "products")) -}}
+          {{- $productsUrl = .RelPermalink -}}
+        {{- end -}}
+        {{- with site.GetPage (printf "/%s/lookbook" $lang) -}}
+          {{- $lookbookUrl = .RelPermalink -}}
+        {{- end -}}
 
         <nav class="main-nav" aria-label="{{ i18n "header_nav_label" }}" data-testid="primary-nav">
           <a class="main-nav__link{{ if hasPrefix .RelPermalink $shopUrl }} main-nav__link--active{{ end }}" href="{{ $shopUrl }}">Shop</a>
