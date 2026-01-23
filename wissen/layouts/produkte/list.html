@@ -1,7 +1,8 @@
 {{ define "main" }}
   {{ partial "components/hero.html" (dict "title" .Title "lead" .Params.lead) }}
+  {{ partial "guardrails/ssot-empty-landing.html" (dict "page" .) }}
 
-  {{- $pages := .RegularPages -}}
+  {{- $pages := .Pages -}}
   {{- if gt (len $pages) 0 -}}
     {{ partial "components/teaser-list.html" (dict "pages" $pages) }}
   {{- else -}}
