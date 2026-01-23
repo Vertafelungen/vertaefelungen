@@ -45,6 +45,26 @@ jobs:
       - name: Install Hugo (repo-local)
         run: ./tools/hugo/install.sh
 
+      - name: Pre-build mojibake scan (sources)
+        run: |
+          mkdir -p artifacts
+          python scripts/scan_mojibake_sources.py --root content --mode pre --report artifacts/mojibake_prebuild_content.json || true
+          if [ -f artifacts/mojibake_prebuild_content_summary.txt ]; then
+            mv artifacts/mojibake_prebuild_content_summary.txt artifacts/mojibake_prebuild_summary.txt
+          fi
+          if [ -d "ssot" ]; then
+            python scripts/scan_mojibake_sources.py --root ssot --mode pre --report artifacts/mojibake_prebuild_ssot.json || true
+            if [ -f artifacts/mojibake_prebuild_ssot_summary.txt ]; then
+              if [ -f artifacts/mojibake_prebuild_summary.txt ]; then
+                echo "" >> artifacts/mojibake_prebuild_summary.txt
+                echo "---- SSOT ----" >> artifacts/mojibake_prebuild_summary.txt
+                cat artifacts/mojibake_prebuild_ssot_summary.txt >> artifacts/mojibake_prebuild_summary.txt
+              else
+                mv artifacts/mojibake_prebuild_ssot_summary.txt artifacts/mojibake_prebuild_summary.txt
+              fi
+            fi
+          fi
+
       - name: Build (production)
         env:
           HUGO_ENV: production
@@ -67,6 +87,14 @@ jobs:
         run: |
           test -f public/.htaccess || (echo "ERROR: public/.htaccess missing. Ensure wissen/static/.htaccess exists and is copied by Hugo." && exit 1)
 
+      - name: Post-build mojibake scan (public)
+        run: |
+          mkdir -p artifacts
+          python scripts/scan_mojibake_sources.py --root public --mode post --report artifacts/mojibake_postbuild_public.json || true
+          if [ -f artifacts/mojibake_postbuild_public_summary.txt ]; then
+            mv artifacts/mojibake_postbuild_public_summary.txt artifacts/mojibake_postbuild_summary.txt
+          fi
+
       - name: Run mojibake scan
         run: |
           python scripts/check_mojibake.py --root public --report artifacts/mojibake_report.json
@@ -77,6 +105,18 @@ jobs:
         with:
           name: mojibake-report
           path: wissen/artifacts/mojibake_report.json
+
+      - name: Upload mojibake diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mojibake-diagnostics
+          path: |
+            wissen/artifacts/mojibake_prebuild_content.json
+            wissen/artifacts/mojibake_prebuild_ssot.json
+            wissen/artifacts/mojibake_prebuild_summary.txt
+            wissen/artifacts/mojibake_postbuild_public.json
+            wissen/artifacts/mojibake_postbuild_summary.txt
 
       - name: Check deploy secrets (hart brechen wenn was fehlt)
         run: |
