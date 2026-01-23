@@ -1,13 +1,13 @@
 <!--
 File: wissen/layouts/partials/header.html
-Version: 2026-01-18  (Europe/Berlin)
+Version: 2026-01-23 08:20 Uhr (Europe/Berlin)
 Purpose: Site header aligned to main site (image brand left, centered main nav, actions right)
+Change: Fix duplicate /wissen prefix in header nav URLs by removing hardcoded "/wissen/" from $base.
 Notes:
 - Header main navigation is intentionally deterministic:
   DE: /wissen/de/shop/ /wissen/de/faq/ /wissen/de/produkte/ /wissen/de/lookbook/
   EN: /wissen/en/shop/ /wissen/en/faq/ /wissen/en/products/ /wissen/en/lookbook/
 - "Über uns" is a footer item and must not appear in the header.
-- Logo asset served from brand/logo-vl.png via relURL (works under /wissen/).
 - No inline styles; styling via site.css.
 -->
 
@@ -42,10 +42,14 @@ Notes:
 
       <div class="nav-panel" id="main-nav">
         {{- $lang := .Site.Language.Lang -}}
-        {{- $base := printf "/wissen/%s/" $lang -}}
 
-        {{- $shopPath := cond (eq $lang "de") "shop/" "shop/" -}}
-        {{- $faqPath := cond (eq $lang "de") "faq/" "faq/" -}}
+        {{/* IMPORTANT:
+            relURL already prefixes the site base path (here: /wissen/).
+            Therefore, $base must NOT include "/wissen/" to avoid /wissen/wissen/... */}}
+        {{- $base := printf "/%s/" $lang -}}
+
+        {{- $shopPath := "shop/" -}}
+        {{- $faqPath := "faq/" -}}
         {{- $productsPath := cond (eq $lang "de") "produkte/" "products/" -}}
         {{- $lookbookPath := "lookbook/" -}}
 
