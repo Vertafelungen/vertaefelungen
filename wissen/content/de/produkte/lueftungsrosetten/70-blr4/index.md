@@ -4,7 +4,7 @@ aliases:
 title: Lüftungsrosette 4
 translationKey: '70'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '70'
   artikelnummer: BLR4
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/lueftungsrosetten/70-lueftungsrosette-4.html
+lang: de
 ---
 Formschöne Lüftungsrosette für Vertäfelungen.
 Messing gefräst, Oberfläche geschlichtet

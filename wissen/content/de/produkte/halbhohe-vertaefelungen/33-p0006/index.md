@@ -4,7 +4,7 @@ aliases:
 title: P0006 - Leipzig - Ludwigstraße
 translationKey: '33'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '33'
   artikelnummer: P0006
@@ -34,5 +34,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/33-271-leipzig-ludwigstrasse.html#/47-holzart-kiefer/55-bausatz-bausatz
+lang: de
 ---
 Dieser Lambris aus einem Hauseingang der Leipziger Ludwigstraße (Volkmarsdorf) stammt aus der Bauzeit des Gebäudes von 1884 und hat somit ein Alter von rund 140 Jahren. Diese Zeitspanne überbrückt fünf Generationen.

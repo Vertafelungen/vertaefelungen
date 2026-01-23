@@ -4,7 +4,7 @@ aliases:
 title: Lüftungsrosette 1
 translationKey: '71'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '71'
   artikelnummer: BLR1
@@ -28,6 +28,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/ventilation-rosettes/71-ventilation-rosette-3.html
+lang: de
 ---
 Formschöne Lüftungsrosette für Vertäfelungen, Abguss einer Originalvorlage,
 Messingguss, poliert

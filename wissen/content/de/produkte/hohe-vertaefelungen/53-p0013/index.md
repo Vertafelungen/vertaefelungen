@@ -4,7 +4,7 @@ aliases:
 title: P0013 - Berlin - Mommsenstraße
 translationKey: '53'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '53'
   artikelnummer: P0013
@@ -40,6 +40,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/hohe-vertaefelungen/53-291-berlin-mommsenstr.html#/47-holzart-kiefer/55-bausatz-bausatz
+lang: de
 ---
 Die Berliner Mommsenstraße liegt zwischen Kantstraße und Kurfürstendamm in einem sehr mondänen, schicken Wohnviertel mit vielen Galerien und Boutiquen.
 Die hier gezeigte Vertäfelung überzeugt durch ihren gleichmäßigen Rhythmus. Sie lässt sich besonders gut farblich gestalten.

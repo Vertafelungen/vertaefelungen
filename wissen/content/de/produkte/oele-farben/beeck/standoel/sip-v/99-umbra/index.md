@@ -4,7 +4,7 @@ aliases:
 title: Umbra - BEECK Standölinnenfarbe PRO
 translationKey: '99'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '99'
   artikelnummer: UMBRA
@@ -36,6 +36,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/99-395-umbra.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt
+lang: de
 ---
 BEECK Standölinnenfarbe PRO
 Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.

@@ -2,7 +2,7 @@
 title: P0014 - Lübeck - Schiffergesellschaft
 translationKey: '55'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '55'
   artikelnummer: P0014
@@ -42,6 +42,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/high-wainscoting/55-295-p0014-lubeck-schiffergesellschaft.html#/47-type_of_wood-pine_oiled/55-bausatz-row_kit
+lang: en
 ---
 The Schiffergesellschaft Lübeck has existed since 1401. The interior is richly decorated with ship models and items that Lübeck captains have collected on their voyages over centuries.
 This paneling is typical for Lübeck. A similar structure with a flat field with carvings in the upper area and two upright coffers in the lower area can also be found in the Jakobi- and Aegidienkirche. However, the carvings of the Schiffergesellschaft are somewhat more humorous.

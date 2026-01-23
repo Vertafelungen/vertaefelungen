@@ -4,7 +4,7 @@ aliases:
 title: P0022 - Lübeck - Rathaus - Langes Haus
 translationKey: '35'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '35'
   artikelnummer: P0022
@@ -44,5 +44,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/35-luebecker-rathaus-langes-haus.html
+lang: de
 ---
 Rathaus Lübeck - Die Zentrale der Hanse. Hier fanden vom 14. - 18. Jh. die Hansetage statt, auf denen das Miteinander geregelt wurden. Noch heute debattiert hier die Bürgerschaft über die aktuellen Themen. Lübeck ist eine sehr stolze Stadt, was sie auch durch ihre Bauten deutlich zeigt. Außen, wie innen. Über die gesamte Länge des Flurs im Obergeschoss und im Langen Haus zieht sich ein Lambris mit Kassettengliederung. Die Profile und Rahmhölzer sind aus Eiche, während die Kassettenfüllungen aus Kiefernholz gemacht sind. Diese Verkleidung ist wahrscheinlich während des Umbaus von 1893 entstanden.

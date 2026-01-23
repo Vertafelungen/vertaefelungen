@@ -4,7 +4,7 @@ aliases:
 title: Leinölfirnis
 translationKey: '62'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '62'
   artikelnummer: LOEF
@@ -28,6 +28,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/62-326-leinolfirnis.html#/63-1_25_5_10_20_liter-1_liter
+lang: de
 ---
 Leinölfirnis mit Sikkativen.
 Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.
