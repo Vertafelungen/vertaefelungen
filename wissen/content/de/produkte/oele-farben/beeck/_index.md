@@ -3,13 +3,13 @@ version: 2026-01-17 14:37 UTC
 managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
 translationKey: beeck-stand-oil-paints
-title: Beeck StandÃ¶lfarben
-description: StandÃ¶lbasierte Innenfarben und Systemkomponenten von BEECK - robuste, diffusionsoffene Ã–lfarb-Anstriche fÃ¼r HolzoberflÃ¤chen und Altbau-Interieurs.
+title: Beeck Standölfarben
+description: Standölbasierte Innenfarben und Systemkomponenten von BEECK - robuste, diffusionsoffene Ölfarb-Anstriche für Holzoberflächen und Altbau-Interieurs.
 weight: 20
 type: products
 seo:
-  meta_title: BEECK StandÃ¶lfarben - StandÃ¶linnenfarbe Pro & Systemkomponenten
-  meta_description: 'BEECK StandÃ¶lfarben fÃ¼r InnenrÃ¤ume: StandÃ¶linnenfarbe Pro (Vollton/MischtÃ¶ne) und Vorstreichfarbe Pro. Varianten, Gebinde und Hinweise - VertÃ¤felung & Lambris.'
+  meta_title: BEECK Standölfarben - Standölinnenfarbe Pro & Systemkomponenten
+  meta_description: 'BEECK Standölfarben für Innenräume: Standölinnenfarbe Pro (Vollton/Mischtöne) und Vorstreichfarbe Pro. Varianten, Gebinde und Hinweise - Vertäfelung & Lambris.'
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -29,5 +29,4 @@ cascade:
   seo:
     robots: index,follow
 ---
-Diese Kategorie bÃ¼ndelt die StandÃ¶l-Systeme von BEECK fÃ¼r InnenrÃ¤ume. StandÃ¶lfarben sind fÃ¼r langlebige, reparaturfreundliche OberflÃ¤chen konzipiert und passen gut in historisch geprÃ¤gte Innenausbauten.\n\n## Unterkategorien\n- **StandÃ¶linnenfarbe Pro Volltonfarbe** - fertig abgetÃ¶nte VolltÃ¶ne.\n- **StandÃ¶linnenfarbe Pro MischtÃ¶ne** - MischtÃ¶ne und Nuancierungen.\n- **Vorstreichfarbe Pro** - Grund- bzw. Voranstrich als Systemkomponente.\n\nWÃ¤hle eine Unterkategorie, um FarbtÃ¶ne, Gebinde und Varianten zu sehen.
-
+Diese Kategorie bündelt die Standöl-Systeme von BEECK für Innenräume. Standölfarben sind für langlebige, reparaturfreundliche Oberflächen konzipiert und passen gut in historisch geprägte Innenausbauten.\n\n## Unterkategorien\n- **Standölinnenfarbe Pro Volltonfarbe** - fertig abgetönte Volltöne.\n- **Standölinnenfarbe Pro Mischtöne** - Mischtöne und Nuancierungen.\n- **Vorstreichfarbe Pro** - Grund- bzw. Voranstrich als Systemkomponente.\n\nWähle eine Unterkategorie, um Farbtöne, Gebinde und Varianten zu sehen.
