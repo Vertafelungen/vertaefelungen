@@ -1,6 +1,10 @@
 # Version: 2026-01-23 00:00
 # Purpose: Force UTF-8 for /wissen to prevent mojibake (Ã¤/Ã¼/Ã¶)
 
+<IfModule mod_headers.c>
+  Header set X-Wissen-Htaccess "active"
+</IfModule>
+
 AddDefaultCharset UTF-8
 
 <IfModule mod_mime.c>
