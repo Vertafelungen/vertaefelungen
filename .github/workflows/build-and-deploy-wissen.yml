@@ -67,6 +67,17 @@ jobs:
         run: |
           test -f public/.htaccess || (echo "ERROR: public/.htaccess missing. Ensure wissen/static/.htaccess exists and is copied by Hugo." && exit 1)
 
+      - name: Run mojibake scan
+        run: |
+          python scripts/check_mojibake.py --root public --report artifacts/mojibake_report.json
+
+      - name: Upload mojibake report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mojibake-report
+          path: wissen/artifacts/mojibake_report.json
+
       - name: Check deploy secrets (hart brechen wenn was fehlt)
         run: |
           test -n "${{ secrets.SFTP_HOST }}"        || (echo "Missing secret SFTP_HOST" && exit 1)
