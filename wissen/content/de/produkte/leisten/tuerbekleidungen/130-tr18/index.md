@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 18
 translationKey: '130'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '130'
   artikelnummer: TR18
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/130-554-tr18.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 18, Maße: 150 x 40 mm

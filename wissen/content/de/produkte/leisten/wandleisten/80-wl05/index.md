@@ -4,7 +4,7 @@ aliases:
 title: Wandleiste 05 „Hohe Welle"
 translationKey: '80'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '80'
   artikelnummer: WL05
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/wandleisten/80-347-wl-01.html#/66-holzart_wl-kiefer
+lang: de
 ---
 "Hohe Welle" - Massive Holzleiste 20 x 40 mm, nicht symmetrisches Profil mit zentralem Halbrundstab.
 In Kiefer oder White Wood, andere Holzarten aus Anfrage

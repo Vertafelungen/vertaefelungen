@@ -4,7 +4,7 @@ aliases:
 title: Wandleiste 04 „Rundstableiste"
 translationKey: '79'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '79'
   artikelnummer: WL04
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/wandleisten/79-345-wl-01.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Rundstableiste - Massive Holzleiste 10 x 40 mm, Rundstableiste.
 In Kiefer oder White Wood, andere Holzarten aus Anfrage

@@ -4,7 +4,7 @@ aliases:
 title: Wandleiste 02 „Dom-Profil"
 translationKey: '77'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '77'
   artikelnummer: WL02
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/wandleisten/77-341-wl-02.html#/66-holzart_wl-kiefer
+lang: de
 ---
 „Dom-Profil" Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab.
 Als Wandleiste zur direkten Montage auf der verputzen Wand.

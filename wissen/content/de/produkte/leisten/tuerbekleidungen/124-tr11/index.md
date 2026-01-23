@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 11
 translationKey: '124'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '124'
   artikelnummer: TR11
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/124-542-tr11.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 11, Maße: 118 x 23 mm mm

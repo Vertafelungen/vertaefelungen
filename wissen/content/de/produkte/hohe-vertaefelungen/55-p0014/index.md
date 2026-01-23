@@ -2,7 +2,7 @@
 title: P0014 - Lübeck - Schiffergesellschaft
 translationKey: '55'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '55'
   artikelnummer: P0014
@@ -42,6 +42,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/hohe-vertaefelungen/55-295-luebeck-schiffergesellschaft.html#/47-holzart-kiefer/55-bausatz-bausatz
+lang: de
 ---
 Die Schiffergesellschaft Lübeck besteht seit 1401. Sie wurde gegründet, um Witwen und Waisen von auf See gebliebenen Seefahrern Speisen und Wohnraum zu gewähren.
 Der Innenraum ist reich mit Schiffsmodellen und kuriosen Dingen geschmückt, die von Lübecker Kapitänen über die Jahrhunderte auf ihren Fahrten zusammengetragen wurden. Um 1868 wurde beschlossen im Gildesaal einen Restaurantbetrieb einzurichten, der bis heute geöffnet ist.

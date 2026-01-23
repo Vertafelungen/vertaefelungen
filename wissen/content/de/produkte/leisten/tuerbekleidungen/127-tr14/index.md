@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 14
 translationKey: '127'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '127'
   artikelnummer: TR14
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/127-548-tr14.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 14, Maße: 118 x 20 mm

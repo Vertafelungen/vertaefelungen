@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 13
 translationKey: '126'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '126'
   artikelnummer: TR13
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/126-546-tr13.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 13, Maße: 103 x 23 mm

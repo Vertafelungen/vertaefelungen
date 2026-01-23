@@ -4,7 +4,7 @@ aliases:
 title: Wandleiste 03 „Riffelleiste"
 translationKey: '78'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '78'
   artikelnummer: WL03
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/wandleisten/78-343-wl-01.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Riffelleiste - Massive Holzleiste 10 x 40 mm.
 In Kiefer oder White Wood, andere Holzarten aus Anfrage.

@@ -2,7 +2,7 @@
 title: P0005 - Berlin - Bleibtreustraße
 translationKey: '32'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '32'
   artikelnummer: P0005
@@ -40,5 +40,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/32-p0005-berlin-bleibtreustrasse.html
+lang: en
 ---
 Very impressive but quite simply constructed. The "windows" lined up in a row with the trefoil arches at the end create neo-Gothic panelling. Such an interior lends prestige and dignity to a Victorian-style entrance.

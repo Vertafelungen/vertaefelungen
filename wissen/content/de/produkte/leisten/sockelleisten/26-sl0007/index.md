@@ -4,7 +4,7 @@ aliases:
 title: SL0007 - München - Augustiner Stammhaus - Sockelleiste 450/62
 translationKey: '26'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '26'
   artikelnummer: SL0007
@@ -28,5 +28,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/sockelleisten/26-150-Sockelleiste-Augustiner-Stammhaus.html#/47-holzart-kiefer
+lang: de
 ---
 Diese 4-teilige, 45 cm hohe Sockelleiste kommt aus dem Stammhaus der Augustiner Brauerei in der Münchner Innenstadt. Mit ihr sind im 1.OG einige Wohnräume der Brauerfamilie Wagner ausgestattet, die „Wagner Salons". Die Salons wurden 1896-97 von Emanuel von Seidel in einer Mischung aus zeitgenössischem Jugendstil und elegantem Neobarock umgebaut und neu eingerichtet. 2019 wurden sie umfassend restauriert und sind nun für Gäste geöffnet.

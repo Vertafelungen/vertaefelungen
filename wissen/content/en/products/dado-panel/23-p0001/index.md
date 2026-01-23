@@ -4,7 +4,7 @@ aliases:
 title: P0001 - Berlin - Winsstraße
 translationKey: '23'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '23'
   artikelnummer: P0001
@@ -40,6 +40,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/23-251-p0001-berlin-winsstr.html#/47-type_of_wood-pine_oiled/55-bausatz-row_kit
+lang: en
 ---
 The Wins quarter around Winsstrasse in Berlin Prenzlauer Berg is a residential area with a high quality of life. The atmosphere is characterised by street cafés, book and wine shops and the well-preserved old buildings also contribute to the cosy atmosphere. The stucco-decorated entrances are very varied. There are Art Nouveau tiles, marble and wood panelling like this one.
 

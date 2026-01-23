@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 15
 translationKey: '128'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '128'
   artikelnummer: TR15
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/128-550-tr15.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 15, Maße: 117 x 19 mm
