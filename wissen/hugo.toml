@@ -32,9 +32,9 @@ home = ["HTML"]
       locale = "en_GB"
 
 [languages.de.permalinks]
-  produkte = "/produkte/:sections/:slug/"
+  produkte = "/:sections/:slug/"
   faq = "/faq/:sections/:slug/"
 
 [languages.en.permalinks]
-  products = "/products/:sections/:slug/"
+  products = "/:sections/:slug/"
   faq = "/faq/:sections/:slug/"

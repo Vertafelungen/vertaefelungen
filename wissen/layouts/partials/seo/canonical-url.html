@@ -1,6 +1,7 @@
 {{- /* Compute canonical URL with optional overrides */ -}}
 {{- $page := . -}}
 {{- $canonical := $page.Permalink -}}
+{{- $rel := $page.RelPermalink -}}
 
 {{- with $page.Params.canonical_override }}
   {{- $canonical = . | absURL -}}
@@ -10,6 +11,13 @@
       {{- $canonical = . | absURL -}}
     {{- end -}}
   {{- end -}}
+{{- end -}}
+
+{{- /* Guard: consolidate redundant product paths with duplicate segments. */ -}}
+{{- if in $rel "/produkte/produkte/" -}}
+  {{- $canonical = (replace $rel "/produkte/produkte/" "/produkte/") | absURL -}}
+{{- else if in $rel "/products/products/" -}}
+  {{- $canonical = (replace $rel "/products/products/" "/products/") | absURL -}}
 {{- end -}}
 
 {{- return $canonical -}}

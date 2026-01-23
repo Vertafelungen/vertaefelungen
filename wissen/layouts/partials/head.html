@@ -4,6 +4,7 @@
 
 {{/* Canonical + Hreflang */}}
 {{- $canonical := partial "seo/canonical-url.html" . -}}
+{{- $isRedundantProductPath := or (in .RelPermalink "/produkte/produkte/") (in .RelPermalink "/products/products/") -}}
 {{- $robots := "index,follow" -}}
 {{- with .Params.robots }}
   {{- $robots = . -}}
@@ -13,6 +14,9 @@
       {{- $robots = . -}}
     {{- end -}}
   {{- end -}}
+{{- end -}}
+{{- if $isRedundantProductPath -}}
+  {{- $robots = "noindex,follow" -}}
 {{- end -}}
 {{- $knowledgeURL := $canonical -}}
 {{- with .Params.knowledge_url }}
