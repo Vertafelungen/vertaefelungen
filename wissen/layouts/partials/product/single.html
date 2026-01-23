@@ -14,13 +14,13 @@
   <nav class="text-sm text-slate-500" aria-label="Breadcrumb">
     <ol class="flex flex-wrap gap-2">
       <li>
-        <a class="hover:text-slate-700" href="{{ .Site.Home.Permalink }}">Start</a>
+        <a class="hover:text-slate-700" href="{{ .Site.Home.RelPermalink }}">Start</a>
       </li>
       {{- range .Ancestors.Reverse -}}
         {{- if not .IsHome -}}
           <li aria-hidden="true">/</li>
           <li>
-            <a class="hover:text-slate-700" href="{{ .Permalink }}">{{ .Title }}</a>
+            <a class="hover:text-slate-700" href="{{ .RelPermalink }}">{{ .Title }}</a>
           </li>
         {{- end -}}
       {{- end -}}
@@ -90,6 +90,13 @@
   <section class="prose max-w-none">
     {{ .Content }}
   </section>
+
+  {{- $sectionPage := site.GetPage (printf "/%s/%s" .Lang .Section) -}}
+  {{- if $sectionPage -}}
+    <div class="prose max-w-none">
+      <p><a href="{{ $sectionPage.RelPermalink }}">{{ i18n "home_tile_products_cta" }}</a></p>
+    </div>
+  {{- end -}}
 
   <section class="flex flex-wrap gap-4" aria-label="Produkt-CTAs">
     {{- if $shopURL -}}

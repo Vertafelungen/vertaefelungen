@@ -20,5 +20,26 @@
   </header>
 
   {{ partial "content-or-placeholder.html" (dict "page" . "class" "prose") }}
+
+  {{- $section := .Section -}}
+  {{- $sectionPage := site.GetPage (printf "/%s/%s" .Lang $section) -}}
+  {{- $labelKey := "" -}}
+  {{- if eq $section "faq" -}}
+    {{- $labelKey = "home_tile_faq_cta" -}}
+  {{- else if eq $section "lookbook" -}}
+    {{- $labelKey = "home_tile_lookbook_cta" -}}
+  {{- else if or (eq $section "produkte") (eq $section "products") -}}
+    {{- $labelKey = "home_tile_products_cta" -}}
+  {{- else if eq $section "shop" -}}
+    {{- $labelKey = "home_tile_shop_cta" -}}
+  {{- else if or (eq $section "ueber-uns") (eq $section "about-us") -}}
+    {{- $labelKey = "home_tile_about_cta" -}}
+  {{- end -}}
+
+  {{- if and $sectionPage $labelKey -}}
+    <div class="prose">
+      <p><a href="{{ $sectionPage.RelPermalink }}">{{ i18n $labelKey }}</a></p>
+    </div>
+  {{- end -}}
 </article>
 {{ end }}

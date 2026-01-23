@@ -16,13 +16,15 @@
 
   {{- $lang := $page.Language.Lang -}}
 
-  {{- $consultingLink := cond (eq $lang "de") "/de/faq/beratung/" "/en/faq/consulting/" -}}
-  {{- with site.GetPage (printf "/%s/faq/%s" $lang (cond (eq $lang "de") "beratung" "consulting")) -}}
+  {{- $consultingSlug := cond (eq $lang "de") "beratung" "consulting" -}}
+  {{- $consultingLink := relURL (printf "/%s/faq/%s/" $lang $consultingSlug) -}}
+  {{- with site.GetPage (printf "/%s/faq/%s" $lang $consultingSlug) -}}
     {{- $consultingLink = .RelPermalink -}}
   {{- end -}}
 
-  {{- $contactLink := cond (eq $lang "de") "/de/kontakt/" "/en/contact/" -}}
-  {{- with site.GetPage (printf "/%s/%s" $lang (cond (eq $lang "de") "kontakt" "contact")) -}}
+  {{- $contactSlug := cond (eq $lang "de") "kontakt" "contact" -}}
+  {{- $contactLink := relURL (printf "/%s/%s/" $lang $contactSlug) -}}
+  {{- with site.GetPage (printf "/%s/%s" $lang $contactSlug) -}}
     {{- $contactLink = .RelPermalink -}}
   {{- end -}}
 
