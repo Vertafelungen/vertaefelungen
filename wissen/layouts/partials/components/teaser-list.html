@@ -1,0 +1,15 @@
+{{- $pages := .pages -}}
+{{- $title := .title -}}
+
+<div class="prose">
+  {{- with $title }}
+    <p class="section-title">{{ . }}</p>
+  {{- end }}
+  <ul>
+    {{- range $pages }}
+      <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </li>
+    {{- end }}
+  </ul>
+</div>

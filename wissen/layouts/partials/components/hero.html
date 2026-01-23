@@ -1,0 +1,9 @@
+{{- $title := .title -}}
+{{- $lead := .lead -}}
+
+<section class="page-hero">
+  <h1 class="page-hero__title">{{ $title }}</h1>
+  {{- with $lead }}
+    <p class="page-hero__lead">{{ . }}</p>
+  {{- end }}
+</section>

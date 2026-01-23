@@ -26,47 +26,42 @@
 
   <section class="home">
     <div class="container">
-      <h1 class="home__title">{{ i18n "home_title" | default .Site.Title }}</h1>
-      <p class="home__lead">{{ i18n "home_lead" }}</p>
+      {{- partial "components/hero.html" (dict
+        "title" (i18n "home_title" | default .Site.Title)
+        "lead" (i18n "home_lead")
+      ) -}}
 
       <h2 class="home__section-title">{{ i18n "home_section_title" | default "Direkt einsteigen" }}</h2>
 
-      <div class="entry-cards">
-        <a class="entry-card" href="{{ $shopURL }}" aria-label="{{ i18n "home_tile_shop_title" | default "Shop" }}">
-          <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "home_tile_shop_title" | default "Shop" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_tile_shop_text" }}</p>
-          </div>
-        </a>
-
-        <a class="entry-card" href="{{ $faqURL }}" aria-label="{{ i18n "home_tile_faq_title" | default "FAQ" }}">
-          <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "home_tile_faq_title" | default "FAQ" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_tile_faq_text" }}</p>
-          </div>
-        </a>
-
-        <a class="entry-card" href="{{ $productsURL }}" aria-label="{{ i18n "home_tile_products_title" | default "Produkte" }}">
-          <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "home_tile_products_title" | default "Produkte" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_tile_products_text" }}</p>
-          </div>
-        </a>
-
-        <a class="entry-card" href="{{ $lookbookURL }}" aria-label="{{ i18n "home_tile_lookbook_title" | default "Lookbook" }}">
-          <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "home_tile_lookbook_title" | default "Lookbook" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_tile_lookbook_text" }}</p>
-          </div>
-        </a>
-
-        <a class="entry-card" href="{{ $aboutURL }}" aria-label="{{ i18n "home_tile_about_title" | default "Über uns" }}">
-          <div class="entry-card__inner">
-            <h3 class="entry-card__title">{{ i18n "home_tile_about_title" | default "Über uns" }}</h3>
-            <p class="entry-card__text">{{ i18n "home_tile_about_text" }}</p>
-          </div>
-        </a>
-      </div>
+      {{- partial "components/card-grid.html" (dict
+        "items" (slice
+          (dict
+            "title" (i18n "home_tile_shop_title" | default "Shop")
+            "text" (i18n "home_tile_shop_text")
+            "href" $shopURL
+          )
+          (dict
+            "title" (i18n "home_tile_faq_title" | default "FAQ")
+            "text" (i18n "home_tile_faq_text")
+            "href" $faqURL
+          )
+          (dict
+            "title" (i18n "home_tile_products_title" | default "Produkte")
+            "text" (i18n "home_tile_products_text")
+            "href" $productsURL
+          )
+          (dict
+            "title" (i18n "home_tile_lookbook_title" | default "Lookbook")
+            "text" (i18n "home_tile_lookbook_text")
+            "href" $lookbookURL
+          )
+          (dict
+            "title" (i18n "home_tile_about_title" | default "Über uns")
+            "text" (i18n "home_tile_about_text")
+            "href" $aboutURL
+          )
+        )
+      ) -}}
     </div>
   </section>
 {{- end -}}
