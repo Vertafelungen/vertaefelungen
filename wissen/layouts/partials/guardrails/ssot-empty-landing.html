@@ -1,0 +1,16 @@
+{{- with .page -}}
+  {{- range .Sections -}}
+    {{- $child := . -}}
+    {{- if eq $child.Params.managed_by "categories.csv" -}}
+      {{- $hasChildren := gt (len $child.Pages) 0 -}}
+      {{- $plain := strings.TrimSpace $child.Plain -}}
+      {{- if and (not $hasChildren) (eq $plain "") -}}
+        {{- $path := $child.RelPermalink -}}
+        {{- with $child.File -}}
+          {{- $path = .Path -}}
+        {{- end -}}
+        {{- warnf "SSOT category without renderable content: %s" $path -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
