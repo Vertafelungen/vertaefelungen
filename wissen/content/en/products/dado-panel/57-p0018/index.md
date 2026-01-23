@@ -5,7 +5,7 @@ aliases:
 title: P0018 - Berlin - Invalidenstraße
 translationKey: '57'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '57'
   artikelnummer: P0018
@@ -39,6 +39,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/57-p0018-berlin-invalidenstrasse.html
+lang: en
 ---
 The Balzer bakery was located here 130 years ago. All the walls are covered with fresh summer flower tiles and beautifully profiled wooden mouldings and the buns must have smelled twice as good!
 Today they're serving burgers and the setting, well, looks a bit scruffy. I hope that the next tenant knows what to do with this treasure.

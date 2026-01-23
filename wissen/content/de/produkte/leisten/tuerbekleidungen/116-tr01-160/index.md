@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 01 / 160
 translationKey: '116'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '116'
   artikelnummer: TR01-160
@@ -24,5 +24,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/116-526-tr01-160.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen TR 01 / 160, Maße: 160 x 24 mm

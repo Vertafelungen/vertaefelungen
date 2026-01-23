@@ -4,7 +4,7 @@ aliases:
 title: Reines Leinöl, ohne Sikkativ
 translationKey: '61'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '61'
   artikelnummer: LOEN
@@ -28,6 +28,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/61-322-leinol.html#/63-1_25_5_10_20_liter-1_liter
+lang: de
 ---
 Gereinigtes Leinöl mit niedrigem Säuregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ.
 Zur ersten Grundierung von rohem Holz. Reines Leinöl hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm.

@@ -2,7 +2,7 @@
 title: P0005 - Berlin - Bleibtreustraße
 translationKey: '32'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '32'
   artikelnummer: P0005
@@ -40,6 +40,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/32-267-berlin-bleibtreustrasse.html#/47-holzart-kiefer/55-bausatz-bausatz
+lang: de
 ---
 Sehr eindrucksvoll und trotzdem recht einfach aufgebaut.
 Durch die aneinander gereihten „Fenster" mit den Dreipassbögen als Abschluss, entsteht eine neogotische Vertäfelung. Solches Interieur verhilft einem gründerzeitlichen Hauseingang zu Ansehen und Würde.

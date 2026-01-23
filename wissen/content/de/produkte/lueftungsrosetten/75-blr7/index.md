@@ -4,7 +4,7 @@ aliases:
 title: Lüftungsrosette 7
 translationKey: '75'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '75'
   artikelnummer: BLR7
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/lueftungsrosetten/75-lueftungsrosette-3.html
+lang: de
 ---
 Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert

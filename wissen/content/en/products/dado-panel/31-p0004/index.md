@@ -5,7 +5,7 @@ aliases:
 title: P0004 - Berlin - Sophienstraße
 translationKey: '31'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '31'
   artikelnummer: P0004
@@ -35,5 +35,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/31-p0004-berlin-sophienstrasse.html
+lang: en
 ---
 Berlin's Sophienstraße has a particularly picturesque small-town charm and the only remaining baroque church tower in Berlin. From Sophienstraße you can reach the Hackesche Höfe and the Sophien-Gips-Höfe. The Lambris has an upright cassette that can be easily adapted to individual room dimensions. We manufacture the panel in oak or pine. On request, it can be prepared for a coloured coating.

@@ -5,7 +5,7 @@ aliases:
 title: P0018 - Berlin - Invalidenstraße
 translationKey: '57'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '57'
   artikelnummer: P0018
@@ -39,6 +39,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/57-299-berlin-invalidenstrasse.html#/47-holzart-kiefer/55-bausatz-bausatz
+lang: de
 ---
 Vor 130 Jahren befand sich hier die Bäckerei Balzer. Alle Wände sind mit frischen Sommerblumenfliesen und schön profilierten Holzleisten verkleidet und die Brötchen dufteten bestimmt gleich doppelt so gut!
 Heute gibt´s hier Burger und die Kulisse, nun ja, wirkt etwas ungepflegt. Ich hoffe, dass der nächste Mieter mehr mit diesem Schatz anzufangen weiß.

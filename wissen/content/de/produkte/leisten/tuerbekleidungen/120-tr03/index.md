@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 03
 translationKey: '120'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '120'
   artikelnummer: TR03
@@ -24,5 +24,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/119-532-tr02.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen TR 03, Maße: 160 X 42 mm

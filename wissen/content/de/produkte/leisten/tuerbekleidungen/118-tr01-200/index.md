@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 01 / 200
 translationKey: '118'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '118'
   artikelnummer: TR01-200
@@ -24,5 +24,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/118-530-tr01-200.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen TR 01 / 200, Maße: 200 x 24 mm
