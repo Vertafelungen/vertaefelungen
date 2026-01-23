@@ -4,12 +4,12 @@ managed_by: categories.csv
 last_synced: 2026-01-17 14:37 UTC
 translationKey: mouldings-root
 title: Leisten
-description: 'Leisten fÃ¼r historische InnenrÃ¤ume: Wandleisten, TÃ¼rrahmen/TÃ¼rbekleidungen und Sockelleisten - als rekonstruierte Profile nach Vorbildern oder als kompatible Standardprofile.'
+description: 'Leisten für historische Innenräume: Wandleisten, Türrahmen/Türbekleidungen und Sockelleisten - als rekonstruierte Profile nach Vorbildern oder als kompatible Standardprofile.'
 weight: 30
 type: products
 seo:
-  meta_title: Leisten - Wandleisten, TÃ¼rbekleidungen und Sockelleisten
-  meta_description: 'Leisten fÃ¼r historische InnenrÃ¤ume: Wandleisten, TÃ¼rrahmen/TÃ¼rbekleidungen und Sockelleisten. ProduktÃ¼bersichten, Varianten und MaÃŸe - VertÃ¤felung & Lambris.'
+  meta_title: Leisten - Wandleisten, Türbekleidungen und Sockelleisten
+  meta_description: 'Leisten für historische Innenräume: Wandleisten, Türrahmen/Türbekleidungen und Sockelleisten. Produktübersichten, Varianten und Maße - Vertäfelung & Lambris.'
   robots: index,follow
   canonical: ''
   og_image: ''
@@ -29,5 +29,4 @@ cascade:
   seo:
     robots: index,follow
 ---
-Leisten sind das "Vokabular" historischer Innenausbauten: Sie fassen Ã–ffnungen, gliedern WandflÃ¤chen und definieren ÃœbergÃ¤nge.\n\n## Unterkategorien\n- **Wandleisten** - Profile zur Gliederung von WandflÃ¤chen, Feldern und Gesimsen.\n- **TÃ¼rrahmen / TÃ¼rbekleidungen** - Profile zur Fassung von TÃ¼ren und DurchgÃ¤ngen.\n- **Sockelleisten** - Abschluss am Boden, Schutz- und Proportionsleiste.\n\nWÃ¤hle eine Unterkategorie, um passende Profile, MaÃŸe, Varianten und Bilder zu sehen.
-
+Leisten sind das "Vokabular" historischer Innenausbauten: Sie fassen Öffnungen, gliedern Wandflächen und definieren Übergänge.\n\n## Unterkategorien\n- **Wandleisten** - Profile zur Gliederung von Wandflächen, Feldern und Gesimsen.\n- **Türrahmen / Türbekleidungen** - Profile zur Fassung von Türen und Durchgängen.\n- **Sockelleisten** - Abschluss am Boden, Schutz- und Proportionsleiste.\n\nWähle eine Unterkategorie, um passende Profile, Maße, Varianten und Bilder zu sehen.
