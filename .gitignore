@@ -8,6 +8,11 @@
 /resources/_gen/
 /wissen/.hugo_build.lock
 /tools/hugo.exe
+/tools/reports/
+/wissen/tools/reports/
+/wissen/scripts/reports/
+/wissen/artifacts/
+/artifacts/
 
 # Optionaler Airbag gegen Regressionen:
 !wissen/content/en/public/**
