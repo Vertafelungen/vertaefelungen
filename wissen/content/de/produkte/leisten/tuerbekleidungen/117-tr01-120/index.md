@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 01 / 120
 translationKey: '117'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '117'
   artikelnummer: TR01-120
@@ -24,5 +24,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/117-528-tr01-120.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen TR 01 / 120, Maße: 120 x 18 mm

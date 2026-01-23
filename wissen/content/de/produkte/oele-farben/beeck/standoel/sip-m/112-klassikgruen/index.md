@@ -4,7 +4,7 @@ aliases:
 title: Klassikgrün - BEECK Standölinnenfarbe PRO
 translationKey: '112'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '112'
   artikelnummer: KLASSIKGRUEN
@@ -64,6 +64,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/standoelinnenfarbe-pro-mischtoene/112-486-klassikgruen.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt/73-klassikgrun-klassikgrun_01
+lang: de
 ---
 BEECK Standölinnenfarbe PRO
 Mischton, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.

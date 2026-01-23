@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 04
 translationKey: '121'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '121'
   artikelnummer: TR04
@@ -24,5 +24,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/121-536-tr03.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen TR 04, Maße: 160 X 34 mm

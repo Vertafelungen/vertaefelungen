@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 07
 translationKey: '115'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '115'
   artikelnummer: TR07
@@ -24,6 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/tuerrahmen/115-524-tr07.html#/66-holzart_wl-kiefer
+lang: de
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 07, Maße: 143 x 31 mm

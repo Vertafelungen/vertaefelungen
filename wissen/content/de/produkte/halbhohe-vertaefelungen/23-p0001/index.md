@@ -4,7 +4,7 @@ aliases:
 title: P0001 - Berlin - Winsstraße
 translationKey: '23'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '23'
   artikelnummer: P0001
@@ -40,5 +40,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/23-251-berlin-winsstr.html#/47-holzart-kiefer/55-bausatz-bausatz
+lang: de
 ---
 Der Wins-Kietz im Berliner Prenzlauer Berg ist ein Wohnviertel mit viel Lebensqualität. Das Bild wird von Straßenkaffees, Buch- und Rotweinläden geprägt und gerade die gut erhaltene Altbausubstanz hat einen großen Anteil an der Atmosphäre des Viertels. Die stuckverzierten Entrées sind sehr abwechslungsreich ausgestattet. Man findet Jugendstilfliesen, Marmor und Holzvertäfelungen, wie diese hier. Die Vertäfelung hat im Original eine Höhe von 110 cm und ausladende Profile mit einer langgestreckten Kassette, die sich gut an individuelle Raummaße anpassen lässt. Wir fertigen diese Vertäfelung in Eiche oder Kiefer. Auf Wunsch kann sie für einen farbigen Anstrich vorbereitet werden.

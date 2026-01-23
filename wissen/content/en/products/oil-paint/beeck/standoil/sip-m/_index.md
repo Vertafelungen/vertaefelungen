@@ -1,3 +1,10 @@
+---
+title: Sip M
+lang: en
+managed_by: ssot-sync
+last_synced: '2026-01-23'
+kategorie_slug: sip-m
+---
 ﻿---
 version: 2026-01-17 14:37 UTC
 managed_by: categories.csv

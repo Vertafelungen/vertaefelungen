@@ -4,7 +4,7 @@ aliases:
 title: P0006 - Leipzig - Ludwigstraße
 translationKey: '33'
 managed_by: ssot-sync
-last_synced: '2026-01-17'
+last_synced: '2026-01-23'
 produkt:
   id: '33'
   artikelnummer: P0006
@@ -34,5 +34,6 @@ seo:
   tags: []
 refs:
   source_shop: https://www.vertaefelungen.de/en/panelling/33-p0006-leisszig-ludwigstrasse.html
+lang: en
 ---
 This panelling from a house entrance in Leipzig's Ludwigstraße (Volkmarsdorf) dates from the construction period of the building in 1884 and is therefore around 140 years old. This time spans 6 generations.
