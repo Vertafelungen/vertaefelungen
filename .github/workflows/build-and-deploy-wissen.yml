@@ -1,6 +1,12 @@
 # build-and-deploy-wissen.yml
 # Vertäfelungen – Wissen (Hugo)
-# Version: 2025-11-02 10:19 CET
+# Version: 2026-01-23 12:37 CET
+#
+# CHANGELOG (2026-01-23):
+# - Deploy-Fix: Dotfiles (insb. .htaccess) werden jetzt sicher mit ausgerollt.
+#   Ursache: source "wissen/public/**" matched i. d. R. keine Dotfiles -> .htaccess fehlte live.
+# - Added: Hard check that public/.htaccess exists after build (fails fast).
+# - Added: Inspect step shows dotfiles (ls -la public).
 
 name: Build & Deploy Wissen (Hugo)
 
@@ -46,12 +52,20 @@ jobs:
           ./tools/hugo/hugo --minify --gc --config "hugo.prod.toml"
           date -u +"%Y-%m-%dT%H:%M:%SZ  $GITHUB_SHA" > public/deploy-stamp.txt
 
-      # kleine Sicherung: zeige, dass der Build-Output da ist
+      # kleine Sicherung: zeige, dass der Build-Output da ist (inkl. Dotfiles)
       - name: Inspect build output
         run: |
           pwd
           du -sh public || true
+          echo "== public (incl. dotfiles) =="
+          ls -la public | head -n 200
+          echo "== sample files =="
           find public -maxdepth 2 -type f | head -n 50
+
+      # HARTE SICHERUNG: .htaccess muss im Build-Output existieren, sonst ist UTF-8 Fix live wirkungslos
+      - name: Assert .htaccess is present in build output
+        run: |
+          test -f public/.htaccess || (echo "ERROR: public/.htaccess missing. Ensure wissen/static/.htaccess exists and is copied by Hugo." && exit 1)
 
       - name: Check deploy secrets (hart brechen wenn was fehlt)
         run: |
@@ -74,7 +88,7 @@ jobs:
             rm -f index.html robots.txt sitemap.xml deploy-stamp.txt version.json
             rm -rf de en faq .deploy .deploy-stamp .hugo_build_lock
 
-      - name: Deploy via SCP (wissen/public -> TARGET)
+      - name: Deploy via SCP (wissen/public -> TARGET) incl. dotfiles (.htaccess)
         uses: appleboy/scp-action@v0.1.7
         with:
           host:     ${{ secrets.SFTP_HOST }}
@@ -82,7 +96,8 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           port:     ${{ secrets.SFTP_PORT }}
           # Wichtig: Pfad relativ zum Repo-Root!
-          source:   "wissen/public/**"
+          # NOTE: Use directory source (NOT glob) to include dotfiles like .htaccess.
+          source:   "wissen/public"
           target:   ${{ secrets.SFTP_TARGET }}
           # 'wissen/public' abstreifen => 2 Komponenten
           strip_components: 2
