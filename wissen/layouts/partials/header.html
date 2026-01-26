@@ -30,26 +30,29 @@ Notes:
 
     <div class="site-header__nav" role="navigation" aria-label="{{ i18n "header_nav_label" }}">
       <div class="nav-panel">
-        {{- $lang := .Site.Language.Lang -}}
-        {{- $homeBase := .Site.Home.RelPermalink -}}
-        {{- $productsPath := cond (eq $lang "de") "produkte/" "products/" -}}
-
-        {{- $shopUrl := printf "%sshop/" $homeBase -}}
-        {{- $faqUrl := printf "%sfaq/" $homeBase -}}
-        {{- $productsUrl := printf "%s%s" $homeBase $productsPath -}}
-        {{- $lookbookUrl := printf "%slookbook/" $homeBase -}}
-
         <nav class="main-nav" aria-label="{{ i18n "header_nav_label" }}" data-testid="primary-nav">
-          <a class="main-nav__link{{ if hasPrefix .RelPermalink $shopUrl }} main-nav__link--active{{ end }}" href="{{ $shopUrl }}">Shop</a>
-          <a class="main-nav__link{{ if hasPrefix .RelPermalink $faqUrl }} main-nav__link--active{{ end }}" href="{{ $faqUrl }}">FAQ</a>
-
-          {{- if eq $lang "de" -}}
-            <a class="main-nav__link{{ if hasPrefix .RelPermalink $productsUrl }} main-nav__link--active{{ end }}" href="{{ $productsUrl }}">Produkte</a>
-          {{- else -}}
-            <a class="main-nav__link{{ if hasPrefix .RelPermalink $productsUrl }} main-nav__link--active{{ end }}" href="{{ $productsUrl }}">Products</a>
+          {{- range .Site.Menus.main -}}
+            {{- $label := .Name -}}
+            {{- with .Identifier -}}
+              {{- $label = i18n . -}}
+            {{- end -}}
+            {{- $href := "" -}}
+            {{- if .Page -}}
+              {{- $href = .Page.RelPermalink -}}
+            {{- else -}}
+              {{- $raw := .URL -}}
+              {{- if or (hasPrefix $raw "http://") (hasPrefix $raw "https://") -}}
+                {{- $href = $raw -}}
+              {{- else -}}
+                {{- $href = $raw | relLangURL -}}
+                {{- if and (not (hasSuffix $href "/")) (not (in $href "?")) (not (in $href "#")) -}}
+                  {{- $href = printf "%s/" $href -}}
+                {{- end -}}
+              {{- end -}}
+            {{- end -}}
+            {{- $isActive := and (not (hasPrefix $href "http://")) (not (hasPrefix $href "https://")) (hasPrefix $.RelPermalink $href) -}}
+            <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ $href }}">{{ $label }}</a>
           {{- end -}}
-
-          <a class="main-nav__link{{ if hasPrefix .RelPermalink $lookbookUrl }} main-nav__link--active{{ end }}" href="{{ $lookbookUrl }}">Lookbook</a>
         </nav>
       </div>
 
