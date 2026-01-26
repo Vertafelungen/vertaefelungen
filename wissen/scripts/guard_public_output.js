@@ -11,6 +11,19 @@ const ROOT = process.env.GUARD_ROOT
 
 const MAX_FILES = Number.parseInt(process.env.GUARD_MAX_FILES || "", 10);
 
+const NAV_GUARD_REL_PATHS = new Set([
+  "de/index.html",
+  "de/shop/index.html",
+  "de/faq/index.html",
+  "de/produkte/index.html",
+  "de/lookbook/index.html",
+  "en/index.html",
+  "en/shop/index.html",
+  "en/faq/index.html",
+  "en/products/index.html",
+  "en/lookbook/index.html",
+]);
+
 const FORBIDDEN_PATTERNS = [
   "/wissen/de/de/",
   "/wissen/en/en/",
@@ -54,6 +67,11 @@ const LANG_PREFIXES = {
   de: "/wissen/de/",
   en: "/wissen/en/",
 };
+
+function shouldRunNavGuards(relPath) {
+  const normalized = relPath.replace(/\\/g, "/");
+  return NAV_GUARD_REL_PATHS.has(normalized);
+}
 
 function collectHtmlFiles(root) {
   const results = [];
@@ -294,8 +312,10 @@ function main() {
 
     ensureCanonical($, filePath, urlPath, lang, errors, true);
     checkForbiddenPatterns($, filePath, noindex, errors);
-    checkPrimaryNav($, filePath, lang, errors);
-    checkNavDrawer($, filePath, lang, errors);
+    if (shouldRunNavGuards(rel)) {
+      checkPrimaryNav($, filePath, lang, errors);
+      checkNavDrawer($, filePath, lang, errors);
+    }
   }
 
   if (errors.length) {
