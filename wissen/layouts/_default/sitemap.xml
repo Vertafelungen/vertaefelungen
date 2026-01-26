@@ -3,7 +3,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   {{- /* Alle regulären Seiten dieses Sprach-Builds */ -}}
   {{- range .Site.RegularPages -}}
-    {{- if partial "seo/is-indexable.html" . -}}
+    {{- if and .IsPage (not .IsAlias) (partial "seo/is-indexable.html" .) -}}
       {{- $canonical := partial "seo/canonical-url.html" . -}}
       <url>
         <loc>{{ $canonical }}</loc>
@@ -11,7 +11,7 @@
         {{- /* Alternate hreflang-Links (falls mehrsprachig) */ -}}
         {{- with .AllTranslations -}}
           {{- range . -}}
-            {{- if partial "seo/is-indexable.html" . -}}
+            {{- if and .IsPage (not .IsAlias) (partial "seo/is-indexable.html" .) -}}
               {{- $altCanonical := partial "seo/canonical-url.html" . -}}
               <xhtml:link rel="alternate" hreflang="{{ .Lang }}" href="{{ $altCanonical }}" />
             {{- end -}}
