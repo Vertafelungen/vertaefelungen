@@ -113,13 +113,27 @@ def select_sample_indices(total: int, sample_size: int = 10) -> list[int]:
 def url_to_public_path(public_root: Path, url: str) -> Path:
     parsed = urlparse(url)
     path = parsed.path or url
-    if not path.startswith("/"):
-        path = f"/{path}"
+    path = path.lstrip("/")
+    if path.startswith("wissen/"):
+        path = path[len("wissen/") :]
     if path.endswith(".html"):
-        return public_root / path.lstrip("/")
-    if not path.endswith("/"):
+        return public_root / path
+    if path and not path.endswith("/"):
         path = f"{path}/"
-    return public_root / path.lstrip("/") / "index.html"
+    return public_root / path / "index.html"
+
+
+def run_self_check(public_root: Path) -> None:
+    cases = {
+        "/wissen/de/": public_root / "de" / "index.html",
+        "/wissen/en": public_root / "en" / "index.html",
+        "/wissen/de/faq/style-guide/": public_root / "de" / "faq" / "style-guide" / "index.html",
+        "/wissen/de/faq/style-guide?x=1#frag": public_root / "de" / "faq" / "style-guide" / "index.html",
+        "wissen/en/guide/": public_root / "en" / "guide" / "index.html",
+    }
+    for url, expected in cases.items():
+        actual = url_to_public_path(public_root, url)
+        assert actual == expected, f"{url} -> {actual} (expected {expected})"
 
 
 def extract_main_html(html: str) -> str | None:
@@ -265,12 +279,18 @@ def main() -> int:
     ap.add_argument("--export-de", default=str(DEFAULT_EXPORT_DE))
     ap.add_argument("--export-en", default=str(DEFAULT_EXPORT_EN))
     ap.add_argument("--report", default=str(DEFAULT_REPORT_PATH))
+    ap.add_argument("--self-check", action="store_true", help="run URL mapping self-checks and exit")
     args = ap.parse_args()
 
     public_root = Path(args.public_root).resolve()
     export_de = Path(args.export_de).resolve()
     export_en = Path(args.export_en).resolve()
     report_path = Path(args.report).resolve()
+
+    if args.self_check:
+        run_self_check(public_root)
+        print("Self-check passed.")
+        return 0
 
     issues: list[dict[str, str]] = []
     hard_fail = False
