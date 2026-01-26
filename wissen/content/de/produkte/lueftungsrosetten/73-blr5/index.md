@@ -4,7 +4,7 @@ aliases:
 title: Lüftungsrosette 5
 translationKey: '73'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-26'
 produkt:
   id: '73'
   artikelnummer: BLR5
