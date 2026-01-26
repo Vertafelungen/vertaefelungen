@@ -6,6 +6,9 @@ translationKey: products-root
 title: Products
 description: 'Product overview: wainscoting, mouldings, oils & paints, and ventilation rosettes.'
 weight: 10
+content_type: product
+content_id: products-index
+topic: Products
 menu:
   main:
     identifier: menu_products
@@ -33,4 +36,15 @@ cascade:
   seo:
     robots: index,follow
 ---
+## TL;DR
+- Product overview: wainscoting, mouldings, oils & paints, and ventilation rosettes.
+- For variants and prices, see the shop.
+
 Choose a category to view subcategories and products on the knowledge site. For variants and prices, see the [shop]({{< relref "shop/_index.md" >}}).
+
+## Quick access
+- [High wainscoting]({{< relref "products/high-wainscoting/_index.md" >}})
+- [Dado panel]({{< relref "products/dado-panel/_index.md" >}})
+- [Mouldings]({{< relref "products/mouldings/_index.md" >}})
+- [Oils & paints]({{< relref "products/oil-paint/_index.md" >}})
+- [Rosettes]({{< relref "products/rosettes/_index.md" >}})
