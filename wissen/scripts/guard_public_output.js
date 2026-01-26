@@ -68,6 +68,42 @@ const LANG_PREFIXES = {
   en: "/wissen/en/",
 };
 
+const DEBUG = ["1", "true", "yes", "on"].includes(
+  (process.env.GUARD_DEBUG || "").toLowerCase()
+);
+
+function normalizeHref(href) {
+  if (!href) {
+    return null;
+  }
+
+  let pathValue = href;
+
+  try {
+    if (/^https?:\/\//i.test(href)) {
+      const url = new URL(href);
+      pathValue = url.pathname;
+    }
+  } catch (error) {
+    pathValue = href;
+  }
+
+  if (!pathValue.startsWith("/")) {
+    pathValue = `/${pathValue}`;
+  }
+  if (!pathValue.endsWith("/")) {
+    pathValue = `${pathValue}/`;
+  }
+
+  return pathValue;
+}
+
+function debugLog(...messages) {
+  if (DEBUG) {
+    console.log(...messages);
+  }
+}
+
 function shouldRunNavGuards(relPath) {
   const normalized = relPath.replace(/\\/g, "/");
   return NAV_GUARD_REL_PATHS.has(normalized);
@@ -198,11 +234,12 @@ function checkForbiddenPatterns($, filePath, noindex, errors) {
 function checkPrimaryNav($, filePath, lang, errors) {
   const container = $("[data-testid='primary-nav']");
   if (!container.length) {
+    debugLog(`${filePath}: primary nav container not found`);
     errors.push(`${filePath}: primary nav container not found`);
     return;
   }
 
-  const hrefs = container
+  const rawHrefs = container
     .find("a")
     .toArray()
     .map((el) => {
@@ -210,15 +247,29 @@ function checkPrimaryNav($, filePath, lang, errors) {
       return href ? href.trim() : "";
     });
 
-  hrefs.forEach((href) => {
+  const normalizedHrefs = rawHrefs
+    .map((href) => normalizeHref(href))
+    .filter(Boolean);
+
+  debugLog(
+    `${filePath}: primary nav container found (${container.length})`,
+    JSON.stringify({
+      rawHrefs,
+      normalizedHrefs,
+    })
+  );
+
+  rawHrefs.forEach((href) => {
     if (!href || href === "#" || href.toLowerCase().startsWith("javascript:")) {
       errors.push(`${filePath}: invalid primary nav href "${href}"`);
     }
   });
 
-  const expected = NAV_TARGETS[lang];
+  const expected = NAV_TARGETS[lang].map((href) => normalizeHref(href));
   const expectedSet = new Set(expected);
-  const targetHrefs = hrefs.filter((href) => href.startsWith(LANG_PREFIXES[lang]));
+  const targetHrefs = normalizedHrefs.filter((href) =>
+    href.startsWith(LANG_PREFIXES[lang])
+  );
 
   const extra = targetHrefs.filter((href) => !expectedSet.has(href));
   if (extra.length) {
@@ -245,25 +296,38 @@ function checkPrimaryNav($, filePath, lang, errors) {
 function checkNavDrawer($, filePath, lang, errors) {
   const container = $("[data-testid='nav-drawer']");
   if (!container.length) {
+    debugLog(`${filePath}: nav drawer container not found`);
     errors.push(`${filePath}: nav drawer container not found`);
     return;
   }
 
-  const hrefs = container
+  const rawHrefs = container
     .find("a[href]")
     .toArray()
     .map((el) => ($(el).attr("href") || "").trim());
 
-  const expected = NAV_TARGETS[lang];
-  const missing = expected.filter((href) => !hrefs.includes(href));
+  const normalizedHrefs = rawHrefs
+    .map((href) => normalizeHref(href))
+    .filter(Boolean);
+
+  debugLog(
+    `${filePath}: nav drawer container found (${container.length})`,
+    JSON.stringify({
+      rawHrefs,
+      normalizedHrefs,
+    })
+  );
+
+  const expected = NAV_TARGETS[lang].map((href) => normalizeHref(href));
+  const missing = expected.filter((href) => !normalizedHrefs.includes(href));
   if (missing.length) {
     errors.push(
       `${filePath}: nav drawer missing required links: ${missing.join(", ")}`
     );
   }
 
-  const legalTargets = LEGAL_TARGETS[lang];
-  const hasLegal = hrefs.some((href) =>
+  const legalTargets = LEGAL_TARGETS[lang].map((href) => normalizeHref(href));
+  const hasLegal = normalizedHrefs.some((href) =>
     legalTargets.some((target) => href.startsWith(target))
   );
   if (!hasLegal) {
