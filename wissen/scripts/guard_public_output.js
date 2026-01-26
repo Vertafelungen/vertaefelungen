@@ -10,6 +10,9 @@ const ROOT = process.env.GUARD_ROOT
   : path.resolve(__dirname, "..", "public");
 
 const MAX_FILES = Number.parseInt(process.env.GUARD_MAX_FILES || "", 10);
+const REDUNDANT_STRATEGY = (process.env.GUARD_REDUNDANT_URL_STRATEGY || "redirect")
+  .trim()
+  .toLowerCase();
 
 const NAV_GUARD_REL_PATHS = new Set([
   "de/index.html",
@@ -29,6 +32,13 @@ const FORBIDDEN_PATTERNS = [
   "/wissen/en/en/",
   "/produkte/produkte/",
   "/products/products/",
+];
+
+const REDUNDANT_URL_PATTERNS = [
+  "/wissen/de/de/",
+  "/wissen/en/en/",
+  "/wissen/de/produkte/produkte/",
+  "/wissen/en/products/products/",
 ];
 
 const NAV_TARGETS = {
@@ -195,8 +205,23 @@ function ensureCanonical($, filePath, urlPath, lang, errors, enforcePath) {
     errors.push(`${filePath}: canonical href is empty`);
     return;
   }
+  if (!/^https?:\/\//i.test(href.trim())) {
+    errors.push(`${filePath}: canonical href must be absolute (found: ${href})`);
+    return;
+  }
+  const canonicalPath = extractPathFromUrl(href);
+  if (!canonicalPath) {
+    errors.push(`${filePath}: canonical href is invalid (found: ${href})`);
+    return;
+  }
+  for (const pattern of FORBIDDEN_PATTERNS) {
+    if (canonicalPath.includes(pattern)) {
+      errors.push(
+        `${filePath}: canonical href contains redundant pattern '${pattern}' (found: ${href})`
+      );
+    }
+  }
   if (enforcePath) {
-    const canonicalPath = extractPathFromUrl(href);
     if (!canonicalPath || !canonicalPath.startsWith(LANG_PREFIXES[lang])) {
       errors.push(
         `${filePath}: canonical href must resolve under ${LANG_PREFIXES[lang]} (found: ${href})`
@@ -205,10 +230,7 @@ function ensureCanonical($, filePath, urlPath, lang, errors, enforcePath) {
   }
 }
 
-function checkForbiddenPatterns($, filePath, noindex, errors) {
-  if (noindex) {
-    return;
-  }
+function checkForbiddenPatterns($, filePath, errors) {
   const targets = [
     { selector: "a[href]", attr: "href" },
     { selector: "link[rel='canonical'][href]", attr: "href" },
@@ -228,6 +250,36 @@ function checkForbiddenPatterns($, filePath, noindex, errors) {
           }
         }
       });
+  }
+}
+
+function isRedundantUrlPath(urlPath) {
+  return REDUNDANT_URL_PATTERNS.some((pattern) => urlPath.includes(pattern));
+}
+
+function ensureRedundantStrategy(noindex, filePath, urlPath, errors) {
+  if (!isRedundantUrlPath(urlPath)) {
+    return;
+  }
+
+  if (REDUNDANT_STRATEGY === "redirect") {
+    errors.push(
+      `${filePath}: redundant URL detected (${urlPath}); redirect strategy requires removing redundant output`
+    );
+    return;
+  }
+
+  if (REDUNDANT_STRATEGY !== "noindex") {
+    errors.push(
+      `${filePath}: invalid GUARD_REDUNDANT_URL_STRATEGY "${REDUNDANT_STRATEGY}" (expected "redirect" or "noindex")`
+    );
+    return;
+  }
+
+  if (!noindex) {
+    errors.push(
+      `${filePath}: redundant URL detected (${urlPath}); expected meta robots to include noindex`
+    );
   }
 }
 
@@ -369,13 +421,15 @@ function main() {
 
     const noindex = hasNoindex($);
 
+    ensureRedundantStrategy(noindex, filePath, urlPath, errors);
+
     if (noindex) {
       ensureCanonical($, filePath, urlPath, lang, errors, false);
-      continue;
+    } else {
+      ensureCanonical($, filePath, urlPath, lang, errors, true);
     }
 
-    ensureCanonical($, filePath, urlPath, lang, errors, true);
-    checkForbiddenPatterns($, filePath, noindex, errors);
+    checkForbiddenPatterns($, filePath, errors);
     if (shouldRunNavGuards(rel)) {
       checkPrimaryNav($, filePath, lang, errors);
       checkNavDrawer($, filePath, lang, errors);

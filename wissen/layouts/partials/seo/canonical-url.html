@@ -14,7 +14,11 @@
 {{- end -}}
 
 {{- /* Guard: consolidate redundant product paths with duplicate segments. */ -}}
-{{- if in $rel "/produkte/produkte/" -}}
+{{- if in $rel "/de/de/" -}}
+  {{- $canonical = (replace $rel "/de/de/" "/de/") | absURL -}}
+{{- else if in $rel "/en/en/" -}}
+  {{- $canonical = (replace $rel "/en/en/" "/en/") | absURL -}}
+{{- else if in $rel "/produkte/produkte/" -}}
   {{- $canonical = (replace $rel "/produkte/produkte/" "/produkte/") | absURL -}}
 {{- else if in $rel "/products/products/" -}}
   {{- $canonical = (replace $rel "/products/products/" "/products/") | absURL -}}
