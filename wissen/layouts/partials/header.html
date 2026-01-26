@@ -42,24 +42,13 @@ Notes:
 
       <div class="nav-panel" id="main-nav">
         {{- $lang := .Site.Language.Lang -}}
+        {{- $homeBase := .Site.Home.RelPermalink -}}
+        {{- $productsPath := cond (eq $lang "de") "produkte/" "products/" -}}
 
-        {{- $shopUrl := "" -}}
-        {{- $faqUrl := "" -}}
-        {{- $productsUrl := "" -}}
-        {{- $lookbookUrl := "" -}}
-
-        {{- with site.GetPage (printf "/%s/shop" $lang) -}}
-          {{- $shopUrl = .RelPermalink -}}
-        {{- end -}}
-        {{- with site.GetPage (printf "/%s/faq" $lang) -}}
-          {{- $faqUrl = .RelPermalink -}}
-        {{- end -}}
-        {{- with site.GetPage (printf "/%s/%s" $lang (cond (eq $lang "de") "produkte" "products")) -}}
-          {{- $productsUrl = .RelPermalink -}}
-        {{- end -}}
-        {{- with site.GetPage (printf "/%s/lookbook" $lang) -}}
-          {{- $lookbookUrl = .RelPermalink -}}
-        {{- end -}}
+        {{- $shopUrl := printf "%sshop/" $homeBase -}}
+        {{- $faqUrl := printf "%sfaq/" $homeBase -}}
+        {{- $productsUrl := printf "%s%s" $homeBase $productsPath -}}
+        {{- $lookbookUrl := printf "%slookbook/" $homeBase -}}
 
         <nav class="main-nav" aria-label="{{ i18n "header_nav_label" }}" data-testid="primary-nav">
           <a class="main-nav__link{{ if hasPrefix .RelPermalink $shopUrl }} main-nav__link--active{{ end }}" href="{{ $shopUrl }}">Shop</a>
