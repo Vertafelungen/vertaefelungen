@@ -2,7 +2,7 @@
 title: "About us"
 description: "Learn more about Vertaefelungen."
 menu:
-  main:
+  footer:
     identifier: menu_about
     weight: 50
 ---
