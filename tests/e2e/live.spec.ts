@@ -49,6 +49,44 @@ async function assertPrimaryNavLinks(primaryNav: Locator, lang: 'de' | 'en'): Pr
   }
 }
 
+async function assertDrawerNavigation(page: Page, lang: 'de' | 'en'): Promise<void> {
+  const hamburgerButton = page.getByTestId('hamburger-button');
+  await expect(hamburgerButton).toBeVisible({ timeout: 20_000 });
+
+  const ariaLabel = await hamburgerButton.getAttribute('aria-label');
+  expect(ariaLabel).not.toBeNull();
+  expect(ariaLabel?.trim()).not.toBe('');
+
+  await hamburgerButton.click();
+
+  const drawer = page.getByTestId('nav-drawer');
+  await expect(drawer).toBeVisible({ timeout: 20_000 });
+  await expect(hamburgerButton).toHaveAttribute('aria-expanded', 'true');
+
+  const mainSection = page.getByTestId('drawer-main-links');
+  await expect(mainSection.locator('a')).toHaveCount(4);
+  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/shop/\"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/faq/\"]`)).toHaveCount(1);
+
+  const productsPath = lang === 'de' ? 'produkte' : 'products';
+  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/${productsPath}/\"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/lookbook/\"]`)).toHaveCount(1);
+
+  const footerSection = page.getByTestId('drawer-footer-links');
+  const footerChecks =
+    lang === 'de'
+      ? ['impressum', 'datenschutz']
+      : ['imprint', 'privacy'];
+
+  for (const slug of footerChecks) {
+    await expect(footerSection.locator(`a[href*=\"/${lang}/${slug}/\"]`)).toHaveCount(1);
+  }
+
+  await page.keyboard.press('Escape');
+  await expect(drawer).not.toBeVisible({ timeout: 20_000 });
+  await expect(hamburgerButton).toHaveAttribute('aria-expanded', 'false');
+}
+
 test.describe('Live navigation (Wissen)', () => {
   test('DE live navigation', async ({ page }) => {
     test.setTimeout(120_000);
@@ -70,8 +108,9 @@ test.describe('Live navigation (Wissen)', () => {
     await expect(primaryNav.locator('a')).toHaveCount(4);
     await assertPrimaryNavLinks(primaryNav, 'de');
 
-    await expect(page.getByTestId('header-cta')).toBeVisible({ timeout: 20_000 });
     await expect(primaryNav.locator('a[href*="ueber-uns"], a[href*="about-us"]')).toHaveCount(0);
+
+    await assertDrawerNavigation(page, 'de');
   });
 
   test('EN live navigation', async ({ page }) => {
@@ -93,7 +132,8 @@ test.describe('Live navigation (Wissen)', () => {
     await expect(primaryNav.locator('a')).toHaveCount(4);
     await assertPrimaryNavLinks(primaryNav, 'en');
 
-    await expect(page.getByTestId('header-cta')).toBeVisible({ timeout: 20_000 });
     await expect(primaryNav.locator('a[href*="ueber-uns"], a[href*="about-us"]')).toHaveCount(0);
+
+    await assertDrawerNavigation(page, 'en');
   });
 });

@@ -14,6 +14,8 @@ header_nav_label:
   other: "Hauptnavigation"
 header_toggle_label:
   other: "Menü öffnen"
+drawer_footer_title:
+  other: "Rechtliches & Kontakt"
 language_switch_label:
   other: "Sprache auswählen"
 header_shop_label:
