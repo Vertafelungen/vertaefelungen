@@ -9,7 +9,21 @@
           {{- with .Identifier -}}
             {{- $label = i18n . -}}
           {{- end -}}
-          <li><a href="{{ .URL }}">{{ $label }}</a></li>
+          {{- $href := "" -}}
+          {{- if .Page -}}
+            {{- $href = .Page.RelPermalink -}}
+          {{- else -}}
+            {{- $raw := .URL -}}
+            {{- if or (hasPrefix $raw "http://") (hasPrefix $raw "https://") -}}
+              {{- $href = $raw -}}
+            {{- else -}}
+              {{- $href = $raw | relLangURL -}}
+              {{- if and (not (hasSuffix $href "/")) (not (in $href "?")) (not (in $href "#")) -}}
+                {{- $href = printf "%s/" $href -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+          <li><a href="{{ $href }}">{{ $label }}</a></li>
         {{- end -}}
       </ul>
     </div>
@@ -22,7 +36,21 @@
           {{- with .Identifier -}}
             {{- $label = i18n . -}}
           {{- end -}}
-          <li><a href="{{ .URL }}">{{ $label }}</a></li>
+          {{- $href := "" -}}
+          {{- if .Page -}}
+            {{- $href = .Page.RelPermalink -}}
+          {{- else -}}
+            {{- $raw := .URL -}}
+            {{- if or (hasPrefix $raw "http://") (hasPrefix $raw "https://") -}}
+              {{- $href = $raw -}}
+            {{- else -}}
+              {{- $href = $raw | relLangURL -}}
+              {{- if and (not (hasSuffix $href "/")) (not (in $href "?")) (not (in $href "#")) -}}
+                {{- $href = printf "%s/" $href -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+          <li><a href="{{ $href }}">{{ $label }}</a></li>
         {{- end -}}
       </ul>
     </div>
