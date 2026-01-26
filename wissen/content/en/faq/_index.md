@@ -24,5 +24,5 @@ Knowledge base on historical wood panelling, wainscoting, mouldings and restorat
 - [Planning & ordering]({{< relref "faq/consulting/_index.md" >}})
 - [Installation]({{< relref "faq/consulting/installation.md" >}})
 - [Delivery]({{< relref "faq/consulting/delivery.md" >}})
-- [Restoration]({{< relref "faq/restoring/index.md" >}})
+- [Restoration]({{< relref "faq/restoring/_index.md" >}})
 - [Style guide]({{< relref "faq/style-guide/_index.md" >}})
