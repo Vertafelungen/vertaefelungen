@@ -87,6 +87,13 @@ jobs:
         run: |
           test -f public/.htaccess || (echo "ERROR: public/.htaccess missing. Ensure wissen/static/.htaccess exists and is copied by Hugo." && exit 1)
 
+      - name: Install guard dependencies
+        run: npm ci
+
+      - name: Run public output guards
+        working-directory: ${{ github.workspace }}
+        run: node wissen/scripts/guard_public_output.js
+
       - name: Post-build mojibake scan (public)
         run: |
           mkdir -p artifacts
