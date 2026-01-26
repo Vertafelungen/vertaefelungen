@@ -72,6 +72,11 @@ jobs:
           ./tools/hugo/hugo --minify --gc --config "hugo.prod.toml"
           date -u +"%Y-%m-%dT%H:%M:%SZ  $GITHUB_SHA" > public/deploy-stamp.txt
 
+      - name: Export retrieval index (Phase 6.1)
+        run: |
+          mkdir -p artifacts
+          python scripts/export_retrieval_index.py --root public --report artifacts/retrieval_export_report.json
+
       # kleine Sicherung: zeige, dass der Build-Output da ist (inkl. Dotfiles)
       - name: Inspect build output
         run: |
@@ -112,6 +117,13 @@ jobs:
         with:
           name: mojibake-report
           path: wissen/artifacts/mojibake_report.json
+
+      - name: Upload retrieval export report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieval-export-report
+          path: wissen/artifacts/retrieval_export_report.json
 
       - name: Upload mojibake diagnostics
         if: always()
