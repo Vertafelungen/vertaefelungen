@@ -4,7 +4,7 @@ aliases:
 title: P0006 - Leipzig - Ludwigstraße
 translationKey: '33'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-26'
 produkt:
   id: '33'
   artikelnummer: P0006
