@@ -77,6 +77,9 @@ jobs:
           mkdir -p artifacts
           python scripts/export_retrieval_index.py --root public --report artifacts/retrieval_export_report.json
 
+      - name: Verify retrieval export (Phase 6.1)
+        run: python scripts/verify_retrieval_export.py
+
       # kleine Sicherung: zeige, dass der Build-Output da ist (inkl. Dotfiles)
       - name: Inspect build output
         run: |
@@ -124,6 +127,13 @@ jobs:
         with:
           name: retrieval-export-report
           path: wissen/artifacts/retrieval_export_report.json
+
+      - name: Upload retrieval export verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieval-export-verification-report
+          path: wissen/scripts/reports/retrieval_export_verification_report.json
 
       - name: Upload mojibake diagnostics
         if: always()
