@@ -1,0 +1,23 @@
+{{- $page := .page -}}
+{{- $robots := .robots | default "" -}}
+{{- if not (in $robots "noindex") -}}
+  {{- $headline := or $page.Params.seo.title $page.Title -}}
+  {{- $desc := or $page.Params.seo.description $page.Description $page.Summary -}}
+  {{- if not $desc -}}
+    {{- $desc = $page.Plain -}}
+  {{- end -}}
+  {{- $desc = $desc | plainify | truncate 200 -}}
+  {{- if and $headline $desc -}}
+    {{- $lang := cond (eq $page.Lang "de") "de-DE" "en-US" -}}
+    {{- $schemaType := cond $page.IsPage "Article" "WebPage" -}}
+    {{- $data := dict
+      "@context" "https://schema.org"
+      "@type" $schemaType
+      "headline" $headline
+      "description" $desc
+      "inLanguage" $lang
+      "mainEntityOfPage" (dict "@type" "WebPage" "@id" $page.Permalink)
+    -}}
+    <script type="application/ld+json">{{ $data | jsonify }}</script>
+  {{- end -}}
+{{- end -}}

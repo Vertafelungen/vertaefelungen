@@ -1,0 +1,48 @@
+{{- $page := .page -}}
+{{- $robots := .robots | default "" -}}
+{{- if not (in $robots "noindex") -}}
+  {{- $prod := $page.Params.produkt -}}
+  {{- $shopLink := "" -}}
+  {{- with $page.Params.refs -}}
+    {{- with .source_shop -}}
+      {{- $shopLink = . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if and $prod $prod.id $shopLink -}}
+    {{- $images := slice -}}
+    {{- with $prod.bilder -}}
+      {{- range . -}}
+        {{- $file := .datei -}}
+        {{- if $file -}}
+          {{- $res := $page.Resources.GetMatch $file -}}
+          {{- if not $res -}}
+            {{- $res = $page.Resources.GetMatch (printf "**/%s" $file) -}}
+          {{- end -}}
+          {{- if $res -}}
+            {{- $images = $images | append $res.Permalink -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if gt (len $images) 0 -}}
+      {{- $desc := or $page.Params.seo.description $page.Description $page.Summary -}}
+      {{- if not $desc -}}
+        {{- $desc = $page.Plain -}}
+      {{- end -}}
+      {{- $desc = $desc | plainify | truncate 200 -}}
+      {{- if $desc -}}
+        {{- $data := dict
+          "@context" "https://schema.org"
+          "@type" "Product"
+          "name" $page.Title
+          "description" $desc
+          "image" $images
+        -}}
+        {{- with $prod.brand -}}
+          {{- $data = merge $data (dict "brand" (dict "@type" "Brand" "name" .)) -}}
+        {{- end -}}
+        <script type="application/ld+json">{{ $data | jsonify }}</script>
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
