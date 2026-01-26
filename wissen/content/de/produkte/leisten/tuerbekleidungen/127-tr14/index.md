@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 14
 translationKey: '127'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-26'
 produkt:
   id: '127'
   artikelnummer: TR14
