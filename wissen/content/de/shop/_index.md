@@ -7,6 +7,9 @@ description: "Shop, Produktkategorien und Beratung – und warum Wissen und Shop
 date: 2026-01-11T14:00:00+01:00
 lastmod: 2026-01-11T14:00:00+01:00
 draft: false
+content_type: shop-bridge
+content_id: shop-bridge
+topic: Shop
 
 menu:
   main:
@@ -19,9 +22,21 @@ menu:
 
 ---
 
+## TL;DR
+- Du bist im Wissensbereich mit Hintergrundwissen, Stil- und Konstruktionsinformationen sowie Produktdetails.
+- Der Shop ist auf Bestellung, Preislogik und Abwicklung ausgerichtet.
+- Die Trennung hält Wissen zitierfähig und den Shop prozessorientiert.
+
 Du befindest dich im **Wissensbereich** von Vertäfelung & Lambris. Hier findest du Hintergrundwissen, Stil- und Konstruktionsinformationen, Produktdetails und Entscheidungshilfen – unabhängig von Warenkorb und Checkout.
 
 Der **Shop** auf www.vertaefelungen.de ist dagegen auf **Bestellung, Preislogik und Abwicklung** ausgerichtet. Die Trennung ist bewusst: Wissen bleibt übersichtlich, zitierfähig und langfristig stabil (SEO/LLMO), während der Shop bestell- und prozessorientiert bleibt.
+
+## Schnellzugriff
+- [Produktkategorien]({{< relref "produkte/_index.md" >}})
+- [Planung & Bestellung]({{< relref "faq/beratung/_index.md" >}})
+- [Montage]({{< relref "faq/beratung/montage.md" >}})
+- [Lieferung]({{< relref "faq/beratung/lieferung.md" >}})
+- [Kontakt]({{< relref "kontakt/_index.md" >}})
 
 <div class="bridge-ctas" role="navigation" aria-label="Shop- und Beratungs-Einstieg">
   <a
