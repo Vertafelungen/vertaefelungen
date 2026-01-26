@@ -8,7 +8,7 @@
  *   We make navigation more resilient without weakening semantic assertions.
  */
 
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect, type Page, type Locator } from '@playwright/test';
 
 function getBaseUrl(): string {
   // Prefer explicit env var (GitHub Actions / local).
@@ -35,6 +35,20 @@ async function gotoWithRetry(page: Page, url: string): Promise<void> {
   }
 }
 
+async function assertPrimaryNavLinks(primaryNav: Locator, lang: 'de' | 'en'): Promise<void> {
+  const hrefs = await primaryNav.locator('a').evaluateAll((links) =>
+    links.map((link) => link.getAttribute('href'))
+  );
+
+  expect(hrefs).toHaveLength(4);
+
+  for (const href of hrefs) {
+    expect(href).not.toBeNull();
+    expect(href).not.toBe('');
+    expect(href).toContain(`/wissen/${lang}/`);
+  }
+}
+
 test.describe('Live navigation (Wissen)', () => {
   test('DE live navigation', async ({ page }) => {
     test.setTimeout(120_000);
@@ -54,6 +68,7 @@ test.describe('Live navigation (Wissen)', () => {
     const primaryNav = page.getByTestId('primary-nav');
     await expect(primaryNav).toBeVisible({ timeout: 20_000 });
     await expect(primaryNav.locator('a')).toHaveCount(4);
+    await assertPrimaryNavLinks(primaryNav, 'de');
 
     await expect(page.getByTestId('header-cta')).toBeVisible({ timeout: 20_000 });
     await expect(primaryNav.locator('a[href*="ueber-uns"], a[href*="about-us"]')).toHaveCount(0);
@@ -76,6 +91,7 @@ test.describe('Live navigation (Wissen)', () => {
     const primaryNav = page.getByTestId('primary-nav');
     await expect(primaryNav).toBeVisible({ timeout: 20_000 });
     await expect(primaryNav.locator('a')).toHaveCount(4);
+    await assertPrimaryNavLinks(primaryNav, 'en');
 
     await expect(page.getByTestId('header-cta')).toBeVisible({ timeout: 20_000 });
     await expect(primaryNav.locator('a[href*="ueber-uns"], a[href*="about-us"]')).toHaveCount(0);
