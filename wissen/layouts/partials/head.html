@@ -49,9 +49,11 @@
 
 {{/* CSS: reines CSS nicht durch ToCSS (Sass) schicken – sonst kollidiert CSS min()/calc() mit Sass min(). */}}
 {{ $style := resources.Get "css/site.css" | resources.Minify | resources.Fingerprint "sha512" }}
+{{ $script := resources.Get "js/site.js" | resources.Minify | resources.Fingerprint "sha512" }}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rethink+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="{{ $style.Permalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
+<script src="{{ $script.Permalink }}" integrity="{{ $script.Data.Integrity }}" crossorigin="anonymous" defer></script>

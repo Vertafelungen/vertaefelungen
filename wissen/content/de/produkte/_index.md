@@ -6,6 +6,10 @@ translationKey: products-root
 title: Produkte
 description: 'Produktübersicht: Vertäfelungen, Leisten, Öle & Farben sowie Lüftungsrosetten.'
 weight: 10
+menu:
+  main:
+    identifier: menu_products
+    weight: 30
 type: products
 seo:
   meta_title: Produkte - Vertäfelung & Lambris

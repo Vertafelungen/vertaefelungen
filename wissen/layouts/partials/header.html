@@ -29,18 +29,7 @@ Notes:
     </a>
 
     <div class="site-header__nav" role="navigation" aria-label="{{ i18n "header_nav_label" }}">
-      <input
-        class="nav-toggle"
-        type="checkbox"
-        id="nav-toggle"
-        aria-label="{{ i18n "header_toggle_label" }}"
-        aria-controls="main-nav"
-      >
-      <label class="nav-toggle__button" for="nav-toggle" aria-label="{{ i18n "header_toggle_label" }}">
-        <span class="nav-toggle__icon"></span>
-      </label>
-
-      <div class="nav-panel" id="main-nav">
+      <div class="nav-panel">
         {{- $lang := .Site.Language.Lang -}}
         {{- $homeBase := .Site.Home.RelPermalink -}}
         {{- $productsPath := cond (eq $lang "de") "produkte/" "products/" -}}
@@ -62,18 +51,57 @@ Notes:
 
           <a class="main-nav__link{{ if hasPrefix .RelPermalink $lookbookUrl }} main-nav__link--active{{ end }}" href="{{ $lookbookUrl }}">Lookbook</a>
         </nav>
+      </div>
 
-        <div class="header-actions">
-          <div class="lang-switch" aria-label="{{ i18n "language_switch_label" }}">
-            {{- range $index, $site := .Sites -}}
-              {{- $isActive := eq $site.Language.Lang $.Site.Language.Lang -}}
-              <a class="{{ if $isActive }}is-active{{ end }}" href="{{ $site.Home.RelPermalink }}">{{ upper $site.Language.Lang }}</a>{{ if lt (add $index 1) (len $.Sites) }}<span aria-hidden="true">·</span>{{ end }}
-            {{- end -}}
-          </div>
-
-          {{- $shopCta := cond (eq $lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
-          <a class="button button--primary" data-testid="header-cta" href="{{ $shopCta }}">{{ i18n "header_shop_label" }}</a>
+      <div class="header-actions">
+        <div class="lang-switch" aria-label="{{ i18n "language_switch_label" }}">
+          {{- range $index, $site := .Sites -}}
+            {{- $isActive := eq $site.Language.Lang $.Site.Language.Lang -}}
+            <a class="{{ if $isActive }}is-active{{ end }}" href="{{ $site.Home.RelPermalink }}">{{ upper $site.Language.Lang }}</a>{{ if lt (add $index 1) (len $.Sites) }}<span aria-hidden="true">·</span>{{ end }}
+          {{- end -}}
         </div>
+
+        <button
+          class="nav-toggle__button"
+          type="button"
+          data-testid="hamburger-button"
+          aria-label="{{ i18n "header_toggle_label" }}"
+          aria-controls="nav-drawer"
+          aria-expanded="false"
+        >
+          <span class="nav-toggle__icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-drawer" id="nav-drawer" data-testid="nav-drawer" aria-hidden="true">
+    <div class="nav-drawer__overlay" data-testid="nav-drawer-overlay"></div>
+    <div class="nav-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ i18n "header_nav_label" }}" tabindex="-1">
+      <div class="nav-drawer__section" data-testid="drawer-main-links">
+        <p class="nav-drawer__title">{{ i18n "header_nav_label" }}</p>
+        <ul class="nav-drawer__list">
+          {{- range .Site.Menus.main -}}
+            {{- $label := .Name -}}
+            {{- with .Identifier -}}
+              {{- $label = i18n . -}}
+            {{- end -}}
+            <li><a href="{{ .URL }}">{{ $label }}</a></li>
+          {{- end -}}
+        </ul>
+      </div>
+
+      <div class="nav-drawer__section" data-testid="drawer-footer-links">
+        <p class="nav-drawer__title">{{ i18n "drawer_footer_title" }}</p>
+        <ul class="nav-drawer__list">
+          {{- range .Site.Menus.footer -}}
+            {{- $label := .Name -}}
+            {{- with .Identifier -}}
+              {{- $label = i18n . -}}
+            {{- end -}}
+            <li><a href="{{ .URL }}">{{ $label }}</a></li>
+          {{- end -}}
+        </ul>
       </div>
     </div>
   </div>

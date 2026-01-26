@@ -6,6 +6,10 @@ translationKey: products-root
 title: Products
 description: 'Product overview: wainscoting, mouldings, oils & paints, and ventilation rosettes.'
 weight: 10
+menu:
+  main:
+    identifier: menu_products
+    weight: 30
 type: products
 seo:
   meta_title: Products - Vertäfelung & Lambris
