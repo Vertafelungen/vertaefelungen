@@ -4,7 +4,7 @@ aliases:
 title: Ockergelb - BEECK Standölinnenfarbe PRO
 translationKey: '104'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-26'
 produkt:
   id: '104'
   artikelnummer: OCKER
