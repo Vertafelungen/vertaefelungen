@@ -200,21 +200,81 @@ def extract_headings(main_html: str) -> set[str]:
     return headings
 
 
-MISSING_HTML_BODY_TEXT_THRESHOLD = 200
+MISSING_HTML_BODY_TEXT_THRESHOLD = 400
 
 
-def classify_missing_html(page: dict, lang: str, url: str) -> tuple[str, bool]:
+def is_deep_wissen_path(path: str, lang: str) -> tuple[bool, int]:
+    expected_prefix = f"/wissen/{lang}/"
+    if path.startswith(expected_prefix):
+        remainder = path[len(expected_prefix) :]
+    else:
+        remainder = path.lstrip("/")
+    segments = [segment for segment in remainder.split("/") if segment]
+    return len(segments) > 6, len(segments)
+
+
+def detect_variant_like_slug(path: str) -> tuple[bool, list[str]]:
+    segments = [segment for segment in path.split("/") if segment]
+    last_segment = segments[-1] if segments else ""
+    reasons: list[str] = []
+    if re.search(r"%[0-9A-Fa-f]{2}", last_segment):
+        reasons.append("encoded_chars")
+    if len(last_segment) > 60:
+        reasons.append("long_slug")
+    return bool(reasons), reasons
+
+
+def classify_missing_html(page: dict, lang: str, url: str) -> tuple[str, bool, str]:
     indexable = page.get("indexable") is True
     path = urlparse(url).path or url
-    expected_prefix = f"/wissen/{lang}/"
-    matches_prefix = path.startswith(expected_prefix)
     body_text = str(page.get("body_text", "")).strip()
-    body_text_long = len(body_text) > MISSING_HTML_BODY_TEXT_THRESHOLD
-    is_placeholder = page.get("is_placeholder")
-    is_not_root_or_overview = body_text_long or is_placeholder is False
-    if indexable and matches_prefix and is_not_root_or_overview:
-        return "missing_html_unexpected", True
-    return "missing_html_expected", False
+    body_text_length = len(body_text)
+    is_placeholder = page.get("is_placeholder") is True
+    description = str(page.get("description", "")).strip()
+    headings = [str(h).strip() for h in page.get("headings", []) if str(h).strip()]
+    deep_path, segment_count = is_deep_wissen_path(path, lang)
+    variant_like, variant_reasons = detect_variant_like_slug(path)
+
+    expected_reasons: list[str] = []
+    if deep_path:
+        expected_reasons.append(f"deep_path_segments:{segment_count}")
+    if variant_like:
+        expected_reasons.append(f"variant_like:{','.join(variant_reasons)}")
+    if body_text_length < MISSING_HTML_BODY_TEXT_THRESHOLD:
+        expected_reasons.append(f"body_text_short:{body_text_length}")
+    if is_placeholder:
+        expected_reasons.append("is_placeholder")
+    if not headings and not description:
+        expected_reasons.append("no_headings_or_description")
+
+    if expected_reasons:
+        return "missing_html_expected", False, "; ".join(expected_reasons)
+
+    hard_fail = (
+        indexable
+        and page.get("is_placeholder") is False
+        and body_text_length >= MISSING_HTML_BODY_TEXT_THRESHOLD
+        and not deep_path
+        and not variant_like
+    )
+    if hard_fail:
+        reasons = [
+            "indexable_true",
+            "is_placeholder_false",
+            f"body_text_length:{body_text_length}",
+            f"deep_path:{deep_path}",
+            f"variant_like:{variant_like}",
+        ]
+        return "missing_html_unexpected", True, "; ".join(reasons)
+
+    reasons = [
+        f"indexable:{page.get('indexable')}",
+        f"is_placeholder:{page.get('is_placeholder')}",
+        f"body_text_length:{body_text_length}",
+        f"deep_path:{deep_path}",
+        f"variant_like:{variant_like}",
+    ]
+    return "missing_html_expected", False, "not_hard_fail:" + ", ".join(reasons)
 
 
 def check_sample_pages(
@@ -230,8 +290,9 @@ def check_sample_pages(
         url = str(page.get("url", ""))
         html_path = url_to_public_path(public_root, url)
         if not html_path.exists():
-            issue_type, is_hard_fail = classify_missing_html(page, lang, url)
-            issues.append({"url": url, "type": issue_type, "detail": str(html_path)})
+            issue_type, is_hard_fail, reason = classify_missing_html(page, lang, url)
+            detail = f"{html_path} | {reason}"
+            issues.append({"url": url, "type": issue_type, "detail": detail})
             hard_fail = hard_fail or is_hard_fail
             continue
         html = html_path.read_text(encoding="utf-8")
