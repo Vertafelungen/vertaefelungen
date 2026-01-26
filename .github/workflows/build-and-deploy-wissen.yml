@@ -80,6 +80,9 @@ jobs:
       - name: Verify retrieval export (Phase 6.1)
         run: python scripts/verify_retrieval_export.py
 
+      - name: Generate content backlog (Phase 6.2)
+        run: python scripts/generate_content_backlog.py
+
       # kleine Sicherung: zeige, dass der Build-Output da ist (inkl. Dotfiles)
       - name: Inspect build output
         run: |
@@ -134,6 +137,16 @@ jobs:
         with:
           name: retrieval-export-verification-report
           path: wissen/scripts/reports/retrieval_export_verification_report.json
+
+      - name: Upload content backlog artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: content-backlog
+          path: |
+            wissen/scripts/reports/content_backlog.de.md
+            wissen/scripts/reports/content_backlog.en.md
+            wissen/scripts/reports/content_backlog.json
 
       - name: Upload mojibake diagnostics
         if: always()
