@@ -42,11 +42,20 @@
 {{ if templates.Exists "partials/seo/site-jsonld.html" }}
   {{ partial "seo/site-jsonld.html" . }}
 {{ end }}
-{{ if .Params.produkt }}
-  {{ if templates.Exists "partials/seo/product-jsonld.html" }}
-    {{ partial "seo/product-jsonld.html" . }}
+{{- $schemaContext := dict "page" . "robots" $robots -}}
+{{- if .Params.produkt -}}
+  {{ if templates.Exists "partials/schema-product.html" }}
+    {{ partial "schema-product.html" $schemaContext }}
   {{ end }}
-{{ end }}
+{{- else if or (eq .Section "faq") (eq .Type "faq") -}}
+  {{ if templates.Exists "partials/schema-faq.html" }}
+    {{ partial "schema-faq.html" $schemaContext }}
+  {{ end }}
+{{- else -}}
+  {{ if templates.Exists "partials/schema-article.html" }}
+    {{ partial "schema-article.html" $schemaContext }}
+  {{ end }}
+{{- end }}
 
 {{/* CSS: reines CSS nicht durch ToCSS (Sass) schicken – sonst kollidiert CSS min()/calc() mit Sass min(). */}}
 {{ $style := resources.Get "css/site.css" | resources.Minify | resources.Fingerprint "sha512" }}

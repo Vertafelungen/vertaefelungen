@@ -1,0 +1,37 @@
+{{- $page := .page -}}
+{{- $robots := .robots | default "" -}}
+{{- if not (in $robots "noindex") -}}
+  {{- $raw := $page.RawContent | default "" -}}
+  {{- $lines := split $raw "\n" -}}
+  {{- $items := slice -}}
+  {{- range $lines -}}
+    {{- $line := trim . " \t\r" -}}
+    {{- if strings.HasPrefix $line "## " -}}
+      {{- $entry := replaceRE "^##\\s+" "" $line -}}
+      {{- $parts := split $entry "?" -}}
+      {{- if ge (len $parts) 2 -}}
+        {{- $questionRaw := trim (index $parts 0) " \t" -}}
+        {{- $question := printf "%s?" $questionRaw -}}
+        {{- $answerRaw := trim (delimit (after 1 $parts) "?") " \t" -}}
+        {{- $answerRaw = replaceRE "\\*\\*\\*.*$" "" $answerRaw -}}
+        {{- $answer := $answerRaw | markdownify | plainify -}}
+        {{- $questionText := $question | markdownify | plainify -}}
+        {{- if and $questionText $answer -}}
+          {{- $items = $items | append (dict
+            "@type" "Question"
+            "name" $questionText
+            "acceptedAnswer" (dict "@type" "Answer" "text" $answer)
+          ) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- if gt (len $items) 0 -}}
+    {{- $data := dict
+      "@context" "https://schema.org"
+      "@type" "FAQPage"
+      "mainEntity" $items
+    -}}
+    <script type="application/ld+json">{{ $data | jsonify }}</script>
+  {{- end -}}
+{{- end -}}
