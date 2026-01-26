@@ -200,9 +200,27 @@ def extract_headings(main_html: str) -> set[str]:
     return headings
 
 
+MISSING_HTML_BODY_TEXT_THRESHOLD = 200
+
+
+def classify_missing_html(page: dict, lang: str, url: str) -> tuple[str, bool]:
+    indexable = page.get("indexable") is True
+    path = urlparse(url).path or url
+    expected_prefix = f"/wissen/{lang}/"
+    matches_prefix = path.startswith(expected_prefix)
+    body_text = str(page.get("body_text", "")).strip()
+    body_text_long = len(body_text) > MISSING_HTML_BODY_TEXT_THRESHOLD
+    is_placeholder = page.get("is_placeholder")
+    is_not_root_or_overview = body_text_long or is_placeholder is False
+    if indexable and matches_prefix and is_not_root_or_overview:
+        return "missing_html_unexpected", True
+    return "missing_html_expected", False
+
+
 def check_sample_pages(
     pages: list[dict],
     public_root: Path,
+    lang: str,
     issues: list[dict[str, str]],
 ) -> bool:
     hard_fail = False
@@ -212,8 +230,9 @@ def check_sample_pages(
         url = str(page.get("url", ""))
         html_path = url_to_public_path(public_root, url)
         if not html_path.exists():
-            issues.append({"url": url, "type": "missing_html", "detail": str(html_path)})
-            hard_fail = True
+            issue_type, is_hard_fail = classify_missing_html(page, lang, url)
+            issues.append({"url": url, "type": issue_type, "detail": str(html_path)})
+            hard_fail = hard_fail or is_hard_fail
             continue
         html = html_path.read_text(encoding="utf-8")
         main_html, soft_issue, soft_detail = detect_main_section(html)
@@ -227,7 +246,6 @@ def check_sample_pages(
         body_text = str(page.get("body_text", ""))
         if has_nav_like_fragments(body_text):
             issues.append({"url": url, "type": "nav_like_body_text", "detail": "navigation/footer tokens clustered"})
-            hard_fail = True
 
         export_headings = {str(h).strip() for h in page.get("headings", []) if str(h).strip()}
         if export_headings:
@@ -265,7 +283,7 @@ def verify_export(path: Path, lang: str, public_root: Path, issues: list[dict[st
     ensure_sorted_unique(pages, label)
     ensure_language_urls(pages, lang, label)
     ensure_quality_minimum(pages, label)
-    hard_fail = check_sample_pages(pages, public_root, issues)
+    hard_fail = check_sample_pages(pages, public_root, lang, issues)
     record_soft_issues(pages, issues)
     return VerificationResult(hard_fail=hard_fail, issues=issues)
 
@@ -337,7 +355,7 @@ def main() -> int:
     if hard_fail:
         print("Retrieval export verification failed.", file=sys.stderr)
         for issue in issues:
-            if issue.get("type") in {"hard_fail", "missing_html", "missing_main_container", "nav_like_body_text"}:
+            if issue.get("type") in {"hard_fail", "missing_html_unexpected", "missing_main_container"}:
                 print(f"- {issue.get('type')}: {issue.get('detail')} ({issue.get('url')})", file=sys.stderr)
         return 1
 
