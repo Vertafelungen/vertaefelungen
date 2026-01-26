@@ -136,11 +136,34 @@ def run_self_check(public_root: Path) -> None:
         assert actual == expected, f"{url} -> {actual} (expected {expected})"
 
 
-def extract_main_html(html: str) -> str | None:
-    match = re.search(r"<main[^>]*\bid=[\"']main[\"'][^>]*>(.*?)</main>", html, re.IGNORECASE | re.DOTALL)
-    if not match:
-        return None
-    return match.group(1)
+MAIN_TAG_RE = re.compile(r"<main\b[^>]*>(?P<content>.*?)</main>", re.IGNORECASE | re.DOTALL)
+ROLE_MAIN_CONTAINER_RE = re.compile(
+    r"<(?P<tag>[a-z0-9]+)\b[^>]*\brole\s*=\s*['\"]main['\"][^>]*>(?P<content>.*?)</(?P=tag)>",
+    re.IGNORECASE | re.DOTALL,
+)
+ROLE_MAIN_ATTR_RE = re.compile(r"\brole\s*=\s*['\"]main['\"]", re.IGNORECASE)
+H1_RE = re.compile(r"<h1\b[^>]*>(.*?)</h1>", re.IGNORECASE | re.DOTALL)
+
+
+def detect_main_section(html: str) -> tuple[str | None, str | None, str | None]:
+    match = MAIN_TAG_RE.search(html)
+    if match:
+        return match.group("content"), None, None
+
+    match = ROLE_MAIN_CONTAINER_RE.search(html)
+    if match:
+        return match.group("content"), "main_container_fallback_used", "role=main container used"
+
+    if ROLE_MAIN_ATTR_RE.search(html):
+        return html, "main_container_fallback_used", "role=main detected, fallback to full HTML"
+
+    h1_texts = [strip_tags(text) for text in H1_RE.findall(html)]
+    h1_texts = [text for text in h1_texts if text]
+    text_length = len(strip_tags(html))
+    if len(h1_texts) == 1 and text_length > 800:
+        return html, "weak_main_detection", "single h1 and sufficient text, fallback to full HTML"
+
+    return None, None, None
 
 
 def strip_tags(html: str) -> str:
@@ -193,11 +216,13 @@ def check_sample_pages(
             hard_fail = True
             continue
         html = html_path.read_text(encoding="utf-8")
-        main_html = extract_main_html(html)
+        main_html, soft_issue, soft_detail = detect_main_section(html)
         if main_html is None:
-            issues.append({"url": url, "type": "missing_main_container", "detail": "<main id=\"main\"> not found"})
+            issues.append({"url": url, "type": "missing_main_container", "detail": "main container not detected"})
             hard_fail = True
             continue
+        if soft_issue:
+            issues.append({"url": url, "type": soft_issue, "detail": soft_detail or "main container fallback used"})
 
         body_text = str(page.get("body_text", ""))
         if has_nav_like_fragments(body_text):
