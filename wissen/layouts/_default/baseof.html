@@ -5,6 +5,7 @@
   </head>
   <body class="site">
     {{ partial "header.html" . }}  <!-- Nur header.html hier einbinden -->
+    {{ partial "nav-drawer.html" . }}
     <main id="main" class="site-main">
       <div class="container">
         {{ block "main" . }}{{ end }}

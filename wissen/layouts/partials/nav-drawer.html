@@ -1,0 +1,30 @@
+<div class="nav-drawer" id="nav-drawer" data-testid="nav-drawer" aria-hidden="true">
+  <div class="nav-drawer__overlay" data-testid="nav-drawer-overlay"></div>
+  <div class="nav-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ i18n "header_nav_label" }}" tabindex="-1">
+    <div class="nav-drawer__section" data-testid="drawer-main-links">
+      <p class="nav-drawer__title">{{ i18n "header_nav_label" }}</p>
+      <ul class="nav-drawer__list">
+        {{- range .Site.Menus.main -}}
+          {{- $label := .Name -}}
+          {{- with .Identifier -}}
+            {{- $label = i18n . -}}
+          {{- end -}}
+          <li><a href="{{ .URL }}">{{ $label }}</a></li>
+        {{- end -}}
+      </ul>
+    </div>
+
+    <div class="nav-drawer__section" data-testid="drawer-footer-links">
+      <p class="nav-drawer__title">{{ i18n "drawer_footer_title" }}</p>
+      <ul class="nav-drawer__list">
+        {{- range .Site.Menus.footer -}}
+          {{- $label := .Name -}}
+          {{- with .Identifier -}}
+            {{- $label = i18n . -}}
+          {{- end -}}
+          <li><a href="{{ .URL }}">{{ $label }}</a></li>
+        {{- end -}}
+      </ul>
+    </div>
+  </div>
+</div>
