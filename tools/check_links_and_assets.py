@@ -25,6 +25,7 @@ CONTENT_ROOTS = [
 
 BAD_LINK_MD = re.compile(r'\[[^\]]*\]\([^\)]*\.md(\#[^\)]*)?\)', re.IGNORECASE)
 BAD_LINK_LOCALHOST = re.compile(r'localhost:\d{0,5}', re.IGNORECASE)
+REF_SHORTCODE = re.compile(r'{{<\s*(?:relref|ref)\s+["\']([^"\']+)["\']\s*>}}')
 
 def parse_frontmatter(p: Path):
     text = p.read_text(encoding="utf-8", errors="replace")
@@ -52,19 +53,34 @@ def check_bilder_list(page_dir: Path, fm: dict, problems: list):
         if not (page_dir / name).exists():
             problems.append(f"[BILD FEHLT] {page_dir / name}")
 
+def ref_target_exists(root: Path, target: str) -> bool:
+    clean = target.split("#", 1)[0].lstrip("/")
+    if not clean:
+        return False
+    target_path = root / clean
+    if target_path.is_file():
+        return True
+    if (target_path / "_index.md").exists():
+        return True
+    return False
+
 def main():
     problems = []
 
     for root in CONTENT_ROOTS:
         if not root.exists():
             continue
-        for md in root.rglob("index.md"):
+        for md in root.rglob("*.md"):
             fm, body = parse_frontmatter(md)
             # verbotene Links
             for m in BAD_LINK_MD.finditer(body):
                 problems.append(f"[BAD LINK .md] {md}: {m.group(0)}")
             for m in BAD_LINK_LOCALHOST.finditer(body):
                 problems.append(f"[BAD LINK localhost] {md}: {m.group(0)}")
+            for m in REF_SHORTCODE.finditer(body):
+                target = m.group(1).strip()
+                if not ref_target_exists(root, target):
+                    problems.append(f"[REF NOT FOUND] {md}: {target}")
             # bilder_liste prüfen
             check_bilder_list(md.parent, fm, problems)
 
