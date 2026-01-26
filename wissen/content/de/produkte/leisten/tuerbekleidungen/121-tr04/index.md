@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 04
 translationKey: '121'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-26'
 produkt:
   id: '121'
   artikelnummer: TR04

@@ -4,7 +4,7 @@ aliases:
 title: Zitronengelb - BEECK Standölinnenfarbe PRO
 translationKey: '102'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-26'
 produkt:
   id: '102'
   artikelnummer: ZITRONENGELB
