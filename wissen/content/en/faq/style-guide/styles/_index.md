@@ -1,9 +1,9 @@
 ---
 title: "Styles"
-description: "Placeholder content."
+description: "Content forthcoming."
 robots: "noindex,follow"
 ---
 
 # Styles
 
-Content follows.
+Content forthcoming.

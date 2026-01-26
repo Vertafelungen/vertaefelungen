@@ -1,9 +1,9 @@
 ---
 title: "Glossar"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Glossar
 
-Content follows.
+Inhalt folgt.

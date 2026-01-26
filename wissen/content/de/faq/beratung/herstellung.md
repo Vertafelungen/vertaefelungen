@@ -1,9 +1,9 @@
 ---
 title: "Herstellung"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Herstellung
 
-Content follows.
+Inhalt folgt.

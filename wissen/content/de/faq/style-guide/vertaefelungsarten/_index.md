@@ -1,9 +1,9 @@
 ---
 title: "Vertaefelungsarten"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Vertaefelungsarten
 
-Content follows.
+Inhalt folgt.

@@ -1,9 +1,9 @@
 ---
 title: "About Us"
-description: "Placeholder content."
+description: "Content forthcoming."
 robots: "noindex,follow"
 ---
 
 # About Us
 
-Content follows.
+Content forthcoming.

@@ -1,9 +1,9 @@
 ---
 title: "Planung"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Planung
 
-Content follows.
+Inhalt folgt.

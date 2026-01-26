@@ -1,9 +1,9 @@
 ---
 title: "Katalog Und Download"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Katalog Und Download
 
-Content follows.
+Inhalt folgt.

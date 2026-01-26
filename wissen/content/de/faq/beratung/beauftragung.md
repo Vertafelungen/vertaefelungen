@@ -1,9 +1,9 @@
 ---
 title: "Beauftragung"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Beauftragung
 
-Content follows.
+Inhalt folgt.

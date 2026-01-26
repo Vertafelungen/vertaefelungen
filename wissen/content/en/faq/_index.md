@@ -10,5 +10,6 @@ menu:
     identifier: menu_faq
     weight: 20
 ---
-# Knowledge - English
+# FAQ
 
+Knowledge base on historical wood panelling, wainscoting, mouldings and restoration.

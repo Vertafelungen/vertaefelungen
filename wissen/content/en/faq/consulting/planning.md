@@ -1,9 +1,9 @@
 ---
 title: "Planning"
-description: "Placeholder content."
+description: "Content forthcoming."
 robots: "noindex,follow"
 ---
 
 # Planning
 
-Content follows.
+Content forthcoming.

@@ -1,9 +1,9 @@
 ---
 title: "Style Guide"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Style Guide
 
-Content follows.
+Inhalt folgt.

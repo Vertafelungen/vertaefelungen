@@ -1,9 +1,9 @@
 ---
 title: "Delivery"
-description: "Placeholder content."
+description: "Content forthcoming."
 robots: "noindex,follow"
 ---
 
 # Delivery
 
-Content follows.
+Content forthcoming.

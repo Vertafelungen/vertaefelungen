@@ -1,9 +1,9 @@
 ---
 title: "Index"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Index
 
-Content follows.
+Inhalt folgt.

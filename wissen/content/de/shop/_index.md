@@ -3,7 +3,7 @@
 # Version: 2026-01-11 14:00 Europe/Berlin
 
 title: "Shop"
-description: "Direkt zum Shop, zu den Produktkategorien oder zur Beratung – und warum Wissen und Shop bewusst getrennt sind."
+description: "Shop, Produktkategorien und Beratung – und warum Wissen und Shop bewusst getrennt sind."
 date: 2026-01-11T14:00:00+01:00
 lastmod: 2026-01-11T14:00:00+01:00
 draft: false
@@ -21,7 +21,7 @@ menu:
 
 Du befindest dich im **Wissensbereich** von Vertäfelung & Lambris. Hier findest du Hintergrundwissen, Stil- und Konstruktionsinformationen, Produktdetails und Entscheidungshilfen – unabhängig von Warenkorb und Checkout.
 
-Der **Shop** auf www.vertaefelungen.de ist dagegen auf **Bestellung, Preislogik und Abwicklung** optimiert. Die Trennung ist bewusst: Wissen bleibt übersichtlich, zitierfähig und langfristig stabil (SEO/LLMO), während der Shop kauf- und prozessorientiert bleibt.
+Der **Shop** auf www.vertaefelungen.de ist dagegen auf **Bestellung, Preislogik und Abwicklung** ausgerichtet. Die Trennung ist bewusst: Wissen bleibt übersichtlich, zitierfähig und langfristig stabil (SEO/LLMO), während der Shop bestell- und prozessorientiert bleibt.
 
 <div class="bridge-ctas" role="navigation" aria-label="Shop- und Beratungs-Einstieg">
   <a
@@ -47,7 +47,7 @@ Der **Shop** auf www.vertaefelungen.de ist dagegen auf **Bestellung, Preislogik 
     href="{{< relref "faq/beratung/" >}}?utm_source=wissen&utm_medium=bridge&utm_campaign=beratung"
     data-cta="beratung-starten"
   >
-    Beratung starten
+    Beratung ansehen
   </a>
 </div>
 

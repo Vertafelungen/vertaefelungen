@@ -33,4 +33,4 @@ cascade:
   seo:
     robots: index,follow
 ---
-Choose a category to view subcategories and products.
+Choose a category to view subcategories and products on the knowledge site. For variants and prices, see the [shop]({{< relref "shop/_index.md" >}}).
