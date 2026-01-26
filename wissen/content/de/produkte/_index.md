@@ -33,4 +33,4 @@ cascade:
   seo:
     robots: index,follow
 ---
-Wähle eine Kategorie, um Unterkategorien und Produkte zu sehen.
+Wähle eine Kategorie, um Unterkategorien und Produkte der Wissensseite zu sehen. Varianten und Preise findest du im [Shop]({{< relref "shop/_index.md" >}}).

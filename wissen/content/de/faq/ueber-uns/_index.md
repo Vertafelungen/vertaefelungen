@@ -1,9 +1,9 @@
 ---
 title: "Ueber Uns"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Ueber Uns
 
-Content follows.
+Inhalt folgt.

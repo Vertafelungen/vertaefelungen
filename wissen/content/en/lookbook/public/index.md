@@ -1,9 +1,9 @@
 ---
 title: "Index"
-description: "Placeholder content."
+description: "Content forthcoming."
 robots: "noindex,follow"
 ---
 
 # Index
 
-Content follows.
+Content forthcoming.

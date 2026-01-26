@@ -1,9 +1,9 @@
 ---
 title: "Ordering"
-description: "Placeholder content."
+description: "Content forthcoming."
 robots: "noindex,follow"
 ---
 
 # Ordering
 
-Content follows.
+Content forthcoming.

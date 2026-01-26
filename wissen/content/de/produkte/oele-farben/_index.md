@@ -29,4 +29,4 @@ cascade:
   seo:
     robots: index,follow
 ---
-Öle und Farben bestimmen nicht nur den Farbton, sondern auch Diffusionsverhalten, Haptik, Reparaturfähigkeit und langfristige Alterung.\n\n## Unterkategorien\n- **Leinöl, Tung, Balsam** - klassische Öle/Harze für Holzschutz, Grundierung und Pflege.\n- **Standöl / Ölfarben** - robuste, diffusionsoffene Anstriche (z. B. pigmentierte Systeme).\n\nWähle eine Unterkategorie, um passende Produkte, Varianten und Anwendungshinweise zu sehen.
+Öle und Farben bestimmen nicht nur den Farbton, sondern auch Diffusionsverhalten, Haptik, Reparaturfähigkeit und langfristige Alterung.\n\n## Unterkategorien\n- **Leinöl, Tung, Balsam** - klassische Öle/Harze für Holzschutz, Grundierung und Pflege.\n- **Standöl / Ölfarben** - robuste, diffusionsoffene Anstriche (z. B. pigmentierte Systeme).\n\nWähle eine Unterkategorie, um passende Produkte, Varianten und Anwendungshinweise zu sehen. Weitere Informationen zu Varianten und Preisen findest du im [Shop]({{< relref "shop/_index.md" >}}).

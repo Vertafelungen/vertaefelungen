@@ -11,5 +11,5 @@ menu:
     weight: 20
 ---
 # FAQ
-<!-- Übersichtsseite für FAQ (optional).
-     Hier kannst du ein Intro schreiben oder eine Liste von Fragen rendern. -->
+
+Häufige Fragen zu historischen Holzvertäfelungen.

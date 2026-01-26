@@ -1,9 +1,9 @@
 ---
 title: "Lieferung"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Lieferung
 
-Content follows.
+Inhalt folgt.

@@ -1,9 +1,9 @@
 ---
 title: "Katalog"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Katalog
 
-Content follows.
+Inhalt folgt.

@@ -1,9 +1,9 @@
 ---
 title: "Catalogue"
-description: "Placeholder content."
+description: "Content forthcoming."
 robots: "noindex,follow"
 ---
 
 # Catalogue
 
-Content follows.
+Content forthcoming.

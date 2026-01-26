@@ -3,7 +3,7 @@
 # Version: 2026-01-11 14:00 Europe/Berlin
 
 title: "Shop"
-description: "Go to the shop, browse product categories, or start consulting – and why knowledge and shop are intentionally separated."
+description: "Shop, product categories, and consulting – and why knowledge and shop are intentionally separated."
 date: 2026-01-11T14:00:00+01:00
 lastmod: 2026-01-11T14:00:00+01:00
 draft: false
@@ -15,7 +15,7 @@ menu:
 
 You are currently in the **knowledge section** of Vertäfelung & Lambris. This area focuses on background information, style guidance, construction details, and decision support – independent from cart and checkout.
 
-The **shop** on www.vertaefelungen.de is optimized for **ordering, pricing logic, and checkout**. The separation is intentional: the knowledge base stays stable and reference-friendly (SEO/LLMO), while the shop stays conversion- and process-oriented.
+The **shop** on www.vertaefelungen.de is focused on **ordering, pricing logic, and checkout**. The separation is intentional: the knowledge base stays stable and reference-friendly (SEO/LLMO), while the shop stays ordering- and process-oriented.
 
 <div class="bridge-ctas" role="navigation" aria-label="Shop and consulting entry points">
   <a
@@ -41,7 +41,7 @@ The **shop** on www.vertaefelungen.de is optimized for **ordering, pricing logic
     href="{{< relref "faq/consulting/" >}}?utm_source=wissen&utm_medium=bridge&utm_campaign=consulting"
     data-cta="start-consulting"
   >
-    Start consulting
+    Consulting overview
   </a>
 </div>
 

@@ -29,4 +29,4 @@ cascade:
   seo:
     robots: index,follow
 ---
-Oils and paints influence not only colour, but also vapour behaviour, feel, repairability and long-term ageing.\n\n## Subcategories\n- **Linseed, tung & balsam** - classic oils/resins for protection, priming and maintenance.\n- **Stand oil / oil paints** - durable, vapour-open paint systems (e.g. pigmented finishes).\n\nChoose a subcategory to view products, variants and application notes.
+Oils and paints influence not only colour, but also vapour behaviour, feel, repairability and long-term ageing.\n\n## Subcategories\n- **Linseed, tung & balsam** - classic oils/resins for protection, priming and maintenance.\n- **Stand oil / oil paints** - durable, vapour-open paint systems (e.g. pigmented finishes).\n\nChoose a subcategory to view products, variants and application notes. For variants and prices, see the [shop]({{< relref "shop/_index.md" >}}).

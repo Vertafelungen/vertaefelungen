@@ -1,12 +1,12 @@
 ---
 title: "Montage"
-description: "Placeholder content."
+description: "Inhalt folgt."
 robots: "noindex,follow"
 ---
 
 # Montage
 
-Content follows.
+Inhalt folgt.
 
 ## Montage-Anleitung
 

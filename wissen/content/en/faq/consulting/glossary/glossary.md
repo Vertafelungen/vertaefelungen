@@ -1,9 +1,9 @@
 ---
 title: "Glossary"
-description: "Placeholder content."
+description: "Content forthcoming."
 robots: "noindex,follow"
 ---
 
 # Glossary
 
-Content follows.
+Content forthcoming.
