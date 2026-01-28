@@ -3,7 +3,7 @@ title: Wandleiste 11
 lang: de
 translationKey: '87'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '87'
   artikelnummer: WL11
