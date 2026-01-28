@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 18
 translationKey: '130'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '130'
   artikelnummer: TR18

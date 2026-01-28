@@ -3,7 +3,7 @@ title: Brown - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '100'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '100'
   artikelnummer: BRAUN

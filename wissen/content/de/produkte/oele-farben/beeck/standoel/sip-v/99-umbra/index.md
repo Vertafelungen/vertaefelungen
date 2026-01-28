@@ -4,7 +4,7 @@ aliases:
 title: Umbra - BEECK Standölinnenfarbe PRO
 translationKey: '99'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '99'
   artikelnummer: UMBRA

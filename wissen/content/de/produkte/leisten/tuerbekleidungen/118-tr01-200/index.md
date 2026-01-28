@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 01 / 200
 translationKey: '118'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '118'
   artikelnummer: TR01-200
