@@ -60,5 +60,11 @@ Thumbs.db
 *.zip
 *.7z
 
+# --- Secrets / Service Accounts (block common key file names only) ---
+**/*service_account*.json
+**/*service-account*.json
+**/*alttext-automatisierung*.json
+**/*credentials*.json
+
 # --- Explicitly DO NOT ignore content trees ---
 !wissen/content/**
