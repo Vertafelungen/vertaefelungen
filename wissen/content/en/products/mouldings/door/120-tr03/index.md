@@ -3,7 +3,7 @@ title: Door Frame 03
 lang: en
 translationKey: '120'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '120'
   artikelnummer: TR03
