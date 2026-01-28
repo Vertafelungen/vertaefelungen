@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 15
 translationKey: '128'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '128'
   artikelnummer: TR15

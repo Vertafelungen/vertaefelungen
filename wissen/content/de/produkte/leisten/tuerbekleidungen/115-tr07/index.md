@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 07
 translationKey: '115'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '115'
   artikelnummer: TR07

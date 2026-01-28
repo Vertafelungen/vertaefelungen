@@ -3,7 +3,7 @@ title: Wall Moulding 09
 lang: en
 translationKey: '85'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '85'
   artikelnummer: WL09

@@ -3,7 +3,7 @@ title: Wandleiste 07
 lang: de
 translationKey: '82'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '82'
   artikelnummer: WL07

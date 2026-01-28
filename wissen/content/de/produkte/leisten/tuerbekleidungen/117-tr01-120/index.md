@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 01 / 120
 translationKey: '117'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-01-28'
 produkt:
   id: '117'
   artikelnummer: TR01-120
