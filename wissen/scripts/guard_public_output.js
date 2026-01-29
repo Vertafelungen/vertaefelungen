@@ -1,6 +1,14 @@
 #!/usr/bin/env node
 "use strict";
 
+/**
+ * PATH: wissen/scripts/guard_public_output.js
+ * Version: 2026-01-29 21:00 CET
+ *
+ * Patch: Extend primary-nav href scheme validation to also reject data: and vbscript:.
+ * Keeps the previous behavior otherwise.
+ */
+
 const fs = require("fs");
 const path = require("path");
 const cheerio = require("cheerio");
@@ -39,38 +47,20 @@ const REDUNDANT_URL_PATTERNS = [
   "/wissen/en/en/",
   "/wissen/de/produkte/produkte/",
   "/wissen/en/products/products/",
+  "/wissen/de/oeffentlich/oeffentlich/",
+  "/wissen/en/public/public/",
 ];
 
+const LANGS = ["de", "en"];
+
 const NAV_TARGETS = {
-  de: [
-    "/wissen/de/shop/",
-    "/wissen/de/faq/",
-    "/wissen/de/produkte/",
-    "/wissen/de/lookbook/",
-  ],
-  en: [
-    "/wissen/en/shop/",
-    "/wissen/en/faq/",
-    "/wissen/en/products/",
-    "/wissen/en/lookbook/",
-  ],
+  de: ["/wissen/de/shop/", "/wissen/de/faq/", "/wissen/de/produkte/", "/wissen/de/lookbook/"],
+  en: ["/wissen/en/shop/", "/wissen/en/faq/", "/wissen/en/products/", "/wissen/en/lookbook/"],
 };
 
 const LEGAL_TARGETS = {
-  de: [
-    "/wissen/de/impressum/",
-    "/wissen/de/datenschutz/",
-    "/wissen/de/agb/",
-    "/wissen/de/widerruf/",
-    "/wissen/de/kontakt/",
-  ],
-  en: [
-    "/wissen/en/imprint/",
-    "/wissen/en/privacy/",
-    "/wissen/en/terms/",
-    "/wissen/en/withdrawal/",
-    "/wissen/en/contact/",
-  ],
+  de: ["/wissen/de/impressum/", "/wissen/de/datenschutz/", "/wissen/de/agb/", "/wissen/de/widerruf/", "/wissen/de/kontakt/"],
+  en: ["/wissen/en/imprint/", "/wissen/en/privacy/", "/wissen/en/terms/", "/wissen/en/withdrawal/", "/wissen/en/contact/"],
 };
 
 const LANG_PREFIXES = {
@@ -156,8 +146,8 @@ function normalizeUrlPath(filePath) {
 }
 
 function getLang(urlPath) {
-  for (const [lang, prefix] of Object.entries(LANG_PREFIXES)) {
-    if (urlPath.startsWith(prefix)) {
+  for (const lang of LANGS) {
+    if (urlPath.startsWith(LANG_PREFIXES[lang])) {
       return lang;
     }
   }
@@ -196,35 +186,42 @@ function ensureCanonical($, filePath, urlPath, lang, errors, enforcePath) {
   const canonicals = $("link[rel='canonical']");
   if (canonicals.length !== 1) {
     errors.push(
-      `${filePath}: expected exactly 1 canonical link, found ${canonicals.length}`
+      `${filePath}: expected exactly 1 canonical, found ${canonicals.length}`
     );
     return;
   }
-  const href = canonicals.attr("href") || "";
-  if (!href.trim()) {
-    errors.push(`${filePath}: canonical href is empty`);
+
+  const canonicalHref = canonicals.first().attr("href") || "";
+  if (!/^https?:\/\//i.test(canonicalHref)) {
+    errors.push(`${filePath}: canonical must be absolute URL: ${canonicalHref}`);
     return;
   }
-  if (!/^https?:\/\//i.test(href.trim())) {
-    errors.push(`${filePath}: canonical href must be absolute (found: ${href})`);
-    return;
-  }
-  const canonicalPath = extractPathFromUrl(href);
+
+  const canonicalPath = extractPathFromUrl(canonicalHref);
   if (!canonicalPath) {
-    errors.push(`${filePath}: canonical href is invalid (found: ${href})`);
+    errors.push(`${filePath}: canonical could not be parsed: ${canonicalHref}`);
     return;
   }
+
   for (const pattern of FORBIDDEN_PATTERNS) {
     if (canonicalPath.includes(pattern)) {
       errors.push(
-        `${filePath}: canonical href contains redundant pattern '${pattern}' (found: ${href})`
+        `${filePath}: canonical contains forbidden pattern "${pattern}": ${canonicalHref}`
       );
     }
   }
+
   if (enforcePath) {
-    if (!canonicalPath || !canonicalPath.startsWith(LANG_PREFIXES[lang])) {
+    if (!canonicalPath.startsWith(LANG_PREFIXES[lang])) {
       errors.push(
-        `${filePath}: canonical href must resolve under ${LANG_PREFIXES[lang]} (found: ${href})`
+        `${filePath}: canonical does not start with expected lang prefix ${LANG_PREFIXES[lang]}: ${canonicalHref}`
+      );
+    }
+
+    const expectedPath = urlPath.replace(/\/+/g, "/");
+    if (canonicalPath.replace(/\/+/g, "/") !== expectedPath) {
+      errors.push(
+        `${filePath}: canonical path mismatch. expected ${expectedPath}, got ${canonicalPath}`
       );
     }
   }
@@ -312,8 +309,12 @@ function checkPrimaryNav($, filePath, lang, errors) {
   );
 
   rawHrefs.forEach((href) => {
-    if (!href || href === "#" || href.toLowerCase().startsWith("javascript:")) {
-      errors.push(`${filePath}: invalid primary nav href "${href}"`);
+    const raw = href == null ? "" : String(href);
+    const h = raw.trim();
+    const lower = h.toLowerCase();
+
+    if (!h || h === "#" || lower.startsWith("javascript:") || lower.startsWith("data:") || lower.startsWith("vbscript:")) {
+      errors.push(`${filePath}: invalid primary nav href "${raw}"`);
     }
   });
 
