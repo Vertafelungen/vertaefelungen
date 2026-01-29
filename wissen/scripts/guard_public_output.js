@@ -5,8 +5,9 @@
  * guard_public_output.js
  * Version: 2026-01-29 21:00 CET
  *
- * Change: Harden primary-nav href scheme validation to also reject data: and vbscript:
- * (keeps existing behavior for empty/#/javascript:; adds trimming to avoid false negatives).
+ * Fixes:
+ * - Resolve relative hrefs against current page URL path so nav guards work with relref/relative links.
+ * - Extend dangerous scheme detection to include data: and vbscript: (in addition to javascript:).
  */
 
 const fs = require("fs");
@@ -52,246 +53,225 @@ const REDUNDANT_URL_PATTERNS = [
 ];
 
 const LANGS = ["de", "en"];
+
+const NAV_TARGETS = {
+  de: [
+    "/wissen/de/shop/",
+    "/wissen/de/faq/",
+    "/wissen/de/produkte/",
+    "/wissen/de/lookbook/",
+  ],
+  en: [
+    "/wissen/en/shop/",
+    "/wissen/en/faq/",
+    "/wissen/en/products/",
+    "/wissen/en/lookbook/",
+  ],
+};
+
+const LEGAL_TARGETS = {
+  de: [
+    "/wissen/de/impressum/",
+    "/wissen/de/datenschutz/",
+    "/wissen/de/agb/",
+    "/wissen/de/widerruf/",
+    "/wissen/de/kontakt/",
+  ],
+  en: [
+    "/wissen/en/imprint/",
+    "/wissen/en/privacy/",
+    "/wissen/en/terms/",
+    "/wissen/en/withdrawal/",
+    "/wissen/en/contact/",
+  ],
+};
+
 const LANG_PREFIXES = {
   de: "/wissen/de/",
   en: "/wissen/en/",
 };
 
-const NAV_TARGETS = {
-  de: ["/wissen/de/shop/", "/wissen/de/faq/", "/wissen/de/produkte/", "/wissen/de/lookbook/"],
-  en: ["/wissen/en/shop/", "/wissen/en/faq/", "/wissen/en/products/", "/wissen/en/lookbook/"],
-};
+const DEBUG = ["1", "true", "yes", "on"].includes(
+  (process.env.GUARD_DEBUG || "").toLowerCase()
+);
 
-const debugLog = (...args) => {
-  if (process.env.GUARD_DEBUG === "1") {
-    // eslint-disable-next-line no-console
-    console.log("[guard]", ...args);
+function normalizeHref(href, baseUrlPath = "/") {
+  if (!href) {
+    return null;
   }
-};
 
-const isHtmlFile = (filePath) => filePath.toLowerCase().endsWith(".html");
-
-const walkDir = (dir, results = []) => {
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      walkDir(full, results);
-    } else if (entry.isFile()) {
-      results.push(full);
-    }
-  }
-  return results;
-};
-
-const relFromRoot = (absPath) => path.relative(ROOT, absPath).replaceAll("\\", "/");
-
-const normalizeHref = (href) => {
-  if (!href) return null;
   const raw = String(href).trim();
-  if (!raw) return null;
+  if (!raw) {
+    return null;
+  }
 
-  if (raw.startsWith("#")) return "#";
-
-  // Allow absolute URLs (external) but normalize casing for scheme
-  if (/^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(raw)) {
+  // Keep anchors as-is; the nav guards treat "#" as invalid explicitly.
+  if (raw.startsWith("#")) {
     return raw;
   }
 
-  // Normalize relative/absolute internal URLs
-  const withoutQuery = raw.split("?")[0].split("#")[0];
+  let pathValue = raw;
 
-  // Ensure leading slash for internal paths
-  if (withoutQuery.startsWith("/")) return withoutQuery;
-  return `/${withoutQuery}`;
-};
+  try {
+    // Absolute URL: use pathname
+    if (/^https?:\/\//i.test(raw)) {
+      const url = new URL(raw);
+      pathValue = url.pathname;
+    } else {
+      // Relative or absolute-path URL: resolve against the current page URL path
+      // Example: "../shop/" on "/wissen/de/faq/" resolves to "/wissen/de/shop/".
+      const base = new URL(
+        `https://example.com${
+          baseUrlPath.endsWith("/") ? baseUrlPath : baseUrlPath + "/"
+        }`
+      );
+      const resolved = new URL(raw, base);
+      pathValue = resolved.pathname;
+    }
+  } catch (error) {
+    // Fallback: keep raw as-is; best-effort normalization below
+    pathValue = raw;
+  }
 
-const ensureExpectedLangPrefix = (href, lang) => {
-  if (!href) return false;
-  return href.startsWith(LANG_PREFIXES[lang]);
-};
+  if (!pathValue.startsWith("/")) {
+    pathValue = `/${pathValue}`;
+  }
+  if (!pathValue.endsWith("/")) {
+    pathValue = `${pathValue}/`;
+  }
 
-const findPrimaryNavContainer = ($) => {
-  // Heuristics:
-  // Prefer nav element, then header, else first element with role navigation
-  const nav = $("nav").first();
-  if (nav.length) return nav;
+  return pathValue;
+}
 
-  const roleNav = $('[role="navigation"]').first();
-  if (roleNav.length) return roleNav;
+function debugLog(...messages) {
+  if (DEBUG) {
+    console.log(...messages);
+  }
+}
 
-  const header = $("header").first();
-  if (header.length) return header;
+function shouldRunNavGuards(relPath) {
+  const normalized = relPath.replace(/\\/g, "/");
+  return NAV_GUARD_REL_PATHS.has(normalized);
+}
 
+function collectHtmlFiles(root) {
+  const results = [];
+  const stack = [root];
+  while (stack.length) {
+    const current = stack.pop();
+    const entries = fs.readdirSync(current, { withFileTypes: true });
+    for (const entry of entries) {
+      const full = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        stack.push(full);
+      } else if (entry.isFile() && entry.name.endsWith(".html")) {
+        results.push(full);
+      }
+    }
+  }
+  return results.sort();
+}
+
+function normalizeUrlPath(filePath) {
+  const rel = path.relative(ROOT, filePath).split(path.sep).join("/");
+  let rawPath = "/";
+  if (rel !== "index.html") {
+    if (rel.endsWith("/index.html")) {
+      rawPath = `/${rel.slice(0, -"/index.html".length)}/`;
+    } else {
+      rawPath = `/${rel}`;
+    }
+  }
+
+  if (rawPath.startsWith("/wissen/")) {
+    return rawPath;
+  }
+  const combined = `/wissen${rawPath}`;
+  return combined.replace(/\/+/g, "/");
+}
+
+function getLang(urlPath) {
+  for (const [lang, prefix] of Object.entries(LANG_PREFIXES)) {
+    if (urlPath.startsWith(prefix)) {
+      return lang;
+    }
+  }
   return null;
-};
+}
 
-const extractHrefs = ($, container) => {
-  const hrefs = [];
-  container.find("a").each((_, el) => {
-    const href = $(el).attr("href");
-    hrefs.push(href);
-  });
-  return hrefs;
-};
+function hasNoindex($) {
+  const robots = $("meta[name='robots']").attr("content") || "";
+  return robots.toLowerCase().includes("noindex");
+}
 
-const checkForbiddenPatterns = (filePath, html) => {
-  const errors = [];
+function isAliasLanding($) {
+  return $("meta[http-equiv]")
+    .toArray()
+    .some((el) => {
+      const value = ($(el).attr("http-equiv") || "").toLowerCase();
+      return value === "refresh";
+    });
+}
+
+function extractPathFromUrl(href) {
+  if (!href) {
+    return null;
+  }
+  try {
+    const url = new URL(href, "https://example.com");
+    return url.pathname;
+  } catch {
+    return null;
+  }
+}
+
+function ensureCanonical($, filePath, urlPath, lang, errors, enforcePath) {
+  const canonicals = $("link[rel='canonical']");
+  if (canonicals.length !== 1) {
+    errors.push(
+      `${filePath}: expected exactly 1 canonical, found ${canonicals.length}`
+    );
+    return;
+  }
+
+  const canonicalHref = canonicals.first().attr("href") || "";
+  if (!/^https?:\/\//i.test(canonicalHref)) {
+    errors.push(`${filePath}: canonical must be absolute URL: ${canonicalHref}`);
+    return;
+  }
+
+  const canonicalPath = extractPathFromUrl(canonicalHref);
+  if (!canonicalPath) {
+    errors.push(`${filePath}: canonical could not be parsed: ${canonicalHref}`);
+    return;
+  }
+
+  for (const pattern of FORBIDDEN_PATTERNS) {
+    if (canonicalPath.includes(pattern)) {
+      errors.push(
+        `${filePath}: canonical contains forbidden pattern "${pattern}": ${canonicalHref}`
+      );
+    }
+  }
+
+  if (enforcePath) {
+    if (!canonicalPath.startsWith(LANG_PREFIXES[lang])) {
+      errors.push(
+        `${filePath}: canonical does not start with expected lang prefix ${LANG_PREFIXES[lang]}: ${canonicalHref}`
+      );
+    }
+
+    const expectedPath = urlPath.replace(/\/+/g, "/");
+    if (canonicalPath.replace(/\/+/g, "/") !== expectedPath) {
+      errors.push(
+        `${filePath}: canonical path mismatch. expected ${expectedPath}, got ${canonicalPath}`
+      );
+    }
+  }
+}
+
+function checkForbiddenPatterns($, filePath, errors) {
+  const html = $.html();
   for (const pattern of FORBIDDEN_PATTERNS) {
     if (html.includes(pattern)) {
-      errors.push(`${filePath}: forbidden pattern present "${pattern}"`);
-    }
-  }
-  return errors;
-};
-
-const checkRedundantUrlStrategy = (filePath, html) => {
-  const errors = [];
-  if (REDUNDANT_STRATEGY !== "redirect" && REDUNDANT_STRATEGY !== "error") {
-    errors.push(
-      `${filePath}: invalid GUARD_REDUNDANT_URL_STRATEGY="${REDUNDANT_STRATEGY}" (expected redirect|error)`
-    );
-    return errors;
-  }
-
-  const hits = [];
-  for (const pattern of REDUNDANT_URL_PATTERNS) {
-    if (html.includes(pattern)) hits.push(pattern);
-  }
-
-  if (!hits.length) return errors;
-
-  if (REDUNDANT_STRATEGY === "error") {
-    errors.push(`${filePath}: redundant URL patterns present: ${hits.join(", ")}`);
-  } else {
-    debugLog(`${filePath}: redundant URL patterns present (allowed due to redirect strategy)`, hits);
-  }
-
-  return errors;
-};
-
-const detectLangFromPath = (relPath) => {
-  const parts = relPath.split("/");
-  const lang = parts[0];
-  if (LANGS.includes(lang)) return lang;
-  return null;
-};
-
-const guardPrimaryNav = (filePath, relPath, html) => {
-  const errors = [];
-  const lang = detectLangFromPath(relPath);
-
-  if (!lang) return errors;
-  if (!NAV_GUARD_REL_PATHS.has(relPath)) return errors;
-
-  const $ = cheerio.load(html);
-  const container = findPrimaryNavContainer($);
-
-  if (!container || !container.length) {
-    errors.push(`${filePath}: primary nav container not found`);
-    return errors;
-  }
-
-  const rawHrefs = extractHrefs($, container);
-  const normalizedHrefs = rawHrefs
-    .map((href) => normalizeHref(href))
-    .filter(Boolean);
-
-  debugLog(
-    `${filePath}: primary nav container found (${container.length})`,
-    JSON.stringify({
-      rawHrefs,
-      normalizedHrefs,
-    })
-  );
-
-  rawHrefs.forEach((href) => {
-    const raw = href == null ? "" : String(href);
-    const value = raw.trim();
-    const lower = value.toLowerCase();
-
-    if (
-      !value ||
-      value === "#" ||
-      lower.startsWith("javascript:") ||
-      lower.startsWith("data:") ||
-      lower.startsWith("vbscript:")
-    ) {
-      errors.push(`${filePath}: invalid primary nav href "${raw}"`);
-    }
-  });
-
-  const expected = NAV_TARGETS[lang].map((href) => normalizeHref(href));
-  const expectedSet = new Set(expected);
-  const targetHrefs = normalizedHrefs.filter((href) =>
-    href.startsWith(LANG_PREFIXES[lang])
-  );
-
-  const extra = targetHrefs.filter((href) => !expectedSet.has(href));
-  if (extra.length) {
-    errors.push(
-      `${filePath}: primary nav contains unexpected ${LANG_PREFIXES[lang]} links: ${extra.join(", ")}`
-    );
-  }
-
-  const missing = expected.filter((href) => !targetHrefs.includes(href));
-  if (missing.length) {
-    errors.push(
-      `${filePath}: primary nav missing required links: ${missing.join(", ")}`
-    );
-  }
-
-  for (const href of expected) {
-    if (!ensureExpectedLangPrefix(href, lang)) {
-      errors.push(`${filePath}: expected nav target does not have lang prefix: "${href}"`);
-    }
-  }
-
-  return errors;
-};
-
-const checkFile = (absPath) => {
-  const relPath = relFromRoot(absPath);
-  const html = fs.readFileSync(absPath, "utf8");
-
-  const errors = [];
-  errors.push(...checkForbiddenPatterns(absPath, html));
-  errors.push(...checkRedundantUrlStrategy(absPath, html));
-  errors.push(...guardPrimaryNav(absPath, relPath, html));
-  return errors;
-};
-
-const main = () => {
-  if (!fs.existsSync(ROOT)) {
-    // eslint-disable-next-line no-console
-    console.error(`ERROR: ROOT directory not found: ${ROOT}`);
-    process.exit(2);
-  }
-
-  const allFiles = walkDir(ROOT).filter(isHtmlFile);
-
-  const files = Number.isFinite(MAX_FILES) && MAX_FILES > 0 ? allFiles.slice(0, MAX_FILES) : allFiles;
-
-  debugLog(`Scanning ROOT=${ROOT} files=${files.length} totalHtml=${allFiles.length}`);
-
-  const allErrors = [];
-  for (const file of files) {
-    try {
-      const errs = checkFile(file);
-      allErrors.push(...errs);
-    } catch (err) {
-      allErrors.push(`${file}: exception while scanning: ${err && err.message ? err.message : String(err)}`);
-    }
-  }
-
-  if (allErrors.length) {
-    // eslint-disable-next-line no-console
-    console.error(allErrors.join("\n"));
-    process.exit(2);
-  }
-
-  // eslint-disable-next-line no-console
-  console.log(`OK: guard_public_output passed (${files.length} HTML files scanned)`);
-};
-
-main();
+      errors.push(`
