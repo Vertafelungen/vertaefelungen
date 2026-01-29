@@ -2,12 +2,13 @@
 "use strict";
 
 /**
- * guard_public_output.js
+ * PATH: wissen/scripts/guard_public_output.js
  * Version: 2026-01-29 21:00 CET
  *
+ * Guard script for Hugo public output.
  * Fixes:
- * - Resolve relative hrefs against current page URL path so nav guards work with relref/relative links.
- * - Extend dangerous scheme detection to include data: and vbscript: (in addition to javascript:).
+ *  - Resolve relative nav hrefs against current page URL path (supports Hugo relref-style links).
+ *  - Harden URL scheme checks to also reject data: and vbscript: in addition to javascript:.
  */
 
 const fs = require("fs");
@@ -51,8 +52,6 @@ const REDUNDANT_URL_PATTERNS = [
   "/wissen/de/oeffentlich/oeffentlich/",
   "/wissen/en/public/public/",
 ];
-
-const LANGS = ["de", "en"];
 
 const NAV_TARGETS = {
   de: [
@@ -105,31 +104,36 @@ function normalizeHref(href, baseUrlPath = "/") {
     return null;
   }
 
-  // Keep anchors as-is; the nav guards treat "#" as invalid explicitly.
+  // Keep anchors as-is (the guard handles "#" explicitly as invalid).
   if (raw.startsWith("#")) {
     return raw;
   }
 
   let pathValue = raw;
 
+  // Detect scheme (e.g., http:, https:, mailto:, javascript:).
+  const schemeMatch = raw.match(/^([a-zA-Z][a-zA-Z0-9+.-]*):/);
+  const scheme = schemeMatch ? schemeMatch[1].toLowerCase() : null;
+
   try {
-    // Absolute URL: use pathname
-    if (/^https?:\/\//i.test(raw)) {
+    if (scheme === "http" || scheme === "https") {
       const url = new URL(raw);
       pathValue = url.pathname;
-    } else {
-      // Relative or absolute-path URL: resolve against the current page URL path
-      // Example: "../shop/" on "/wissen/de/faq/" resolves to "/wissen/de/shop/".
-      const base = new URL(
-        `https://example.com${
-          baseUrlPath.endsWith("/") ? baseUrlPath : baseUrlPath + "/"
-        }`
-      );
-      const resolved = new URL(raw, base);
-      pathValue = resolved.pathname;
+    } else if (!scheme) {
+      // Resolve relative paths against the current page URL path.
+      if (raw.startsWith("/")) {
+        pathValue = raw;
+      } else {
+        const base = new URL(
+          `https://example.com${
+            baseUrlPath.endsWith("/") ? baseUrlPath : baseUrlPath + "/"
+          }`
+        );
+        const resolved = new URL(raw, base);
+        pathValue = resolved.pathname;
+      }
     }
   } catch (error) {
-    // Fallback: keep raw as-is; best-effort normalization below
     pathValue = raw;
   }
 
@@ -205,12 +209,14 @@ function hasNoindex($) {
 }
 
 function isAliasLanding($) {
-  return $("meta[http-equiv]")
-    .toArray()
-    .some((el) => {
-      const value = ($(el).attr("http-equiv") || "").toLowerCase();
-      return value === "refresh";
-    });
+  return (
+    $("meta[http-equiv]")
+      .toArray()
+      .some((el) => {
+        const value = ($(el).attr("http-equiv") || "").toLowerCase();
+        return value === "refresh";
+      })
+  );
 }
 
 function extractPathFromUrl(href) {
@@ -271,7 +277,229 @@ function ensureCanonical($, filePath, urlPath, lang, errors, enforcePath) {
 }
 
 function checkForbiddenPatterns($, filePath, errors) {
-  const html = $.html();
-  for (const pattern of FORBIDDEN_PATTERNS) {
-    if (html.includes(pattern)) {
-      errors.push(`
+  const targets = [
+    { selector: "a[href]", attr: "href" },
+    { selector: "link[rel='canonical'][href]", attr: "href" },
+    { selector: "img[src]", attr: "src" },
+  ];
+
+  for (const { selector, attr } of targets) {
+    $(selector)
+      .toArray()
+      .forEach((el) => {
+        const value = $(el).attr(attr) || "";
+        for (const pattern of FORBIDDEN_PATTERNS) {
+          if (value.includes(pattern)) {
+            errors.push(
+              `${filePath}: forbidden pattern '${pattern}' found in ${selector} ${attr}="${value}"`
+            );
+          }
+        }
+      });
+  }
+}
+
+function isRedundantUrlPath(urlPath) {
+  return REDUNDANT_URL_PATTERNS.some((pattern) => urlPath.includes(pattern));
+}
+
+function ensureRedundantStrategy(noindex, filePath, urlPath, errors) {
+  if (!isRedundantUrlPath(urlPath)) {
+    return;
+  }
+
+  if (REDUNDANT_STRATEGY === "redirect") {
+    errors.push(
+      `${filePath}: redundant URL detected (${urlPath}); redirect strategy requires removing redundant output`
+    );
+    return;
+  }
+
+  if (REDUNDANT_STRATEGY !== "noindex") {
+    errors.push(
+      `${filePath}: invalid GUARD_REDUNDANT_URL_STRATEGY "${REDUNDANT_STRATEGY}" (expected "redirect" or "noindex")`
+    );
+    return;
+  }
+
+  if (!noindex) {
+    errors.push(
+      `${filePath}: redundant URL detected (${urlPath}); expected meta robots to include noindex`
+    );
+  }
+}
+
+function checkPrimaryNav($, filePath, urlPath, lang, errors) {
+  const container = $("[data-testid='primary-nav']");
+  if (!container.length) {
+    debugLog(`${filePath}: primary nav container not found`);
+    errors.push(`${filePath}: primary nav container not found`);
+    return;
+  }
+
+  const rawHrefs = container
+    .find("a")
+    .toArray()
+    .map((el) => {
+      const href = $(el).attr("href");
+      return href ? href.trim() : "";
+    });
+
+  const normalizedHrefs = rawHrefs
+    .map((href) => normalizeHref(href, urlPath))
+    .filter(Boolean);
+
+  debugLog(
+    `${filePath}: primary nav container found (${container.length})`,
+    JSON.stringify({
+      rawHrefs,
+      normalizedHrefs,
+    })
+  );
+
+  rawHrefs.forEach((href) => {
+    const raw = (href || "").toString();
+    const value = raw.trim();
+    const lower = value.toLowerCase();
+
+    const m = lower.match(/^([a-z][a-z0-9+.-]*):/);
+    const scheme = m ? m[1] : null;
+    const isBadScheme =
+      scheme && (scheme === "javascript" || scheme === "data" || scheme === "vbscript");
+
+    if (!value || value === "#" || isBadScheme) {
+      errors.push(`${filePath}: invalid primary nav href "${raw}"`);
+    }
+  });
+
+  const expected = NAV_TARGETS[lang].map((href) => normalizeHref(href, urlPath));
+  const expectedSet = new Set(expected);
+
+  const targetHrefs = normalizedHrefs.filter((href) =>
+    href.startsWith(LANG_PREFIXES[lang])
+  );
+
+  const extra = targetHrefs.filter((href) => !expectedSet.has(href));
+  if (extra.length) {
+    errors.push(
+      `${filePath}: primary nav contains unexpected ${LANG_PREFIXES[lang]} links: ${extra.join(", ")}`
+    );
+  }
+
+  const missing = expected.filter((href) => !targetHrefs.includes(href));
+  if (missing.length) {
+    errors.push(
+      `${filePath}: primary nav missing required links: ${missing.join(", ")}`
+    );
+  }
+
+  for (const href of expected) {
+    const count = targetHrefs.filter((value) => value === href).length;
+    if (count > 1) {
+      errors.push(`${filePath}: primary nav has duplicate link ${href}`);
+    }
+  }
+}
+
+function checkNavDrawer($, filePath, urlPath, lang, errors) {
+  const container = $("[data-testid='nav-drawer']");
+  if (!container.length) {
+    debugLog(`${filePath}: nav drawer container not found`);
+    errors.push(`${filePath}: nav drawer container not found`);
+    return;
+  }
+
+  const rawHrefs = container
+    .find("a[href]")
+    .toArray()
+    .map((el) => ($(el).attr("href") || "").trim());
+
+  const normalizedHrefs = rawHrefs
+    .map((href) => normalizeHref(href, urlPath))
+    .filter(Boolean);
+
+  debugLog(
+    `${filePath}: nav drawer container found (${container.length})`,
+    JSON.stringify({
+      rawHrefs,
+      normalizedHrefs,
+    })
+  );
+
+  const expected = NAV_TARGETS[lang].map((href) => normalizeHref(href, urlPath));
+  const missing = expected.filter((href) => !normalizedHrefs.includes(href));
+  if (missing.length) {
+    errors.push(
+      `${filePath}: nav drawer missing required links: ${missing.join(", ")}`
+    );
+  }
+
+  const legalTargets = LEGAL_TARGETS[lang].map((href) => normalizeHref(href, urlPath));
+  const hasLegal = normalizedHrefs.some((href) =>
+    legalTargets.some((target) => href.startsWith(target))
+  );
+  if (!hasLegal) {
+    errors.push(`${filePath}: nav drawer missing a legal/footer link`);
+  }
+}
+
+function main() {
+  if (!fs.existsSync(ROOT)) {
+    console.error(`Guard failed: root path not found: ${ROOT}`);
+    return 1;
+  }
+
+  let files = collectHtmlFiles(ROOT);
+  if (Number.isFinite(MAX_FILES) && MAX_FILES > 0) {
+    files = files.slice(0, MAX_FILES);
+  }
+
+  const errors = [];
+
+  for (const filePath of files) {
+    const rel = path.relative(ROOT, filePath).split(path.sep).join("/");
+    if (rel.endsWith("/404.html") || rel === "404.html") {
+      continue;
+    }
+
+    const urlPath = normalizeUrlPath(filePath);
+    const lang = getLang(urlPath);
+    if (!lang) {
+      continue;
+    }
+
+    const html = fs.readFileSync(filePath, "utf8");
+    const $ = cheerio.load(html);
+
+    if (isAliasLanding($)) {
+      continue;
+    }
+
+    const noindex = hasNoindex($);
+
+    ensureRedundantStrategy(noindex, filePath, urlPath, errors);
+
+    if (noindex) {
+      ensureCanonical($, filePath, urlPath, lang, errors, false);
+    } else {
+      ensureCanonical($, filePath, urlPath, lang, errors, true);
+    }
+
+    checkForbiddenPatterns($, filePath, errors);
+    if (shouldRunNavGuards(rel)) {
+      checkPrimaryNav($, filePath, urlPath, lang, errors);
+      checkNavDrawer($, filePath, urlPath, lang, errors);
+    }
+  }
+
+  if (errors.length) {
+    console.error("Guard violations:");
+    errors.forEach((error) => console.error(` - ${error}`));
+    return 1;
+  }
+
+  console.log(`Guard OK. Checked ${files.length} HTML files.`);
+  return 0;
+}
+
+process.exit(main());
