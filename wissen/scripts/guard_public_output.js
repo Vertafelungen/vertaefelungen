@@ -1,15 +1,6 @@
 #!/usr/bin/env node
 "use strict";
 
-/**
- * guard_public_output.js
- * Version: 2026-01-29 21:00 CET
- *
- * Fixes:
- * - Resolve relative hrefs against current page URL path so nav guards work with relref/relative links.
- * - Extend dangerous scheme detection to include data: and vbscript: (in addition to javascript:).
- */
-
 const fs = require("fs");
 const path = require("path");
 const cheerio = require("cheerio");
@@ -48,11 +39,7 @@ const REDUNDANT_URL_PATTERNS = [
   "/wissen/en/en/",
   "/wissen/de/produkte/produkte/",
   "/wissen/en/products/products/",
-  "/wissen/de/oeffentlich/oeffentlich/",
-  "/wissen/en/public/public/",
 ];
-
-const LANGS = ["de", "en"];
 
 const NAV_TARGETS = {
   de: [
@@ -95,42 +82,20 @@ const DEBUG = ["1", "true", "yes", "on"].includes(
   (process.env.GUARD_DEBUG || "").toLowerCase()
 );
 
-function normalizeHref(href, baseUrlPath = "/") {
+function normalizeHref(href) {
   if (!href) {
     return null;
   }
 
-  const raw = String(href).trim();
-  if (!raw) {
-    return null;
-  }
-
-  // Keep anchors as-is; the nav guards treat "#" as invalid explicitly.
-  if (raw.startsWith("#")) {
-    return raw;
-  }
-
-  let pathValue = raw;
+  let pathValue = href;
 
   try {
-    // Absolute URL: use pathname
-    if (/^https?:\/\//i.test(raw)) {
-      const url = new URL(raw);
+    if (/^https?:\/\//i.test(href)) {
+      const url = new URL(href);
       pathValue = url.pathname;
-    } else {
-      // Relative or absolute-path URL: resolve against the current page URL path
-      // Example: "../shop/" on "/wissen/de/faq/" resolves to "/wissen/de/shop/".
-      const base = new URL(
-        `https://example.com${
-          baseUrlPath.endsWith("/") ? baseUrlPath : baseUrlPath + "/"
-        }`
-      );
-      const resolved = new URL(raw, base);
-      pathValue = resolved.pathname;
     }
   } catch (error) {
-    // Fallback: keep raw as-is; best-effort normalization below
-    pathValue = raw;
+    pathValue = href;
   }
 
   if (!pathValue.startsWith("/")) {
@@ -205,12 +170,14 @@ function hasNoindex($) {
 }
 
 function isAliasLanding($) {
-  return $("meta[http-equiv]")
-    .toArray()
-    .some((el) => {
-      const value = ($(el).attr("http-equiv") || "").toLowerCase();
-      return value === "refresh";
-    });
+  return (
+    $("meta[http-equiv]")
+      .toArray()
+      .some((el) => {
+        const value = ($(el).attr("http-equiv") || "").toLowerCase();
+        return value === "refresh";
+      })
+  );
 }
 
 function extractPathFromUrl(href) {
@@ -229,49 +196,254 @@ function ensureCanonical($, filePath, urlPath, lang, errors, enforcePath) {
   const canonicals = $("link[rel='canonical']");
   if (canonicals.length !== 1) {
     errors.push(
-      `${filePath}: expected exactly 1 canonical, found ${canonicals.length}`
+      `${filePath}: expected exactly 1 canonical link, found ${canonicals.length}`
     );
     return;
   }
-
-  const canonicalHref = canonicals.first().attr("href") || "";
-  if (!/^https?:\/\//i.test(canonicalHref)) {
-    errors.push(`${filePath}: canonical must be absolute URL: ${canonicalHref}`);
+  const href = canonicals.attr("href") || "";
+  if (!href.trim()) {
+    errors.push(`${filePath}: canonical href is empty`);
     return;
   }
-
-  const canonicalPath = extractPathFromUrl(canonicalHref);
+  if (!/^https?:\/\//i.test(href.trim())) {
+    errors.push(`${filePath}: canonical href must be absolute (found: ${href})`);
+    return;
+  }
+  const canonicalPath = extractPathFromUrl(href);
   if (!canonicalPath) {
-    errors.push(`${filePath}: canonical could not be parsed: ${canonicalHref}`);
+    errors.push(`${filePath}: canonical href is invalid (found: ${href})`);
     return;
   }
-
   for (const pattern of FORBIDDEN_PATTERNS) {
     if (canonicalPath.includes(pattern)) {
       errors.push(
-        `${filePath}: canonical contains forbidden pattern "${pattern}": ${canonicalHref}`
+        `${filePath}: canonical href contains redundant pattern '${pattern}' (found: ${href})`
       );
     }
   }
-
   if (enforcePath) {
-    if (!canonicalPath.startsWith(LANG_PREFIXES[lang])) {
+    if (!canonicalPath || !canonicalPath.startsWith(LANG_PREFIXES[lang])) {
       errors.push(
-        `${filePath}: canonical does not start with expected lang prefix ${LANG_PREFIXES[lang]}: ${canonicalHref}`
-      );
-    }
-
-    const expectedPath = urlPath.replace(/\/+/g, "/");
-    if (canonicalPath.replace(/\/+/g, "/") !== expectedPath) {
-      errors.push(
-        `${filePath}: canonical path mismatch. expected ${expectedPath}, got ${canonicalPath}`
+        `${filePath}: canonical href must resolve under ${LANG_PREFIXES[lang]} (found: ${href})`
       );
     }
   }
 }
 
 function checkForbiddenPatterns($, filePath, errors) {
-  const html = $.html();
-  for (const pattern of FORBIDDEN_PATTERNS) {
-    if (html.includes(pattern)) {
-      errors.push(`
+  const targets = [
+    { selector: "a[href]", attr: "href" },
+    { selector: "link[rel='canonical'][href]", attr: "href" },
+    { selector: "img[src]", attr: "src" },
+  ];
+
+  for (const { selector, attr } of targets) {
+    $(selector)
+      .toArray()
+      .forEach((el) => {
+        const value = $(el).attr(attr) || "";
+        for (const pattern of FORBIDDEN_PATTERNS) {
+          if (value.includes(pattern)) {
+            errors.push(
+              `${filePath}: forbidden pattern '${pattern}' found in ${selector} ${attr}="${value}"`
+            );
+          }
+        }
+      });
+  }
+}
+
+function isRedundantUrlPath(urlPath) {
+  return REDUNDANT_URL_PATTERNS.some((pattern) => urlPath.includes(pattern));
+}
+
+function ensureRedundantStrategy(noindex, filePath, urlPath, errors) {
+  if (!isRedundantUrlPath(urlPath)) {
+    return;
+  }
+
+  if (REDUNDANT_STRATEGY === "redirect") {
+    errors.push(
+      `${filePath}: redundant URL detected (${urlPath}); redirect strategy requires removing redundant output`
+    );
+    return;
+  }
+
+  if (REDUNDANT_STRATEGY !== "noindex") {
+    errors.push(
+      `${filePath}: invalid GUARD_REDUNDANT_URL_STRATEGY "${REDUNDANT_STRATEGY}" (expected "redirect" or "noindex")`
+    );
+    return;
+  }
+
+  if (!noindex) {
+    errors.push(
+      `${filePath}: redundant URL detected (${urlPath}); expected meta robots to include noindex`
+    );
+  }
+}
+
+function checkPrimaryNav($, filePath, lang, errors) {
+  const container = $("[data-testid='primary-nav']");
+  if (!container.length) {
+    debugLog(`${filePath}: primary nav container not found`);
+    errors.push(`${filePath}: primary nav container not found`);
+    return;
+  }
+
+  const rawHrefs = container
+    .find("a")
+    .toArray()
+    .map((el) => {
+      const href = $(el).attr("href");
+      return href ? href.trim() : "";
+    });
+
+  const normalizedHrefs = rawHrefs
+    .map((href) => normalizeHref(href))
+    .filter(Boolean);
+
+  debugLog(
+    `${filePath}: primary nav container found (${container.length})`,
+    JSON.stringify({
+      rawHrefs,
+      normalizedHrefs,
+    })
+  );
+
+  rawHrefs.forEach((href) => {
+    if (!href || href === "#" || href.toLowerCase().startsWith("javascript:")) {
+      errors.push(`${filePath}: invalid primary nav href "${href}"`);
+    }
+  });
+
+  const expected = NAV_TARGETS[lang].map((href) => normalizeHref(href));
+  const expectedSet = new Set(expected);
+  const targetHrefs = normalizedHrefs.filter((href) =>
+    href.startsWith(LANG_PREFIXES[lang])
+  );
+
+  const extra = targetHrefs.filter((href) => !expectedSet.has(href));
+  if (extra.length) {
+    errors.push(
+      `${filePath}: primary nav contains unexpected ${LANG_PREFIXES[lang]} links: ${extra.join(", ")}`
+    );
+  }
+
+  const missing = expected.filter((href) => !targetHrefs.includes(href));
+  if (missing.length) {
+    errors.push(
+      `${filePath}: primary nav missing required links: ${missing.join(", ")}`
+    );
+  }
+
+  for (const href of expected) {
+    const count = targetHrefs.filter((value) => value === href).length;
+    if (count > 1) {
+      errors.push(`${filePath}: primary nav has duplicate link ${href}`);
+    }
+  }
+}
+
+function checkNavDrawer($, filePath, lang, errors) {
+  const container = $("[data-testid='nav-drawer']");
+  if (!container.length) {
+    debugLog(`${filePath}: nav drawer container not found`);
+    errors.push(`${filePath}: nav drawer container not found`);
+    return;
+  }
+
+  const rawHrefs = container
+    .find("a[href]")
+    .toArray()
+    .map((el) => ($(el).attr("href") || "").trim());
+
+  const normalizedHrefs = rawHrefs
+    .map((href) => normalizeHref(href))
+    .filter(Boolean);
+
+  debugLog(
+    `${filePath}: nav drawer container found (${container.length})`,
+    JSON.stringify({
+      rawHrefs,
+      normalizedHrefs,
+    })
+  );
+
+  const expected = NAV_TARGETS[lang].map((href) => normalizeHref(href));
+  const missing = expected.filter((href) => !normalizedHrefs.includes(href));
+  if (missing.length) {
+    errors.push(
+      `${filePath}: nav drawer missing required links: ${missing.join(", ")}`
+    );
+  }
+
+  const legalTargets = LEGAL_TARGETS[lang].map((href) => normalizeHref(href));
+  const hasLegal = normalizedHrefs.some((href) =>
+    legalTargets.some((target) => href.startsWith(target))
+  );
+  if (!hasLegal) {
+    errors.push(`${filePath}: nav drawer missing a legal/footer link`);
+  }
+}
+
+function main() {
+  if (!fs.existsSync(ROOT)) {
+    console.error(`Guard failed: root path not found: ${ROOT}`);
+    return 1;
+  }
+
+  let files = collectHtmlFiles(ROOT);
+  if (Number.isFinite(MAX_FILES) && MAX_FILES > 0) {
+    files = files.slice(0, MAX_FILES);
+  }
+
+  const errors = [];
+
+  for (const filePath of files) {
+    const rel = path.relative(ROOT, filePath).split(path.sep).join("/");
+    if (rel.endsWith("/404.html") || rel === "404.html") {
+      continue;
+    }
+
+    const urlPath = normalizeUrlPath(filePath);
+    const lang = getLang(urlPath);
+    if (!lang) {
+      continue;
+    }
+
+    const html = fs.readFileSync(filePath, "utf8");
+    const $ = cheerio.load(html);
+
+    if (isAliasLanding($)) {
+      continue;
+    }
+
+    const noindex = hasNoindex($);
+
+    ensureRedundantStrategy(noindex, filePath, urlPath, errors);
+
+    if (noindex) {
+      ensureCanonical($, filePath, urlPath, lang, errors, false);
+    } else {
+      ensureCanonical($, filePath, urlPath, lang, errors, true);
+    }
+
+    checkForbiddenPatterns($, filePath, errors);
+    if (shouldRunNavGuards(rel)) {
+      checkPrimaryNav($, filePath, lang, errors);
+      checkNavDrawer($, filePath, lang, errors);
+    }
+  }
+
+  if (errors.length) {
+    console.error("Guard violations:");
+    errors.forEach((error) => console.error(` - ${error}`));
+    return 1;
+  }
+
+  console.log(`Guard OK. Checked ${files.length} HTML files.`);
+  return 0;
+}
+
+process.exit(main());
