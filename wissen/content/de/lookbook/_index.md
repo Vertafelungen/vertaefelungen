@@ -1,9 +1,23 @@
 ---
 title: "Lookbook"
 description: "Inspiration und Referenzen: Beispiele für Vertäfelungen und Leisten im privaten, öffentlichen und hospitality Kontext – zur Orientierung bei Stil und Proportion."
-lastmod: 2026-01-28T08:30:00+01:00
-version: "2026-01-28T08:30:00+01:00"
+lastmod: 2026-01-30T19:20:00+01:00
+version: "2026-01-30T19:20:00+01:00"
+menu:
+  primary:
+    identifier: "lookbook"
+    name: "Lookbook"
+    weight: 30
+  drawer:
+    identifier: "lookbook"
+    name: "Lookbook"
+    weight: 30
+  main:
+    identifier: "lookbook"
+    name: "Lookbook"
+    weight: 30
 ---
+
 ## Kurzantwort
 
 Das Lookbook zeigt Beispiele und Referenzen, um Stil, Proportion und Systemlogik schneller einordnen zu können. Es ersetzt keine Planung – hilft aber, **die richtige Richtung** zu finden.
