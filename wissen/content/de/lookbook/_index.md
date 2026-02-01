@@ -1,21 +1,14 @@
 ---
-title: "Lookbook"
-description: "Inspiration und Referenzen: Beispiele für Vertäfelungen und Leisten im privaten, öffentlichen und hospitality Kontext – zur Orientierung bei Stil und Proportion."
-lastmod: 2026-01-30T19:20:00+01:00
-version: "2026-01-30T19:20:00+01:00"
+title: Lookbook
+description: 'Inspiration und Referenzen: Beispiele für Vertäfelungen und Leisten
+  im privaten, öffentlichen und hospitality Kontext – zur Orientierung bei Stil und
+  Proportion.'
+lastmod: '2026-01-28T08:30:00+01:00'
+version: '2026-01-28T08:30:00+01:00'
 menu:
-  primary:
-    identifier: "lookbook"
-    name: "Lookbook"
-    weight: 30
-  drawer:
-    identifier: "lookbook"
-    name: "Lookbook"
-    weight: 30
   main:
-    identifier: "lookbook"
-    name: "Lookbook"
-    weight: 30
+    identifier: menu_lookbook
+    weight: 40
 ---
 
 ## Kurzantwort
