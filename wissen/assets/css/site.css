@@ -1,6 +1,6 @@
 /*
 File: wissen/assets/css/site.css
-Version: 2026-01-18 (Europe/Berlin)
+Version: 2026-02-03 19:40 (Europe/Berlin)
 Purpose: Knowledge site design tokens + layout (header/footer/components)
 Notes:
 - Phase 3.2.2c: Align header to main site: image logo left, centered main nav, actions right.
@@ -640,6 +640,7 @@ th, td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border-color); 
 .gap-3 { gap: 0.75rem; }
 .gap-2 { gap: 0.5rem; }
 .flex { display: flex; }
+.list-none { list-style: none; padding-left: 0; margin: 0; }
 .items-center { align-items: center; }
 .justify-between { justify-content: space-between; }
 .w-full { width: 100%; }
