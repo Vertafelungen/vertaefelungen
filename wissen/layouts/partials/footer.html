@@ -1,31 +1,20 @@
+<!--
+  Footer partial
+  Version: 2026-02-11 19:20 (Europe/Berlin)
+-->
 <footer class="site-footer">
   <div class="container site-footer__inner">
-
-    <div>
-      <p class="footer-title">Vertäfelungen.de</p>
-      <p class="footer-text">{{ i18n "footer_tagline" }}</p>
-      <div class="footer-meta">
-        <span>&copy; {{ now.Year }} Vertäfelung &amp; Lambris</span>
-        <span>{{ i18n "footer_meta_knowledge" }}</span>
-      </div>
+    <div class="site-footer__column site-footer__column--brand">
+      <a class="brand" href="{{ .Site.Home.RelPermalink }}">
+        <span class="brand__mark" aria-hidden="true">
+          <img class="brand__logo-img footer-logo" src="{{ "brand/logo-vl.png" | relURL }}" alt="Vertäfelung &amp; Lambris">
+        </span>
+      </a>
+      <p class="footer-text footer-tagline">{{ i18n "footer_tagline" }}</p>
     </div>
 
-    <div>
-      <p class="footer-title">{{ i18n "footer_legal_title" }}</p>
-      <ul class="footer-nav">
-        {{- range .Site.Menus.footer -}}
-          {{- $label := .Name -}}
-          {{- with .Identifier -}}
-            {{- $label = i18n . -}}
-          {{- end -}}
-          <li><a href="{{ .URL }}">{{ $label }}</a></li>
-        {{- end -}}
-
-      </ul>
-    </div>
-
-    <div>
-      <p class="footer-title">{{ i18n "footer_explore_title" }}</p>
+    <div class="site-footer__column">
+      <p class="footer-title">{{ i18n "footer_info_title" }}</p>
       <ul class="footer-nav">
         {{- range .Site.Menus.main -}}
           {{- $label := .Name -}}
@@ -35,8 +24,38 @@
           <li><a href="{{ .URL }}">{{ $label }}</a></li>
         {{- end -}}
       </ul>
-      <p class="footer-text">{{ i18n "footer_help_text" }}</p>
     </div>
 
+    <div class="site-footer__column">
+      <p class="footer-title">{{ i18n "footer_legal_title" }}</p>
+      <ul class="footer-nav">
+        {{- if eq .Site.Language.Lang "de" -}}
+          <li><a href="https://www.vertaefelungen.de/de/content/2-impressum">{{ i18n "legal_imprint" }}</a></li>
+          <li><a href="https://www.vertaefelungen.de/de/content/3-allgemeine-geschaeftsbedingungen">{{ i18n "legal_terms" }}</a></li>
+          <li><a href="https://www.vertaefelungen.de/de/content/7-datenschutzerklaerung">{{ i18n "legal_privacy" }}</a></li>
+          <li><a href="https://www.vertaefelungen.de/de/content/8-widerrufsbelehrung">{{ i18n "legal_withdrawal" }}</a></li>
+        {{- else -}}
+          <li><a href="https://www.vertaefelungen.de/en/content/2-Imprint">{{ i18n "legal_imprint" }}</a></li>
+          <li><a href="https://www.vertaefelungen.de/en/content/3-allgemeine-geschaeftsbedingungen">{{ i18n "legal_terms" }}</a></li>
+          <li><a href="https://www.vertaefelungen.de/en/content/7-datenschutzerklaerung">{{ i18n "legal_privacy" }}</a></li>
+          <li><a href="https://www.vertaefelungen.de/en/content/8-widerrufsbelehrung">{{ i18n "legal_withdrawal" }}</a></li>
+        {{- end -}}
+      </ul>
+    </div>
+
+    <div class="site-footer__column">
+      <p class="footer-title">{{ i18n "footer_contact_title" }}</p>
+      <div class="footer-text footer-contact">
+        <p>Vertäfelung &amp; Lambris</p>
+        <p>Am Friedensplatz 3</p>
+        <p>39307 Zabakuck</p>
+        <p>{{ if eq .Site.Language.Lang "de" }}Deutschland{{ else }}Germany{{ end }}</p>
+        <p><a href="mailto:mail@vertaefelungen.de">mail@vertaefelungen.de</a></p>
+        <p><a href="tel:+4917670013315">+49 176 700 13315</a></p>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-meta">
+    <span>&copy; {{ now.Year }} Vertäfelung &amp; Lambris · {{ i18n "footer_meta_knowledge" }}</span>
   </div>
 </footer>
