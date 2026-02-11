@@ -1,6 +1,6 @@
 /*
 File: wissen/assets/css/site.css
-Version: 2026-02-03 19:40 (Europe/Berlin)
+Version: 2026-02-11 19:20 (Europe/Berlin)
 Purpose: Knowledge site design tokens + layout (header/footer/components)
 Notes:
 - Phase 3.2.2c: Align header to main site: image logo left, centered main nav, actions right.
@@ -543,37 +543,84 @@ table { width: 100%; border-collapse: collapse; }
 th, td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border-color); text-align: left; }
 
 .site-footer {
-  background: var(--surface-muted);
-  border-top: 1px solid var(--border-color);
-  padding: var(--space-7) 0 var(--space-6);
+  background-color: rgb(102, 102, 102);
+  color: rgb(255, 255, 255);
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: normal;
+  border-top: none;
+  padding: 2.5rem 0 1.2rem;
   position: relative;
   z-index: 10;
   pointer-events: auto;
 }
 
-.site-footer__inner {
-  display: grid;
-  gap: var(--space-5);
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.site-footer a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
 }
 
-.footer-title { font-weight: 600; margin: 0 0 var(--space-2); }
-.footer-text { margin: 0; color: var(--text-muted); }
+.site-footer a:hover,
+.site-footer a:focus {
+  text-decoration: underline;
+}
+
+.site-footer__inner {
+  display: grid;
+  gap: 1.8rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+}
+
+.site-footer__column {
+  min-width: 0;
+}
+
+.footer-logo {
+  height: 44px;
+  width: auto;
+}
+
+.footer-title {
+  font-weight: 600;
+  margin: 0 0 0.9rem;
+  font-size: 14px;
+  text-transform: none;
+}
+
+.footer-text {
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
+
+.footer-tagline {
+  margin-top: 0.7rem;
+}
 
 .footer-nav {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
-  gap: var(--space-2);
+  gap: 0.55rem;
+}
+
+.footer-contact {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.footer-contact p {
+  margin: 0;
 }
 
 .footer-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-4);
-  color: var(--text-muted);
-  font-size: 0.9rem;
+  margin-top: 1.6rem;
+  padding-top: 0.95rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 12.5px;
+  color: rgb(255, 255, 255);
 }
 
 @media (max-width: 960px) {
@@ -615,6 +662,11 @@ th, td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border-color); 
   .site-main { padding: var(--space-6) 0; }
 
   .brand__logo-img { height: 44px; max-width: 280px; }
+
+
+  .site-footer__inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 @media (min-width: 768px) {
@@ -678,3 +730,9 @@ th, td { padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border-color); 
 .text-amber-900 { color: #78350f; }
 .border-emerald-200 { border-color: #a7f3d0; }
 .border-amber-200 { border-color: #fde68a; }
+
+@media (max-width: 560px) {
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+}

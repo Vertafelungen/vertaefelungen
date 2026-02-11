@@ -21,7 +21,7 @@ language_switch_label:
 header_shop_label:
   other: "Zum Shop"
 footer_tagline:
-  other: "Wissen, Produkte und FAQs zu historischen Holzvertäfelungen, Lambris und Paneelen."
+  other: "Das Schöne soll man schätzen!"
 footer_meta_knowledge:
   other: "Wissensbereich"
 footer_legal_title:
@@ -88,3 +88,7 @@ home_tile_about_text:
   other: "Erfahre mehr über Vertäfelung & Lambris und unsere Fertigung."
 home_tile_about_cta:
   other: "Mehr zu uns"
+footer_info_title:
+  other: "Info"
+footer_contact_title:
+  other: "Kontakt"

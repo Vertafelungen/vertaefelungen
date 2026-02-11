@@ -21,7 +21,7 @@ language_switch_label:
 header_shop_label:
   other: "Visit shop"
 footer_tagline:
-  other: "Knowledge, products, and FAQs about historic wall panelling, wainscoting, and mouldings."
+  other: "Appreciate the beautiful!"
 footer_meta_knowledge:
   other: "Knowledge base"
 footer_legal_title:
@@ -88,3 +88,7 @@ home_tile_about_text:
   other: "Learn more about Vertäfelung & Lambris and our craft."
 home_tile_about_cta:
   other: "About the team"
+footer_info_title:
+  other: "Info"
+footer_contact_title:
+  other: "Contact"
