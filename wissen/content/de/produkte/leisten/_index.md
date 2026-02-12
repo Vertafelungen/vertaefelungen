@@ -1,62 +1,99 @@
 ---
 title: "Leisten"
-description: "Leisten als Systembauteile: Sockelleisten, Wand- und Deckleisten sowie Türbekleidungen – Auswahlkriterien, Stilbezüge und Anschlusslogik."
-lastmod: 2026-01-28T08:30:00+01:00
-version: "2026-01-28T08:30:00+01:00"
+description: "Leisten als Systembauteile: Sockelleisten, Wand-/Deckleisten und Türbekleidungen. Auswahlkriterien, Proportion, Anschlüsse, Varianten und typische Fehler – mit Links in die Kategorien."
+lastmod: 2026-02-12T16:45:00+01:00
+version: "2026-02-12T16:45:00+01:00"
 ---
+
 ## Kurzantwort
 
-Leisten sind nicht „Dekor“, sondern **Systemteile**: Sie definieren Übergänge, Schattenfugen und Proportionen – und sie entscheiden, ob eine Vertäfelung „wie aus einem Guss“ wirkt.
-
-- Sockel: Schutz + Basislinie
-- Wand-/Deckleisten: Gliederung + Stilkontext
-- Türbekleidungen: Anschlusslogik an Öffnungen
+- Leisten sind **Systemteile**, nicht Dekor: Sie definieren Übergänge, Schatten, Proportionen und Anschlusslogik.
+- Sockel ist Basislinie und Toleranzmanager → **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
+- Türbekleidungen sind die kritischste Schnittstelle (Leibungen, Zargen, Übergänge).
+- Eine konsistente **Profilfamilie** ist wichtiger als viele einzelne Profile.
 
 Wenn du aus einem Raum heraus planst: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
 
-## Sockelleisten: Basis und Toleranzmanager
-Sockelleisten schützen und kaschieren kleine Ungenauigkeiten – aber nur, wenn Höhe, Stärke und Profil zur Wand passen.
+## Praxis-Kontext: für wen, wann sinnvoll
 
-- bei unebenen Böden: Profil/Anpassstrategie klären
-- bei Altbauputz: saubere Schattenfuge statt „anpressen“
-- bei Kabeln: nur integrieren, wenn Revision/Volumen sinnvoll sind
+Leisten sind oft der schnellste Hebel, wenn:
+- Böden/Wände im Bestand unruhig sind und saubere Kanten brauchen,
+- Türen/Fenster „geordnet“ werden müssen,
+- eine Vertäfelung stimmig angeschlossen werden soll,
+- Stil und Proportion im Raum klarer werden sollen.
 
-→ Kategorie: **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
+## Entscheidung/Varianten: wann welche Lösung
 
-## Wand- und Deckleisten: Gliederung und Stil
-Wand- und Deckleisten führen Linien im Raum und stellen Bezüge her:
-- zu Stuck/Bestandsprofilen
-- zu Türbekleidungen
-- zur Vertäfelung (Abschlussprofile, Gesimse)
+### Sockelleisten
+- Schutz + Basislinie + Ausgleich von Toleranzen.
+- Höhe und Ausladung müssen zur Raumhöhe und Wandebenheit passen.
 
-Stilprinzip: Lieber wenige, konsistente Profile als viele unverbundene Formen.
+### Wand- und Deckleisten
+- Gliederung und Linienführung.
+- Besonders wichtig im Übergang zu Stuck/Bestandsprofilen.
 
-## Türbekleidungen & Fensterrahmen: kritische Schnittstelle
-Türbekleidungen sind der häufigste Punkt, an dem sich „handwerkliche Qualität“ zeigt:
-- Leibungstiefen und Zargenbreiten bestimmen die Konstruktion
-- Profile müssen zur Raumproportion passen (nicht zu klein/zu groß)
-- Übergänge zur Vertäfelung brauchen eine nachvollziehbare Logik
+### Türbekleidungen/Fensterrahmen
+- Anschlusslogik an Öffnungen; hier zeigt sich handwerkliche Qualität.
+- Leibungstiefen und Zargenbreiten sind konstruktiv entscheidend.
 
-→ Kategorie: **[Türbekleidungen & Fensterrahmen](/wissen/de/produkte/leisten/tuerbekleidungen/)**
+## Ablauf/Planung: Schritte, Messpunkte, Daten
 
-## Wie du Profile sinnvoll auswählst
+1. **Bestand aufnehmen**
+   - Raumhöhe, Stuck/Bestandsprofile
+   - Tür-/Fensterleibungen (Tiefe), Zargenbreiten
+   - Bodenaufbau/Dehnfugen, Sockelhöhen im Bestand
+2. **Profilfamilie wählen**
+   - Sockel + Türbekleidung + ggf. Abschluss-/Wandleiste sollen zusammenpassen.
+3. **Anschlusslogik festlegen**
+   - Schattenfuge vs. bündig
+   - Übergänge an Türbekleidungen (nicht „stolpern“)
+4. Bei Unsicherheit: über Systemwahl gehen (halbhoch/hoch) → **[Produkte](/wissen/de/produkte/)**
 
-1. **Bestand lesen:** Welche Profile sind schon da (Sockel, Stuck, Zargen)?
-2. **Profilfamilie definieren:** Sockel ↔ Tür ↔ Abschluss sollten zusammenpassen.
-3. **Funktion vor Form:** Schutz, Toleranz, Anschluss – dann Profilierung.
-4. **Oberfläche festlegen:** roh/grundiert/Öl/Lack; Reparaturfähigkeit mitdenken.
+## Kostenlogik: Mechanik ohne Preisversprechen
+
+Kosten/ Aufwand werden bei Leisten vor allem getrieben durch:
+- viele kurze Teilstücke und Ecken,
+- unebene Wände/Böden (Anpassung, definierte Ebenen),
+- profilreiche/mehrteilige Systeme,
+- Oberfläche und Baustellenlogistik,
+- Übergänge zu Türbekleidungen und Vertäfelung.
+
+## Häufige Fehler + Vermeidung
+
+- Sockel zu niedrig oder zu „dünn“ → Basislinie wirkt schwach, Unebenheiten bleiben sichtbar.
+- Profile „zusammenkaufen“ ohne Familienlogik → Stilbruch.
+- Boden/ Türen werden später geändert → Sockelhöhen und Übergänge erst nach Abhängigkeiten finalisieren.
+- Türanschlüsse werden als Detail unterschätzt → Übergänge früh planen.
 
 ## Verweise
 
-- Prozess: **[Planung & Bestellung](/wissen/de/faq/beratung/)**
-- Systemkontext: **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)** / **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
-- Inspiration: **[Lookbook](/wissen/de/lookbook/)**
+- Sockel: **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
+- Gesamtprozess: **[Planung & Bestellung](/wissen/de/faq/beratung/)**
+- Systeme: **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)** / **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
+- Referenzen: **[Lookbook](/wissen/de/lookbook/)**
 
-## Nächster Schritt
+## FAQ
 
-Wenn du Leisten neu planst, genügen für den Start:
-- Fotos von Sockel, Türzargen, Stuck/Deckenanschluss
-- Raumhöhe, Bodenaufbau (neu/alt)
-- gewünschter Stil (ruhig/historisch/markant)
+### Warum sind Leisten so wichtig für die Raumwirkung?
+Weil sie Linien und Schatten definieren. Wenn Sockel und Türanschlüsse stimmen, wirkt vieles „wie aus einem Guss“.
 
-Dann lässt sich eine passende Profilfamilie festlegen: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
+### Wie wähle ich die Sockelhöhe?
+Über Raumhöhe, Bestand und Nutzung. In Altbauten sind höhere Sockel oft stimmiger; entscheidend ist die Proportion im Raum.
+
+### Was ist bei unebenen Wänden der beste Ansatz?
+Eine definierte Fugen-/Schattenfugenstrategie und ggf. Ebenenbildung, statt die Leiste „anzupressen“.
+
+### Kann ich Sockel und Türbekleidungen aus unterschiedlichen Profilen kombinieren?
+Ja, aber nur, wenn die Profilfamilie stilistisch und proportional zusammenpasst. Sonst entsteht ein sichtbarer Bruch.
+
+### Wann sind mehrteilige Leisten sinnvoll?
+Wenn Profilwirkung und Toleranzen es erfordern (z. B. sehr hohe Sockel). Mehrteilig ist konstruktiv oft sauberer, aber planungsintensiver.
+
+### Muss ich Leisten vor der Vertäfelung festlegen?
+Spätestens beim Festlegen der Systemlogik. Sockel und Türanschlüsse bestimmen, wie eine Vertäfelung anschließt.
+
+### Wo sehe ich konkrete Sockelprofile?
+In der Kategorie **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)** mit Einzelprofilen und Beispielen.
+
+### Welche Messpunkte sind für Türbekleidungen wichtig?
+Leibungstiefe, Zargenbreite, Türhöhe, Lage von Sockel/Brüstungslinien und vorhandene Bestandsprofile.
