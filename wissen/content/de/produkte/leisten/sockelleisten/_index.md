@@ -1,71 +1,104 @@
 ---
 title: "Sockelleisten"
-description: "Sockelleisten im historischen Innenausbau: Funktionen, Dimensionen, Montage, Untergrund-Toleranzen und Auswahlkriterien – inklusive Hinweise zu Stil und Oberfläche."
-lastmod: 2026-01-28T08:30:00+01:00
-version: "2026-01-28T08:30:00+01:00"
+description: "Sockelleisten im historischen Innenausbau: Funktion, Dimensionen, Montage- und Anschlusslogik, Kostenfaktoren und typische Fehler – mit konkreten Profilbeispielen SL0001–SL0004."
+lastmod: 2026-02-12T16:45:00+01:00
+version: "2026-02-12T16:45:00+01:00"
 ---
+
 ## Kurzantwort
 
-Sockelleisten sind die **Basislinie** des Raums: Sie schützen, schließen Böden sauber ab und nehmen Toleranzen auf. Eine gute Sockelleiste wirkt unauffällig – weil alles stimmt: Höhe, Stärke, Profil und Anschluss.
+- Sockelleisten sind die **Basislinie** des Raums: Schutz + sauberer Boden/Wand-Übergang + Toleranzmanager.
+- Höhe und Ausladung müssen zu **Raumhöhe** und **Wandebenheit** passen.
+- Kritisch sind Ecken, Übergänge an Türbekleidungen und die Fugenstrategie.
+- Profilwahl sollte zur **Profilfamilie** des Raums passen (Türbekleidungen, Vertäfelung, Stuck).
 
-## Funktionen in der Praxis
+Wenn du noch im Systementscheid bist: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
 
-- **Schutz:** Stöße, Reinigungsgeräte, Nutzungsspuren
-- **Übergang Boden/Wand:** Schattenfuge, saubere Kante, Ausgleich kleiner Unebenheiten
-- **Proportion:** In Altbauten sind Sockel oft höher, weil sie die Wand gliedern
-- **Schnittstelle zur Vertäfelung:** Sockel ist Basis für Rahmen-/Feldsysteme
+## Praxis-Kontext: für wen, wann sinnvoll
 
-## Dimensionen: was „Höhe“ und „Stärke“ bedeuten
+Sockelleisten sind relevant in nahezu jedem Projekt – besonders wenn:
+- Böden und Wände nicht perfekt gerade sind (typisch im Altbau),
+- Wände Schutz brauchen (Flur, stark genutzte Räume),
+- du Linien im Raum beruhigen willst (saubere Kante statt „franst“),
+- eine Vertäfelung/Leistenfamilie konsistent angeschlossen werden soll.
 
-- **Höhe (mm):** bestimmt die optische Basis; höhere Räume vertragen höhere Sockel
-- **Stärke (mm):** bestimmt Robustheit und Abstand zur Wand (z. B. bei schiefem Putz)
-- **Profilierung:** von schlicht bis stark historisch (Karnies, Kehlen, mehrteilig)
+## Entscheidung/Varianten: wann welche Lösung
 
-Wichtig: Eine Sockelleiste ist nicht nur „schön“, sie muss zum **Bodenaufbau** passen (Dehnfugen, Höhenversatz, Kanten).
+### Höhe (mm)
+- bestimmt die optische Basislinie: höhere Räume vertragen meist höhere Sockel.
+- muss zu Türen und ggf. Brüstungslinien passen.
 
-## Montage: typische Varianten
+### Ausladung/Stärke (mm)
+- beeinflusst, wie gut Unebenheiten kaschiert werden können.
+- wirkt sich auf Schattenfuge und Anschlussdetails aus.
 
-### Direktmontage
-- auf halbwegs ebenem Untergrund
-- mit definiertem Klebe-/Befestigungskonzept
-- Fugenführung bewusst planen (Schattenfuge oder spachtelfähige Fuge)
+### Profilierung
+- schlicht: ruhige Linie, weniger „Stilansage“
+- historisch: Karniese/Kehlen/mehrteilig → stärkere Wirkung, mehr Anschlussaufwand
 
-### Ausgleich über Unterlage / Lattung
-- bei stark unebenen Wänden/Böden
-- wenn eine definierte Ebene hergestellt werden muss
-- bei aufwendigen Profilen sinnvoll, um Verzug zu vermeiden
+## Ablauf/Planung: Schritte, Messpunkte, Daten
 
-### Ecken und Übergänge
-- Innen-/Außenecken: Gehrung oder Stoß je nach Profil und Reparaturstrategie
-- Übergänge zu Türbekleidungen: Anschlusslogik früh klären (sonst „stolpert“ die Linie)
+1. **Bestand messen**
+   - Raumhöhe, Türhöhen/Zargenbreiten
+   - Bodenaufbau (Dehnfugen, Höhenversatz)
+   - Wandebenheit (kritische Stellen markieren)
+2. **Sockelstrategie wählen**
+   - Schattenfuge oder bündiger Anschluss?
+   - Übergänge an Türbekleidungen (Linienführung!)
+3. **Ecken/Übergänge definieren**
+   - Gehrung vs. Stoß (abhängig von Profil und Reparaturstrategie)
+4. **Montagekonzept festlegen**
+   - Direktmontage vs. Ausgleich über Unterlagen/Ebenenbildung (bestandabhängig)
 
-## Oberfläche und Renovierbarkeit
+## Kostenlogik: Mechanik ohne Preisversprechen
 
-- roh: für Eigenleistung oder Bestandsangleichung
-- lackiert: gleichmäßige Optik, definiertes Ergebnis
-- geölt: materialgerecht, je nach Nutzungsprofil (und gewünschtem Look)
+Aufwand entsteht typischerweise durch:
+- viele Ecken/kurze Stücke und Unterbrechungen,
+- starke Unebenheit (Anpassung, Ebenenbildung),
+- profilreiche oder mehrteilige Sockel,
+- heikle Übergänge zu Türbekleidungen und Vertäfelungen,
+- Oberfläche/Endbehandlung (projektabhängig).
 
-Bei Altbauten ist Renovierbarkeit ein Kriterium: Kleine Schäden sollen sich punktuell ausbessern lassen.
+## Häufige Fehler + Vermeidung
 
-## Auswahlkriterien (Checkliste)
+- Sockel zu niedrig/zu schwach → Basislinie wirkt „billig“ und kaschiert nichts.
+- Übergänge an Türen nicht geplant → Linie „stolpert“.
+- Wand wird „zugepresst“ → lieber definierte Fuge/Schattenfuge.
+- Bodenaufbau noch nicht final → Sockelhöhe erst nach Abhängigkeiten festlegen.
 
-- Raumhöhe und gewünschte Basiswirkung
-- Bodenaufbau (neu/alt, Dehnfuge, Höhenversatz)
-- Wandzustand (eben/krumm, Altputz, Setzungen)
-- Stilkontext (ruhig/klassisch/historisch markant)
-- Anschluss an Türbekleidungen und ggf. Vertäfelung
+## Verweise (Profilbeispiele)
 
-## Verweise
+- **[SL0001 – Hamburger Leiste 170/25](/wissen/de/produkte/leisten/sockelleisten/40-sl0001/)**
+- **[SL0002 – Hamburger Leiste 120/18](/wissen/de/produkte/leisten/sockelleisten/41-sl0002/)**
+- **[SL0003 – Kreuzberger Leiste 165/28](/wissen/de/produkte/leisten/sockelleisten/42-sl0003/)**
+- **[SL0004 – 2teilige hohe Sockelleiste 175/45](/wissen/de/produkte/leisten/sockelleisten/44-sl0004/)**
 
-- Leisten‑System: **[Leisten](/wissen/de/produkte/leisten/)**
-- Prozess: **[Planung & Bestellung](/wissen/de/faq/beratung/)**
-- Kontext: **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
+Weitere Systemkontexte:
+- **[Leisten](/wissen/de/produkte/leisten/)**
+- **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)** / **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
 
-## Nächster Schritt
+## FAQ
 
-Wenn du Sockelleisten auswählen willst, schicke idealerweise:
-- Foto einer Innen- und Außenecke
-- Foto der Türzarge im Sockelbereich
-- Hinweis zum Bodenaufbau (neu/alt) + Raumhöhe
+### Wie finde ich die richtige Sockelhöhe?
+Über Raumhöhe, Bestand und gewünschte Wirkung. Wichtig ist der Bezug zu Türen und ggf. Brüstungslinien – nicht ein „Standardmaß“.
 
-Damit lässt sich die passende Dimension und Profilfamilie ableiten: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
+### Was ist bei Altbau-Unebenheiten entscheidend?
+Eine definierte Anschluss-/Fugenstrategie und ggf. Ebenenbildung, statt die Leiste gegen die Wand zu pressen.
+
+### Gehrung oder Stoß in der Ecke?
+Profilabhängig. Gehrungen wirken „durchlaufend“, sind aber empfindlicher; Stöße können reparaturfreundlicher sein. Entscheidend ist eine klare Strategie.
+
+### Wie wirkt sich die Ausladung aus?
+Mehr Ausladung kann Unebenheiten und Schattenfugen besser handhaben, wirkt aber auch kräftiger. Es ist eine Proportionsfrage.
+
+### Sind hohe Sockel automatisch „besser“?
+Nein. Sie müssen zum Raum passen. In niedrigen Räumen können hohe Sockel schnell dominant wirken.
+
+### Wann sind mehrteilige Sockel sinnvoll?
+Bei sehr hohen, reich profilierten Sockeln oder wenn konstruktiv sauberer in Teilen aufgebaut werden soll (Toleranzen, Montage, Reparatur).
+
+### Wie wichtig ist der Übergang an Türbekleidungen?
+Sehr. Dort zeigt sich die Linienführung. Ohne geplanten Übergang wirkt der Sockel oft „abgehackt“.
+
+### Wo sehe ich konkrete Profile und Anwendungen?
+Auf den Profilseiten (SL0001–SL0004) und im Kontext von Systemen/Referenzen.
