@@ -109,8 +109,6 @@ jobs:
 
       - name: Run public output guards
         working-directory: ${{ github.workspace }}
-        env:
-          GUARD_DEBUG: "1"
         run: node wissen/scripts/guard_public_output.js
 
       - name: Post-build mojibake scan (public)
