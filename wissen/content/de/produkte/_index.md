@@ -3,6 +3,7 @@ title: Produkte
 description: "Produktwissen statt Shop-Daten: So findest du das passende System (halbhoch, hoch, Leisten) und verstehst Varianten, Anschlüsse und Kostenlogik – mit direkten Links in die Kategorien."
 lastmod: 2026-02-12T16:45:00+01:00
 version: '2026-02-12T16:45:00+01:00'
+draft: false
 menu:
   main:
     identifier: menu_products
