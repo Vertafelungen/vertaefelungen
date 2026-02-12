@@ -1,150 +1,141 @@
 ---
 title: "Planung & Bestellung"
-description: "Der pragmatische Ablauf von der ersten Idee bis zur Montage: Welche Infos du liefern solltest, wie wir kalkulieren, wann eine Visualisierung sinnvoll ist und wie Angebot/Beauftragung strukturiert sind."
-lastmod: 2026-01-28T08:30:00+01:00
-version: "2026-01-28T08:30:00+01:00"
+description: "So kommst du ohne Umwege zu einem belastbaren Angebot: Welche Infos wir brauchen, wie Planung/Visualisierung abläuft, welche Kostenfaktoren zählen und wie Fertigung/Montage organisiert sind."
+lastmod: 2026-02-12T16:45:00+01:00
+version: "2026-02-12T16:45:00+01:00"
 ---
+
 ## Kurzantwort
 
-Wenn du zügig zu einem belastbaren Angebot kommen willst, brauchst du keine perfekte Dokumentation – aber **die richtigen Informationen**:
+- Für eine erste Einschätzung reichen **Wandlängen + Raumhöhe** und **6–12 Fotos** (frontal + Details).
+- Entscheidend ist die **Systemrichtung**: halbhoch, hoch oder nur Leisten/Umrahmungen.
+- Bei komplexen Räumen lohnt sich eine **Visualisierung/Planung** als eigene Stufe (bei dir etabliert: ca. **10 %** Anteil an den Gesamtkosten).
+- Das Angebot wird erst belastbar, wenn **Anschlüsse, Oberfläche und Montageumfang** geklärt sind.
+- Üblicher Prozess: **Orientierung → Planung/Visualisierung → Angebot → Fertigung/Montage** (Anzahlung bei Annahme: **50 %**).
 
-- **Wandlängen + Raumhöhe**, dazu **Fensterbrüstungen** (falls halbhoch), grob in cm.
-- **Fotos der Wände** (gerade aufgenommen), plus 2–3 Detailfotos von Sockel, Leibungen, Stuck, Heizkörpern/Schaltern.
-- Eine Entscheidung, ob du **halbhoch**, **hoch** oder nur **Leisten/Umrahmungen** planst.
-- Optional: Stilreferenzen (z. B. Gründerzeit/Jugendstil, Vorbildfoto, Lookbook-Link).
+Wenn du noch nicht sicher bist, was passt: starte bei **[Produkte](/wissen/de/produkte/)** und nutze Beispiele im **[Lookbook](/wissen/de/lookbook/)**.
 
-Danach läuft es typischerweise in 4 Stufen: **Orientierung → Visualisierung/Planung → Angebot → Fertigung/Montage**.
+## Praxis-Kontext: für wen, wann sinnvoll
 
-## Worum es in der Praxis geht
+Historische Vertäfelungen sind im Bestand selten „Standard“. Typische Situationen, in denen eine saubere Vorplanung Zeit und Kosten spart:
 
-Historische Vertäfelungen sind selten „einfach nur Holz an die Wand“. In Bestandsgebäuden bestimmen viele Randbedingungen das Ergebnis:
+- Altbauwände sind **uneben**, mit Alt-Schichten oder empfindlichem Putz.
+- Viele Anschlüsse: **Türen/Fenster**, Heizkörper, Steckdosen/Schalter.
+- Du willst eine historische Wirkung treffen (z. B. Gründerzeit/Jugendstil) und brauchst **Proportion** statt Bauchgefühl.
+- Es gibt Abhängigkeiten (neuer Boden, neue Türen, Elektro/Heizung wird noch geändert).
 
-- **Proportionen** (Brüstungshöhe, Sockel- und Deckleistenwirkung, Tür-/Fensterbezüge)
-- **Untergrund & Ebenheit** (Altbauputz, Setzungen, Installationen, Schrägen)
-- **Technik** (Schalter, Steckdosen, Heizkörper, Leitungsführung, Revisionsmöglichkeiten)
-- **Oberfläche** (Öl, Farbe, Lack; Reparaturfähigkeit; Denkmalverträglichkeit)
+## Entscheidung/Varianten: was du zuerst festlegen solltest
 
-Die zentrale Frage ist: **Was muss fest geplant werden, und was kann flexibel bleiben?** Ziel ist ein System, das optisch stimmig ist und konstruktiv funktioniert.
+### 1) Systemhöhe
+- **Halbhoch**: robust, vielseitig, oft die beste Allround-Lösung → **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
+- **Hoch**: raumprägend, planungsintensiver → **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
+- **Leisten/Umrahmungen**: wenn du primär Übergänge/Gliederung willst → **[Leisten](/wissen/de/produkte/leisten/)**
 
-## Ablauf: von der Anfrage bis zur Umsetzung
+### 2) Profilfamilie (Stil + Proportion)
+Wichtiger als „ein einzelnes schönes Profil“ ist, dass Sockel, Abschlüsse und Türanschlüsse **aus einer Logik** heraus wirken.
 
-### 1) Erste Orientierung (schnell, niedrigschwellig)
-Ziel: grobe Richtung festlegen und Aufwandstreiber identifizieren.
+### 3) Oberfläche (neutral, ohne Festlegung)
+Roh, geölt, lackiert oder gestrichen beeinflusst:
+- Optik (Licht/Schatten),
+- Reparaturfähigkeit,
+- Aufwand und Baustellenlogistik.
 
+## Ablauf/Planung: Schritte, Messpunkte, Daten
+
+### Schritt 1 – Erste Orientierung (schnell)
 **Du lieferst idealerweise:**
-- Grundriss (auch Skizze) oder Wandlängen je Wand
-- Raumhöhe(n)
-- Fotos je Wand (frontal) + Details (Sockel, Leibungen, Stuck, Problemstellen)
-- Hinweis auf: Feuchtigkeit, Schimmel, salzhaltige Putze, frisch sanierte Wände
+- Wandlängen je Wand (cm) oder Grundriss (Skizze reicht)
+- Raumhöhe (cm)
+- Fotos je Wand frontal + Detailfotos (Sockel/Leibungen/Stuck/Problemstellen)
+- optional: 1–3 Referenzen (Foto/Lookbook)
 
 **Wir klären:**
-- Systemwahl: **halbhoch** vs. **hoch** vs. Leisten/Umrahmungen  
-  - Halbhoch: häufig in Fluren, Esszimmern, Wohnräumen, Treppenhäusern
-  - Hoch: raumprägend, oft in repräsentativen Räumen, höheren Decken
-- konstruktive Punkte: Sockel, Wandunebenheiten, Anschlüsse, Technik
-- ob ein **Vorbild** rekonstruiert werden soll (Foto / historische Referenz)
+- Systemhöhe + grobe Teilungslogik
+- kritische Anschlüsse und Untergrundrisiken
+- ob Planung/Visualisierung sinnvoll ist
 
-### 2) Vorplanung & Visualisierung (wenn Proportion/Details entscheidend sind)
-Ziel: Entscheidungen absichern, bevor gefertigt wird.
-
-Eine Visualisierung ist besonders sinnvoll, wenn
-- Brüstungshöhe/Teilungen nicht klar sind,
-- mehrere Stilrichtungen/Profilfamilien in Frage kommen,
-- viele Anschlüsse (Türen/Fenster/Heizkörper) sauber gelöst werden müssen,
-- du ein historisches Vorbild möglichst genau treffen willst.
+### Schritt 2 – Vorplanung & Visualisierung (wenn Proportion/Details kritisch sind)
+Sinnvoll, wenn:
+- Brüstungshöhen/Teilungen unklar sind,
+- viele Anschlüsse existieren,
+- ein historisches Vorbild präzise getroffen werden soll.
 
 **Output typischerweise:**
-- 3D‑Ansicht(en) zur Proportion und Profilwirkung
-- Ableitung von **2D‑Plänen** (Bauteile, Längen, Anschlüsse)
-- klare Festlegung von Systemhöhe, Profilfamilie, Sockel-/Deckabschluss, Teilungen
+- Visualisierung zur Proportion und Linienführung
+- Ableitung von 2D-Plänen (Bauteile/Längen/Anschlüsse)
+- definierte Schnittstellen für Fertigung/Montage
 
-**Kostenlogik (transparente Mechanik):**  
-Die Visualisierung fließt typischerweise als **Planungsbestandteil** in die Gesamtkalkulation ein (bei dir etabliert: ca. **10 %** Anteil an den Gesamtkosten als Planungs-/Visualisierungsleistung).
-
-### 3) Angebot & Beauftragung
-Ziel: Lieferumfang, Varianten und Schnittstellen eindeutig machen.
-
+### Schritt 3 – Angebot & Beauftragung
 Ein belastbares Angebot braucht:
-- definierte Systemhöhe(n) und Profilfamilie(n)
-- Holzart/Qualität (z. B. je nach Bauteil: Sichtqualität vs. Träger)
-- Oberfläche (roh / grundiert / geölt / lackiert)
-- Montageumfang (nur Lieferung vs. Montage inkl. Anpassungen)
-- Baustellenbedingungen (Zugang, Parken, Treppen, Staubschutz)
+- definierte Systemhöhe(n) und Profilfamilie(n),
+- Holz-/Qualitätsannahmen je Bauteil (projektabhängig),
+- Oberfläche (roh/grundiert/geölt/lackiert/gestrichen),
+- Montageumfang (Lieferung vs. Montage),
+- Baustellenbedingungen (Zugang, Staubschutz, Termine).
 
-**Bewährtes Zahlungsmodell in deinem Prozess:**
-- nach Annahme: **50 % Anzahlung**
-- Rest gemäß Vereinbarung nach Lieferung/Montage bzw. Meilensteinen
+**Zahlungslogik (dein Standard):**
+- nach Annahme: **50 % Anzahlung**
+- Rest nach Vereinbarung (Liefer-/Montagemeilensteine)
 
-### 4) Fertigung, Logistik, Montage
-Ziel: reproduzierbare Qualität und saubere Anschlüsse im Bestand.
+### Schritt 4 – Fertigung, Logistik, Montage
+- Vorfertigung in der Partner-Tischlerei
+- Montage je nach Untergrund (Direktmontage oder Unterkonstruktion)
+- saubere Anschlüsse an Boden/Decke/Leibungen, definierte Fugenstrategie
 
-Typische Punkte:
-- Vorfertigung in der Partner‑Tischlerei, ggf. Probemontage einzelner Details
-- Montageablauf je nach Untergrund (Lattung/Unterkonstruktion vs. Direktmontage)
-- Anschlüsse an Böden/Decken/Leibungen; Fugen/Übergänge
-- Oberfläche vor Ort nur, wenn sinnvoll (Staub/Belüftung beachten)
+## Kostenlogik: Mechanik ohne Preisversprechen
 
-## Kostenlogik: welche Faktoren den Aufwand treiben (ohne Preisversprechen)
+Eine grobe Orientierung kann über **Laufmeter** laufen. Der reale Aufwand wird jedoch vor allem getrieben durch:
 
-Die erste grobe Orientierung kann auf einer **Laufmeter‑Logik** basieren. Der finale Aufwand ergibt sich aber aus Faktoren wie:
+- Systemhöhe (halbhoch vs. hoch) und Detailgrad (Rahmen/Felder/Gesimse),
+- Anzahl und Komplexität der Anschlüsse (Türen/Fenster/Heizkörper/Installationen),
+- Untergrundzustand (Unebenheit, Alt-Schichten, Empfindlichkeit),
+- Oberfläche und Baustellenlogistik (Schutz, Trocknungszeiten, Gerüche),
+- Sonderlösungen (Revision, Kabel, akustische Anforderungen – projektabhängig).
 
-- **Höhe** (halbhoch vs. hoch) und Anzahl der Felder/Teilungen
-- **Profilkomplexität** (mehrteilige Profile, Gesimse, Kapitelle, Sonderformen)
-- **Geometrie** (viele Türen/Fenster, schräge Wände, Nischen, Radiatoren)
-- **Untergrund** (stark uneben, brüchig, viele Alt-Schichten)
-- **Oberfläche** (mehrschichtige Systeme, Farbaufbau, Renovierfähigkeit)
-- **Sonderfunktionen** (Kabelkanäle, Revisionsklappen, Akustik, Brandschutzanforderungen)
+## Häufige Fehler + Vermeidung
 
-Praktischer Leitgedanke: **Je mehr Anschlussdetails, desto wichtiger ist die Vorplanung.**
+- **Nur schräge Fotos** → besser frontal, gleicher Kamerastand, genug Abstand.
+- **Keine Referenzmaße** → Zollstock/Metermass kurz ins Bild.
+- **Brüstungshöhe „nach Gefühl“** → Fensterbrüstung, Raumhöhe, Türbezüge messen.
+- **Boden-/Türarbeiten kommen später** → erst Abhängigkeiten klären, dann Sockelhöhen festlegen.
+- **Profile mischen** → lieber konsequente Profilfamilie als viele Einzelideen.
 
-## Checklisten
-
-### Minimaleingabe für eine schnelle Einschätzung
-- Wandlängen je Wand (cm)
-- Raumhöhe (cm)
-- 6–12 Fotos (gesamt, je Wand + Details)
-- grobe Zielrichtung: halbhoch/hoch/Leisten
-- 1–3 Referenzbilder (optional)
-
-### Zusätzliche Infos, die die Planung stark verbessern
-- Fensterbrüstungshöhen, Leibungstiefen
-- Türhöhen, Sockelhöhen, Fußbodenaufbau
-- Lage von Schaltern/Steckdosen/Heizkörpern
-- Hinweise zu Feuchtigkeit/Salzbelastung/Schäden im Putz
-
-### Häufige Fehler (und wie du sie vermeidest)
-- **nur Schräge‑Fotos**: besser frontal, gleiche Höhe, ausreichend Abstand
-- **keine Referenzmaße im Foto**: Zollstock/Metermass kurz ins Bild halten
-- **Brüstungshöhe „nach Gefühl“**: lieber einmal Fensterbrüstung messen
-- **Untergrund unterschätzt**: Altbauwände sind selten eben – früh klären
-
-## Verweise in die Produktbereiche
+## Verweise
 
 - Einstieg: **[Produkte](/wissen/de/produkte/)**
 - halbhoch: **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
 - hoch: **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
-- Komponenten: **[Leisten](/wissen/de/produkte/leisten/)** und **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
+- Komponenten: **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
+- Referenzen: **[Lookbook](/wissen/de/lookbook/)**
 
 ## FAQ
 
-### Muss ich mich vor der Anfrage auf eine Holzart festlegen?
-Nein. Für die Systementscheidung sind Proportion und Aufbau wichtiger. Holzart/Oberfläche sind **Varianten**, die später sauber gewählt werden.
+### Welche Mindestinfos braucht ihr für eine erste Einschätzung?
+Wandlängen, Raumhöhe, Fotos (frontal + Details). Ein Grundriss ist hilfreich, aber keine Pflicht.
 
-### Was, wenn ich nur eine Idee, aber keinen Grundriss habe?
-Eine Skizze reicht. Wichtig sind Wandlängen, Raumhöhe und Fotos.
+### Muss ich die genaue Brüstungshöhe schon wissen?
+Für die erste Orientierung nicht. Für die Ausführung ist sie zentral und wird dann anhand Raum/Öffnungen sauber festgelegt.
 
-### Ist eine Montage ohne Beschädigung der Wände möglich?
-In der Regel ja, aber der Untergrund entscheidet. Bei empfindlichen Putzen oder vielen Alt-Schichten wird der Aufbau entsprechend angepasst.
+### Wann ist eine Visualisierung sinnvoll?
+Wenn Proportion/Teilung nicht klar ist, viele Anschlüsse existieren oder ein historisches Vorbild präzise getroffen werden soll.
 
-### Kann ich erst halbhoch starten und später hoch erweitern?
-Das ist möglich, wenn Sockel/Profilfamilie und Anschlusslogik von Anfang an kompatibel geplant werden. Sonst entstehen sichtbare Brüche.
+### Kann ich erst halbhoch starten und später auf hoch erweitern?
+Prinzipiell ja, wenn Profilfamilie, Sockelaufbau und Anschlusslogik von Anfang an kompatibel geplant werden.
 
-## Nächster Schritt
+### Was beeinflusst die Kosten am stärksten?
+Anschlüsse und Untergrund, dann Detailgrad und Oberfläche. Höhe allein ist selten der größte Treiber.
 
-Wenn du willst, dass wir schnell belastbar werden, sende:
-- Wandlängen + Raumhöhe
-- je Wand ein Foto frontal + 2–3 Detailfotos
-- Hinweis: halbhoch/hoch/Leisten
-- optional: Referenzbilder oder Lookbook‑Links
+### Kann ich nur Lieferung ohne Montage beauftragen?
+Ja – dann müssen Schnittstellen (Aufmaß, Untergrundebene, Befestigungsstrategie, Fugen) vorab besonders klar sein.
 
-Danach ist der nächste sinnvolle Schritt meist die Einordnung in **[Produkte](/wissen/de/produkte/)** oder – bei komplexen Räumen – eine **Visualisierung** als Planungsstufe.
+### Wie geht ihr mit Altbau-Unebenheiten um?
+Über definierte Ebenen (Unterkonstruktion/Unterlagen) und eine bewusste Fugen-/Schattenfugenstrategie – abhängig vom Bestand.
+
+### Wie läuft die Beauftragung typischerweise ab?
+Orientierung → (optional) Planung/Visualisierung → Angebot → Annahme mit 50 % Anzahlung → Fertigung/Montage.
+
+### Welche Unterlagen beschleunigen alles am meisten?
+Ein einfacher Grundriss, vermaßte Fensterbrüstungen/Türhöhen sowie Fotos mit Maßstab.
+
+### Gibt es typische No-Go’s?
+Aktive Feuchte-/Salzprobleme im Mauerwerk: erst bautechnisch lösen, dann Holzsysteme planen.
