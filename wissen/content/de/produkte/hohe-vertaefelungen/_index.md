@@ -1,74 +1,106 @@
 ---
 title: "Hohe Vertäfelungen"
-description: "Hohe Vertäfelungen: Wann sie sinnvoll sind, wie die Systemlogik funktioniert, welche Randbedingungen entscheidend sind und wie du Planung und Umsetzung sicher aufsetzt."
-lastmod: 2026-01-28T08:30:00+01:00
-version: "2026-01-28T08:30:00+01:00"
+description: "Hohe Vertäfelungen: Wann sie sinnvoll sind, welche Systemlogik und Achsenführung zählt, welche Messpunkte du brauchst und welche Kosten-/Risiko-Treiber typisch sind."
+lastmod: 2026-02-12T16:45:00+01:00
+version: "2026-02-12T16:45:00+01:00"
 ---
+
 ## Kurzantwort
 
-Hohe Vertäfelungen sind **raumprägend** und werden vor allem dann sinnvoll, wenn
-- Räume hohe Decken haben oder repräsentativ wirken sollen,
-- die Wandgestaltung Achsen (Türen/Fenster) bewusst mitführt,
-- ein historischer Kontext (z. B. Gründerzeit/klassisch) präzise getroffen werden soll.
-
-Sie sind planungsintensiver als halbhohe Systeme, weil **Anschlüsse und Teilungen** das Ergebnis dominieren.
+- Hohe Vertäfelungen sind **raumprägend** und lohnen sich besonders bei höheren Räumen und klarer Achsenlogik.
+- „Hoch“ heißt nicht zwingend „bis zur Decke“ – häufig ist **3/4-hoch** oder nahezu raumhoch mit Gesims.
+- Kritisch sind **Türen/Fenster**, Gesimsführung, Wandebenheit und die Abstimmung mit Stuck/Decke.
+- Planung ist wichtiger als bei halbhoch: Teilung und Anschlüsse bestimmen das Ergebnis.
 
 Wenn du starten willst: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
 
-## Was „hoch“ in der Praxis bedeutet
+## Praxis-Kontext: für wen, wann sinnvoll
 
-„Hoch“ heißt nicht automatisch „bis zur Decke“. Häufige Varianten:
+Hohe Systeme sind sinnvoll, wenn:
+- der Raum hohe Decken hat oder repräsentativ wirken soll,
+- Türen/Fenster und Wandachsen bewusst geführt werden,
+- eine historische Wirkung präzise getroffen werden soll (Stil und Proportion).
 
-- **3/4‑hoch**: starke Wandwirkung, aber oben noch Putz-/Tapetenfeld
-- **nahezu raumhoch**: maximale Präsenz, oft mit Gesimsführung
-- **raummodular**: z. B. nur in Teilbereichen (Nischen, Achsen, Kaminwand)
+In Räumen mit vielen Störungen (schräge Wände, sehr viele Installationen) ist oft eine klare Teilstrategie nötig, damit es nicht unruhig wirkt.
 
-Entscheidend ist, dass Teilung und Abschlüsse zur Raumgeometrie passen.
+## Entscheidung/Varianten: wann welche Lösung
 
-## Systemlogik: die Bauteile
+### Höhe/Zone
+- **3/4-hoch**: starke Wandwirkung, oben bleibt ein ruhiges Feld.
+- **nahezu raumhoch**: maximal präsent, oft mit Gesims und klarer Achsführung.
+- **bereichsweise**: z. B. nur eine Achse, Nische, Kaminwand – wenn der Raum das verlangt.
 
-1. Sockelzone (Sockelbrett/Profil)
-2. Feldzonen (untere/obere Felder oder durchgehend)
-3. vertikale Gliederung (Pilaster/Lisenen, Achsenbezug)
-4. Abschluss (Gesims/Deckprofil, ggf. Deckenanschluss)
+### Gliederung
+- durchgehende Felder vs. zweizonig (unteres/oberes Feld)
+- Pilaster/Lisenen zur Achsführung
+- Gesims/Deckabschluss als horizontale Hauptlinie
 
-Je höher das System, desto mehr zählt:
-- Achsenlogik (Türen/Fenster)
-- horizontale Linienführung (Gesimse)
-- Toleranzmanagement (Altbauwände)
+### Bestand/Integration
+- Stuck/Deckenprofile: Anschlusslogik klären (nicht „dazwischen quetschen“).
+- Türbekleidungen: Proportion und Übergänge mitführen.
 
-## Randbedingungen, die du früh klären solltest
+## Ablauf/Planung: Schritte, Messpunkte, Daten
 
-### Untergrund und Ebenheit
-Altbauwände sind selten eben. Ohne definierte Toleranzlösung entstehen sichtbare Wellen oder „springende“ Fugen. Je nach Situation sind Unterkonstruktion, Schattenfugen oder Ausgleichsstrategien nötig.
+1. **Raumaufnahme**
+   - Raumhöhe (cm), Deckenaufbau/Stuck
+   - Wandlängen je Wand (cm)
+   - Tür-/Fensterlagen (Fotos + grobe Maße)
+2. **Achslogik festlegen**
+   - Welche Linien sind „führend“? (Türen, Fensterachsen, Gesims)
+3. **Zonen/Höhen festlegen**
+   - 3/4-hoch vs. nahezu raumhoch, Gesimsposition
+4. **Anschlüsse planen**
+   - Tür-/Fensterbekleidungen, Heizkörper, Schalter/Steckdosen
+5. **Planung/Visualisierung** bei komplexen Räumen → **[Planung & Bestellung](/wissen/de/faq/beratung/)**
 
-### Türen, Fenster, Heizkörper
-Hohe Systeme interagieren stark mit Öffnungen. Wenn Türbekleidungen und Vertäfelung nicht zusammen gedacht sind, wirkt es konstruiert oder unfertig.
+## Kostenlogik: Mechanik ohne Preisversprechen
 
-→ Tür-/Fensterbezüge über **[Leisten](/wissen/de/produkte/leisten/)** einordnen.
+Aufwandtreiber bei hohen Vertäfelungen sind typischerweise:
+- **Achsführung** und Anzahl der Teilungen (viele kurze Felder = mehr Aufwand),
+- **Gesims-/Abschlussdetails** (mehrteilig, profilreich),
+- viele Tür-/Fensteranschlüsse und Übergänge,
+- Untergrundtoleranzen (Altbauwände, Setzungen),
+- Oberfläche/Schichtaufbau und Baustellenlogistik.
 
-### Elektro/Revision
-Bei raumprägenden Wänden ist Technik „mit zu gestalten“: Schalterpositionen, Leitungswege, ggf. Revisionspunkte.
+Hoch ist nicht automatisch „teuer“, aber es reagiert stärker auf Planungsfehler – deshalb lohnt saubere Vorplanung.
 
-## Wann eine Visualisierung fast immer sinnvoll ist
-- mehrere Türen/Fenster in einem Raum
-- hohe Decken + Gesimsführung
-- historisches Vorbild soll getroffen werden
-- komplizierte Bestandswände oder viele Installationen
+## Häufige Fehler + Vermeidung
 
-Ablauf: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
+- Gesimsführung ohne Bezug zu Raum/Öffnungen → erst Achsen klären, dann Linien ziehen.
+- Türbekleidungen werden „nachträglich angepasst“ → Übergänge früh mitplanen.
+- Zu viele unterschiedliche Profile → Profilfamilie konsequent halten.
+- Unterschätzung von Altbauwänden → Ebenheit/Unterkonstruktion definieren.
+- Stuck/Decke erst am Ende berücksichtigen → Anschlusslogik von Anfang an.
 
 ## Verweise
 
-- Alternative/robuster Einstieg: **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
-- Komponenten/Anschlüsse: **[Leisten](/wissen/de/produkte/leisten/)** / **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
-- Inspiration: **[Lookbook](/wissen/de/lookbook/)**
+- Alternative: **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
+- Komponenten: **[Leisten](/wissen/de/produkte/leisten/)** / **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
+- Prozess: **[Planung & Bestellung](/wissen/de/faq/beratung/)**
+- Referenzen: **[Lookbook](/wissen/de/lookbook/)**
 
-## Nächster Schritt
+## FAQ
 
-Wenn du „hoch“ planst, starte mit:
-- Raumhöhe, Wandlängen, Tür-/Fensterpositionen
-- Fotos je Wand (frontal) + Details
-- Wunsch: bis zur Decke / 3/4 / Achsenbetont
+### Muss eine hohe Vertäfelung bis zur Decke gehen?
+Nein. Häufig ist 3/4-hoch oder nahezu raumhoch mit Gesims stimmiger – abhängig von Raumhöhe und Deckenaufbau.
 
-Dann klären wir Systemlogik und entscheiden, ob eine Visualisierung nötig ist: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
+### Was ist wichtiger: Höhe oder Teilung?
+Bei „hoch“ ist die Teilung/Achslogik meist wichtiger. Eine stimmige Linie wirkt stärker als ein reines Höhenmaß.
+
+### Wie gehe ich mit vielen Türen/Fenstern um?
+Über klare Achsen und wiederholte Felder. Häufig ist eine „ruhige Logik“ besser als jedes Detail einzeln zu lösen.
+
+### Kann ich hohe Vertäfelung nur an einer Wand machen?
+Ja, wenn der Raum eine klare Hauptwand hat. Dann muss die Lösung trotzdem zu Türen/Fenstern und Leisten passen.
+
+### Was ist das größte Risiko in der Ausführung?
+Unklare Anschlüsse (Tür-/Fensterbekleidungen, Gesims) und unebener Untergrund ohne definierte Ebene.
+
+### Welche Rolle spielen Sockelleisten?
+Sockel ist Basislinie und Toleranzmanager. Bei hohen Systemen ist er konstruktiv und optisch noch wichtiger.
+
+### Ist eine Visualisierung „nice to have“?
+Bei komplexen Anschlüssen und historischen Vorbildern ist sie oft der schnellste Weg zu belastbaren Entscheidungen.
+
+### Kann ich bestehende Stuckprofile integrieren?
+Oft ja – aber nur, wenn Gesimsführung und Proportion logisch anschließen statt zu „kollidieren“.
