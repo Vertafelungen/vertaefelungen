@@ -1,9 +1,8 @@
 ---
-title: Produkte
-description: 'Übersicht der Produktbereiche in der Wissensdatenbank: Vertäfelungen,
-  Leisten und Systeme – mit Erklärung, Auswahlkriterien und Links zu den Kategorien.'
-lastmod: '2026-01-28T08:30:00+01:00'
-version: '2026-01-28T08:30:00+01:00'
+title: "Produkte"
+description: "Orientierung statt Checkout: Produktbereiche (halbhoch, hoch, Leisten), Auswahl nach Systemhöhe/Anschlüssen, Kostenlogik und nächste Schritte – mit Links zu den Kategorien."
+lastmod: 2026-02-12T17:10:00+01:00
+version: "2026-02-12T17:10:00+01:00"
 menu:
   main:
     identifier: menu_products
@@ -12,73 +11,100 @@ menu:
 
 ## Kurzantwort
 
-Hier findest du **Produktwissen** (Auswahl, Systemlogik, Einsatzbereiche).  
-Varianten, Preise und Bestelllogik liegen im **Shop**.
+- Diese Seite erklärt **Systemlogik und Auswahl** – Preise/Varianten liegen im Shop-Kontext.  
+- Entscheide zuerst: **halbhoch**, **hoch** oder **Leisten/Umrahmungen**.  
+- Der größte Einfluss auf Ergebnis und Aufwand sind **Anschlüsse** (Türen/Fenster/Technik) und **Sockelstrategie**.  
+- Wenn Proportion/Teilung unsicher ist, lohnt **Planung/Visualisierung** vor Varianten/Preisvergleich.  
+- Nutze die Kategorie-Einstiege unten und gehe erst danach in Varianten/Bestellung.
 
-- halbhoch → **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
-- hoch → **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
-- Komponenten → **[Leisten](/wissen/de/produkte/leisten/)** (inkl. **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**)
-- Inspiration → **[Lookbook](/wissen/de/lookbook/)**
+Direkte Einstiege:
+- **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
+- **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
+- **[Leisten](/wissen/de/produkte/leisten/)** → **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
+- **[Planung & Bestellung](/wissen/de/faq/beratung/)**
 
-Wenn du noch nicht sicher bist, was zu deinem Raum passt: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
+## Praxis-Kontext: für wen, wann sinnvoll
 
-## Was du auf den Produktseiten bekommst (und was nicht)
+Diese Produktbereiche helfen dir, Entscheidungen zu treffen, die vor einer Bestellung fachlich geklärt sein sollten:
 
-**Dieses /wissen/-System ist bewusst nicht transaktional.**  
-Es beantwortet die Fragen, die vor einer Bestellung geklärt werden müssen:
+- **Raumproportion**: Raumhöhe, Wandflächen, Fensterbrüstungen, Türbezüge  
+- **Bestand**: Altbauputz/Unebenheiten, Stuck, vorhandene Türbekleidungen, Installationen  
+- **Zielbild**: ruhig (wenige Linien) vs. stärker historisch (Rahmen/Felder/Gesimse)  
+- **Projektmodus**: schnell orientieren vs. präzise rekonstruieren (z. B. nach Vorbild)
 
-- Welche Systemhöhe ist sinnvoll (halbhoch/hoch)?
-- Welche Profilfamilie passt zum Stil und zur Raumproportion?
-- Welche Anschlussdetails sind konstruktiv kritisch?
-- Welche Varianten beeinflussen Aufwand und Ergebnis (Holz, Oberfläche, Detailtiefe)?
+## Entscheidung/Varianten: wie du richtig auswählst
 
-**Im Shop** findest du dann die kaufmännischen Informationen (Varianten, Preislogik, Verfügbarkeit).  
-Als Einstieg: **/de/** (Shop).
+### 1) Systemhöhe (die wichtigste Weiche)
+- **Halbhoch**: robust, vielseitig, meist der beste Einstieg.  
+- **Hoch**: raumprägend, stärker abhängig von Achsen-/Gesimsführung.  
+- **Leisten**: wenn du primär Übergänge/Gliederung willst oder Bestand ordnen musst.
 
-## Kategorien im Überblick
+### 2) Profilfamilie statt Einzelteile
+Sockel, Abschlüsse und Türanschlüsse wirken stimmig, wenn sie **aus einer Profilfamilie** kommen. Ein Mix aus „schönen Einzelprofilen“ erzeugt oft Stilbrüche.
 
-### Halbhohe Vertäfelungen
-Klassische Wainscoting‑Lösungen. Häufige Anwendungen: Flure, Essbereiche, Treppenhäuser, Wohnräume.
+### 3) Oberfläche (neutral, projektabhängig)
+Roh, geölt, lackiert oder gestrichen beeinflusst:
+- Optik (Licht/Schatten),
+- Reparaturfähigkeit,
+- Aufwand und Baustellenlogistik.  
+Die Auswahl sollte zur Nutzung und zum Bestand passen.
 
-- Proportionen: Brüstungshöhe vs. Fensterbrüstungen, Sockelwirkung, Stuhlleiste
-- Aufbau: Rahmen‑Füllung, Paneel, Kassetten, Pilaster/Gesimse (je nach Stil)
-- Ausführung: roh/grundiert/Öl/Farbaufbau
+## Ablauf/Planung: so gehst du effizient vor
 
-→ **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
+1. **Systemhöhe festlegen** (halbhoch/hoch/Leisten).  
+2. **Anschlüsse prüfen**: Türen/Fenster, Heizkörper, Steckdosen/Schalter, Ecken/Nischen.  
+3. **Sockelstrategie klären** (Höhe/Profil/Fuge) – optisch und konstruktiv die Basislinie.  
+4. Bei komplexen Räumen: **Planung/Visualisierung** als Stufe nutzen → **[Planung & Bestellung](/wissen/de/faq/beratung/)**.  
+5. Erst danach Varianten/Preislogik prüfen (Shop/Bestellung über **[Shop](/wissen/de/shop/)**).
 
-### Hohe Vertäfelungen
-Raumprägende Systeme – oft in höheren Räumen oder repräsentativen Bereichen.
+## Kostenlogik: Mechanik ohne Preisversprechen
 
-- Planung: Tür-/Fensteranschlüsse, Deckenanschluss, Wandunebenheiten
-- Systemlogik: Felderteilung, Pilasterachsen, Gesimsführung
-- Aufwand: deutlich stärker durch Details und Anschlüsse getrieben
+Kosten entstehen selten durch „viel Holz“, sondern durch:
+- **Anschlussdetails** (Öffnungen, Ecken, Heizkörper, Technik),  
+- **Untergrundtoleranzen** (Unebenheit, Alt-Schichten, empfindliche Putze),  
+- **Detailgrad** (Rahmen/Felder, mehrteilig, Gesimse),  
+- **Oberflächenaufbau** (Schichten, Trocknungszeiten, Schutzmaßnahmen),  
+- **Projektlogistik** (Zugang, Terminfenster, Montageumfang).
 
-→ **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
+## Häufige Fehler + Vermeidung
 
-### Leisten (Sockel, Wand, Tür/Fenster)
-Leisten sind die **Schnittstelle** zwischen Boden, Wand, Öffnungen und Vertäfelung.
+- **Zu früh Preise vergleichen**: ohne Systemhöhe/Anschlüsse ist jeder Vergleich irreführend.  
+- **Sockel unterschätzen**: zu niedrig/zu schwach → Basislinie wirkt „unfertig“, Unebenheiten bleiben sichtbar.  
+- **Profile mischen**: lieber konsequent eine Logik als viele Einzelentscheidungen.  
+- **Boden/Türen ändern sich noch**: Sockelhöhen und Übergänge erst nach Abhängigkeiten finalisieren.  
+- **Technik ignorieren**: Steckdosen/Heizkörper früh aufnehmen, damit Unterbrechungen geplant statt improvisiert sind.
 
-- Sockelleisten: Schutz, Schattenfuge, Ausgleich von Unebenheiten
-- Wand-/Deckenleisten: Gliederung, Stilkontext, Übergänge
-- Türbekleidungen: Leibungslogik, Profilfamilien, proportionale Wirkung
+## Verweise
 
-→ **[Leisten](/wissen/de/produkte/leisten/)**  
-→ **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
+- halbhoch: **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
+- hoch: **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
+- Komponenten: **[Leisten](/wissen/de/produkte/leisten/)** / **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
+- Referenzen: **[Lookbook](/wissen/de/lookbook/)**
+- Prozess: **[Planung & Bestellung](/wissen/de/faq/beratung/)**
+- Varianten/Bestellung: **[Shop](/wissen/de/shop/)**
 
-## Wie du die richtige Kategorie wählst
+## FAQ
 
-1. **Entscheide zuerst die Systemhöhe** (halbhoch vs. hoch).  
-2. **Prüfe Anschlüsse**: Türen/Fenster, Heizkörper, Schalter, Sockelhöhen.  
-3. **Leisten sind kein „Zubehör“**, sondern bestimmen die Gesamtwirkung.  
-4. Wenn du ein historisches Vorbild rekonstruieren willst, starte mit Planung/Visualisierung.
+### Wo finde ich Preise und Varianten?
+Im Shop-Kontext. Die Wissensseite liefert Auswahlhilfe und Systemlogik, damit Varianten/Preise sinnvoll vergleichbar sind.
 
-→ **[Planung & Bestellung](/wissen/de/faq/beratung/)**
+### Was ist der beste Einstieg für die meisten Räume?
+Meist **halbhoch**, weil es robust ist und viele Anschlussprobleme entschärft.
 
-## Nächster Schritt
+### Wann ist „hoch“ sinnvoll?
+Bei höheren Räumen und wenn Achsen-/Gesimsführung klar geplant werden kann. Dann lohnt Planung/Visualisierung.
 
-- Du willst eine halbhohe Lösung: **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**  
-- Du willst hoch / raumprägend: **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**  
-- Du brauchst Komponenten/Anschlüsse: **[Leisten](/wissen/de/produkte/leisten/)**  
-- Du suchst Referenzen: **[Lookbook](/wissen/de/lookbook/)**
+### Kann ich mit Leisten starten und später eine Vertäfelung ergänzen?
+Ja – wenn Profilfamilie und Sockel-/Abschlusslogik von Anfang an kompatibel gewählt werden.
 
-Für Varianten/Preise gehe anschließend in den Shop: **/de/**.
+### Muss ich Holzart und Oberfläche sofort festlegen?
+Nein. Zuerst Systemhöhe, Proportion und Anschlüsse. Holz/Oberfläche sind Varianten später.
+
+### Welche Infos brauche ich für eine erste Einschätzung?
+Wandlängen, Raumhöhe, Fotos (frontal + Details). Fensterbrüstungshöhen und Türbezüge beschleunigen die Proportionierung.
+
+### Was beeinflusst den Aufwand am stärksten?
+Anschlüsse und Untergrund, danach Detailgrad und Oberfläche.
+
+### Wo sehe ich Beispiele?
+Im **[Lookbook](/wissen/de/lookbook/)** sowie in den Kategorie- und Produktseiten als Referenz.
