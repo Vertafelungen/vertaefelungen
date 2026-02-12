@@ -1,6 +1,9 @@
 # build-and-deploy-wissen.yml
 # Vertäfelungen – Wissen (Hugo)
-# Version: 2026-01-23 12:37 CET
+# Version: 2026-02-12 19:45 CET
+#
+# CHANGELOG (2026-02-12):
+# - Debug: GUARD_DEBUG=1 im Step "Run public output guards" aktiviert (liefert raw/normalized hrefs im CI-Log).
 #
 # CHANGELOG (2026-01-23):
 # - Deploy-Fix: Dotfiles (insb. .htaccess) werden jetzt sicher mit ausgerollt.
@@ -106,6 +109,8 @@ jobs:
 
       - name: Run public output guards
         working-directory: ${{ github.workspace }}
+        env:
+          GUARD_DEBUG: "1"
         run: node wissen/scripts/guard_public_output.js
 
       - name: Post-build mojibake scan (public)
