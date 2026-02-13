@@ -125,3 +125,4 @@ Anschlüsse und Untergrund, danach Detailgrad und Oberfläche.
 
 ### Wo sehe ich Beispiele?
 Im **[Lookbook](/wissen/de/lookbook/)** sowie in den Kategorie- und Produktseiten als Referenz.
+<!-- marker: produkte-index-2026-02-13-0613 -->
