@@ -1,6 +1,20 @@
+{{/*
+  File: wissen/layouts/produkte/list.html
+  Version: 2026-02-13 06:20 CET
+
+  Change:
+  - Render .Content for section landing pages (e.g., /wissen/de/produkte/), before listing child pages.
+*/}}
+
 {{ define "main" }}
   {{ partial "components/hero.html" (dict "title" .Title "lead" .Params.lead) }}
   {{ partial "guardrails/ssot-empty-landing.html" (dict "page" .) }}
+
+  {{- with .Content -}}
+    <div class="prose">
+      {{ . }}
+    </div>
+  {{- end -}}
 
   {{- $pages := .Pages -}}
   {{- if gt (len $pages) 0 -}}
