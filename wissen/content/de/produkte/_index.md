@@ -18,12 +18,12 @@ menu:
 - Nutze die Kategorie-Einstiege unten und gehe erst danach in Varianten/Bestellung.
 
 Direkte Einstiege:
-- **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
-- **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
-- **[Leisten](/wissen/de/produkte/leisten/)** → **[Sockelleisten](/wissen/de/produkte/leisten/sockelleisten/)**
-- **[Öle & Farben](/wissen/de/produkte/oele-farben/)**
-- **[Lüftungsrosetten](/wissen/de/produkte/lueftungsrosetten/)**
-- **[Planung & Bestellung](/wissen/de/faq/beratung/)**
+- **[Halbhohe Vertäfelungen](/de/produkte/halbhohe-vertaefelungen/)**
+- **[Hohe Vertäfelungen](/de/produkte/hohe-vertaefelungen/)**
+- **[Leisten](/de/produkte/leisten/)**
+- **[Öle & Farben](/de/produkte/oele-farben/)**
+- **[Lüftungsrosetten](/de/produkte/lueftungsrosetten/)**
+- **[Planung & Bestellung](/de/faq/beratung/)**
 
 ## Praxis-Kontext: für wen, wann sinnvoll
 
