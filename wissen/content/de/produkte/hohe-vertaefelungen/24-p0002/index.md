@@ -3,10 +3,10 @@ title: P0002 - Hamburger Michel
 lang: de
 translationKey: '24'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '24'
-  artikelnummer: P0002
+  artikelnummer: '24'
   verfuegbar: true
   preis_basis: 1026.79
   varianten:
@@ -14,38 +14,65 @@ produkt:
     preis_aufschlag: 0.0
   - bezeichnung: Eiche, Bausatz
     preis_aufschlag: 731.57
-  bilder:
-  - datei: p0002-01.png
-    alt_de: Historische hohe Wandvertäfelung aus dem Foyer des Hamburger Michel Gesamtansicht mit Profilrahmen und Kassetten Höhe 2913 mm
-  - datei: p0002-02.png
-    alt_de: Historische hohe Wandvertäfelung aus dem Foyer des Hamburger Michel Eckansicht fachgerecht rekonstruiert für denkmalgerechte Innenausstattung
-  - datei: p0002-03.png
-    alt_de: Detailansicht der historischen hohen Wandvertäfelung aus dem Foyer des Hamburger Michel fachgerecht rekonstruiertes oberes Gesimsprofil mit aufwendiger Profilstaffelung
-  - datei: p0002-04.png
-    alt_de: Detailansicht der historischen hohen Wandvertäfelung aus dem Foyer des Hamburger Michel präzise rekonstruierte Kassettenfelder mit profilierten Rahmenleisten
-  - datei: p0002-05.png
-    alt_de: Detailansicht der historischen hohen Wandvertäfelung aus dem Foyer des Hamburger Michel fachgerecht rekonstruiertes Sockelprofil mit mehrstufiger Profilierung für denkmalgerechte Innenausstattung
-  - datei: p0002-06.png
-    alt_de: Detailansicht der historischen hohen Wandvertäfelung aus dem Foyer des Hamburger Michel fachgerecht rekonstruiertes oberes Abschlussgesims mit darunterliegenden Kassettenfeldern
-  - datei: p0002-07.png
-    alt_de: Detailansicht der historischen hohen Wandvertäfelung aus dem Foyer des Hamburger Michel fachgerecht rekonstruiertes Sockelfeld mit profiliertem oberen Abschluss und glatter Sockelfläche
-  - datei: p0002-08.png
-    alt_de: Außenansicht der Hauptkirche Sankt Michaelis in Hamburg barocke Fassade mit Turm Ursprung der historischen Wandvertäfelung im Foyer
-  - datei: p0002-09.png
-    alt_de: Originale hohe Wandvertäfelung im Foyer der Hauptkirche Sankt Michaelis in Hamburg dunkles Holz mit Kassettenfeldern und profilierter Rahmung denkmalgeschütztes Interieur
-  - datei: p0002-10.png
-    alt_de: Originale hohe Wandvertäfelung im Foyer der Hauptkirche Sankt Michaelis in Hamburg dunkles Holz mit vertikalen Pilastern und fein gearbeiteten Kassettenfeldern denkmalgerechtes Interieur
-  - datei: p0002-11.png
-    alt_de: Originale hohe Wandvertäfelung im Foyer der Hauptkirche Sankt Michaelis in Hamburg Detail des oberen Abschlussgesimses aus dunklem Holz mit feiner Profilstaffelung
-  - datei: p0002-12.png
-    alt_de: Originale hohe Wandvertäfelung im Foyer der Hauptkirche Sankt Michaelis in Hamburg Detail des Sockelprofils aus dunklem Holz seitliche Ansicht mit mehrstufiger Profilierung
-  - datei: p0002-13.png
-    alt_de: Originale hohe Wandvertäfelung im Foyer der Hauptkirche Sankt Michaelis in Hamburg Detail des Sockelbereichs mit profiliertem Abschluss und Anschluss an Natursteintreppe
+  bilder: []
 seo:
   title: Vertäfelung Hamburger Michel
   description: Vertäfelung „Hamburger Michel" - hohe Wandvertäfelung nach historischem Vorbild. Als Bausatz in Kiefer. Perfekt für stilechtes Interieur.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/hohe-vertaefelungen/24-hamburger-michel.html
+  source_shop: ''
 ---
-Die Turmhalle des Michels ist mit einer knapp 3 Meter hohen Eichenvertäfelung ausgestattet, die aus der Zeit des Wiederaufbaus von 1906-1912 stammt. Die vertikale Kassettierung zieht sich um den ganzen Raum und schafft eine klare, unaufdringliche Gliederung. Die Vertäfelung besteht aus einem deutlichen Sockel- und Kopfbereich mit einer 2-reihigen, senkrecht stehenden Kassettierung, die sich gut an individuelle Raummaße anpassen lässt. Wir fertigen die Vertäfelung originalgetreu in Eiche und auch in Kiefer.
+## Kurzantwort
+
+- P0002 - Hamburger Michel ist für klassische Innenräume mit klarer Linienführung gedacht.
+- Das Profil unterstützt saubere Übergänge zwischen Wandfeldern und Leisten.
+- Geeignet für Renovierung und Neubau, wenn ein ruhiger, hochwertiger Abschluss gewünscht ist.
+- Die Ausführung wird auf Raumproportion, Bestand und gewünschte Wirkung abgestimmt.
+
+## Praxis-Kontext
+
+In der Praxis wird P0002 - Hamburger Michel meist in Projekten eingesetzt, in denen historische Anmutung und alltagstaugliche Ausführung kombiniert werden sollen. Vor Ort sind Wandzustand, Anschlusspunkte und spätere Nutzung die wichtigsten Planungsfaktoren.
+
+## Entscheidung & Varianten
+
+Typische Varianten betreffen Profilhöhe, Übergänge an Ecken und den Verbund mit Sockel- oder Wandleisten. Für stimmige Ergebnisse werden Muster und Referenzdetails früh abgestimmt.
+
+## Ablauf & Planung
+
+Der Ablauf startet mit Aufmaß und Fotodokumentation, danach folgen Profilwahl, Abstimmung der Anschlüsse und ein belastbarer Montageplan. Nach der Vorbereitung werden die Elemente passgenau gesetzt und die Oberfläche für den Endanstrich vorbereitet.
+
+## Kostenlogik
+
+Die Kostenlogik hängt vor allem von Geometrie, Untergrundvorbereitung, Detailgrad und Montageaufwand ab. Zusätzliche Arbeitsschritte wie Altbauanpassungen oder Sonderanschlüsse erhöhen den Aufwand planbar.
+
+## Häufige Fehler & Vermeidung
+
+Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetails und fehlende Abstimmung mit angrenzenden Gewerken. Vermeidung: frühe Klärung von Raster, Anschlüssen und Oberflächenaufbau.
+
+## Verweise
+
+- Planungshilfe: /de/beratung/planung
+- Montagehinweise: /de/beratung/montage
+- Passende Produktübersicht: /produkte/hohe-vertaefelungen
+
+## FAQ
+
+### Wofür eignet sich dieses Produkt am besten?
+
+P0002 - Hamburger Michel eignet sich für Innenräume mit klarer Gliederung, wenn eine hochwertige und ruhige Wandgestaltung gewünscht ist.
+
+### Welche Punkte sollten vor der Auswahl geprüft werden?
+
+Wichtig sind Untergrund, Anschlussdetails, Raumproportionen und die Abstimmung mit angrenzenden Bauteilen.
+
+### Wie läuft die Planung typischerweise ab?
+
+Der übliche Ablauf ist Aufmaß, Variantenabgleich, Detailklärung und danach die Freigabe für Fertigung bzw. Montage.
+
+### Wodurch wird der Aufwand beeinflusst?
+
+Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglichkeit der Flächen ab.
+
+### Wo finde ich passende Planungsinformationen?
+
+Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.

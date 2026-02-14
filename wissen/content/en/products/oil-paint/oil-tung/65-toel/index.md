@@ -3,10 +3,10 @@ title: Tung oil varnish
 lang: en
 translationKey: '65'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '65'
-  artikelnummer: TOEL
+  artikelnummer: '65'
   verfuegbar: true
   preis_basis: 22.69
   varianten:
@@ -18,15 +18,13 @@ produkt:
     preis_aufschlag: 178.99
   - bezeichnung: 20 Liter
     preis_aufschlag: 355.46
-  bilder:
-  - datei: toel.png
-    alt_en: Tung wood oil varnish 1 liter tung oil varnish linseed interior exterior UV-resistant quick-drying hard-dry oil final varnish
+  bilder: []
 seo:
   title: Tung oil varnish
   description: 7Tung oil natural - pure, hardening wood oil for high-stress surfaces. Solvent-free, weather-resistant, deep-penetrating. Suitable for in- & outdoor use.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/en/leinoel-tungoel-balsam/65-332-tung-oil-natural.html#/63-gebinde-1_liter
+  source_shop: ''
 ---
 Tung oil boiled with linseed oil, linseed oil stand oil and siccatives.
 

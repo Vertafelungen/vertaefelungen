@@ -4,10 +4,10 @@ aliases:
 title: Schwarz - BEECK Standölinnenfarbe PRO
 translationKey: '98'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '98'
-  artikelnummer: SCHWARZ
+  artikelnummer: '98'
   verfuegbar: true
   preis_basis: 57.15
   varianten:
@@ -23,19 +23,13 @@ produkt:
     preis_aufschlag: 556.35
   - bezeichnung: 10 L, seidenglanz
     preis_aufschlag: 556.35
-  bilder:
-  - datei: schwarz.png
-    alt_de: BEECK Standölinnenfarbe PRO Schwarz seidenmatt Leinölfarbe deckend Innenbereich Holzlackierung denkmalgerecht tiefschwarz
-  - datei: schwarz-farbfaecher.png
-    alt_de: ''
-  - datei: sip_gebinde.png
-    alt_de: ''
+  bilder: []
 seo:
   title: Standölfarbe Schwarz, deckend, für Holz im Innenbereich
   description: Beeck Standölinnenfarbe Pro ist eine reine Leinölfarbe für professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/98-389-schwarz.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt
+  source_shop: ''
 lang: de
 ---
 BEECK Standölinnenfarbe PRO

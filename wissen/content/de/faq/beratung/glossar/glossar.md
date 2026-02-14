@@ -7,3 +7,11 @@ robots: "noindex,follow"
 # Glossar
 
 Inhalt folgt.
+
+## FAQ
+
+### glossar
+
+# Glossar
+
+Inhalt folgt.

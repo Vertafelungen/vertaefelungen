@@ -1,7 +1,9 @@
-﻿---
-version: 2026-01-17 14:37 UTC
+---
+version: 2026-02-14 19:24 UTC
 managed_by: categories.csv
-last_synced: 2026-01-17 14:37 UTC
+last_synced: 2026-02-14 19:24 UTC
+lastmod: 2026-02-14 19:24 UTC
+lang: de
 translationKey: oil-paints-root
 title: Öle & Farben
 description: Öle, Farben und Oberflächensysteme für historische Holzoberflächen - mit Fokus auf kompatible Materialien, handwerkliche Verarbeitung und Denkmalpflege.
@@ -29,4 +31,38 @@ cascade:
   seo:
     robots: index,follow
 ---
-Öle und Farben bestimmen nicht nur den Farbton, sondern auch Diffusionsverhalten, Haptik, Reparaturfähigkeit und langfristige Alterung.\n\n## Unterkategorien\n- **Leinöl, Tung, Balsam** - klassische Öle/Harze für Holzschutz, Grundierung und Pflege.\n- **Standöl / Ölfarben** - robuste, diffusionsoffene Anstriche (z. B. pigmentierte Systeme).\n\nWähle eine Unterkategorie, um passende Produkte, Varianten und Anwendungshinweise zu sehen. Weitere Informationen zu Varianten und Preisen findest du im [Shop]({{< relref "shop/_index.md" >}}).
+Öle und Farben bestimmen nicht nur den Farbton, sondern auch Diffusionsverhalten, Haptik, Reparaturfähigkeit und langfristige Alterung.\n\n## Unterkategorien\n- **Leinöl, Tung, Balsam** - klassische Öle/Harze für Holzschutz, Grundierung und Pflege.\n- **Standöl / Ölfarben** - robuste, diffusionsoffene Anstriche (z. B. pigmentierte Systeme).\n\nWähle eine Unterkategorie, um passende Produkte, Varianten und Anwendungshinweise zu sehen.
+
+## FAQ
+
+### Wann nutze ich Öl statt deckender Farbe?
+
+Wenn Holzstruktur sichtbar bleiben soll und eine natürliche Oberfläche gewünscht ist.
+
+### Warum sind Musterflächen wichtig?
+
+Sie zeigen realistisch Farbwirkung, Glanzgrad und Verhalten auf dem konkreten Untergrund.
+
+### Was bedeutet systemgerechter Aufbau?
+
+Grundierung, Zwischen- und Schlussbeschichtung sind materialseitig aufeinander abgestimmt.
+
+### Wie beeinflusst der Untergrund die Auswahl?
+
+Saugfähigkeit, Altbeschichtung und Zustand bestimmen Vorbereitung und Produktauswahl.
+
+### Kann ich verschiedene Hersteller im Aufbau mischen?
+
+Das sollte nur nach technischer Prüfung erfolgen, um Haftungs- und Trocknungsprobleme zu vermeiden.
+
+### Welche Rolle spielen Trocknungszeiten?
+
+Sie sind zentral für Haltbarkeit und Oberflächenqualität und sollten nicht verkürzt werden.
+
+### Was sind häufige Planungsfehler?
+
+Unklare Schichtfolge, fehlende Musterfreigabe und zu spätes Abstimmen mit anderen Gewerken.
+
+### Wo finde ich passende Produktgruppen?
+
+Ein Überblick steht unter /de/produkte/oele-farben/beeck/.

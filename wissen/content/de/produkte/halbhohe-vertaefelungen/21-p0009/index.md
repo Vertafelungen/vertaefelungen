@@ -3,10 +3,10 @@ title: P0009 - Nadelstreif & Zierstab
 lang: de
 translationKey: '21'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '21'
-  artikelnummer: P0009
+  artikelnummer: '21'
   verfuegbar: true
   preis_basis: 443.1
   varianten:
@@ -50,38 +50,65 @@ produkt:
     preis_aufschlag: 107.64
   - bezeichnung: Halbhoch  - 147 cm, Kerbstab, Eiche
     preis_aufschlag: 457.64
-  bilder:
-  - datei: p0009-1-1-1-a.png
-    alt_de: Frontalansicht Vertäfelung P0009 „Nadelstreif-Paneel" 1220 mm hoch mit glatten Paneelen senkrechten Deckleisten profiliertem Gesims und Sockelleiste
-  - datei: p0009-1-1-1-b.png
-    alt_de: Detailansicht Vertäfelung P0009 „Nadelstreif-Paneel" obere Zone mit glatten Paneelen senkrechten Deckleisten und profiliertem Gesims
-  - datei: p0009-1-1-1-c.png
-    alt_de: Detailansicht Vertäfelung P0009 „Nadelstreif-Paneel" untere Zone mit glatten Paneelen senkrechten Deckleisten und kräftiger Sockelleiste
-  - datei: p0009-1-1-1-d.png
-    alt_de: Perspektivansicht Vertäfelung P0009 „Nadelstreif-Paneel" mit senkrechten Deckleisten profiliertem oberen Abschluss und kräftiger Sockelleiste über Eck ausgeführt
-  - datei: p0009-1-1-1-e.png
-    alt_de: Raumansicht Vertäfelung P0009 Nadelstreif halbhoch mit Dreikantstab in Kiefer über Eck montiert
-  - datei: p0009-1-1-2.png
-    alt_de: Halbhohe Vertäfelung P0009 Nadelstreif mit Dreikantstab Ausführung in Eiche Höhe 1220 mm
-  - datei: p0009-1-1.png
-    alt_de: Detailansicht P0009 Nadelstreif-Vertäfelung halbhoch Kiefer mit charakteristischem Dreikantstab Profil
-  - datei: p0009-1-3.png
-    alt_de: Halbhohe Vertäfelung P0009 Nadelstreif mit Flachstab aus Kiefer für stilvolle Altbau Innenräume
-  - datei: p0009-1-5.png
-    alt_de: Halbhohe Vertäfelung P0009 Nadelstreif mit Hohlkehlstab aus Kiefer 1220 mm hoch für stilvolle Altbau Räume
-  - datei: p0009-1-7.png
-    alt_de: Halbhohe Vertäfelung P0009 Nadelstreif mit Rundstab 1220 mm hoch klassische Holzvertäfelung für Altbau
-  - datei: p0009-1-9.png
-    alt_de: Halbhohe Vertäfelung P0009 Nadelstreif mit Kerbstab traditionelle Holzvertäfelung und Wunschhöhe
-  - datei: p0009-2-1-1.png
-    alt_de: Hohe Vertäfelung P0009 Nadelstreif mit profiliertem Gesims 1470 mm klassische Wandvertäfelung mit Sockel
-  - datei: p0009-2-1-2.png
-    alt_de: Brusthohe Vertäfelung P0009 Nadelstreif Kiefernholz 1470 mm mit hohem Kopfprofil und klassischem Sockel
+  bilder: []
 seo:
   title: Nadelstreif und Zierleiste
   description: Halbhohes Nadelstreifpaneel mit separaten Federn - klassische Wandvertäfelung im Bausatz aus Kiefernholz. Ideal für Altbau, Bad und stilvolle Interieurs.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/halbhohe-vertaefelungen/21-79-nadelstreif-paneel-mit-separaten-federn.html#/40-stabe-dreikantstab/42-bauform-halbhoch_122_cm/47-holzart-kiefer
+  source_shop: ''
 ---
-Was wir salop als "Nadelstreif" bezeichnen, ist die Kombination von Brett und Zierleiste. Beides sind separate Elemente, die sich mit Nut und Feder verbinden und im Wechsel aneinander reihen. Das Besondere ist, dass es unterschiedliche Zierleisten gibt, die zur Auswahl stehen. Eine klassische Vertäfelung, die sich für Hotellerie und Bauernhaus gleichermaßen eignet. Die Vertäfelung kann pro Laufmeter bestellt werden. Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es für einen farbigen Anstrich vorbereitet werden.
+## Kurzantwort
+
+- P0009 - Nadelstreif & Zierstab ist für klassische Innenräume mit klarer Linienführung gedacht.
+- Das Profil unterstützt saubere Übergänge zwischen Wandfeldern und Leisten.
+- Geeignet für Renovierung und Neubau, wenn ein ruhiger, hochwertiger Abschluss gewünscht ist.
+- Die Ausführung wird auf Raumproportion, Bestand und gewünschte Wirkung abgestimmt.
+
+## Praxis-Kontext
+
+In der Praxis wird P0009 - Nadelstreif & Zierstab meist in Projekten eingesetzt, in denen historische Anmutung und alltagstaugliche Ausführung kombiniert werden sollen. Vor Ort sind Wandzustand, Anschlusspunkte und spätere Nutzung die wichtigsten Planungsfaktoren.
+
+## Entscheidung & Varianten
+
+Typische Varianten betreffen Profilhöhe, Übergänge an Ecken und den Verbund mit Sockel- oder Wandleisten. Für stimmige Ergebnisse werden Muster und Referenzdetails früh abgestimmt.
+
+## Ablauf & Planung
+
+Der Ablauf startet mit Aufmaß und Fotodokumentation, danach folgen Profilwahl, Abstimmung der Anschlüsse und ein belastbarer Montageplan. Nach der Vorbereitung werden die Elemente passgenau gesetzt und die Oberfläche für den Endanstrich vorbereitet.
+
+## Kostenlogik
+
+Die Kostenlogik hängt vor allem von Geometrie, Untergrundvorbereitung, Detailgrad und Montageaufwand ab. Zusätzliche Arbeitsschritte wie Altbauanpassungen oder Sonderanschlüsse erhöhen den Aufwand planbar.
+
+## Häufige Fehler & Vermeidung
+
+Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetails und fehlende Abstimmung mit angrenzenden Gewerken. Vermeidung: frühe Klärung von Raster, Anschlüssen und Oberflächenaufbau.
+
+## Verweise
+
+- Planungshilfe: /de/beratung/planung
+- Montagehinweise: /de/beratung/montage
+- Passende Produktübersicht: /produkte/halbhohe-vertaefelungen
+
+## FAQ
+
+### Wofür eignet sich dieses Produkt am besten?
+
+P0009 - Nadelstreif & Zierstab eignet sich für Innenräume mit klarer Gliederung, wenn eine hochwertige und ruhige Wandgestaltung gewünscht ist.
+
+### Welche Punkte sollten vor der Auswahl geprüft werden?
+
+Wichtig sind Untergrund, Anschlussdetails, Raumproportionen und die Abstimmung mit angrenzenden Bauteilen.
+
+### Wie läuft die Planung typischerweise ab?
+
+Der übliche Ablauf ist Aufmaß, Variantenabgleich, Detailklärung und danach die Freigabe für Fertigung bzw. Montage.
+
+### Wodurch wird der Aufwand beeinflusst?
+
+Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglichkeit der Flächen ab.
+
+### Wo finde ich passende Planungsinformationen?
+
+Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.

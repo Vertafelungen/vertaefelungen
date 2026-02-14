@@ -3,10 +3,10 @@ title: White - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '94'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '94'
-  artikelnummer: WEISS
+  artikelnummer: '94'
   verfuegbar: true
   preis_basis: 41.5
   varianten:
@@ -22,19 +22,13 @@ produkt:
     preis_aufschlag: 467.0
   - bezeichnung: 10 L, seidenglanz
     preis_aufschlag: 467.0
-  bilder:
-  - datei: weiss.png
-    alt_en: BEECK linseed interior paint PRO white semi-matte linseed paint opaque interior wood coating heritage
-  - datei: weiss-farbfaecher.png
-    alt_en: ''
-  - datei: sip_gebinde.png
-    alt_en: ''
+  bilder: []
 seo:
   title: White Interior Stand-Oil Paint PRO from BEECK
   description: Beeck Interior Stand-Oil Paint Pro is a highly pigmented linseed oil paint for the preservation of listed buildings / restoration of wooden objects and paneling
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/en/standoelinnenfarbe-pro/94-383-white.html#/68-beeck_innen_pro-075_l/71-glanzstufe-satin
+  source_shop: ''
 ---
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.

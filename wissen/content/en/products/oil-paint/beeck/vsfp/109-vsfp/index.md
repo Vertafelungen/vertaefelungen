@@ -3,10 +3,10 @@ title: BEECK Undercoat PRO
 lang: en
 translationKey: '109'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '109'
-  artikelnummer: VSFP
+  artikelnummer: '109'
   verfuegbar: true
   preis_basis: 30.6
   varianten:
@@ -16,15 +16,13 @@ produkt:
     preis_aufschlag: 66.4
   - bezeichnung: 10 L
     preis_aufschlag: 341.1
-  bilder:
-  - datei: vsfp.png
-    alt_en: BEECK primer paint PRO white matt oil based undercoat bonding ground for linseed oil paints wood metal indoor outdoor
+  bilder: []
 seo:
   title: White, matt oil varnish for professional priming coats on wood
   description: BEECK Undercoat Pro, opaque white, filling, fast-drying primer for wood indoors and exterior
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/en/45-vorstreichfarbe
+  source_shop: ''
 ---
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.

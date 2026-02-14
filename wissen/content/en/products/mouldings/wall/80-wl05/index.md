@@ -3,10 +3,10 @@ title: Wall Moulding 05
 lang: en
 translationKey: '80'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '80'
-  artikelnummer: WL05
+  artikelnummer: '80'
   verfuegbar: true
   preis_basis: 16.6
   varianten:
@@ -14,18 +14,44 @@ produkt:
     preis_aufschlag: 0.0
   - bezeichnung: White Wood
     preis_aufschlag: 5.48
-  bilder:
-  - datei: wl05.png
-    alt_en: Wall molding WL05 high wave asymmetric half-round pine wood 20x40mm panel molding central
+  bilder: []
 seo:
   title: Wall Moulding 05
   description: '"High Wave" - Solid wooden strip 20 x 40 mm, non-symmetrical profile with a central semicircular bar. Available in pine or whitewood, other wood.'
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/en/wall-mouldings/80-347-wl-01.html#/66-type_of_wood_wl-pine
+  source_shop: ''
 ---
-"High Wave" - Solid wooden strip 20 x 40 mm, non-symmetrical profile with a central semicircular bar.
-Available in pine or whitewood, other wood species available upon request.
+## Quick answer
 
-As a wall strip for direct installation on the plastered wall.
-This strip can be used to create frames or panels that can be used to divide and partition large wall surfaces.
+- Wall Moulding 05 is a profiled wall moulding for classic interior wall articulation.
+- Suitable for period-home renovation, classic new builds, and accent walls.
+- Visual quality depends on proportions, panel layout, and clean transitions to doors/skirting.
+- Profile depth and room dimensions should be coordinated early in planning.
+
+## Practical context
+
+In practice, this moulding is usually part of a panel grid: first define height lines and axes, then distribute wall panels. This approach helps visually calm uneven existing walls. In heritage-led projects, matching door and skirting profiles is especially important.
+
+## Decisions & variants
+
+Common variants range from restrained, shallow profiles for calm rooms to more articulated profiles for representative spaces. Another decision is whether the moulding is only used as a horizontal break line or as a full vertical-and-horizontal panel system.
+
+## Process & planning
+
+Typical workflow: survey existing conditions, choose profile, agree panel layout, prepare material, install, then apply primer and finish system. Transitions to architraves and skirting are checked before final fixing.
+
+## Cost logic
+
+Cost logic is driven by profile geometry, linear meters, number of miters, substrate preparation, and finish build-up. Complex room geometries and many transitions increase installation effort.
+
+## Common mistakes & how to avoid them
+
+Frequent mistakes include inconsistent panel spacing, mismatched profile heights, and underplanned corners/transitions. Avoid these issues with a clear layout plan, sample fields, and early coordination at doors, skirting, and ceiling interfaces.
+
+## References
+
+- /en/products/mouldings/wall-mouldings/
+- /en/products/mouldings/skirting-boards/
+- /en/products/mouldings/door-architraves/
+- /en/faq/consulting/
