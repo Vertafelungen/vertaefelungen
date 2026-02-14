@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 SSOT → Hugo Page Bundles (mit Produktdaten, Varianten, Bildern, SEO)
-Version: 2025-12-27 18:59 Europe/Berlin
+Version: 2026-02-14 18:40 Europe/Berlin
 
 Dieses Skript baut/aktualisiert alle Produktseiten unter:
   wissen/content/de/…  und  wissen/content/en/…
@@ -18,8 +18,8 @@ Es macht konkret:
     seo:     { title, description, tags }
     refs:    { source_shop }
     aliases: (alte URLs, falls Bundle verschoben)
-- Schreibt die Produktbeschreibung aus der SSOT als Markdown-Body
-- Erzeugt/aktualisiert Kategorie-_index.md für jede export_pfad_* (Landingpages)
+- Schreibt den Produkt-Body deterministisch aus SSOT body_* Abschnittsfeldern (Fallback: beschreibung_md_de/en)
+- Kategorie-Seiten (_index.md) werden NICHT mehr hier erzeugt; dafür ist categories_sync.py (categories.csv) zuständig.
 
 Preis-Handling für Varianten:
 - alte Schreibweise in SSOT: preis_aufschlag: 102350000   → bedeutet 102,35 €
@@ -122,107 +122,133 @@ def parse_varianten_yaml(txt: str):
     except Exception:
         return []
 
-def normalize_preis_value(raw_val):
+def normalize_preis_aufschlag(v):
     """
-    Macht aus preis_aufschlag einen float in Euro.
-    Fälle:
-      - "102.35"      → 102.35
-      - "102,35"      → 102.35
-      - 102350000     → 102.35 (alte SSOT-Logik: Mikro-Euro / *1e6)
-      - 365780000     → 365.78
-    Heuristik:
-      - Wenn der Wert sehr groß ist (>= 100000), interpretieren wir ihn als mikro-€ (divide by 1_000_000).
-      - Sonst normal float().
+    Normalisiert preis_aufschlag:
+      - int-like 102350000 => 102.35
+      - float/string "102.35" => 102.35
     """
-    if raw_val is None:
+    if v is None:
         return None
+    if isinstance(v, (int,)):
+        # legacy: cents * 1e6? (wie im alten Skript)
+        # robuste Annahme: 102350000 => 102.35
+        return round(v / 1_000_000.0, 2)
+    if isinstance(v, float):
+        return round(v, 2)
+    if isinstance(v, str):
+        vv = v.strip().replace(",", ".")
+        try:
+            f = float(vv)
+            # Heuristik: sehr große Zahlen als legacy
+            if f > 100_000:
+                return round(f / 1_000_000.0, 2)
+            return round(f, 2)
+        except Exception:
+            return None
+    return None
 
-    # Wenn's schon ein echter number-Typ ist:
-    if isinstance(raw_val, (int, float)):
-        num = float(raw_val)
-        if num >= 100000:
-            return round(num / 1_000_000.0, 2)
-        return round(num, 2)
-
-    # Falls String:
-    s = str(raw_val).strip()
-    if not s:
-        return None
-
-    # Währungsreste und Komma → Punkt
-    s_clean = (
-        s.replace("€","")
-         .replace("eur","")
-         .replace("EUR","")
-         .replace(",", ".")
-         .strip()
-    )
-
-    # Versuchen, erst als int → dann ggf. teilen
-    try:
-        as_int = int(s_clean)
-        if as_int >= 100000:
-            return round(as_int / 1_000_000.0, 2)
-        return round(float(as_int), 2)
-    except ValueError:
-        pass
-
-    # Dann als float
-    try:
-        as_float = float(s_clean)
-        if as_float >= 100000:
-            return round(as_float / 1_000_000.0, 2)
-        return round(as_float, 2)
-    except ValueError:
-        return None
-
-def normalize_variant_prices(variants):
-    """
-    Läuft über die Varianten-Liste und wandelt preis_aufschlag ins neue Schema.
-    Beispiel in der SSOT:
-      - bezeichnung: "Eiche, Bausatz"
-        preis_aufschlag: 365780000   # => 365.78
-    Ziel:
-      preis_aufschlag: 365.78
-    """
+def normalize_varianten(vlist: List[Dict]) -> List[Dict]:
     out = []
-    for v in variants:
-        if isinstance(v, dict):
-            vv = dict(v)
-            if "preis_aufschlag" in vv:
-                vv["preis_aufschlag"] = normalize_preis_value(vv.get("preis_aufschlag"))
-            out.append(vv)
-        else:
-            # Falls irgendein Altformat kein Dict ist
-            out.append(v)
+    for v in vlist or []:
+        if not isinstance(v, dict):
+            continue
+        vv = dict(v)
+        if "preis_aufschlag" in vv:
+            vv["preis_aufschlag"] = normalize_preis_aufschlag(vv.get("preis_aufschlag"))
+        out.append(vv)
     return out
 
 
 # ---------- Frontmatter / Markdown ----------
 
-def read_frontmatter_and_body(p: Path) -> Tuple[Dict, str]:
-    if not p.exists():
+def read_frontmatter_and_body(md_path: Path) -> Tuple[Dict, str]:
+    if not md_path.exists():
         return {}, ""
-    txt = p.read_text(encoding="utf-8", errors="replace")
-    if txt.startswith("---"):
-        parts = txt.split("\n---", 1)
-        if len(parts) == 2:
-            fm_raw = parts[0][3:]
-            body = parts[1].lstrip("\n")
+    txt = md_path.read_text(encoding="utf-8", errors="replace")
+    if txt.startswith("---\n"):
+        end = txt.find("\n---\n", 4)
+        if end != -1:
+            fm_raw = txt[4:end]
+            body = txt[end + len("\n---\n"):]
             try:
                 fm = yaml.load(fm_raw) or {}
                 if not isinstance(fm, dict):
                     fm = {}
             except Exception:
                 fm = {}
-            return fm, body
+            return fm, body.lstrip("\n")
     return {}, txt
 
 def dump_frontmatter(fm: Dict) -> str:
-    from io import StringIO
-    s = StringIO()
+    s = io.StringIO()
     yaml.dump(fm, s)
     return "---\n" + s.getvalue().rstrip() + "\n---\n"
+
+
+def rewrite_internal_links(text: str) -> str:
+    """
+    Enforce rule: no /wissen/... links inside Markdown body content.
+    - https://www.vertaefelungen.de/wissen/de/... -> /de/...
+    - /wissen/de/... -> /de/...
+    Same for EN.
+
+    Note: This does NOT change frontmatter URLs like aliases; it only normalizes body text.
+    """
+    if not text:
+        return text
+    t = text
+    t = re.sub(r"https?://www\.vertaefelungen\.de/wissen/de/", "/de/", t, flags=re.IGNORECASE)
+    t = re.sub(r"https?://www\.vertaefelungen\.de/wissen/en/", "/en/", t, flags=re.IGNORECASE)
+    t = t.replace("](/wissen/de/", "](/de/").replace("](/wissen/en/", "](/en/")
+    t = t.replace("(/wissen/de/", "(/de/").replace("(/wissen/en/", "(/en/")
+    t = t.replace("/wissen/de/", "/de/").replace("/wissen/en/", "/en/")
+    return t
+
+
+def build_structured_body(lang: str, row: Dict[str, str], legacy_fallback: str) -> str:
+    """
+    Build deterministic body (without FAQ) from section fields in SSOT.csv.
+    If no section fields are present, fall back to legacy_fallback (e.g. beschreibung_md_de/en).
+    """
+    lang = (lang or "").strip().lower()
+
+    if lang == "de":
+        parts = [
+            ("## Kurzantwort", clean(row.get("body_de_kurzantwort"))),
+            ("## Praxis-Kontext", clean(row.get("body_de_praxis"))),
+            ("## Entscheidung & Varianten", clean(row.get("body_de_varianten"))),
+            ("## Ablauf & Planung", clean(row.get("body_de_ablauf"))),
+            ("## Kostenlogik", clean(row.get("body_de_kosten"))),
+            ("## Häufige Fehler & Vermeidung", clean(row.get("body_de_fehler"))),
+            ("## Verweise", clean(row.get("body_de_verweise"))),
+        ]
+    else:
+        parts = [
+            ("## Quick answer", clean(row.get("body_en_kurzantwort"))),
+            ("## Practical context", clean(row.get("body_en_praxis"))),
+            ("## Decisions & variants", clean(row.get("body_en_varianten"))),
+            ("## Process & planning", clean(row.get("body_en_ablauf"))),
+            ("## Cost logic", clean(row.get("body_en_kosten"))),
+            ("## Common mistakes & how to avoid them", clean(row.get("body_en_fehler"))),
+            ("## References", clean(row.get("body_en_verweise"))),
+        ]
+
+    any_new = any(v for _, v in parts)
+    if not any_new:
+        return rewrite_internal_links((legacy_fallback or "").strip()) + ("\n" if (legacy_fallback or "").strip() else "")
+
+    out: List[str] = []
+    for h, txt in parts:
+        if not txt:
+            continue
+        out.append(h)
+        out.append("")
+        out.append(rewrite_internal_links(txt))
+        out.append("")
+
+    return "\n".join(out).rstrip() + "\n"
+
 
 def merge_frontmatter(existing: Dict, updates: Dict) -> Dict:
     """
@@ -401,24 +427,6 @@ def get_pk(row: Dict[str,str]) -> str:
             return t
     return ""
 
-def derive_category_title(raw_label: str, path_segment: str) -> str:
-    """
-    raw_label z. B. "Artikel, Halbhohe Vertäfelungen"
-    Wir nehmen den Teil nach dem ersten Komma.
-    Fallback: hübsch formatierter Ordnername.
-    """
-    label = clean(raw_label)
-    if label:
-        parts = [p.strip() for p in label.split(",", 1)]
-        if len(parts) == 2 and parts[1]:
-            return parts[1]
-        if parts[0]:
-            return parts[0]
-
-    seg = path_segment.replace("-", " ").replace("_", " ").strip()
-    seg = " ".join([w.capitalize() for w in seg.split()])
-    return seg or path_segment
-
 
 # ---------- Main ----------
 
@@ -453,10 +461,6 @@ def main():
 
     last_synced_str = datetime.utcnow().strftime("%Y-%m-%d")
 
-    # Kategorie-Infos sammeln (für spätere _index.md)
-    category_de_info: Dict[str, Dict] = {}
-    category_en_info: Dict[str, Dict] = {}
-
     for r in rows:
         pk = get_pk(r)
         if not pk:
@@ -472,6 +476,10 @@ def main():
         beschr_de = clean(r.get("beschreibung_md_de"))
         beschr_en = clean(r.get("beschreibung_md_en"))
 
+        # Neuer, strukturierter Body (ohne FAQ). Falls keine body_* Felder vorhanden sind, nutzen wir die Legacy-Beschreibung.
+        body_de = build_structured_body("de", r, beschr_de)
+        body_en = build_structured_body("en", r, beschr_en)
+
         meta_title_de = clean(r.get("meta_title_de"))
         meta_desc_de  = clean(r.get("meta_description_de"))
         meta_title_en = clean(r.get("meta_title_en"))
@@ -483,119 +491,78 @@ def main():
         verf_bool = parse_bool(verfuegbar_raw)
         preis_val = parse_float(price_raw)
 
-        # Varianten aus YAML lesen und Preise normalisieren
-        varianten_raw_list = parse_varianten_yaml(r.get("varianten_yaml"))
-        varianten_list = normalize_variant_prices(varianten_raw_list)
+        # Varianten
+        varianten_list = normalize_varianten(parse_varianten_yaml(r.get("varianten_yaml")))
 
-        # Bilder + Alttexte (gleiche Reihenfolge)
-        bilder_raw      = clean(r.get("bilder_liste") or "")
-        bilder_names    = [b.strip() for b in re.split(r"[,\n;]", bilder_raw) if b.strip()]
+        # Exportpfade (Zielordner)
+        export_de = clean(r.get("export_pfad_de"))
+        export_en = clean(r.get("export_pfad_en"))
+        if not export_de or not export_en:
+            skipped.append(f"{pk}: missing export_pfad_de/en")
+            continue
 
+        export_de_norm = export_de.strip().strip("/").lower()
+        export_en_norm = export_en.strip().strip("/").lower()
+
+        # Ziel-Bundles bestimmen: <exportpfad>/<pk>-<slug>/
+        bundle_de = de_root / export_de_norm / f"{pk}-{slug_de}"
+        bundle_en = en_root / export_en_norm / f"{pk}-{slug_en}"
+
+        # Moved? (alte Bundles finden)
+        old_de = find_existing_bundles(de_root, pk)
+        old_en = find_existing_bundles(en_root, pk)
+        alias_de = []
+        alias_en = []
+
+        # Wenn altes Bundle != neues Bundle, dann Alias setzen
+        for ob in old_de:
+            if ob.resolve() != bundle_de.resolve():
+                alias_de.append(bundle_url(de_root, ob))
+                moved.append(f"DE: {ob} -> {bundle_de}")
+        for ob in old_en:
+            if ob.resolve() != bundle_en.resolve():
+                alias_en.append(bundle_url(en_root, ob))
+                moved.append(f"EN: {ob} -> {bundle_en}")
+
+        # Bilder: zentrale Bildquelle -> Bundle kopieren (nur die in SSOT referenzierten)
+        bilder_names = split_multi_list(r.get("bilder"))
         bilder_alt_de_l = split_multi_list(r.get("bilder_alt_de"))
         bilder_alt_en_l = split_multi_list(r.get("bilder_alt_en"))
 
-        src_shop_de = clean(r.get("source_de") or r.get("link_shop_de"))
-        src_shop_en = clean(r.get("source_en") or r.get("link_shop_en"))
+        # final img names in bundle (re-using existing variant if already there)
+        final_img_names: List[str] = []
+        for i, name in enumerate(bilder_names):
+            if not name:
+                continue
+            # existiert im Bundle schon (unter Variantennamen)?
+            ex_de = existing_variant_in_bundle(bundle_de, name)
+            ex_en = existing_variant_in_bundle(bundle_en, name)
+            if ex_de:
+                final_img_names.append(ex_de)
+                continue
+            if ex_en:
+                final_img_names.append(ex_en)
+                continue
 
-        exp_de = clean(r.get("export_pfad_de"))
-        exp_en = clean(r.get("export_pfad_en"))
-        if not exp_de or not exp_en:
-            skipped.append(f"{pk}: missing export path")
-            continue
+            src = find_source_by_candidates(img_index, img_root, name)
+            if not src:
+                errors.append(f"{pk}: image not found in ssot/bilder: {name}")
+                continue
 
-        # Kategorie-Infos merken (für _index.md)
-        exp_de_norm = exp_de.strip("/")
-        exp_en_norm = exp_en.strip("/")
-        cat_segment_de = Path(exp_de_norm).name
-        cat_segment_en = Path(exp_en_norm).name
-        cat_title_de = derive_category_title(r.get("kategorie_raw"), cat_segment_de)
-        cat_title_en = derive_category_title(r.get("kategorie_raw_en"), cat_segment_en)
-        cat_body_de  = clean(r.get("kategorie_beschreibung_de"))
-        cat_body_en  = clean(r.get("kategorie_beschreibung_en"))
-        category_de_info[exp_de_norm] = {
-            "lang": "de",
-            "title": cat_title_de,
-            "slug": cat_segment_de,
-            "body": cat_body_de,
-        }
-        category_en_info[exp_en_norm] = {
-            "lang": "en",
-            "title": cat_title_en,
-            "slug": cat_segment_en,
-            "body": cat_body_en,
-        }
+            # Zielname NICHT ändern: wir kopieren unter dem gewünschten Namen
+            final_img_names.append(name)
 
-        # Ziel-Bundles bestimmen
-        bundle_de = de_root / exp_de_norm / f"{pk}-{slug_de}"
-        bundle_en = en_root / exp_en_norm / f"{pk}-{slug_en}"
+            if args.apply:
+                bundle_de.mkdir(parents=True, exist_ok=True)
+                bundle_en.mkdir(parents=True, exist_ok=True)
+                try:
+                    shutil.copy2(src, bundle_de / name)
+                    shutil.copy2(src, bundle_en / name)
+                    copied.append(f"{pk}: {name}")
+                except Exception as e:
+                    errors.append(f"{pk}: copy failed for {name}: {e}")
 
-        # Aliases bei Umzug
-        old_de = [p for p in find_existing_bundles(de_root, pk) if p.resolve() != bundle_de.resolve()]
-        old_en = [p for p in find_existing_bundles(en_root, pk) if p.resolve() != bundle_en.resolve()]
-        alias_de = [bundle_url(de_root, p) for p in old_de]
-        alias_en = [bundle_url(en_root, p) for p in old_en]
-
-        fm_exist_de, _ = read_frontmatter_and_body(bundle_de / "index.md")
-        fm_exist_en, _ = read_frontmatter_and_body(bundle_en / "index.md")
-        if isinstance(fm_exist_de.get("aliases"), list):
-            alias_de.extend([str(a) for a in fm_exist_de["aliases"]])
-        if isinstance(fm_exist_en.get("aliases"), list):
-            alias_en.extend([str(a) for a in fm_exist_en["aliases"]])
-
-        # --- Bilder kopieren ---
-        # Wichtig: Dateinamen bleiben exakt wie in ssot/bilder, wir benennen NICHT um.
-        resolved_name_for_copy: Dict[str, str] = {}
-
-        if args.apply:
-            bundle_de.mkdir(parents=True, exist_ok=True)
-            bundle_en.mkdir(parents=True, exist_ok=True)
-
-        # zuerst DE-Bundle bestücken
-        for name in bilder_names:
-            # existiert Datei schon im Bundle (ggf. leicht andere Schreibweise wie -01 vs -1)?
-            existing = existing_variant_in_bundle(bundle_de, name)
-            if existing:
-                resolved_name_for_copy[name] = existing
-            else:
-                chosen = find_source_by_candidates(img_index, img_root, name)
-                if not chosen:
-                    errors.append(f"{pk}: image missing in ssot/bilder: {name}")
-                    continue
-                dst_de = bundle_de / chosen.name  # KEINE Umbenennung
-                if args.apply:
-                    dst_de.parent.mkdir(parents=True, exist_ok=True)
-                    if not dst_de.exists():
-                        shutil.copy2(chosen, dst_de)
-                        copied.append(f"COPY {chosen} -> {dst_de}")
-                resolved_name_for_copy[name] = chosen.name
-
-        # dann EN-Bundle spiegeln (1:1 dieselben Dateinamen)
-        for name in bilder_names:
-            eff = (
-                resolved_name_for_copy.get(name)
-                or existing_variant_in_bundle(bundle_de, name)
-                or name
-            )
-            src = bundle_de / eff
-            dst = bundle_en / eff
-            if src.exists():
-                if args.apply:
-                    dst.parent.mkdir(parents=True, exist_ok=True)
-                    if not dst.exists():
-                        shutil.copy2(src, dst)
-                        copied.append(f"COPY {src} -> {dst}")
-            else:
-                errors.append(f"{pk}: image not found in DE bundle for EN copy: {name}")
-
-        # finalisierte Bildnamen (tatsächlich im Bundle vorhandene Namen, in Reihenfolge)
-        final_img_names = [
-            resolved_name_for_copy.get(n)
-            or existing_variant_in_bundle(bundle_de, n)
-            or n
-            for n in bilder_names
-        ]
-
-        # Bilder-Blocks mit Alttexten
+        # Bilder-Block in Frontmatter
         bilder_block_de = []
         for i, fname in enumerate(final_img_names):
             alt_de = bilder_alt_de_l[i] if i < len(bilder_alt_de_l) else ""
@@ -612,8 +579,15 @@ def main():
                 "alt_en": alt_en
             })
 
-        # Artikelnummer ableiten (einfacher Identifier fürs Frontend)
-        artikelnummer = (slug_de or slug_en or pk).upper()
+        # Artikelnummer: bevorzugt aus CSV (falls vorhanden), sonst aus Slug (z. B. tr01-120), sonst pk
+        artikelnummer_raw = clean(r.get("artikelnummer") or r.get("artikelnummer_de") or r.get("artikelnummer_en"))
+        artikelnummer = artikelnummer_raw.upper() if artikelnummer_raw else ""
+        if not artikelnummer:
+            m_art = re.search(r"(tr\d{2}-\d{2,3})", f"{slug_de} {slug_en}", flags=re.IGNORECASE)
+            if m_art:
+                artikelnummer = m_art.group(1).upper()
+        if not artikelnummer:
+            artikelnummer = pk.upper()
 
         # Produkt-Block (technische Infos)
         produkt_common = {
@@ -644,6 +618,8 @@ def main():
         }
 
         # Referenz-URL (Shop / Herkunft)
+        src_shop_de = clean(r.get("source_shop_de"))
+        src_shop_en = clean(r.get("source_shop_en"))
         refs_de = {
             "source_shop": src_shop_de,
         }
@@ -678,14 +654,14 @@ def main():
         if alias_en:
             fm_en_updates["aliases"] = sorted(set(alias_en))
 
-        # index.md schreiben (inkl. Body aus beschreibung_md_de / _en)
+        # index.md schreiben (Body aus SSOT body_* Feldern; Fallback: beschreibung_md_*)
         if args.apply:
             existed = (bundle_de / "index.md").exists()
             write_page(
                 bundle_de,
                 "index.md",
                 fm_de_updates,
-                beschr_de,
+                body_de,
                 managed_prefix_check="ssot-sync",
             )
             (updated if existed else created).append(bundle_de.as_posix())
@@ -695,7 +671,7 @@ def main():
                 bundle_en,
                 "index.md",
                 fm_en_updates,
-                beschr_en,
+                body_en,
                 managed_prefix_check="ssot-sync",
             )
             (updated if existed else created).append(bundle_en.as_posix())
@@ -712,48 +688,6 @@ def main():
                         ob.rmdir()
                 except Exception:
                     pass
-
-    # Kategorie-_index.md erzeugen/aktualisieren
-    if args.apply:
-        for exp_de_norm, info in category_de_info.items():
-            section_dir = de_root / exp_de_norm
-            cat_title = info["title"] or info["slug"]
-            cat_slug  = info["slug"]
-            cat_body  = info.get("body") or f"{cat_title} – Übersicht der Produkte."
-            fm_cat_de = {
-                "title": cat_title,
-                "lang": "de",
-                "managed_by": "ssot-sync",
-                "last_synced": last_synced_str,
-                "kategorie_slug": cat_slug,
-            }
-            write_page(
-                section_dir,
-                "_index.md",
-                fm_cat_de,
-                cat_body,
-                managed_prefix_check="ssot-sync",
-            )
-
-        for exp_en_norm, info in category_en_info.items():
-            section_dir = en_root / exp_en_norm
-            cat_title = info["title"] or info["slug"]
-            cat_slug  = info["slug"]
-            cat_body  = info.get("body") or f"{cat_title} – Product overview."
-            fm_cat_en = {
-                "title": cat_title,
-                "lang": "en",
-                "managed_by": "ssot-sync",
-                "last_synced": last_synced_str,
-                "kategorie_slug": cat_slug,
-            }
-            write_page(
-                section_dir,
-                "_index.md",
-                fm_cat_en,
-                cat_body,
-                managed_prefix_check="ssot-sync",
-            )
 
     # Report schreiben
     ts = datetime.utcnow().strftime("%Y%m%d-%H%M%S")
