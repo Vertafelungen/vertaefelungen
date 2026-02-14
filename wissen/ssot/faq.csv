@@ -1,0 +1,214 @@
+faq_id,scope_type,scope_key,lang,question,answer,order,status,tags,source
+g-faq-de-001,global,faq,de,Brauche ich zwingend exakte Maße?,"Für eine erste Orientierung reichen oft **Fotos + grobe Maße**. Für eine belastbare Planung sind **Raumhöhen, Brüstungshöhen, Leibungstiefen und Wandlängen** entscheidend. Details dazu stehen in **[Planung & Bestellung](/de/faq/beratung/)**.",1,active,,wissen/content/de/faq/_index.md
+g-faq-de-002,global,faq,de,Ist das „Standardware“ oder individuell?,Beides ist möglich: Von **standardisierten Leistenprofilen** bis zur **rekonstruierten Vertäfelung nach historischem Vorbild**. Das Wissen führt dich zur passenden Kategorie; Varianten/Preise liegen im Shop.,2,active,,wissen/content/de/faq/_index.md
+g-faq-de-003,global,faq,de,Wann lohnt sich eine Visualisierung?,"Wenn Proportion, Profilwirkung und Anschlussdetails noch unklar sind – insbesondere bei historischen Interieurs oder schwierigen Bestandswänden. Die Visualisierung wird in den Angebotsprozess integriert (siehe **[Planung & Bestellung](/de/faq/beratung/)**).",3,active,,wissen/content/de/faq/_index.md
+g-faq-de-004,global,faq,de,Wie läuft die Montage typischerweise?,"Untergrund prüfen, Aufbau festlegen, Bauteile vorfertigen, Montage, Fugen/Anschlüsse, Oberfläche. Entscheidend ist, ob Unebenheiten, Leitungen oder Altbauschichten berücksichtigt werden müssen.",4,active,,wissen/content/de/faq/_index.md
+g-faq-en-001,global,faq,en,_index,"# FAQ
+
+## TL;DR
+- Knowledge base on historical wood panelling, wainscoting, mouldings and restoration.
+
+Knowledge base on historical wood panelling, wainscoting, mouldings and restoration.
+
+## Quick access
+- [Planning & ordering]({{< relref ""faq/consulting/_index.md"" >}})
+- [Installation]({{< relref ""faq/consulting/installation.md"" >}})
+- [Delivery]({{< relref ""faq/consulting/delivery.md"" >}})
+- [Restoration]({{< relref ""faq/restoring/_index.md"" >}})
+- [Style guide]({{< relref ""faq/style-guide/_index.md"" >}})",1,active,,wissen/content/en/faq/_index.md
+g-faq-about-us-en-001,global,faq/about-us,en,_index,"# About Us
+
+Content forthcoming.",1,active,,wissen/content/en/faq/about-us/_index.md
+g-faq-about-us-partner-en-001,global,faq/about-us/partner,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/about-us/partner/index.md
+g-faq-about-us-team-en-001,global,faq/about-us/team,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/about-us/team/index.md
+g-faq-about-us-the-idea-en-001,global,faq/about-us/the-idea,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/about-us/the-idea/index.md
+g-faq-beratung-de-001,global,faq/beratung,de,Welche Mindestinfos braucht ihr für eine erste Einschätzung?,"Wandlängen, Raumhöhe, Fotos (frontal + Details). Ein Grundriss ist hilfreich, aber keine Pflicht.",1,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-de-002,global,faq/beratung,de,Muss ich die genaue Brüstungshöhe schon wissen?,Für die erste Orientierung nicht. Für die Ausführung ist sie zentral und wird dann anhand Raum/Öffnungen sauber festgelegt.,2,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-de-003,global,faq/beratung,de,Wann ist eine Visualisierung sinnvoll?,"Wenn Proportion/Teilung nicht klar ist, viele Anschlüsse existieren oder ein historisches Vorbild präzise getroffen werden soll.",3,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-de-004,global,faq/beratung,de,Kann ich erst halbhoch starten und später auf hoch erweitern?,"Prinzipiell ja, wenn Profilfamilie, Sockelaufbau und Anschlusslogik von Anfang an kompatibel geplant werden.",4,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-de-005,global,faq/beratung,de,Was beeinflusst die Kosten am stärksten?,"Anschlüsse und Untergrund, dann Detailgrad und Oberfläche. Höhe allein ist selten der größte Treiber.",5,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-de-006,global,faq/beratung,de,Kann ich nur Lieferung ohne Montage beauftragen?,"Ja – dann müssen Schnittstellen (Aufmaß, Untergrundebene, Befestigungsstrategie, Fugen) vorab besonders klar sein.",6,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-de-007,global,faq/beratung,de,Wie geht ihr mit Altbau-Unebenheiten um?,Über definierte Ebenen (Unterkonstruktion/Unterlagen) und eine bewusste Fugen-/Schattenfugenstrategie – abhängig vom Bestand.,7,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-de-008,global,faq/beratung,de,Wie läuft die Beauftragung typischerweise ab?,Orientierung → (optional) Planung/Visualisierung → Angebot → Annahme mit 50 % Anzahlung → Fertigung/Montage.,8,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-de-009,global,faq/beratung,de,Welche Unterlagen beschleunigen alles am meisten?,"Ein einfacher Grundriss, vermaßte Fensterbrüstungen/Türhöhen sowie Fotos mit Maßstab.",9,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-de-010,global,faq/beratung,de,Gibt es typische No-Go’s?,"Aktive Feuchte-/Salzprobleme im Mauerwerk: erst bautechnisch lösen, dann Holzsysteme planen.",10,active,,wissen/content/de/faq/beratung/_index.md
+g-faq-beratung-beauftragung-de-001,global,faq/beratung/beauftragung,de,beauftragung,"# Beauftragung
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/beratung/beauftragung.md
+g-faq-beratung-glossar-glossar-de-001,global,faq/beratung/glossar/glossar,de,glossar,"# Glossar
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/beratung/glossar/glossar.md
+g-faq-beratung-herstellung-de-001,global,faq/beratung/herstellung,de,herstellung,"# Herstellung
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/beratung/herstellung.md
+g-faq-beratung-katalog-und-download-de-001,global,faq/beratung/katalog-und-download,de,_index,"# Katalog Und Download
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/beratung/katalog-und-download/_index.md
+g-faq-beratung-katalog-und-download-katalog-de-001,global,faq/beratung/katalog-und-download/katalog,de,katalog,"# Katalog
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/beratung/katalog-und-download/katalog.md
+g-faq-beratung-lieferung-de-001,global,faq/beratung/lieferung,de,lieferung,"# Lieferung
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/beratung/lieferung.md
+g-faq-beratung-montage-de-001,global,faq/beratung/montage,de,montage,"# Montage
+
+Inhalt folgt.
+
+## Montage-Anleitung
+
+[PDF herunterladen](/assets/faq/beratung/montage/Montage-Anleitung.pdf)",1,active,,wissen/content/de/faq/beratung/montage.md
+g-faq-beratung-planung-de-001,global,faq/beratung/planung,de,planung,"# Planung
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/beratung/planung.md
+g-faq-consulting-en-001,global,faq/consulting,en,_index,"# Consulting
+
+Content forthcoming.",1,active,,wissen/content/en/faq/consulting/_index.md
+g-faq-consulting-catalogue-and-download-en-001,global,faq/consulting/catalogue-and-download,en,_index,"# Catalogue And Download
+
+Content forthcoming.",1,active,,wissen/content/en/faq/consulting/catalogue-and-download/_index.md
+g-faq-consulting-catalogue-and-download-catalogue-en-001,global,faq/consulting/catalogue-and-download/catalogue,en,catalogue,"# Catalogue
+
+Content forthcoming.",1,active,,wissen/content/en/faq/consulting/catalogue-and-download/catalogue.md
+g-faq-consulting-delivery-en-001,global,faq/consulting/delivery,en,delivery,"# Delivery
+
+Content forthcoming.",1,active,,wissen/content/en/faq/consulting/delivery.md
+g-faq-consulting-glossary-glossary-en-001,global,faq/consulting/glossary/glossary,en,glossary,"# Glossary
+
+Content forthcoming.",1,active,,wissen/content/en/faq/consulting/glossary/glossary.md
+g-faq-consulting-installation-en-001,global,faq/consulting/installation,en,installation,"# Installation
+
+Content forthcoming.",1,active,,wissen/content/en/faq/consulting/installation.md
+g-faq-consulting-ordering-en-001,global,faq/consulting/ordering,en,ordering,"# Ordering
+
+Content forthcoming.",1,active,,wissen/content/en/faq/consulting/ordering.md
+g-faq-consulting-planning-en-001,global,faq/consulting/planning,en,planning,"# Planning
+
+Content forthcoming.",1,active,,wissen/content/en/faq/consulting/planning.md
+g-faq-consulting-production-en-001,global,faq/consulting/production,en,production,"# Production
+
+Content forthcoming.",1,active,,wissen/content/en/faq/consulting/production.md
+g-faq-restaurierung-de-001,global,faq/restaurierung,de,_index,"# restaurierung reproduktion vertaefelungen holzleisten
+
+## Was bedeutet Restaurierung und Reproduktion im Kontext historischer Vertäfelungen und Leisten?
+- Restaurierung umfasst die behutsame Instandsetzung, Sicherung und Ergänzung originaler Bauteile.
+- Ziel ist die Wahrung des historischen Bestands.
+- Reproduktion bedeutet die originalgetreue Neuanfertigung nach historischen Vorlagen.
+- Fehlende oder zerstörte Elemente werden ersetzt.
+
+Restaurierung zielt auf die behutsame Instandsetzung unter Wahrung des historischen Bestands, Reproduktion auf die originalgetreue Neuanfertigung nach Vorlagen.
+
+## Wie läuft die Restaurierung typischerweise ab?
+- **Bestandsaufnahme:** Sorgfältige Dokumentation von Maßen, Profilen, Holzarten und Schäden (Fotos, Zeichnungen, Profilmuster).
+- **Materialanalyse:** Auswahl geeigneter Holzarten und Vergleich mit Originalbestand.
+- **Reparatur und Ergänzung:** Fehlstellen ausbessern, Ergänzungsstücke nachfertigen, profilgenau einpassen.
+- **Oberflächenbehandlung:** Reinigung, Entschichtung, Nachölen, Wachsen oder Lackieren je nach historischem Vorbild.
+- **Schadensvorbeugung:** Schutz vor Feuchte, Schädlingen, unsachgemäßer Nutzung.
+
+Der Ablauf orientiert sich an Dokumentation, Materialwahl, Reparatur und historisch passenden Oberflächenbehandlungen.
+
+## Was sind typische Herausforderungen bei der Reproduktion?
+- Beschaffung passender, artgleicher Hölzer (z. B. langsam gewachsene Kiefer, Eiche).
+- Exakte Nachbildung historischer Profile und Verbindungen.
+- Abstimmung mit Denkmalpflege und Dokumentationspflicht.
+- Anpassung an Wandunregelmäßigkeiten und Setzungen im Altbau.
+- Handwerkliches Können: Verwendung historischer Werkzeuge und Techniken.
+
+Die Reproduktion erfordert passendes Material, genaue Profilübernahme und handwerkliche Ausführung nach historischen Techniken.
+
+## Was ist bei der Montage von Reproduktionen zu beachten?
+- Reversible Befestigung und möglichst zerstörungsfreier Einbau.
+- Passgenaues Einfügen ohne Druck auf originale Bausubstanz.
+- Ggf. Kombination von Alt- und Neuteilen sorgfältig kennzeichnen.
+
+Die Montage sollte den Bestand schützen und neue sowie alte Teile nachvollziehbar trennen.
+
+## Welche Materialien und Oberflächen werden bevorzugt?
+- Massivholz möglichst gleicher Art und Güte wie das Original.
+- Traditionelle Oberflächenbehandlung: Ölen, Wachsen, Schellack, gelegentlich Lasuren oder Leinölfarbe.
+- Keine modernen Kunststofflacke oder unsachgemäße Beschichtungen.
+
+Bevorzugt werden Materialien und Oberflächen, die dem historischen Vorbild entsprechen.
+
+## Wie wird die Authentizität der Reproduktion gesichert?
+- Exakte Maß- und Profilübernahme, Nachweis über Dokumentation und Material.
+- Abstimmung mit Denkmalbehörden und ggf. Architekten.
+- Jedes Teil möglichst individuell beschriften (Inventar, Nummerierung).
+
+Die Authentizität wird durch Dokumentation, Abstimmung und klare Kennzeichnung gesichert.
+
+*Fragen zur Restaurierung oder Reproduktion? Wir beraten zu Machbarkeit, Kosten, Materialwahl und Abstimmung mit dem Denkmalschutz!*",1,active,,wissen/content/de/faq/restaurierung/_index.md
+g-faq-restoring-en-001,global,faq/restoring,en,_index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/restoring/_index.md
+g-faq-style-guide-de-001,global,faq/style-guide,de,_index,"# Style Guide
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/style-guide/_index.md
+g-faq-style-guide-en-001,global,faq/style-guide,en,_index,"# Style Guide
+
+Content forthcoming.",1,active,,wissen/content/en/faq/style-guide/_index.md
+g-faq-style-guide-historisch-de-001,global,faq/style-guide/historisch,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/style-guide/historisch/index.md
+g-faq-style-guide-history-en-001,global,faq/style-guide/history,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/style-guide/history/index.md
+g-faq-style-guide-styles-en-001,global,faq/style-guide/styles,en,_index,"# Styles
+
+Content forthcoming.",1,active,,wissen/content/en/faq/style-guide/styles/_index.md
+g-faq-style-guide-styles-balustrades-en-001,global,faq/style-guide/styles/balustrades,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/style-guide/styles/balustrades/index.md
+g-faq-style-guide-styles-board-and-batten-en-001,global,faq/style-guide/styles/board-and-batten,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/style-guide/styles/board-and-batten/index.md
+g-faq-style-guide-styles-fassades-en-001,global,faq/style-guide/styles/fassades,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/style-guide/styles/fassades/index.md
+g-faq-style-guide-styles-raised-panels-en-001,global,faq/style-guide/styles/raised-panels,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/style-guide/styles/raised-panels/index.md
+g-faq-style-guide-styles-tracery-en-001,global,faq/style-guide/styles/tracery,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/style-guide/styles/tracery/index.md
+g-faq-style-guide-technik-de-001,global,faq/style-guide/technik,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/style-guide/technik/index.md
+g-faq-style-guide-technique-en-001,global,faq/style-guide/technique,en,index,"# Index
+
+Content forthcoming.",1,active,,wissen/content/en/faq/style-guide/technique/index.md
+g-faq-style-guide-vertaefelungsarten-de-001,global,faq/style-guide/vertaefelungsarten,de,_index,"# Vertaefelungsarten
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/style-guide/vertaefelungsarten/_index.md
+g-faq-style-guide-vertaefelungsarten-balustraden-de-001,global,faq/style-guide/vertaefelungsarten/balustraden,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/style-guide/vertaefelungsarten/balustraden/index.md
+g-faq-style-guide-vertaefelungsarten-fassade-de-001,global,faq/style-guide/vertaefelungsarten/fassade,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/style-guide/vertaefelungsarten/fassade/index.md
+g-faq-style-guide-vertaefelungsarten-kassetten-de-001,global,faq/style-guide/vertaefelungsarten/kassetten,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/style-guide/vertaefelungsarten/kassetten/index.md
+g-faq-style-guide-vertaefelungsarten-mawerk-de-001,global,faq/style-guide/vertaefelungsarten/maßwerk,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/style-guide/vertaefelungsarten/maßwerk/index.md
+g-faq-style-guide-vertaefelungsarten-nadelstreif-de-001,global,faq/style-guide/vertaefelungsarten/nadelstreif,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/style-guide/vertaefelungsarten/nadelstreif/index.md
+g-faq-ueber-uns-de-001,global,faq/ueber-uns,de,_index,"# Ueber Uns
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/ueber-uns/_index.md
+g-faq-ueber-uns-partner-de-001,global,faq/ueber-uns/partner,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/ueber-uns/partner/index.md
+g-faq-ueber-uns-team-de-001,global,faq/ueber-uns/team,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/ueber-uns/team/index.md
+g-faq-ueber-uns-unsere-idee-de-001,global,faq/ueber-uns/unsere-idee,de,index,"# Index
+
+Inhalt folgt.",1,active,,wissen/content/de/faq/ueber-uns/unsere-idee/index.md
