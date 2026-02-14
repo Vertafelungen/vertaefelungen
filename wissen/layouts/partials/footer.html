@@ -1,6 +1,9 @@
 <!--
   Footer partial
-  Version: 2026-02-11 19:20 (Europe/Berlin)
+  Version: 2026-02-14 19:10 (Europe/Berlin)
+  Change:
+  - Robust label fallback: Identifier i18n missing => fall back to .Name (prevents empty labels).
+  - Robust href resolution: prefer .Page.RelPermalink; otherwise normalize .URL via relLangURL (prevents wrong/empty links).
 -->
 <footer class="site-footer">
   <div class="container site-footer__inner">
@@ -19,9 +22,28 @@
         {{- range .Site.Menus.main -}}
           {{- $label := .Name -}}
           {{- with .Identifier -}}
-            {{- $label = i18n . -}}
+            {{- $t := i18n . -}}
+            {{- if and $t (ne $t .) -}}
+              {{- $label = $t -}}
+            {{- end -}}
           {{- end -}}
-          <li><a href="{{ .URL }}">{{ $label }}</a></li>
+
+          {{- $href := "" -}}
+          {{- if .Page -}}
+            {{- $href = .Page.RelPermalink -}}
+          {{- else -}}
+            {{- $raw := .URL -}}
+            {{- if or (hasPrefix $raw "http://") (hasPrefix $raw "https://") -}}
+              {{- $href = $raw -}}
+            {{- else -}}
+              {{- $href = $raw | relLangURL -}}
+              {{- if and (not (hasSuffix $href "/")) (not (in $href "?")) (not (in $href "#")) -}}
+                {{- $href = printf "%s/" $href -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+
+          <li><a href="{{ $href }}">{{ $label }}</a></li>
         {{- end -}}
       </ul>
     </div>
