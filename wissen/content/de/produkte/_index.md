@@ -1,12 +1,8 @@
 ---
-version: 2026-02-14 19:24 UTC
+version: 2026-02-14 20:48 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 19:24 UTC
-lastmod: 2026-02-14 19:24 UTC
-menu:
-  main:
-    identifier: menu_products
-    weight: 30
+last_synced: 2026-02-14 20:48 UTC
+lastmod: 2026-02-14 20:48 UTC
 lang: de
 translationKey: products-root
 title: Produkte
@@ -34,6 +30,11 @@ cascade:
     is_public: true
   seo:
     robots: index,follow
+menu:
+  main:
+    name: Produkte
+    weight: 10
+    identifier: produkte
 ---
 Wähle eine Kategorie, um Unterkategorien und Produkte zu sehen.
 
