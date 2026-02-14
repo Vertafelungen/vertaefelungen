@@ -233,11 +233,16 @@ class CategoryRow:
     canonical_de: str
     canonical_en: str
     is_public: bool
+    menu_main_name_de: str
+    menu_main_name_en: str
+    menu_main_weight: int
+    menu_main_identifier: str
 
 
 def row_to_category(r: Dict[str, str]) -> CategoryRow:
     path_de = _coalesce(r, "path_de", "export_pfad_de")
     path_en = _coalesce(r, "path_en", "export_pfad_en")
+    weight = parse_int(r.get("weight"), default=100)
 
     return CategoryRow(
         key=clean(r.get("key")),
@@ -271,7 +276,7 @@ def row_to_category(r: Dict[str, str]) -> CategoryRow:
         meta_title_en=clean(r.get("meta_title_en")),
         meta_description_de=clean(r.get("meta_description_de")),
         meta_description_en=clean(r.get("meta_description_en")),
-        weight=parse_int(r.get("weight"), default=100),
+        weight=weight,
         parent_key=clean(r.get("parent_key")),
         type_=(clean(r.get("type")) or "products"),
         robots=clean(r.get("robots")),
@@ -279,6 +284,10 @@ def row_to_category(r: Dict[str, str]) -> CategoryRow:
         canonical_de=clean(r.get("canonical_de")),
         canonical_en=clean(r.get("canonical_en")),
         is_public=parse_bool(r.get("is_public")),
+        menu_main_name_de=clean(r.get("menu_main_name_de")),
+        menu_main_name_en=clean(r.get("menu_main_name_en")),
+        menu_main_weight=parse_int(r.get("menu_main_weight"), default=weight),
+        menu_main_identifier=clean(r.get("menu_main_identifier")),
     )
 
 
@@ -383,12 +392,14 @@ def build_frontmatter(c: CategoryRow, lang: str, now_utc: datetime) -> Tuple[Dic
         meta_title = c.meta_title_de or c.title_de
         meta_desc = c.meta_description_de or c.description_de
         canonical = c.canonical_de
+        menu_main_name = c.menu_main_name_de
     else:
         title = c.title_en
         description = c.description_en
         meta_title = c.meta_title_en or c.title_en
         meta_desc = c.meta_description_en or c.description_en
         canonical = c.canonical_en
+        menu_main_name = c.menu_main_name_en
 
     robots = canonicalize_robots(c.robots, c.is_public)
     ts_utc = now_utc.strftime("%Y-%m-%d %H:%M UTC")
@@ -438,6 +449,15 @@ def build_frontmatter(c: CategoryRow, lang: str, now_utc: datetime) -> Tuple[Dic
             },
         },
     }
+
+    if menu_main_name:
+        fm["menu"] = {
+            "main": {
+                "name": menu_main_name,
+                "weight": int(c.menu_main_weight),
+                "identifier": c.menu_main_identifier or c.key,
+            }
+        }
 
     body_out = _build_structured_body(c, lang)
     return fm, body_out
