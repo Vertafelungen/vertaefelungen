@@ -27,3 +27,7 @@ Inhalt folgt.
 ## Montage-Anleitung
 
 [PDF herunterladen](/assets/faq/beratung/montage/Montage-Anleitung.pdf)
+
+## Montage-Anleitung
+
+[PDF herunterladen](/assets/faq/beratung/montage/Montage-Anleitung.pdf)
