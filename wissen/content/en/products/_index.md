@@ -3,6 +3,10 @@ version: 2026-02-14 19:24 UTC
 managed_by: categories.csv
 last_synced: 2026-02-14 19:24 UTC
 lastmod: 2026-02-14 19:24 UTC
+menu:
+  main:
+    identifier: menu_products
+    weight: 30
 lang: en
 translationKey: products-root
 title: Products
