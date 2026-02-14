@@ -1,3 +1,12 @@
+<!--
+File: wissen/layouts/partials/nav-drawer.html
+Version: 2026-02-14 19:18 Europe/Berlin
+Change:
+- Robust label fallback: If menu item has Identifier but no i18n translation (or translation equals the key),
+  fall back to .Name. Prevents empty labels ("dot" symptom) in drawer menus.
+- Keep href resolution logic unchanged.
+-->
+
 <div class="nav-drawer" id="nav-drawer" data-testid="nav-drawer" aria-hidden="true">
   <div class="nav-drawer__overlay" data-testid="nav-drawer-overlay"></div>
   <div class="nav-drawer__panel" role="dialog" aria-modal="true" aria-label="{{ i18n "header_nav_label" }}" tabindex="-1">
@@ -7,7 +16,10 @@
         {{- range .Site.Menus.main -}}
           {{- $label := .Name -}}
           {{- with .Identifier -}}
-            {{- $label = i18n . -}}
+            {{- $t := i18n . -}}
+            {{- if and $t (ne $t .) -}}
+              {{- $label = $t -}}
+            {{- end -}}
           {{- end -}}
           {{- $href := "" -}}
           {{- if .Page -}}
@@ -34,7 +46,10 @@
         {{- range .Site.Menus.footer -}}
           {{- $label := .Name -}}
           {{- with .Identifier -}}
-            {{- $label = i18n . -}}
+            {{- $t := i18n . -}}
+            {{- if and $t (ne $t .) -}}
+              {{- $label = $t -}}
+            {{- end -}}
           {{- end -}}
           {{- $href := "" -}}
           {{- if .Page -}}
