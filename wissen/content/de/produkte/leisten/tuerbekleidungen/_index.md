@@ -1,9 +1,11 @@
 ---
 title: "Türbekleidungen"
 description: "Türbekleidungen (Architrave) für Türen und Fenster: Auswahl nach Profil und Breite, Planungsschritte, Montage-Logik und Links zu den TR-Profilen im Sortiment."
-lastmod: "2026-02-13T09:56:16+01:00"
+lastmod: "2026-02-14T10:30:00+01:00"
 weight: 10
 ---
+
+<!-- File: wissen/content/de/produkte/leisten/tuerbekleidungen/_index.md | Version: 2026-02-14T10:30:00+01:00 -->
 
 ## Kurzantwort
 
@@ -45,13 +47,13 @@ Aktuelle TR-Profile (Abmessungen gemäß Produktseite):
 - **TR05** – 110 × 18 mm  
 
 Direkte Einstiege:
-- [/wissen/de/produkte/leisten/tuerbekleidungen/117-tr01-120/](/wissen/de/produkte/leisten/tuerbekleidungen/117-tr01-120/)
-- [/wissen/de/produkte/leisten/tuerbekleidungen/116-tr01-160/](/wissen/de/produkte/leisten/tuerbekleidungen/116-tr01-160/)
-- [/wissen/de/produkte/leisten/tuerbekleidungen/118-tr01-200/](/wissen/de/produkte/leisten/tuerbekleidungen/118-tr01-200/)
-- [/wissen/de/produkte/leisten/tuerbekleidungen/119-tr02/](/wissen/de/produkte/leisten/tuerbekleidungen/119-tr02/)
-- [/wissen/de/produkte/leisten/tuerbekleidungen/120-tr03/](/wissen/de/produkte/leisten/tuerbekleidungen/120-tr03/)
-- [/wissen/de/produkte/leisten/tuerbekleidungen/121-tr04/](/wissen/de/produkte/leisten/tuerbekleidungen/121-tr04/)
-- [/wissen/de/produkte/leisten/tuerbekleidungen/122-tr05/](/wissen/de/produkte/leisten/tuerbekleidungen/122-tr05/)
+- [TR01/120](/de/produkte/leisten/tuerbekleidungen/117-tr01-120/)
+- [TR01/160](/de/produkte/leisten/tuerbekleidungen/116-tr01-160/)
+- [TR01/200](/de/produkte/leisten/tuerbekleidungen/118-tr01-200/)
+- [TR02](/de/produkte/leisten/tuerbekleidungen/119-tr02/)
+- [TR03](/de/produkte/leisten/tuerbekleidungen/120-tr03/)
+- [TR04](/de/produkte/leisten/tuerbekleidungen/121-tr04/)
+- [TR05](/de/produkte/leisten/tuerbekleidungen/122-tr05/)
 
 ## Ablauf/Planung (Schritte, Messpunkte, Daten)
 
@@ -86,10 +88,10 @@ Kostentreiber sind typischerweise:
 
 ## Verweise (intern)
 
-- Leisten-Übersicht: [/wissen/de/produkte/leisten/](/wissen/de/produkte/leisten/)
-- Sockelleisten: [/wissen/de/produkte/leisten/sockelleisten/](/wissen/de/produkte/leisten/sockelleisten/)
-- Planung & Bestellung: [/wissen/de/faq/beratung/](/wissen/de/faq/beratung/)
-- Produkte-Übersicht: [/wissen/de/produkte/](/wissen/de/produkte/)
+- Leisten-Übersicht: [Leisten](/de/produkte/leisten/)
+- Sockelleisten: [Sockelleisten](/de/produkte/leisten/sockelleisten/)
+- Planung & Bestellung: [Beratung](/de/faq/beratung/)
+- Produkte-Übersicht: [Produkte](/de/produkte/)
 
 ## FAQ
 
