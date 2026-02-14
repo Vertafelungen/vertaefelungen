@@ -1,7 +1,9 @@
-﻿---
-version: 2026-01-17 14:37 UTC
+---
+version: 2026-02-14 19:24 UTC
 managed_by: categories.csv
-last_synced: 2026-01-17 14:37 UTC
+last_synced: 2026-02-14 19:24 UTC
+lastmod: 2026-02-14 19:24 UTC
+lang: de
 translationKey: beeck-stand-oil-paints
 title: Beeck Standölfarben
 description: Standölbasierte Innenfarben und Systemkomponenten von BEECK - robuste, diffusionsoffene Ölfarb-Anstriche für Holzoberflächen und Altbau-Interieurs.

@@ -26,3 +26,21 @@ Knowledge base on historical wood panelling, wainscoting, mouldings and restorat
 - [Delivery]({{< relref "faq/consulting/delivery.md" >}})
 - [Restoration]({{< relref "faq/restoring/_index.md" >}})
 - [Style guide]({{< relref "faq/style-guide/_index.md" >}})
+
+## FAQ
+
+### _index
+
+# FAQ
+
+## TL;DR
+- Knowledge base on historical wood panelling, wainscoting, mouldings and restoration.
+
+Knowledge base on historical wood panelling, wainscoting, mouldings and restoration.
+
+## Quick access
+- [Planning & ordering]({{< relref "faq/consulting/_index.md" >}})
+- [Installation]({{< relref "faq/consulting/installation.md" >}})
+- [Delivery]({{< relref "faq/consulting/delivery.md" >}})
+- [Restoration]({{< relref "faq/restoring/_index.md" >}})
+- [Style guide]({{< relref "faq/style-guide/_index.md" >}})

@@ -2,10 +2,10 @@
 title: P0014 - Lübeck - Schiffergesellschaft
 translationKey: '55'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '55'
-  artikelnummer: P0014
+  artikelnummer: '55'
   verfuegbar: true
   preis_basis: 1276.79
   varianten:
@@ -13,38 +13,66 @@ produkt:
     preis_aufschlag: 0.0
   - bezeichnung: Eiche, Bausatz
     preis_aufschlag: 914.46
-  bilder:
-  - datei: p0014-01.png
-    alt_de: Frontalansicht historische Lübecker Wandvertäfelung Schiffergesellschaft 2570 mm hoch mit Sockelzone großen rechteckigen Paneelen und profiliertem Gesimsabschluss
-  - datei: p0014-02.png
-    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Eckansicht mit Sockelzone großen rechteckigen Paneelen und profiliertem Gesimsabschluss typische Lübecker Gliederung
-  - datei: p0014-03.png
-    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Gesamtansicht mit umlaufender Ecklösung Sockelzone großen rechteckigen Paneelen und profiliertem oberen Gesims typische Lübecker Gliederung
-  - datei: p0014-04.png
-    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Detailansicht oberes profiliertes Gesims mit klassischer Rahmung und markanter Auskragung
-  - datei: p0014-05.png
-    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Detailansicht der oberen Eckausbildung mit Gesims und profilierter Rahmung
-  - datei: p0014-06.png
-    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Detailansicht der vertikalen Paneelübergänge mit profilierter Rahmung
-  - datei: p0014-07.png
-    alt_de: Historische Lübecker Wandvertäfelung Schiffergesellschaft Detailansicht des profilierten Sockelbereichs mit Paneelen
-  - datei: p0014-08.png
-    alt_de: Fassade der historischen Schiffergesellschaft Lübeck mit Backstein Treppengiebel und repräsentativem Eingangsportal
-  - datei: p0014-09.png
-    alt_de: Historische Holzvertäfelung mit Kassettenfeldern und ornamentiertem Fries in der Schiffergesellschaft Lübeck
-  - datei: p0014-10.png
-    alt_de: Historischer Innenraum der Schiffergesellschaft Lübeck mit geschnitzter Holzsäule Heiligenfigur Vertäfelung und Schiffsmodellen
-  - datei: p0014-11.png
-    alt_de: Detail der Holzvertäfelung in der Schiffergesellschaft Lübeck mit geschnitztem Kopfrelief und Ornamenten
+  bilder: []
 seo:
   title: Holzvertäfelung aus der Lübecker Schiffergesellschaft
   description: Vertäfelung „Lübeck Schiffergesellschaft" - hohe Wandvertäfelung im hanseatischen Stil. Bausatz aus Kiefernholz für historische Interieurs & Gaststätten.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/hohe-vertaefelungen/55-295-luebeck-schiffergesellschaft.html#/47-holzart-kiefer/55-bausatz-bausatz
+  source_shop: ''
 lang: de
 ---
-Die Schiffergesellschaft Lübeck besteht seit 1401. Sie wurde gegründet, um Witwen und Waisen von auf See gebliebenen Seefahrern Speisen und Wohnraum zu gewähren.
-Der Innenraum ist reich mit Schiffsmodellen und kuriosen Dingen geschmückt, die von Lübecker Kapitänen über die Jahrhunderte auf ihren Fahrten zusammengetragen wurden. Um 1868 wurde beschlossen im Gildesaal einen Restaurantbetrieb einzurichten, der bis heute geöffnet ist.
+## Kurzantwort
 
-Die Vertäfelung der Außenwände des Gildesaals ist typisch für Lübeck. Einen ähnlichen Aufbau mit einem flachen Feld mit Bildschnitzerei oben und 2 stehenden Kassetten unten, gibt es auch in der Jakobi- und in der Aegidienkirche. Jedoch sind die Schnitzereien der Schiffergesellschaft um einiges humorvoller.
+- P0014 - Lübeck - Schiffergesellschaft ist für klassische Innenräume mit klarer Linienführung gedacht.
+- Das Profil unterstützt saubere Übergänge zwischen Wandfeldern und Leisten.
+- Geeignet für Renovierung und Neubau, wenn ein ruhiger, hochwertiger Abschluss gewünscht ist.
+- Die Ausführung wird auf Raumproportion, Bestand und gewünschte Wirkung abgestimmt.
+
+## Praxis-Kontext
+
+In der Praxis wird P0014 - Lübeck - Schiffergesellschaft meist in Projekten eingesetzt, in denen historische Anmutung und alltagstaugliche Ausführung kombiniert werden sollen. Vor Ort sind Wandzustand, Anschlusspunkte und spätere Nutzung die wichtigsten Planungsfaktoren.
+
+## Entscheidung & Varianten
+
+Typische Varianten betreffen Profilhöhe, Übergänge an Ecken und den Verbund mit Sockel- oder Wandleisten. Für stimmige Ergebnisse werden Muster und Referenzdetails früh abgestimmt.
+
+## Ablauf & Planung
+
+Der Ablauf startet mit Aufmaß und Fotodokumentation, danach folgen Profilwahl, Abstimmung der Anschlüsse und ein belastbarer Montageplan. Nach der Vorbereitung werden die Elemente passgenau gesetzt und die Oberfläche für den Endanstrich vorbereitet.
+
+## Kostenlogik
+
+Die Kostenlogik hängt vor allem von Geometrie, Untergrundvorbereitung, Detailgrad und Montageaufwand ab. Zusätzliche Arbeitsschritte wie Altbauanpassungen oder Sonderanschlüsse erhöhen den Aufwand planbar.
+
+## Häufige Fehler & Vermeidung
+
+Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetails und fehlende Abstimmung mit angrenzenden Gewerken. Vermeidung: frühe Klärung von Raster, Anschlüssen und Oberflächenaufbau.
+
+## Verweise
+
+- Planungshilfe: /de/beratung/planung
+- Montagehinweise: /de/beratung/montage
+- Passende Produktübersicht: /produkte/hohe-vertaefelungen
+
+## FAQ
+
+### Wofür eignet sich dieses Produkt am besten?
+
+P0014 - Lübeck - Schiffergesellschaft eignet sich für Innenräume mit klarer Gliederung, wenn eine hochwertige und ruhige Wandgestaltung gewünscht ist.
+
+### Welche Punkte sollten vor der Auswahl geprüft werden?
+
+Wichtig sind Untergrund, Anschlussdetails, Raumproportionen und die Abstimmung mit angrenzenden Bauteilen.
+
+### Wie läuft die Planung typischerweise ab?
+
+Der übliche Ablauf ist Aufmaß, Variantenabgleich, Detailklärung und danach die Freigabe für Fertigung bzw. Montage.
+
+### Wodurch wird der Aufwand beeinflusst?
+
+Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglichkeit der Flächen ab.
+
+### Wo finde ich passende Planungsinformationen?
+
+Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.

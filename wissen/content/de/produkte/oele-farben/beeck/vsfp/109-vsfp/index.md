@@ -3,10 +3,10 @@ title: BEECK Vorstreichfarbe PRO
 lang: de
 translationKey: '109'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '109'
-  artikelnummer: VSFP
+  artikelnummer: '109'
   verfuegbar: true
   preis_basis: 30.6
   varianten:
@@ -16,15 +16,13 @@ produkt:
     preis_aufschlag: 66.4
   - bezeichnung: 10 L
     preis_aufschlag: 341.1
-  bilder:
-  - datei: vsfp.png
-    alt_de: BEECK Vorstreichfarbe PRO weißmatter Ölvorlack Haftgrund für Standölfarben Holz und Metall innen außen
+  bilder: []
 seo:
   title: Weißer, matter Öllack für professionelle Voranstriche auf Holz
   description: Beeck Vorstreichfarbe Pro, deckend weißer, füllender, rasch trocknender High Solid Voranstrich für Holz im Innen- und Außenbereich.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/45-vorstreichfarbe
+  source_shop: ''
 ---
 BEECK Vorstreichfarbe PRO
 Weißmatter Ölvorlack für professionelle Voranstriche auf Holz und Eisenmetall im Innen- und Außenbereich

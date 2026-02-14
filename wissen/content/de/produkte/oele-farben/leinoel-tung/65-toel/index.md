@@ -4,10 +4,10 @@ aliases:
 title: Tung Holzöllack
 translationKey: '65'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '65'
-  artikelnummer: TOEL
+  artikelnummer: '65'
   verfuegbar: true
   preis_basis: 22.69
   varianten:
@@ -19,15 +19,13 @@ produkt:
     preis_aufschlag: 178.99
   - bezeichnung: 20 Liter
     preis_aufschlag: 355.46
-  bilder:
-  - datei: toel.png
-    alt_de: Tung Holzöllack 1 Liter Tungöl Lackleinöl innen außen UV-beständig schnelltrocknend Hartrockenöl Schlussfirnis
+  bilder: []
 seo:
   title: toel - <p style="margin:0px;font-style:normal;font-size:10.7px
   description: Tungöl Lack - reines, härtendes Holzöl für stark beanspruchte Oberflächen. Lösemittelfrei, wetterfest, tief eindringend. Ideal für innen & außen.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/65-332-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter
+  source_shop: ''
 lang: de
 ---
 Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen.

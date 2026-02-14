@@ -1,23 +1,25 @@
 ---
-title: "SL0006 Mit Karnies 58/18"
-description: "Sockelleiste SL0006 mit Karniesprofil (58 × 18 mm). Dezente Profilierung für Innenräume; Hinweise zu Auswahl, Montage, Fugen und Kombinationen."
-lastmod: "2026-02-13T09:56:16+01:00"
+title: SL0006 - mit Karnies 58/18
+description: Sockelleiste SL0006 mit Karniesprofil (58 × 18 mm). Dezente Profilierung für Innenräume; Hinweise zu Auswahl, Montage, Fugen und Kombinationen.
+lastmod: '2026-02-13T09:56:16+01:00'
 seo:
-  title: "SL0006 Sockelleiste 58/18 mit Karnies"
-  description: "Sockelleiste SL0006 mit Karniesprofil (58 × 18 mm) für einen klassisch-dezenten Wandabschluss. Kombinierbar mit Leisten/Vertäfelungen; Shop-Varianten beachten."
+  title: Sockelleiste mit Karnies, Höhe 5,8 cm
+  description: Schlichte Fußleiste mit Karnies aus nordischer Kiefer
+  tags: []
 produkt:
-  id: "SL0006"
-  typ: "Sockelleiste"
-  kategorie: "Sockelleisten"
-  abmessungen:
-    hoehe_mm: 58
-    breite_mm: 18
+  id: '45'
+  artikelnummer: '45'
+  verfuegbar: true
+  preis_basis: 60.0
   varianten: []
+  bilder: []
 refs:
-  source_shop: "https://www.vertaefelungen.de/de/sockelleisten/343-sl0006-mit-karnies-5818.html"
-  source_wissen: "/wissen/de/produkte/leisten/sockelleisten/sl0006-mit-karnies-58/18/"
+  source_shop: ''
+lang: de
+translationKey: '45'
+managed_by: ssot-sync
+last_synced: '2026-02-14'
 ---
-
 ## Kurzantwort
 
 - **SL0006 (58 × 18 mm)** ist eine **Sockelleiste mit Karniesprofil**: dezent profilierter Abschluss mit klassischer Anmutung.

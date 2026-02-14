@@ -7,3 +7,11 @@ robots: "noindex,follow"
 # Planning
 
 Content forthcoming.
+
+## FAQ
+
+### planning
+
+# Planning
+
+Content forthcoming.

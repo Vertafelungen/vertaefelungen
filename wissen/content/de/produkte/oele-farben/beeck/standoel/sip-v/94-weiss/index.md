@@ -4,10 +4,10 @@ aliases:
 title: Weiß - BEECK Standölinnenfarbe PRO
 translationKey: '94'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '94'
-  artikelnummer: WEISS
+  artikelnummer: '94'
   verfuegbar: true
   preis_basis: 41.5
   varianten:
@@ -23,19 +23,13 @@ produkt:
     preis_aufschlag: 467.0
   - bezeichnung: 10 L, seidenglanz
     preis_aufschlag: 467.0
-  bilder:
-  - datei: weiss.png
-    alt_de: BEECK Standölinnenfarbe PRO Weiß seidenmatt Leinölfarbe deckend Innenbereich Holzlackierung denkmalgerecht
-  - datei: weiss-farbfaecher.png
-    alt_de: ''
-  - datei: sip_gebinde.png
-    alt_de: ''
+  bilder: []
 seo:
   title: BEECK Standölinnnenfarbe PRO, Weiß, deckend, für Holz im Innenbereich
   description: Beeck Standölinnenfarbe Pro ist eine reine Leinölfarbe für professionelle Anwender im Bereich Baudenkmalpflege / Restaurierung.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/94-383-weiss.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt
+  source_shop: ''
 lang: de
 ---
 BEECK Standölinnenfarbe PRO

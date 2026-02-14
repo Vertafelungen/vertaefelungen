@@ -3,10 +3,10 @@ title: P0009 - Board & Batten
 lang: en
 translationKey: '21'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '21'
-  artikelnummer: P0009
+  artikelnummer: '21'
   verfuegbar: true
   preis_basis: 443.1
   varianten:
@@ -50,43 +50,43 @@ produkt:
     preis_aufschlag: 107.64
   - bezeichnung: Halbhoch  - 147 cm, Kerbstab, Eiche
     preis_aufschlag: 457.64
-  bilder:
-  - datei: p0009-1-1-1-a.png
-    alt_en: Frontal view panelling P0009 "Pinstripe Panel" 1220 mm high with smooth panels vertical cover strips profiled cornice and base moulding
-  - datei: p0009-1-1-1-b.png
-    alt_en: Detail view panelling P0009 "Pinstripe Panel" upper section with smooth panels vertical cover strips and profiled cornice
-  - datei: p0009-1-1-1-c.png
-    alt_en: Detail view panelling P0009 "Pinstripe Panel" lower section with smooth panels vertical cover strips and strong skirting board
-  - datei: p0009-1-1-1-d.png
-    alt_en: Perspective view panelling P0009 "Pinstripe Panel" with vertical cover strips profiled top moulding and strong skirting board installed around a corner
-  - datei: p0009-1-1-1-e.png
-    alt_en: Room view panelling P0009 pinstripe half height with triangular moulding in pine installed around a corner
-  - datei: p0009-1-1-2.png
-    alt_en: Half height panelling P0009 pinstripe with triangular moulding oak version height 1220 mm
-  - datei: p0009-1-1.png
-    alt_en: Detail view P0009 pinstripe half height panelling pine with characteristic triangular moulding profile
-  - datei: p0009-1-3.png
-    alt_en: Half height panelling P0009 pinstripe with flat moulding pine for elegant historic interiors
-  - datei: p0009-1-5.png
-    alt_en: Half height panelling P0009 pinstripe with cove moulding pine 1220 mm high for stylish historic interiors
-  - datei: p0009-1-7.png
-    alt_en: Half height panelling P0009 pinstripe with rounded moulding 1220 mm high traditional wooden panelling for interiors
-  - datei: p0009-1-9.png
-    alt_en: Half height panelling P0009 pinstripe with decorative cubes on cover strips 1220 mm high traditional wood panelling
-  - datei: p0009-2-1-1.png
-    alt_en: Tall panelling P0009 pinstripe with profiled cornice 1470 mm classic wood wall panelling with skirting
-  - datei: p0009-2-1-2.png
-    alt_en: Tall panelling P0009 pinstripe pine wood 1470 mm with high head cornice profile and classic skirting
+  bilder: []
 seo:
   title: P0009 - Board & Batten
   description: Half-height pinstripe paneling with separate tongues - classic pine kit for wall cladding. Perfect for bathrooms, old buildings and elegant interiors.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/en/panelling/21-board-batten.html
+  source_shop: ''
 ---
-What we casually call "pinstripe" here is the combination of board and decorative trim.
-Both are separate elements that connect with tongue and groove and alternate along the length of the wall.
-The special feature are the differently profiled decorative trims.
-A classic paneling that is suitable for city and country homes alike.
+## Quick answer
 
-The paneling can be ordered per linear meter. We manufacture the panel from solid wood in oak or pine. On request, it can be prepared for a colored coating.
+- P0009 - Board & Batten is intended for classic interiors with clear line work.
+- The profile supports clean transitions between wall panels and mouldings.
+- Suitable for renovation and new build projects that need a calm premium finish.
+- Final detailing is matched to room proportions, existing fabric, and design intent.
+
+## Practical context
+
+In practice, P0009 - Board & Batten is used when historic character and reliable day-to-day performance need to work together. Key factors are substrate condition, junction details, and expected room use.
+
+## Decisions & variants
+
+Typical variants concern profile height, corner treatment, and how the element connects to skirting or wall mouldings. Early mock-ups and reference details reduce coordination risk.
+
+## Process & planning
+
+The workflow starts with survey and photo documentation, followed by profile selection, junction decisions, and an installation plan. After preparation, elements are installed to line and level and then readied for final coating.
+
+## Cost logic
+
+Cost logic is mainly driven by geometry, substrate preparation, level of detailing, and installation effort. Extra work such as heritage adaptation or custom junctions adds predictable effort.
+
+## Common mistakes & how to avoid them
+
+Frequent errors include undefined datum lines, late detail decisions, and missing trade coordination. Prevention: confirm layout grid, junctions, and coating build-up early.
+
+## References
+
+- Planning guide: /en/consulting/planning
+- Installation guidance: /en/consulting/installation
+- Related product overview: /products/dado-panel
