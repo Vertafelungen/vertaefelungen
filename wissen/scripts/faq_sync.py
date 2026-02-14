@@ -17,11 +17,14 @@ Inject/replace the "## FAQ" section in SSOT-managed Markdown pages based on wiss
                - frontmatter produkt.id
                - frontmatter produkt.artikelnummer
                - a key derived from bundle folder name like "117-tr01-120-..." -> "TR01/120" or "TR01-120"
+  - global:   pages under content/<lang>/faq/**
+             scope_key is path relative to content/<lang>/ with special handling for index/_index.
 
 Safety / Ownership
 ------------------
-- Only touches files whose frontmatter contains managed_by in an allowed set.
+- category/product only touch files whose frontmatter contains managed_by in an allowed set.
   Default allowed: "ssot-sync,categories.csv" (comma-separated).
+- global does not enforce managed_by, but is strictly path-gated to /faq/**.
 - Only modifies the FAQ section in the body; frontmatter is preserved verbatim.
 - Does not create or delete pages; only updates existing Markdown files.
 
@@ -72,10 +75,32 @@ def read_csv_utf8_auto(path: Path) -> List[Dict[str, str]]:
     return [{_normkey(k): ("" if v is None else v) for k, v in r.items()} for r in rows]
 
 
+def _order_parseable(raw_order: str) -> bool:
+    v = clean(raw_order)
+    if not v:
+        return True
+    try:
+        int(float(v))
+        return True
+    except Exception:
+        return False
+
+
+def normalize_links(text: str) -> str:
+    if not text:
+        return ""
+    out = text
+    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/de/", "/de/", out, flags=re.IGNORECASE)
+    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/en/", "/en/", out, flags=re.IGNORECASE)
+    out = re.sub(r"/wissen/de/", "/de/", out)
+    out = re.sub(r"/wissen/en/", "/en/", out)
+    return out
+
+
 @dataclass
 class FaqItem:
     faq_id: str
-    scope_type: str  # product|category
+    scope_type: str  # product|category|global
     scope_key: str
     lang: str        # de|en
     question: str
@@ -96,13 +121,13 @@ class FaqItem:
 
         return FaqItem(
             faq_id=clean(r.get("faq_id") or r.get("id") or ""),
-            scope_type=clean(r.get("scope_type") or ""),
+            scope_type=clean(r.get("scope_type") or "").lower(),
             scope_key=clean(r.get("scope_key") or ""),
             lang=clean(r.get("lang") or "").lower(),
-            question=clean(r.get("question") or r.get("frage") or ""),
-            answer=(r.get("answer") or r.get("antwort") or "").rstrip(),
+            question=normalize_links(clean(r.get("question") or r.get("frage") or "")),
+            answer=normalize_links((r.get("answer") or r.get("antwort") or "").rstrip()),
             order=to_int(r.get("order") or r.get("sort") or r.get("rank") or ""),
-            status=clean(r.get("status") or "active").lower(),
+            status=clean(r.get("status") or "").lower(),
         )
 
 
@@ -110,12 +135,11 @@ def load_faq_csv(csv_path: Path) -> List[FaqItem]:
     rows = read_csv_utf8_auto(csv_path)
     items = [FaqItem.from_row(r) for r in rows]
 
-    # Minimal validation
     bad: List[str] = []
-    for i, it in enumerate(items, start=2):
+    for i, (r, it) in enumerate(zip(rows, items), start=2):
         if not it.faq_id:
             bad.append(f"Line {i}: missing faq_id")
-        if it.scope_type not in ("product", "category"):
+        if it.scope_type not in ("product", "category", "global"):
             bad.append(f"Line {i}: invalid scope_type: {it.scope_type}")
         if it.lang not in ("de", "en"):
             bad.append(f"Line {i}: invalid lang: {it.lang}")
@@ -125,6 +149,11 @@ def load_faq_csv(csv_path: Path) -> List[FaqItem]:
             bad.append(f"Line {i}: missing question")
         if not it.answer:
             bad.append(f"Line {i}: missing answer")
+        if not clean(r.get("status") or ""):
+            bad.append(f"Line {i}: missing status")
+        raw_order = r.get("order") or r.get("sort") or r.get("rank") or ""
+        if not _order_parseable(raw_order):
+            bad.append(f"Line {i}: invalid order: {clean(raw_order)}")
 
     if bad:
         raise ValueError("faq.csv validation failed:\n" + "\n".join(bad))
@@ -135,6 +164,7 @@ def load_faq_csv(csv_path: Path) -> List[FaqItem]:
 # ---------- Markdown parsing ----------
 
 FM_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
+
 
 def split_frontmatter(md: str) -> Tuple[str, str]:
     """
@@ -166,6 +196,7 @@ FAQ_HEADING_RE = re.compile(
     r"(?im)^(##\s*(FAQ|Häufige\s+Fragen|Frequently\s+asked\s+questions)\s*)$"
 )
 
+
 def replace_or_append_faq(body: str, faq_block: str) -> Tuple[str, str]:
     """
     Returns (new_body, action) where action in {"replaced","appended","unchanged"}.
@@ -174,15 +205,12 @@ def replace_or_append_faq(body: str, faq_block: str) -> Tuple[str, str]:
     if not faq_block.strip():
         return body, "unchanged"
 
-    # find an existing FAQ heading
     m = FAQ_HEADING_RE.search(body or "")
     if not m:
-        # append
         b = (body or "").rstrip() + "\n\n" + faq_block.strip() + "\n"
         return b, "appended"
 
     start = m.start()
-    # find next H2 after start (skip the heading itself)
     m2 = re.search(r"(?m)^(##\s+.+)$", body[m.end():])
     if m2:
         end = m.end() + m2.start()
@@ -198,10 +226,25 @@ def replace_or_append_faq(body: str, faq_block: str) -> Tuple[str, str]:
 def render_faq_block(lang: str, items: List[FaqItem]) -> str:
     if not items:
         return ""
+
+    deduped: List[FaqItem] = []
+    seen_questions = set()
+    for it in items:
+        norm_q = re.sub(r"\s+", " ", it.question.strip()).casefold()
+        if not norm_q:
+            continue
+        if norm_q in seen_questions:
+            continue
+        seen_questions.add(norm_q)
+        deduped.append(it)
+
+    if not deduped:
+        return ""
+
     out: List[str] = []
     out.append("## FAQ")
     out.append("")
-    for it in items:
+    for it in deduped:
         out.append(f"### {it.question}")
         out.append("")
         out.append(it.answer.strip())
@@ -212,6 +255,7 @@ def render_faq_block(lang: str, items: List[FaqItem]) -> str:
 # ---------- Scope detection ----------
 
 ARTICLE_RE = re.compile(r"(?i)\b([a-z]{2}\d{2})-(\d{2,3})\b")
+
 
 def derive_product_keys_from_path(p: Path) -> List[str]:
     """
@@ -228,12 +272,10 @@ def derive_product_keys_from_path(p: Path) -> List[str]:
     except Exception:
         return keys
 
-    # numeric translation key prefix
     m_num = re.match(r"^(\d{2,})-", bundle_dir)
     if m_num:
         keys.append(m_num.group(1))
 
-    # article number
     m = ARTICLE_RE.search(bundle_dir)
     if m:
         a = m.group(1)
@@ -254,14 +296,11 @@ def derive_product_keys_from_frontmatter(frontmatter_block: str) -> List[str]:
     """
     keys: List[str] = []
 
-    # translationKey: ...
     m = re.search(r"(?m)^\s*translationKey\s*:\s*(.+?)\s*$", frontmatter_block or "")
     if m:
         keys.append(m.group(1).strip().strip('"').strip("'"))
 
-    # produkt.id and produkt.artikelnummer (indented YAML)
     m = re.search(r"(?m)^\s*id\s*:\s*(.+?)\s*$", frontmatter_block or "")
-    # NOTE: this can false-match other ids; we accept because we only use it as candidate key
     if m:
         keys.append(m.group(1).strip().strip('"').strip("'"))
 
@@ -269,9 +308,31 @@ def derive_product_keys_from_frontmatter(frontmatter_block: str) -> List[str]:
     if m:
         keys.append(m.group(1).strip().strip('"').strip("'"))
 
-    # normalize duplicates
     keys = [k for k in keys if k]
     return list(dict.fromkeys(keys))
+
+
+def global_scope_key_candidates(rel: Path) -> List[str]:
+    # rel is path relative to content root: <lang>/...
+    rel_without_lang = rel.parts[1:]
+    if not rel_without_lang:
+        return []
+
+    filename = rel.name
+    if filename in ("_index.md", "index.md"):
+        key = "/".join(rel_without_lang[:-1]).strip("/")
+    else:
+        key = "/".join(rel_without_lang).strip("/")
+        if key.lower().endswith(".md"):
+            key = key[:-3]
+
+    if not key:
+        return []
+
+    candidates = [key]
+    if key.startswith("faq/"):
+        candidates.append(key[len("faq/"):])
+    return list(dict.fromkeys([c for c in candidates if c]))
 
 
 def pick_matching_faq_items(
@@ -333,7 +394,6 @@ def main() -> int:
         print(f"[faq_sync] ERROR: {e}", file=sys.stderr)
         return 2
 
-    # Build map: (scope_type, scope_key, lang) -> items (active)
     faq_map: Dict[Tuple[str, str, str], List[FaqItem]] = {}
     for it in all_items:
         if it.status != "active":
@@ -366,47 +426,58 @@ def main() -> int:
         fm_block, body = split_frontmatter(md)
         managed_by = parse_managed_by(fm_block)
 
-        if managed_by_vals and managed_by not in managed_by_vals:
-            skipped_files.append(str(p))
-            continue
+        rel_from_lang = rel.parts[1:]
+        is_faq_tree = len(rel_from_lang) >= 1 and rel_from_lang[0] == "faq"
+
+        # 1) global matching (no managed_by requirement), strictly under /faq/**
+        if is_faq_tree:
+            global_candidates = global_scope_key_candidates(rel)
+            matched_key, items = pick_matching_faq_items(faq_map, "global", global_candidates, lang)
+            if items:
+                faq_block = render_faq_block(lang, items)
+                new_body, action = replace_or_append_faq(body, faq_block)
+                if action != "unchanged":
+                    new_md = (fm_block or "") + (new_body or "")
+                    if args.apply:
+                        p.write_text(new_md, encoding="utf-8")
+                    touched_files.append(f"{action}: {p} (scope=global key={matched_key})")
+                continue
 
         basename = p.name
         scope_type: Optional[str] = None
         scope_key_candidates: List[str] = []
 
-        if basename == "_index.md":
+        if basename == "_index.md" and not is_faq_tree:
             scope_type = "category"
-            # category path relative to content/<lang>/
             scope_key = "/".join(rel.parts[1:-1]).strip("/")
             if not scope_key:
                 skipped_files.append(str(p))
                 continue
             scope_key_candidates = [scope_key]
         elif basename == "index.md":
-            # product page, only if path includes produkte/
             rel_path_str = "/".join(rel.parts[1:])
             if "produkte/" not in rel_path_str:
                 skipped_files.append(str(p))
                 continue
             scope_type = "product"
 
-            # candidates: frontmatter + path-derived
             scope_key_candidates.extend(derive_product_keys_from_frontmatter(fm_block))
             scope_key_candidates.extend(derive_product_keys_from_path(p))
-
-            # also allow raw folder prefix (slug) as-is
             scope_key_candidates.extend([p.parent.name, p.parent.name.lower(), p.parent.name.upper()])
 
-            # normalize & de-dup
             scope_key_candidates = [k for k in scope_key_candidates if k and k.lower() != "none"]
             scope_key_candidates = list(dict.fromkeys(scope_key_candidates))
         else:
             skipped_files.append(str(p))
             continue
 
+        # managed_by gate stays for category/product only
+        if managed_by_vals and managed_by not in managed_by_vals:
+            skipped_files.append(str(p))
+            continue
+
         matched_key, items = pick_matching_faq_items(faq_map, scope_type, scope_key_candidates, lang)
         if not items:
-            # No FAQ rows for this page: do nothing
             continue
 
         faq_block = render_faq_block(lang, items)
@@ -419,9 +490,8 @@ def main() -> int:
 
         if args.apply:
             p.write_text(new_md, encoding="utf-8")
-        touched_files.append(f"{action}: {p} (key={matched_key})")
+        touched_files.append(f"{action}: {p} (scope={scope_type} key={matched_key})")
 
-    # report
     lines: List[str] = []
     lines.append(f"- CSV: `{csv_path.as_posix()}`")
     lines.append(f"- Root: `{root.as_posix()}`")
