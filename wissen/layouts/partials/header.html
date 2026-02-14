@@ -1,8 +1,9 @@
 <!--
 File: wissen/layouts/partials/header.html
-Version: 2026-01-23 08:20 Uhr (Europe/Berlin)
+Version: 2026-02-14 19:10 Uhr (Europe/Berlin)
 Purpose: Site header aligned to main site (image brand left, centered main nav, actions right)
-Change: Fix duplicate /wissen prefix in header nav URLs by removing hardcoded "/wissen/" from $base.
+Change:
+- Make menu label rendering robust: if Identifier has no i18n translation, fall back to .Name (prevents empty labels / "dot" symptom).
 Notes:
 - Header main navigation is intentionally deterministic:
   DE: /wissen/de/shop/ /wissen/de/faq/ /wissen/de/produkte/ /wissen/de/lookbook/
@@ -34,8 +35,12 @@ Notes:
           {{- range .Site.Menus.main -}}
             {{- $label := .Name -}}
             {{- with .Identifier -}}
-              {{- $label = i18n . -}}
+              {{- $t := i18n . -}}
+              {{- if and $t (ne $t .) -}}
+                {{- $label = $t -}}
+              {{- end -}}
             {{- end -}}
+
             {{- $href := "" -}}
             {{- if .Page -}}
               {{- $href = .Page.RelPermalink -}}
@@ -50,6 +55,7 @@ Notes:
                 {{- end -}}
               {{- end -}}
             {{- end -}}
+
             {{- $isActive := and (not (hasPrefix $href "http://")) (not (hasPrefix $href "https://")) (hasPrefix $.RelPermalink $href) -}}
             <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ $href }}">{{ $label }}</a>
           {{- end -}}
