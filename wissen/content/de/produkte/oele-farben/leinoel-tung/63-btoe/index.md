@@ -4,10 +4,10 @@ aliases:
 title: Balsamterpentinöl
 translationKey: '63'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '63'
-  artikelnummer: BTOE
+  artikelnummer: '63'
   verfuegbar: true
   preis_basis: 13.45
   varianten:
@@ -15,15 +15,13 @@ produkt:
     preis_aufschlag: 50.42
   - bezeichnung: 1 Liter
     preis_aufschlag: 0.0
-  bilder:
-  - datei: btoe.png
-    alt_de: Balsamterpentinöl 1 Liter natürlich Lösungsmittel destilliert Nadelholzharz Verdünner Leinölfarbe Halböl
+  bilder: []
 seo:
   title: btoe - Balsamterpentinöl ist ein natürliches Lösungsmittel
   description: Balsamterpentinöl - natürliches Lösemittel zum Verdünnen von Leinölprodukten & Reinigen von Pinseln. Ideal für Maler, Restauratoren & Denkmalpflege.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/63-313-balsamterpentinol.html#/63-1_25_5_10_20_liter-1_liter
+  source_shop: ''
 lang: de
 ---
 Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.

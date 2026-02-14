@@ -3,10 +3,10 @@ title: Wall Moulding 09
 lang: en
 translationKey: '85'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '85'
-  artikelnummer: WL09
+  artikelnummer: '85'
   verfuegbar: true
   preis_basis: 12.76
   varianten:
@@ -14,15 +14,13 @@ produkt:
     preis_aufschlag: 0.0
   - bezeichnung: White Wood
     preis_aufschlag: 4.22
-  bilder:
-  - datei: wl09.png
-    alt_en: Wall molding WL09 pushing wave asymmetric rabbet profile pine wood 18x40mm panel molding stepped
+  bilder: []
 seo:
   title: Wall Moulding 09
   description: Profiled wooden strip 18 x 40 mm. In pine or whitewood, other wood species available upon request. As a wall strip for direct installation .
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/en/wall-mouldings/85-357-wl-01.html#/66-type_of_wood_wl-pine
+  source_shop: ''
 ---
 Profiled wooden strip 18 x 40 mm
 In pine or whitewood, other wood species available upon request

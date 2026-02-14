@@ -3,10 +3,10 @@ title: Wall Moulding 14
 lang: en
 translationKey: '90'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '90'
-  artikelnummer: WL14
+  artikelnummer: '90'
   verfuegbar: true
   preis_basis: 31.0
   varianten:
@@ -14,15 +14,13 @@ produkt:
     preis_aufschlag: 0.0
   - bezeichnung: White Wood
     preis_aufschlag: 10.24
-  bilder:
-  - datei: wl14.png
-    alt_en: Wall molding WL14 high wave asymmetric ogee-chamfer profile pine wood 21x60mm panel molding striking
+  bilder: []
 seo:
   title: Wall Moulding 14
   description: Profiled wooden strip 21 x 60 mm. In pine or whitewood, other wood types upon request. . As a wall strip for direct mounting on
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/en/wall-mouldings/90-367-wl-01.html#/66-type_of_wood_wl-pine
+  source_shop: ''
 ---
 Profiled wooden strip 21 x 60 mm
 In pine or whitewood, other wood types upon request

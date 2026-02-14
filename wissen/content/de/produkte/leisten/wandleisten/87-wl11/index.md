@@ -3,10 +3,10 @@ title: Wandleiste 11
 lang: de
 translationKey: '87'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '87'
-  artikelnummer: WL11
+  artikelnummer: '87'
   verfuegbar: true
   preis_basis: 31.3
   varianten:
@@ -14,15 +14,13 @@ produkt:
     preis_aufschlag: 0.0
   - bezeichnung: White Wood
     preis_aufschlag: 10.32
-  bilder:
-  - datei: wl11.png
-    alt_de: Wandleiste WL11 Brandungswelle Mehrfach-Stufen-Profil Kiefer 32x47mm Kassettenleiste gestaffelt
+  bilder: []
 seo:
   title: wl11 - Profilierte Holzleiste 32 x 47 mmIn Kiefer
   description: Profilierte Holzleiste 32 x 47 mm. In Kiefer oder White Wood, andere Holzarten aus Anfrage. Als Wandleiste zur direkten Montage auf der ver.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/wandleisten/87-361-wl-01.html#/66-holzart_wl-kiefer
+  source_shop: ''
 ---
 Profilierte Holzleiste 32 x 47 mm
 In Kiefer oder White Wood, andere Holzarten aus Anfrage

@@ -1,7 +1,9 @@
-﻿---
-version: 2026-01-17 14:37 UTC
+---
+version: 2026-02-14 19:01 UTC
 managed_by: categories.csv
-last_synced: 2026-01-17 14:37 UTC
+last_synced: 2026-02-14 19:01 UTC
+lastmod: 2026-02-14 19:01 UTC
+lang: de
 translationKey: oil-paints-root
 title: Öle & Farben
 description: Öle, Farben und Oberflächensysteme für historische Holzoberflächen - mit Fokus auf kompatible Materialien, handwerkliche Verarbeitung und Denkmalpflege.
@@ -29,4 +31,4 @@ cascade:
   seo:
     robots: index,follow
 ---
-Öle und Farben bestimmen nicht nur den Farbton, sondern auch Diffusionsverhalten, Haptik, Reparaturfähigkeit und langfristige Alterung.\n\n## Unterkategorien\n- **Leinöl, Tung, Balsam** - klassische Öle/Harze für Holzschutz, Grundierung und Pflege.\n- **Standöl / Ölfarben** - robuste, diffusionsoffene Anstriche (z. B. pigmentierte Systeme).\n\nWähle eine Unterkategorie, um passende Produkte, Varianten und Anwendungshinweise zu sehen. Weitere Informationen zu Varianten und Preisen findest du im [Shop]({{< relref "shop/_index.md" >}}).
+Öle und Farben bestimmen nicht nur den Farbton, sondern auch Diffusionsverhalten, Haptik, Reparaturfähigkeit und langfristige Alterung.\n\n## Unterkategorien\n- **Leinöl, Tung, Balsam** - klassische Öle/Harze für Holzschutz, Grundierung und Pflege.\n- **Standöl / Ölfarben** - robuste, diffusionsoffene Anstriche (z. B. pigmentierte Systeme).\n\nWähle eine Unterkategorie, um passende Produkte, Varianten und Anwendungshinweise zu sehen.

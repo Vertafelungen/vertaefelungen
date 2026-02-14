@@ -7,3 +7,11 @@ robots: "noindex,follow"
 # Glossary
 
 Content forthcoming.
+
+## FAQ
+
+### glossary
+
+# Glossary
+
+Content forthcoming.

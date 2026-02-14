@@ -3,10 +3,10 @@ title: Pur Linseed Oil
 lang: en
 translationKey: '61'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '61'
-  artikelnummer: LOEN
+  artikelnummer: '61'
   verfuegbar: true
   preis_basis: 12.61
   varianten:
@@ -18,15 +18,13 @@ produkt:
     preis_aufschlag: 96.64
   - bezeichnung: 20 Liter
     preis_aufschlag: 197.48
-  bilder:
-  - datei: loen.png
-    alt_en: Pure linseed oil without siccative 1 liter wood primer natural purified low acid content deep penetrating
+  bilder: []
 seo:
   title: Pur Linseed Oil
   description: Linseed oil - cold-pressed, pure wood oil for interior & exterior use. Ideal for priming, restoration & wood care. Solvent-free and long-lasting.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/en/leinoel-tungoel-balsam/61-322-linseedoil.html#/63-gebinde-1_liter
+  source_shop: ''
 ---
 Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
 For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.

@@ -63,3 +63,21 @@ Untergrund prüfen, Aufbau festlegen, Bauteile vorfertigen, Montage, Fugen/Ansch
 
 Wenn du schon grob weißt, was du willst, beginne bei **[Produkte](/wissen/de/produkte/)**.  
 Wenn du noch klären willst, **was möglich ist und wie man belastbar plant**, beginne bei **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
+
+## FAQ
+
+### Brauche ich zwingend exakte Maße?
+
+Für eine erste Orientierung reichen oft **Fotos + grobe Maße**. Für eine belastbare Planung sind **Raumhöhen, Brüstungshöhen, Leibungstiefen und Wandlängen** entscheidend. Details dazu stehen in **[Planung & Bestellung](/de/faq/beratung/)**.
+
+### Ist das „Standardware“ oder individuell?
+
+Beides ist möglich: Von **standardisierten Leistenprofilen** bis zur **rekonstruierten Vertäfelung nach historischem Vorbild**. Das Wissen führt dich zur passenden Kategorie; Varianten/Preise liegen im Shop.
+
+### Wann lohnt sich eine Visualisierung?
+
+Wenn Proportion, Profilwirkung und Anschlussdetails noch unklar sind – insbesondere bei historischen Interieurs oder schwierigen Bestandswänden. Die Visualisierung wird in den Angebotsprozess integriert (siehe **[Planung & Bestellung](/de/faq/beratung/)**).
+
+### Wie läuft die Montage typischerweise?
+
+Untergrund prüfen, Aufbau festlegen, Bauteile vorfertigen, Montage, Fugen/Anschlüsse, Oberfläche. Entscheidend ist, ob Unebenheiten, Leitungen oder Altbauschichten berücksichtigt werden müssen.

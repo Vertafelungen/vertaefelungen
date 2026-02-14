@@ -4,10 +4,10 @@ aliases:
 title: Wandleiste 02 „Dom-Profil"
 translationKey: '77'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '77'
-  artikelnummer: WL02
+  artikelnummer: '77'
   verfuegbar: true
   preis_basis: 14.36
   varianten:
@@ -15,15 +15,13 @@ produkt:
     preis_aufschlag: 0.0
   - bezeichnung: White Wood
     preis_aufschlag: 4.74
-  bilder:
-  - datei: wl02.png
-    alt_de: Wandleiste WL02 Dom-Profil Halbrundstab Kiefer 20x40mm Kassettenleiste symmetrisch
+  bilder: []
 seo:
   title: wl02 - „Dom-Profil" Massive Holzleiste 20 x 40 mm, symmetri
   description: „Dom-Profil" Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab. Als Wandleiste zur direkten Montage auf der verputzen Wand.<b.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/wandleisten/77-341-wl-02.html#/66-holzart_wl-kiefer
+  source_shop: ''
 lang: de
 ---
 „Dom-Profil" Massive Holzleiste 20 x 40 mm, symmetrisches Profil mit Halbrundstab.
