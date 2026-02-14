@@ -3,10 +3,10 @@ title: Wandleiste 07
 lang: de
 translationKey: '82'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '82'
-  artikelnummer: WL07
+  artikelnummer: '82'
   verfuegbar: true
   preis_basis: 9.44
   varianten:
@@ -14,15 +14,13 @@ produkt:
     preis_aufschlag: 0.0
   - bezeichnung: White Wood
     preis_aufschlag: 3.12
-  bilder:
-  - datei: wl07.png
-    alt_de: Wandleiste WL07 Rollende Welle Hohlkehle-Profil Kiefer 15x30mm Kassettenleiste konkav
+  bilder: []
 seo:
   title: wl07 - Holzleiste 15 x 30 mmIn Kiefer oder
   description: Holzleiste 15 x 30 mm. In Kiefer oder White Wood, andere Holzarten aus Anfrage. Als Wandleiste zur direkten Montage auf der verputzen Wand.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/wandleisten/82-351-wl-01.html#/66-holzart_wl-kiefer
+  source_shop: ''
 ---
 Holzleiste 15 x 30 mm
 In Kiefer oder White Wood, andere Holzarten aus Anfrage

@@ -1,23 +1,25 @@
 ---
-title: "SL0005 Abgerundete Oberkante 80/16"
-description: "Schlichte Sockelleiste SL0005 mit abgerundeter Oberkante (80 × 16 mm). Für ruhige Wandabschlüsse; Hinweise zu Auswahl, Montage, Fugen und Kombinationen."
-lastmod: "2026-02-13T09:56:16+01:00"
+title: SL0005 - abgerundete Oberkante 80/16
+description: Schlichte Sockelleiste SL0005 mit abgerundeter Oberkante (80 × 16 mm). Für ruhige Wandabschlüsse; Hinweise zu Auswahl, Montage, Fugen und Kombinationen.
+lastmod: '2026-02-13T09:56:16+01:00'
 seo:
-  title: "SL0005 Sockelleiste 80/16 mit abgerundeter Oberkante"
-  description: "Sockelleiste SL0005 mit abgerundeter Oberkante (80 × 16 mm) für ruhige Wandabschlüsse. Gut kombinierbar; Länge/Holzart/Preis gemäß Shop-Variante."
+  title: Sockelleiste mit abgerundeter Oberkante - Höhe 8 cm
+  description: Schlichte Sockelleiste mit abgerundeter Oberkante - 80/16 - Ausführung in Eiche
+  tags: []
 produkt:
-  id: "SL0005"
-  typ: "Sockelleiste"
-  kategorie: "Sockelleisten"
-  abmessungen:
-    hoehe_mm: 80
-    breite_mm: 16
+  id: '34'
+  artikelnummer: '34'
+  verfuegbar: true
+  preis_basis: 17.15
   varianten: []
+  bilder: []
 refs:
-  source_shop: "https://www.vertaefelungen.de/de/sockelleisten/342-sl0005-abgerundete-oberkante-8016.html"
-  source_wissen: "/wissen/de/produkte/leisten/sockelleisten/sl0005-abgerundete-oberkante-80/16/"
+  source_shop: ''
+lang: de
+translationKey: '34'
+managed_by: ssot-sync
+last_synced: '2026-02-14'
 ---
-
 ## Kurzantwort
 
 - **SL0005 (80 × 16 mm)** ist eine **schlichte Sockelleiste** mit **abgerundeter Oberkante** – visuell ruhig, leicht zu reinigen, gut kombinierbar.

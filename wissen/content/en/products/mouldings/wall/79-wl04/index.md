@@ -3,10 +3,10 @@ title: Wall Moulding 04
 lang: en
 translationKey: '79'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '79'
-  artikelnummer: WL04
+  artikelnummer: '79'
   verfuegbar: true
   preis_basis: 10.4
   varianten:
@@ -14,15 +14,13 @@ produkt:
     preis_aufschlag: 0.0
   - bezeichnung: White Wood
     preis_aufschlag: 3.44
-  bilder:
-  - datei: wl04.png
-    alt_en: Wall molding WL04 round bead strip quarter round pine wood 10x40mm panel molding smooth
+  bilder: []
 seo:
   title: Wall Moulding 04
   description: Round bar strip - Solid wooden strip 10 x 40 mm, round bar strip. Available in pine or whitewood, other wood types available upon request. <.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/en/wall-mouldings/79-345-wl-01.html#/66-type_of_wood_wl-pine
+  source_shop: ''
 ---
 Round bar strip - Solid wooden strip 10 x 40 mm, round bar strip.
 Available in pine or whitewood, other wood types available upon request.

@@ -4,26 +4,20 @@ aliases:
 title: Lüftungsrosette 7
 translationKey: '75'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '75'
-  artikelnummer: BLR7
+  artikelnummer: '75'
   verfuegbar: true
   preis_basis: 46.22
   varianten: []
-  bilder:
-  - datei: blr7-01.png
-    alt_de: Runde Messinglüftung mit drei Öffnungen flach auf Holzfläche montiert 40 mm Durchmesser
-  - datei: blr7-02.png
-    alt_de: Messinglüftung mit drei Öffnungen daneben Zollstock zeigt Maßangabe von knapp vier Zentimetern
-  - datei: blr7-03.png
-    alt_de: Runde Messinglüftung mit drei Öffnungen schräg von unten fotografiert auf Holzfläche
+  bilder: []
 seo:
   title: blr7 - Lüftungsrosette für Vertäfelungen, nach Originalvorl
   description: Lüftungsrosette für Holzvertäfelungen
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/lueftungsrosetten/75-lueftungsrosette-3.html
+  source_shop: ''
 lang: de
 ---
 Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.

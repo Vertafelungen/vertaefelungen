@@ -4,10 +4,10 @@ aliases:
 title: Weinrot - BEECK Standölinnenfarbe PRO
 translationKey: '107'
 managed_by: ssot-sync
-last_synced: '2026-01-23'
+last_synced: '2026-02-14'
 produkt:
   id: '107'
-  artikelnummer: WEINROT
+  artikelnummer: '107'
   verfuegbar: true
   preis_basis: 57.15
   varianten:
@@ -23,19 +23,13 @@ produkt:
     preis_aufschlag: 556.35
   - bezeichnung: 10 L, seidenglanz
     preis_aufschlag: 556.35
-  bilder:
-  - datei: weinrot.png
-    alt_de: BEECK Standölinnenfarbe PRO Weinrot seidenmatt Leinölfarbe deckend Innenbereich Holzlackierung denkmalgerecht bordeaux
-  - datei: weinrot-farbfaecher.png
-    alt_de: ''
-  - datei: sip_gebinde.png
-    alt_de: ''
+  bilder: []
 seo:
   title: Weinrot, BEECK Standölinnnenfarbe PRO, deckend
   description: Beeck Standölinnenfarbe Pro ist eine hoch pigentierte Leinölfarbe für die Baudenkmalpflege / Restaurierung von Holzobjekten und Vertäfelungen in Innenbereichen.
   tags: []
 refs:
-  source_shop: https://www.vertaefelungen.de/de/standoelinnenfarbe-pro/107-443-weinrot.html#/68-075_25_10_liter-075_l/71-glanzgrad-seidenmatt
+  source_shop: ''
 lang: de
 ---
 BEECK Standölinnenfarbe PRO
