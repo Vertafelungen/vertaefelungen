@@ -1,0 +1,117 @@
+# File: wissen/prompts/codex_master_ssot_authoring.txt
+# Version: 2026-02-14T13:10:00+01:00 (Europe/Berlin)
+# Purpose: Codex Masterprompt – SSOT-Authoring (CSV-only), inkl. FAQ via faq.csv
+
+DU BIST CODEX. Rolle: SSOT Content Author + Datenintegritäts-Guard.
+
+ZIEL
+Erzeuge genau 1 Pull Request, der ausschließlich diese Dateien ändert:
+- wissen/ssot/SSOT.csv
+- wissen/ssot/categories.csv
+- wissen/ssot/faq.csv
+KEINE Änderungen an wissen/content/**, KEINE Layout/Config Änderungen.
+
+NORMATIVE SPEZIFIKATION (MUSS BEFOLGT WERDEN)
+- wissen/docs/ssot-content-schema-spec.md
+Diese Datei ist verbindlich (Ownership, Spalten, FAQ-Policy, Link-Regeln, Counts, Determinismus).
+
+HARD RULES
+1) CSV-only: Du darfst ausschließlich SSOT.csv, categories.csv, faq.csv ändern.
+2) Header-Sicherheit:
+   - Bestehende Spaltennamen und Reihenfolge bleiben unverändert.
+   - Wenn benötigte Body-Spalten fehlen (body_de_* / body_en_*), füge sie am ENDE als neue Spalten hinzu.
+3) FAQ werden NICHT in SSOT.csv/categories.csv gepflegt:
+   - Falls alte body_*_faq Spalten existieren: NICHT befüllen, NICHT ändern (deprecated).
+   - FAQs werden ausschließlich in wissen/ssot/faq.csv ergänzt/korrekt gepflegt.
+4) Pfade:
+   - export_pfad_* Felder NICHT verändern, außer bei eindeutigem Mapping-Fehler (z. B. TR01/160↔TR01/120). Dann minimal korrigieren und im PR erklären.
+5) Keine erfundenen technischen Werte.
+6) Link-Regel: Keine `/wissen/...` Links; nur `/de/...` bzw `/en/...`.
+7) FAQ counts:
+   - Produkte: 5–8 FAQs je Sprache (active).
+   - Kategorien: 8–12 FAQs je Sprache (active).
+8) Deterministisch: Keine kreativen Abweichungen; Schema strikt.
+
+INPUTS (IM REPO)
+- wissen/ssot/SSOT.csv
+- wissen/ssot/categories.csv
+- wissen/ssot/faq.csv (falls fehlt: anlegen mit Header gemäß Spec)
+- wissen/docs/ssot-content-schema-spec.md
+
+AUFGABE (1 PR, in dieser Reihenfolge)
+
+A) Read & Analyze
+1) Lies Spec: wissen/docs/ssot-content-schema-spec.md vollständig.
+2) Öffne wissen/ssot/SSOT.csv und categories.csv, identifiziere:
+   - export_pfad_de/en
+   - product_id / translationKey (bei Produkten)
+   - title/description pro Sprache
+   - vorhandene body_de_* / body_en_* Spalten (ohne FAQ)
+3) Öffne wissen/ssot/faq.csv:
+   - Falls nicht vorhanden: erstelle Datei mit Header gemäß Spec (faq_id, scope_type, scope_key, lang, question, answer, order, status, tags, source).
+   - Wenn vorhanden: prüfe Scope-Keys/Counts/Dedupe.
+
+B) Scope selection (Batch)
+4) Wähle 10–20 Produkte aus SSOT.csv, priorisiert:
+   - fehlende body_* Felder und/oder fehlende title/description
+5) Wähle 5–10 Kategorien aus categories.csv, priorisiert:
+   - fehlende body_* Felder und/oder fehlende title/description
+6) Für jede ausgewählte Seite plane FAQ-Ergänzung:
+   - Produkte: 5–8 de + 5–8 en (active)
+   - Kategorien: 8–12 de + 8–12 en (active)
+
+C) Authoring (CSV)
+7) SSOT.csv (Produkte):
+   - Fülle (falls leer): title_de/description_de, title_en/description_en
+   - Fülle body_de_kurzantwort/praxis/varianten/ablauf/kosten/fehler/verweise
+   - Fülle body_en_* analog
+   - KEINE FAQ-Felder in SSOT.csv anfassen (deprecated).
+8) categories.csv (Kategorien):
+   - Fülle title/description + body_de_* / body_en_* analog.
+   - KEINE FAQ-Felder in categories.csv anfassen (deprecated).
+
+D) FAQ Authoring (faq.csv)
+9) Für jede ausgewählte Produktzeile:
+   - scope_type=product
+   - scope_key=product_id (z. B. TR01/160)
+   - Erzeuge 5–8 FAQs DE (lang=de, status=active, order=1..n)
+   - Erzeuge 5–8 FAQs EN (lang=en, status=active, order=1..n)
+   - Deduplicate: keine gleiche Frage doppelt pro (scope_type, scope_key, lang)
+10) Für jede ausgewählte Kategoriezeile:
+   - scope_type=category
+   - scope_key=export_pfad_de relativ ohne führenden Slash, ohne content/de (z. B. produkte/leisten/tuerbekleidungen)
+   - Erzeuge 8–12 FAQs DE und 8–12 FAQs EN (active).
+11) faq_id:
+   - eindeutig, stabil, deterministisch, z. B.:
+     - product:  "p-TR01-160-de-001"
+     - category: "c-produkte-leisten-tuerbekleidungen-en-005"
+   - keine Kollisionen.
+
+E) Guard Checks (vor Commit)
+12) Nur 3 Dateien geändert:
+   - git diff --name-only zeigt nur:
+     - wissen/ssot/SSOT.csv
+     - wissen/ssot/categories.csv
+     - wissen/ssot/faq.csv
+13) Keine /wissen/ Links in irgendeinem neuen Text (auch nicht in FAQ answer):
+   - Suche nach "/wissen/" und "http.../wissen/" → 0 Treffer.
+14) FAQ Counts erfüllt:
+   - Produkte 5–8 je Sprache; Kategorien 8–12 je Sprache.
+15) Mapping-Check:
+   - Keine offenkundige Produkt-ID/Pfad-Verwechslung.
+
+F) Commit & PR
+16) Branch: ssot/authoring-batch-XX (XX fortlaufend)
+17) Commit: ssot(authoring): batch XX fill body + faq (csv-only)
+18) PR Title: ssot(authoring): batch XX (csv-only, N products, M categories, FAQ)
+19) PR Text:
+   - Auflistung betroffener product_id und category scope_keys
+   - Bestätigung: csv-only
+   - Bestätigung: FAQ via faq.csv; keine /wissen/ Links
+   - Hinweis: Spec befolgt
+
+STOP CONDITIONS
+- Wenn du feststellst, dass etwas nur durch Anpassung von Scripts/Layouts möglich wäre: NICHTS außerhalb CSV ändern; dokumentiere und stoppe.
+
+START
+Arbeite jetzt exakt nach diesem Plan und erstelle 1 PR.
