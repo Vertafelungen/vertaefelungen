@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 20:56 UTC
+version: 2026-02-14 22:13 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 20:56 UTC
-lastmod: 2026-02-14 20:56 UTC
+last_synced: 2026-02-14 22:13 UTC
+lastmod: 2026-02-14 22:13 UTC
 lang: de
 translationKey: oil-paints-root
 title: Öle & Farben
@@ -66,3 +66,11 @@ Unklare Schichtfolge, fehlende Musterfreigabe und zu spätes Abstimmen mit ander
 ### Wo finde ich passende Produktgruppen?
 
 Ein Überblick steht unter /de/produkte/oele-farben/beeck/.
+
+### Wie viele Varianten sollte ich parallel vergleichen?
+
+Praktisch sind zwei bis vier sauber definierte Varianten; mehr erschwert oft die Entscheidung ohne zusätzlichen Nutzen.
+
+### Wann ist eine technische Rücksprache vor Ort sinnvoll?
+
+Bei unklaren Untergründen, Feuchtehinweisen oder komplexen Anschlussdetails ist eine frühe technische Abstimmung besonders hilfreich.
