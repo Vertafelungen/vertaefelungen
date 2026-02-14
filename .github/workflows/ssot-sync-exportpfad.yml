@@ -1,5 +1,5 @@
-# SSOT → Markdown Sync (export_pfad; hydrate products)
-# Version: 2026-01-04 14:05 Europe/Berlin
+# SSOT → Markdown Sync (export_pfad; hydrate products; inject FAQ)
+# Version: 2026-02-14 18:22 Europe/Berlin
 
 name: SSOT → Markdown Sync (export_pfad; hydrate products)
 
@@ -23,6 +23,7 @@ on:
     paths:
       - "wissen/ssot/SSOT.csv"
       - "wissen/ssot/categories.csv"
+      - "wissen/ssot/faq.csv"
       - "wissen/ssot/bilder/**"
       - "wissen/scripts/**.py"
       - "tools/**.py"
@@ -86,6 +87,22 @@ jobs:
             --img-root "ssot/bilder" \
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply") \
             $([ "${{ github.event.inputs.remove_empty_old_bundles || 'true' }}" = "true" ] && echo "--remove-empty-old-bundles")
+
+      - name: Run FAQ sync (inject into SSOT-managed pages)
+        continue-on-error: true
+        run: |
+          python scripts/faq_sync.py \
+            --csv "ssot/faq.csv" \
+            --root "content" \
+            $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply")
+
+      - name: Upload FAQ reports (non-blocking)
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: faq-reports
+          path: wissen/scripts/reports/faq_sync_report.md
+          if-no-files-found: ignore
 
       - name: Upload SSOT reports (non-blocking)
         continue-on-error: true
