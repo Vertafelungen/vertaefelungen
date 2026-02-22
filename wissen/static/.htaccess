@@ -16,6 +16,12 @@ AddDefaultCharset UTF-8
 
 RewriteEngine On
 
+# --- PR-4.3: canonical redirects FAQ -> INFO (permalinks moved to /info/) ---
+RewriteRule ^de/faq/?$ de/info/ [R=301,L]
+RewriteRule ^de/faq/(.*)$ de/info/$1 [R=301,L]
+RewriteRule ^en/faq/?$ en/info/ [R=301,L]
+RewriteRule ^en/faq/(.*)$ en/info/$1 [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
@@ -27,10 +33,10 @@ RewriteRule ^de/produkte/produkte/(.*)$ de/produkte/$1 [R=301,L]
 RewriteRule ^en/products/products/?$ en/products/ [R=301,L]
 RewriteRule ^en/products/products/(.*)$ en/products/$1 [R=301,L]
 
-RewriteRule ^en/consulting/?$ en/faq/consulting/ [R=301,L]
-RewriteRule ^en/consulting/(.*)$ en/faq/consulting/$1 [R=301,L]
-RewriteRule ^en/style-guide/?$ en/faq/style-guide/ [R=301,L]
-RewriteRule ^en/style-guide/(.*)$ en/faq/style-guide/$1 [R=301,L]
+RewriteRule ^en/consulting/?$ en/info/consulting/ [R=301,L]
+RewriteRule ^en/consulting/(.*)$ en/info/consulting/$1 [R=301,L]
+RewriteRule ^en/style-guide/?$ en/info/style-guide/ [R=301,L]
+RewriteRule ^en/style-guide/(.*)$ en/info/style-guide/$1 [R=301,L]
 
 RewriteRule ^de/oeffentlich/produkte/?$ de/produkte/ [R=301,L]
 RewriteRule ^de/oeffentlich/produkte/(.*)$ de/produkte/$1 [R=301,L]

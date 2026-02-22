@@ -12,6 +12,11 @@ Options -Indexes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /wissen/
+  # --- PR-4.3: canonical redirects FAQ -> INFO (root-level knowledge redirects) ---
+  RewriteRule ^de/faq/?$ /wissen/de/info/ [R=301,L]
+  RewriteRule ^de/faq/(.*)$ /wissen/de/info/$1 [R=301,L]
+  RewriteRule ^en/faq/?$ /wissen/en/info/ [R=301,L]
+  RewriteRule ^en/faq/(.*)$ /wissen/en/info/$1 [R=301,L]
   # Canonicalize duplicate locale segments
   RewriteRule ^de/de/(.*)$ /wissen/de/$1 [R=301,L]
   RewriteRule ^en/en/(.*)$ /wissen/en/$1 [R=301,L]

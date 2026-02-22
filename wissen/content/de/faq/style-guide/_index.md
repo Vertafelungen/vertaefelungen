@@ -6,6 +6,8 @@ managed_by: "faq.csv"
 lang: "de"
 translationKey: "faq:de/faq/style-guide"
 last_synced: "2026-02-22T13:16:41Z"
+aliases:
+  - "/de/faq/style-guide/"
 ---
 # Style Guide
 
