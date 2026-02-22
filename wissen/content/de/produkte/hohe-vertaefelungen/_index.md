@@ -1,8 +1,8 @@
 ---
-version: 2026-02-22 13:55 UTC
+version: 2026-02-22 15:38 UTC
 managed_by: categories.csv
-last_synced: 2026-02-22 13:55 UTC
-lastmod: 2026-02-22 13:55 UTC
+last_synced: 2026-02-22 15:38 UTC
+lastmod: 2026-02-22 15:38 UTC
 lang: de
 translationKey: high-wainscoting
 title: Hohe Vertäfelungen
