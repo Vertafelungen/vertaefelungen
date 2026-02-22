@@ -52,5 +52,5 @@ Frequent mistakes include missing reference heights, late clarification of junct
 ## References
 
 - Category overview: /en/products/mouldings/baseboards/
-- Planning and consultation: /en/faq/consulting/
+- Planning and consultation: /en/info/consulting/
 - Material and finish guidance: /en/products/oils-paints/

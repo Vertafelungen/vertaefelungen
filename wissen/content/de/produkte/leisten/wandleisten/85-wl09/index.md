@@ -54,7 +54,7 @@ Häufige Fehler sind uneinheitliche Felder, nicht abgestimmte Profilhöhen und z
 - /de/produkte/leisten/wandleisten/
 - /de/produkte/leisten/sockelleisten/
 - /de/produkte/leisten/tuerbekleidungen/
-- /de/faq/beratung/
+- /de/info/beratung/
 
 <!-- FAQ_SYNC:BEGIN -->
 ## Info

@@ -33,8 +33,8 @@ home = ["HTML"]
 
 [languages.de.permalinks]
   produkte = "/:sections/:slug/"
-  faq = "/faq/:sections/:slug/"
+  faq = "/info/:sections/:slug/"
 
 [languages.en.permalinks]
   products = "/:sections/:slug/"
-  faq = "/faq/:sections/:slug/"
+  faq = "/info/:sections/:slug/"

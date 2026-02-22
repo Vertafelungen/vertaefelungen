@@ -54,4 +54,4 @@ Frequent mistakes include inconsistent panel spacing, mismatched profile heights
 - /en/products/mouldings/wall-mouldings/
 - /en/products/mouldings/skirting-boards/
 - /en/products/mouldings/door-architraves/
-- /en/faq/consulting/
+- /en/info/consulting/

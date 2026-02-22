@@ -48,5 +48,5 @@ Frequent mistakes include missing reference heights, late clarification of junct
 ## References
 
 - Category overview: /en/products/ventilation-rosettes/
-- Planning and consultation: /en/faq/consulting/
+- Planning and consultation: /en/info/consulting/
 - Material and finish guidance: /en/products/oils-paints/
