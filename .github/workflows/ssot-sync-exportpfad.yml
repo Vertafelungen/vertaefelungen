@@ -18,6 +18,12 @@ on:
         default: "true"
         type: choice
         options: ["false", "true"]
+      prune_faq:
+        description: "FAQ-Prune aktivieren (löscht verwaiste managed_by:faq.csv Dateien unter /faq/**) – NUR bei manual run!"
+        required: true
+        default: "false"
+        type: choice
+        options: ["false", "true"]
 
   push:
     paths:
@@ -88,12 +94,22 @@ jobs:
 
       - name: Run FAQ sync (generate global + inject)
         run: |
-          python scripts/faq_sync.py \
-            --csv "ssot/faq.csv" \
-            --root "content" \
-            --generate-global \
-            --inject \
-            $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply")
+          set -euo pipefail
+          APPLY="${{ github.event.inputs.apply || 'true' }}"
+          PRUNE_FAQ="${{ github.event.inputs.prune_faq || 'false' }}"
+
+          CMD=(python scripts/faq_sync.py --csv "ssot/faq.csv" --root "content" --generate-global --inject)
+
+          if [ "$APPLY" = "true" ]; then
+            CMD+=(--apply)
+          fi
+
+          if [ "$APPLY" = "true" ] && [ "$PRUNE_FAQ" = "true" ]; then
+            CMD+=(--prune)
+          fi
+
+          echo "Running: ${CMD[*]}"
+          "${CMD[@]}"
 
       - name: Upload FAQ reports (non-blocking)
         continue-on-error: true
