@@ -5,7 +5,7 @@ type: faq
 managed_by: "faq.csv"
 lang: "de"
 translationKey: "faq:de/faq/restaurierung"
-url: /faq/themen/restaurierung-reproduktion-vertaefelungen-holzleisten/
+aliases: ["/faq/themen/restaurierung-reproduktion-vertaefelungen-holzleisten/"]
 description: Fragen und Antworten zu Restaurierung und Reproduktion historischer Vertäfelungen und Holzleisten.
 content_type: faq
 content_id: faq-restaurierung-reproduktion

@@ -60,11 +60,134 @@ def normalize_links(text: str) -> str:
     if not text:
         return ""
     out = text
-    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/de/", "/de/", out, flags=re.IGNORECASE)
-    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/en/", "/en/", out, flags=re.IGNORECASE)
-    out = re.sub(r"/wissen/de/", "/de/", out)
-    out = re.sub(r"/wissen/en/", "/en/", out)
+    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/de/", "/wissen/de/", out, flags=re.IGNORECASE)
+    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/en/", "/wissen/en/", out, flags=re.IGNORECASE)
+    out = re.sub(r"(?<!/wissen)/de/faq/", "/wissen/de/faq/", out)
+    out = re.sub(r"(?<!/wissen)/en/faq/", "/wissen/en/faq/", out)
     return out
+
+
+def strip_url_frontmatter_key(fm_block: str) -> Tuple[str, Optional[str], str]:
+    if not fm_block:
+        return fm_block, None, "none"
+
+    def _dq(s: str) -> str:
+        # Safe double-quoted YAML scalar (minimal escaping)
+        return s.replace("\\", "\\\\").replace('"', '\\"')
+
+    content = fm_block.strip()
+    if content.startswith("---"):
+        content = content[3:]
+    if content.endswith("---"):
+        content = content[:-3]
+    lines = content.strip("\n").splitlines()
+
+    old_url: Optional[str] = None
+    kept_lines: List[str] = []
+    for line in lines:
+        m = re.match(r"^\s*url\s*:\s*(.*?)\s*$", line)
+        if m and old_url is None:
+            old_url = m.group(1).strip().strip('"').strip("'")
+            continue
+        kept_lines.append(line)
+
+    if old_url is None:
+        return fm_block, None, "none"
+
+    alias_status = "merged"
+    alias_line_idx = None
+    alias_vals: List[str] = []
+
+    # helper: detect a new top-level YAML key (no indent)
+    def _is_top_level_key(line: str) -> bool:
+        if not line:
+            return False
+        if line.startswith(" ") or line.startswith("\t"):
+            return False
+        return re.match(r"^[A-Za-z0-9_][A-Za-z0-9_-]*\s*:", line) is not None
+
+    for idx, line in enumerate(kept_lines):
+        m_alias = re.match(r"^(\s*)aliases\s*:\s*(.*?)\s*$", line)
+        if not m_alias:
+            continue
+
+        alias_line_idx = idx
+        header_indent = m_alias.group(1) or ""
+        raw = (m_alias.group(2) or "").strip()
+
+        # CASE 1: inline list: aliases: ["a", "b"]
+        if raw.startswith("[") and raw.endswith("]"):
+            inner = raw[1:-1].strip()
+            if inner:
+                alias_vals = [x.strip().strip('"').strip("'") for x in inner.split(",") if x.strip()]
+            else:
+                alias_vals = []
+            if old_url and old_url not in alias_vals:
+                alias_vals.append(old_url)
+            rendered = ", ".join([f'"{_dq(a)}"' for a in alias_vals])
+            kept_lines[idx] = f"aliases: [{rendered}]"
+
+        # CASE 2: empty inline list: aliases: []
+        elif raw == "[]":
+            kept_lines[idx] = f'aliases: ["{_dq(old_url)}"]'
+
+        # CASE 3: block-style header: aliases:
+        elif raw == "":
+            # collect following block list items belonging to aliases
+            j = idx + 1
+            item_lines_idx: List[int] = []
+            existing_vals: List[str] = []
+            while j < len(kept_lines):
+                nxt = kept_lines[j]
+                if _is_top_level_key(nxt):
+                    break
+                # treat as list item if it's indented and starts with '-'
+                m_item = re.match(r"^(\s*)-\s*(.*?)\s*$", nxt)
+                if m_item:
+                    indent = m_item.group(1) or ""
+                    # ensure item is more indented than header (YAML block list)
+                    if len(indent) >= len(header_indent) + 1:
+                        item_lines_idx.append(j)
+                        raw_val = (m_item.group(2) or "").strip()
+                        # remove trailing comment for unquoted scalars
+                        if raw_val and not (raw_val.startswith('"') or raw_val.startswith("'")) and "#" in raw_val:
+                            raw_val = raw_val.split("#", 1)[0].strip()
+                        val = raw_val.strip().strip('"').strip("'")
+                        if val:
+                            existing_vals.append(val)
+                        j += 1
+                        continue
+                # if it's not a list item and not a top-level key, it's likely blank/comment; continue scan
+                # but do not consume unrelated nested structures—still safe to continue
+                if nxt.strip() == "" or nxt.lstrip().startswith("#"):
+                    j += 1
+                    continue
+                # any other indented line ends our alias list block
+                break
+
+            if old_url and old_url not in existing_vals:
+                # choose indent style: reuse first item indent if present, else default two spaces past header indent
+                if item_lines_idx:
+                    m_first = re.match(r"^(\s*)-\s*", kept_lines[item_lines_idx[0]])
+                    item_indent = (m_first.group(1) if m_first else (header_indent + "  "))
+                else:
+                    item_indent = header_indent + "  "
+                insert_at = (item_lines_idx[-1] + 1) if item_lines_idx else (idx + 1)
+                kept_lines.insert(insert_at, f'{item_indent}- "{_dq(old_url)}"')
+            # keep header line as-is; NEVER rewrite to inline list (prevents dangling "- ..." YAML)
+
+        else:
+            alias_status = "not_merged"
+
+        break
+
+    if alias_line_idx is None and old_url:
+        # add aliases in block style to avoid YAML format surprises
+        kept_lines.append("aliases:")
+        kept_lines.append(f'  - "{_dq(old_url)}"')
+
+    payload = "\n".join(kept_lines).rstrip()
+    return f"---\n{payload}\n---\n", old_url, alias_status
 
 
 @dataclass
@@ -485,6 +608,14 @@ def main() -> int:
                 if has_duplicate_frontmatter_start(old_md):
                     warnings.append(f"duplicate_frontmatter_suspected: {p.as_posix()}")
                 fm_existing, body_existing = split_frontmatter(old_md)
+                fm_existing, old_url, alias_status = strip_url_frontmatter_key(fm_existing)
+                if old_url:
+                    if alias_status == "not_merged":
+                        warnings.append(
+                            f"url_removed_alias_not_merged: {p.as_posix()} url={old_url}"
+                        )
+                    else:
+                        warnings.append(f"url_removed_to_aliases: {p.as_posix()} url={old_url}")
                 managed_by_existing = parse_managed_by(fm_existing)
                 if managed_by_existing != "faq.csv":
                     skipped_conflict += 1

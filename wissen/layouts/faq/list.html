@@ -1,10 +1,25 @@
 {{ define "main" }}
   {{ partial "components/hero.html" (dict "title" .Title "lead" .Params.lead) }}
 
-  {{- $pages := .RegularPages -}}
+  {{- $pages := slice -}}
+  {{- range .Pages -}}
+    {{- $bn := "" -}}
+    {{- with .File }}{{- $bn = .BaseFileName -}}{{- end -}}
+    {{- if ne (lower $bn) "readme" -}}
+      {{- $pages = $pages | append . -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $content := trim .Content " \n\r\t" -}}
+
+  {{- if ne $content "" -}}
+    <article class="prose">
+      {{ .Content }}
+    </article>
+  {{- end -}}
+
   {{- if gt (len $pages) 0 -}}
     {{ partial "components/teaser-list.html" (dict "pages" $pages) }}
-  {{- else -}}
+  {{- else if eq $content "" -}}
     {{- $title := "Bald verfügbar" -}}
     {{- $text := "Dieser Bereich wird derzeit vorbereitet. Sobald Inhalte verfügbar sind, erscheinen sie hier." -}}
     {{- if eq .Lang "en" -}}
