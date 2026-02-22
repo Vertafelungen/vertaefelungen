@@ -7,6 +7,8 @@ managed_by: "faq.csv"
 lang: "de"
 translationKey: "faq:de/faq/beratung"
 last_synced: "2026-02-22T13:16:41Z"
+aliases:
+  - "/de/faq/beratung/"
 ---
 ## Info
 
