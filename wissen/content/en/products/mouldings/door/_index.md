@@ -1,8 +1,8 @@
 ---
-version: 2026-02-22 12:44 UTC
+version: 2026-02-22 13:16 UTC
 managed_by: categories.csv
-last_synced: 2026-02-22 12:44 UTC
-lastmod: 2026-02-22 12:44 UTC
+last_synced: 2026-02-22 13:16 UTC
+lastmod: 2026-02-22 13:16 UTC
 lang: en
 translationKey: door-architraves
 title: Door Surrounds

@@ -6,7 +6,7 @@ version: '2026-02-12T16:45:00+01:00'
 managed_by: "faq.csv"
 lang: "de"
 translationKey: "faq:de/faq/beratung"
-last_synced: "2026-02-22T13:12:14Z"
+last_synced: "2026-02-22T13:16:41Z"
 ---
 ## Info
 
