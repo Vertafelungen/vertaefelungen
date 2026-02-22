@@ -60,11 +60,63 @@ def normalize_links(text: str) -> str:
     if not text:
         return ""
     out = text
-    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/de/", "/de/", out, flags=re.IGNORECASE)
-    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/en/", "/en/", out, flags=re.IGNORECASE)
-    out = re.sub(r"/wissen/de/", "/de/", out)
-    out = re.sub(r"/wissen/en/", "/en/", out)
+    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/de/", "/wissen/de/", out, flags=re.IGNORECASE)
+    out = re.sub(r"https://www\.vertaefelungen\.de/wissen/en/", "/wissen/en/", out, flags=re.IGNORECASE)
+    out = re.sub(r"(?<!/wissen)/de/faq/", "/wissen/de/faq/", out)
+    out = re.sub(r"(?<!/wissen)/en/faq/", "/wissen/en/faq/", out)
     return out
+
+
+def strip_url_frontmatter_key(fm_block: str) -> Tuple[str, Optional[str], str]:
+    if not fm_block:
+        return fm_block, None, "none"
+
+    content = fm_block.strip()
+    if content.startswith("---"):
+        content = content[3:]
+    if content.endswith("---"):
+        content = content[:-3]
+    lines = content.strip("\n").splitlines()
+
+    old_url: Optional[str] = None
+    kept_lines: List[str] = []
+    for line in lines:
+        m = re.match(r"^\s*url\s*:\s*(.*?)\s*$", line)
+        if m and old_url is None:
+            old_url = m.group(1).strip().strip('"').strip("'")
+            continue
+        kept_lines.append(line)
+
+    if old_url is None:
+        return fm_block, None, "none"
+
+    alias_status = "merged"
+    alias_line_idx = None
+    alias_vals: List[str] = []
+    for idx, line in enumerate(kept_lines):
+        m_alias = re.match(r"^\s*aliases\s*:\s*(.*?)\s*$", line)
+        if not m_alias:
+            continue
+        alias_line_idx = idx
+        raw = m_alias.group(1).strip()
+        if raw.startswith("[") and raw.endswith("]"):
+            inner = raw[1:-1].strip()
+            alias_vals = [x.strip().strip('"').strip("'") for x in inner.split(",") if x.strip()]
+            if old_url and old_url not in alias_vals:
+                alias_vals.append(old_url)
+            rendered = ", ".join([f'"{a}"' for a in alias_vals])
+            kept_lines[idx] = f"aliases: [{rendered}]"
+        elif raw == "":
+            kept_lines[idx] = f'aliases: ["{old_url}"]'
+        else:
+            alias_status = "not_merged"
+        break
+
+    if alias_line_idx is None and old_url:
+        kept_lines.append(f'aliases: ["{old_url}"]')
+
+    payload = "\n".join(kept_lines).rstrip()
+    return f"---\n{payload}\n---\n", old_url, alias_status
 
 
 @dataclass
@@ -485,6 +537,14 @@ def main() -> int:
                 if has_duplicate_frontmatter_start(old_md):
                     warnings.append(f"duplicate_frontmatter_suspected: {p.as_posix()}")
                 fm_existing, body_existing = split_frontmatter(old_md)
+                fm_existing, old_url, alias_status = strip_url_frontmatter_key(fm_existing)
+                if old_url:
+                    if alias_status == "not_merged":
+                        warnings.append(
+                            f"url_removed_alias_not_merged: {p.as_posix()} url={old_url}"
+                        )
+                    else:
+                        warnings.append(f"url_removed_to_aliases: {p.as_posix()} url={old_url}")
                 managed_by_existing = parse_managed_by(fm_existing)
                 if managed_by_existing != "faq.csv":
                     skipped_conflict += 1
