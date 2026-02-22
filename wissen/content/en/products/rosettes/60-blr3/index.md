@@ -3,7 +3,7 @@ title: Ventilation Rosette 3
 lang: en
 translationKey: '60'
 managed_by: ssot-sync
-last_synced: '2026-02-14'
+last_synced: '2026-02-22'
 produkt:
   id: '60'
   artikelnummer: '60'

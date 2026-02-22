@@ -4,7 +4,7 @@ description: 'Hohe Sockelleiste (Höhe 170 mm, Ausladung 25 mm): Einsatzbereiche
 lang: de
 translationKey: '40'
 managed_by: ssot-sync
-last_synced: '2026-02-14'
+last_synced: '2026-02-22'
 lastmod: 2026-02-12T16:45:00+01:00
 produkt:
   id: '40'
@@ -53,6 +53,7 @@ Häufige Fehler sind fehlende Bezugshöhen, zu späte Klärung der Anschlussdeta
 - Planung und Beratung: /de/faq/beratung/
 - Material- und Oberflächenwissen: /de/produkte/oele-farben/
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Ist dieses Produkt eher für Sanierung oder auch für Neubau geeignet?
@@ -78,3 +79,4 @@ Maßhaltigkeit im Bestand, Profilkomplexität, Materialwahl und Abstimmungsaufwa
 ### Welche Fehler sollte ich vor der Bestellung vermeiden?
 
 Typisch sind fehlende Bezugshöhen, unklare Anschlusspunkte und eine zu späte Profilfreigabe.
+<!-- FAQ_SYNC:END -->

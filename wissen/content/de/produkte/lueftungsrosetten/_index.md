@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 08:56 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 08:56 UTC
+lastmod: 2026-02-22 08:56 UTC
 lang: de
 translationKey: ventilation-rosettes
 title: Lüftungsrosetten
@@ -33,6 +33,7 @@ cascade:
 ---
 Lüftungsrosetten verbinden Funktion und Gestaltung: Sie decken Lüftungsöffnungen sauber ab und integrieren sich optisch in historische Innenausbauten.\n\n**Typische Anwendungen:**\n- Wand- und Türlüftungen\n- Nebenräume, Flure, Sanitär- und Küchenbereiche (je nach Konzept)\n- Ergänzung zu Vertäfelungen, Leisten und Türbekleidungen\n\nWähle eine Rosette, um Maße, Varianten und Bilder zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Wo werden Lüftungsrosetten typischerweise platziert?
@@ -66,3 +67,4 @@ Durch klare Achsbezüge, wiederkehrende Höhenlinien und abgestimmte Formate.
 ### Welche Seite hilft bei der Erstberatung?
 
 Ein guter Einstieg ist /de/faq/beratung/ mit den grundlegenden Planungsfragen.
+<!-- FAQ_SYNC:END -->

@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 08:56 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 08:56 UTC
+lastmod: 2026-02-22 08:56 UTC
 lang: de
 translationKey: skirting-boards
 title: Sockelleisten
@@ -33,6 +33,7 @@ cascade:
 ---
 Sockelleisten bilden den sauberen Abschluss zwischen Boden und Wand. In historischen Innenräumen sind sie mehr als Schutzleisten: Höhe, Profilierung und Übergänge bestimmen die Raumproportion.\n\n**Typische Themen:**\n- passende Höhe zur Raumhöhe und zur Vertäfelung\n- Profilformen (Rundstab, Kehle, Hohlkehle, Wulst)\n- Anschluss an Türbekleidungen und Wandfelder\n\nWähle eine Sockelleiste, um Maße, Profilform, Varianten und Bilder zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Welche Sockelhöhe ist sinnvoll?
@@ -66,3 +67,4 @@ Am besten über ein abgestimmtes Detail mit definierten Übergängen und Referen
 ### Welche Seite zeigt passende Anschlussprodukte?
 
 Siehe /de/produkte/leisten/tuerbekleidungen/ für abgestimmte Übergänge.
+<!-- FAQ_SYNC:END -->

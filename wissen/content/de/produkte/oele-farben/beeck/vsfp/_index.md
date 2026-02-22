@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 08:56 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 08:56 UTC
+lastmod: 2026-02-22 08:56 UTC
 lang: de
 translationKey: beeck-primer-pro
 title: Vorstreichfarbe Pro
@@ -33,6 +33,7 @@ cascade:
 ---
 Die **Vorstreichfarbe Pro** dient als systemkonformer Grund-/Vorstreich für Standöl-Anstriche. Sie unterstützt einen gleichmäßigen Untergrund und verbessert die Haftung des nachfolgenden Anstrichs.\n\nWähle ein Produkt bzw. eine Variante, um Details, Gebinde und Systemhinweise zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Für welche Untergründe ist diese Kategorie typischerweise gedacht?
@@ -66,3 +67,4 @@ Vorarbeiten, Trocknungszeiten, Schichtanzahl und Detailgrad bestimmen die Laufze
 ### Wie vermeide ich typische Abstimmungsfehler im Team?
 
 Mit klaren Zuständigkeiten, dokumentierten Freigaben und einer abgestimmten Schrittfolge.
+<!-- FAQ_SYNC:END -->

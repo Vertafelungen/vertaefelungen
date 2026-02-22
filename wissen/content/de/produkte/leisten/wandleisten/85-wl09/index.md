@@ -3,7 +3,7 @@ title: Wandleiste 09
 lang: de
 translationKey: '85'
 managed_by: ssot-sync
-last_synced: '2026-02-14'
+last_synced: '2026-02-22'
 produkt:
   id: '85'
   artikelnummer: '85'
@@ -56,6 +56,7 @@ Häufige Fehler sind uneinheitliche Felder, nicht abgestimmte Profilhöhen und z
 - /de/produkte/leisten/tuerbekleidungen/
 - /de/faq/beratung/
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Wofür eignet sich dieses Wandleisten-Profil?
@@ -77,3 +78,4 @@ Typisch sind unklare Bezugshöhen, unstimmige Feldbreiten und unsaubere Gehrunge
 ### Brauche ich vorab eine vollständige Raumplanung?
 
 Für belastbare Ergebnisse ja: Höhenbezüge, Türpositionen und Anschlussdetails sollten vor der Fertigung feststehen.
+<!-- FAQ_SYNC:END -->

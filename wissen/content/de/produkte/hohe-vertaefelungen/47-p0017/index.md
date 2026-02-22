@@ -3,7 +3,7 @@ title: P0017 - Hohes Nadelstreif-Paneel mit Shaker Peg Rail
 lang: de
 translationKey: '47'
 managed_by: ssot-sync
-last_synced: '2026-02-14'
+last_synced: '2026-02-22'
 produkt:
   id: '47'
   artikelnummer: '47'
@@ -55,6 +55,7 @@ Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetai
 - Montagehinweise: /de/beratung/montage
 - Passende Produktübersicht: /produkte/hohe-vertaefelungen
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Wofür eignet sich dieses Produkt am besten?
@@ -76,3 +77,4 @@ Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglic
 ### Wo finde ich passende Planungsinformationen?
 
 Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.
+<!-- FAQ_SYNC:END -->
