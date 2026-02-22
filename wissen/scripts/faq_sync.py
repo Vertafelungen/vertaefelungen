@@ -69,6 +69,49 @@ def normalize_links(text: str) -> str:
     return out
 
 
+def ensure_alias_in_frontmatter(fm_block: str, alias: str) -> str:
+    if not fm_block:
+        return f"---\naliases:\n  - \"{alias}\"\n---\n"
+
+    content = fm_block.strip()
+    if content.startswith("---"):
+        content = content[3:]
+    if content.endswith("---"):
+        content = content[:-3]
+    lines = content.strip("\n").splitlines()
+
+    for i, line in enumerate(lines):
+        if not re.match(r"^\s*aliases\s*:\s*$", line):
+            continue
+
+        j = i + 1
+        has_alias = False
+        insert_at = j
+        while j < len(lines):
+            nxt = lines[j]
+            if re.match(r"^[A-Za-z0-9_][A-Za-z0-9_-]*\s*:", nxt):
+                break
+            m_item = re.match(r"^\s*-\s*(.*?)\s*$", nxt)
+            if m_item:
+                val = m_item.group(1).strip().strip('"').strip("'")
+                if val == alias:
+                    has_alias = True
+                insert_at = j + 1
+            elif nxt.strip() not in ("",) and not nxt.lstrip().startswith("#"):
+                break
+            j += 1
+
+        if not has_alias:
+            lines.insert(insert_at, f'  - "{alias}"')
+        payload = "\n".join(lines).rstrip()
+        return f"---\n{payload}\n---\n"
+
+    lines.append("aliases:")
+    lines.append(f'  - "{alias}"')
+    payload = "\n".join(lines).rstrip()
+    return f"---\n{payload}\n---\n"
+
+
 def strip_url_frontmatter_key(fm_block: str) -> Tuple[str, Optional[str], str]:
     if not fm_block:
         return fm_block, None, "none"
@@ -639,6 +682,17 @@ def main() -> int:
                     "last_synced": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 },
             )
+
+            if target_repo.name == "_index.md":
+                faq_root = Path("content") / lang / "faq"
+                rel_dir = target_repo.parent.relative_to(faq_root).as_posix()
+                rel_dir = "" if rel_dir == "." else rel_dir.strip("/")
+                info_url = f"/{lang}/info/" + (f"{rel_dir}/" if rel_dir else "")
+                old_faq_alias = f"/{lang}/faq/" + (f"{rel_dir}/" if rel_dir else "")
+
+                fm_new = merge_frontmatter_preserving(fm_new, {"url": info_url})
+                fm_new = ensure_alias_in_frontmatter(fm_new, old_faq_alias)
+
             new_md = fm_new + final_body
 
             if p.exists() and (fm_existing + body_existing) == new_md:

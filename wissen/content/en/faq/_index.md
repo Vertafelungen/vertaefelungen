@@ -17,6 +17,7 @@ menu:
     identifier: menu_faq
     weight: 20
 last_synced: "2026-02-22T13:16:41Z"
+url: "/en/info/"
 ---
 # Info
 
