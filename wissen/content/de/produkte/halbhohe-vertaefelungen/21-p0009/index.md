@@ -3,7 +3,7 @@ title: P0009 - Nadelstreif & Zierstab
 lang: de
 translationKey: '21'
 managed_by: ssot-sync
-last_synced: '2026-02-14'
+last_synced: '2026-02-22'
 produkt:
   id: '21'
   artikelnummer: '21'
@@ -91,6 +91,7 @@ Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetai
 - Montagehinweise: /de/beratung/montage
 - Passende Produktübersicht: /produkte/halbhohe-vertaefelungen
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Wofür eignet sich dieses Produkt am besten?
@@ -112,3 +113,4 @@ Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglic
 ### Wo finde ich passende Planungsinformationen?
 
 Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.
+<!-- FAQ_SYNC:END -->

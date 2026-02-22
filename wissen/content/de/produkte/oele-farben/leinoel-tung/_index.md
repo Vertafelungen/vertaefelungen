@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 09:11 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 09:11 UTC
+lastmod: 2026-02-22 09:11 UTC
 lang: de
 translationKey: oils-linseed-tung-balsam
 title: Leinöl, Tung, Balsam
@@ -33,6 +33,7 @@ cascade:
 ---
 In dieser Unterkategorie sind traditionelle Öle und Harze gebündelt, die je nach Rezeptur als Grundierung, Schutz- oder Pflegesystem eingesetzt werden.\n\n**Typische Themen:**\n- Penetration und Trocknung (oxidativ / polymerisierend)\n- Schichtaufbau (dünn, wiederholbar, reparierfähig)\n- Kompatibilität mit Altanstrichen und Holzarten\n\nWähle ein Produkt, um Eigenschaften, Varianten und Anwendungshinweise zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Worin unterscheiden sich Leinöl und Tungöl im Einsatz?
@@ -66,3 +67,4 @@ Nur in systemgerecht geplanten Bereichen, damit Übergänge technisch sicher ble
 ### Wo finde ich ergänzende Farbsysteme?
 
 Ergänzende Systeme stehen unter /de/produkte/oele-farben/beeck/.
+<!-- FAQ_SYNC:END -->

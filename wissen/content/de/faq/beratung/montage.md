@@ -1,20 +1,12 @@
 ---
-title: Montage
+title: "FAQ"
 description: Inhalt folgt.
 robots: noindex,follow
-managed_by: faq.csv
-lang: de
-translationKey: faq:beratung/montage
+managed_by: "faq.csv"
+lang: "de"
+translationKey: "faq:de/faq/beratung/montage"
+last_synced: "2026-02-22T09:11:15Z"
 ---
-
-# Montage
-
-Inhalt folgt.
-
-## Montage-Anleitung
-
-[PDF herunterladen](/assets/faq/beratung/montage/Montage-Anleitung.pdf)
-
 ## FAQ
 
 ### montage
@@ -22,22 +14,6 @@ Inhalt folgt.
 # Montage
 
 Inhalt folgt.
-
-## Montage-Anleitung
-
-[PDF herunterladen](/assets/faq/beratung/montage/Montage-Anleitung.pdf)
-
-## Montage-Anleitung
-
-[PDF herunterladen](/assets/faq/beratung/montage/Montage-Anleitung.pdf)
-
-## Montage-Anleitung
-
-[PDF herunterladen](/assets/faq/beratung/montage/Montage-Anleitung.pdf)
-
-## Montage-Anleitung
-
-[PDF herunterladen](/assets/faq/beratung/montage/Montage-Anleitung.pdf)
 
 ## Montage-Anleitung
 

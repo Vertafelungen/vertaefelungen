@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 09:11 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 09:11 UTC
+lastmod: 2026-02-22 09:11 UTC
 lang: de
 translationKey: beeck-sip-pro-solid
 title: Standölinnenfarbe Pro Volltonfarbe
@@ -33,6 +33,7 @@ cascade:
 ---
 Hier findest du die **Volltonfarben** der BEECK Standölinnenfarbe Pro: fertig abgetönte Farbtöne mit standölbasierter Bindemittelmatrix.\n\n**Einsatzbereiche:** Holzbauteile im Innenraum (z. B. Vertäfelungen, Türen, Leisten) sowie passende mineralische Untergründe, sofern systemkonform.\n\nWähle einen Farbton, um Produktdaten, Gebindegrößen, Varianten und Bilder zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Für welche Untergründe ist diese Kategorie typischerweise gedacht?
@@ -66,3 +67,4 @@ Vorarbeiten, Trocknungszeiten, Schichtanzahl und Detailgrad bestimmen die Laufze
 ### Wie vermeide ich typische Abstimmungsfehler im Team?
 
 Mit klaren Zuständigkeiten, dokumentierten Freigaben und einer abgestimmten Schrittfolge.
+<!-- FAQ_SYNC:END -->

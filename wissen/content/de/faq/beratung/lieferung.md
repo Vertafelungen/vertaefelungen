@@ -1,16 +1,12 @@
 ---
-title: Lieferung
+title: "FAQ"
 description: Inhalt folgt.
 robots: noindex,follow
-managed_by: faq.csv
-lang: de
-translationKey: faq:beratung/lieferung
+managed_by: "faq.csv"
+lang: "de"
+translationKey: "faq:de/faq/beratung/lieferung"
+last_synced: "2026-02-22T09:11:15Z"
 ---
-
-# Lieferung
-
-Inhalt folgt.
-
 ## FAQ
 
 ### lieferung
