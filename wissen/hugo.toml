@@ -1,3 +1,8 @@
+# PATH: wissen/hugo.toml
+# Version: 2026-02-22T00:00:00Z
+# Purpose: Base config (dev + non-prod tooling). Keep in sync with prod permalinks.
+# Change (PR-4.3 Hotfix): Map section "faq" permalinks to /info/.
+
 baseURL = "https://www.vertaefelungen.de/wissen/"
 title = "Wissensdatenbank | Vertäfelung & Lambris"
 theme = "papermod"
