@@ -1,7 +1,10 @@
 ---
-title: "Style Guide"
-description: "Content forthcoming."
-robots: "noindex,follow"
+title: Style Guide
+description: Content forthcoming.
+robots: noindex,follow
+managed_by: faq.csv
+lang: en
+translationKey: faq:style-guide/_index
 ---
 
 # Style Guide

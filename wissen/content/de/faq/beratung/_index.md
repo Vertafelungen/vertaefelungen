@@ -1,8 +1,11 @@
 ---
-title: "Planung & Bestellung"
-description: "So kommst du ohne Umwege zu einem belastbaren Angebot: Welche Infos wir brauchen, wie Planung/Visualisierung abläuft, welche Kostenfaktoren zählen und wie Fertigung/Montage organisiert sind."
+title: Planung & Bestellung
+description: 'So kommst du ohne Umwege zu einem belastbaren Angebot: Welche Infos wir brauchen, wie Planung/Visualisierung abläuft, welche Kostenfaktoren zählen und wie Fertigung/Montage organisiert sind.'
 lastmod: 2026-02-12T16:45:00+01:00
-version: "2026-02-12T16:45:00+01:00"
+version: '2026-02-12T16:45:00+01:00'
+managed_by: faq.csv
+lang: de
+translationKey: faq:beratung/_index
 ---
 
 ## Kurzantwort

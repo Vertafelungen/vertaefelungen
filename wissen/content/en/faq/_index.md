@@ -1,3 +1,8 @@
+---
+managed_by: faq.csv
+lang: en
+translationKey: faq:root
+---
 ﻿---
 title: FAQ
 slug: 'faq'

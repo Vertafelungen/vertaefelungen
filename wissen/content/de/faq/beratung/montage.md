@@ -1,7 +1,10 @@
 ---
-title: "Montage"
-description: "Inhalt folgt."
-robots: "noindex,follow"
+title: Montage
+description: Inhalt folgt.
+robots: noindex,follow
+managed_by: faq.csv
+lang: de
+translationKey: faq:beratung/montage
 ---
 
 # Montage

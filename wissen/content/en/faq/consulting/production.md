@@ -1,7 +1,10 @@
 ---
-title: "Production"
-description: "Content forthcoming."
-robots: "noindex,follow"
+title: Production
+description: Content forthcoming.
+robots: noindex,follow
+managed_by: faq.csv
+lang: en
+translationKey: faq:consulting/production
 ---
 
 # Production

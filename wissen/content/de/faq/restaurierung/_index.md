@@ -1,3 +1,8 @@
+---
+managed_by: faq.csv
+lang: de
+translationKey: faq:restaurierung/_index
+---
 ﻿---
 title: restaurierung reproduktion vertaefelungen holzleisten
 slug: 'restaurierung-reproduktion-vertaefelungen-holzleisten'

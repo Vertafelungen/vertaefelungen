@@ -1,13 +1,15 @@
 ---
 title: FAQ
-description: Antworten auf die wichtigsten Fragen zu Planung, Bestellung, Montage,
-  Materialien und Stil – als Einstieg in Produkte, Lookbook und Beratung.
+description: Antworten auf die wichtigsten Fragen zu Planung, Bestellung, Montage, Materialien und Stil – als Einstieg in Produkte, Lookbook und Beratung.
 lastmod: '2026-01-28T08:30:00+01:00'
 version: '2026-01-28T08:30:00+01:00'
 menu:
   main:
     identifier: menu_faq
     weight: 20
+managed_by: faq.csv
+lang: de
+translationKey: faq:root
 ---
 
 ## Wofür diese FAQ gedacht ist
