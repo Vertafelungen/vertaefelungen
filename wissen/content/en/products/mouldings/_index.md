@@ -1,8 +1,8 @@
 ---
-version: 2026-02-22 15:38 UTC
+version: 2026-02-22 16:18 UTC
 managed_by: categories.csv
-last_synced: 2026-02-22 15:38 UTC
-lastmod: 2026-02-22 15:38 UTC
+last_synced: 2026-02-22 16:18 UTC
+lastmod: 2026-02-22 16:18 UTC
 lang: en
 translationKey: mouldings-root
 title: Mouldings
