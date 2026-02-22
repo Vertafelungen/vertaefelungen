@@ -1,4 +1,4 @@
-﻿---
+---
 title: FAQ
 slug: 'faq'
 type: faq

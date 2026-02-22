@@ -1,4 +1,4 @@
-﻿---
+---
 title: restaurierung reproduktion vertaefelungen holzleisten
 slug: 'restaurierung-reproduktion-vertaefelungen-holzleisten'
 type: faq
