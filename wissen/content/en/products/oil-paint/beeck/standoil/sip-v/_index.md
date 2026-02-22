@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 09:11 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 09:11 UTC
+lastmod: 2026-02-22 09:11 UTC
 lang: en
 translationKey: beeck-sip-pro-solid
 title: Interior Stand-Oil Paint PRO - Solid Colours

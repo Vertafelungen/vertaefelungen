@@ -4,7 +4,7 @@ aliases:
 title: SL0007 - München - Augustiner Stammhaus - Sockelleiste 450/62
 translationKey: '26'
 managed_by: ssot-sync
-last_synced: '2026-02-14'
+last_synced: '2026-02-22'
 produkt:
   id: '26'
   artikelnummer: '26'
@@ -57,6 +57,7 @@ Häufige Fehler sind fehlende Bezugshöhen, zu späte Klärung der Anschlussdeta
 - Planung und Beratung: /de/faq/beratung/
 - Material- und Oberflächenwissen: /de/produkte/oele-farben/
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Ist dieses Produkt eher für Sanierung oder auch für Neubau geeignet?
@@ -82,3 +83,4 @@ Maßhaltigkeit im Bestand, Profilkomplexität, Materialwahl und Abstimmungsaufwa
 ### Welche Fehler sollte ich vor der Bestellung vermeiden?
 
 Typisch sind fehlende Bezugshöhen, unklare Anschlusspunkte und eine zu späte Profilfreigabe.
+<!-- FAQ_SYNC:END -->

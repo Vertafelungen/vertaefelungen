@@ -1,20 +1,12 @@
 ---
-title: About Us
+title: "FAQ"
 description: Content forthcoming.
 robots: noindex,follow
-managed_by: faq.csv
-lang: en
-translationKey: faq:about-us/_index
+managed_by: "faq.csv"
+lang: "en"
+translationKey: "faq:en/faq/about-us"
+last_synced: "2026-02-22T09:11:15Z"
 ---
-
-# About Us
-
-Content forthcoming.
-
-## FAQ
-
-### _index
-
 # About Us
 
 Content forthcoming.

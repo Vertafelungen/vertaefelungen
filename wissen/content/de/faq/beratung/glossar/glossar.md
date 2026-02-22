@@ -1,16 +1,12 @@
 ---
-title: Glossar
+title: "FAQ"
 description: Inhalt folgt.
 robots: noindex,follow
-managed_by: faq.csv
-lang: de
-translationKey: faq:beratung/glossar/glossar
+managed_by: "faq.csv"
+lang: "de"
+translationKey: "faq:de/faq/beratung/glossar/glossar"
+last_synced: "2026-02-22T09:11:15Z"
 ---
-
-# Glossar
-
-Inhalt folgt.
-
 ## FAQ
 
 ### glossar

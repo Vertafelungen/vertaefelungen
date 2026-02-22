@@ -1,20 +1,12 @@
 ---
-title: Ueber Uns
+title: "FAQ"
 description: Inhalt folgt.
 robots: noindex,follow
-managed_by: faq.csv
-lang: de
-translationKey: faq:ueber-uns/_index
+managed_by: "faq.csv"
+lang: "de"
+translationKey: "faq:de/faq/ueber-uns"
+last_synced: "2026-02-22T09:11:15Z"
 ---
-
-# Ueber Uns
-
-Inhalt folgt.
-
-## FAQ
-
-### _index
-
 # Ueber Uns
 
 Inhalt folgt.

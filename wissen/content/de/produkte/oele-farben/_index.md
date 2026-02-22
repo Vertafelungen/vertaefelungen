@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 09:11 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 09:11 UTC
+lastmod: 2026-02-22 09:11 UTC
 lang: de
 translationKey: oil-paints-root
 title: Öle & Farben
@@ -33,6 +33,7 @@ cascade:
 ---
 Öle und Farben bestimmen nicht nur den Farbton, sondern auch Diffusionsverhalten, Haptik, Reparaturfähigkeit und langfristige Alterung.\n\n## Unterkategorien\n- **Leinöl, Tung, Balsam** - klassische Öle/Harze für Holzschutz, Grundierung und Pflege.\n- **Standöl / Ölfarben** - robuste, diffusionsoffene Anstriche (z. B. pigmentierte Systeme).\n\nWähle eine Unterkategorie, um passende Produkte, Varianten und Anwendungshinweise zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Wann nutze ich Öl statt deckender Farbe?
@@ -74,3 +75,4 @@ Praktisch sind zwei bis vier sauber definierte Varianten; mehr erschwert oft die
 ### Wann ist eine technische Rücksprache vor Ort sinnvoll?
 
 Bei unklaren Untergründen, Feuchtehinweisen oder komplexen Anschlussdetails ist eine frühe technische Abstimmung besonders hilfreich.
+<!-- FAQ_SYNC:END -->

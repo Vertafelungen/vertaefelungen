@@ -5,7 +5,7 @@ title: Oxide Green - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '112'
 managed_by: ssot-sync
-last_synced: '2026-02-14'
+last_synced: '2026-02-22'
 produkt:
   id: '112'
   artikelnummer: '112'

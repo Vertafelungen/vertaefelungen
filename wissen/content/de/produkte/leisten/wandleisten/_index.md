@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 09:11 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 09:11 UTC
+lastmod: 2026-02-22 09:11 UTC
 lang: de
 translationKey: wall-mouldings
 title: Wandleisten
@@ -33,6 +33,7 @@ cascade:
 ---
 Wandleisten gliedern Wandflächen und setzen Proportionen: als Rahmung von Feldern, als horizontale Teilung (z. B. Gurt-/Handlauf) oder als Abschlussprofil.\n\n**Typische Einsatzbereiche:** Felder-/Rahmungen, Wandteilungen, Übergänge zu Decke oder Vertäfelung.\n\nWähle ein Profil, um Details, Maße, Varianten und Bilder zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Wofür ist diese Kategorie gedacht?
@@ -66,3 +67,4 @@ Ja, Grundlagen finden Sie unter /de/beratung/katalog-und-download und /de/beratu
 ### Wie wird die Qualität in der Umsetzung gesichert?
 
 Durch Aufmaßkontrolle, Freigabe von Details vor Montage und dokumentierte Abnahme der Anschlüsse.
+<!-- FAQ_SYNC:END -->

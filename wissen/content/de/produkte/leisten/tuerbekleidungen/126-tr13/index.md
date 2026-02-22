@@ -6,7 +6,7 @@ description: 'Tür- und Fensterrahmen TR13: Auswahlhilfe, Planungsablauf, Kosten
 lastmod: '2026-02-14T08:56:10+01:00'
 translationKey: '126'
 managed_by: ssot-sync
-last_synced: '2026-02-14'
+last_synced: '2026-02-22'
 produkt:
   id: '126'
   artikelnummer: '126'

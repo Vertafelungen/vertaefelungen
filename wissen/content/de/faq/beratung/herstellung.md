@@ -1,16 +1,12 @@
 ---
-title: Herstellung
+title: "FAQ"
 description: Inhalt folgt.
 robots: noindex,follow
-managed_by: faq.csv
-lang: de
-translationKey: faq:beratung/herstellung
+managed_by: "faq.csv"
+lang: "de"
+translationKey: "faq:de/faq/beratung/herstellung"
+last_synced: "2026-02-22T09:11:15Z"
 ---
-
-# Herstellung
-
-Inhalt folgt.
-
 ## FAQ
 
 ### herstellung

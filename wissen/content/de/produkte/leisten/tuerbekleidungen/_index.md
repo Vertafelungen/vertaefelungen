@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 09:11 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 09:11 UTC
+lastmod: 2026-02-22 09:11 UTC
 lang: de
 translationKey: door-architraves
 title: Türbekleidungen
@@ -33,6 +33,7 @@ cascade:
 ---
 Türbekleidungen fassen Türöffnungen und Durchgänge ein und bestimmen die Proportion von Türen im Raum. Je nach Stil können sie schlicht, profilbetont oder mit stärkerer Plastizität ausgeführt werden.\n\n**Typische Einsatzbereiche:** Wohnungstüren, Zimmertüren, Durchgänge, Portalrahmungen.\n\nWähle ein Profil, um Details, Maße, Varianten und Bilder zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Warum sind Türbekleidungen gestalterisch so wichtig?
@@ -66,3 +67,4 @@ Nicht immer; die Entscheidung hängt von Nutzung, Sichtachsen und Wandaufbau ab.
 ### Wo finde ich passende Ergänzungen?
 
 Passende Ergänzungen stehen unter /de/produkte/leisten/sockelleisten/.
+<!-- FAQ_SYNC:END -->
