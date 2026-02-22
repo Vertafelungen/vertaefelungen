@@ -1,3 +1,8 @@
+# PATH: wissen/hugo.prod.toml
+# Version: 2026-02-22T00:00:00Z
+# Purpose: Production build config (used by GitHub Actions Build & Deploy)
+# Change (PR-4.3 Hotfix): Map section "faq" permalinks to /info/ to match guards and UI rename.
+
 baseURL = "https://www.vertaefelungen.de/wissen/"
 title = "Wissensdatenbank | Vertäfelung & Lambris"
 defaultContentLanguage = "de"
