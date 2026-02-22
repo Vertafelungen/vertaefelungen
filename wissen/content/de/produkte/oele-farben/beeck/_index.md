@@ -1,8 +1,8 @@
 ---
-version: 2026-02-22 11:19 UTC
+version: 2026-02-22 12:44 UTC
 managed_by: categories.csv
-last_synced: 2026-02-22 11:19 UTC
-lastmod: 2026-02-22 11:19 UTC
+last_synced: 2026-02-22 12:44 UTC
+lastmod: 2026-02-22 12:44 UTC
 lang: de
 translationKey: beeck-stand-oil-paints
 title: Beeck Standölfarben
