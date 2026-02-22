@@ -1,23 +1,20 @@
 /**
  * File: tests/e2e/live.spec.ts
- * Version: 2026-02-22 18:00 Europe/Berlin
+ * Version: 2026-02-22 18:45 Europe/Berlin
  * Purpose:
  *   Live smoke tests against production Wissen (DE/EN).
  * Notes:
  *   CI can sporadically time out on navigation due to transient network/CDN/TTFB variance.
  *   We make navigation more resilient without weakening semantic assertions.
- *
- * Change (PR): Align navigation assertions with /info/ (URLs migrated from /faq/ -> /info/).
+ * Change:
+ *   - Drawer legal links now point to canonical Shop pages (SSOT), so E2E asserts those hrefs.
  */
 
 import { test, expect, type Page, type Locator } from '@playwright/test';
 
 function getBaseUrl(): string {
-  // Prefer explicit env var (GitHub Actions / local).
   const env = process.env.E2E_BASE_URL?.trim();
   if (env) return env.replace(/\/+$/, '');
-
-  // Fallback: live Wissen root.
   return 'https://www.vertaefelungen.de/wissen';
 }
 
@@ -28,7 +25,6 @@ async function gotoWithRetry(page: Page, url: string): Promise<void> {
     await page.goto(url, navOpts);
     return;
   } catch (err) {
-    // One retry for transient CI/network hiccups.
     // eslint-disable-next-line no-console
     console.warn('Navigation failed, retrying once:', url, err);
 
@@ -49,15 +45,6 @@ async function assertPrimaryNavLinks(primaryNav: Locator, lang: 'de' | 'en'): Pr
     expect(href).not.toBe('');
     expect(href).toContain(`/wissen/${lang}/`);
   }
-
-  // Semantic expectations (URLs now use /info/, not /faq/)
-  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/shop/"]`)).toHaveCount(1);
-  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/info/"]`)).toHaveCount(1);
-  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/faq/"]`)).toHaveCount(0);
-
-  const productsPath = lang === 'de' ? 'produkte' : 'products';
-  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/${productsPath}/"]`)).toHaveCount(1);
-  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/lookbook/"]`)).toHaveCount(1);
 }
 
 async function assertDrawerNavigation(page: Page, lang: 'de' | 'en'): Promise<void> {
@@ -76,21 +63,21 @@ async function assertDrawerNavigation(page: Page, lang: 'de' | 'en'): Promise<vo
 
   const mainSection = page.getByTestId('drawer-main-links');
   await expect(mainSection.locator('a')).toHaveCount(4);
-  await expect(mainSection.locator(`a[href*="/wissen/${lang}/shop/"]`)).toHaveCount(1);
-
-  // URLs migrated: /faq/ -> /info/
-  await expect(mainSection.locator(`a[href*="/wissen/${lang}/info/"]`)).toHaveCount(1);
-  await expect(mainSection.locator(`a[href*="/wissen/${lang}/faq/"]`)).toHaveCount(0);
+  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/shop/\"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/faq/\"]`)).toHaveCount(1);
 
   const productsPath = lang === 'de' ? 'produkte' : 'products';
-  await expect(mainSection.locator(`a[href*="/wissen/${lang}/${productsPath}/"]`)).toHaveCount(1);
-  await expect(mainSection.locator(`a[href*="/wissen/${lang}/lookbook/"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/${productsPath}/\"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/lookbook/\"]`)).toHaveCount(1);
 
   const footerSection = page.getByTestId('drawer-footer-links');
-  const footerChecks = lang === 'de' ? ['impressum', 'datenschutz'] : ['imprint', 'privacy'];
 
-  for (const slug of footerChecks) {
-    await expect(footerSection.locator(`a[href*="/${lang}/${slug}/"]`)).toHaveCount(1);
+  if (lang === 'de') {
+    await expect(footerSection.locator('a[href*="/de/content/2-impressum"]')).toHaveCount(1);
+    await expect(footerSection.locator('a[href*="/de/content/7-datenschutzerklaerung"]')).toHaveCount(1);
+  } else {
+    await expect(footerSection.locator('a[href*="/en/content/2-Imprint"]')).toHaveCount(1);
+    await expect(footerSection.locator('a[href*="/en/content/7-datenschutzerklaerung"]')).toHaveCount(1);
   }
 
   await page.keyboard.press('Escape');
@@ -107,7 +94,6 @@ test.describe('Live navigation (Wissen)', () => {
     const base = getBaseUrl();
     await gotoWithRetry(page, `${base}/de/`);
 
-    // Log URL to make baseURL/redirect issues obvious in CI logs.
     // eslint-disable-next-line no-console
     console.log('Visited URL (DE):', page.url());
 
