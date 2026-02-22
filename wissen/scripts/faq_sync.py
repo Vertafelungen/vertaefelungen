@@ -556,11 +556,16 @@ def main() -> int:
     for k in list(faq_map.keys()):
         faq_map[k] = sorted(faq_map[k], key=lambda x: (x.order, x.faq_id))
 
-    created = updated = unchanged = skipped_conflict = invalid_source = would_change = errors = 0
+    created = updated = unchanged = skipped_conflict = invalid_source = would_change = errors = pruned = 0
     touched_files: List[str] = []
     skipped_files: List[str] = []
     warnings: List[str] = []
     expected_targets: Set[Path] = set()
+
+    if args.prune and not do_generate:
+        errors += 1
+        warnings.append("prune_aborted_generate_global_required")
+        raise SystemExit(2)
 
     if do_generate:
         grouped: Dict[Tuple[str, str], List[FaqItem]] = {}
@@ -651,6 +656,14 @@ def main() -> int:
             touched_files.append(f"generated: {p.as_posix()}")
 
         if args.prune and args.apply:
+            if not expected_targets:
+                errors += 1
+                warnings.append("prune_aborted_expected_targets_empty")
+                raise SystemExit(2)
+            if invalid_source > 0 or errors > 0:
+                warnings.append("prune_aborted_invalid_source_or_errors")
+                raise SystemExit(2)
+
             for lang in ("de", "en"):
                 faq_root = root / lang / "faq"
                 if not faq_root.exists():
@@ -663,6 +676,7 @@ def main() -> int:
                     fm, _ = split_frontmatter(md)
                     if parse_managed_by(fm) == "faq.csv":
                         file.unlink()
+                        pruned += 1
                         touched_files.append(f"pruned: {file.as_posix()}")
 
     if do_inject:
@@ -767,6 +781,7 @@ def main() -> int:
     lines.append(f"- unchanged: {unchanged}")
     lines.append(f"- skipped_conflict: {skipped_conflict}")
     lines.append(f"- invalid_source: {invalid_source}")
+    lines.append(f"- pruned: {pruned}")
     lines.append(f"- would_change: {would_change}")
     lines.append(f"- errors: {errors}")
     lines.append("")
