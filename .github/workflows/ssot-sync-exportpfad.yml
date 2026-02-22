@@ -121,6 +121,20 @@ jobs:
         run: |
           python scripts/lint_content_frontmatter.py --root "content" || true
 
+      - name: Audit FAQ migration (non-destructive)
+        run: |
+          mkdir -p scripts/reports
+          set -o pipefail
+          python scripts/audit_faq_migration.py 2>&1 | tee scripts/reports/audit-faq-migration.txt
+
+      - name: Upload FAQ audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: faq-audit-report
+          path: wissen/scripts/reports/audit-faq-migration.txt
+          if-no-files-found: warn
+
       - name: Guard validate content
         run: |
           python scripts/guard_validate.py --root "content" || true
