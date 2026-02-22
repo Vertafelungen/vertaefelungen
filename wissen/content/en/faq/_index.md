@@ -14,7 +14,7 @@ menu:
   main:
     identifier: menu_faq
     weight: 20
-last_synced: "2026-02-22T09:11:15Z"
+last_synced: "2026-02-22T11:19:52Z"
 ---
 # FAQ
 

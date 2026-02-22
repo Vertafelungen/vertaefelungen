@@ -1,8 +1,8 @@
 ---
-version: 2026-02-22 09:11 UTC
+version: 2026-02-22 11:19 UTC
 managed_by: categories.csv
-last_synced: 2026-02-22 09:11 UTC
-lastmod: 2026-02-22 09:11 UTC
+last_synced: 2026-02-22 11:19 UTC
+lastmod: 2026-02-22 11:19 UTC
 lang: de
 translationKey: ventilation-rosettes
 title: Lüftungsrosetten
@@ -66,5 +66,5 @@ Durch klare Achsbezüge, wiederkehrende Höhenlinien und abgestimmte Formate.
 
 ### Welche Seite hilft bei der Erstberatung?
 
-Ein guter Einstieg ist /de/faq/beratung/ mit den grundlegenden Planungsfragen.
+Ein guter Einstieg ist /wissen/de/faq/beratung/ mit den grundlegenden Planungsfragen.
 <!-- FAQ_SYNC:END -->

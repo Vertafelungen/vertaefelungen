@@ -5,7 +5,7 @@ robots: noindex,follow
 managed_by: "faq.csv"
 lang: "en"
 translationKey: "faq:en/faq/style-guide/styles/raised-panels"
-last_synced: "2026-02-22T09:11:15Z"
+last_synced: "2026-02-22T11:19:52Z"
 ---
 ## FAQ
 
