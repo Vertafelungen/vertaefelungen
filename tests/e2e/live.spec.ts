@@ -1,11 +1,13 @@
 /**
  * File: tests/e2e/live.spec.ts
- * Version: 2026-01-17 12:00 Europe/Berlin
+ * Version: 2026-02-22 18:00 Europe/Berlin
  * Purpose:
  *   Live smoke tests against production Wissen (DE/EN).
  * Notes:
  *   CI can sporadically time out on navigation due to transient network/CDN/TTFB variance.
  *   We make navigation more resilient without weakening semantic assertions.
+ *
+ * Change (PR): Align navigation assertions with /info/ (URLs migrated from /faq/ -> /info/).
  */
 
 import { test, expect, type Page, type Locator } from '@playwright/test';
@@ -47,6 +49,15 @@ async function assertPrimaryNavLinks(primaryNav: Locator, lang: 'de' | 'en'): Pr
     expect(href).not.toBe('');
     expect(href).toContain(`/wissen/${lang}/`);
   }
+
+  // Semantic expectations (URLs now use /info/, not /faq/)
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/shop/"]`)).toHaveCount(1);
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/info/"]`)).toHaveCount(1);
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/faq/"]`)).toHaveCount(0);
+
+  const productsPath = lang === 'de' ? 'produkte' : 'products';
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/${productsPath}/"]`)).toHaveCount(1);
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/lookbook/"]`)).toHaveCount(1);
 }
 
 async function assertDrawerNavigation(page: Page, lang: 'de' | 'en'): Promise<void> {
@@ -65,21 +76,21 @@ async function assertDrawerNavigation(page: Page, lang: 'de' | 'en'): Promise<vo
 
   const mainSection = page.getByTestId('drawer-main-links');
   await expect(mainSection.locator('a')).toHaveCount(4);
-  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/shop/\"]`)).toHaveCount(1);
-  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/faq/\"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/shop/"]`)).toHaveCount(1);
+
+  // URLs migrated: /faq/ -> /info/
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/info/"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/faq/"]`)).toHaveCount(0);
 
   const productsPath = lang === 'de' ? 'produkte' : 'products';
-  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/${productsPath}/\"]`)).toHaveCount(1);
-  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/lookbook/\"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/${productsPath}/"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/lookbook/"]`)).toHaveCount(1);
 
   const footerSection = page.getByTestId('drawer-footer-links');
-  const footerChecks =
-    lang === 'de'
-      ? ['impressum', 'datenschutz']
-      : ['imprint', 'privacy'];
+  const footerChecks = lang === 'de' ? ['impressum', 'datenschutz'] : ['imprint', 'privacy'];
 
   for (const slug of footerChecks) {
-    await expect(footerSection.locator(`a[href*=\"/${lang}/${slug}/\"]`)).toHaveCount(1);
+    await expect(footerSection.locator(`a[href*="/${lang}/${slug}/"]`)).toHaveCount(1);
   }
 
   await page.keyboard.press('Escape');
