@@ -10,7 +10,7 @@ description: Fragen und Antworten zu Restaurierung und Reproduktion historischer
 content_type: faq
 content_id: faq-restaurierung-reproduktion
 topic: Restaurierung
-last_synced: "2026-02-22T13:12:14Z"
+last_synced: "2026-02-22T13:16:41Z"
 ---
 # restaurierung reproduktion vertaefelungen holzleisten
 
