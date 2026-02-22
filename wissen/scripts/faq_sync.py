@@ -2,40 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 File: wissen/scripts/faq_sync.py
-Version: 2026-02-14 18:40 Europe/Berlin
 
-Purpose
--------
-Inject/replace the "## FAQ" section in SSOT-managed Markdown pages based on wissen/ssot/faq.csv.
-
-- Scope types:
-  - category: Hugo branch bundles (_index.md) under content/<lang>/<path>/_index.md
-             scope_key is the category path relative to content/<lang>/, e.g. "produkte/leisten/tuerbekleidungen"
-  - product:  Hugo leaf bundles (index.md) under content/<lang>/.../index.md (only if under "produkte/")
-             scope_key may be any of:
-               - frontmatter translationKey
-               - frontmatter produkt.id
-               - frontmatter produkt.artikelnummer
-               - a key derived from bundle folder name like "117-tr01-120-..." -> "TR01/120" or "TR01-120"
-  - global:   pages under content/<lang>/faq/**
-             scope_key is path relative to content/<lang>/ with special handling for index/_index.
-
-Safety / Ownership
-------------------
-- category/product only touch files whose frontmatter contains managed_by in an allowed set.
-  Default allowed: "ssot-sync,categories.csv" (comma-separated).
-- global does not enforce managed_by, but is strictly path-gated to /faq/**.
-- Only modifies the FAQ section in the body; frontmatter is preserved verbatim.
-- Does not create or delete pages; only updates existing Markdown files.
-
-CLI
----
-python wissen/scripts/faq_sync.py --csv wissen/ssot/faq.csv --root wissen/content --apply
-
-Exit codes
-----------
-0 = OK (including "nothing to do")
-2 = input/validation error
+faq.csv sync with two stages:
+- Stage A: generate/update authoritative global FAQ pages under content/<lang>/faq/**
+- Stage B: inject compact FAQ blocks into product/category pages
 """
 
 from __future__ import annotations
@@ -48,7 +18,7 @@ import sys
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Set, Tuple
 
 
 # ---------- CSV ----------
@@ -100,13 +70,14 @@ def normalize_links(text: str) -> str:
 @dataclass
 class FaqItem:
     faq_id: str
-    scope_type: str  # product|category|global
+    scope_type: str
     scope_key: str
-    lang: str        # de|en
+    lang: str
     question: str
     answer: str
     order: int
-    status: str      # active|disabled|draft|...
+    status: str
+    source: str
 
     @staticmethod
     def from_row(r: Dict[str, str]) -> "FaqItem":
@@ -128,6 +99,7 @@ class FaqItem:
             answer=normalize_links((r.get("answer") or r.get("antwort") or "").rstrip()),
             order=to_int(r.get("order") or r.get("sort") or r.get("rank") or ""),
             status=clean(r.get("status") or "").lower(),
+            source=clean(r.get("source") or ""),
         )
 
 
@@ -164,13 +136,13 @@ def load_faq_csv(csv_path: Path) -> List[FaqItem]:
 # ---------- Markdown parsing ----------
 
 FM_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
+FAQ_MARKER_RE = re.compile(r"(?s)<!--\s*FAQ_SYNC:BEGIN\s*-->.*?<!--\s*FAQ_SYNC:END\s*-->")
+FAQ_LEGACY_SECTION_RE = re.compile(
+    r"(?ims)^##\s*(FAQ|Häufige\s+Fragen|Frequently\s+asked\s+questions)\s*\n.*?(?=^##\s+|\Z)"
+)
 
 
 def split_frontmatter(md: str) -> Tuple[str, str]:
-    """
-    Return (frontmatter_block_including_delimiters_or_empty, body).
-    Preserves the exact frontmatter string as found.
-    """
     m = FM_RE.match(md or "")
     if not m:
         return "", md or ""
@@ -180,76 +152,102 @@ def split_frontmatter(md: str) -> Tuple[str, str]:
 
 
 def parse_managed_by(frontmatter_block: str) -> str:
-    """
-    Quick YAML-ish extraction without a YAML parser (robust enough for managed_by: value).
-    """
     if not frontmatter_block:
         return ""
     m = re.search(r"(?m)^\s*managed_by\s*:\s*(.+?)\s*$", frontmatter_block)
     if not m:
         return ""
-    v = m.group(1).strip().strip('"').strip("'")
-    return v
+    return m.group(1).strip().strip('"').strip("'")
 
 
-FAQ_HEADING_RE = re.compile(
-    r"(?im)^(##\s*(FAQ|Häufige\s+Fragen|Frequently\s+asked\s+questions)\s*)$"
-)
-
-
-def replace_or_append_faq(body: str, faq_block: str) -> Tuple[str, str]:
-    """
-    Returns (new_body, action) where action in {"replaced","appended","unchanged"}.
-    Replaces from FAQ heading to next '## ' heading (or end).
-    """
-    if not faq_block.strip():
-        return body, "unchanged"
-
-    m = FAQ_HEADING_RE.search(body or "")
-    if not m:
-        b = (body or "").rstrip() + "\n\n" + faq_block.strip() + "\n"
-        return b, "appended"
-
-    start = m.start()
-    m2 = re.search(r"(?m)^(##\s+.+)$", body[m.end():])
-    if m2:
-        end = m.end() + m2.start()
-        new_body = (body[:start].rstrip() + "\n\n" + faq_block.strip() + "\n\n" + body[end:].lstrip())
+def merge_frontmatter_preserving(fm_block: str, updates: Dict[str, str]) -> str:
+    if fm_block:
+        content = fm_block.strip()
+        if content.startswith("---"):
+            content = content[3:]
+        if content.endswith("---"):
+            content = content[:-3]
+        lines = content.strip("\n").splitlines()
     else:
-        new_body = (body[:start].rstrip() + "\n\n" + faq_block.strip() + "\n")
+        lines = []
 
-    if new_body == body:
-        return body, "unchanged"
-    return new_body, "replaced"
+    for key, value in updates.items():
+        rendered = f'{key}: "{value}"'
+        replaced = False
+        for i, line in enumerate(lines):
+            if re.match(rf"^\s*{re.escape(key)}\s*:", line):
+                lines[i] = rendered
+                replaced = True
+                break
+        if not replaced:
+            lines.append(rendered)
+
+    payload = "\n".join(lines).rstrip()
+    return f"---\n{payload}\n---\n"
 
 
-def render_faq_block(lang: str, items: List[FaqItem]) -> str:
-    if not items:
-        return ""
+def remove_marker_blocks(text: str) -> str:
+    return FAQ_MARKER_RE.sub("", text or "")
 
+
+def remove_legacy_faq_section(text: str) -> str:
+    return FAQ_LEGACY_SECTION_RE.sub("", text or "")
+
+
+def cleanup_body_text(text: str) -> str:
+    out = remove_marker_blocks(text)
+    out = remove_legacy_faq_section(out)
+    out = re.sub(r"\n{3,}", "\n\n", out).strip()
+    return out
+
+
+def render_qa_markdown(items: List[FaqItem]) -> str:
     deduped: List[FaqItem] = []
     seen_questions = set()
     for it in items:
-        norm_q = re.sub(r"\s+", " ", it.question.strip()).casefold()
-        if not norm_q:
+        q = re.sub(r"\s+", " ", it.question.strip()).casefold()
+        if not q or q in seen_questions:
             continue
-        if norm_q in seen_questions:
-            continue
-        seen_questions.add(norm_q)
+        seen_questions.add(q)
         deduped.append(it)
 
     if not deduped:
         return ""
 
-    out: List[str] = []
-    out.append("## FAQ")
-    out.append("")
+    out: List[str] = ["## FAQ", ""]
     for it in deduped:
-        out.append(f"### {it.question}")
-        out.append("")
-        out.append(it.answer.strip())
-        out.append("")
+        out.extend([f"### {it.question}", "", it.answer.strip(), ""])
     return "\n".join(out).rstrip() + "\n"
+
+
+def marker_wrap(block: str) -> str:
+    return "\n".join([
+        "<!-- FAQ_SYNC:BEGIN -->",
+        block.strip(),
+        "<!-- FAQ_SYNC:END -->",
+    ]).rstrip() + "\n"
+
+
+def inject_marker_block(body: str, block: str) -> Tuple[str, str]:
+    marker_block = marker_wrap(block)
+    has_marker = FAQ_MARKER_RE.search(body or "") is not None
+    has_legacy = FAQ_LEGACY_SECTION_RE.search(body or "") is not None
+
+    if has_marker:
+        new_body = FAQ_MARKER_RE.sub(marker_block.strip(), body or "", count=1)
+        if has_legacy:
+            new_body = remove_legacy_faq_section(new_body)
+        new_body = re.sub(r"\n{3,}", "\n\n", new_body).rstrip() + "\n"
+        return (new_body, "replaced" if new_body != body else "unchanged")
+
+    if has_legacy:
+        new_body = FAQ_LEGACY_SECTION_RE.sub(marker_block.strip() + "\n", body or "", count=1)
+        new_body = re.sub(r"\n{3,}", "\n\n", new_body).rstrip() + "\n"
+        return (new_body, "migrated" if new_body != body else "unchanged")
+
+    new_body = (body or "").rstrip() + "\n\n" + marker_block
+    new_body = re.sub(r"\n{3,}", "\n\n", new_body).rstrip() + "\n"
+    return new_body, "appended"
 
 
 # ---------- Scope detection ----------
@@ -258,14 +256,6 @@ ARTICLE_RE = re.compile(r"(?i)\b([a-z]{2}\d{2})-(\d{2,3})\b")
 
 
 def derive_product_keys_from_path(p: Path) -> List[str]:
-    """
-    From bundle folder name like '117-tr01-120-tuerbekleidung' derive:
-    - 'TR01/120'
-    - 'TR01-120'
-    - 'tr01/120'
-    - 'tr01-120'
-    Also returns numeric prefix like '117' if present.
-    """
     keys: List[str] = []
     try:
         bundle_dir = p.parent.name
@@ -280,44 +270,24 @@ def derive_product_keys_from_path(p: Path) -> List[str]:
     if m:
         a = m.group(1)
         n = m.group(2)
-        keys += [
-            f"{a.upper()}/{n}",
-            f"{a.upper()}-{n}",
-            f"{a.lower()}/{n}",
-            f"{a.lower()}-{n}",
-        ]
+        keys += [f"{a.upper()}/{n}", f"{a.upper()}-{n}", f"{a.lower()}/{n}", f"{a.lower()}-{n}"]
 
     return list(dict.fromkeys([k for k in keys if k]))
 
 
 def derive_product_keys_from_frontmatter(frontmatter_block: str) -> List[str]:
-    """
-    Cheap extraction of common fields without YAML parser.
-    """
     keys: List[str] = []
-
-    m = re.search(r"(?m)^\s*translationKey\s*:\s*(.+?)\s*$", frontmatter_block or "")
-    if m:
-        keys.append(m.group(1).strip().strip('"').strip("'"))
-
-    m = re.search(r"(?m)^\s*id\s*:\s*(.+?)\s*$", frontmatter_block or "")
-    if m:
-        keys.append(m.group(1).strip().strip('"').strip("'"))
-
-    m = re.search(r"(?m)^\s*artikelnummer\s*:\s*(.+?)\s*$", frontmatter_block or "")
-    if m:
-        keys.append(m.group(1).strip().strip('"').strip("'"))
-
-    keys = [k for k in keys if k]
-    return list(dict.fromkeys(keys))
+    for field in ("translationKey", "id", "artikelnummer"):
+        m = re.search(rf"(?m)^\s*{field}\s*:\s*(.+?)\s*$", frontmatter_block or "")
+        if m:
+            keys.append(m.group(1).strip().strip('"').strip("'"))
+    return list(dict.fromkeys([k for k in keys if k]))
 
 
 def global_scope_key_candidates(rel: Path) -> List[str]:
-    # rel is path relative to content root: <lang>/...
     rel_without_lang = rel.parts[1:]
     if not rel_without_lang:
         return []
-
     filename = rel.name
     if filename in ("_index.md", "index.md"):
         key = "/".join(rel_without_lang[:-1]).strip("/")
@@ -325,10 +295,8 @@ def global_scope_key_candidates(rel: Path) -> List[str]:
         key = "/".join(rel_without_lang).strip("/")
         if key.lower().endswith(".md"):
             key = key[:-3]
-
     if not key:
         return []
-
     candidates = [key]
     if key.startswith("faq/"):
         candidates.append(key[len("faq/"):])
@@ -346,6 +314,54 @@ def pick_matching_faq_items(
         if items:
             return k, items
     return None, []
+
+
+# ---------- Generator helpers ----------
+
+
+def normalize_source_to_target(source: str, lang: str) -> Optional[Path]:
+    src = clean(source).replace("\\", "/")
+    if not src:
+        return None
+    src = src.lstrip("/")
+    if src.startswith("wissen/"):
+        src = src[len("wissen/"):]
+    if src.startswith("content/"):
+        target = src
+    elif src.startswith(f"{lang}/"):
+        target = f"content/{src}"
+    else:
+        target = src
+
+    p = Path(target)
+    expected_prefix = Path("content") / lang / "faq"
+    try:
+        p.relative_to(expected_prefix)
+    except Exception:
+        return None
+    return p
+
+
+def fallback_target_from_scope(scope_key: str, lang: str) -> Path:
+    key = clean(scope_key).strip("/")
+    if key.startswith("faq/"):
+        key = key[len("faq/"):]
+    if key in ("", "root"):
+        return Path("content") / lang / "faq" / "_index.md"
+    return Path("content") / lang / "faq" / key / "index.md"
+
+
+def stable_translation_key_from_target(target: Path) -> str:
+    rel = target.as_posix()
+    if rel.startswith("content/"):
+        rel = rel[len("content/"):]
+    if rel.endswith("/_index.md"):
+        rel = rel[:-10]
+    elif rel.endswith("/index.md"):
+        rel = rel[:-9]
+    elif rel.endswith(".md"):
+        rel = rel[:-3]
+    return f"faq:{rel.strip('/')}"
 
 
 # ---------- Report ----------
@@ -369,13 +385,15 @@ def main() -> int:
     ap.add_argument("--csv", default="ssot/faq.csv")
     ap.add_argument("--root", default="content")
     ap.add_argument("--apply", action="store_true")
-    ap.add_argument(
-        "--managed-by",
-        default="ssot-sync,categories.csv",
-        help="Only touch files with managed_by matching any of these (comma-separated). Default: ssot-sync,categories.csv",
-    )
-    ap.add_argument("--report", default="scripts/reports/faq_sync_report.md")
+    ap.add_argument("--generate-global", action="store_true")
+    ap.add_argument("--inject", action="store_true")
+    ap.add_argument("--prune", action="store_true", help="Only with --generate-global --apply")
+    ap.add_argument("--managed-by", default="ssot-sync,categories.csv")
+    ap.add_argument("--report", default="")
     args = ap.parse_args()
+
+    do_inject = args.inject or (not args.generate_global and not args.inject)
+    do_generate = args.generate_global
 
     csv_path = Path(args.csv)
     root = Path(args.root)
@@ -394,137 +412,227 @@ def main() -> int:
         print(f"[faq_sync] ERROR: {e}", file=sys.stderr)
         return 2
 
+    active_items = [it for it in all_items if it.status == "active"]
     faq_map: Dict[Tuple[str, str, str], List[FaqItem]] = {}
-    for it in all_items:
-        if it.status != "active":
-            continue
+    for it in active_items:
         key = (it.scope_type, it.scope_key, it.lang)
         faq_map.setdefault(key, []).append(it)
-
     for k in list(faq_map.keys()):
         faq_map[k] = sorted(faq_map[k], key=lambda x: (x.order, x.faq_id))
 
+    created = updated = unchanged = skipped_conflict = invalid_source = would_change = errors = 0
     touched_files: List[str] = []
     skipped_files: List[str] = []
     warnings: List[str] = []
+    expected_targets: Set[Path] = set()
 
-    md_files = sorted(root.rglob("*.md"))
+    if do_generate:
+        grouped: Dict[Tuple[str, str], List[FaqItem]] = {}
+        for it in active_items:
+            if it.scope_type != "global":
+                continue
+            group_key = (it.source or f"__scope__:{it.scope_key}", it.lang)
+            grouped.setdefault(group_key, []).append(it)
 
-    for p in md_files:
-        try:
-            rel = p.relative_to(root)
-        except Exception:
-            continue
-        if len(rel.parts) < 2:
-            continue
+        for (_, lang), items in sorted(grouped.items(), key=lambda x: (x[0][1], x[0][0])):
+            first = items[0]
+            if first.source:
+                target_repo = normalize_source_to_target(first.source, lang)
+                if target_repo is None:
+                    invalid_source += 1
+                    warnings.append(f"invalid_source_outside_faq: lang={lang} source={first.source}")
+                    continue
+            else:
+                target_repo = fallback_target_from_scope(first.scope_key, lang)
 
-        lang = rel.parts[0].lower()
-        if lang not in ("de", "en"):
-            continue
+            target_rel = Path(target_repo).relative_to("content")
+            expected_targets.add(target_rel)
+            p = root / target_rel
 
-        md = p.read_text(encoding="utf-8", errors="replace")
-        fm_block, body = split_frontmatter(md)
-        managed_by = parse_managed_by(fm_block)
+            items_sorted = sorted(items, key=lambda x: (x.order, x.faq_id))
+            base_rows = [x for x in items_sorted if x.question in ("_index", "_body")]
+            qa_rows = [x for x in items_sorted if x.question not in ("_index", "_body")]
+            base_text = "\n\n".join([x.answer.strip() for x in base_rows if x.answer.strip()]).strip()
+            base_clean = cleanup_body_text(base_text)
+            qa_block = render_qa_markdown(qa_rows).strip()
 
-        rel_from_lang = rel.parts[1:]
-        is_faq_tree = len(rel_from_lang) >= 1 and rel_from_lang[0] == "faq"
+            final_body = ""
+            if base_clean and qa_block:
+                final_body = f"{base_clean}\n\n{qa_block}\n"
+            elif base_clean:
+                final_body = base_clean.rstrip() + "\n"
+            else:
+                final_body = qa_block.rstrip() + "\n"
 
-        # 1) global matching (no managed_by requirement), strictly under /faq/**
-        if is_faq_tree:
-            global_candidates = global_scope_key_candidates(rel)
-            matched_key, items = pick_matching_faq_items(faq_map, "global", global_candidates, lang)
-            if items:
-                faq_block = render_faq_block(lang, items)
-                new_body, action = replace_or_append_faq(body, faq_block)
-                if action != "unchanged":
-                    new_md = (fm_block or "") + (new_body or "")
-                    if args.apply:
-                        p.write_text(new_md, encoding="utf-8")
-                    touched_files.append(f"{action}: {p} (scope=global key={matched_key})")
+            fm_existing = ""
+            body_existing = ""
+            managed_by_existing = ""
+            if p.exists():
+                old_md = p.read_text(encoding="utf-8", errors="replace")
+                fm_existing, body_existing = split_frontmatter(old_md)
+                managed_by_existing = parse_managed_by(fm_existing)
+                if managed_by_existing != "faq.csv":
+                    skipped_conflict += 1
+                    warnings.append(f"conflict_not_owned: {p.as_posix()} managed_by={managed_by_existing or '(none)'}")
+                    continue
+
+            fm_new = merge_frontmatter_preserving(
+                fm_existing,
+                {
+                    "managed_by": "faq.csv",
+                    "lang": lang,
+                    "translationKey": stable_translation_key_from_target(target_repo),
+                    "title": "FAQ",
+                    "last_synced": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                },
+            )
+            new_md = fm_new + final_body
+
+            if p.exists() and (fm_existing + body_existing) == new_md:
+                unchanged += 1
                 continue
 
-        basename = p.name
-        scope_type: Optional[str] = None
-        scope_key_candidates: List[str] = []
+            if p.exists():
+                updated += 1
+            else:
+                created += 1
+                p.parent.mkdir(parents=True, exist_ok=True)
 
-        if basename == "_index.md" and not is_faq_tree:
-            scope_type = "category"
-            scope_key = "/".join(rel.parts[1:-1]).strip("/")
-            if not scope_key:
+            if not args.apply:
+                would_change += 1
+            else:
+                p.write_text(new_md, encoding="utf-8")
+            touched_files.append(f"generated: {p.as_posix()}")
+
+        if args.prune and args.apply:
+            for lang in ("de", "en"):
+                faq_root = root / lang / "faq"
+                if not faq_root.exists():
+                    continue
+                for file in sorted(faq_root.rglob("*.md")):
+                    rel = file.relative_to(root)
+                    if rel in expected_targets:
+                        continue
+                    md = file.read_text(encoding="utf-8", errors="replace")
+                    fm, _ = split_frontmatter(md)
+                    if parse_managed_by(fm) == "faq.csv":
+                        file.unlink()
+                        touched_files.append(f"pruned: {file.as_posix()}")
+
+    if do_inject:
+        md_files = sorted(root.rglob("*.md"))
+        for p in md_files:
+            try:
+                rel = p.relative_to(root)
+            except Exception:
+                continue
+            if len(rel.parts) < 2:
+                continue
+
+            lang = rel.parts[0].lower()
+            if lang not in ("de", "en"):
+                continue
+
+            rel_from_lang = rel.parts[1:]
+            is_faq_tree = len(rel_from_lang) >= 1 and rel_from_lang[0] == "faq"
+            if is_faq_tree:
+                continue
+
+            md = p.read_text(encoding="utf-8", errors="replace")
+            fm_block, body = split_frontmatter(md)
+            managed_by = parse_managed_by(fm_block)
+            if managed_by == "faq.csv":
+                continue
+
+            basename = p.name
+            scope_type: Optional[str] = None
+            scope_key_candidates: List[str] = []
+
+            if basename == "_index.md":
+                if managed_by != "categories.csv":
+                    skipped_files.append(str(p))
+                    continue
+                scope_type = "category"
+                scope_key = "/".join(rel.parts[1:-1]).strip("/")
+                if not scope_key:
+                    skipped_files.append(str(p))
+                    continue
+                scope_key_candidates = [scope_key]
+            elif basename == "index.md":
+                rel_path_str = "/".join(rel.parts[1:])
+                if "produkte/" not in rel_path_str:
+                    skipped_files.append(str(p))
+                    continue
+                if not managed_by.startswith("ssot-sync"):
+                    skipped_files.append(str(p))
+                    continue
+                scope_type = "product"
+                scope_key_candidates.extend(derive_product_keys_from_frontmatter(fm_block))
+                scope_key_candidates.extend(derive_product_keys_from_path(p))
+                scope_key_candidates.extend([p.parent.name, p.parent.name.lower(), p.parent.name.upper()])
+                scope_key_candidates = [k for k in scope_key_candidates if k and k.lower() != "none"]
+                scope_key_candidates = list(dict.fromkeys(scope_key_candidates))
+            else:
                 skipped_files.append(str(p))
                 continue
-            scope_key_candidates = [scope_key]
-        elif basename == "index.md":
-            rel_path_str = "/".join(rel.parts[1:])
-            if "produkte/" not in rel_path_str:
+
+            # explicit backwards-compatible guard for allowed values
+            if managed_by_vals and not any(
+                managed_by == mv or (mv == "ssot-sync" and managed_by.startswith("ssot-sync")) for mv in managed_by_vals
+            ):
                 skipped_files.append(str(p))
                 continue
-            scope_type = "product"
 
-            scope_key_candidates.extend(derive_product_keys_from_frontmatter(fm_block))
-            scope_key_candidates.extend(derive_product_keys_from_path(p))
-            scope_key_candidates.extend([p.parent.name, p.parent.name.lower(), p.parent.name.upper()])
+            matched_key, items = pick_matching_faq_items(faq_map, scope_type, scope_key_candidates, lang)
+            if not items:
+                continue
 
-            scope_key_candidates = [k for k in scope_key_candidates if k and k.lower() != "none"]
-            scope_key_candidates = list(dict.fromkeys(scope_key_candidates))
-        else:
-            skipped_files.append(str(p))
-            continue
+            faq_block = render_qa_markdown(items)
+            new_body, action = inject_marker_block(body, faq_block)
+            if action == "unchanged":
+                unchanged += 1
+                continue
 
-        # managed_by gate stays for category/product only
-        if managed_by_vals and managed_by not in managed_by_vals:
-            skipped_files.append(str(p))
-            continue
+            new_md = (fm_block or "") + (new_body or "")
+            if new_md == md:
+                unchanged += 1
+                continue
 
-        matched_key, items = pick_matching_faq_items(faq_map, scope_type, scope_key_candidates, lang)
-        if not items:
-            continue
+            if not args.apply:
+                would_change += 1
+            else:
+                p.write_text(new_md, encoding="utf-8")
+            touched_files.append(f"inject_{action}: {p} (scope={scope_type} key={matched_key})")
 
-        faq_block = render_faq_block(lang, items)
-        new_body, action = replace_or_append_faq(body, faq_block)
-
-        if action == "unchanged":
-            continue
-
-        new_md = (fm_block or "") + (new_body or "")
-
-        if args.apply:
-            p.write_text(new_md, encoding="utf-8")
-        touched_files.append(f"{action}: {p} (scope={scope_type} key={matched_key})")
+    ts = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    report_path = Path(args.report) if args.report else Path(f"scripts/reports/faq-sync-{ts}.md")
 
     lines: List[str] = []
     lines.append(f"- CSV: `{csv_path.as_posix()}`")
     lines.append(f"- Root: `{root.as_posix()}`")
-    lines.append(f"- managed_by allowlist: {', '.join(sorted(managed_by_vals)) if managed_by_vals else '(none)'}")
+    lines.append(f"- stages: generate_global={do_generate} inject={do_inject} prune={args.prune and args.apply}")
+    lines.append("")
+    lines.append("## Summary")
+    lines.append("")
+    lines.append(f"- created: {created}")
+    lines.append(f"- updated: {updated}")
+    lines.append(f"- unchanged: {unchanged}")
+    lines.append(f"- skipped_conflict: {skipped_conflict}")
+    lines.append(f"- invalid_source: {invalid_source}")
+    lines.append(f"- would_change: {would_change}")
+    lines.append(f"- errors: {errors}")
     lines.append("")
     lines.append("## Touched")
     lines.append("")
-    if touched_files:
-        lines.extend([f"- {t}" for t in touched_files])
-    else:
-        lines.append("- (none)")
-
+    lines.extend([f"- {t}" for t in touched_files] if touched_files else ["- (none)"])
     lines.append("")
     lines.append("## Warnings")
     lines.append("")
-    if warnings:
-        lines.extend([f"- {w}" for w in warnings])
-    else:
-        lines.append("- (none)")
+    lines.extend([f"- {w}" for w in warnings] if warnings else ["- (none)"])
 
-    lines.append("")
-    lines.append("## Skipped (managed_by mismatch or not a target page)")
-    lines.append("")
-    if skipped_files:
-        lines.extend([f"- {s}" for s in skipped_files[:200]])
-        if len(skipped_files) > 200:
-            lines.append(f"- ... ({len(skipped_files) - 200} more)")
-    else:
-        lines.append("- (none)")
-
-    write_report(Path(args.report), args.apply, lines)
-    print(f"[faq_sync] Report: {args.report}")
-    return 0
+    write_report(report_path, args.apply, lines)
+    print(f"[faq_sync] Report: {report_path}")
+    return 0 if errors == 0 else 2
 
 
 if __name__ == "__main__":

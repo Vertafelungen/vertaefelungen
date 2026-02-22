@@ -61,7 +61,6 @@ jobs:
           pip install pandas pyyaml python-slugify markdown ruamel.yaml
 
       - name: Run Categories Sync
-        continue-on-error: true
         run: |
           python scripts/categories_sync.py \
             --csv "ssot/categories.csv" \
@@ -78,7 +77,6 @@ jobs:
           if-no-files-found: ignore
 
       - name: Run SSOT sync (hydrate products)
-        continue-on-error: true
         run: |
           python scripts/ssot_sync_exportpfad.py \
             --csv "ssot/SSOT.csv" \
@@ -88,12 +86,13 @@ jobs:
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply") \
             $([ "${{ github.event.inputs.remove_empty_old_bundles || 'true' }}" = "true" ] && echo "--remove-empty-old-bundles")
 
-      - name: Run FAQ sync (inject into SSOT-managed pages)
-        continue-on-error: true
+      - name: Run FAQ sync (generate global + inject)
         run: |
           python scripts/faq_sync.py \
             --csv "ssot/faq.csv" \
             --root "content" \
+            --generate-global \
+            --inject \
             $([ "${{ github.event.inputs.apply || 'true' }}" = "true" ] && echo "--apply")
 
       - name: Upload FAQ reports (non-blocking)
@@ -101,7 +100,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: faq-reports
-          path: wissen/scripts/reports/faq_sync_report.md
+          path: wissen/scripts/reports/faq-sync-*.md
           if-no-files-found: ignore
 
       - name: Upload SSOT reports (non-blocking)
