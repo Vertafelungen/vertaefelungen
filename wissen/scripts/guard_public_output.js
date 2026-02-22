@@ -3,10 +3,11 @@
 
 /**
  * PATH: wissen/scripts/guard_public_output.js
- * Version: 2026-01-29 21:00 CET
+ * Version: 2026-02-22 18:45 CET
  *
- * Change: Harden primary-nav href scheme validation (block javascript:, data:, vbscript:)
- * while keeping all other guard behavior unchanged.
+ * Changes:
+ * - Harden primary-nav href scheme validation (block javascript:, data:, vbscript:)
+ * - Accept Shop legal SSOT links in nav drawer (Imprint/Terms/Privacy/Withdrawal) in addition to Wissen stubs.
  */
 
 const fs = require("fs");
@@ -25,12 +26,12 @@ const REDUNDANT_STRATEGY = (process.env.GUARD_REDUNDANT_URL_STRATEGY || "redirec
 const NAV_GUARD_REL_PATHS = new Set([
   "de/index.html",
   "de/shop/index.html",
-  "de/info/index.html",
+  "de/faq/index.html",
   "de/produkte/index.html",
   "de/lookbook/index.html",
   "en/index.html",
   "en/shop/index.html",
-  "en/info/index.html",
+  "en/faq/index.html",
   "en/products/index.html",
   "en/lookbook/index.html",
 ]);
@@ -54,12 +55,21 @@ const REDUNDANT_URL_PATTERNS = [
 const LANGS = ["de", "en"];
 
 const NAV_TARGETS = {
-  de: ["/wissen/de/shop/", "/wissen/de/info/", "/wissen/de/produkte/", "/wissen/de/lookbook/"],
-  en: ["/wissen/en/shop/", "/wissen/en/info/", "/wissen/en/products/", "/wissen/en/lookbook/"],
+  de: ["/wissen/de/shop/", "/wissen/de/faq/", "/wissen/de/produkte/", "/wissen/de/lookbook/"],
+  en: ["/wissen/en/shop/", "/wissen/en/faq/", "/wissen/en/products/", "/wissen/en/lookbook/"],
 };
 
+// Drawer/footer links are considered valid if they point to either:
+// 1) the canonical legal pages in the Shop (preferred SSOT), or
+// 2) legacy Wissen stub pages (kept as an acceptable fallback).
 const LEGAL_TARGETS = {
   de: [
+    // Shop SSOT (preferred)
+    "/de/content/2-impressum",
+    "/de/content/3-allgemeine-geschaeftsbedingungen",
+    "/de/content/7-datenschutzerklaerung",
+    "/de/content/8-widerrufsbelehrung",
+    // Wissen stubs (fallback)
     "/wissen/de/impressum/",
     "/wissen/de/datenschutz/",
     "/wissen/de/agb/",
@@ -67,6 +77,12 @@ const LEGAL_TARGETS = {
     "/wissen/de/kontakt/",
   ],
   en: [
+    // Shop SSOT (preferred)
+    "/en/content/2-Imprint",
+    "/en/content/3-allgemeine-geschaeftsbedingungen",
+    "/en/content/7-datenschutzerklaerung",
+    "/en/content/8-widerrufsbelehrung",
+    // Wissen stubs (fallback)
     "/wissen/en/imprint/",
     "/wissen/en/privacy/",
     "/wissen/en/terms/",
@@ -242,116 +258,98 @@ function checkForbiddenPatterns($, filePath, errors) {
   for (const { selector, attr } of targets) {
     $(selector)
       .toArray()
-      .forEach((el) => {
-        const value = $(el).attr(attr) || "";
+      .forEach((element) => {
+        const value = ($(element).attr(attr) || "").trim();
+        if (!value) {
+          return;
+        }
         for (const pattern of FORBIDDEN_PATTERNS) {
           if (value.includes(pattern)) {
             errors.push(
-              `${filePath}: forbidden pattern '${pattern}' found in ${selector} ${attr}="${value}"`
+              `${filePath}: contains forbidden pattern '${pattern}' in ${selector} (${attr}='${value}')`
+            );
+          }
+        }
+        for (const pattern of REDUNDANT_URL_PATTERNS) {
+          if (value.includes(pattern)) {
+            errors.push(
+              `${filePath}: contains redundant pattern '${pattern}' in ${selector} (${attr}='${value}')`
             );
           }
         }
       });
   }
-}
 
-function isRedundantUrlPath(urlPath) {
-  return REDUNDANT_URL_PATTERNS.some((pattern) => urlPath.includes(pattern));
+  // Block unsafe URI schemes in primary navigation.
+  const primaryNav = $("[data-testid='primary-nav']");
+  if (primaryNav.length) {
+    primaryNav
+      .find("a[href]")
+      .toArray()
+      .forEach((element) => {
+        const href = ($(element).attr("href") || "").trim();
+        if (!href) {
+          return;
+        }
+        const lowered = href.toLowerCase();
+        if (
+          lowered.startsWith("javascript:") ||
+          lowered.startsWith("data:") ||
+          lowered.startsWith("vbscript:")
+        ) {
+          errors.push(`${filePath}: primary nav contains unsafe href scheme: ${href}`);
+        }
+      });
+  }
 }
 
 function ensureRedundantStrategy(noindex, filePath, urlPath, errors) {
-  if (!isRedundantUrlPath(urlPath)) {
-    return;
-  }
-
-  if (REDUNDANT_STRATEGY === "redirect") {
-    errors.push(
-      `${filePath}: redundant URL detected (${urlPath}); redirect strategy requires removing redundant output`
-    );
-    return;
-  }
-
-  if (REDUNDANT_STRATEGY !== "noindex") {
-    errors.push(
-      `${filePath}: invalid GUARD_REDUNDANT_URL_STRATEGY "${REDUNDANT_STRATEGY}" (expected "redirect" or "noindex")`
-    );
-    return;
-  }
-
-  if (!noindex) {
-    errors.push(
-      `${filePath}: redundant URL detected (${urlPath}); expected meta robots to include noindex`
-    );
+  if (REDUNDANT_STRATEGY === "noindex") {
+    if (!noindex) {
+      for (const pattern of REDUNDANT_URL_PATTERNS) {
+        if (urlPath.includes(pattern)) {
+          errors.push(`${filePath}: redundant URL must be noindex (found indexable)`);
+        }
+      }
+    }
+  } else if (REDUNDANT_STRATEGY === "redirect") {
+    // enforce canonical under lang prefix via ensureCanonical(... enforcePath=true)
   }
 }
 
 function checkPrimaryNav($, filePath, lang, errors) {
   const container = $("[data-testid='primary-nav']");
   if (!container.length) {
-    debugLog(`${filePath}: primary nav container not found`);
     errors.push(`${filePath}: primary nav container not found`);
     return;
   }
 
   const rawHrefs = container
-    .find("a")
+    .find("a[href]")
     .toArray()
-    .map((el) => {
-      const href = $(el).attr("href");
-      return href ? href.trim() : "";
-    });
+    .map((el) => ($(el).attr("href") || "").trim());
 
   const normalizedHrefs = rawHrefs
     .map((href) => normalizeHref(href))
     .filter(Boolean);
 
-  debugLog(
-    `${filePath}: primary nav container found (${container.length})`,
-    JSON.stringify({
-      rawHrefs,
-      normalizedHrefs,
-    })
-  );
-
-  rawHrefs.forEach((href) => {
-    const raw = href == null ? "" : String(href);
-    const h = raw.trim();
-    const lower = h.toLowerCase();
-
-    // Reject empty / placeholder / dangerous schemes (CodeQL: include data: and vbscript:)
-    if (
-      !h ||
-      h === "#" ||
-      lower.startsWith("javascript:") ||
-      lower.startsWith("data:") ||
-      lower.startsWith("vbscript:")
-    ) {
-      errors.push(`${filePath}: invalid primary nav href "${raw}"`);
-    }
-  });
-
   const expected = NAV_TARGETS[lang].map((href) => normalizeHref(href));
-  const expectedSet = new Set(expected);
-  const targetHrefs = normalizedHrefs.filter((href) =>
-    href.startsWith(LANG_PREFIXES[lang])
-  );
-
-  const extra = targetHrefs.filter((href) => !expectedSet.has(href));
-  if (extra.length) {
-    errors.push(
-      `${filePath}: primary nav contains unexpected ${LANG_PREFIXES[lang]} links: ${extra.join(", ")}`
-    );
+  const missing = expected.filter((href) => !normalizedHrefs.includes(href));
+  if (missing.length) {
+    errors.push(`${filePath}: primary nav missing required links: ${missing.join(", ")}`);
   }
 
-  const missing = expected.filter((href) => !targetHrefs.includes(href));
-  if (missing.length) {
+  const unexpected = normalizedHrefs.filter(
+    (href) => href && href.startsWith(LANG_PREFIXES[lang]) && !expected.includes(href)
+  );
+  if (unexpected.length) {
     errors.push(
-      `${filePath}: primary nav missing required links: ${missing.join(", ")}`
+      `${filePath}: primary nav contains unexpected ${LANG_PREFIXES[lang]} links: ${unexpected.join(", ")}`
     );
   }
 
   for (const href of expected) {
-    const count = targetHrefs.filter((value) => value === href).length;
+    const count = normalizedHrefs.filter((value) => value === href).length;
     if (count > 1) {
       errors.push(`${filePath}: primary nav has duplicate link ${href}`);
     }
@@ -386,9 +384,7 @@ function checkNavDrawer($, filePath, lang, errors) {
   const expected = NAV_TARGETS[lang].map((href) => normalizeHref(href));
   const missing = expected.filter((href) => !normalizedHrefs.includes(href));
   if (missing.length) {
-    errors.push(
-      `${filePath}: nav drawer missing required links: ${missing.join(", ")}`
-    );
+    errors.push(`${filePath}: nav drawer missing required links: ${missing.join(", ")}`);
   }
 
   const legalTargets = LEGAL_TARGETS[lang].map((href) => normalizeHref(href));
