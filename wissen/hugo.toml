@@ -15,6 +15,11 @@ ignoreFiles = [".*faq/restaurierung/index\\.md$"]
 [outputs]
 home = ["HTML"]
 
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]

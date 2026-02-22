@@ -1,0 +1,80 @@
+{{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<article class="page">
+  <header class="page-hero">
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}
+      <p class="page-hero__lead">{{ . }}</p>
+    {{ end }}
+
+    <p>
+      {{ with .Date }}<span>{{ .Format "2006-01-02" }}</span>{{ end }}
+      {{ with .Params.reading_time }} · <span>{{ . }} min</span>{{ end }}
+      {{ with .Params.tags }} ·
+        {{ range $i, $tag := . }}{{ if $i }}, {{ end }}{{ $tag }}{{ end }}
+      {{ end }}
+    </p>
+  </header>
+
+  {{- $toc := trim .TableOfContents " \n\r\t" -}}
+  {{- if ne $toc "" -}}
+    <aside class="prose">
+      <h2>{{ if eq .Lang "de" }}Inhalt{{ else }}Contents{{ end }}</h2>
+      {{ .TableOfContents }}
+    </aside>
+  {{- end -}}
+
+  <div class="prose">{{ .Content }}</div>
+
+  {{- $relatedProducts := .Params.related_products -}}
+  {{- $relatedCategories := .Params.related_categories -}}
+
+  {{ if $relatedProducts }}
+    <section>
+      <h2 class="section-title">{{ if eq .Lang "de" }}Passende Produkte{{ else }}Related products{{ end }}</h2>
+      <ul>
+        {{ range $relatedProducts }}
+          <li>
+            {{ if hasPrefix . "/" }}<a href="{{ . }}">{{ . }}</a>{{ else }}{{ . }}{{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
+
+  {{ if $relatedCategories }}
+    <section>
+      <h2 class="section-title">{{ if eq .Lang "de" }}Passende Kategorien{{ else }}Related categories{{ end }}</h2>
+      <ul>
+        {{ range $relatedCategories }}
+          <li>
+            {{ if hasPrefix . "/" }}<a href="{{ . }}">{{ . }}</a>{{ else }}{{ . }}{{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
+
+  {{- $siblings := where site.RegularPages "Section" "faq" -}}
+  {{- $siblings = where $siblings "RelPermalink" "ne" .RelPermalink -}}
+  {{- $sameCats := where $siblings "Params.categories" "intersect" .Params.categories -}}
+  {{- $sameTags := where $siblings "Params.tags" "intersect" .Params.tags -}}
+  {{- $more := first 6 ((union $sameCats $sameTags).ByLastmod.Reverse) -}}
+
+  {{ if gt (len $more) 0 }}
+    <section>
+      <h2 class="section-title">{{ if eq .Lang "de" }}Weiterlesen{{ else }}Continue reading{{ end }}</h2>
+      <div class="card-grid">
+        {{ range $more }}
+          <article class="card">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
+            <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "read_more_label" }}</a>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+</article>
+{{ end }}
