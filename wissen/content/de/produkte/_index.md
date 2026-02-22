@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 08:56 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 08:56 UTC
+lastmod: 2026-02-22 08:56 UTC
 lang: de
 translationKey: products-root
 title: Produkte
@@ -38,6 +38,7 @@ menu:
 ---
 Wähle eine Kategorie, um Unterkategorien und Produkte zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Wofür ist diese Kategorie gedacht?
@@ -71,3 +72,4 @@ Ja, Grundlagen finden Sie unter /de/beratung/katalog-und-download und /de/beratu
 ### Wie wird die Qualität in der Umsetzung gesichert?
 
 Durch Aufmaßkontrolle, Freigabe von Details vor Montage und dokumentierte Abnahme der Anschlüsse.
+<!-- FAQ_SYNC:END -->

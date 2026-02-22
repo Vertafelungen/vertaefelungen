@@ -1,8 +1,8 @@
 ---
-version: 2026-02-14 22:20 UTC
+version: 2026-02-22 08:56 UTC
 managed_by: categories.csv
-last_synced: 2026-02-14 22:20 UTC
-lastmod: 2026-02-14 22:20 UTC
+last_synced: 2026-02-22 08:56 UTC
+lastmod: 2026-02-22 08:56 UTC
 lang: de
 translationKey: mouldings-root
 title: Leisten
@@ -33,6 +33,7 @@ cascade:
 ---
 Leisten sind das "Vokabular" historischer Innenausbauten: Sie fassen Öffnungen, gliedern Wandflächen und definieren Übergänge.\n\n## Unterkategorien\n- **Wandleisten** - Profile zur Gliederung von Wandflächen, Feldern und Gesimsen.\n- **Türrahmen / Türbekleidungen** - Profile zur Fassung von Türen und Durchgängen.\n- **Sockelleisten** - Abschluss am Boden, Schutz- und Proportionsleiste.\n\nWähle eine Unterkategorie, um passende Profile, Maße, Varianten und Bilder zu sehen.
 
+<!-- FAQ_SYNC:BEGIN -->
 ## FAQ
 
 ### Wofür ist diese Kategorie gedacht?
@@ -66,3 +67,4 @@ Ja, Grundlagen finden Sie unter /de/beratung/katalog-und-download und /de/beratu
 ### Wie wird die Qualität in der Umsetzung gesichert?
 
 Durch Aufmaßkontrolle, Freigabe von Details vor Montage und dokumentierte Abnahme der Anschlüsse.
+<!-- FAQ_SYNC:END -->
