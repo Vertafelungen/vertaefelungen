@@ -34,7 +34,7 @@ cascade:
 Diese Kategorie bündelt die Standöl-Systeme von BEECK für Innenräume. Standölfarben sind für langlebige, reparaturfreundliche Oberflächen konzipiert und passen gut in historisch geprägte Innenausbauten.\n\n## Unterkategorien\n- **Standölinnenfarbe Pro Volltonfarbe** - fertig abgetönte Volltöne.\n- **Standölinnenfarbe Pro Mischtöne** - Mischtöne und Nuancierungen.\n- **Vorstreichfarbe Pro** - Grund- bzw. Voranstrich als Systemkomponente.\n\nWähle eine Unterkategorie, um Farbtöne, Gebinde und Varianten zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Für welche Untergründe ist diese Kategorie typischerweise gedacht?
 

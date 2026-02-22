@@ -34,7 +34,7 @@ cascade:
 In dieser Unterkategorie sind traditionelle Öle und Harze gebündelt, die je nach Rezeptur als Grundierung, Schutz- oder Pflegesystem eingesetzt werden.\n\n**Typische Themen:**\n- Penetration und Trocknung (oxidativ / polymerisierend)\n- Schichtaufbau (dünn, wiederholbar, reparierfähig)\n- Kompatibilität mit Altanstrichen und Holzarten\n\nWähle ein Produkt, um Eigenschaften, Varianten und Anwendungshinweise zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Worin unterscheiden sich Leinöl und Tungöl im Einsatz?
 

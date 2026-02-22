@@ -34,7 +34,7 @@ cascade:
 Wandleisten gliedern Wandflächen und setzen Proportionen: als Rahmung von Feldern, als horizontale Teilung (z. B. Gurt-/Handlauf) oder als Abschlussprofil.\n\n**Typische Einsatzbereiche:** Felder-/Rahmungen, Wandteilungen, Übergänge zu Decke oder Vertäfelung.\n\nWähle ein Profil, um Details, Maße, Varianten und Bilder zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Wofür ist diese Kategorie gedacht?
 

@@ -58,7 +58,7 @@ Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetai
 - Passende Produktübersicht: /produkte/hohe-vertaefelungen
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Wofür eignet sich dieses Produkt am besten?
 

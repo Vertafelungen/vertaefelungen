@@ -261,7 +261,7 @@ def load_faq_csv(csv_path: Path) -> List[FaqItem]:
 FM_RE = re.compile(r"\A(?:\ufeff)?---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 FAQ_MARKER_RE = re.compile(r"(?s)<!--\s*FAQ_SYNC:BEGIN\s*-->.*?<!--\s*FAQ_SYNC:END\s*-->")
 FAQ_LEGACY_SECTION_RE = re.compile(
-    r"(?ims)^##\s*(FAQ|Häufige\s+Fragen|Frequently\s+asked\s+questions)\s*\n.*?(?=^##\s+|\Z)"
+    r"(?ims)^##\s*(FAQ|Häufige\s+Fragen|Frequently\s+asked\s+questions|Info)\s*\n.*?(?=^##\s+|\Z)"
 )
 
 
@@ -350,7 +350,7 @@ def render_qa_markdown(items: List[FaqItem]) -> str:
     if not deduped:
         return ""
 
-    out: List[str] = ["## FAQ", ""]
+    out: List[str] = ["## Info", ""]
     for it in deduped:
         out.extend([f"### {it.question}", "", it.answer.strip(), ""])
     return "\n".join(out).rstrip() + "\n"
@@ -633,7 +633,7 @@ def main() -> int:
                     "managed_by": "faq.csv",
                     "lang": lang,
                     "translationKey": stable_translation_key_from_target(target_repo),
-                    "title": "FAQ",
+                    "title": "Info",
                     "last_synced": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 },
             )

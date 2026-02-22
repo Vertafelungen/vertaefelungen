@@ -34,7 +34,7 @@ cascade:
 Sockelleisten bilden den sauberen Abschluss zwischen Boden und Wand. In historischen Innenräumen sind sie mehr als Schutzleisten: Höhe, Profilierung und Übergänge bestimmen die Raumproportion.\n\n**Typische Themen:**\n- passende Höhe zur Raumhöhe und zur Vertäfelung\n- Profilformen (Rundstab, Kehle, Hohlkehle, Wulst)\n- Anschluss an Türbekleidungen und Wandfelder\n\nWähle eine Sockelleiste, um Maße, Profilform, Varianten und Bilder zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Welche Sockelhöhe ist sinnvoll?
 

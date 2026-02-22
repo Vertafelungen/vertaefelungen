@@ -90,7 +90,7 @@ Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetai
 - Passende Produktübersicht: /produkte/oele-farben/beeck/standoel/sip-m
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Wofür eignet sich dieses Produkt am besten?
 

@@ -1,5 +1,5 @@
 ---
-title: "FAQ"
+title: "Info"
 slug: faq
 type: faq
 managed_by: "faq.csv"
@@ -14,9 +14,9 @@ menu:
   main:
     identifier: menu_faq
     weight: 20
-last_synced: "2026-02-22T12:44:20Z"
+last_synced: "2026-02-22T13:12:14Z"
 ---
-# FAQ
+# Info
 
 ## TL;DR
 - Knowledge base on historical wood panelling, wainscoting, mouldings and restoration.

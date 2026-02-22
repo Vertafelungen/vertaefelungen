@@ -1,5 +1,5 @@
 ---
-title: "FAQ"
+title: "Info"
 description: Antworten auf die wichtigsten Fragen zu Planung, Bestellung, Montage, Materialien und Stil – als Einstieg in Produkte, Lookbook und Beratung.
 lastmod: '2026-01-28T08:30:00+01:00'
 version: '2026-01-28T08:30:00+01:00'
@@ -10,9 +10,9 @@ menu:
 managed_by: "faq.csv"
 lang: "de"
 translationKey: "faq:de/faq"
-last_synced: "2026-02-22T12:44:20Z"
+last_synced: "2026-02-22T13:12:14Z"
 ---
-## FAQ
+## Info
 
 ### Brauche ich zwingend exakte Maße?
 
