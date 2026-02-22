@@ -34,7 +34,7 @@ cascade:
 Lüftungsrosetten verbinden Funktion und Gestaltung: Sie decken Lüftungsöffnungen sauber ab und integrieren sich optisch in historische Innenausbauten.\n\n**Typische Anwendungen:**\n- Wand- und Türlüftungen\n- Nebenräume, Flure, Sanitär- und Küchenbereiche (je nach Konzept)\n- Ergänzung zu Vertäfelungen, Leisten und Türbekleidungen\n\nWähle eine Rosette, um Maße, Varianten und Bilder zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Wo werden Lüftungsrosetten typischerweise platziert?
 

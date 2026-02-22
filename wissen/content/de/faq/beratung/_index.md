@@ -1,14 +1,14 @@
 ---
-title: "FAQ"
+title: "Info"
 description: 'So kommst du ohne Umwege zu einem belastbaren Angebot: Welche Infos wir brauchen, wie Planung/Visualisierung abläuft, welche Kostenfaktoren zählen und wie Fertigung/Montage organisiert sind.'
 lastmod: 2026-02-12T16:45:00+01:00
 version: '2026-02-12T16:45:00+01:00'
 managed_by: "faq.csv"
 lang: "de"
 translationKey: "faq:de/faq/beratung"
-last_synced: "2026-02-22T12:44:20Z"
+last_synced: "2026-02-22T13:12:14Z"
 ---
-## FAQ
+## Info
 
 ### Welche Mindestinfos braucht ihr für eine erste Einschätzung?
 

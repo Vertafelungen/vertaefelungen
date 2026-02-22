@@ -34,7 +34,7 @@ cascade:
 Hier sind die **Misch- und Nuanciertöne** der BEECK Standölinnenfarbe Pro gebündelt. Mischtöne eignen sich für fein abgestimmte Farbkonzepte und historische Farbwirkungen.\n\nWähle einen Mischtön, um Produktdaten, Gebindegrößen, Varianten und Bilder zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Für welche Untergründe ist diese Kategorie typischerweise gedacht?
 

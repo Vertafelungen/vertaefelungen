@@ -1,7 +1,7 @@
 menu_shop:
   other: "Shop"
 menu_faq:
-  other: "FAQ"
+  other: "Info"
 menu_products:
   other: "Produkte"
 menu_lookbook:
@@ -39,7 +39,7 @@ legal_contact:
 footer_explore_title:
   other: "Mehr entdecken"
 footer_help_text:
-  other: "Fragen? Schau in die FAQ oder sprich mit uns."
+  other: "Fragen? Schau in die Info oder sprich mit uns."
 placeholder_title:
   other: "Diese Seite ist im Aufbau"
 placeholder_text:
@@ -65,11 +65,11 @@ home_tile_shop_text:
 home_tile_shop_cta:
   other: "Shop öffnen"
 home_tile_faq_title:
-  other: "FAQ"
+  other: "Info"
 home_tile_faq_text:
   other: "Antworten zu Planung, Restaurierung und Verarbeitung."
 home_tile_faq_cta:
-  other: "FAQ ansehen"
+  other: "Info ansehen"
 home_tile_products_title:
   other: "Produkte"
 home_tile_products_text:

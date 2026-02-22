@@ -34,7 +34,7 @@ cascade:
 Hohe Vertäfelungen prägen den Raum deutlich stärker als halbhohe Lambris: Sie strukturieren Wandflächen, fassen Türen und Öffnungen ein und schaffen eine historische Anmutung im Altbau.\n\n**Typische Anwendungen:** Flure, Salons, Esszimmer, Treppenhäuser.\n\n**Projektablauf:** Bestand/Referenz auswählen → Maßaufnahme/Grundriss → 3D-Visualisierung → Fertigung & Montage durch Partnertischlerei.\n\nWenn du Maße, Raumhöhe und gewünschte Stilrichtung nennst, kann die Auswahl der passenden Profile und Felder gezielt eingegrenzt werden.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Wofür ist diese Kategorie gedacht?
 

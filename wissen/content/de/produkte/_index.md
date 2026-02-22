@@ -39,7 +39,7 @@ menu:
 Wähle eine Kategorie, um Unterkategorien und Produkte zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Wofür ist diese Kategorie gedacht?
 

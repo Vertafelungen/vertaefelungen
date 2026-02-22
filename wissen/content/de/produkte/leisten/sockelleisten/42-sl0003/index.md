@@ -54,7 +54,7 @@ Häufige Fehler sind fehlende Bezugshöhen, zu späte Klärung der Anschlussdeta
 - Material- und Oberflächenwissen: /de/produkte/oele-farben/
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Ist dieses Produkt eher für Sanierung oder auch für Neubau geeignet?
 

@@ -34,7 +34,7 @@ cascade:
 Die **Vorstreichfarbe Pro** dient als systemkonformer Grund-/Vorstreich für Standöl-Anstriche. Sie unterstützt einen gleichmäßigen Untergrund und verbessert die Haftung des nachfolgenden Anstrichs.\n\nWähle ein Produkt bzw. eine Variante, um Details, Gebinde und Systemhinweise zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Für welche Untergründe ist diese Kategorie typischerweise gedacht?
 

@@ -1,5 +1,5 @@
 ---
-title: "FAQ"
+title: "Info"
 slug: restaurierung-reproduktion-vertaefelungen-holzleisten
 type: faq
 managed_by: "faq.csv"
@@ -10,7 +10,7 @@ description: Fragen und Antworten zu Restaurierung und Reproduktion historischer
 content_type: faq
 content_id: faq-restaurierung-reproduktion
 topic: Restaurierung
-last_synced: "2026-02-22T12:44:20Z"
+last_synced: "2026-02-22T13:12:14Z"
 ---
 # restaurierung reproduktion vertaefelungen holzleisten
 

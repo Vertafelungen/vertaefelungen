@@ -34,7 +34,7 @@ cascade:
 Türbekleidungen fassen Türöffnungen und Durchgänge ein und bestimmen die Proportion von Türen im Raum. Je nach Stil können sie schlicht, profilbetont oder mit stärkerer Plastizität ausgeführt werden.\n\n**Typische Einsatzbereiche:** Wohnungstüren, Zimmertüren, Durchgänge, Portalrahmungen.\n\nWähle ein Profil, um Details, Maße, Varianten und Bilder zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Warum sind Türbekleidungen gestalterisch so wichtig?
 

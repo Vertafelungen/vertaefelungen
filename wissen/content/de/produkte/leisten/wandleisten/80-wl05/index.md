@@ -59,7 +59,7 @@ Häufige Fehler sind uneinheitliche Felder, nicht abgestimmte Profilhöhen und z
 - /de/faq/beratung/
 
 <!-- FAQ_SYNC:BEGIN -->
-## FAQ
+## Info
 
 ### Wofür eignet sich dieses Wandleisten-Profil?
 
