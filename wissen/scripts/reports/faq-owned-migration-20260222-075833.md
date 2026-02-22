@@ -1,0 +1,170 @@
+# FAQ Ownership Migration Report
+
+- Timestamp: 2026-02-22T07:58:33
+- Files scanned: 48
+- Migrated FAQ markdown files: 48
+
+## Files with managed_by set/changed
+- `content/de/faq/_index.md`
+- `content/de/faq/beratung/_index.md`
+- `content/de/faq/beratung/beauftragung.md`
+- `content/de/faq/beratung/glossar/glossar.md`
+- `content/de/faq/beratung/herstellung.md`
+- `content/de/faq/beratung/katalog-und-download/_index.md`
+- `content/de/faq/beratung/katalog-und-download/katalog.md`
+- `content/de/faq/beratung/lieferung.md`
+- `content/de/faq/beratung/montage.md`
+- `content/de/faq/beratung/planung.md`
+- `content/de/faq/restaurierung/_index.md`
+- `content/de/faq/style-guide/_index.md`
+- `content/de/faq/style-guide/historisch/index.md`
+- `content/de/faq/style-guide/technik/index.md`
+- `content/de/faq/style-guide/vertaefelungsarten/_index.md`
+- `content/de/faq/style-guide/vertaefelungsarten/balustraden/index.md`
+- `content/de/faq/style-guide/vertaefelungsarten/fassade/index.md`
+- `content/de/faq/style-guide/vertaefelungsarten/kassetten/index.md`
+- `content/de/faq/style-guide/vertaefelungsarten/maßwerk/index.md`
+- `content/de/faq/style-guide/vertaefelungsarten/nadelstreif/index.md`
+- `content/de/faq/ueber-uns/_index.md`
+- `content/de/faq/ueber-uns/partner/index.md`
+- `content/de/faq/ueber-uns/team/index.md`
+- `content/de/faq/ueber-uns/unsere-idee/index.md`
+- `content/en/faq/_index.md`
+- `content/en/faq/about-us/_index.md`
+- `content/en/faq/about-us/partner/index.md`
+- `content/en/faq/about-us/team/index.md`
+- `content/en/faq/about-us/the-idea/index.md`
+- `content/en/faq/consulting/_index.md`
+- `content/en/faq/consulting/catalogue-and-download/_index.md`
+- `content/en/faq/consulting/catalogue-and-download/catalogue.md`
+- `content/en/faq/consulting/delivery.md`
+- `content/en/faq/consulting/glossary/glossary.md`
+- `content/en/faq/consulting/installation.md`
+- `content/en/faq/consulting/ordering.md`
+- `content/en/faq/consulting/planning.md`
+- `content/en/faq/consulting/production.md`
+- `content/en/faq/restoring/_index.md`
+- `content/en/faq/style-guide/_index.md`
+- `content/en/faq/style-guide/history/index.md`
+- `content/en/faq/style-guide/styles/_index.md`
+- `content/en/faq/style-guide/styles/balustrades/index.md`
+- `content/en/faq/style-guide/styles/board-and-batten/index.md`
+- `content/en/faq/style-guide/styles/fassades/index.md`
+- `content/en/faq/style-guide/styles/raised-panels/index.md`
+- `content/en/faq/style-guide/styles/tracery/index.md`
+- `content/en/faq/style-guide/technique/index.md`
+
+## Files with translationKey newly set
+- `content/de/faq/_index.md -> faq:root`
+- `content/de/faq/beratung/_index.md -> faq:beratung/_index`
+- `content/de/faq/beratung/beauftragung.md -> faq:beratung/beauftragung`
+- `content/de/faq/beratung/glossar/glossar.md -> faq:beratung/glossar/glossar`
+- `content/de/faq/beratung/herstellung.md -> faq:beratung/herstellung`
+- `content/de/faq/beratung/katalog-und-download/_index.md -> faq:beratung/katalog-und-download/_index`
+- `content/de/faq/beratung/katalog-und-download/katalog.md -> faq:beratung/katalog-und-download/katalog`
+- `content/de/faq/beratung/lieferung.md -> faq:beratung/lieferung`
+- `content/de/faq/beratung/montage.md -> faq:beratung/montage`
+- `content/de/faq/beratung/planung.md -> faq:beratung/planung`
+- `content/de/faq/restaurierung/_index.md -> faq:restaurierung/_index`
+- `content/de/faq/style-guide/_index.md -> faq:style-guide/_index`
+- `content/de/faq/style-guide/historisch/index.md -> faq:style-guide/historisch/index`
+- `content/de/faq/style-guide/technik/index.md -> faq:style-guide/technik/index`
+- `content/de/faq/style-guide/vertaefelungsarten/_index.md -> faq:style-guide/vertaefelungsarten/_index`
+- `content/de/faq/style-guide/vertaefelungsarten/balustraden/index.md -> faq:style-guide/vertaefelungsarten/balustraden/index`
+- `content/de/faq/style-guide/vertaefelungsarten/fassade/index.md -> faq:style-guide/vertaefelungsarten/fassade/index`
+- `content/de/faq/style-guide/vertaefelungsarten/kassetten/index.md -> faq:style-guide/vertaefelungsarten/kassetten/index`
+- `content/de/faq/style-guide/vertaefelungsarten/maßwerk/index.md -> faq:style-guide/vertaefelungsarten/maßwerk/index`
+- `content/de/faq/style-guide/vertaefelungsarten/nadelstreif/index.md -> faq:style-guide/vertaefelungsarten/nadelstreif/index`
+- `content/de/faq/ueber-uns/_index.md -> faq:ueber-uns/_index`
+- `content/de/faq/ueber-uns/partner/index.md -> faq:ueber-uns/partner/index`
+- `content/de/faq/ueber-uns/team/index.md -> faq:ueber-uns/team/index`
+- `content/de/faq/ueber-uns/unsere-idee/index.md -> faq:ueber-uns/unsere-idee/index`
+- `content/en/faq/_index.md -> faq:root`
+- `content/en/faq/about-us/_index.md -> faq:about-us/_index`
+- `content/en/faq/about-us/partner/index.md -> faq:about-us/partner/index`
+- `content/en/faq/about-us/team/index.md -> faq:about-us/team/index`
+- `content/en/faq/about-us/the-idea/index.md -> faq:about-us/the-idea/index`
+- `content/en/faq/consulting/_index.md -> faq:consulting/_index`
+- `content/en/faq/consulting/catalogue-and-download/_index.md -> faq:consulting/catalogue-and-download/_index`
+- `content/en/faq/consulting/catalogue-and-download/catalogue.md -> faq:consulting/catalogue-and-download/catalogue`
+- `content/en/faq/consulting/delivery.md -> faq:consulting/delivery`
+- `content/en/faq/consulting/glossary/glossary.md -> faq:consulting/glossary/glossary`
+- `content/en/faq/consulting/installation.md -> faq:consulting/installation`
+- `content/en/faq/consulting/ordering.md -> faq:consulting/ordering`
+- `content/en/faq/consulting/planning.md -> faq:consulting/planning`
+- `content/en/faq/consulting/production.md -> faq:consulting/production`
+- `content/en/faq/restoring/_index.md -> faq:restoring/_index`
+- `content/en/faq/style-guide/_index.md -> faq:style-guide/_index`
+- `content/en/faq/style-guide/history/index.md -> faq:style-guide/history/index`
+- `content/en/faq/style-guide/styles/_index.md -> faq:style-guide/styles/_index`
+- `content/en/faq/style-guide/styles/balustrades/index.md -> faq:style-guide/styles/balustrades/index`
+- `content/en/faq/style-guide/styles/board-and-batten/index.md -> faq:style-guide/styles/board-and-batten/index`
+- `content/en/faq/style-guide/styles/fassades/index.md -> faq:style-guide/styles/fassades/index`
+- `content/en/faq/style-guide/styles/raised-panels/index.md -> faq:style-guide/styles/raised-panels/index`
+- `content/en/faq/style-guide/styles/tracery/index.md -> faq:style-guide/styles/tracery/index`
+- `content/en/faq/style-guide/technique/index.md -> faq:style-guide/technique/index`
+
+## faq.csv global rows with source normalized/set
+- line 2 g-faq-de-001: wissen/content/de/faq/_index.md -> content/de/faq/_index.md
+- line 3 g-faq-de-002: wissen/content/de/faq/_index.md -> content/de/faq/_index.md
+- line 4 g-faq-de-003: wissen/content/de/faq/_index.md -> content/de/faq/_index.md
+- line 5 g-faq-de-004: wissen/content/de/faq/_index.md -> content/de/faq/_index.md
+- line 6 g-faq-en-001: wissen/content/en/faq/_index.md -> content/en/faq/_index.md
+- line 7 g-faq-about-us-en-001: wissen/content/en/faq/about-us/_index.md -> content/en/faq/about-us/_index.md
+- line 8 g-faq-about-us-partner-en-001: wissen/content/en/faq/about-us/partner/index.md -> content/en/faq/about-us/partner/index.md
+- line 9 g-faq-about-us-team-en-001: wissen/content/en/faq/about-us/team/index.md -> content/en/faq/about-us/team/index.md
+- line 10 g-faq-about-us-the-idea-en-001: wissen/content/en/faq/about-us/the-idea/index.md -> content/en/faq/about-us/the-idea/index.md
+- line 11 g-faq-beratung-de-001: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 12 g-faq-beratung-de-002: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 13 g-faq-beratung-de-003: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 14 g-faq-beratung-de-004: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 15 g-faq-beratung-de-005: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 16 g-faq-beratung-de-006: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 17 g-faq-beratung-de-007: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 18 g-faq-beratung-de-008: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 19 g-faq-beratung-de-009: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 20 g-faq-beratung-de-010: wissen/content/de/faq/beratung/_index.md -> content/de/faq/beratung/_index.md
+- line 21 g-faq-beratung-beauftragung-de-001: wissen/content/de/faq/beratung/beauftragung.md -> content/de/faq/beratung/beauftragung.md
+- line 22 g-faq-beratung-glossar-glossar-de-001: wissen/content/de/faq/beratung/glossar/glossar.md -> content/de/faq/beratung/glossar/glossar.md
+- line 23 g-faq-beratung-herstellung-de-001: wissen/content/de/faq/beratung/herstellung.md -> content/de/faq/beratung/herstellung.md
+- line 24 g-faq-beratung-katalog-und-download-de-001: wissen/content/de/faq/beratung/katalog-und-download/_index.md -> content/de/faq/beratung/katalog-und-download/_index.md
+- line 25 g-faq-beratung-katalog-und-download-katalog-de-001: wissen/content/de/faq/beratung/katalog-und-download/katalog.md -> content/de/faq/beratung/katalog-und-download/katalog.md
+- line 26 g-faq-beratung-lieferung-de-001: wissen/content/de/faq/beratung/lieferung.md -> content/de/faq/beratung/lieferung.md
+- line 27 g-faq-beratung-montage-de-001: wissen/content/de/faq/beratung/montage.md -> content/de/faq/beratung/montage.md
+- line 28 g-faq-beratung-planung-de-001: wissen/content/de/faq/beratung/planung.md -> content/de/faq/beratung/planung.md
+- line 29 g-faq-consulting-en-001: wissen/content/en/faq/consulting/_index.md -> content/en/faq/consulting/_index.md
+- line 30 g-faq-consulting-catalogue-and-download-en-001: wissen/content/en/faq/consulting/catalogue-and-download/_index.md -> content/en/faq/consulting/catalogue-and-download/_index.md
+- line 31 g-faq-consulting-catalogue-and-download-catalogue-en-001: wissen/content/en/faq/consulting/catalogue-and-download/catalogue.md -> content/en/faq/consulting/catalogue-and-download/catalogue.md
+- line 32 g-faq-consulting-delivery-en-001: wissen/content/en/faq/consulting/delivery.md -> content/en/faq/consulting/delivery.md
+- line 33 g-faq-consulting-glossary-glossary-en-001: wissen/content/en/faq/consulting/glossary/glossary.md -> content/en/faq/consulting/glossary/glossary.md
+- line 34 g-faq-consulting-installation-en-001: wissen/content/en/faq/consulting/installation.md -> content/en/faq/consulting/installation.md
+- line 35 g-faq-consulting-ordering-en-001: wissen/content/en/faq/consulting/ordering.md -> content/en/faq/consulting/ordering.md
+- line 36 g-faq-consulting-planning-en-001: wissen/content/en/faq/consulting/planning.md -> content/en/faq/consulting/planning.md
+- line 37 g-faq-consulting-production-en-001: wissen/content/en/faq/consulting/production.md -> content/en/faq/consulting/production.md
+- line 38 g-faq-restaurierung-de-001: wissen/content/de/faq/restaurierung/_index.md -> content/de/faq/restaurierung/_index.md
+- line 39 g-faq-restoring-en-001: wissen/content/en/faq/restoring/_index.md -> content/en/faq/restoring/_index.md
+- line 40 g-faq-style-guide-de-001: wissen/content/de/faq/style-guide/_index.md -> content/de/faq/style-guide/_index.md
+- line 41 g-faq-style-guide-en-001: wissen/content/en/faq/style-guide/_index.md -> content/en/faq/style-guide/_index.md
+- line 42 g-faq-style-guide-historisch-de-001: wissen/content/de/faq/style-guide/historisch/index.md -> content/de/faq/style-guide/historisch/index.md
+- line 43 g-faq-style-guide-history-en-001: wissen/content/en/faq/style-guide/history/index.md -> content/en/faq/style-guide/history/index.md
+- line 44 g-faq-style-guide-styles-en-001: wissen/content/en/faq/style-guide/styles/_index.md -> content/en/faq/style-guide/styles/_index.md
+- line 45 g-faq-style-guide-styles-balustrades-en-001: wissen/content/en/faq/style-guide/styles/balustrades/index.md -> content/en/faq/style-guide/styles/balustrades/index.md
+- line 46 g-faq-style-guide-styles-board-and-batten-en-001: wissen/content/en/faq/style-guide/styles/board-and-batten/index.md -> content/en/faq/style-guide/styles/board-and-batten/index.md
+- line 47 g-faq-style-guide-styles-fassades-en-001: wissen/content/en/faq/style-guide/styles/fassades/index.md -> content/en/faq/style-guide/styles/fassades/index.md
+- line 48 g-faq-style-guide-styles-raised-panels-en-001: wissen/content/en/faq/style-guide/styles/raised-panels/index.md -> content/en/faq/style-guide/styles/raised-panels/index.md
+- line 49 g-faq-style-guide-styles-tracery-en-001: wissen/content/en/faq/style-guide/styles/tracery/index.md -> content/en/faq/style-guide/styles/tracery/index.md
+- line 50 g-faq-style-guide-technik-de-001: wissen/content/de/faq/style-guide/technik/index.md -> content/de/faq/style-guide/technik/index.md
+- line 51 g-faq-style-guide-technique-en-001: wissen/content/en/faq/style-guide/technique/index.md -> content/en/faq/style-guide/technique/index.md
+- line 52 g-faq-style-guide-vertaefelungsarten-de-001: wissen/content/de/faq/style-guide/vertaefelungsarten/_index.md -> content/de/faq/style-guide/vertaefelungsarten/_index.md
+- line 53 g-faq-style-guide-vertaefelungsarten-balustraden-de-001: wissen/content/de/faq/style-guide/vertaefelungsarten/balustraden/index.md -> content/de/faq/style-guide/vertaefelungsarten/balustraden/index.md
+- line 54 g-faq-style-guide-vertaefelungsarten-fassade-de-001: wissen/content/de/faq/style-guide/vertaefelungsarten/fassade/index.md -> content/de/faq/style-guide/vertaefelungsarten/fassade/index.md
+- line 55 g-faq-style-guide-vertaefelungsarten-kassetten-de-001: wissen/content/de/faq/style-guide/vertaefelungsarten/kassetten/index.md -> content/de/faq/style-guide/vertaefelungsarten/kassetten/index.md
+- line 56 g-faq-style-guide-vertaefelungsarten-mawerk-de-001: wissen/content/de/faq/style-guide/vertaefelungsarten/maßwerk/index.md -> content/de/faq/style-guide/vertaefelungsarten/maßwerk/index.md
+- line 57 g-faq-style-guide-vertaefelungsarten-nadelstreif-de-001: wissen/content/de/faq/style-guide/vertaefelungsarten/nadelstreif/index.md -> content/de/faq/style-guide/vertaefelungsarten/nadelstreif/index.md
+- line 58 g-faq-ueber-uns-de-001: wissen/content/de/faq/ueber-uns/_index.md -> content/de/faq/ueber-uns/_index.md
+- line 59 g-faq-ueber-uns-partner-de-001: wissen/content/de/faq/ueber-uns/partner/index.md -> content/de/faq/ueber-uns/partner/index.md
+- line 60 g-faq-ueber-uns-team-de-001: wissen/content/de/faq/ueber-uns/team/index.md -> content/de/faq/ueber-uns/team/index.md
+- line 61 g-faq-ueber-uns-unsere-idee-de-001: wissen/content/de/faq/ueber-uns/unsere-idee/index.md -> content/de/faq/ueber-uns/unsere-idee/index.md
+
+## faq.csv rows where source could not be safely derived/validated
+- None

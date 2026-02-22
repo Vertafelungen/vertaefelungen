@@ -1,9 +1,11 @@
 ---
 title: FAQ
-slug: 'faq'
+slug: faq
 type: faq
-managed_by: faq
-url: '/en/faq/'
+managed_by: faq.csv
+lang: en
+translationKey: faq:root
+url: /en/faq/
 description: Knowledge base on historical wood panelling, wainscoting, mouldings and restoration (EN).
 content_type: faq
 content_id: faq-index
@@ -13,6 +15,7 @@ menu:
     identifier: menu_faq
     weight: 20
 ---
+
 # FAQ
 
 ## TL;DR

@@ -1,14 +1,17 @@
 ---
 title: restaurierung reproduktion vertaefelungen holzleisten
-slug: 'restaurierung-reproduktion-vertaefelungen-holzleisten'
+slug: restaurierung-reproduktion-vertaefelungen-holzleisten
 type: faq
-managed_by: faq
-url: '/faq/themen/restaurierung-reproduktion-vertaefelungen-holzleisten/'
+managed_by: faq.csv
+lang: de
+translationKey: faq:restaurierung/_index
+url: /faq/themen/restaurierung-reproduktion-vertaefelungen-holzleisten/
 description: Fragen und Antworten zu Restaurierung und Reproduktion historischer Vertäfelungen und Holzleisten.
 content_type: faq
 content_id: faq-restaurierung-reproduktion
 topic: Restaurierung
 ---
+
 # restaurierung reproduktion vertaefelungen holzleisten
 
 ## Was bedeutet Restaurierung und Reproduktion im Kontext historischer Vertäfelungen und Leisten?
