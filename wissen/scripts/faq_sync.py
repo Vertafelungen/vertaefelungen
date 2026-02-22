@@ -62,8 +62,10 @@ def normalize_links(text: str) -> str:
     out = text
     out = re.sub(r"https://www\.vertaefelungen\.de/wissen/de/", "/wissen/de/", out, flags=re.IGNORECASE)
     out = re.sub(r"https://www\.vertaefelungen\.de/wissen/en/", "/wissen/en/", out, flags=re.IGNORECASE)
-    out = re.sub(r"(?<!/wissen)/de/faq/", "/wissen/de/faq/", out)
-    out = re.sub(r"(?<!/wissen)/en/faq/", "/wissen/en/faq/", out)
+    out = re.sub(r"/wissen/de/faq/", "/wissen/de/info/", out)
+    out = re.sub(r"/wissen/en/faq/", "/wissen/en/info/", out)
+    out = re.sub(r"(?<!/wissen)/de/faq/", "/wissen/de/info/", out)
+    out = re.sub(r"(?<!/wissen)/en/faq/", "/wissen/en/info/", out)
     return out
 
 

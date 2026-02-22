@@ -17,7 +17,7 @@
   {{- $lang := $page.Language.Lang -}}
 
   {{- $consultingSlug := cond (eq $lang "de") "beratung" "consulting" -}}
-  {{- $consultingLink := relURL (printf "/%s/faq/%s/" $lang $consultingSlug) -}}
+  {{- $consultingLink := cond (eq $lang "de") "/de/info/beratung/" "/en/info/consulting/" -}}
   {{- with site.GetPage (printf "/%s/faq/%s" $lang $consultingSlug) -}}
     {{- $consultingLink = .RelPermalink -}}
   {{- end -}}

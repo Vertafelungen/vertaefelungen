@@ -25,12 +25,12 @@ const REDUNDANT_STRATEGY = (process.env.GUARD_REDUNDANT_URL_STRATEGY || "redirec
 const NAV_GUARD_REL_PATHS = new Set([
   "de/index.html",
   "de/shop/index.html",
-  "de/faq/index.html",
+  "de/info/index.html",
   "de/produkte/index.html",
   "de/lookbook/index.html",
   "en/index.html",
   "en/shop/index.html",
-  "en/faq/index.html",
+  "en/info/index.html",
   "en/products/index.html",
   "en/lookbook/index.html",
 ]);
@@ -54,8 +54,8 @@ const REDUNDANT_URL_PATTERNS = [
 const LANGS = ["de", "en"];
 
 const NAV_TARGETS = {
-  de: ["/wissen/de/shop/", "/wissen/de/faq/", "/wissen/de/produkte/", "/wissen/de/lookbook/"],
-  en: ["/wissen/en/shop/", "/wissen/en/faq/", "/wissen/en/products/", "/wissen/en/lookbook/"],
+  de: ["/wissen/de/shop/", "/wissen/de/info/", "/wissen/de/produkte/", "/wissen/de/lookbook/"],
+  en: ["/wissen/en/shop/", "/wissen/en/info/", "/wissen/en/products/", "/wissen/en/lookbook/"],
 };
 
 const LEGAL_TARGETS = {

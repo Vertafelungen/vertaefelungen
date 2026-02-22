@@ -15,7 +15,7 @@ menu:
 
 Das Lookbook zeigt Beispiele und Referenzen, um Stil, Proportion und Systemlogik schneller einordnen zu können. Es ersetzt keine Planung – hilft aber, **die richtige Richtung** zu finden.
 
-Wenn du direkt in die Umsetzung willst: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
+Wenn du direkt in die Umsetzung willst: **[Planung & Bestellung](/wissen/de/info/beratung/)**.
 
 ## Wofür das Lookbook nützlich ist
 
@@ -45,4 +45,4 @@ Wenn du aus dem Lookbook eine Richtung ableiten willst, schicke:
 - Raumhöhe + 2–3 Fotos je Wand
 - Info: halbhoch/hoch/Leisten
 
-Dann lässt sich die Systemlogik zügig sauber aufsetzen: **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
+Dann lässt sich die Systemlogik zügig sauber aufsetzen: **[Planung & Bestellung](/wissen/de/info/beratung/)**.

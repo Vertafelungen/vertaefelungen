@@ -18,7 +18,7 @@ OUTPUT_DE_MD = REPO_ROOT / "wissen" / "scripts" / "reports" / "content_backlog.d
 OUTPUT_EN_MD = REPO_ROOT / "wissen" / "scripts" / "reports" / "content_backlog.en.md"
 OUTPUT_JSON = REPO_ROOT / "wissen" / "scripts" / "reports" / "content_backlog.json"
 
-STRATEGIC_AREAS = {"products", "faq"}
+STRATEGIC_AREAS = {"products", "info"}
 LEGAL_SEGMENTS_DE = {"impressum", "datenschutz", "agb", "widerruf", "kontakt"}
 LEGAL_SEGMENTS_EN = {"imprint", "privacy", "terms", "withdrawal", "contact"}
 
@@ -60,8 +60,8 @@ def ensure_list(value: Any) -> list[Any]:
 def derive_area(url: str) -> str:
     if "/wissen/de/produkte/" in url or "/wissen/en/products/" in url:
         return "products"
-    if "/wissen/de/faq/" in url or "/wissen/en/faq/" in url:
-        return "faq"
+    if any(p in url for p in ("/wissen/de/info/", "/wissen/en/info/", "/wissen/de/faq/", "/wissen/en/faq/")):
+        return "info"
     if "/wissen/de/lookbook/" in url or "/wissen/en/lookbook/" in url:
         return "lookbook"
     if "/wissen/de/shop/" in url or "/wissen/en/shop/" in url:

@@ -4,7 +4,7 @@
   {{/* Robust URL resolution with with/else (never treat pages as bool) */}}
   {{- $shopURL := cond (eq $lang "de") "https://www.vertaefelungen.de/de/" "https://www.vertaefelungen.de/en/" -}}
 
-  {{- $faqURL := cond (eq $lang "de") "/de/faq/" "/en/faq/" -}}
+  {{- $faqURL := cond (eq $lang "de") "/de/info/" "/en/info/" -}}
   {{- with site.GetPage (printf "/%s/faq" $lang) -}}
     {{- $faqURL = .RelPermalink -}}
   {{- end -}}

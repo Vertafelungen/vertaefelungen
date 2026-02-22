@@ -66,5 +66,5 @@ Durch klare Achsbezüge, wiederkehrende Höhenlinien und abgestimmte Formate.
 
 ### Welche Seite hilft bei der Erstberatung?
 
-Ein guter Einstieg ist /wissen/de/faq/beratung/ mit den grundlegenden Planungsfragen.
+Ein guter Einstieg ist /wissen/de/info/beratung/ mit den grundlegenden Planungsfragen.
 <!-- FAQ_SYNC:END -->

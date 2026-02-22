@@ -50,7 +50,7 @@ Häufige Fehler sind fehlende Bezugshöhen, zu späte Klärung der Anschlussdeta
 ## Verweise
 
 - Kategorieüberblick: /de/produkte/leisten/sockelleisten/
-- Planung und Beratung: /de/faq/beratung/
+- Planung und Beratung: /de/info/beratung/
 - Material- und Oberflächenwissen: /de/produkte/oele-farben/
 
 <!-- FAQ_SYNC:BEGIN -->
