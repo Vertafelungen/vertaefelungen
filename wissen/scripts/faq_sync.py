@@ -135,7 +135,7 @@ def load_faq_csv(csv_path: Path) -> List[FaqItem]:
 
 # ---------- Markdown parsing ----------
 
-FM_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
+FM_RE = re.compile(r"\A(?:\ufeff)?---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 FAQ_MARKER_RE = re.compile(r"(?s)<!--\s*FAQ_SYNC:BEGIN\s*-->.*?<!--\s*FAQ_SYNC:END\s*-->")
 FAQ_LEGACY_SECTION_RE = re.compile(
     r"(?ims)^##\s*(FAQ|Häufige\s+Fragen|Frequently\s+asked\s+questions)\s*\n.*?(?=^##\s+|\Z)"
@@ -149,6 +149,19 @@ def split_frontmatter(md: str) -> Tuple[str, str]:
     fm_block = m.group(0)
     body = (md or "")[len(fm_block):]
     return fm_block, body
+
+
+def has_duplicate_frontmatter_start(md: str, max_lines: int = 80) -> bool:
+    text = md or ""
+    if not (text.startswith("---\n") or text.startswith("\ufeff---\n")):
+        return False
+
+    fm_block, body = split_frontmatter(text)
+    if not fm_block:
+        return False
+
+    probe = "\n".join((body or "").splitlines()[:max_lines])
+    return re.search(r"(?m)^(?:\ufeff)?---\s*$", probe) is not None
 
 
 def parse_managed_by(frontmatter_block: str) -> str:
@@ -469,6 +482,8 @@ def main() -> int:
             managed_by_existing = ""
             if p.exists():
                 old_md = p.read_text(encoding="utf-8", errors="replace")
+                if has_duplicate_frontmatter_start(old_md):
+                    warnings.append(f"duplicate_frontmatter_suspected: {p.as_posix()}")
                 fm_existing, body_existing = split_frontmatter(old_md)
                 managed_by_existing = parse_managed_by(fm_existing)
                 if managed_by_existing != "faq.csv":
@@ -539,6 +554,8 @@ def main() -> int:
                 continue
 
             md = p.read_text(encoding="utf-8", errors="replace")
+            if has_duplicate_frontmatter_start(md):
+                warnings.append(f"duplicate_frontmatter_suspected: {p.as_posix()}")
             fm_block, body = split_frontmatter(md)
             managed_by = parse_managed_by(fm_block)
             if managed_by == "faq.csv":
