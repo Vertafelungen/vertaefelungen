@@ -1,10 +1,12 @@
 <!--
 File: wissen/layouts/partials/nav-drawer.html
-Version: 2026-02-14 19:18 Europe/Berlin
+Version: 2026-02-22 18:35 Europe/Berlin
 Change:
 - Robust label fallback: If menu item has Identifier but no i18n translation (or translation equals the key),
   fall back to .Name. Prevents empty labels ("dot" symptom) in drawer menus.
-- Keep href resolution logic unchanged.
+- Drawer footer links: For legal identifiers (imprint/terms/privacy/withdrawal), link directly to the canonical
+  Shop pages (PrestaShop content pages), consistent with the site footer.
+  This keeps a single authoritative source for legal texts.
 -->
 
 <div class="nav-drawer" id="nav-drawer" data-testid="nav-drawer" aria-hidden="true">
@@ -51,21 +53,53 @@ Change:
               {{- $label = $t -}}
             {{- end -}}
           {{- end -}}
+
+          {{- $id := .Identifier | default "" -}}
           {{- $href := "" -}}
-          {{- if .Page -}}
-            {{- $href = .Page.RelPermalink -}}
-          {{- else -}}
-            {{- $raw := .URL -}}
-            {{- if or (hasPrefix $raw "http://") (hasPrefix $raw "https://") -}}
-              {{- $href = $raw -}}
+          {{- $isExternal := false -}}
+
+          {{- if in (slice "legal_imprint" "legal_terms" "legal_privacy" "legal_withdrawal") $id -}}
+            {{- $isExternal = true -}}
+            {{- if eq $.Site.Language.Lang "de" -}}
+              {{- if eq $id "legal_imprint" -}}
+                {{- $href = "https://www.vertaefelungen.de/de/content/2-impressum" -}}
+              {{- else if eq $id "legal_terms" -}}
+                {{- $href = "https://www.vertaefelungen.de/de/content/3-allgemeine-geschaeftsbedingungen" -}}
+              {{- else if eq $id "legal_privacy" -}}
+                {{- $href = "https://www.vertaefelungen.de/de/content/7-datenschutzerklaerung" -}}
+              {{- else if eq $id "legal_withdrawal" -}}
+                {{- $href = "https://www.vertaefelungen.de/de/content/8-widerrufsbelehrung" -}}
+              {{- end -}}
             {{- else -}}
-              {{- $href = $raw | relLangURL -}}
-              {{- if and (not (hasSuffix $href "/")) (not (in $href "?")) (not (in $href "#")) -}}
-                {{- $href = printf "%s/" $href -}}
+              {{- if eq $id "legal_imprint" -}}
+                {{- $href = "https://www.vertaefelungen.de/en/content/2-Imprint" -}}
+              {{- else if eq $id "legal_terms" -}}
+                {{- $href = "https://www.vertaefelungen.de/en/content/3-allgemeine-geschaeftsbedingungen" -}}
+              {{- else if eq $id "legal_privacy" -}}
+                {{- $href = "https://www.vertaefelungen.de/en/content/7-datenschutzerklaerung" -}}
+              {{- else if eq $id "legal_withdrawal" -}}
+                {{- $href = "https://www.vertaefelungen.de/en/content/8-widerrufsbelehrung" -}}
+              {{- end -}}
+            {{- end -}}
+          {{- else -}}
+            {{- if .Page -}}
+              {{- $href = .Page.RelPermalink -}}
+            {{- else -}}
+              {{- $raw := .URL -}}
+              {{- if or (hasPrefix $raw "http://") (hasPrefix $raw "https://") -}}
+                {{- $href = $raw -}}
+              {{- else -}}
+                {{- $href = $raw | relLangURL -}}
+                {{- if and (not (hasSuffix $href "/")) (not (in $href "?")) (not (in $href "#")) -}}
+                  {{- $href = printf "%s/" $href -}}
+                {{- end -}}
               {{- end -}}
             {{- end -}}
           {{- end -}}
-          <li><a href="{{ $href }}">{{ $label }}</a></li>
+
+          <li>
+            <a href="{{ $href }}"{{ if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end }}>{{ $label }}</a>
+          </li>
         {{- end -}}
       </ul>
     </div>
