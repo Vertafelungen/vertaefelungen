@@ -10,13 +10,13 @@ menu:
 managed_by: "faq.csv"
 lang: "de"
 translationKey: "faq:de/faq"
-last_synced: "2026-02-22T09:11:15Z"
+last_synced: "2026-02-22T11:19:52Z"
 ---
 ## FAQ
 
 ### Brauche ich zwingend exakte Maße?
 
-Für eine erste Orientierung reichen oft **Fotos + grobe Maße**. Für eine belastbare Planung sind **Raumhöhen, Brüstungshöhen, Leibungstiefen und Wandlängen** entscheidend. Details dazu stehen in **[Planung & Bestellung](/de/faq/beratung/)**.
+Für eine erste Orientierung reichen oft **Fotos + grobe Maße**. Für eine belastbare Planung sind **Raumhöhen, Brüstungshöhen, Leibungstiefen und Wandlängen** entscheidend. Details dazu stehen in **[Planung & Bestellung](/wissen/de/faq/beratung/)**.
 
 ### Ist das „Standardware“ oder individuell?
 
@@ -24,7 +24,7 @@ Beides ist möglich: Von **standardisierten Leistenprofilen** bis zur **rekonstr
 
 ### Wann lohnt sich eine Visualisierung?
 
-Wenn Proportion, Profilwirkung und Anschlussdetails noch unklar sind – insbesondere bei historischen Interieurs oder schwierigen Bestandswänden. Die Visualisierung wird in den Angebotsprozess integriert (siehe **[Planung & Bestellung](/de/faq/beratung/)**).
+Wenn Proportion, Profilwirkung und Anschlussdetails noch unklar sind – insbesondere bei historischen Interieurs oder schwierigen Bestandswänden. Die Visualisierung wird in den Angebotsprozess integriert (siehe **[Planung & Bestellung](/wissen/de/faq/beratung/)**).
 
 ### Wie läuft die Montage typischerweise?
 

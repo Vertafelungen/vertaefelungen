@@ -1,8 +1,8 @@
 ---
-version: 2026-02-22 09:11 UTC
+version: 2026-02-22 11:19 UTC
 managed_by: categories.csv
-last_synced: 2026-02-22 09:11 UTC
-lastmod: 2026-02-22 09:11 UTC
+last_synced: 2026-02-22 11:19 UTC
+lastmod: 2026-02-22 11:19 UTC
 lang: en
 translationKey: skirting-boards
 title: Skirting Boards
