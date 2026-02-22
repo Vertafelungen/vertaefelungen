@@ -41,3 +41,7 @@ ignoreFiles = [".*faq/restaurierung/index\\.md$"]
 
 [markup.goldmark.renderer]
   unsafe = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"

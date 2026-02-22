@@ -1,24 +1,67 @@
 {{ define "main" }}
   {{ partial "components/hero.html" (dict "title" .Title "lead" .Params.lead) }}
 
-  {{- $pages := slice -}}
-  {{- range .Pages -}}
-    {{- $bn := "" -}}
-    {{- with .File }}{{- $bn = .BaseFileName -}}{{- end -}}
-    {{- if ne (lower $bn) "readme" -}}
-      {{- $pages = $pages | append . -}}
-    {{- end -}}
-  {{- end -}}
   {{- $content := trim .Content " \n\r\t" -}}
-
   {{- if ne $content "" -}}
     <article class="prose">
       {{ .Content }}
     </article>
   {{- end -}}
 
-  {{- if gt (len $pages) 0 -}}
-    {{ partial "components/teaser-list.html" (dict "pages" $pages) }}
+  {{- $topicCards := slice -}}
+  {{- range $term, $taxonomy := .Site.Taxonomies.categories -}}
+    {{- $faqPages := where $taxonomy.Pages "Section" "faq" -}}
+    {{- if gt (len $faqPages) 0 -}}
+      {{- $topicCards = $topicCards | append (dict
+        "name" $taxonomy.Page.LinkTitle
+        "count" (len $faqPages)
+        "href" $taxonomy.Page.RelPermalink
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $topicsTitle := "Themen" -}}
+  {{- $latestTitle := "Neueste Beiträge" -}}
+  {{- $articleLabel := "Artikel" -}}
+  {{- if eq .Lang "en" -}}
+    {{- $topicsTitle = "Topics" -}}
+    {{- $latestTitle = "Latest articles" -}}
+    {{- $articleLabel = "articles" -}}
+  {{- end -}}
+
+  {{- if gt (len $topicCards) 0 -}}
+    <section>
+      <h2 class="section-title">{{ $topicsTitle }}</h2>
+      <div class="card-grid">
+        {{ range sort $topicCards "name" }}
+          <article class="card">
+            <h3><a href="{{ .href }}">{{ .name }}</a></h3>
+            <p>{{ .count }} {{ $articleLabel }}</p>
+            <a class="button button--ghost" href="{{ .href }}">{{ i18n "read_more_label" }}</a>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+  {{- end -}}
+
+  {{- $latest := first 12 ((where site.RegularPages "Section" "faq").ByLastmod.Reverse) -}}
+  {{- if gt (len $latest) 0 -}}
+    <section>
+      <h2 class="section-title">{{ $latestTitle }}</h2>
+      <div class="card-grid">
+        {{ range $latest }}
+          <article class="card">
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{ with .Description }}
+              <p>{{ . }}</p>
+            {{ else }}
+              <p>{{ .Summary | plainify | truncate 160 }}</p>
+            {{ end }}
+            <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "read_more_label" }}</a>
+          </article>
+        {{ end }}
+      </div>
+    </section>
   {{- else if eq $content "" -}}
     {{- $title := "Bald verfügbar" -}}
     {{- $text := "Dieser Bereich wird derzeit vorbereitet. Sobald Inhalte verfügbar sind, erscheinen sie hier." -}}

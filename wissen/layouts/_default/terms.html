@@ -1,0 +1,25 @@
+{{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<article class="page">
+  <header class="page-hero">
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+  </header>
+
+  {{ with .Content }}
+    <div class="prose">{{ . }}</div>
+  {{ end }}
+
+  <div class="card-grid">
+    {{ range .Data.Terms.Alphabetical }}
+      {{- $faqPages := where .Pages "Section" "faq" -}}
+      {{- if gt (len $faqPages) 0 -}}
+        <article class="card">
+          <h2><a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a></h2>
+          <p>{{ len $faqPages }} {{ if eq $.Lang "de" }}Artikel{{ else }}articles{{ end }}</p>
+        </article>
+      {{- end -}}
+    {{ end }}
+  </div>
+</article>
+{{ end }}

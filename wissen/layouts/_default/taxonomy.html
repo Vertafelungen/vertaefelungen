@@ -1,0 +1,19 @@
+{{ define "title" }}{{ .Title }} – {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<article class="page">
+  <header class="page-hero">
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+  </header>
+
+  <div class="card-grid">
+    {{ range (where .Pages "Section" "faq").ByLastmod.Reverse }}
+      <article class="card">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        {{ with .Description }}<p>{{ . }}</p>{{ end }}
+        <a class="button button--ghost" href="{{ .RelPermalink }}">{{ i18n "read_more_label" }}</a>
+      </article>
+    {{ end }}
+  </div>
+</article>
+{{ end }}

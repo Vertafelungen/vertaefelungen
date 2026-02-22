@@ -18,7 +18,7 @@ import sys
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Dict, List, Optional, Set, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 
 # ---------- CSV ----------
@@ -246,6 +246,7 @@ class FaqItem:
     order: int
     status: str
     source: str
+    meta: Dict[str, str]
 
     @staticmethod
     def from_row(r: Dict[str, str]) -> "FaqItem":
@@ -268,6 +269,7 @@ class FaqItem:
             order=to_int(r.get("order") or r.get("sort") or r.get("rank") or ""),
             status=clean(r.get("status") or "").lower(),
             source=clean(r.get("source") or ""),
+            meta=r,
         )
 
 
@@ -341,7 +343,21 @@ def parse_managed_by(frontmatter_block: str) -> str:
     return m.group(1).strip().strip('"').strip("'")
 
 
-def merge_frontmatter_preserving(fm_block: str, updates: Dict[str, str]) -> str:
+def _yaml_quote(value: Any) -> str:
+    out = str(value).replace("\\", "\\\\").replace('"', '\\"')
+    return f'"{out}"'
+
+
+def _render_frontmatter_value(value: Any) -> str:
+    if isinstance(value, list):
+        if not value:
+            return "[]"
+        rendered = ", ".join([_yaml_quote(v) for v in value])
+        return f"[{rendered}]"
+    return _yaml_quote(value)
+
+
+def merge_frontmatter_preserving(fm_block: str, updates: Dict[str, Any]) -> str:
     if fm_block:
         content = fm_block.strip()
         if content.startswith("---"):
@@ -353,7 +369,7 @@ def merge_frontmatter_preserving(fm_block: str, updates: Dict[str, str]) -> str:
         lines = []
 
     for key, value in updates.items():
-        rendered = f'{key}: "{value}"'
+        rendered = f"{key}: {_render_frontmatter_value(value)}"
         replaced = False
         for i, line in enumerate(lines):
             if re.match(rf"^\s*{re.escape(key)}\s*:", line):
@@ -380,6 +396,53 @@ def cleanup_body_text(text: str) -> str:
     out = remove_legacy_faq_section(out)
     out = re.sub(r"\n{3,}", "\n\n", out).strip()
     return out
+
+
+def split_multi_value(raw: str) -> List[str]:
+    if not raw:
+        return []
+    parts = re.split(r"[;,]", raw)
+    vals = [clean(p) for p in parts if clean(p)]
+    return list(dict.fromkeys(vals))
+
+
+def plain_text_excerpt(text: str, limit: int = 160) -> str:
+    if not text:
+        return ""
+    out = re.sub(r"```.*?```", " ", text, flags=re.DOTALL)
+    out = re.sub(r"`([^`]*)`", r"\1", out)
+    out = re.sub(r"!?\[[^\]]*\]\([^\)]*\)", " ", out)
+    out = re.sub(r"<[^>]+>", " ", out)
+    out = re.sub(r"^\s{0,3}#{1,6}\s*", "", out, flags=re.MULTILINE)
+    out = re.sub(r"[*_~>#-]", " ", out)
+    out = re.sub(r"\s+", " ", out).strip()
+    return out[:limit].strip()
+
+
+def collect_global_frontmatter_updates(first: FaqItem, base_clean: str) -> Dict[str, Any]:
+    meta = first.meta
+    updates: Dict[str, Any] = {}
+
+    raw_categories = clean(meta.get("topic") or meta.get("category") or meta.get("thema") or "")
+    categories = split_multi_value(raw_categories)
+    if categories:
+        updates["categories"] = categories
+
+    tags = split_multi_value(clean(meta.get("tags") or ""))
+    if tags:
+        updates["tags"] = tags
+
+    description = clean(meta.get("summary") or meta.get("description") or "")
+    if not description:
+        description = plain_text_excerpt(base_clean)
+    if description:
+        updates["description"] = description
+
+    date_val = clean(meta.get("date") or meta.get("published") or "")
+    if date_val:
+        updates["date"] = date_val
+
+    return updates
 
 
 def render_qa_markdown(items: List[FaqItem]) -> str:
@@ -681,6 +744,11 @@ def main() -> int:
                     "title": "Info",
                     "last_synced": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
                 },
+            )
+
+            fm_new = merge_frontmatter_preserving(
+                fm_new,
+                collect_global_frontmatter_updates(first, base_clean),
             )
 
             if target_repo.name == "_index.md":
