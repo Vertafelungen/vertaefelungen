@@ -1,13 +1,14 @@
 /**
  * File: tests/e2e/live.spec.ts
- * Version: 2026-02-22 18:45 Europe/Berlin
+ * Version: 2026-02-22 19:20 Europe/Berlin
+ *
  * Purpose:
  *   Live smoke tests against production Wissen (DE/EN).
- * Notes:
- *   CI can sporadically time out on navigation due to transient network/CDN/TTFB variance.
- *   We make navigation more resilient without weakening semantic assertions.
+ *
  * Change:
- *   - Drawer legal links now point to canonical Shop pages (SSOT), so E2E asserts those hrefs.
+ *   - Align navigation assertions with /info/ (URLs migrated from /faq/ -> /info/).
+ *   - Keep legal links assertions for drawer footer (Shop SSOT targets).
+ *   - Add small retry on navigation to reduce transient CI flakiness.
  */
 
 import { test, expect, type Page, type Locator } from '@playwright/test';
@@ -25,9 +26,9 @@ async function gotoWithRetry(page: Page, url: string): Promise<void> {
     await page.goto(url, navOpts);
     return;
   } catch (err) {
+    // One retry for transient CI/network hiccups.
     // eslint-disable-next-line no-console
     console.warn('Navigation failed, retrying once:', url, err);
-
     await page.waitForTimeout(1500);
     await page.goto(url, navOpts);
   }
@@ -45,6 +46,15 @@ async function assertPrimaryNavLinks(primaryNav: Locator, lang: 'de' | 'en'): Pr
     expect(href).not.toBe('');
     expect(href).toContain(`/wissen/${lang}/`);
   }
+
+  // Required links (URL-migrated: /info/)
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/shop/"]`)).toHaveCount(1);
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/info/"]`)).toHaveCount(1);
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/faq/"]`)).toHaveCount(0);
+
+  const productsPath = lang === 'de' ? 'produkte' : 'products';
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/${productsPath}/"]`)).toHaveCount(1);
+  await expect(primaryNav.locator(`a[href*="/wissen/${lang}/lookbook/"]`)).toHaveCount(1);
 }
 
 async function assertDrawerNavigation(page: Page, lang: 'de' | 'en'): Promise<void> {
@@ -63,21 +73,33 @@ async function assertDrawerNavigation(page: Page, lang: 'de' | 'en'): Promise<vo
 
   const mainSection = page.getByTestId('drawer-main-links');
   await expect(mainSection.locator('a')).toHaveCount(4);
-  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/shop/\"]`)).toHaveCount(1);
-  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/faq/\"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/shop/"]`)).toHaveCount(1);
+
+  // URL migrated: /faq/ -> /info/
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/info/"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/faq/"]`)).toHaveCount(0);
 
   const productsPath = lang === 'de' ? 'produkte' : 'products';
-  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/${productsPath}/\"]`)).toHaveCount(1);
-  await expect(mainSection.locator(`a[href*=\"/wissen/${lang}/lookbook/\"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/${productsPath}/"]`)).toHaveCount(1);
+  await expect(mainSection.locator(`a[href*="/wissen/${lang}/lookbook/"]`)).toHaveCount(1);
 
   const footerSection = page.getByTestId('drawer-footer-links');
 
+  // Drawer footer legal links now point to canonical Shop pages (SSOT).
   if (lang === 'de') {
     await expect(footerSection.locator('a[href*="/de/content/2-impressum"]')).toHaveCount(1);
+    await expect(
+      footerSection.locator('a[href*="/de/content/3-allgemeine-geschaeftsbedingungen"]')
+    ).toHaveCount(1);
     await expect(footerSection.locator('a[href*="/de/content/7-datenschutzerklaerung"]')).toHaveCount(1);
+    await expect(footerSection.locator('a[href*="/de/content/8-widerrufsbelehrung"]')).toHaveCount(1);
   } else {
     await expect(footerSection.locator('a[href*="/en/content/2-Imprint"]')).toHaveCount(1);
+    await expect(
+      footerSection.locator('a[href*="/en/content/3-allgemeine-geschaeftsbedingungen"]')
+    ).toHaveCount(1);
     await expect(footerSection.locator('a[href*="/en/content/7-datenschutzerklaerung"]')).toHaveCount(1);
+    await expect(footerSection.locator('a[href*="/en/content/8-widerrufsbelehrung"]')).toHaveCount(1);
   }
 
   await page.keyboard.press('Escape');
