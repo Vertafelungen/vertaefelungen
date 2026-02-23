@@ -3,7 +3,7 @@ title: Pur Linseed Oil
 lang: en
 translationKey: '61'
 managed_by: ssot-sync
-last_synced: '2026-02-22'
+last_synced: '2026-02-23'
 produkt:
   id: '61'
   artikelnummer: '61'

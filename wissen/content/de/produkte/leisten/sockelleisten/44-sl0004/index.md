@@ -4,7 +4,7 @@ description: 'Mehrteilige, reich profilierte Sockelleiste (Höhe 175 mm, Ausladu
 lang: de
 translationKey: '44'
 managed_by: ssot-sync
-last_synced: '2026-02-22'
+last_synced: '2026-02-23'
 lastmod: 2026-02-12T16:45:00+01:00
 produkt:
   id: '44'

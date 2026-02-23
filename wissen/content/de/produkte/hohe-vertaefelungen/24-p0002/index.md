@@ -3,7 +3,7 @@ title: P0002 - Hamburger Michel
 lang: de
 translationKey: '24'
 managed_by: ssot-sync
-last_synced: '2026-02-22'
+last_synced: '2026-02-23'
 produkt:
   id: '24'
   artikelnummer: '24'
