@@ -3,7 +3,7 @@ title: Tung oil varnish
 lang: en
 translationKey: '65'
 managed_by: ssot-sync
-last_synced: '2026-02-22'
+last_synced: '2026-02-23'
 produkt:
   id: '65'
   artikelnummer: '65'

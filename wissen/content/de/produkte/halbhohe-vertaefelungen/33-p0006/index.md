@@ -6,7 +6,7 @@ version: '2026-01-28T08:30:00+01:00'
 lang: de
 translationKey: '33'
 managed_by: ssot-sync
-last_synced: '2026-02-22'
+last_synced: '2026-02-23'
 produkt:
   id: '33'
   artikelnummer: '33'

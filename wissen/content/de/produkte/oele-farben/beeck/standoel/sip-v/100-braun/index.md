@@ -4,7 +4,7 @@ aliases:
 title: Braun - BEECK Standölinnenfarbe PRO
 translationKey: '100'
 managed_by: ssot-sync
-last_synced: '2026-02-22'
+last_synced: '2026-02-23'
 produkt:
   id: '100'
   artikelnummer: '100'

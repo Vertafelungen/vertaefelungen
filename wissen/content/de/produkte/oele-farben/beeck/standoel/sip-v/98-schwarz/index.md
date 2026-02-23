@@ -4,7 +4,7 @@ aliases:
 title: Schwarz - BEECK Standölinnenfarbe PRO
 translationKey: '98'
 managed_by: ssot-sync
-last_synced: '2026-02-22'
+last_synced: '2026-02-23'
 produkt:
   id: '98'
   artikelnummer: '98'
