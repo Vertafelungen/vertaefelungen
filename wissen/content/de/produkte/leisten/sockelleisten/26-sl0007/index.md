@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/leisten/sockelleisten/26-sl0007/
+- /de/produktinfo/public/leisten/sockelleisten/26-sl0007/
 title: SL0007 - München - Augustiner Stammhaus - Sockelleiste 450/62
 translationKey: '26'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '26'
   artikelnummer: '26'
@@ -23,6 +23,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 26-sl0007
 ---
 ## Kurzantwort
 
@@ -56,31 +57,3 @@ Häufige Fehler sind fehlende Bezugshöhen, zu späte Klärung der Anschlussdeta
 - Kategorieüberblick: /de/produkte/leisten/sockelleisten/
 - Planung und Beratung: /de/info/beratung/
 - Material- und Oberflächenwissen: /de/produkte/oele-farben/
-
-<!-- FAQ_SYNC:BEGIN -->
-## Info
-
-### Ist dieses Produkt eher für Sanierung oder auch für Neubau geeignet?
-
-Beides ist möglich. In der Sanierung wird meist am Bestand orientiert, im Neubau stärker an gewünschter Proportion und Stilwirkung.
-
-### Welche Maße werden für eine belastbare Auswahl benötigt?
-
-Hilfreich sind Wandlängen, Raumhöhen, relevante Anschlussmaße sowie Fotos der betroffenen Bereiche.
-
-### Kann ich das Profil an bestehende Türzargen anpassen?
-
-Ja, die Auswahl wird in der Regel mit Zargen- und Anschlussdetails abgeglichen, damit Übergänge stimmig bleiben.
-
-### Wie läuft die Abstimmung zwischen Auswahl und Montage ab?
-
-Üblich sind Vorabklärung, Profilauswahl, Maßvalidierung, Freigabe und anschließend die Montagevorbereitung.
-
-### Welche Faktoren beeinflussen den Aufwand im Projekt?
-
-Maßhaltigkeit im Bestand, Profilkomplexität, Materialwahl und Abstimmungsaufwand wirken direkt auf den Aufwand.
-
-### Welche Fehler sollte ich vor der Bestellung vermeiden?
-
-Typisch sind fehlende Bezugshöhen, unklare Anschlusspunkte und eine zu späte Profilfreigabe.
-<!-- FAQ_SYNC:END -->

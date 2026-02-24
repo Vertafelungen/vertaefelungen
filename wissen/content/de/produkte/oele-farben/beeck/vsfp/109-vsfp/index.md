@@ -3,7 +3,7 @@ title: BEECK Vorstreichfarbe PRO
 lang: de
 translationKey: '109'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '109'
   artikelnummer: '109'
@@ -23,6 +23,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 109-vsfp
+aliases: []
 ---
 BEECK Vorstreichfarbe PRO
 Weißmatter Ölvorlack für professionelle Voranstriche auf Holz und Eisenmetall im Innen- und Außenbereich

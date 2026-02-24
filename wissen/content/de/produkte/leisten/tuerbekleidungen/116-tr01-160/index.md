@@ -3,7 +3,7 @@ title: Türbekleidung 01 / 160
 description: Tür- und Fensterrahmen TR01/120 (120 × 18 mm). Auswahl- und Montagehinweise, Fugenlogik und Kombinationen mit Sockelleisten und weiteren Leistenprofilen.
 lastmod: '2026-02-13T09:56:16+01:00'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 translationKey: '116'
 seo:
   title: tr01-160 - Tür- und Fensterrahmen TR 01 / 160, Maße
@@ -23,5 +23,7 @@ produkt:
 refs:
   source_shop: ''
 lang: de
+slug: 116-tr01-160
+aliases: []
 ---
 Tür- und Fensterrahmen TR 01 / 160, Maße: 160 x 24 mm

@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/en/products/public/dado-panel/23-p0001/
+- /en/products/public/dado-panel/23-p0001/
 title: P0001 - Berlin - Winsstraße
 translationKey: '23'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '23'
   artikelnummer: '23'
@@ -23,6 +23,7 @@ seo:
 refs:
   source_shop: ''
 lang: en
+slug: 23-p0001
 ---
 ## Quick answer
 

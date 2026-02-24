@@ -3,7 +3,7 @@ title: Citrusterpene
 lang: de
 translationKey: '64'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '64'
   artikelnummer: '64'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 64-ctp
+aliases: []
 ---
 Citrusterpene kann wie Balsamterpentinöl zum Verdünnen von Farben und zum Lösen von Harzen eingesetzt werden. Citrusterpene riecht angenehm nach Orange, da es aus der Destillation von Orangenschalen gewonnen wird. Es ist für ökologische Holzanstriche geeignet. Es ist absolut CO2 neutral, da es nur soviel CO2 abgibt, wie es während des Wachstums aufgenommen hat.

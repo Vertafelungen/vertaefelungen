@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: en
 translationKey: wall-mouldings
+slug: wall
 title: Wall Mouldings
 description: 'Wall mouldings for structuring historic wall surfaces: profiles for panels, frames, cornice lines and transitions - with variants, dimensions and images.'
 weight: 10

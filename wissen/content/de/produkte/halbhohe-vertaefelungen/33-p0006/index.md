@@ -6,7 +6,7 @@ version: '2026-01-28T08:30:00+01:00'
 lang: de
 translationKey: '33'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '33'
   artikelnummer: '33'
@@ -24,5 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 33-p0006
+aliases: []
 ---
 Dieser Lambris aus einem Hauseingang der Leipziger Ludwigstraße (Volkmarsdorf) stammt aus der Bauzeit des Gebäudes von 1884 und hat somit ein Alter von rund 140 Jahren. Diese Zeitspanne überbrückt fünf Generationen.

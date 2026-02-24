@@ -3,7 +3,7 @@ title: Door Frame 14
 lang: en
 translationKey: '127'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '127'
   artikelnummer: '127'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 127-tr14
+aliases: []
 ---
 Door and window frame TR 14, dimensions: 118 x 20 mm

@@ -3,7 +3,7 @@ title: Door Frame 01 / 120
 lang: en
 translationKey: '117'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '117'
   artikelnummer: TR01-120
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 117-tr01-120
+aliases: []
 ---
 Door and window frame TR 01 / 120, dimensions: 120 x 18 mm

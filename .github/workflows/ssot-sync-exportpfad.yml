@@ -1,5 +1,5 @@
 # SSOT → Markdown Sync (export_pfad; hydrate products; inject FAQ)
-# Version: 2026-02-14 18:22 Europe/Berlin
+# Version: 2026-02-24 10:30 Europe/Berlin
 
 name: SSOT → Markdown Sync (export_pfad; hydrate products)
 
@@ -151,9 +151,18 @@ jobs:
           path: wissen/scripts/reports/audit-faq-migration.txt
           if-no-files-found: warn
 
+
+      - name: Normalize internal links
+        run: |
+          python scripts/normalize_internal_links.py
+
+      - name: URL policy QA
+        run: |
+          python scripts/qa_url_policy.py
+
       - name: Guard validate content
         run: |
-          python scripts/guard_validate.py --root "content" || true
+          python scripts/guard_validate.py
 
       - name: Remove legacy themen-index artifacts (prevent reintroduction)
         run: |

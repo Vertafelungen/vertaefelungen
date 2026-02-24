@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 File: wissen/scripts/categories_sync.py
-Version: 2026-02-14 18:40 Europe/Berlin
+Version: 2026-02-24 10:30 Europe/Berlin
 
 Kategorien-Generator: categories.csv → Hugo Branch Bundles (_index.md)
 
@@ -113,6 +113,20 @@ def parse_int(v: str, default: int = 100) -> int:
         return int(float(s))
     except Exception:
         return default
+
+
+def slugify_segment(segment: str) -> str:
+    t = clean(segment).lower()
+    t = t.replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
+    t = re.sub(r"\s+", "-", t)
+    t = re.sub(r"[^a-z0-9-]", "", t)
+    t = re.sub(r"-{2,}", "-", t)
+    return t.strip("-") or "item"
+
+
+def normalize_path(path_value: str) -> str:
+    segs = [slugify_segment(seg) for seg in clean(path_value).strip('/').split('/') if clean(seg)]
+    return '/'.join(segs)
 
 
 def read_csv_utf8_auto(path: Path) -> List[Dict[str, str]]:
@@ -246,8 +260,8 @@ def row_to_category(r: Dict[str, str]) -> CategoryRow:
 
     return CategoryRow(
         key=clean(r.get("key")),
-        path_de=path_de.strip("/"),
-        path_en=path_en.strip("/"),
+        path_de=normalize_path(path_de),
+        path_en=normalize_path(path_en),
         title_de=clean(r.get("title_de")),
         title_en=clean(r.get("title_en")),
         description_de=clean(r.get("description_de")),
@@ -385,7 +399,7 @@ def _build_structured_body(c: CategoryRow, lang: str) -> str:
     return "\n".join(out).rstrip() + "\n"
 
 
-def build_frontmatter(c: CategoryRow, lang: str, now_utc: datetime) -> Tuple[Dict, str]:
+def build_frontmatter(c: CategoryRow, lang: str, now_utc: datetime, aliases: Optional[List[str]] = None) -> Tuple[Dict, str]:
     if lang == "de":
         title = c.title_de
         description = c.description_de
@@ -412,6 +426,7 @@ def build_frontmatter(c: CategoryRow, lang: str, now_utc: datetime) -> Tuple[Dic
 
         "lang": lang,
         "translationKey": c.key,
+        "slug": slugify_segment((c.path_de if lang == "de" else c.path_en).split("/")[-1]),
 
         "title": title,
         "description": description,
@@ -449,6 +464,9 @@ def build_frontmatter(c: CategoryRow, lang: str, now_utc: datetime) -> Tuple[Dic
             },
         },
     }
+
+    if aliases:
+        fm["aliases"] = sorted(set(aliases))
 
     if menu_main_name:
         fm["menu"] = {
@@ -492,6 +510,26 @@ def write_report(path: Path, lines: List[str], apply: bool) -> None:
     path.write_text("\n".join(header + lines).rstrip() + "\n", encoding="utf-8")
 
 
+def scan_existing_category_paths(root: Path, lang: str) -> Dict[str, str]:
+    out: Dict[str, str] = {}
+    for p in root.rglob("_index.md"):
+        fm, _ = read_frontmatter_and_body(p)
+        if str(fm.get("managed_by", "")).strip() != MANAGED_BY:
+            continue
+        key = clean(fm.get("translationKey"))
+        if not key:
+            continue
+        rel = p.relative_to(root).as_posix()
+        rel_dir = rel[:-len('/_index.md')].strip('/')
+        out[key] = rel_dir
+    return out
+
+
+def category_alias(lang: str, rel_dir: str) -> str:
+    rel = clean(rel_dir).strip('/')
+    return f"/{lang}/{rel}/" if rel else f"/{lang}/"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--csv", default="ssot/categories.csv")
@@ -528,6 +566,8 @@ def main() -> int:
         return 2
 
     now_utc = datetime.now(timezone.utc)
+    existing_de_paths = scan_existing_category_paths(de_root, "de")
+    existing_en_paths = scan_existing_category_paths(en_root, "en")
 
     statuses: List[str] = []
     changed_targets: set[Path] = set()
@@ -537,7 +577,11 @@ def main() -> int:
     for c in rows:
         # DE
         de_target = de_root / c.path_de / "_index.md"
-        fm_de, body_de = build_frontmatter(c, "de", now_utc)
+        aliases_de = []
+        old_de_rel = existing_de_paths.get(c.key)
+        if old_de_rel and old_de_rel != c.path_de:
+            aliases_de.append(category_alias("de", old_de_rel))
+        fm_de, body_de = build_frontmatter(c, "de", now_utc, aliases=aliases_de)
         st = write_index(de_target, fm_de, body_de, apply=args.apply)
         statuses.append(f"- DE `{de_target.as_posix()}`: {st}")
         if st == "created":
@@ -553,7 +597,11 @@ def main() -> int:
 
         # EN
         en_target = en_root / c.path_en / "_index.md"
-        fm_en, body_en = build_frontmatter(c, "en", now_utc)
+        aliases_en = []
+        old_en_rel = existing_en_paths.get(c.key)
+        if old_en_rel and old_en_rel != c.path_en:
+            aliases_en.append(category_alias("en", old_en_rel))
+        fm_en, body_en = build_frontmatter(c, "en", now_utc, aliases=aliases_en)
         st = write_index(en_target, fm_en, body_en, apply=args.apply)
         statuses.append(f"- EN `{en_target.as_posix()}`: {st}")
         if st == "created":

@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/lueftungsrosetten/73-blr5/
+- /de/produktinfo/public/lueftungsrosetten/73-blr5/
 title: Lüftungsrosette 5
 translationKey: '73'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '73'
   artikelnummer: '73'
@@ -19,6 +19,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 73-blr5
 ---
 Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert

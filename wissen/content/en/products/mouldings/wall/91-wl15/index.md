@@ -3,7 +3,7 @@ title: Wall Moulding 15
 lang: en
 translationKey: '91'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '91'
   artikelnummer: '91'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 91-wl15
+aliases: []
 ---
 Profiled wooden strip 25 x 100 mm
 In pine or whitewood, other wood species available upon request

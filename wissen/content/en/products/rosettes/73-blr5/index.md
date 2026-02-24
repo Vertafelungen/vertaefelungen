@@ -3,7 +3,7 @@ title: Ventilation Rosette 5
 lang: en
 translationKey: '73'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '73'
   artikelnummer: '73'
@@ -17,6 +17,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 73-blr5
+aliases: []
 ---
 Elegant ventilation rosette based on the original design.
 Cast brass, polished

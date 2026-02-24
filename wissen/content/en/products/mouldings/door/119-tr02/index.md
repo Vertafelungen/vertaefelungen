@@ -3,7 +3,7 @@ title: Door Frame 02
 lang: en
 translationKey: '119'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '119'
   artikelnummer: '119'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 119-tr02
+aliases: []
 ---
 Door and window frame TR 06, dimensions: 100 x 17 mm

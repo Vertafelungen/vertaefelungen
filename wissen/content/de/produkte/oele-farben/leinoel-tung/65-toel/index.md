@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/leinoel-tung/65-toel/
+- /de/produktinfo/public/oele-farben/leinoel-tung/65-toel/
 title: Tung Holzöllack
 translationKey: '65'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '65'
   artikelnummer: '65'
@@ -27,6 +27,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 65-toel
 ---
 Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen.
 

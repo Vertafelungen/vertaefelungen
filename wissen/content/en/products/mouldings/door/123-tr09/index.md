@@ -3,7 +3,7 @@ title: Door Frame 09
 lang: en
 translationKey: '123'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '123'
   artikelnummer: '123'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 123-tr09
+aliases: []
 ---
 Door and window frame TR 09, dimensions: 115 x 26 mm

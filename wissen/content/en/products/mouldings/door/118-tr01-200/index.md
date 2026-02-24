@@ -3,7 +3,7 @@ title: Door Frame 01 / 200
 lang: en
 translationKey: '118'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '118'
   artikelnummer: TR01-200
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 118-tr01-200
+aliases: []
 ---
 Door and window frame TR 01 / 200, dimensions: 200 x 24 mm

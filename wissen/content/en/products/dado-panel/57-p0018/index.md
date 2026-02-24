@@ -1,11 +1,11 @@
 ---
 aliases:
-- /wissen/en/products/public/dado-panel/57-p0018/
-- /wissen/en/products/high-wainscoting/57-p0014/
+- /en/products/public/dado-panel/57-p0018/
+- /en/products/high-wainscoting/57-p0014/
 title: P0018 - Berlin - Invalidenstraße
 translationKey: '57'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '57'
   artikelnummer: '57'
@@ -24,6 +24,7 @@ seo:
 refs:
   source_shop: ''
 lang: en
+slug: 57-p0018
 ---
 The Balzer bakery was located here 130 years ago. All the walls are covered with fresh summer flower tiles and beautifully profiled wooden mouldings and the buns must have smelled twice as good!
 Today they're serving burgers and the setting, well, looks a bit scruffy. I hope that the next tenant knows what to do with this treasure.

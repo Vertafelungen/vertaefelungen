@@ -3,7 +3,7 @@ title: Ventilation Rosette 4
 lang: en
 translationKey: '70'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '70'
   artikelnummer: '70'
@@ -17,6 +17,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 70-blr4
+aliases: []
 ---
 ## Quick answer
 

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 File: wissen/scripts/faq_sync.py
+Version: 2026-02-24 10:30 Europe/Berlin
 
 faq.csv sync with two stages:
 - Stage A: generate/update authoritative global FAQ pages under content/<lang>/faq/**
@@ -15,6 +16,10 @@ import csv
 import io
 import re
 import sys
+try:
+    import tomllib
+except ModuleNotFoundError:  # py<3.11
+    import tomli as tomllib
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -528,7 +533,7 @@ def derive_product_keys_from_frontmatter(frontmatter_block: str) -> List[str]:
     return list(dict.fromkeys([k for k in keys if k]))
 
 
-def global_scope_key_candidates(rel: Path) -> List[str]:
+def global_scope_key_candidates(rel: Path, global_root: str) -> List[str]:
     rel_without_lang = rel.parts[1:]
     if not rel_without_lang:
         return []
@@ -542,8 +547,9 @@ def global_scope_key_candidates(rel: Path) -> List[str]:
     if not key:
         return []
     candidates = [key]
-    if key.startswith("faq/"):
-        candidates.append(key[len("faq/"):])
+    prefix = f"{global_root}/"
+    if key.startswith(prefix):
+        candidates.append(key[len(prefix):])
     return list(dict.fromkeys([c for c in candidates if c]))
 
 
@@ -563,7 +569,7 @@ def pick_matching_faq_items(
 # ---------- Generator helpers ----------
 
 
-def normalize_source_to_target(source: str, lang: str) -> Optional[Path]:
+def normalize_source_to_target(source: str, lang: str, global_root: str) -> Optional[Path]:
     src = clean(source).replace("\\", "/")
     if not src:
         return None
@@ -578,7 +584,7 @@ def normalize_source_to_target(source: str, lang: str) -> Optional[Path]:
         target = src
 
     p = Path(target)
-    expected_prefix = Path("content") / lang / "faq"
+    expected_prefix = Path("content") / lang / global_root
     try:
         p.relative_to(expected_prefix)
     except Exception:
@@ -586,13 +592,14 @@ def normalize_source_to_target(source: str, lang: str) -> Optional[Path]:
     return p
 
 
-def fallback_target_from_scope(scope_key: str, lang: str) -> Path:
+def fallback_target_from_scope(scope_key: str, lang: str, global_root: str) -> Path:
     key = clean(scope_key).strip("/")
-    if key.startswith("faq/"):
-        key = key[len("faq/"):]
+    prefix = f"{global_root}/"
+    if key.startswith(prefix):
+        key = key[len(prefix):]
     if key in ("", "root"):
-        return Path("content") / lang / "faq" / "_index.md"
-    return Path("content") / lang / "faq" / key / "index.md"
+        return Path("content") / lang / global_root / "_index.md"
+    return Path("content") / lang / global_root / key / "index.md"
 
 
 def stable_translation_key_from_target(target: Path) -> str:
@@ -606,6 +613,44 @@ def stable_translation_key_from_target(target: Path) -> str:
     elif rel.endswith(".md"):
         rel = rel[:-3]
     return f"faq:{rel.strip('/')}"
+
+
+def discover_global_root(content_root: Path) -> str:
+    de_faq = content_root / "de" / "faq"
+    if de_faq.exists() and de_faq.is_dir():
+        return "faq"
+
+    config_path = Path("hugo.toml")
+    if config_path.exists():
+        try:
+            data = tomllib.loads(config_path.read_text(encoding="utf-8"))
+            langs = data.get("languages", {})
+            candidates = []
+            for lang in ("de", "en"):
+                permalinks = ((langs.get(lang) or {}).get("permalinks") or {})
+                for key in permalinks.keys():
+                    sec = str(key).strip()
+                    if sec and (content_root / lang / sec).is_dir():
+                        candidates.append(sec)
+            uniq = sorted(set(candidates))
+            if len(uniq) == 1:
+                return uniq[0]
+        except Exception:
+            pass
+
+    likely = []
+    for d in sorted((content_root / "de").iterdir() if (content_root / "de").exists() else []):
+        if not d.is_dir():
+            continue
+        if not (content_root / "en" / d.name).is_dir():
+            continue
+        child_names = {c.name for c in d.iterdir() if c.is_dir()}
+        if {"beratung", "restaurierung", "style-guide"}.issubset(child_names):
+            likely.append(d.name)
+    if len(likely) == 1:
+        return likely[0]
+
+    return "faq"
 
 
 # ---------- Report ----------
@@ -633,6 +678,7 @@ def main() -> int:
     ap.add_argument("--inject", action="store_true")
     ap.add_argument("--prune", action="store_true", help="Only with --generate-global --apply")
     ap.add_argument("--managed-by", default="ssot-sync,categories.csv")
+    ap.add_argument("--global_root", default="")
     ap.add_argument("--report", default="")
     args = ap.parse_args()
 
@@ -642,6 +688,7 @@ def main() -> int:
     csv_path = Path(args.csv)
     root = Path(args.root)
     managed_by_vals = {v.strip() for v in clean(args.managed_by).split(",") if v.strip()}
+    global_root = clean(args.global_root) or discover_global_root(root)
 
     if not csv_path.exists():
         print(f"[faq_sync] faq.csv not found: {csv_path} (skip)")
@@ -686,13 +733,13 @@ def main() -> int:
         for (_, lang), items in sorted(grouped.items(), key=lambda x: (x[0][1], x[0][0])):
             first = items[0]
             if first.source:
-                target_repo = normalize_source_to_target(first.source, lang)
+                target_repo = normalize_source_to_target(first.source, lang, global_root)
                 if target_repo is None:
                     invalid_source += 1
                     warnings.append(f"invalid_source_outside_faq: lang={lang} source={first.source}")
                     continue
             else:
-                target_repo = fallback_target_from_scope(first.scope_key, lang)
+                target_repo = fallback_target_from_scope(first.scope_key, lang, global_root)
 
             target_rel = Path(target_repo).relative_to("content")
             expected_targets.add(target_rel)
@@ -752,7 +799,7 @@ def main() -> int:
             )
 
             if target_repo.name == "_index.md":
-                faq_root = Path("content") / lang / "faq"
+                faq_root = Path("content") / lang / global_root
                 rel_dir = target_repo.parent.relative_to(faq_root).as_posix()
                 rel_dir = "" if rel_dir == "." else rel_dir.strip("/")
                 info_url = f"/{lang}/info/" + (f"{rel_dir}/" if rel_dir else "")
@@ -789,7 +836,7 @@ def main() -> int:
                 raise SystemExit(2)
 
             for lang in ("de", "en"):
-                faq_root = root / lang / "faq"
+                faq_root = root / lang / global_root
                 if not faq_root.exists():
                     continue
                 for file in sorted(faq_root.rglob("*.md")):
@@ -818,7 +865,7 @@ def main() -> int:
                 continue
 
             rel_from_lang = rel.parts[1:]
-            is_faq_tree = len(rel_from_lang) >= 1 and rel_from_lang[0] == "faq"
+            is_faq_tree = len(rel_from_lang) >= 1 and rel_from_lang[0] == global_root
             if is_faq_tree:
                 continue
 
@@ -897,6 +944,7 @@ def main() -> int:
     lines.append(f"- CSV: `{csv_path.as_posix()}`")
     lines.append(f"- Root: `{root.as_posix()}`")
     lines.append(f"- stages: generate_global={do_generate} inject={do_inject} prune={args.prune and args.apply}")
+    lines.append(f"- global_root: `{global_root}`")
     lines.append("")
     lines.append("## Summary")
     lines.append("")

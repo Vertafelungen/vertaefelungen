@@ -3,7 +3,7 @@ title: Tung oil natural
 lang: en
 translationKey: '69'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '69'
   artikelnummer: '69'
@@ -23,6 +23,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 69-toen
+aliases: []
 ---
 Natural Tung Oil contains no siccatives. It polymerises in a similar way to linseed oil, but dries faster and forms a hard, matt surface. If wood is treated exclusively with Tung Oil Natural, the natural wood colour is essentially retained. It is very suitable for impregnating hardwood and as a surface coating on linseed oil paints. It can be used indoors and outdoors.
 

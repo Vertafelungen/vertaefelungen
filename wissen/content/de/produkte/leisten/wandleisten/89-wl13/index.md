@@ -3,7 +3,7 @@ title: Wandleiste 13
 lang: de
 translationKey: '89'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '89'
   artikelnummer: '89'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 89-wl13
+aliases: []
 ---
 Profilierte Holzleiste 8 x 35 mm
 In Kiefer oder White Wood, andere Holzarten aus Anfrage

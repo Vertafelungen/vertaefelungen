@@ -1,12 +1,12 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/leisten/tuerbekleidungen/124-tr11/
+- /de/produktinfo/public/leisten/tuerbekleidungen/124-tr11/
 title: Türbekleidung 11
 description: 'Tür- und Fensterrahmen TR11: Auswahlhilfe, Planungsablauf, Kostenlogik, typische Fehler und saubere Anschlüsse im Innenausbau.'
 lastmod: '2026-02-14T08:56:10+01:00'
 translationKey: '124'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '124'
   artikelnummer: '124'
@@ -25,6 +25,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 124-tr11
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 11, Maße: 118 x 23 mm mm

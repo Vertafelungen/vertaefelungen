@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 SSOT → Hugo Page Bundles (mit Produktdaten, Varianten, Bildern, SEO)
-Version: 2026-02-14 18:40 Europe/Berlin
+Version: 2026-02-24 10:30 Europe/Berlin
 
 Dieses Skript baut/aktualisiert alle Produktseiten unter:
   wissen/content/de/…  und  wissen/content/en/…
@@ -260,16 +260,24 @@ def merge_frontmatter(existing: Dict, updates: Dict) -> Dict:
 
     # aliases mergen (ohne Duplikate)
     if "aliases" in updates:
-        new_aliases = list(dict.fromkeys([str(a) for a in (updates.get("aliases") or [])]))
+        def _norm_alias(v: str) -> str:
+            a = str(v or "").strip()
+            a = re.sub(r"^/wissen/(de|en)/", r"/\1/", a)
+            return a
+
+        new_aliases = list(dict.fromkeys([_norm_alias(a) for a in (updates.get("aliases") or []) if str(a or "").strip()]))
         old_aliases = out.get("aliases") or []
         if isinstance(old_aliases, list):
-            combo = list(dict.fromkeys([str(a) for a in (old_aliases + new_aliases)]))
+            combo = list(dict.fromkeys([_norm_alias(a) for a in (old_aliases + new_aliases) if str(a or "").strip()]))
         else:
             combo = new_aliases
         out["aliases"] = combo
 
     for k, v in updates.items():
         if k == "aliases":
+            continue
+        if v is None:
+            out.pop(k, None)
             continue
         out[k] = v
 
@@ -322,7 +330,7 @@ PK_REGEX = re.compile(r"^(p\d{3,5}|sl\d{3,5}|wl\d{3,5}|tr\d{3,5}|l\d{3,5}|s\d{3,
 def bundle_url(content_lang_root: Path, bundle_dir: Path) -> str:
     rel = bundle_dir.relative_to(content_lang_root).as_posix().strip("/")
     lang = content_lang_root.name.lower()
-    return f"/wissen/{lang}/{rel}/"
+    return f"/{lang}/{rel}/"
 
 def find_existing_bundles(content_lang_root: Path, pk: str) -> List[Path]:
     hits = []
@@ -330,6 +338,17 @@ def find_existing_bundles(content_lang_root: Path, pk: str) -> List[Path]:
         if p.is_dir():
             hits.append(p)
     return hits
+
+
+def alias_from_old_slug(content_lang_root: Path, bundle_dir: Path, old_slug: str) -> Optional[str]:
+    old_slug = clean(old_slug)
+    if not old_slug:
+        return None
+    rel_parent = bundle_dir.relative_to(content_lang_root).parent.as_posix().strip("/")
+    lang = content_lang_root.name.lower()
+    if rel_parent:
+        return f"/{lang}/{rel_parent}/{old_slug}/"
+    return f"/{lang}/{old_slug}/"
 
 def list_all_images(root: Path) -> Dict[str, List[Path]]:
     from collections import defaultdict
@@ -467,8 +486,10 @@ def main():
             skipped.append("row without product_id/reference/slug")
             continue
 
-        slug_de = clean(r.get("slug_de")) or slugify(clean(r.get("titel_de") or pk))
-        slug_en = clean(r.get("slug_en")) or slugify(clean(r.get("titel_en") or pk))
+        slug_de_base = clean(r.get("slug_de")) or slugify(clean(r.get("titel_de") or pk))
+        slug_en_base = clean(r.get("slug_en")) or slugify(clean(r.get("titel_en") or pk))
+        slug_de = f"{pk}-{slug_de_base}"
+        slug_en = f"{pk}-{slug_en_base}"
 
         titel_de = clean(r.get("titel_de") or pk)
         titel_en = clean(r.get("titel_en") or pk)
@@ -505,8 +526,8 @@ def main():
         export_en_norm = export_en.strip().strip("/").lower()
 
         # Ziel-Bundles bestimmen: <exportpfad>/<pk>-<slug>/
-        bundle_de = de_root / export_de_norm / f"{pk}-{slug_de}"
-        bundle_en = en_root / export_en_norm / f"{pk}-{slug_en}"
+        bundle_de = de_root / export_de_norm / slug_de
+        bundle_en = en_root / export_en_norm / slug_en
 
         # Moved? (alte Bundles finden)
         old_de = find_existing_bundles(de_root, pk)
@@ -523,6 +544,20 @@ def main():
             if ob.resolve() != bundle_en.resolve():
                 alias_en.append(bundle_url(en_root, ob))
                 moved.append(f"EN: {ob} -> {bundle_en}")
+
+        fm_existing_de, _ = read_frontmatter_and_body(bundle_de / "index.md")
+        fm_existing_en, _ = read_frontmatter_and_body(bundle_en / "index.md")
+
+        old_slug_de = clean(fm_existing_de.get("slug"))
+        old_slug_en = clean(fm_existing_en.get("slug"))
+        if old_slug_de and old_slug_de != slug_de:
+            old_slug_alias = alias_from_old_slug(de_root, bundle_de, old_slug_de)
+            if old_slug_alias:
+                alias_de.append(old_slug_alias)
+        if old_slug_en and old_slug_en != slug_en:
+            old_slug_alias = alias_from_old_slug(en_root, bundle_en, old_slug_en)
+            if old_slug_alias:
+                alias_en.append(old_slug_alias)
 
         # Bilder: zentrale Bildquelle -> Bundle kopieren (nur die in SSOT referenzierten)
         bilder_names = split_multi_list(r.get("bilder"))
@@ -634,12 +669,13 @@ def main():
             "translationKey": pk,
             "managed_by": "ssot-sync",
             "last_synced": last_synced_str,
+            "slug": slug_de,
             "produkt": produkt_de,
             "seo": seo_de,
             "refs": refs_de,
         }
-        if alias_de:
-            fm_de_updates["aliases"] = sorted(set(alias_de))
+        fm_de_updates["url"] = None
+        fm_de_updates["aliases"] = sorted(set(alias_de))
 
         fm_en_updates = {
             "title": titel_en,
@@ -647,12 +683,13 @@ def main():
             "translationKey": pk,
             "managed_by": "ssot-sync",
             "last_synced": last_synced_str,
+            "slug": slug_en,
             "produkt": produkt_en,
             "seo": seo_en,
             "refs": refs_en,
         }
-        if alias_en:
-            fm_en_updates["aliases"] = sorted(set(alias_en))
+        fm_en_updates["url"] = None
+        fm_en_updates["aliases"] = sorted(set(alias_en))
 
         # index.md schreiben (Body aus SSOT body_* Feldern; Fallback: beschreibung_md_*)
         if args.apply:

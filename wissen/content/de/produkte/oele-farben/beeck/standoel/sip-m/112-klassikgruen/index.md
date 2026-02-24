@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-m/112-klassikgruen/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-m/112-klassikgruen/
 title: Klassikgrün - BEECK Standölinnenfarbe PRO
 translationKey: '112'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '112'
   artikelnummer: '112'
@@ -55,6 +55,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 112-klassikgruen
 ---
 ## Kurzantwort
 
@@ -88,27 +89,3 @@ Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetai
 - Planungshilfe: /de/beratung/planung
 - Montagehinweise: /de/beratung/montage
 - Passende Produktübersicht: /produkte/oele-farben/beeck/standoel/sip-m
-
-<!-- FAQ_SYNC:BEGIN -->
-## Info
-
-### Wofür eignet sich dieses Produkt am besten?
-
-Klassikgrün - BEECK Standölinnenfarbe PRO eignet sich für Innenräume mit klarer Gliederung, wenn eine hochwertige und ruhige Wandgestaltung gewünscht ist.
-
-### Welche Punkte sollten vor der Auswahl geprüft werden?
-
-Wichtig sind Untergrund, Anschlussdetails, Raumproportionen und die Abstimmung mit angrenzenden Bauteilen.
-
-### Wie läuft die Planung typischerweise ab?
-
-Der übliche Ablauf ist Aufmaß, Variantenabgleich, Detailklärung und danach die Freigabe für Fertigung bzw. Montage.
-
-### Wodurch wird der Aufwand beeinflusst?
-
-Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglichkeit der Flächen ab.
-
-### Wo finde ich passende Planungsinformationen?
-
-Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.
-<!-- FAQ_SYNC:END -->

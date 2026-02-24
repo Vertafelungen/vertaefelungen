@@ -3,7 +3,7 @@ title: Ventilation Rosette 3
 lang: en
 translationKey: '60'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '60'
   artikelnummer: '60'
@@ -17,6 +17,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 60-blr3
+aliases: []
 ---
 ## Quick answer
 

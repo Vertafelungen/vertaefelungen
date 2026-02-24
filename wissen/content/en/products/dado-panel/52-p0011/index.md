@@ -3,7 +3,7 @@ title: P0011 - Weimar - Goethe's house am Frauenplan
 lang: en
 translationKey: '52'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '52'
   artikelnummer: '52'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 52-p0011
+aliases: []
 ---
 Goethe's home in Weimar is a successful blend of classicist bourgeoisie and simple farmhouse.

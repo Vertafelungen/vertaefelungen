@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/leinoel-tung/61-loen/
+- /de/produktinfo/public/oele-farben/leinoel-tung/61-loen/
 title: Reines Leinöl, ohne Sikkativ
 translationKey: '61'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '61'
   artikelnummer: '61'
@@ -27,6 +27,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 61-loen
 ---
 Gereinigtes Leinöl mit niedrigem Säuregehalt, frei von Schweb- und Schleimstoffen, ohne Sikkativ.
 Zur ersten Grundierung von rohem Holz. Reines Leinöl hat durch die sehr langsame Trocknung eine sehr hohe Eindringtiefe von bis zu 10 mm.

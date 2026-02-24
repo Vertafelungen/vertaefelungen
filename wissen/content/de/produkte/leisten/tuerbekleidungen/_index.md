@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: de
 translationKey: door-architraves
+slug: tuerbekleidungen
 title: Türbekleidungen
 description: 'Türbekleidungen (Türrahmen- und Bekleidungsprofile) für historische Innenräume: saubere Fassung von Türen und Durchgängen, mit Varianten, Maßen und Bildmaterial.'
 weight: 20

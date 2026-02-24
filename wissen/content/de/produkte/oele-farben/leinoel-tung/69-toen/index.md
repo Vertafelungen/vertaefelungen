@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/leinoel-tung/69-toen/
+- /de/produktinfo/public/oele-farben/leinoel-tung/69-toen/
 title: Tungöl natur
 translationKey: '69'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '69'
   artikelnummer: '69'
@@ -25,6 +25,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 69-toen
 ---
 Tungöl Natur, ohne Sikkativ. Es polymerisiert ähnlich wie Leinöl, trocknet jedoch schneller und bildet eine harte, matte Oberfläche. Wird Holz ausschließlich mit Tungöl Natur behandelt, bleibt die natürliche Holzfarbe im Wesentlichen erhalten. Es eignet sich sehr gut zur Imprägnierung von Hartholz und ist als Oberflächenanstrich auf Leinölanstrichen geeignet. Es kann in Innen- und Außenbereichen eingesetzt werden.
 

@@ -3,7 +3,7 @@ title: Door Frame 06
 lang: en
 translationKey: '114'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '114'
   artikelnummer: '114'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 114-tr06
+aliases: []
 ---
 Door and window frame TR 06, dimensions: 115 x 26 mm

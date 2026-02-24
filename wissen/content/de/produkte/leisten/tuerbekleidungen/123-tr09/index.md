@@ -1,12 +1,12 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/leisten/tuerbekleidungen/123-tr09/
+- /de/produktinfo/public/leisten/tuerbekleidungen/123-tr09/
 title: Türbekleidung 09
 description: 'Tür- und Fensterrahmen TR09: Auswahlhilfe, Planungsablauf, Kostenlogik, typische Fehler und saubere Anschlüsse im Innenausbau.'
 lastmod: '2026-02-14T08:56:10+01:00'
 translationKey: '123'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '123'
   artikelnummer: '123'
@@ -25,6 +25,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 123-tr09
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 09, Maße: 115 x 26 mm

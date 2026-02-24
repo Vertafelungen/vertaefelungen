@@ -3,7 +3,7 @@ title: Tung oil varnish
 lang: en
 translationKey: '65'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '65'
   artikelnummer: '65'
@@ -25,6 +25,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 65-toel
+aliases: []
 ---
 Tung oil boiled with linseed oil, linseed oil stand oil and siccatives.
 

@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/en/products/public/dado-panel/33-p0006/
+- /en/products/public/dado-panel/33-p0006/
 title: P0006 - Leipzig - Ludwigstraße
 translationKey: '33'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '33'
   artikelnummer: '33'
@@ -23,5 +23,6 @@ seo:
 refs:
   source_shop: ''
 lang: en
+slug: 33-p0006
 ---
 This panelling from a house entrance in Leipzig's Ludwigstraße (Volkmarsdorf) dates from the construction period of the building in 1884 and is therefore around 140 years old. This time spans 6 generations.

@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/leinoel-tung/63-btoe/
+- /de/produktinfo/public/oele-farben/leinoel-tung/63-btoe/
 title: Balsamterpentinöl
 translationKey: '63'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '63'
   artikelnummer: '63'
@@ -23,6 +23,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 63-btoe
 ---
 Balsamterpentinöl ist ein natürliches Lösungsmittel, dass durch mehrmalige Destillation (Rekifizierung) von Nadelholzharzen gewonnen wird.
 Leinölfirnis kann mit Balsamterpentinöl im Verhältnis 1:1 zu Halböl verdünnt werden. Die schnelltrocknende Firnis kann so tiefer in das Holz einziehen.

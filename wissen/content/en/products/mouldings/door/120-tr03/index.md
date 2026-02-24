@@ -3,7 +3,7 @@ title: Door Frame 03
 lang: en
 translationKey: '120'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '120'
   artikelnummer: '120'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 120-tr03
+aliases: []
 ---
 Door and window frame TR 03, dimensions: 160 X 42 mm

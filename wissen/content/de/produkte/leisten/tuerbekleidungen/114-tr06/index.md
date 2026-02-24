@@ -1,12 +1,12 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/leisten/tuerbekleidungen/114-tr06/
+- /de/produktinfo/public/leisten/tuerbekleidungen/114-tr06/
 title: Türbekleidung 06
 description: 'Tür- und Fensterrahmen TR06: Auswahlhilfe, Planungsablauf, Kostenlogik, typische Fehler und saubere Anschlüsse im Innenausbau.'
 lastmod: '2026-02-14T08:56:10+01:00'
 translationKey: '114'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '114'
   artikelnummer: '114'
@@ -25,5 +25,6 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 114-tr06
 ---
 Tür- und Fensterrahmen TR 06, Maße: 115 x 26 mm

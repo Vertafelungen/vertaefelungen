@@ -3,7 +3,7 @@ title: BEECK Undercoat PRO
 lang: en
 translationKey: '109'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '109'
   artikelnummer: '109'
@@ -23,6 +23,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 109-vsfp
+aliases: []
 ---
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.

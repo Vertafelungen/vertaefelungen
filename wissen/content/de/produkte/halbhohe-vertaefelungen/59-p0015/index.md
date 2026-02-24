@@ -3,7 +3,7 @@ title: P0015 - Berlin - Alte Nationalgalerie
 lang: de
 translationKey: '59'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '59'
   artikelnummer: '59'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 59-p0015
+aliases: []
 ---
 Ein gutes Beispiel für eine flache Vertäfelung, die für klare Strukturen sorgt und die ausgestellten Bilder in den Fokus rückt. Der Bereich wirkt wie eine flache Balustrade mit viel Platz, um Bilder in unterschiedlichen Formaten auf Augenhöhe zu hängen.

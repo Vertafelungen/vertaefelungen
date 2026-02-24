@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: en
 translationKey: mouldings-root
+slug: mouldings
 title: Mouldings
 description: 'Mouldings for historically informed interiors: wall mouldings, door surrounds/architraves and skirting boards - reconstructed from references or supplied as compatible standard profiles.'
 weight: 30

@@ -3,7 +3,7 @@ title: Wall Moulding 04
 lang: en
 translationKey: '79'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '79'
   artikelnummer: '79'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 79-wl04
+aliases: []
 ---
 ## Quick answer
 

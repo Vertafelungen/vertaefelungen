@@ -3,7 +3,7 @@ title: Türbekleidung 03
 description: Tür- und Fensterrahmen TR03 (102 × 18 mm). Rahmenleiste für Türen/Fenster; Auswahl- und Montagehinweise, Fugenlogik und Kombinationen mit Sockelleisten.
 lastmod: '2026-02-13T09:56:16+01:00'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 translationKey: '120'
 seo:
   title: 'tr03 - Tür- und Fensterrahmen TR 03, Maße: 160 X'
@@ -23,5 +23,7 @@ produkt:
 refs:
   source_shop: ''
 lang: de
+slug: 120-tr03
+aliases: []
 ---
 Tür- und Fensterrahmen TR 03, Maße: 160 X 42 mm

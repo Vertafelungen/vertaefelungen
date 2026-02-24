@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: en
 translationKey: ventilation-rosettes
+slug: rosettes
 title: Ventilation Rosettes
 description: 'Ventilation rosettes for historically informed interiors: decorative covers for ventilation openings (e.g. wall/door ventilation), designed to match classic mouldings and panelling systems.'
 weight: 50

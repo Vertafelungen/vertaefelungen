@@ -19,15 +19,15 @@ url: "/de/info/"
 
 ### Brauche ich zwingend exakte Maße?
 
-Für eine erste Orientierung reichen oft **Fotos + grobe Maße**. Für eine belastbare Planung sind **Raumhöhen, Brüstungshöhen, Leibungstiefen und Wandlängen** entscheidend. Details dazu stehen in **[Planung & Bestellung](/wissen/de/info/beratung/)**.
+Für eine erste Orientierung reichen oft **Fotos + grobe Maße**. Für eine belastbare Planung sind **Raumhöhen, Brüstungshöhen, Leibungstiefen und Wandlängen** entscheidend. Details dazu stehen in **[Planung & Bestellung](/de/info/beratung/)**.
 
-### Ist das „Standardware“ oder individuell?
+### Ist das "Standardware" oder individuell?
 
 Beides ist möglich: Von **standardisierten Leistenprofilen** bis zur **rekonstruierten Vertäfelung nach historischem Vorbild**. Das Wissen führt dich zur passenden Kategorie; Varianten/Preise liegen im Shop.
 
 ### Wann lohnt sich eine Visualisierung?
 
-Wenn Proportion, Profilwirkung und Anschlussdetails noch unklar sind – insbesondere bei historischen Interieurs oder schwierigen Bestandswänden. Die Visualisierung wird in den Angebotsprozess integriert (siehe **[Planung & Bestellung](/wissen/de/info/beratung/)**).
+Wenn Proportion, Profilwirkung und Anschlussdetails noch unklar sind – insbesondere bei historischen Interieurs oder schwierigen Bestandswänden. Die Visualisierung wird in den Angebotsprozess integriert (siehe **[Planung & Bestellung](/de/info/beratung/)**).
 
 ### Wie läuft die Montage typischerweise?
 

@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/94-weiss/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-v/94-weiss/
 title: Weiß - BEECK Standölinnenfarbe PRO
 translationKey: '94'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '94'
   artikelnummer: '94'
@@ -31,6 +31,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 94-weiss
 ---
 BEECK Standölinnenfarbe PRO
 Volltonfarbe, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.

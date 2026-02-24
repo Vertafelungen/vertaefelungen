@@ -3,7 +3,7 @@ title: Wall Moulding 05
 lang: en
 translationKey: '80'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '80'
   artikelnummer: '80'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 80-wl05
+aliases: []
 ---
 ## Quick answer
 

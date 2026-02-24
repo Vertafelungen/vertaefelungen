@@ -6,7 +6,7 @@ version: '2026-01-28T08:30:00+01:00'
 lang: de
 translationKey: '52'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '52'
   artikelnummer: '52'
@@ -24,5 +24,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 52-p0011
+aliases: []
 ---
 Goethes Wohnhaus in Weimar ist eine gelungene Mischung aus Klassizistischen Bürgertum und einfachem Bauerhaus.

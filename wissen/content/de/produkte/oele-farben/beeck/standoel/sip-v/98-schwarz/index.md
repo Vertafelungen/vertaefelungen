@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/98-schwarz/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-v/98-schwarz/
 title: Schwarz - BEECK Standölinnenfarbe PRO
 translationKey: '98'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '98'
   artikelnummer: '98'
@@ -31,6 +31,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 98-schwarz
 ---
 BEECK Standölinnenfarbe PRO
 Volltonfarbe, deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.

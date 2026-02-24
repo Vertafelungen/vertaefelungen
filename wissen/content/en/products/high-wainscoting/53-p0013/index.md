@@ -3,7 +3,7 @@ title: P0013 - Berlin - Mommsenstr.
 lang: en
 translationKey: '53'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '53'
   artikelnummer: '53'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 53-p0013
+aliases: []
 ---
 ## Quick answer
 

@@ -1,11 +1,11 @@
 ---
 aliases:
-- /wissen/en/products/public/dado-panel/31-p0004/
-- /wissen/en/products/dado-panel/31-p0005/
+- /en/products/public/dado-panel/31-p0004/
+- /en/products/dado-panel/31-p0005/
 title: P0004 - Berlin - Sophienstraße
 translationKey: '31'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '31'
   artikelnummer: '31'
@@ -24,6 +24,7 @@ seo:
 refs:
   source_shop: ''
 lang: en
+slug: 31-p0004
 ---
 ## Quick answer
 

@@ -3,7 +3,7 @@ title: Door Frame 01 / 160
 lang: en
 translationKey: '116'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '116'
   artikelnummer: TR01-160
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 116-tr01-160
+aliases: []
 ---
 Door and window frame TR 01 / 160, dimensions: 160 x 24 mm

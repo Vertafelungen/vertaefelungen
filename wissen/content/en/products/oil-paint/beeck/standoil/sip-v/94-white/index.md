@@ -3,7 +3,7 @@ title: White - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '94'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '94'
   artikelnummer: '94'
@@ -29,6 +29,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 94-white
+aliases: []
 ---
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.

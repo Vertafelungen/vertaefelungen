@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: de
 translationKey: dado-panel
+slug: halbhohe-vertaefelungen
 title: Halbhohe Vertäfelungen
 description: Halbhohe Vertäfelungen (Lambris bis ca. Brüstungshöhe) nach historischen Vorbildern - flexibel kombinierbar, ideal für Altbau-Räume und gut mit Farbkonzepten abstimmbar.
 weight: 10

@@ -3,7 +3,7 @@ title: Door Frame 17
 lang: en
 translationKey: '129'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '129'
   artikelnummer: '129'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 129-tr17
+aliases: []
 ---
 Door and window frame TR 17, dimensions: 164 x 58 mm

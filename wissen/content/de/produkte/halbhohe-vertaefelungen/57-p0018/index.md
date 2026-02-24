@@ -1,11 +1,11 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/halbhohe-vertaefelungen/57-p0018/
-- /wissen/de/produkte/hohe-vertaefelungen/57-p0014/
+- /de/produktinfo/public/halbhohe-vertaefelungen/57-p0018/
+- /de/produkte/hohe-vertaefelungen/57-p0014/
 title: P0018 - Berlin - Invalidenstraße
 translationKey: '57'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '57'
   artikelnummer: '57'
@@ -24,6 +24,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 57-p0018
 ---
 Vor 130 Jahren befand sich hier die Bäckerei Balzer. Alle Wände sind mit frischen Sommerblumenfliesen und schön profilierten Holzleisten verkleidet und die Brötchen dufteten bestimmt gleich doppelt so gut!
 Heute gibt´s hier Burger und die Kulisse, nun ja, wirkt etwas ungepflegt. Ich hoffe, dass der nächste Mieter mehr mit diesem Schatz anzufangen weiß.

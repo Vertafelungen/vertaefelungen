@@ -1,12 +1,12 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/leisten/tuerbekleidungen/115-tr07/
+- /de/produktinfo/public/leisten/tuerbekleidungen/115-tr07/
 title: Türbekleidung 07
 description: 'Tür- und Fensterrahmen TR07: Auswahlhilfe, Planungsablauf, Kostenlogik, typische Fehler und saubere Anschlüsse im Innenausbau.'
 lastmod: '2026-02-14T08:56:10+01:00'
 translationKey: '115'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '115'
   artikelnummer: '115'
@@ -25,6 +25,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 115-tr07
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 07, Maße: 143 x 31 mm

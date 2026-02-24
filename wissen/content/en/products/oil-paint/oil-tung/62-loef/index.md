@@ -3,7 +3,7 @@ title: Linseed Oil Varnish
 lang: en
 translationKey: '62'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '62'
   artikelnummer: '62'
@@ -25,6 +25,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 62-loef
+aliases: []
 ---
 Linseed oil varnish with siccatives.
 For interior use as a quick-drying finish with a drying time of up to 24 hours.

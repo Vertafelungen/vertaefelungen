@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/leinoel-tung/62-loef/
+- /de/produktinfo/public/oele-farben/leinoel-tung/62-loef/
 title: Leinölfirnis
 translationKey: '62'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '62'
   artikelnummer: '62'
@@ -27,6 +27,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 62-loef
 ---
 Leinölfirnis mit Sikkativen.
 Im Innenbereich als schnelltrocknende Endbehandlung mit einer Trocknungsdauer bis zu 24 Stunden.

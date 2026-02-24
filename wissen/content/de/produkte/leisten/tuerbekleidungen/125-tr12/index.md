@@ -1,12 +1,12 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/leisten/tuerbekleidungen/125-tr12/
+- /de/produktinfo/public/leisten/tuerbekleidungen/125-tr12/
 title: Türbekleidung 12
 description: 'Tür- und Fensterrahmen TR12: Auswahlhilfe, Planungsablauf, Kostenlogik, typische Fehler und saubere Anschlüsse im Innenausbau.'
 lastmod: '2026-02-14T08:56:10+01:00'
 translationKey: '125'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '125'
   artikelnummer: '125'
@@ -25,6 +25,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 125-tr12
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 12, Maße: 117 x 28 mm

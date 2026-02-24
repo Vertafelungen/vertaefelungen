@@ -3,7 +3,7 @@ title: P0003 - London - V&A - Morris Room
 lang: de
 translationKey: '27'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '27'
   artikelnummer: '27'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 27-p0003
+aliases: []
 ---
 ## Kurzantwort
 
@@ -54,27 +56,3 @@ Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetai
 - Planungshilfe: /de/beratung/planung
 - Montagehinweise: /de/beratung/montage
 - Passende Produktübersicht: /produkte/hohe-vertaefelungen
-
-<!-- FAQ_SYNC:BEGIN -->
-## Info
-
-### Wofür eignet sich dieses Produkt am besten?
-
-P0003 - London - V&A - Morris Room eignet sich für Innenräume mit klarer Gliederung, wenn eine hochwertige und ruhige Wandgestaltung gewünscht ist.
-
-### Welche Punkte sollten vor der Auswahl geprüft werden?
-
-Wichtig sind Untergrund, Anschlussdetails, Raumproportionen und die Abstimmung mit angrenzenden Bauteilen.
-
-### Wie läuft die Planung typischerweise ab?
-
-Der übliche Ablauf ist Aufmaß, Variantenabgleich, Detailklärung und danach die Freigabe für Fertigung bzw. Montage.
-
-### Wodurch wird der Aufwand beeinflusst?
-
-Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglichkeit der Flächen ab.
-
-### Wo finde ich passende Planungsinformationen?
-
-Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.
-<!-- FAQ_SYNC:END -->
