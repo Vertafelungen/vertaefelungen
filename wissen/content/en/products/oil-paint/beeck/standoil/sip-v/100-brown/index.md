@@ -3,7 +3,7 @@ title: Brown - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '100'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '100'
   artikelnummer: '100'
@@ -29,6 +29,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 100-brown
+aliases: []
 ---
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.

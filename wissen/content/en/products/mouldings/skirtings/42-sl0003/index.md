@@ -3,7 +3,7 @@ title: SL0003 - Kreuzberg skirting board 165/28
 lang: en
 translationKey: '42'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '42'
   artikelnummer: '42'
@@ -17,6 +17,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 42-sl0003
+aliases: []
 ---
 ## Quick answer
 

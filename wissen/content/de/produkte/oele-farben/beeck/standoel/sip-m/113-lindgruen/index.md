@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-m/113-lindgruen/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-m/113-lindgruen/
 title: Lindgrün - BEECK Standölinnenfarbe PRO
 translationKey: '113'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '113'
   artikelnummer: '113'
@@ -55,6 +55,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 113-lindgruen
 ---
 ## Kurzantwort
 
@@ -88,27 +89,3 @@ Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetai
 - Planungshilfe: /de/beratung/planung
 - Montagehinweise: /de/beratung/montage
 - Passende Produktübersicht: /produkte/oele-farben/beeck/standoel/sip-m
-
-<!-- FAQ_SYNC:BEGIN -->
-## Info
-
-### Wofür eignet sich dieses Produkt am besten?
-
-Lindgrün - BEECK Standölinnenfarbe PRO eignet sich für Innenräume mit klarer Gliederung, wenn eine hochwertige und ruhige Wandgestaltung gewünscht ist.
-
-### Welche Punkte sollten vor der Auswahl geprüft werden?
-
-Wichtig sind Untergrund, Anschlussdetails, Raumproportionen und die Abstimmung mit angrenzenden Bauteilen.
-
-### Wie läuft die Planung typischerweise ab?
-
-Der übliche Ablauf ist Aufmaß, Variantenabgleich, Detailklärung und danach die Freigabe für Fertigung bzw. Montage.
-
-### Wodurch wird der Aufwand beeinflusst?
-
-Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglichkeit der Flächen ab.
-
-### Wo finde ich passende Planungsinformationen?
-
-Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.
-<!-- FAQ_SYNC:END -->

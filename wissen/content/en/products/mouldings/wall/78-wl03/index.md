@@ -3,7 +3,7 @@ title: Wall Moulding 03
 lang: en
 translationKey: '78'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '78'
   artikelnummer: '78'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 78-wl03
+aliases: []
 ---
 ## Quick answer
 

@@ -3,7 +3,7 @@ title: Wall Moulding 12
 lang: en
 translationKey: '88'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '88'
   artikelnummer: '88'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 88-wl12
+aliases: []
 ---
 Profiled wooden strip 25 x 43 mm
 In pine or whitewood, other wood species available upon request

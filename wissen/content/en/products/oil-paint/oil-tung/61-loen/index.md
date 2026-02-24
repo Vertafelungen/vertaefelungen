@@ -3,7 +3,7 @@ title: Pur Linseed Oil
 lang: en
 translationKey: '61'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '61'
   artikelnummer: '61'
@@ -25,6 +25,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 61-loen
+aliases: []
 ---
 Purified linseed oil with low acid content, free from suspended matter and mucilage, without siccative.
 For initial priming of untreated wood. Pure linseed oil has a very high penetration depth of up to 10 mm due to the very slow drying process.

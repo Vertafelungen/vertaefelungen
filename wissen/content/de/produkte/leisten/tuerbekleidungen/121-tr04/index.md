@@ -3,7 +3,7 @@ title: Türbekleidung 04
 description: Tür- und Fensterrahmen TR04 (120 × 18 mm). Rahmenleiste für Türen/Fenster; Auswahl- und Montagehinweise, Fugenlogik und Kombinationen mit Sockelleisten.
 lastmod: '2026-02-13T09:56:16+01:00'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 translationKey: '121'
 seo:
   title: 'tr04 - Tür- und Fensterrahmen TR 04, Maße: 160 X'
@@ -23,5 +23,7 @@ produkt:
 refs:
   source_shop: ''
 lang: de
+slug: 121-tr04
+aliases: []
 ---
 Tür- und Fensterrahmen TR 04, Maße: 160 X 34 mm

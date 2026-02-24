@@ -3,7 +3,7 @@ title: Door Frame 07
 lang: en
 translationKey: '115'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '115'
   artikelnummer: '115'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 115-tr07
+aliases: []
 ---
 Door and window frame TR 07, dimensions: 143 x 31 mm

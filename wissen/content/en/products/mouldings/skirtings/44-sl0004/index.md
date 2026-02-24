@@ -3,7 +3,7 @@ title: SL0004 - 2-piece high skirting board 175/45
 lang: en
 translationKey: '44'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '44'
   artikelnummer: '44'
@@ -17,6 +17,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 44-sl0004
+aliases: []
 ---
 ## Quick answer
 

@@ -3,7 +3,7 @@ title: Wall Moulding 10
 lang: en
 translationKey: '86'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '86'
   artikelnummer: '86'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 86-wl10
+aliases: []
 ---
 ## Quick answer
 

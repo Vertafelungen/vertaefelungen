@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/leisten/wandleisten/80-wl05/
+- /de/produktinfo/public/leisten/wandleisten/80-wl05/
 title: Wandleiste 05 „Hohe Welle"
 translationKey: '80'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '80'
   artikelnummer: '80'
@@ -23,6 +23,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 80-wl05
 ---
 ## Kurzantwort
 
@@ -57,27 +58,3 @@ Häufige Fehler sind uneinheitliche Felder, nicht abgestimmte Profilhöhen und z
 - /de/produkte/leisten/sockelleisten/
 - /de/produkte/leisten/tuerbekleidungen/
 - /de/info/beratung/
-
-<!-- FAQ_SYNC:BEGIN -->
-## Info
-
-### Wofür eignet sich dieses Wandleisten-Profil?
-
-Das Profil eignet sich für klassische Wandgliederungen in Wohnräumen, Fluren und Treppenhäusern. Entscheidend ist die abgestimmte Kombination mit Sockelleisten und Türbekleidungen.
-
-### Kann ich das Profil in Altbauwänden mit Unebenheiten einsetzen?
-
-Ja, sofern das Felderraster vorab sauber geplant und der Untergrund vorbereitet wird. Bei stärkeren Unebenheiten helfen Probemontagen an kritischen Bereichen.
-
-### Wie kombiniere ich die Leiste mit anderen Profilen?
-
-Am besten wird zuerst das Türdetail definiert, danach werden Sockel- und Wandleisten auf dieses Referenzdetail abgestimmt.
-
-### Welche Fehler passieren bei der Montage am häufigsten?
-
-Typisch sind unklare Bezugshöhen, unstimmige Feldbreiten und unsaubere Gehrungen. Ein verbindlicher Verlegeplan reduziert Nacharbeit.
-
-### Brauche ich vorab eine vollständige Raumplanung?
-
-Für belastbare Ergebnisse ja: Höhenbezüge, Türpositionen und Anschlussdetails sollten vor der Fertigung feststehen.
-<!-- FAQ_SYNC:END -->

@@ -3,7 +3,7 @@ title: Door Frame 18
 lang: en
 translationKey: '130'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '130'
   artikelnummer: '130'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 130-tr18
+aliases: []
 ---
 Door and window frame TR 18, dimensions: 150 x 40 mm

@@ -3,7 +3,7 @@ title: Door Frame 04
 lang: en
 translationKey: '121'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '121'
   artikelnummer: '121'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 121-tr04
+aliases: []
 ---
 Door and window frame TR 04, dimensions: 160 X 34 mm

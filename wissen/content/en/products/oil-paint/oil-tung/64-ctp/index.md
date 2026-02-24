@@ -3,7 +3,7 @@ title: Citrus terpene
 lang: en
 translationKey: '64'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '64'
   artikelnummer: '64'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 64-ctp
+aliases: []
 ---
 Like balsamic turpentine oil, citrus terpenes can be used to dilute colours and dissolve resins. Citrus terpene has a pleasant orange odour as it is obtained from the distillation of orange peel. It is also particularly suitable for ecological wood coatings. It is absolutely CO2 neutral, as it only releases as much CO2 as it has absorbed during growth.

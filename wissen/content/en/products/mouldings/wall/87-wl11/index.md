@@ -3,7 +3,7 @@ title: Wall Moulding 11
 lang: en
 translationKey: '87'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '87'
   artikelnummer: '87'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 87-wl11
+aliases: []
 ---
 Profiled wooden strip 32 x 47 mm
 In pine or whitewood, other wood species available upon request

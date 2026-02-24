@@ -3,7 +3,7 @@ title: Door Frame 13
 lang: en
 translationKey: '126'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '126'
   artikelnummer: '126'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 126-tr13
+aliases: []
 ---
 Door and window frame TR 13, dimensions: 103 x 23 mm

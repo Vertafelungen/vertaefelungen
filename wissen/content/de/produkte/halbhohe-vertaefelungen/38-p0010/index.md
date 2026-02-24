@@ -3,7 +3,7 @@ title: P0010 - Rom - Petersdom - Balustrade am Petrusgrab
 lang: de
 translationKey: '38'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '38'
   artikelnummer: '38'
@@ -23,6 +23,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 38-p0010
+aliases: []
 ---
 Die Balustrade, die wir als Vorlage für dieses neue Vertäfelung genommen haben, befindet sich im Zentrum des Petersdoms, direkt vor Berninis Ziborium. Sie umgibt den Treppenabgang zur Vatikanischen Nekropole, in der sich das Grab Petrus befindet.
 Bei Höhe, Form und Proportionen halten wir uns genau an das Original. Die Farbigkeit der unterschiedlichen Marmorarten können wir auch durch die Verwendung unterschiedlicher Holzarten nachstellen.

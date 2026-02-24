@@ -3,7 +3,7 @@ title: Ventilation Rosette 2
 lang: en
 translationKey: '72'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '72'
   artikelnummer: '72'
@@ -17,6 +17,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 72-blr2
+aliases: []
 ---
 Elegant ventilation rosette based on the original design.
 Cast brass, polished

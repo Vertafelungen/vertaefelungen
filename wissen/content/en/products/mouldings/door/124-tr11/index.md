@@ -3,7 +3,7 @@ title: Door Frame 11
 lang: en
 translationKey: '124'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '124'
   artikelnummer: '124'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 124-tr11
+aliases: []
 ---
 Door and window frame TR 11, dimensions: 118 x 23 mm

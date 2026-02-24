@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/lueftungsrosetten/72-blr2/
+- /de/produktinfo/public/lueftungsrosetten/72-blr2/
 title: Lüftungsrosette 2
 translationKey: '72'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '72'
   artikelnummer: '72'
@@ -19,6 +19,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 72-blr2
 ---
 Lüftungsrosette für Vertäfelungen, nach Originalvorlage nachgegossen.
 Messingguss, poliert

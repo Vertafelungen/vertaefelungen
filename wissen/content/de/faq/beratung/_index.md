@@ -48,6 +48,6 @@ Orientierung → (optional) Planung/Visualisierung → Angebot → Annahme mit 5
 
 Ein einfacher Grundriss, vermaßte Fensterbrüstungen/Türhöhen sowie Fotos mit Maßstab.
 
-### Gibt es typische No-Go’s?
+### Gibt es typische No-Go's?
 
 Aktive Feuchte-/Salzprobleme im Mauerwerk: erst bautechnisch lösen, dann Holzsysteme planen.

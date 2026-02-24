@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: de
 translationKey: mouldings-root
+slug: leisten
 title: Leisten
 description: 'Leisten für historische Innenräume: Wandleisten, Türrahmen/Türbekleidungen und Sockelleisten - als rekonstruierte Profile nach Vorbildern oder als kompatible Standardprofile.'
 weight: 30

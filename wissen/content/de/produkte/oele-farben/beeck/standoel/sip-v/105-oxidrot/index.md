@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/105-oxidrot/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-v/105-oxidrot/
 title: Oxidrot - BEECK Standölinnenfarbe PRO
 translationKey: '105'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '105'
   artikelnummer: '105'
@@ -31,6 +31,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 105-oxidrot
 ---
 BEECK Standölinnenfarbe PRO
 Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.

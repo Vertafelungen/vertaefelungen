@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/104-ocker/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-v/104-ocker/
 title: Ockergelb - BEECK Standölinnenfarbe PRO
 translationKey: '104'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '104'
   artikelnummer: '104'
@@ -31,6 +31,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 104-ocker
 ---
 BEECK Standölinnenfarbe PRO
 Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.

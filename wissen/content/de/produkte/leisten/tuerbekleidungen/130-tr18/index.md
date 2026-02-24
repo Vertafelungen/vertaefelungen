@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/leisten/tuerbekleidungen/130-tr18/
+- /de/produktinfo/public/leisten/tuerbekleidungen/130-tr18/
 title: Türbekleidung 18
 translationKey: '130'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '130'
   artikelnummer: '130'
@@ -23,6 +23,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 130-tr18
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 18, Maße: 150 x 40 mm

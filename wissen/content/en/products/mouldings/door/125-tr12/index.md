@@ -3,7 +3,7 @@ title: Door Frame 12
 lang: en
 translationKey: '125'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '125'
   artikelnummer: '125'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 125-tr12
+aliases: []
 ---
 Door and window frame TR 12, dimensions: 117 x 28 mm

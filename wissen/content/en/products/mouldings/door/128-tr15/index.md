@@ -3,7 +3,7 @@ title: Door Frame 15
 lang: en
 translationKey: '128'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '128'
   artikelnummer: '128'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 128-tr15
+aliases: []
 ---
 Door and window frame TR 15, dimensions: 117 x 19 mm

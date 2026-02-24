@@ -3,7 +3,7 @@ title: Wall Moulding 13
 lang: en
 translationKey: '89'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '89'
   artikelnummer: '89'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 89-wl13
+aliases: []
 ---
 Profiled wooden strip 8 x 35 mm
 In pine or whitewood, other wood species available upon request

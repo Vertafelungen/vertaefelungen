@@ -1,26 +1,24 @@
 #!/usr/bin/env python3
+"""Version: 2026-02-24 10:30 Europe/Berlin"""
 from __future__ import annotations
 
 import os
 import re
 import sys
-import tomllib
+try:
+    import tomllib
+except ModuleNotFoundError:  # py<3.11
+    import tomli as tomllib
 from html import unescape
 from pathlib import Path
 from typing import Iterable
 from urllib.parse import urlparse
 
-
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PUBLIC_DIR = ROOT / "public"
 DEFAULT_CONFIG = ROOT / "hugo.toml"
-DEFAULT_PAGES = [
-    "/wissen/de/faq/",
-    "/wissen/de/produkte/",
-    "/wissen/de/lookbook/",
-    "/wissen/en/faq/",
-    "/wissen/en/products/",
-]
+DEFAULT_CONTENT_DIR = ROOT / "content"
+LEGAL_PAGES = {"impressum", "privacy", "terms", "datenschutz", "agb", "widerruf", "imprint", "withdrawal"}
 
 
 def load_base_url() -> str:
@@ -33,11 +31,56 @@ def load_base_url() -> str:
     return ""
 
 
-def load_pages() -> list[str]:
+def discover_global_root(content_dir: Path) -> str:
+    if (content_dir / "de" / "faq").is_dir():
+        return "faq"
+    if DEFAULT_CONFIG.exists():
+        data = tomllib.loads(DEFAULT_CONFIG.read_text(encoding="utf-8"))
+        langs = data.get("languages", {})
+        roots = []
+        for lang in ("de", "en"):
+            perms = ((langs.get(lang) or {}).get("permalinks") or {})
+            for section in perms.keys():
+                if (content_dir / lang / str(section)).is_dir():
+                    roots.append(str(section))
+        uniq = sorted(set(roots))
+        if len(uniq) == 1:
+            return uniq[0]
+    return "faq"
+
+
+def discover_pages(public_dir: Path, content_dir: Path) -> list[str]:
+    pages: list[str] = []
+    faq_root = discover_global_root(content_dir)
+    for lang in ("de", "en"):
+        lang_pub = public_dir / lang
+        if not lang_pub.is_dir():
+            continue
+        products = "produkte" if lang == "de" else "products"
+        for section in (products, "lookbook", faq_root):
+            if (lang_pub / section / "index.html").exists():
+                pages.append(f"/{lang}/{section}/")
+
+        if not any(p.startswith(f"/{lang}/") and p.rstrip("/").endswith(f"/{faq_root}") for p in pages):
+            candidates = []
+            for d in sorted(lang_pub.iterdir()):
+                if not d.is_dir() or d.name in LEGAL_PAGES:
+                    continue
+                if not (d / "index.html").exists():
+                    continue
+                if not (content_dir / lang / d.name).is_dir():
+                    continue
+                candidates.append(d.name)
+            if len(candidates) == 1:
+                pages.append(f"/{lang}/{candidates[0]}/")
+    return pages
+
+
+def load_pages(public_dir: Path, content_dir: Path) -> list[str]:
     env_pages = os.environ.get("HUGO_SEO_CHECK_PAGES")
     if env_pages:
         return [p.strip() for p in env_pages.split(",") if p.strip()]
-    return DEFAULT_PAGES
+    return discover_pages(public_dir, content_dir)
 
 
 def html_links(html: str, rel: str) -> list[str]:
@@ -79,7 +122,7 @@ def candidate_paths(base_url: str, url: str) -> Iterable[Path]:
 
     path_variants = [url_path]
     if base_path and url_path.startswith(base_path + "/"):
-        path_variants.append(url_path[len(base_path) :])
+        path_variants.append(url_path[len(base_path):])
 
     for variant in path_variants:
         relative = variant.lstrip("/")
@@ -98,8 +141,9 @@ def assert_exists(public_dir: Path, url: str, base_url: str) -> None:
 
 def main() -> int:
     public_dir = Path(os.environ.get("HUGO_PUBLIC_DIR", DEFAULT_PUBLIC_DIR)).resolve()
+    content_dir = Path(os.environ.get("HUGO_CONTENT_DIR", DEFAULT_CONTENT_DIR)).resolve()
     base_url = load_base_url()
-    pages = load_pages()
+    pages = load_pages(public_dir, content_dir)
 
     if not public_dir.exists():
         print(f"Public directory not found: {public_dir}", file=sys.stderr)

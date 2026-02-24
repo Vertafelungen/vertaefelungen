@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/101-gruen/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-v/101-gruen/
 title: Grün - BEECK Standölinnenfarbe PRO
 translationKey: '101'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '101'
   artikelnummer: '101'
@@ -31,6 +31,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 101-gruen
 ---
 BEECK Standölinnenfarbe PRO
 Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.

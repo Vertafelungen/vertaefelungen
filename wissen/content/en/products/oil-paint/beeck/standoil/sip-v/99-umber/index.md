@@ -3,7 +3,7 @@ title: Umber - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '99'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '99'
   artikelnummer: '99'
@@ -29,6 +29,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 99-umber
+aliases: []
 ---
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.

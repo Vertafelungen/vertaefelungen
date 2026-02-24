@@ -3,7 +3,7 @@ title: Lemon Yellow - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '102'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '102'
   artikelnummer: '102'
@@ -29,6 +29,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 102-lemon-yellow
+aliases: []
 ---
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.

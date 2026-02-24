@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: en
 translationKey: oil-paints-root
+slug: oil-paint
 title: Oils & Paints
 description: Oils, paints and finishing systems for historic wood surfaces - focused on compatible materials, craft application and heritage contexts.
 weight: 40

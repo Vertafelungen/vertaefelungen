@@ -3,7 +3,7 @@ title: Wandleiste 14
 lang: de
 translationKey: '90'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '90'
   artikelnummer: '90'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 90-wl14
+aliases: []
 ---
 Profilierte Holzleiste 21 x 60 mm
 In Kiefer oder White Wood, andere Holzarten aus Anfrage

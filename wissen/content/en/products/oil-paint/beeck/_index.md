@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: en
 translationKey: beeck-stand-oil-paints
+slug: beeck
 title: Beeck Stand Oil Paints
 description: Stand-oil-based interior paints and system components by BEECK - durable, vapour-open oil paint finishes for wood surfaces and period interiors.
 weight: 20

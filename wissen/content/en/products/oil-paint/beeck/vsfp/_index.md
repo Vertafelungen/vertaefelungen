@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: en
 translationKey: beeck-primer-pro
+slug: vsfp
 title: Primer Coat PRO
 description: 'System component as primer/undercoat: improves adhesion, levelling and the subsequent stand-oil paint build-up (BEECK PRO system).'
 weight: 30

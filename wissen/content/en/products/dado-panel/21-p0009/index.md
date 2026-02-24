@@ -3,7 +3,7 @@ title: P0009 - Board & Batten
 lang: en
 translationKey: '21'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '21'
   artikelnummer: '21'
@@ -57,6 +57,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 21-p0009
+aliases: []
 ---
 ## Quick answer
 

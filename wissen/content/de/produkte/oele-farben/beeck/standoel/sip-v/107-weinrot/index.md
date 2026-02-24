@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/107-weinrot/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-v/107-weinrot/
 title: Weinrot - BEECK Standölinnenfarbe PRO
 translationKey: '107'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '107'
   artikelnummer: '107'
@@ -31,6 +31,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 107-weinrot
 ---
 BEECK Standölinnenfarbe PRO
 Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.

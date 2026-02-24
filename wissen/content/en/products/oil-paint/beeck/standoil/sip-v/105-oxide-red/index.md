@@ -1,11 +1,11 @@
 ---
 aliases:
-- /wissen/en/products/oil-paint/beeck/standoil/sip-v/105-oxid-red/
+- /en/products/oil-paint/beeck/standoil/sip-v/105-oxid-red/
 title: Oxide Red - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '105'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '105'
   artikelnummer: '105'
@@ -31,6 +31,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 105-oxide-red
 ---
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.

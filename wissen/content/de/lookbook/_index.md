@@ -15,7 +15,7 @@ menu:
 
 Das Lookbook zeigt Beispiele und Referenzen, um Stil, Proportion und Systemlogik schneller einordnen zu können. Es ersetzt keine Planung – hilft aber, **die richtige Richtung** zu finden.
 
-Wenn du direkt in die Umsetzung willst: **[Planung & Bestellung](/wissen/de/info/beratung/)**.
+Wenn du direkt in die Umsetzung willst: **[Planung & Bestellung](/de/info/beratung/)**.
 
 ## Wofür das Lookbook nützlich ist
 
@@ -33,10 +33,10 @@ Wenn du direkt in die Umsetzung willst: **[Planung & Bestellung](/wissen/de/info
 
 ## Verweise
 
-- Einstieg in Kategorien: **[Produkte](/wissen/de/produkte/)**
-- halbhoch: **[Halbhohe Vertäfelungen](/wissen/de/produkte/halbhohe-vertaefelungen/)**
-- hoch: **[Hohe Vertäfelungen](/wissen/de/produkte/hohe-vertaefelungen/)**
-- Komponenten: **[Leisten](/wissen/de/produkte/leisten/)**
+- Einstieg in Kategorien: **[Produkte](/de/produkte/)**
+- halbhoch: **[Halbhohe Vertäfelungen](/de/produkte/halbhohe-vertaefelungen/)**
+- hoch: **[Hohe Vertäfelungen](/de/produkte/hohe-vertaefelungen/)**
+- Komponenten: **[Leisten](/de/produkte/leisten/)**
 
 ## Nächster Schritt
 
@@ -45,4 +45,4 @@ Wenn du aus dem Lookbook eine Richtung ableiten willst, schicke:
 - Raumhöhe + 2–3 Fotos je Wand
 - Info: halbhoch/hoch/Leisten
 
-Dann lässt sich die Systemlogik zügig sauber aufsetzen: **[Planung & Bestellung](/wissen/de/info/beratung/)**.
+Dann lässt sich die Systemlogik zügig sauber aufsetzen: **[Planung & Bestellung](/de/info/beratung/)**.

@@ -1,10 +1,11 @@
 ---
-version: 2026-02-23 17:18 UTC
+version: 2026-02-24 05:33 UTC
 managed_by: categories.csv
-last_synced: 2026-02-23 17:18 UTC
-lastmod: 2026-02-23 17:18 UTC
+last_synced: 2026-02-24 05:33 UTC
+lastmod: 2026-02-24 05:33 UTC
 lang: en
 translationKey: skirting-boards
+slug: skirtings
 title: Skirting Boards
 description: 'Skirting boards as historically compatible profiles: floor-level termination, wall protection and a proportional design element - suitable for period interiors.'
 weight: 30

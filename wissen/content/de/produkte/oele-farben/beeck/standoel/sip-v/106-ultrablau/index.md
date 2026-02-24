@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/106-ultrablau/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-v/106-ultrablau/
 title: Ultrablau - BEECK Standölinnenfarbe PRO
 translationKey: '106'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '106'
   artikelnummer: '106'
@@ -31,6 +31,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 106-ultrablau
 ---
 BEECK Standölinnenfarbe PRO
 Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.

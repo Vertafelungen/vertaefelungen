@@ -1,12 +1,12 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/leisten/tuerbekleidungen/128-tr15/
+- /de/produktinfo/public/leisten/tuerbekleidungen/128-tr15/
 title: Türbekleidung 15
 description: 'Tür- und Fensterrahmen TR15: Auswahlhilfe, Planungsablauf, Kostenlogik, typische Fehler und saubere Anschlüsse im Innenausbau.'
 lastmod: '2026-02-14T08:56:10+01:00'
 translationKey: '128'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '128'
   artikelnummer: '128'
@@ -25,6 +25,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 128-tr15
 ---
 Tür- und Fensterrahmen nach Originalvorlage
 TR 15, Maße: 117 x 19 mm

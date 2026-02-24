@@ -3,7 +3,7 @@ title: SL0007 - Munich - Augustiner Brewery Motherhouse
 lang: en
 translationKey: '26'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '26'
   artikelnummer: '26'
@@ -21,6 +21,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 26-sl0007
+aliases: []
 ---
 ## Quick answer
 

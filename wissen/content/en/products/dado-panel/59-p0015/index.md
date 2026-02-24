@@ -3,7 +3,7 @@ title: P0015 - Berlin - Alte Nationalgalerie
 lang: en
 translationKey: '59'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '59'
   artikelnummer: '59'
@@ -21,5 +21,7 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 59-p0015
+aliases: []
 ---
 A good example of panelling that provides clear structures and puts the pictures on display centre stage. The surface looks like a flat balustrade with plenty of space at the top to hang pictures in different formats at eye level.

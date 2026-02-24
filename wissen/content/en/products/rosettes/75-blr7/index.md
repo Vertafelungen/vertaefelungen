@@ -3,7 +3,7 @@ title: Ventilation Rosette 7
 lang: en
 translationKey: '75'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '75'
   artikelnummer: '75'
@@ -17,6 +17,8 @@ seo:
   tags: []
 refs:
   source_shop: ''
+slug: 75-blr7
+aliases: []
 ---
 Elegant ventilation rosette based on an original design.
 Cast brass, polished

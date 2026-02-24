@@ -1,10 +1,10 @@
 ---
 aliases:
-- /wissen/de/produktinfo/public/oele-farben/beeck/standoel/sip-v/102-zitronengelb/
+- /de/produktinfo/public/oele-farben/beeck/standoel/sip-v/102-zitronengelb/
 title: Zitronengelb - BEECK Standölinnenfarbe PRO
 translationKey: '102'
 managed_by: ssot-sync
-last_synced: '2026-02-23'
+last_synced: '2026-02-24'
 produkt:
   id: '102'
   artikelnummer: '102'
@@ -31,6 +31,7 @@ seo:
 refs:
   source_shop: ''
 lang: de
+slug: 102-zitronengelb
 ---
 BEECK Standölinnenfarbe PRO
 Deckend pigmentiert, für Schlusslackierungen auf Holz im Innenbereich, Glanzgrad: seidenmatt oder seidenglanz.
