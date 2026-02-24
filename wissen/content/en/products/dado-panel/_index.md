@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:33 UTC
+version: 2026-02-24 05:42 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:33 UTC
-lastmod: 2026-02-24 05:33 UTC
+last_synced: 2026-02-24 05:42 UTC
+lastmod: 2026-02-24 05:42 UTC
 lang: en
 translationKey: dado-panel
 slug: dado-panel

@@ -56,3 +56,27 @@ Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetai
 - Planungshilfe: /de/beratung/planung
 - Montagehinweise: /de/beratung/montage
 - Passende Produktübersicht: /produkte/hohe-vertaefelungen
+
+<!-- FAQ_SYNC:BEGIN -->
+## Info
+
+### Wofür eignet sich dieses Produkt am besten?
+
+P0002 - Hamburger Michel eignet sich für Innenräume mit klarer Gliederung, wenn eine hochwertige und ruhige Wandgestaltung gewünscht ist.
+
+### Welche Punkte sollten vor der Auswahl geprüft werden?
+
+Wichtig sind Untergrund, Anschlussdetails, Raumproportionen und die Abstimmung mit angrenzenden Bauteilen.
+
+### Wie läuft die Planung typischerweise ab?
+
+Der übliche Ablauf ist Aufmaß, Variantenabgleich, Detailklärung und danach die Freigabe für Fertigung bzw. Montage.
+
+### Wodurch wird der Aufwand beeinflusst?
+
+Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglichkeit der Flächen ab.
+
+### Wo finde ich passende Planungsinformationen?
+
+Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.
+<!-- FAQ_SYNC:END -->
