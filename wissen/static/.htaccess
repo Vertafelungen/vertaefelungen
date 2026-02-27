@@ -1,5 +1,10 @@
-# Version: 2026-01-23 00:00
-# Purpose: Force UTF-8 for /wissen to prevent mojibake (Ã¤/Ã¼/Ã¶)
+# PATH: wissen/static/.htaccess
+# Version: 2026-02-27 09:00 Europe/Berlin
+# Purpose:
+# - Ensure UTF-8 for /wissen to prevent mojibake.
+# - Canonical redirects for redundant URL paths.
+# - Canonical 301 redirect from legacy /faq/ URLs to new /info/ URLs (PR-4.3/4.2).
+# - Keep legacy redirects (consulting/style-guide) aligned to /info/.
 
 <IfModule mod_headers.c>
   Header set X-Wissen-Htaccess "active"
@@ -11,39 +16,47 @@ AddDefaultCharset UTF-8
   AddCharset UTF-8 .html .htm .css .js .json .xml .txt .svg
 </IfModule>
 
-# ---- existing rules below ----
-# legacy redirects ensured by prune PR #52
+<IfModule mod_rewrite.c>
+  RewriteEngine On
 
-RewriteEngine On
+  # IMPORTANT: Correct URL-base for per-dir rewrites in /wissen.
+  # Prevents accidental filesystem-path redirects.
+  RewriteBase /wissen/
 
-# --- PR-4.3: canonical redirects FAQ -> INFO (permalinks moved to /info/) ---
-RewriteRule ^de/faq/?$ de/info/ [R=301,L]
-RewriteRule ^de/faq/(.*)$ de/info/$1 [R=301,L]
-RewriteRule ^en/faq/?$ en/info/ [R=301,L]
-RewriteRule ^en/faq/(.*)$ en/info/$1 [R=301,L]
+  # --- Canonical redirects: FAQ -> INFO (handles with/without trailing slash) ---
+  RewriteRule ^de/faq/?$ /wissen/de/info/ [R=301,L]
+  RewriteRule ^de/faq/(.*)$ /wissen/de/info/$1 [R=301,L]
+  RewriteRule ^en/faq/?$ /wissen/en/info/ [R=301,L]
+  RewriteRule ^en/faq/(.*)$ /wissen/en/info/$1 [R=301,L]
 
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
+  # --- Legacy redirects (kept) now pointing to /info/ ---
+  RewriteRule ^en/consulting/?$ /wissen/en/info/consulting/ [R=301,L]
+  RewriteRule ^en/consulting/(.*)$ /wissen/en/info/consulting/$1 [R=301,L]
+  RewriteRule ^en/style-guide/?$ /wissen/en/info/style-guide/ [R=301,L]
+  RewriteRule ^en/style-guide/(.*)$ /wissen/en/info/style-guide/$1 [R=301,L]
 
-RewriteRule ^de/de/(.*)$ de/$1 [R=301,L]
-RewriteRule ^en/en/(.*)$ en/$1 [R=301,L]
-RewriteRule ^de/produkte/produkte/?$ de/produkte/ [R=301,L]
-RewriteRule ^de/produkte/produkte/(.*)$ de/produkte/$1 [R=301,L]
-RewriteRule ^en/products/products/?$ en/products/ [R=301,L]
-RewriteRule ^en/products/products/(.*)$ en/products/$1 [R=301,L]
+  # --- Canonicalize duplicate locale segments ---
+  RewriteRule ^de/de/(.*)$ /wissen/de/$1 [R=301,L]
+  RewriteRule ^en/en/(.*)$ /wissen/en/$1 [R=301,L]
 
-RewriteRule ^en/consulting/?$ en/info/consulting/ [R=301,L]
-RewriteRule ^en/consulting/(.*)$ en/info/consulting/$1 [R=301,L]
-RewriteRule ^en/style-guide/?$ en/info/style-guide/ [R=301,L]
-RewriteRule ^en/style-guide/(.*)$ en/info/style-guide/$1 [R=301,L]
+  # --- Canonicalize duplicate product segments (if any legacy URLs exist) ---
+  RewriteRule ^de/produkte/produkte/?$ /wissen/de/produkte/ [R=301,L]
+  RewriteRule ^de/produkte/produkte/(.*)$ /wissen/de/produkte/$1 [R=301,L]
+  RewriteRule ^en/products/products/?$ /wissen/en/products/ [R=301,L]
+  RewriteRule ^en/products/products/(.*)$ /wissen/en/products/$1 [R=301,L]
 
-RewriteRule ^de/oeffentlich/produkte/?$ de/produkte/ [R=301,L]
-RewriteRule ^de/oeffentlich/produkte/(.*)$ de/produkte/$1 [R=301,L]
-RewriteRule ^de/produktinfo/public/(.*)$ de/produkte/$1 [R=301,L]
-RewriteRule ^de/produktinfo/?$ de/produkte/ [R=301,L]
-RewriteRule ^de/produktinfo/(.*)$ de/produkte/$1 [R=301,L]
+  # --- Legacy knowledge redirects (kept) ---
+  RewriteRule ^de/oeffentlich/produkte/?$ /wissen/de/produkte/ [R=301,L]
+  RewriteRule ^de/oeffentlich/produkte/(.*)$ /wissen/de/produkte/$1 [R=301,L]
+  RewriteRule ^de/produktinfo/public/(.*)$ /wissen/de/produkte/$1 [R=301,L]
+  RewriteRule ^de/produktinfo/?$ /wissen/de/produkte/ [R=301,L]
+  RewriteRule ^de/produktinfo/(.*)$ /wissen/de/produkte/$1 [R=301,L]
 
-RewriteRule ^en/public/products/?$ en/products/ [R=301,L]
-RewriteRule ^en/public/products/(.*)$ en/products/$1 [R=301,L]
-RewriteRule ^en/products/public/(.*)$ en/products/$1 [R=301,L]
+  RewriteRule ^en/public/products/?$ /wissen/en/products/ [R=301,L]
+  RewriteRule ^en/public/products/(.*)$ /wissen/en/products/$1 [R=301,L]
+
+  # --- Do not rewrite existing files/dirs (after redirects above) ---
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+</IfModule>
