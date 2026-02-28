@@ -1,8 +1,8 @@
 ---
-version: 2026-02-28 12:55 UTC
+version: 2026-02-28 17:22 UTC
 managed_by: categories.csv
-last_synced: 2026-02-28 12:55 UTC
-lastmod: 2026-02-28 12:55 UTC
+last_synced: 2026-02-28 17:22 UTC
+lastmod: 2026-02-28 17:22 UTC
 lang: de
 translationKey: door-architraves
 slug: tuerbekleidungen
@@ -39,35 +39,67 @@ Türbekleidungen fassen Türöffnungen und Durchgänge ein und bestimmen die Pro
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Warum sind Türbekleidungen gestalterisch so wichtig?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-tuerbekleidungen-de-001 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
+
+Warum sind Türbekleidungen gestalterisch so wichtig?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-tuerbekleidungen-de-001 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
 
 Sie definieren die Türzone als sichtbares Leitdetail und beeinflussen alle angrenzenden Profile.
 
-### Welche Maße sind vorab entscheidend?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-tuerbekleidungen-de-002 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
+
+Welche Maße sind vorab entscheidend?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-tuerbekleidungen-de-002 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
 
 Türlichte, Wandstärke, Leibungstiefe und die geplanten Bezugshöhen im Raum.
 
-### Kann ich bestehende Altbau-Türen integrieren?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-tuerbekleidungen-de-003 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
+
+Kann ich bestehende Altbau-Türen integrieren?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-tuerbekleidungen-de-003 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
 
 Ja, mit angepassten Profilbreiten und sorgfältig abgestimmten Anschlussdetails.
 
-### Wie plane ich den Übergang zum Sockel?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-tuerbekleidungen-de-004 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
+
+Wie plane ich den Übergang zum Sockel?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-tuerbekleidungen-de-004 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
 
 Mit einem festen Detailpunkt, der Profilhöhe, Auslauf und Gehrung eindeutig festlegt.
 
-### Wann sollte die Profilwahl erfolgen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-tuerbekleidungen-de-005 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
+
+Wann sollte die Profilwahl erfolgen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-tuerbekleidungen-de-005 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
 
 Früh in der Entwurfsphase, damit alle weiteren Leisten daran ausgerichtet werden können.
 
-### Was erhöht den Montageaufwand?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-tuerbekleidungen-de-006 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
+
+Was erhöht den Montageaufwand?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-tuerbekleidungen-de-006 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
 
 Unregelmäßige Laibungen, viele Sonderanschlüsse und fehlende Vorabklärung der Details.
 
-### Sind beidseitige Bekleidungen immer nötig?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-tuerbekleidungen-de-007 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
+
+Sind beidseitige Bekleidungen immer nötig?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-tuerbekleidungen-de-007 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
 
 Nicht immer; die Entscheidung hängt von Nutzung, Sichtachsen und Wandaufbau ab.
 
-### Wo finde ich passende Ergänzungen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-tuerbekleidungen-de-008 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
+
+Wo finde ich passende Ergänzungen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-tuerbekleidungen-de-008 | lang:de | scope_type:category | scope_key:produkte/leisten/tuerbekleidungen -->
 
 Passende Ergänzungen stehen unter /de/produkte/leisten/sockelleisten/.
 <!-- FAQ_SYNC:END -->

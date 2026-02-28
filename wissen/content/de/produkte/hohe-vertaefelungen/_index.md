@@ -1,8 +1,8 @@
 ---
-version: 2026-02-28 12:55 UTC
+version: 2026-02-28 17:22 UTC
 managed_by: categories.csv
-last_synced: 2026-02-28 12:55 UTC
-lastmod: 2026-02-28 12:55 UTC
+last_synced: 2026-02-28 17:22 UTC
+lastmod: 2026-02-28 17:22 UTC
 lang: de
 translationKey: high-wainscoting
 slug: hohe-vertaefelungen
@@ -39,35 +39,67 @@ Hohe Vertäfelungen prägen den Raum deutlich stärker als halbhohe Lambris: Sie
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Wofür ist diese Kategorie gedacht?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-hohe-vertaefelungen-de-001 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
+
+Wofür ist diese Kategorie gedacht?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-hohe-vertaefelungen-de-001 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
 
 Hohe Vertäfelungen bündelt Lösungen für ähnliche Raumanforderungen und erleichtert die strukturierte Vorauswahl.
 
-### Wie finde ich die passende Variante?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-hohe-vertaefelungen-de-002 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
+
+Wie finde ich die passende Variante?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-hohe-vertaefelungen-de-002 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
 
 Vergleichen Sie Profilwirkung, Aufbauhöhe und Anschlussdetails anhand von Musterachsen.
 
-### Welche Informationen sind für die Beratung wichtig?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-hohe-vertaefelungen-de-003 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
+
+Welche Informationen sind für die Beratung wichtig?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-hohe-vertaefelungen-de-003 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
 
 Hilfreich sind Fotos, Maße, Angaben zum Untergrund und gewünschte gestalterische Wirkung.
 
-### Wann sollten Schnittstellen geklärt werden?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-hohe-vertaefelungen-de-004 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
+
+Wann sollten Schnittstellen geklärt werden?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-hohe-vertaefelungen-de-004 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
 
 Schnittstellen zu Maler-, Trockenbau- oder Tischlerleistungen sollten vor der finalen Auswahl festgelegt werden.
 
-### Wie kann ich Planungsrisiken reduzieren?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-hohe-vertaefelungen-de-005 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
+
+Wie kann ich Planungsrisiken reduzieren?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-hohe-vertaefelungen-de-005 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
 
 Durch eindeutige Bezugshöhen, dokumentierte Details und abgestimmte Reihenfolge der Gewerke.
 
-### Wovon hängen die Kosten in dieser Kategorie ab?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-hohe-vertaefelungen-de-006 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
+
+Wovon hängen die Kosten in dieser Kategorie ab?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-hohe-vertaefelungen-de-006 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
 
 Von Fläche oder Laufmeter, Detailgrad, Untergrundvorbereitung und Montagezugang.
 
-### Gibt es Hilfen für Ausschreibung und Vorbereitung?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-hohe-vertaefelungen-de-007 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
+
+Gibt es Hilfen für Ausschreibung und Vorbereitung?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-hohe-vertaefelungen-de-007 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
 
 Ja, Grundlagen finden Sie unter /de/beratung/katalog-und-download und /de/beratung/planung.
 
-### Wie wird die Qualität in der Umsetzung gesichert?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-hohe-vertaefelungen-de-008 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
+
+Wie wird die Qualität in der Umsetzung gesichert?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-hohe-vertaefelungen-de-008 | lang:de | scope_type:category | scope_key:produkte/hohe-vertaefelungen -->
 
 Durch Aufmaßkontrolle, Freigabe von Details vor Montage und dokumentierte Abnahme der Anschlüsse.
 <!-- FAQ_SYNC:END -->

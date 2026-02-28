@@ -1,8 +1,8 @@
 ---
-version: 2026-02-28 12:55 UTC
+version: 2026-02-28 17:22 UTC
 managed_by: categories.csv
-last_synced: 2026-02-28 12:55 UTC
-lastmod: 2026-02-28 12:55 UTC
+last_synced: 2026-02-28 17:22 UTC
+lastmod: 2026-02-28 17:22 UTC
 lang: de
 translationKey: mouldings-root
 slug: leisten
@@ -39,35 +39,67 @@ Leisten sind das "Vokabular" historischer Innenausbauten: Sie fassen Öffnungen,
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Wofür ist diese Kategorie gedacht?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-de-001 | lang:de | scope_type:category | scope_key:produkte/leisten -->
+
+Wofür ist diese Kategorie gedacht?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-de-001 | lang:de | scope_type:category | scope_key:produkte/leisten -->
 
 Leisten bündelt Lösungen für ähnliche Raumanforderungen und erleichtert die strukturierte Vorauswahl.
 
-### Wie finde ich die passende Variante?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-de-002 | lang:de | scope_type:category | scope_key:produkte/leisten -->
+
+Wie finde ich die passende Variante?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-de-002 | lang:de | scope_type:category | scope_key:produkte/leisten -->
 
 Vergleichen Sie Profilwirkung, Aufbauhöhe und Anschlussdetails anhand von Musterachsen.
 
-### Welche Informationen sind für die Beratung wichtig?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-de-003 | lang:de | scope_type:category | scope_key:produkte/leisten -->
+
+Welche Informationen sind für die Beratung wichtig?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-de-003 | lang:de | scope_type:category | scope_key:produkte/leisten -->
 
 Hilfreich sind Fotos, Maße, Angaben zum Untergrund und gewünschte gestalterische Wirkung.
 
-### Wann sollten Schnittstellen geklärt werden?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-de-004 | lang:de | scope_type:category | scope_key:produkte/leisten -->
+
+Wann sollten Schnittstellen geklärt werden?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-de-004 | lang:de | scope_type:category | scope_key:produkte/leisten -->
 
 Schnittstellen zu Maler-, Trockenbau- oder Tischlerleistungen sollten vor der finalen Auswahl festgelegt werden.
 
-### Wie kann ich Planungsrisiken reduzieren?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-de-005 | lang:de | scope_type:category | scope_key:produkte/leisten -->
+
+Wie kann ich Planungsrisiken reduzieren?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-de-005 | lang:de | scope_type:category | scope_key:produkte/leisten -->
 
 Durch eindeutige Bezugshöhen, dokumentierte Details und abgestimmte Reihenfolge der Gewerke.
 
-### Wovon hängen die Kosten in dieser Kategorie ab?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-de-006 | lang:de | scope_type:category | scope_key:produkte/leisten -->
+
+Wovon hängen die Kosten in dieser Kategorie ab?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-de-006 | lang:de | scope_type:category | scope_key:produkte/leisten -->
 
 Von Fläche oder Laufmeter, Detailgrad, Untergrundvorbereitung und Montagezugang.
 
-### Gibt es Hilfen für Ausschreibung und Vorbereitung?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-de-007 | lang:de | scope_type:category | scope_key:produkte/leisten -->
+
+Gibt es Hilfen für Ausschreibung und Vorbereitung?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-de-007 | lang:de | scope_type:category | scope_key:produkte/leisten -->
 
 Ja, Grundlagen finden Sie unter /de/beratung/katalog-und-download und /de/beratung/planung.
 
-### Wie wird die Qualität in der Umsetzung gesichert?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-de-008 | lang:de | scope_type:category | scope_key:produkte/leisten -->
+
+Wie wird die Qualität in der Umsetzung gesichert?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-de-008 | lang:de | scope_type:category | scope_key:produkte/leisten -->
 
 Durch Aufmaßkontrolle, Freigabe von Details vor Montage und dokumentierte Abnahme der Anschlüsse.
 <!-- FAQ_SYNC:END -->

@@ -1,8 +1,8 @@
 ---
-version: 2026-02-28 12:55 UTC
+version: 2026-02-28 17:22 UTC
 managed_by: categories.csv
-last_synced: 2026-02-28 12:55 UTC
-lastmod: 2026-02-28 12:55 UTC
+last_synced: 2026-02-28 17:22 UTC
+lastmod: 2026-02-28 17:22 UTC
 lang: de
 translationKey: oil-paints-root
 slug: oele-farben
@@ -39,43 +39,83 @@ cascade:
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Wann nutze ich Öl statt deckender Farbe?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-001 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Wann nutze ich Öl statt deckender Farbe?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-001 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Wenn Holzstruktur sichtbar bleiben soll und eine natürliche Oberfläche gewünscht ist.
 
-### Warum sind Musterflächen wichtig?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-002 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Warum sind Musterflächen wichtig?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-002 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Sie zeigen realistisch Farbwirkung, Glanzgrad und Verhalten auf dem konkreten Untergrund.
 
-### Was bedeutet systemgerechter Aufbau?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-003 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Was bedeutet systemgerechter Aufbau?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-003 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Grundierung, Zwischen- und Schlussbeschichtung sind materialseitig aufeinander abgestimmt.
 
-### Wie beeinflusst der Untergrund die Auswahl?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-004 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Wie beeinflusst der Untergrund die Auswahl?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-004 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Saugfähigkeit, Altbeschichtung und Zustand bestimmen Vorbereitung und Produktauswahl.
 
-### Kann ich verschiedene Hersteller im Aufbau mischen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-005 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Kann ich verschiedene Hersteller im Aufbau mischen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-005 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Das sollte nur nach technischer Prüfung erfolgen, um Haftungs- und Trocknungsprobleme zu vermeiden.
 
-### Welche Rolle spielen Trocknungszeiten?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-006 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Welche Rolle spielen Trocknungszeiten?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-006 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Sie sind zentral für Haltbarkeit und Oberflächenqualität und sollten nicht verkürzt werden.
 
-### Was sind häufige Planungsfehler?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-007 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Was sind häufige Planungsfehler?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-007 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Unklare Schichtfolge, fehlende Musterfreigabe und zu spätes Abstimmen mit anderen Gewerken.
 
-### Wo finde ich passende Produktgruppen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-008 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Wo finde ich passende Produktgruppen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-008 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Ein Überblick steht unter /de/produkte/oele-farben/beeck/.
 
-### Wie viele Varianten sollte ich parallel vergleichen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-009 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Wie viele Varianten sollte ich parallel vergleichen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-009 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Praktisch sind zwei bis vier sauber definierte Varianten; mehr erschwert oft die Entscheidung ohne zusätzlichen Nutzen.
 
-### Wann ist eine technische Rücksprache vor Ort sinnvoll?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-oele-farben-de-010 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
+
+Wann ist eine technische Rücksprache vor Ort sinnvoll?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-oele-farben-de-010 | lang:de | scope_type:category | scope_key:produkte/oele-farben -->
 
 Bei unklaren Untergründen, Feuchtehinweisen oder komplexen Anschlussdetails ist eine frühe technische Abstimmung besonders hilfreich.
 <!-- FAQ_SYNC:END -->

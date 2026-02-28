@@ -76,23 +76,43 @@ Häufige Fehler sind unklare Bezugshöhen, zu spät entschiedene Übergangsdetai
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Wofür eignet sich dieses Produkt am besten?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-31-de-001 | lang:de | scope_type:product | scope_key:31 -->
+
+Wofür eignet sich dieses Produkt am besten?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-31-de-001 | lang:de | scope_type:product | scope_key:31 -->
 
 P0004 - Berlin - Sophienstraße eignet sich für Innenräume mit klarer Gliederung, wenn eine hochwertige und ruhige Wandgestaltung gewünscht ist.
 
-### Welche Punkte sollten vor der Auswahl geprüft werden?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-31-de-002 | lang:de | scope_type:product | scope_key:31 -->
+
+Welche Punkte sollten vor der Auswahl geprüft werden?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-31-de-002 | lang:de | scope_type:product | scope_key:31 -->
 
 Wichtig sind Untergrund, Anschlussdetails, Raumproportionen und die Abstimmung mit angrenzenden Bauteilen.
 
-### Wie läuft die Planung typischerweise ab?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-31-de-003 | lang:de | scope_type:product | scope_key:31 -->
+
+Wie läuft die Planung typischerweise ab?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-31-de-003 | lang:de | scope_type:product | scope_key:31 -->
 
 Der übliche Ablauf ist Aufmaß, Variantenabgleich, Detailklärung und danach die Freigabe für Fertigung bzw. Montage.
 
-### Wodurch wird der Aufwand beeinflusst?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-31-de-004 | lang:de | scope_type:product | scope_key:31 -->
+
+Wodurch wird der Aufwand beeinflusst?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-31-de-004 | lang:de | scope_type:product | scope_key:31 -->
 
 Aufwand und Kosten hängen von Geometrie, Vorarbeiten, Detailgrad und Zugänglichkeit der Flächen ab.
 
-### Wo finde ich passende Planungsinformationen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-31-de-005 | lang:de | scope_type:product | scope_key:31 -->
+
+Wo finde ich passende Planungsinformationen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-31-de-005 | lang:de | scope_type:product | scope_key:31 -->
 
 Grundlagen zur Vorbereitung finden Sie unter /de/beratung/planung und ergänzende Hinweise unter /de/beratung/montage.
 <!-- FAQ_SYNC:END -->

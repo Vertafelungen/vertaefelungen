@@ -75,27 +75,51 @@ Häufige Fehler sind fehlende Bezugshöhen, zu späte Klärung der Anschlussdeta
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Ist dieses Produkt eher für Sanierung oder auch für Neubau geeignet?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-26-de-001 | lang:de | scope_type:product | scope_key:26 -->
+
+Ist dieses Produkt eher für Sanierung oder auch für Neubau geeignet?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-26-de-001 | lang:de | scope_type:product | scope_key:26 -->
 
 Beides ist möglich. In der Sanierung wird meist am Bestand orientiert, im Neubau stärker an gewünschter Proportion und Stilwirkung.
 
-### Welche Maße werden für eine belastbare Auswahl benötigt?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-26-de-002 | lang:de | scope_type:product | scope_key:26 -->
+
+Welche Maße werden für eine belastbare Auswahl benötigt?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-26-de-002 | lang:de | scope_type:product | scope_key:26 -->
 
 Hilfreich sind Wandlängen, Raumhöhen, relevante Anschlussmaße sowie Fotos der betroffenen Bereiche.
 
-### Kann ich das Profil an bestehende Türzargen anpassen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-26-de-003 | lang:de | scope_type:product | scope_key:26 -->
+
+Kann ich das Profil an bestehende Türzargen anpassen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-26-de-003 | lang:de | scope_type:product | scope_key:26 -->
 
 Ja, die Auswahl wird in der Regel mit Zargen- und Anschlussdetails abgeglichen, damit Übergänge stimmig bleiben.
 
-### Wie läuft die Abstimmung zwischen Auswahl und Montage ab?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-26-de-004 | lang:de | scope_type:product | scope_key:26 -->
+
+Wie läuft die Abstimmung zwischen Auswahl und Montage ab?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-26-de-004 | lang:de | scope_type:product | scope_key:26 -->
 
 Üblich sind Vorabklärung, Profilauswahl, Maßvalidierung, Freigabe und anschließend die Montagevorbereitung.
 
-### Welche Faktoren beeinflussen den Aufwand im Projekt?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-26-de-005 | lang:de | scope_type:product | scope_key:26 -->
+
+Welche Faktoren beeinflussen den Aufwand im Projekt?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-26-de-005 | lang:de | scope_type:product | scope_key:26 -->
 
 Maßhaltigkeit im Bestand, Profilkomplexität, Materialwahl und Abstimmungsaufwand wirken direkt auf den Aufwand.
 
-### Welche Fehler sollte ich vor der Bestellung vermeiden?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-26-de-006 | lang:de | scope_type:product | scope_key:26 -->
+
+Welche Fehler sollte ich vor der Bestellung vermeiden?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-26-de-006 | lang:de | scope_type:product | scope_key:26 -->
 
 Typisch sind fehlende Bezugshöhen, unklare Anschlusspunkte und eine zu späte Profilfreigabe.
 <!-- FAQ_SYNC:END -->

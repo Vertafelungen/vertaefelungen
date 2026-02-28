@@ -75,23 +75,43 @@ Häufige Fehler sind uneinheitliche Felder, nicht abgestimmte Profilhöhen und z
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Wofür eignet sich dieses Wandleisten-Profil?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-81-de-001 | lang:de | scope_type:product | scope_key:81 -->
+
+Wofür eignet sich dieses Wandleisten-Profil?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-81-de-001 | lang:de | scope_type:product | scope_key:81 -->
 
 Das Profil eignet sich für klassische Wandgliederungen in Wohnräumen, Fluren und Treppenhäusern. Entscheidend ist die abgestimmte Kombination mit Sockelleisten und Türbekleidungen.
 
-### Kann ich das Profil in Altbauwänden mit Unebenheiten einsetzen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-81-de-002 | lang:de | scope_type:product | scope_key:81 -->
+
+Kann ich das Profil in Altbauwänden mit Unebenheiten einsetzen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-81-de-002 | lang:de | scope_type:product | scope_key:81 -->
 
 Ja, sofern das Felderraster vorab sauber geplant und der Untergrund vorbereitet wird. Bei stärkeren Unebenheiten helfen Probemontagen an kritischen Bereichen.
 
-### Wie kombiniere ich die Leiste mit anderen Profilen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-81-de-003 | lang:de | scope_type:product | scope_key:81 -->
+
+Wie kombiniere ich die Leiste mit anderen Profilen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-81-de-003 | lang:de | scope_type:product | scope_key:81 -->
 
 Am besten wird zuerst das Türdetail definiert, danach werden Sockel- und Wandleisten auf dieses Referenzdetail abgestimmt.
 
-### Welche Fehler passieren bei der Montage am häufigsten?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-81-de-004 | lang:de | scope_type:product | scope_key:81 -->
+
+Welche Fehler passieren bei der Montage am häufigsten?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-81-de-004 | lang:de | scope_type:product | scope_key:81 -->
 
 Typisch sind unklare Bezugshöhen, unstimmige Feldbreiten und unsaubere Gehrungen. Ein verbindlicher Verlegeplan reduziert Nacharbeit.
 
-### Brauche ich vorab eine vollständige Raumplanung?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:p-81-de-005 | lang:de | scope_type:product | scope_key:81 -->
+
+Brauche ich vorab eine vollständige Raumplanung?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:p-81-de-005 | lang:de | scope_type:product | scope_key:81 -->
 
 Für belastbare Ergebnisse ja: Höhenbezüge, Türpositionen und Anschlussdetails sollten vor der Fertigung feststehen.
 <!-- FAQ_SYNC:END -->
