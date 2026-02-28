@@ -26,6 +26,8 @@ aliases: []
 ---
 ## Quick answer
 
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_en_kurzantwort | product_id:82 | reference:WL 07 | slug_de:wl07 | slug_en:wl07 -->
+
 - Wall Moulding 07 is a profiled wall moulding for classic interior wall articulation.
 - Suitable for period-home renovation, classic new builds, and accent walls.
 - Visual quality depends on proportions, panel layout, and clean transitions to doors/skirting.
@@ -33,25 +35,37 @@ aliases: []
 
 ## Practical context
 
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_en_praxis | product_id:82 | reference:WL 07 | slug_de:wl07 | slug_en:wl07 -->
+
 In practice, this moulding is usually part of a panel grid: first define height lines and axes, then distribute wall panels. This approach helps visually calm uneven existing walls. In heritage-led projects, matching door and skirting profiles is especially important.
 
 ## Decisions & variants
+
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_en_varianten | product_id:82 | reference:WL 07 | slug_de:wl07 | slug_en:wl07 -->
 
 Common variants range from restrained, shallow profiles for calm rooms to more articulated profiles for representative spaces. Another decision is whether the moulding is only used as a horizontal break line or as a full vertical-and-horizontal panel system.
 
 ## Process & planning
 
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_en_ablauf | product_id:82 | reference:WL 07 | slug_de:wl07 | slug_en:wl07 -->
+
 Typical workflow: survey existing conditions, choose profile, agree panel layout, prepare material, install, then apply primer and finish system. Transitions to architraves and skirting are checked before final fixing.
 
 ## Cost logic
+
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_en_kosten | product_id:82 | reference:WL 07 | slug_de:wl07 | slug_en:wl07 -->
 
 Cost logic is driven by profile geometry, linear meters, number of miters, substrate preparation, and finish build-up. Complex room geometries and many transitions increase installation effort.
 
 ## Common mistakes & how to avoid them
 
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_en_fehler | product_id:82 | reference:WL 07 | slug_de:wl07 | slug_en:wl07 -->
+
 Frequent mistakes include inconsistent panel spacing, mismatched profile heights, and underplanned corners/transitions. Avoid these issues with a clear layout plan, sample fields, and early coordination at doors, skirting, and ceiling interfaces.
 
 ## References
+
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_en_verweise | product_id:82 | reference:WL 07 | slug_de:wl07 | slug_en:wl07 -->
 
 - /en/products/mouldings/wall-mouldings/
 - /en/products/mouldings/skirting-boards/

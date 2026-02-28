@@ -32,6 +32,8 @@ refs:
 slug: 100-brown
 aliases: []
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_en | product_id:100 | reference:Beeck SIP Braun | slug_de:braun | slug_en:brown -->
+
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
 

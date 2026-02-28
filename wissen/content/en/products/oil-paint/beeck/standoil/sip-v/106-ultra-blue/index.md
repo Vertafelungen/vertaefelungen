@@ -32,6 +32,8 @@ refs:
 slug: 106-ultra-blue
 aliases: []
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_en | product_id:106 | reference:Beek SIP Ultrablau | slug_de:ultrablau | slug_en:ultra-blue -->
+
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
 

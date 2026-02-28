@@ -32,6 +32,8 @@ refs:
 slug: 94-white
 aliases: []
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_en | product_id:94 | reference:Beeck SIP Weiß | slug_de:weiss | slug_en:white -->
+
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
 
