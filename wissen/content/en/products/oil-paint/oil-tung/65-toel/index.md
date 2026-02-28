@@ -28,6 +28,8 @@ refs:
 slug: 65-toel
 aliases: []
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_en | product_id:65 | reference:TÖL | slug_de:toel | slug_en:toel -->
+
 Tung oil boiled with linseed oil, linseed oil stand oil and siccatives.
 
 For interior and exterior use.

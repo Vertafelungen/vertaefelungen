@@ -26,6 +26,8 @@ refs:
 slug: 109-vsfp
 aliases: []
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_de | product_id:109 | reference:Beeck VSF P | slug_de:vsfp | slug_en:vsfp -->
+
 BEECK Vorstreichfarbe PRO
 Weißmatter Ölvorlack für professionelle Voranstriche auf Holz und Eisenmetall im Innen- und Außenbereich
 

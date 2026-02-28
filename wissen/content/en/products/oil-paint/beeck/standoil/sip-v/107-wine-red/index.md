@@ -32,6 +32,8 @@ refs:
 slug: 107-wine-red
 aliases: []
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_en | product_id:107 | reference:Beeck SIP Weinrot | slug_de:weinrot | slug_en:wine-red -->
+
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
 

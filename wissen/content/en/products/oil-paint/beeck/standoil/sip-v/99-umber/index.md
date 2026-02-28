@@ -32,6 +32,8 @@ refs:
 slug: 99-umber
 aliases: []
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_en | product_id:99 | reference:Beeck SIP Umbra | slug_de:umbra | slug_en:umber -->
+
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
 

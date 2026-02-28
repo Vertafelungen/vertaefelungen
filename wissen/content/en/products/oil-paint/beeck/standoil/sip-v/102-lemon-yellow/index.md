@@ -32,6 +32,8 @@ refs:
 slug: 102-lemon-yellow
 aliases: []
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_en | product_id:102 | reference:Beeck SIP Zitronengelb | slug_de:zitronengelb | slug_en:lemon-yellow -->
+
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
 

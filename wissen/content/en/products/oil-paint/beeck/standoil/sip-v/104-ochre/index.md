@@ -32,6 +32,8 @@ refs:
 slug: 104-ochre
 aliases: []
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_en | product_id:104 | reference:Beeck SIP Ocker | slug_de:ocker | slug_en:ochre -->
+
 Beeck Interior Stand-Oil Paint PRO
 Opaque pigmented, for finishing coats on wood in interior areas, Paint Sheen: satin /semi-gloss.
 

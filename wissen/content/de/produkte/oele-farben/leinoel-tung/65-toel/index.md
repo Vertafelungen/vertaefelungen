@@ -29,6 +29,8 @@ refs:
 lang: de
 slug: 65-toel
 ---
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_de | product_id:65 | reference:TÖL | slug_de:toel | slug_en:toel -->
+
 Tungöl verkocht mit Lackleinöl, Leinölstandöl und Sikkativen.
 
 Anwendung innen und außen.

@@ -27,6 +27,8 @@ slug: 79-wl04
 ---
 ## Kurzantwort
 
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_de_kurzantwort | product_id:79 | reference:WL 04 | slug_de:wl04 | slug_en:wl04 -->
+
 - Wandleiste 04 „Rundstableiste" ist eine profilierte Wandleiste für klassische Wandgliederungen im Innenbereich.
 - Geeignet für Altbau-Sanierung, Neubau im klassischen Stil und punktuelle Akzentwände.
 - Die Wirkung entsteht über Proportion, Feldaufteilung und saubere Übergänge zu Türen/Sockeln.
@@ -34,25 +36,37 @@ slug: 79-wl04
 
 ## Praxis-Kontext
 
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_de_praxis | product_id:79 | reference:WL 04 | slug_de:wl04 | slug_en:wl04 -->
+
 In der Praxis wird die Leiste meist als Teil eines Feldrasters eingesetzt: zuerst werden Höhenlinien und Achsen festgelegt, danach die einzelnen Wandfelder verteilt. So lassen sich auch unruhige Bestandswände optisch beruhigen. Bei denkmalnahen Projekten hilft der Abgleich mit vorhandenen Tür- und Sockelprofilen.
 
 ## Entscheidung & Varianten
+
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_de_varianten | product_id:79 | reference:WL 04 | slug_de:wl04 | slug_en:wl04 -->
 
 Typische Varianten sind ruhige, flache Profile für zurückhaltende Räume und stärker konturierte Profile für repräsentative Bereiche. Zusätzlich wird unterschieden, ob die Leiste nur horizontal als Abschluss dient oder vertikal/horizontal ein vollständiges Felderbild aufbaut.
 
 ## Ablauf & Planung
 
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_de_ablauf | product_id:79 | reference:WL 04 | slug_de:wl04 | slug_en:wl04 -->
+
 Üblicher Ablauf: Bestand aufnehmen, Profil auswählen, Feldaufteilung abstimmen, Material vorbereiten, Montage und anschließend Oberflächenaufbau mit passender Grundierung/Endbeschichtung. Anschlüsse an Türbekleidungen und Sockelleisten werden vor der Endmontage geprüft.
 
 ## Kostenlogik
+
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_de_kosten | product_id:79 | reference:WL 04 | slug_de:wl04 | slug_en:wl04 -->
 
 Die Kosten hängen vor allem von Profilgeometrie, laufenden Metern, Anzahl der Gehrungen, Untergrundvorbereitung und Oberflächenaufbau ab. Komplexe Raumzuschnitte und viele Anschlusspunkte erhöhen den Montageaufwand.
 
 ## Häufige Fehler & Vermeidung
 
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_de_fehler | product_id:79 | reference:WL 04 | slug_de:wl04 | slug_en:wl04 -->
+
 Häufige Fehler sind uneinheitliche Felder, nicht abgestimmte Profilhöhen und zu wenig Planung an Ecken/Anschlüssen. Vermeide dies mit einem klaren Verlegeplan, Probefeldern und frühzeitiger Abstimmung der Übergänge zu Türen, Sockeln und Deckenleisten.
 
 ## Verweise
+
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:body_de_verweise | product_id:79 | reference:WL 04 | slug_de:wl04 | slug_en:wl04 -->
 
 - /de/produkte/leisten/wandleisten/
 - /de/produkte/leisten/sockelleisten/
