@@ -1,0 +1,3 @@
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:high-wainscoting | path_de:produkte/hohe-vertaefelungen | path_en:products/high-wainscoting -->
+
+Hohe Vertäfelungen prägen den Raum deutlich stärker als halbhohe Lambris: Sie strukturieren Wandflächen, fassen Türen und Öffnungen ein und schaffen eine historische Anmutung im Altbau.\n\n**Typische Anwendungen:** Flure, Salons, Esszimmer, Treppenhäuser.\n\n**Projektablauf:** Bestand/Referenz auswählen → Maßaufnahme/Grundriss → 3D-Visualisierung → Fertigung & Montage durch Partnertischlerei.\n\nWenn du Maße, Raumhöhe und gewünschte Stilrichtung nennst, kann die Auswahl der passenden Profile und Felder gezielt eingegrenzt werden.
