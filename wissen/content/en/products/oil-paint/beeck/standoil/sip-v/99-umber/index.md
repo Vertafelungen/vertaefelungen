@@ -3,7 +3,7 @@ title: Umber - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '99'
 managed_by: ssot-sync
-last_synced: '2026-02-24'
+last_synced: '2026-02-28'
 produkt:
   id: '99'
   artikelnummer: '99'

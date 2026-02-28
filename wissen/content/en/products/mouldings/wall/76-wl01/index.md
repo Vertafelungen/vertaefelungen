@@ -3,7 +3,7 @@ title: Wall Moulding 01
 lang: en
 translationKey: '76'
 managed_by: ssot-sync
-last_synced: '2026-02-24'
+last_synced: '2026-02-28'
 produkt:
   id: '76'
   artikelnummer: '76'

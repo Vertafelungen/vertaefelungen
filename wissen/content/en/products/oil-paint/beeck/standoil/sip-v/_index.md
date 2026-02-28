@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: en
 translationKey: beeck-sip-pro-solid
 slug: sip-v
@@ -32,4 +32,6 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_en | key:beeck-sip-pro-solid | path_de:produkte/oele-farben/beeck/standoel/sip-v | path_en:products/oil-paint/beeck/standoil/sip-v -->
+
 This section lists the **solid colours** of BEECK Interior Stand-Oil Paint PRO: ready-mixed shades based on a stand-oil binder.\n\n**Use cases:** interior wood elements (e.g. panelling, doors, mouldings) and compatible mineral substrates where system-appropriate.\n\nSelect a colour to view product data, pack sizes, variants and images.

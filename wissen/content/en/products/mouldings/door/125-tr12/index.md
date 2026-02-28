@@ -3,7 +3,7 @@ title: Door Frame 12
 lang: en
 translationKey: '125'
 managed_by: ssot-sync
-last_synced: '2026-02-24'
+last_synced: '2026-02-28'
 produkt:
   id: '125'
   artikelnummer: '125'

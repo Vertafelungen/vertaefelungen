@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: de
 translationKey: dado-panel
 slug: halbhohe-vertaefelungen
@@ -32,6 +32,8 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
+
 Halbhohe Vertäfelungen - oft als **Lambris** bezeichnet - strukturieren Wandflächen, schützen beanspruchte Zonen und geben Räumen eine historische Proportion, ohne den Raum optisch zu "schließen".\n\n**Typische Anwendungen:** Flure, Esszimmer, Kinderzimmer, Treppenläufe, Arbeitszimmer.\n\n**Varianten:** mit/ohne Handlauf, glatte Füllungen oder profilierte Felder, integrierte Sockel- und Abschlussleisten.\n\n**Projektablauf:** Referenz auswählen → Maßaufnahme/Grundriss → 3D-Visualisierung → Fertigung & Montage durch Partnertischlerei.\n\nWenn du Raumhöhe, gewünschte Vertäfelungshöhe und Stilrichtung nennst, lässt sich ein passendes Feldraster und Profilpaket schnell bestimmen.
 
 <!-- FAQ_SYNC:BEGIN -->

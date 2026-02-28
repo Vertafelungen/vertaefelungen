@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: en
 translationKey: oils-linseed-tung-balsam
 slug: oil-tung
@@ -32,4 +32,6 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_en | key:oils-linseed-tung-balsam | path_de:produkte/oele-farben/leinoel-tung | path_en:products/oil-paint/oil-tung -->
+
 This subcategory groups traditional oils and resins used as primers, protective finishes or maintenance systems depending on formulation.\n\n**Typical topics:**\n- penetration and curing (oxidative / polymerising)\n- build-up strategy (thin coats, repeatable, repairable)\n- compatibility with existing finishes and wood species\n\nSelect a product to view properties, variants and application notes.

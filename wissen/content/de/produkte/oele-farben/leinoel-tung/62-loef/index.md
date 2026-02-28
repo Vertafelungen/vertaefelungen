@@ -4,7 +4,7 @@ aliases:
 title: Leinölfirnis
 translationKey: '62'
 managed_by: ssot-sync
-last_synced: '2026-02-24'
+last_synced: '2026-02-28'
 produkt:
   id: '62'
   artikelnummer: '62'

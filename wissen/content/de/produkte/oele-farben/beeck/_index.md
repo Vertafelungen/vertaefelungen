@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: de
 translationKey: beeck-stand-oil-paints
 slug: beeck
@@ -32,6 +32,8 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:beeck-stand-oil-paints | path_de:produkte/oele-farben/beeck | path_en:products/oil-paint/beeck -->
+
 Diese Kategorie bündelt die Standöl-Systeme von BEECK für Innenräume. Standölfarben sind für langlebige, reparaturfreundliche Oberflächen konzipiert und passen gut in historisch geprägte Innenausbauten.\n\n## Unterkategorien\n- **Standölinnenfarbe Pro Volltonfarbe** - fertig abgetönte Volltöne.\n- **Standölinnenfarbe Pro Mischtöne** - Mischtöne und Nuancierungen.\n- **Vorstreichfarbe Pro** - Grund- bzw. Voranstrich als Systemkomponente.\n\nWähle eine Unterkategorie, um Farbtöne, Gebinde und Varianten zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->

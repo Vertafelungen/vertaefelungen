@@ -4,7 +4,7 @@ aliases:
 title: Weinrot - BEECK Standölinnenfarbe PRO
 translationKey: '107'
 managed_by: ssot-sync
-last_synced: '2026-02-24'
+last_synced: '2026-02-28'
 produkt:
   id: '107'
   artikelnummer: '107'
