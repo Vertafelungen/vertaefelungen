@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: en
 translationKey: oil-paints-root
 slug: oil-paint
@@ -32,4 +32,6 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_en | key:oil-paints-root | path_de:produkte/oele-farben | path_en:products/oil-paint -->
+
 Oils and paints influence not only colour, but also vapour behaviour, feel, repairability and long-term ageing.\n\n## Subcategories\n- **Linseed, tung & balsam** - classic oils/resins for protection, priming and maintenance.\n- **Stand oil / oil paints** - durable, vapour-open paint systems (e.g. pigmented finishes).\n\nChoose a subcategory to view products, variants and application notes.

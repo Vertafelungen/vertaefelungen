@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: de
 translationKey: beeck-primer-pro
 slug: vsfp
@@ -32,6 +32,8 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:beeck-primer-pro | path_de:produkte/oele-farben/beeck/vsfp | path_en:products/oil-paint/beeck/vsfp -->
+
 Die **Vorstreichfarbe Pro** dient als systemkonformer Grund-/Vorstreich für Standöl-Anstriche. Sie unterstützt einen gleichmäßigen Untergrund und verbessert die Haftung des nachfolgenden Anstrichs.\n\nWähle ein Produkt bzw. eine Variante, um Details, Gebinde und Systemhinweise zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->

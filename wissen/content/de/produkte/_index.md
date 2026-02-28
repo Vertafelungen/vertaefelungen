@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: de
 translationKey: products-root
 slug: produkte
@@ -37,6 +37,8 @@ menu:
     weight: 10
     identifier: produkte
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:products-root | path_de:produkte | path_en:products -->
+
 Wähle eine Kategorie, um Unterkategorien und Produkte zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
