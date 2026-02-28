@@ -1,0 +1,3 @@
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_en | product_id:35 | reference:P0022 | slug_de:p0022 | slug_en:p0022 -->
+
+Town Hall Lübeck - The centre of the Hanseatic League. This is where from the 14th to the 18th century the Hansa Days took place, where co-operation was regulated. The city council still debates current issues here today. Lübeck is a very proud city, which is clearly demonstrated by its buildings. Inside and out. The entire length of the corridor on the upper hall way and in the „Long House" is stuffed with a coffered panelling. All rails and frames are made of oak, but the cassettes are of pine. This panelling was probably created during the renovation of 1893.

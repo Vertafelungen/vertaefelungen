@@ -1,0 +1,4 @@
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_de | product_id:32 | reference:P0005 | slug_de:p0005 | slug_en:p0005 -->
+
+Sehr eindrucksvoll und trotzdem recht einfach aufgebaut.
+Durch die aneinander gereihten „Fenster" mit den Dreipassbögen als Abschluss, entsteht eine neogotische Vertäfelung. Solches Interieur verhilft einem gründerzeitlichen Hauseingang zu Ansehen und Würde.

@@ -1,0 +1,3 @@
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_de | product_id:26 | reference:SL0007 | slug_de:sl0007 | slug_en:sl0007 -->
+
+Diese 4-teilige, 45 cm hohe Sockelleiste kommt aus dem Stammhaus der Augustiner Brauerei in der Münchner Innenstadt. Mit ihr sind im 1.OG einige Wohnräume der Brauerfamilie Wagner ausgestattet, die „Wagner Salons". Die Salons wurden 1896-97 von Emanuel von Seidel in einer Mischung aus zeitgenössischem Jugendstil und elegantem Neobarock umgebaut und neu eingerichtet. 2019 wurden sie umfassend restauriert und sind nun für Gäste geöffnet.
