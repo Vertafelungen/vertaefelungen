@@ -1,0 +1,3 @@
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:oil-paints-root | path_de:produkte/oele-farben | path_en:products/oil-paint -->
+
+Öle und Farben bestimmen nicht nur den Farbton, sondern auch Diffusionsverhalten, Haptik, Reparaturfähigkeit und langfristige Alterung.\n\n## Unterkategorien\n- **Leinöl, Tung, Balsam** - klassische Öle/Harze für Holzschutz, Grundierung und Pflege.\n- **Standöl / Ölfarben** - robuste, diffusionsoffene Anstriche (z. B. pigmentierte Systeme).\n\nWähle eine Unterkategorie, um passende Produkte, Varianten und Anwendungshinweise zu sehen.

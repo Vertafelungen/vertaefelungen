@@ -1,0 +1,3 @@
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_en | key:mouldings-root | path_de:produkte/leisten | path_en:products/mouldings -->
+
+Mouldings are the "vocabulary" of historic interiors: they frame openings, articulate wall surfaces and define transitions.\n\n## Subcategories\n- **Wall mouldings** - profiles for organising wall surfaces, panels and cornice lines.\n- **Door surrounds / architraves** - profiles for framing doors and openings.\n- **Skirting boards** - base termination at floor level, protective and proportional element.\n\nChoose a subcategory to view suitable profiles, dimensions, variants and images.

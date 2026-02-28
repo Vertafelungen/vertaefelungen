@@ -1,0 +1,5 @@
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_verweise | key:beeck-stand-oil-paints | path_de:produkte/oele-farben/beeck | path_en:products/oil-paint/beeck -->
+
+- Überblick Öle & Farben: /de/produkte/oele-farben/
+- BEECK Übersicht: /de/produkte/oele-farben/beeck/
+- Beratung: /de/info/beratung/

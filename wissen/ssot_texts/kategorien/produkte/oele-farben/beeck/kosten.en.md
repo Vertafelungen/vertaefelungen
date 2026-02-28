@@ -1,0 +1,3 @@
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_en_kosten | key:beeck-stand-oil-paints | path_de:produkte/oele-farben/beeck | path_en:products/oil-paint/beeck -->
+
+Cost logic is mainly driven by treated area, coating build-up, preparation effort, and detailing level. Extensive substrate correction and custom shades typically increase total effort.
