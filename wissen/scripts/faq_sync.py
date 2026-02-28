@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 File: wissen/scripts/faq_sync.py
-Version: 2026-02-24 10:30 Europe/Berlin
+Version: 2026-02-28 09:06 Europe/Berlin
 
 faq.csv sync with two stages:
 - Stage A: generate/update authoritative global FAQ pages under content/<lang>/faq/**
@@ -24,6 +24,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Set, Tuple
+
+from include_resolver import resolve_include
 
 
 # ---------- CSV ----------
@@ -264,13 +266,22 @@ class FaqItem:
             except Exception:
                 return default
 
+        faq_id = clean(r.get("faq_id") or r.get("id") or "")
+        scope_type = clean(r.get("scope_type") or "").lower()
+        scope_key = clean(r.get("scope_key") or "")
+        lang = clean(r.get("lang") or "").lower()
+
+        context = f"faq_id={faq_id or '-'}|scope_type={scope_type or '-'}|scope_key={scope_key or '-'}|lang={lang or '-'}"
+        question_raw = resolve_include(r.get("question") or r.get("frage") or "", context=f"{context}:question")
+        answer_raw = resolve_include(r.get("answer") or r.get("antwort") or "", context=f"{context}:answer")
+
         return FaqItem(
-            faq_id=clean(r.get("faq_id") or r.get("id") or ""),
-            scope_type=clean(r.get("scope_type") or "").lower(),
-            scope_key=clean(r.get("scope_key") or ""),
-            lang=clean(r.get("lang") or "").lower(),
-            question=normalize_links(clean(r.get("question") or r.get("frage") or "")),
-            answer=normalize_links((r.get("answer") or r.get("antwort") or "").rstrip()),
+            faq_id=faq_id,
+            scope_type=scope_type,
+            scope_key=scope_key,
+            lang=lang,
+            question=normalize_links(clean(question_raw)),
+            answer=normalize_links((answer_raw or "").rstrip()),
             order=to_int(r.get("order") or r.get("sort") or r.get("rank") or ""),
             status=clean(r.get("status") or "").lower(),
             source=clean(r.get("source") or ""),

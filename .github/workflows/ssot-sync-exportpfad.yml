@@ -1,5 +1,5 @@
 # SSOT → Markdown Sync (export_pfad; hydrate products; inject FAQ)
-# Version: 2026-02-24 10:30 Europe/Berlin
+# Version: 2026-02-28 09:06 Europe/Berlin
 
 name: SSOT → Markdown Sync (export_pfad; hydrate products)
 
@@ -31,6 +31,7 @@ on:
       - "wissen/ssot/categories.csv"
       - "wissen/ssot/faq.csv"
       - "wissen/ssot/bilder/**"
+      - "wissen/ssot_texts/**"
       - "wissen/scripts/**.py"
       - "tools/**.py"
       - ".github/workflows/ssot-sync-exportpfad.yml"
