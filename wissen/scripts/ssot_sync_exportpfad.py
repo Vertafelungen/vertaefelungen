@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 SSOT → Hugo Page Bundles (mit Produktdaten, Varianten, Bildern, SEO)
-Version: 2026-02-24 10:30 Europe/Berlin
+Version: 2026-02-28 09:06 Europe/Berlin
 
 Dieses Skript baut/aktualisiert alle Produktseiten unter:
   wissen/content/de/…  und  wissen/content/en/…
@@ -38,6 +38,8 @@ from typing import Dict, List, Optional, Tuple
 from datetime import datetime
 from ruamel.yaml import YAML
 
+from include_resolver import resolve_many
+
 yaml = YAML()
 yaml.default_flow_style = False
 yaml.allow_unicode = True
@@ -48,6 +50,25 @@ IMG_EXTS = {".png", ".jpg", ".jpeg", ".webp", ".avif", ".gif"}
 # Wenn eine _index.md bereits durch den Kategorien-Generator verwaltet wird,
 # darf dieses Produkt-Sync-Skript sie NICHT überschreiben.
 CATEGORY_INDEX_MANAGED_BY = "categories.csv"
+
+INCLUDE_FIELDS = [
+    "beschreibung_md_de",
+    "beschreibung_md_en",
+    "body_de_kurzantwort",
+    "body_de_praxis",
+    "body_de_varianten",
+    "body_de_ablauf",
+    "body_de_kosten",
+    "body_de_fehler",
+    "body_de_verweise",
+    "body_en_kurzantwort",
+    "body_en_praxis",
+    "body_en_varianten",
+    "body_en_ablauf",
+    "body_en_kosten",
+    "body_en_fehler",
+    "body_en_verweise",
+]
 
 
 # ---------- CSV / Text Utils ----------
@@ -481,6 +502,13 @@ def main():
     last_synced_str = datetime.utcnow().strftime("%Y-%m-%d")
 
     for r in rows:
+        product_ctx = clean(r.get("product_id")) or clean(r.get("reference")) or clean(r.get("slug_de")) or "unknown"
+        try:
+            resolve_many(r, INCLUDE_FIELDS, context_prefix=f"product={product_ctx}")
+        except (ValueError, FileNotFoundError) as e:
+            errors.append(str(e))
+            continue
+
         pk = get_pk(r)
         if not pk:
             skipped.append("row without product_id/reference/slug")

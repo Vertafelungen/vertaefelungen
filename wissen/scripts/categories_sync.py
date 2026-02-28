@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 File: wissen/scripts/categories_sync.py
-Version: 2026-02-24 10:30 Europe/Berlin
+Version: 2026-02-28 09:06 Europe/Berlin
 
 Kategorien-Generator: categories.csv → Hugo Branch Bundles (_index.md)
 
@@ -79,12 +79,33 @@ from typing import Dict, List, Optional, Tuple
 
 from ruamel.yaml import YAML
 
+from include_resolver import resolve_many
+
 MANAGED_BY = "categories.csv"
 
 yaml = YAML()
 yaml.default_flow_style = False
 yaml.allow_unicode = True
 yaml.width = 4096
+
+INCLUDE_FIELDS = [
+    "body_md_de",
+    "body_md_en",
+    "body_de_kurzantwort",
+    "body_de_praxis",
+    "body_de_varianten",
+    "body_de_ablauf",
+    "body_de_kosten",
+    "body_de_fehler",
+    "body_de_verweise",
+    "body_en_kurzantwort",
+    "body_en_praxis",
+    "body_en_varianten",
+    "body_en_ablauf",
+    "body_en_kosten",
+    "body_en_fehler",
+    "body_en_verweise",
+]
 
 
 def _normkey(k: str) -> str:
@@ -556,7 +577,16 @@ def main() -> int:
         return 2
 
     raw_rows = read_csv_utf8_auto(csv_path)
-    rows = [row_to_category(r) for r in raw_rows]
+    try:
+        for r in raw_rows:
+            key = clean(r.get("key")) or "unknown"
+            path_de = _coalesce(r, "path_de", "export_pfad_de") or "-"
+            path_en = _coalesce(r, "path_en", "export_pfad_en") or "-"
+            resolve_many(r, INCLUDE_FIELDS, context_prefix=f"category={key}|path_de={path_de}|path_en={path_en}")
+        rows = [row_to_category(r) for r in raw_rows]
+    except Exception as e:
+        print(f"[categories_sync] ERROR: {e}", file=sys.stderr)
+        return 2
 
     errs = validate_categories(rows)
     if errs:
