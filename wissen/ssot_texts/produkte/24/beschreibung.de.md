@@ -1,0 +1,3 @@
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_de | product_id:24 | reference:P0002 | slug_de:p0002 | slug_en:p0002 -->
+
+Die Turmhalle des Michels ist mit einer knapp 3 Meter hohen Eichenvertäfelung ausgestattet, die aus der Zeit des Wiederaufbaus von 1906-1912 stammt. Die vertikale Kassettierung zieht sich um den ganzen Raum und schafft eine klare, unaufdringliche Gliederung. Die Vertäfelung besteht aus einem deutlichen Sockel- und Kopfbereich mit einer 2-reihigen, senkrecht stehenden Kassettierung, die sich gut an individuelle Raummaße anpassen lässt. Wir fertigen die Vertäfelung originalgetreu in Eiche und auch in Kiefer.

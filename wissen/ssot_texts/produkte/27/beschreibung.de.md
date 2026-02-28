@@ -1,0 +1,4 @@
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_de | product_id:27 | reference:P0003 | slug_de:p0003 | slug_en:p0003 -->
+
+Sir Henry Cole, der Gründungsdirektor des South Kensington Museums, hat gutes Gespür bewiesen, als er 1861 den jungen William Morris mit der Gestaltung des "Green Dining Room", dem heutigen „Morris Room", beauftragte. Morris, später einer der berühmtesten Vertreter der Arts-and-Crafts-Bewegung, schlug einen Entwurf vor, der aus einer Vertäfelung im Stil der elisabethanischen Neorenaissance mit Elementen des Gothic Revival bestand. Morris holte sich zur Ausgestaltung die Hilfe seiner Freunde, den Architekten Philip Webb und den Malers Edward Burne-Jones. Der Originalzustand ist erhalten und für Besucher geöffnet.
+Das Paneel hat eine Höhe von 214 cm und ist im Original grün gestrichen.

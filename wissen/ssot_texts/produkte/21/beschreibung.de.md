@@ -1,0 +1,3 @@
+<!-- ssot_texts | v2026-02-28 10:50 Europe/Berlin | source: SSOT.csv:beschreibung_md_de | product_id:21 | reference:P0009 | slug_de:p0009 | slug_en:p0009 -->
+
+Was wir salop als "Nadelstreif" bezeichnen, ist die Kombination von Brett und Zierleiste. Beides sind separate Elemente, die sich mit Nut und Feder verbinden und im Wechsel aneinander reihen. Das Besondere ist, dass es unterschiedliche Zierleisten gibt, die zur Auswahl stehen. Eine klassische Vertäfelung, die sich für Hotellerie und Bauernhaus gleichermaßen eignet. Die Vertäfelung kann pro Laufmeter bestellt werden. Wir fertigen das Paneel aus Massivholz in Eiche oder Kiefer. Auf Wunsch kann es für einen farbigen Anstrich vorbereitet werden.
