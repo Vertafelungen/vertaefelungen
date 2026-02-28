@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: de
 translationKey: skirting-boards
 slug: sockelleisten
@@ -32,6 +32,8 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
+
 Sockelleisten bilden den sauberen Abschluss zwischen Boden und Wand. In historischen Innenräumen sind sie mehr als Schutzleisten: Höhe, Profilierung und Übergänge bestimmen die Raumproportion.\n\n**Typische Themen:**\n- passende Höhe zur Raumhöhe und zur Vertäfelung\n- Profilformen (Rundstab, Kehle, Hohlkehle, Wulst)\n- Anschluss an Türbekleidungen und Wandfelder\n\nWähle eine Sockelleiste, um Maße, Profilform, Varianten und Bilder zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->

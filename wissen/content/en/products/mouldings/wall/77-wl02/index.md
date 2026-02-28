@@ -3,7 +3,7 @@ title: Wall Moulding 02 "Dome"
 lang: en
 translationKey: '77'
 managed_by: ssot-sync
-last_synced: '2026-02-24'
+last_synced: '2026-02-28'
 produkt:
   id: '77'
   artikelnummer: '77'

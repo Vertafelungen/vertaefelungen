@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: de
 translationKey: beeck-sip-pro-solid
 slug: sip-v
@@ -32,6 +32,8 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:beeck-sip-pro-solid | path_de:produkte/oele-farben/beeck/standoel/sip-v | path_en:products/oil-paint/beeck/standoil/sip-v -->
+
 Hier findest du die **Volltonfarben** der BEECK Standölinnenfarbe Pro: fertig abgetönte Farbtöne mit standölbasierter Bindemittelmatrix.\n\n**Einsatzbereiche:** Holzbauteile im Innenraum (z. B. Vertäfelungen, Türen, Leisten) sowie passende mineralische Untergründe, sofern systemkonform.\n\nWähle einen Farbton, um Produktdaten, Gebindegrößen, Varianten und Bilder zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->

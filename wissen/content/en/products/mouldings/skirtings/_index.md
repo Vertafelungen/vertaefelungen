@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: en
 translationKey: skirting-boards
 slug: skirtings
@@ -32,4 +32,6 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_en | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
+
 Skirting boards create a clean transition between floor and wall. In period interiors they are more than protective strips: height, profile and junctions define the room's proportions.\n\n**Typical topics:**\n- choosing a suitable height relative to ceiling height and any panelling\n- profile shapes (round, cove, hollow, ogee)\n- junctions with door surrounds and wall fields\n\nSelect a skirting profile to see dimensions, variants and images.

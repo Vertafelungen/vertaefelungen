@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: en
 translationKey: dado-panel
 slug: dado-panel
@@ -32,4 +32,6 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_en | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
+
 Low panelling - often referred to as **dado panel** - structures wall surfaces, protects high-wear zones and gives rooms a historic proportion without visually "closing" the space.\n\n**Typical use cases:** hallways, dining rooms, children's rooms, stair runs, home offices.\n\n**Variants:** with/without chair rail, plain panels or profiled fields, integrated skirting and finishing mouldings.\n\n**Workflow:** choose reference → measure/plan → 3D visualisation → fabrication & installation via partner joinery.\n\nIf you share ceiling height, desired panelling height and style, the panel grid and profile set can be defined efficiently.

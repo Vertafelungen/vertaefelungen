@@ -3,7 +3,7 @@ title: Wall Moulding 13
 lang: en
 translationKey: '89'
 managed_by: ssot-sync
-last_synced: '2026-02-24'
+last_synced: '2026-02-28'
 produkt:
   id: '89'
   artikelnummer: '89'

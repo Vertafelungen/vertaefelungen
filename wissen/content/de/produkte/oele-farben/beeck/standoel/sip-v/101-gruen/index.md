@@ -4,7 +4,7 @@ aliases:
 title: Grün - BEECK Standölinnenfarbe PRO
 translationKey: '101'
 managed_by: ssot-sync
-last_synced: '2026-02-24'
+last_synced: '2026-02-28'
 produkt:
   id: '101'
   artikelnummer: '101'

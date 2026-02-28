@@ -1,8 +1,8 @@
 ---
-version: 2026-02-24 05:42 UTC
+version: 2026-02-28 12:12 UTC
 managed_by: categories.csv
-last_synced: 2026-02-24 05:42 UTC
-lastmod: 2026-02-24 05:42 UTC
+last_synced: 2026-02-28 12:12 UTC
+lastmod: 2026-02-28 12:12 UTC
 lang: en
 translationKey: beeck-stand-oil-paints
 slug: beeck
@@ -32,4 +32,6 @@ cascade:
   seo:
     robots: index,follow
 ---
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_en | key:beeck-stand-oil-paints | path_de:produkte/oele-farben/beeck | path_en:products/oil-paint/beeck -->
+
 This category groups BEECK stand-oil systems for interior use. Stand-oil paints are designed for durable, repair-friendly finishes and are well suited to historically informed interiors.\n\n## Subcategories\n- **Interior Stand-Oil Paint PRO - Solid Colours** - ready-mixed full tones.\n- **Interior Stand-Oil Paint PRO - Mixed Tones** - mixed tones and nuanced shades.\n- **Primer Coat PRO** - primer/undercoat as a system component.\n\nChoose a subcategory to browse colours, pack sizes and variants.

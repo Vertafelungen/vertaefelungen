@@ -3,7 +3,7 @@ title: Wall Moulding 14
 lang: en
 translationKey: '90'
 managed_by: ssot-sync
-last_synced: '2026-02-24'
+last_synced: '2026-02-28'
 produkt:
   id: '90'
   artikelnummer: '90'
