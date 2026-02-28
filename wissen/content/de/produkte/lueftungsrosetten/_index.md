@@ -1,8 +1,8 @@
 ---
-version: 2026-02-28 12:55 UTC
+version: 2026-02-28 17:22 UTC
 managed_by: categories.csv
-last_synced: 2026-02-28 12:55 UTC
-lastmod: 2026-02-28 12:55 UTC
+last_synced: 2026-02-28 17:22 UTC
+lastmod: 2026-02-28 17:22 UTC
 lang: de
 translationKey: ventilation-rosettes
 slug: lueftungsrosetten
@@ -39,35 +39,67 @@ Lüftungsrosetten verbinden Funktion und Gestaltung: Sie decken Lüftungsöffnun
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Wo werden Lüftungsrosetten typischerweise platziert?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-lueftungsrosetten-de-001 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
+
+Wo werden Lüftungsrosetten typischerweise platziert?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-lueftungsrosetten-de-001 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
 
 Meist in Achsen von Wandfeldern oder oberhalb von Türzonen, damit Luftführung und Gestaltung zusammenpassen.
 
-### Passen Lüftungsrosetten zu historischen Vertäfelungen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-lueftungsrosetten-de-002 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
+
+Passen Lüftungsrosetten zu historischen Vertäfelungen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-lueftungsrosetten-de-002 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
 
 Ja, wenn Form und Größe auf das vorhandene Profilbild abgestimmt werden.
 
-### Welche Informationen sind für die Planung wichtig?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-lueftungsrosetten-de-003 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
+
+Welche Informationen sind für die Planung wichtig?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-lueftungsrosetten-de-003 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
 
 Hilfreich sind Raumskizze, Wandaufbau, bestehende Öffnungen und gewünschte Gestaltungslinie.
 
-### Muss die Position früh festgelegt werden?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-lueftungsrosetten-de-004 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
+
+Muss die Position früh festgelegt werden?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-lueftungsrosetten-de-004 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
 
 Ja, frühe Positionierung erleichtert die Abstimmung mit Leisten und Oberflächenaufbau.
 
-### Kann ich Rosetten nachträglich integrieren?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-lueftungsrosetten-de-005 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
+
+Kann ich Rosetten nachträglich integrieren?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-lueftungsrosetten-de-005 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
 
 Das ist möglich, verursacht aber meist mehr Anpassungsaufwand am Bestand.
 
-### Gibt es unterschiedliche Stilrichtungen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-lueftungsrosetten-de-006 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
+
+Gibt es unterschiedliche Stilrichtungen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-lueftungsrosetten-de-006 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
 
 Ja, von zurückhaltend bis ornamentiert; die Auswahl orientiert sich am Raumkonzept.
 
-### Wie vermeide ich ein unruhiges Wandbild?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-lueftungsrosetten-de-007 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
+
+Wie vermeide ich ein unruhiges Wandbild?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-lueftungsrosetten-de-007 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
 
 Durch klare Achsbezüge, wiederkehrende Höhenlinien und abgestimmte Formate.
 
-### Welche Seite hilft bei der Erstberatung?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-lueftungsrosetten-de-008 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
+
+Welche Seite hilft bei der Erstberatung?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-lueftungsrosetten-de-008 | lang:de | scope_type:category | scope_key:produkte/lueftungsrosetten -->
 
 Ein guter Einstieg ist /de/info/beratung/ mit den grundlegenden Planungsfragen.
 <!-- FAQ_SYNC:END -->

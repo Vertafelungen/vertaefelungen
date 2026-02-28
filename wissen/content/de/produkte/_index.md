@@ -1,8 +1,8 @@
 ---
-version: 2026-02-28 12:55 UTC
+version: 2026-02-28 17:22 UTC
 managed_by: categories.csv
-last_synced: 2026-02-28 12:55 UTC
-lastmod: 2026-02-28 12:55 UTC
+last_synced: 2026-02-28 17:22 UTC
+lastmod: 2026-02-28 17:22 UTC
 lang: de
 translationKey: products-root
 slug: produkte
@@ -44,35 +44,67 @@ Wähle eine Kategorie, um Unterkategorien und Produkte zu sehen.
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Wofür ist diese Kategorie gedacht?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-de-001 | lang:de | scope_type:category | scope_key:produkte -->
+
+Wofür ist diese Kategorie gedacht?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-de-001 | lang:de | scope_type:category | scope_key:produkte -->
 
 Produkte bündelt Lösungen für ähnliche Raumanforderungen und erleichtert die strukturierte Vorauswahl.
 
-### Wie finde ich die passende Variante?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-de-002 | lang:de | scope_type:category | scope_key:produkte -->
+
+Wie finde ich die passende Variante?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-de-002 | lang:de | scope_type:category | scope_key:produkte -->
 
 Vergleichen Sie Profilwirkung, Aufbauhöhe und Anschlussdetails anhand von Musterachsen.
 
-### Welche Informationen sind für die Beratung wichtig?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-de-003 | lang:de | scope_type:category | scope_key:produkte -->
+
+Welche Informationen sind für die Beratung wichtig?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-de-003 | lang:de | scope_type:category | scope_key:produkte -->
 
 Hilfreich sind Fotos, Maße, Angaben zum Untergrund und gewünschte gestalterische Wirkung.
 
-### Wann sollten Schnittstellen geklärt werden?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-de-004 | lang:de | scope_type:category | scope_key:produkte -->
+
+Wann sollten Schnittstellen geklärt werden?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-de-004 | lang:de | scope_type:category | scope_key:produkte -->
 
 Schnittstellen zu Maler-, Trockenbau- oder Tischlerleistungen sollten vor der finalen Auswahl festgelegt werden.
 
-### Wie kann ich Planungsrisiken reduzieren?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-de-005 | lang:de | scope_type:category | scope_key:produkte -->
+
+Wie kann ich Planungsrisiken reduzieren?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-de-005 | lang:de | scope_type:category | scope_key:produkte -->
 
 Durch eindeutige Bezugshöhen, dokumentierte Details und abgestimmte Reihenfolge der Gewerke.
 
-### Wovon hängen die Kosten in dieser Kategorie ab?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-de-006 | lang:de | scope_type:category | scope_key:produkte -->
+
+Wovon hängen die Kosten in dieser Kategorie ab?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-de-006 | lang:de | scope_type:category | scope_key:produkte -->
 
 Von Fläche oder Laufmeter, Detailgrad, Untergrundvorbereitung und Montagezugang.
 
-### Gibt es Hilfen für Ausschreibung und Vorbereitung?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-de-007 | lang:de | scope_type:category | scope_key:produkte -->
+
+Gibt es Hilfen für Ausschreibung und Vorbereitung?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-de-007 | lang:de | scope_type:category | scope_key:produkte -->
 
 Ja, Grundlagen finden Sie unter /de/beratung/katalog-und-download und /de/beratung/planung.
 
-### Wie wird die Qualität in der Umsetzung gesichert?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-de-008 | lang:de | scope_type:category | scope_key:produkte -->
+
+Wie wird die Qualität in der Umsetzung gesichert?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-de-008 | lang:de | scope_type:category | scope_key:produkte -->
 
 Durch Aufmaßkontrolle, Freigabe von Details vor Montage und dokumentierte Abnahme der Anschlüsse.
 <!-- FAQ_SYNC:END -->

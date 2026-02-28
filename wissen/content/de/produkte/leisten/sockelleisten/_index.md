@@ -1,8 +1,8 @@
 ---
-version: 2026-02-28 12:55 UTC
+version: 2026-02-28 17:22 UTC
 managed_by: categories.csv
-last_synced: 2026-02-28 12:55 UTC
-lastmod: 2026-02-28 12:55 UTC
+last_synced: 2026-02-28 17:22 UTC
+lastmod: 2026-02-28 17:22 UTC
 lang: de
 translationKey: skirting-boards
 slug: sockelleisten
@@ -39,35 +39,67 @@ Sockelleisten bilden den sauberen Abschluss zwischen Boden und Wand. In historis
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Welche Sockelhöhe ist sinnvoll?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-sockelleisten-de-001 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
+
+Welche Sockelhöhe ist sinnvoll?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-sockelleisten-de-001 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
 
 Die Höhe sollte zur Raumproportion und zu Türbekleidungen passen; ein gemeinsamer Höhenbezug ist entscheidend.
 
-### Wann wird die Sockelleiste im Ablauf festgelegt?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-sockelleisten-de-002 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
+
+Wann wird die Sockelleiste im Ablauf festgelegt?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-sockelleisten-de-002 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
 
 Ideal nach Klärung von Wand- und Bodenaufbau, damit Anschlüsse sauber geplant werden können.
 
-### Sind hohe Sockel nur für große Räume geeignet?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-sockelleisten-de-003 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
+
+Sind hohe Sockel nur für große Räume geeignet?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-sockelleisten-de-003 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
 
 Nicht zwingend, aber sie wirken stärker und brauchen ein stimmiges Verhältnis zur Wandgliederung.
 
-### Wie wichtig sind Gehrungen an Ecken?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-sockelleisten-de-004 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
+
+Wie wichtig sind Gehrungen an Ecken?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-sockelleisten-de-004 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
 
 Sehr wichtig, da Gehrungen im Sichtbereich die Qualitätsanmutung deutlich prägen.
 
-### Kann ich unterschiedliche Sockelprofile mischen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-sockelleisten-de-005 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
+
+Kann ich unterschiedliche Sockelprofile mischen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-sockelleisten-de-005 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
 
 Möglich, aber nur mit klarer Zonierung, damit das Gesamtbild ruhig bleibt.
 
-### Was verursacht Mehrkosten bei Sockelleisten?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-sockelleisten-de-006 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
+
+Was verursacht Mehrkosten bei Sockelleisten?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-sockelleisten-de-006 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
 
 Viele Ecken, schwierige Bestandsgeometrie und aufwendige Nacharbeit im Finish.
 
-### Wie kombiniere ich Sockelleisten mit Türbekleidungen?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-sockelleisten-de-007 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
+
+Wie kombiniere ich Sockelleisten mit Türbekleidungen?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-sockelleisten-de-007 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
 
 Am besten über ein abgestimmtes Detail mit definierten Übergängen und Referenzhöhen.
 
-### Welche Seite zeigt passende Anschlussprodukte?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-sockelleisten-de-008 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
+
+Welche Seite zeigt passende Anschlussprodukte?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-sockelleisten-de-008 | lang:de | scope_type:category | scope_key:produkte/leisten/sockelleisten -->
 
 Siehe /de/produkte/leisten/tuerbekleidungen/ für abgestimmte Übergänge.
 <!-- FAQ_SYNC:END -->

@@ -1,8 +1,8 @@
 ---
-version: 2026-02-28 12:55 UTC
+version: 2026-02-28 17:22 UTC
 managed_by: categories.csv
-last_synced: 2026-02-28 12:55 UTC
-lastmod: 2026-02-28 12:55 UTC
+last_synced: 2026-02-28 17:22 UTC
+lastmod: 2026-02-28 17:22 UTC
 lang: de
 translationKey: wall-mouldings
 slug: wandleisten
@@ -39,35 +39,67 @@ Wandleisten gliedern Wandflächen und setzen Proportionen: als Rahmung von Felde
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
 
-### Wofür ist diese Kategorie gedacht?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-wandleisten-de-001 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
+
+Wofür ist diese Kategorie gedacht?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-wandleisten-de-001 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
 
 Wandleisten bündelt Lösungen für ähnliche Raumanforderungen und erleichtert die strukturierte Vorauswahl.
 
-### Wie finde ich die passende Variante?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-wandleisten-de-002 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
+
+Wie finde ich die passende Variante?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-wandleisten-de-002 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
 
 Vergleichen Sie Profilwirkung, Aufbauhöhe und Anschlussdetails anhand von Musterachsen.
 
-### Welche Informationen sind für die Beratung wichtig?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-wandleisten-de-003 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
+
+Welche Informationen sind für die Beratung wichtig?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-wandleisten-de-003 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
 
 Hilfreich sind Fotos, Maße, Angaben zum Untergrund und gewünschte gestalterische Wirkung.
 
-### Wann sollten Schnittstellen geklärt werden?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-wandleisten-de-004 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
+
+Wann sollten Schnittstellen geklärt werden?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-wandleisten-de-004 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
 
 Schnittstellen zu Maler-, Trockenbau- oder Tischlerleistungen sollten vor der finalen Auswahl festgelegt werden.
 
-### Wie kann ich Planungsrisiken reduzieren?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-wandleisten-de-005 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
+
+Wie kann ich Planungsrisiken reduzieren?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-wandleisten-de-005 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
 
 Durch eindeutige Bezugshöhen, dokumentierte Details und abgestimmte Reihenfolge der Gewerke.
 
-### Wovon hängen die Kosten in dieser Kategorie ab?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-wandleisten-de-006 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
+
+Wovon hängen die Kosten in dieser Kategorie ab?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-wandleisten-de-006 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
 
 Von Fläche oder Laufmeter, Detailgrad, Untergrundvorbereitung und Montagezugang.
 
-### Gibt es Hilfen für Ausschreibung und Vorbereitung?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-wandleisten-de-007 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
+
+Gibt es Hilfen für Ausschreibung und Vorbereitung?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-wandleisten-de-007 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
 
 Ja, Grundlagen finden Sie unter /de/beratung/katalog-und-download und /de/beratung/planung.
 
-### Wie wird die Qualität in der Umsetzung gesichert?
+### <!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:question | faq_id:c-produkte-leisten-wandleisten-de-008 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
+
+Wie wird die Qualität in der Umsetzung gesichert?
+
+<!-- ssot_texts | v2026-02-28 11:10 Europe/Berlin | source: faq.csv:answer | faq_id:c-produkte-leisten-wandleisten-de-008 | lang:de | scope_type:category | scope_key:produkte/leisten/wandleisten -->
 
 Durch Aufmaßkontrolle, Freigabe von Details vor Montage und dokumentierte Abnahme der Anschlüsse.
 <!-- FAQ_SYNC:END -->
