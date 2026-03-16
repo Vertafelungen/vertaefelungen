@@ -3,7 +3,7 @@ title: P0002 - Hamburg - Michel
 lang: en
 translationKey: '24'
 managed_by: ssot-sync
-last_synced: '2026-02-28'
+last_synced: '2026-03-16'
 produkt:
   id: '24'
   artikelnummer: '24'

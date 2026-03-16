@@ -1,8 +1,8 @@
 ---
-version: 2026-02-28 17:22 UTC
+version: 2026-03-16 16:52 UTC
 managed_by: categories.csv
-last_synced: 2026-02-28 17:22 UTC
-lastmod: 2026-02-28 17:22 UTC
+last_synced: 2026-03-16 16:52 UTC
+lastmod: 2026-03-16 16:52 UTC
 lang: de
 translationKey: skirting-boards
 slug: sockelleisten

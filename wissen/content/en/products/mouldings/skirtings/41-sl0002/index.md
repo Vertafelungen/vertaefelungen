@@ -3,7 +3,7 @@ title: SL0002 - Hamburg skirting board 18/120
 lang: en
 translationKey: '41'
 managed_by: ssot-sync
-last_synced: '2026-02-28'
+last_synced: '2026-03-16'
 produkt:
   id: '41'
   artikelnummer: '41'

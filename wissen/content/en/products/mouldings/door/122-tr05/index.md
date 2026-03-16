@@ -3,7 +3,7 @@ title: Door Frame 05
 lang: en
 translationKey: '122'
 managed_by: ssot-sync
-last_synced: '2026-02-28'
+last_synced: '2026-03-16'
 produkt:
   id: '122'
   artikelnummer: '122'

@@ -3,7 +3,7 @@ title: Wall Moulding 08
 lang: en
 translationKey: '84'
 managed_by: ssot-sync
-last_synced: '2026-02-28'
+last_synced: '2026-03-16'
 produkt:
   id: '84'
   artikelnummer: '84'
