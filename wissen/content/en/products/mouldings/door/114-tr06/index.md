@@ -3,7 +3,7 @@ title: Door Frame 06
 lang: en
 translationKey: '114'
 managed_by: ssot-sync
-last_synced: '2026-02-28'
+last_synced: '2026-03-16'
 produkt:
   id: '114'
   artikelnummer: '114'
