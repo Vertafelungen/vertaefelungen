@@ -1,8 +1,8 @@
 ---
-version: 2026-03-16 16:52 UTC
+version: 2026-03-16 17:02 UTC
 managed_by: categories.csv
-last_synced: 2026-03-16 16:52 UTC
-lastmod: 2026-03-16 16:52 UTC
+last_synced: 2026-03-16 17:02 UTC
+lastmod: 2026-03-16 17:02 UTC
 lang: de
 translationKey: products-root
 slug: produkte
