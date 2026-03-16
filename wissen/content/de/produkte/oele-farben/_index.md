@@ -1,8 +1,8 @@
 ---
-version: 2026-03-16 17:02 UTC
+version: 2026-03-16 17:08 UTC
 managed_by: categories.csv
-last_synced: 2026-03-16 17:02 UTC
-lastmod: 2026-03-16 17:02 UTC
+last_synced: 2026-03-16 17:08 UTC
+lastmod: 2026-03-16 17:08 UTC
 lang: de
 translationKey: oil-paints-root
 slug: oele-farben
