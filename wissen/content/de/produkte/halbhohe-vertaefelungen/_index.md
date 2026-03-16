@@ -1,8 +1,8 @@
 ---
-version: 2026-03-16 17:02 UTC
+version: 2026-03-16 17:38 UTC
 managed_by: categories.csv
-last_synced: 2026-03-16 17:02 UTC
-lastmod: 2026-03-16 17:02 UTC
+last_synced: 2026-03-16 17:38 UTC
+lastmod: 2026-03-16 17:38 UTC
 lang: de
 translationKey: dado-panel
 slug: halbhohe-vertaefelungen
