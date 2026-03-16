@@ -75,10 +75,11 @@ Historisch wurde es in Europa als „Holzöl“ oder „chinesisches Holzöl“ 
 - Weißes „Eisblumenmuster“ bei zu dicken Schichten → überstehendes Öl deshalb rechtzeitig verreiben bzw. Überschuss nach ca. 1 Stunde entfernen.
 - Lange Trocknung/Geruch → zu dicke Schicht, zu kalt/zu feucht/zu dunkel → dünner arbeiten, Temperatur/Luftwechsel/Licht verbessern.
 
-## [fehler] Sicherheit
+## [fehler] Sicherheit!
 VORSICHT: Selbstentzündungsgefahr!
-Mit Tungöl getränkte Lappen oder Putzmaterialien können sich selbst entzünden.
-Diese Materialien unter Aufsicht trocknen lassen oder kontrolliert verbrennen.
+- Mit (Tung-)Öl getränkte Lappen, Pads, Schleifstaub und Putzmaterialien können sich selbst entzünden.
+- Nach Gebrauch sofort in einem dicht schließenden, nicht brennbaren Behälter (z. B. Metall) sichern und bis zur Entsorgung geschlossen lagern; Lappen nach Möglichkeit vollständig mit Wasser bedecken.
+- Nicht zusammengeknüllt liegen lassen, nicht im Innenraum „trocknen lassen“ und nicht verbrennen. Entsorgung gemäß örtlichen Vorschriften (Problemstoff-/Schadstoffsammlung).
 
 ## [verweise] Shop
 Shop-Link: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/69-336-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter
