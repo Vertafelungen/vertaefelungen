@@ -1,6 +1,12 @@
 # build-and-deploy-wissen.yml
 # Vertäfelungen – Wissen (Hugo)
-# Version: 2026-02-12 19:45 CET
+# Version: 2026-03-16 20:21 CET
+#
+# CHANGELOG (2026-03-16):
+# - Fix: Hugo-Binary wird nach repo-lokaler Installation über den tatsächlichen OS/ARCH-Pfad
+#   unter wissen/tools/hugo/<os>-<arch>/hugo aufgelöst und nicht mehr fälschlich unter
+#   wissen/tools/hugo/hugo erwartet.
+# - Added: Expliziter Resolve-Step mit Fail-Fast, falls das Binary nach der Installation fehlt.
 #
 # CHANGELOG (2026-02-12):
 # - Debug: GUARD_DEBUG=1 im Step "Run public output guards" aktiviert (liefert raw/normalized hrefs im CI-Log).
@@ -51,6 +57,42 @@ jobs:
       - name: Install Hugo (repo-local)
         run: ./tools/hugo/install.sh
 
+      - name: Resolve Hugo binary (repo-local)
+        id: hugo-bin
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          case "$(uname -s)" in
+            Linux) OS="linux" ;;
+            Darwin) OS="darwin" ;;
+            *)
+              echo "Unsupported OS: $(uname -s)" >&2
+              exit 1
+              ;;
+          esac
+
+          case "$(uname -m)" in
+            x86_64) ARCH="amd64" ;;
+            aarch64|arm64) ARCH="arm64" ;;
+            *)
+              echo "Unsupported ARCH: $(uname -m)" >&2
+              exit 1
+              ;;
+          esac
+
+          HUGO_BIN="./tools/hugo/${OS}-${ARCH}/hugo"
+
+          if [[ ! -x "${HUGO_BIN}" ]]; then
+            echo "ERROR: Hugo binary not found or not executable at ${HUGO_BIN}" >&2
+            echo "Directory snapshot:" >&2
+            find ./tools/hugo -maxdepth 2 -type f | sort >&2 || true
+            exit 1
+          fi
+
+          echo "Resolved Hugo binary: ${HUGO_BIN}"
+          echo "path=${HUGO_BIN}" >> "${GITHUB_OUTPUT}"
+
       - name: Pre-build mojibake scan (sources)
         run: |
           mkdir -p artifacts
@@ -75,7 +117,7 @@ jobs:
         env:
           HUGO_ENV: production
         run: |
-          ./tools/hugo/hugo --minify --gc --config "hugo.prod.toml"
+          "${{ steps.hugo-bin.outputs.path }}" --minify --gc --config "hugo.prod.toml"
           date -u +"%Y-%m-%dT%H:%M:%SZ  $GITHUB_SHA" > public/deploy-stamp.txt
 
       - name: Export retrieval index (Phase 6.1)
@@ -89,7 +131,6 @@ jobs:
       - name: Generate content backlog (Phase 6.2)
         run: python scripts/generate_content_backlog.py
 
-      # kleine Sicherung: zeige, dass der Build-Output da ist (inkl. Dotfiles)
       - name: Inspect build output
         run: |
           pwd
@@ -99,7 +140,6 @@ jobs:
           echo "== sample files =="
           find public -maxdepth 2 -type f | head -n 50
 
-      # HARTE SICHERUNG: .htaccess muss im Build-Output existieren, sonst ist UTF-8 Fix live wirkungslos
       - name: Assert .htaccess is present in build output
         run: |
           test -f public/.htaccess || (echo "ERROR: public/.htaccess missing. Ensure wissen/static/.htaccess exists and is copied by Hugo." && exit 1)
@@ -195,11 +235,8 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port:     ${{ secrets.SFTP_PORT }}
-          # Wichtig: Pfad relativ zum Repo-Root!
-          # NOTE: Use directory source (NOT glob) to include dotfiles like .htaccess.
           source:   "wissen/public"
           target:   ${{ secrets.SFTP_TARGET }}
-          # 'wissen/public' abstreifen => 2 Komponenten
           strip_components: 2
           overwrite: true
 
