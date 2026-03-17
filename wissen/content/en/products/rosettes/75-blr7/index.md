@@ -3,7 +3,7 @@ title: Ventilation Rosette 7
 lang: en
 translationKey: '75'
 managed_by: ssot-sync
-last_synced: '2026-03-16'
+last_synced: '2026-03-17'
 produkt:
   id: '75'
   artikelnummer: '75'
