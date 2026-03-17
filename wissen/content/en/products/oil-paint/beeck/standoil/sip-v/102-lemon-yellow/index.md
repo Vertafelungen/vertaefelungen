@@ -3,7 +3,7 @@ title: Lemon Yellow - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '102'
 managed_by: ssot-sync
-last_synced: '2026-03-16'
+last_synced: '2026-03-17'
 produkt:
   id: '102'
   artikelnummer: '102'
