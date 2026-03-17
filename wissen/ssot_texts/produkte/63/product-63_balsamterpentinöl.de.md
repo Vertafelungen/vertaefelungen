@@ -24,19 +24,19 @@ Balsamterpentinöl ist ein Destillat aus Nadelholzharz – nicht aus Erdöl. Ter
 
 ## [praxis] Anwendungsbeispiele
 ### Holzschutz: Verdünnung von Leinöl/Tungöl (typische Staffel)
-Grundschema: erste Schicht „mager“ und tief, spätere Schichten „reicher“.
+Grundschema: erste Schicht „mager" und tief, spätere Schichten „reicher".
 • Halböl zur Grundierung (tiefes Eindringen): Öl : Balsamterpentinöl = 1:1  
 • Zweite Schicht - mehr Öl, weniger Lösemittel: 2:1 oder Öl pur  
 
 Verarbeitung (entscheidend gegen Klebrigkeit):
 • dünn auftragen, nach 15–30 min Überschuss abnehmen/auspolieren  
-• lieber mehrere dünne Aufträge als „satt“ (sonst Trocknungsprobleme/Runzeln)  
+• lieber mehrere dünne Aufträge als „satt" (sonst Trocknungsprobleme/Runzeln)  
 
 ### Holzpflege: Reinigungs-/Entschichtungsnahe Anwendungen (vorsichtig formulieren)
 • für öl-/harztypische Rückstände: sparsam auf Tuch, kurze Einwirkzeit, mechanisch abnehmen  
 • immer Testfläche: kann alte Polituren/Lacke anlösen (Schellack/alte Kunstharze besonders kritisch)  
 
-### Malerbedarf: Verdünnung & „Fett-auf-mager“
+### Malerbedarf: Verdünnung & „Fett-auf-mager"
 • Untermalung / mager: Öl : Balsamterpentinöl = 1:2 bis 1:3  
 • Standard/Alltag: 1:1  
 • Spätere Schichten / fetter: 2:1 oder lösemittelarm  
