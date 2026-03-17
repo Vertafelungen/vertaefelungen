@@ -4,7 +4,7 @@ aliases:
 title: Türbekleidung 18
 translationKey: '130'
 managed_by: ssot-sync
-last_synced: '2026-03-16'
+last_synced: '2026-03-17'
 produkt:
   id: '130'
   artikelnummer: '130'
