@@ -3,7 +3,7 @@ title: Wall Moulding 11
 lang: en
 translationKey: '87'
 managed_by: ssot-sync
-last_synced: '2026-03-16'
+last_synced: '2026-03-17'
 produkt:
   id: '87'
   artikelnummer: '87'
