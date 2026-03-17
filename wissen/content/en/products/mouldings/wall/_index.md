@@ -1,8 +1,8 @@
 ---
-version: 2026-03-16 17:38 UTC
+version: 2026-03-17 17:51 UTC
 managed_by: categories.csv
-last_synced: 2026-03-16 17:38 UTC
-lastmod: 2026-03-16 17:38 UTC
+last_synced: 2026-03-17 17:51 UTC
+lastmod: 2026-03-17 17:51 UTC
 lang: en
 translationKey: wall-mouldings
 slug: wall

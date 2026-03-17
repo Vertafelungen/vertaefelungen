@@ -3,7 +3,7 @@ title: Wandleiste 15
 lang: de
 translationKey: '91'
 managed_by: ssot-sync
-last_synced: '2026-03-16'
+last_synced: '2026-03-17'
 produkt:
   id: '91'
   artikelnummer: '91'

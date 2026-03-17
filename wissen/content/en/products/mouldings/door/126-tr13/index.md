@@ -3,7 +3,7 @@ title: Door Frame 13
 lang: en
 translationKey: '126'
 managed_by: ssot-sync
-last_synced: '2026-03-16'
+last_synced: '2026-03-17'
 produkt:
   id: '126'
   artikelnummer: '126'
