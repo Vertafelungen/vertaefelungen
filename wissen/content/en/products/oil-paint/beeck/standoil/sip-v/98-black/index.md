@@ -3,7 +3,7 @@ title: Black - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '98'
 managed_by: ssot-sync
-last_synced: '2026-03-16'
+last_synced: '2026-03-17'
 produkt:
   id: '98'
   artikelnummer: '98'
