@@ -12,11 +12,11 @@ Unser TUNG Holzöllack ist ein gekochter, naturfarbener Holzlack. Er besteht aus
 
 Durch diese Zusammensetzung trocknet der Holzöllack deutlich schneller und härter als ein herkömmlicher Leinölfirnis.
 
-## [beschreibung] Hintergrund: Tungöl („Holzöl“) und seine Rolle im System
+## [beschreibung] Hintergrund: Tungöl („Holzöl") und seine Rolle im System
 Tung Öl wird aus den Nüssen des Holzölbaumes (Vernicia fordii) in Asien, den USA und Südamerika gewonnen.
 
 Mitte des 19. Jahrhunderts entdeckten europäische und amerikanische Hersteller auf der Suche nach neuen Anstrichstoffen das chinesische Holzöl für sich. Aufgrund der steigenden Nachfrage reichten die Erntemengen aus China und Japan bald nicht mehr aus, sodass der Holzölbaum auch in den USA und Südamerika kultiviert wurde.
-Historisch wurde Tungöl ausschließlich als „Holzöl“ oder „chinesisches Holzöl“ bezeichnet. Es ist das traditionelle Bindemittel der berühmten chinesischen und japanischen Holz- und Papiermalereien.
+Historisch wurde Tungöl ausschließlich als „Holzöl" oder „chinesisches Holzöl" bezeichnet. Es ist das traditionelle Bindemittel der berühmten chinesischen und japanischen Holz- und Papiermalereien.
 
 Tungöl polymerisiert und oxidiert ähnlich wie Leinöl, trocknet jedoch schneller und bildet eine relativ harte, matte Oberfläche. Zur Verbesser und der Eigenschaften wird es in Mischung mit Leinöl bzw. Leinölfirnis verwendet. Bis 20 % dem Leinölfirnis zugesetzt, beschleunigt es die Trocknung und verringert die Quellung durch Wasser. Mit Leinöl gemischt, wird eine besonders gute Haltbarkeit und Witterungsbeständigkeit erreicht.
 
