@@ -1,13 +1,13 @@
 # Leinölfirnis mit Sikkativ (Leinölfirnis)
 
 ## [kurzantwort] Was ist Leinölfirnis mit Sikkativ?
-Leinölfirnis ist Leinöl, dem Trockenstoffe (Sikkative) zugesetzt werden, damit es schneller aushärtet als unbehandeltes Leinöl. Die Aushärtung erfolgt nicht durch „Verdunsten“, sondern durch Oxidation (Sauerstoffaufnahme) und Vernetzung zu Linoxin.
+Leinölfirnis ist Leinöl, dem Trockenstoffe (Sikkative) zugesetzt werden, damit es schneller aushärtet als unbehandeltes Leinöl. Die Aushärtung erfolgt nicht durch „Verdunsten", sondern durch Oxidation (Sauerstoffaufnahme) und Vernetzung zu Linoxin.
 
 ## [beschreibung] Produktbasis: Lackleinöl + Marken-Sikkative (Herstellerangabe)
 Dieses Produkt ist ein Leinölfirnis auf Basis von besonders reinem Lackleinöl (stark gereinigtes Leinöl; Schleimstoffe und natürliche Verunreinigungen entfernt). Als Trockenstoffe werden Marken-Sikkative auf Basis von Cobalt (Co), Calcium (Ca) und Zirkonium (Zr) eingesetzt.
 Herstellerangabe: Durch die besonders reine Lackleinöl-Basis wird eine höhere Qualität erreicht, als es die DIN-Norm für herkömmlichen Leinölfirnis fordert.
 
-## [beschreibung] Begriffe: Lackleinöl, Firnis, „maßhaltig“ vs. „nicht maßhaltig“
+## [beschreibung] Begriffe: Lackleinöl, Firnis, „maßhaltig" vs. „nicht maßhaltig"
 - **Lackleinöl**: stark gereinigtes Leinöl (Schleimstoffe/Verunreinigungen entfernt). Ziel: gleichmäßigeres Trocknen, weniger Klebrigkeit.
 - **Lackleinöl ohne Sikkative**: trocknet sehr langsam und zieht tief ein → typische Erstgrundierung auf rohem, saugfähigem Holz.
 - **Lackleinöl mit Sikkativ (Firnis)**: trocknet wesentlich schneller → typischer Folge-/Zweitauftrag in der Grundierungskette.
@@ -23,7 +23,7 @@ Herstellerangabe: Das Lackleinöl wird in einem zusätzlichen Arbeitsschritt geb
 - Zulässiger Grenzwert: 300 g/l.
 
 ## [beschreibung] Eigenschaften und Grenzen als Holzschutz
-- **Wasserabweisend**, aber nicht „wasserdicht“. Dauerbelastung (stehendes Wasser, Risse) bleibt kritisch.
+- **Wasserabweisend**, aber nicht „wasserdicht". Dauerbelastung (stehendes Wasser, Risse) bleibt kritisch.
 - **Zähelastisch** und **diffusionsfähig** (nicht dampfdicht), dadurch oft gut geeignet für historische Substanz und bewegendes Holz.
 - **Schichtdicke ist entscheidend**: zu dicke Filme schließen an der Oberfläche, darunter bleibt es lange weich → Klebrigkeit/Runzeln/Blasen.
 - **Außenbereich**: Leinöl-/Firnissysteme brauchen konstruktiven Holzschutz und in der Regel einen **pigmentierten Folgeanstrich** (UV-Schutz, erhöhte Dauerhaftigkeit). Klarer Firnis allein ist im ungeschützten Außenbereich meist nicht ausreichend.
@@ -36,9 +36,9 @@ Herstellerangabe: Das Lackleinöl wird in einem zusätzlichen Arbeitsschritt geb
 - Bei Bedarf verdünnbar (Balsamterpentinöl oder Citrusterpene), um ein tieferes Eindringen zu ermöglichen.
 
 ## [ablauf] Typischer Systemaufbau (Holz)
-### Kombination „Lackleinöl (roh)“ + „Lackleinöl-Firnis“ (Herstellerangabe)
+### Kombination „Lackleinöl (roh)" + „Lackleinöl-Firnis" (Herstellerangabe)
 - Lackleinöl ohne Sikkativ: tief einziehende Erstgrundierung auf rohem, saugfähigem Holz.
-- Lackleinöl mit Sikkativ (Firnis): schnelltrocknender Folgeauftrag („zweite Grundierung“).
+- Lackleinöl mit Sikkativ (Firnis): schnelltrocknender Folgeauftrag („zweite Grundierung").
 Herstellerangabe: Die Kombination aus Lackleinöl (roh) und Lackleinöl-Firnis gilt als bewährte und hochwertige Holzgrundierung für alle nicht maßhaltigen Bauteile.
 
 ### Wichtiger Trocknungs-Hinweis (Herstellerangabe)
@@ -89,4 +89,4 @@ Shop: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/62-leinolfirnis.ht
 ## [verweise] Quellen (Input)
 - Lackleinöl mit Sikkativ (Lackleinölfirnis): https://www.farbmanufaktur-potsdam.de/shop/Lackleinol-mit-Sikkativ-p813609762
 - Wikipedia Leinölfirnis: https://de.wikipedia.org/wiki/Leinölfirnis
-- Kreidezeit Produktinformation „Leinölfirnis“ (PDF): liegt lokal vor (TODO: Link, falls öffentlich verlinkt werden soll)
+- Kreidezeit Produktinformation „Leinölfirnis" (PDF): liegt lokal vor (TODO: Link, falls öffentlich verlinkt werden soll)

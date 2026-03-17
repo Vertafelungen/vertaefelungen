@@ -1,17 +1,17 @@
 # Tungöl Natur
 
 ## [kurzantwort] Was ist Tungöl?
-Tungöl (auch „Holzöl“ bzw. historisch „chinesisches Holzöl“) ist ein pflanzliches, oxidativ trocknendes Holzöl. Für dieses Produkt gilt als Referenz: **TUNGÖL Natur ist ein reines Holzöl aus den Nüssen des Holzölbaumes (Vernicia fordii)**.
+Tungöl (auch „Holzöl" bzw. historisch „chinesisches Holzöl") ist ein pflanzliches, oxidativ trocknendes Holzöl. Für dieses Produkt gilt als Referenz: **TUNGÖL Natur ist ein reines Holzöl aus den Nüssen des Holzölbaumes (Vernicia fordii)**.
 
 ## [kurzantwort] Stimmen die Aussagen der Quellen im Wesentlichen überein?
 Im Kern ja:
-- Trocknung: oxidativ/polymersierend (kein „Verdunsten“), Tungöl trocknet schneller als Leinöl.
+- Trocknung: oxidativ/polymersierend (kein „Verdunsten"), Tungöl trocknet schneller als Leinöl.
 - Oberfläche: harzartig, relativ hart und matt; bei zu dicken Schichten drohen Fehlerbilder.
 - Verarbeitung: dünn/sparsam arbeiten, Überschuss nach kurzer Einwirkzeit abnehmen; mehrere dünne Aufträge bis zur Sättigung.
 - Geruch: typischer Geruch während der Oxidation ist möglich; Lüftung, Licht und dünne Schichten helfen.
 - Sicherheit: Selbstentzündungsgefahr ölgetränkter Lappen/Pads.
 
-Für **Entweder/Oder‑Angaben** (z. B. Lösungsmittel ja/nein, Sikkative ja/nein, ökologische Aussagen, konkrete Anwendungshinweise wie „Eisblumenmuster“) ist maßgeblich, was zur Produktausführung **TUNGÖL Natur** angegeben ist.
+Für **Entweder/Oder‑Angaben** (z. B. Lösungsmittel ja/nein, Sikkative ja/nein, ökologische Aussagen, konkrete Anwendungshinweise wie „Eisblumenmuster") ist maßgeblich, was zur Produktausführung **TUNGÖL Natur** angegeben ist.
 
 ## [beschreibung] Produktdefinition
 TUNGÖL Natur ist ein reines Naturprodukt, ohne Lösungsmittel, Sikkative oder andere Zusatzstoffe.
@@ -22,7 +22,7 @@ Umwelt- und Inhaltsstoffangaben (Herstellerangabe):
 
 ## [beschreibung] Herkunft und historische Einordnung
 Das TUNG Holzöl wird aus den Nüssen des Holzölbaumes (Vernicia fordii) gewonnen, der in Asien, den USA und Südamerika wächst.
-Historisch wurde es in Europa als „Holzöl“ oder „chinesisches Holzöl“ bezeichnet. In Asien und Japan ist es traditionell als Bindemittel für Holz- und Papiermalerei bekannt. Technisch ist Tungöl in der CAS-Datenbank als Holzöl registriert.
+Historisch wurde es in Europa als „Holzöl" oder „chinesisches Holzöl" bezeichnet. In Asien und Japan ist es traditionell als Bindemittel für Holz- und Papiermalerei bekannt. Technisch ist Tungöl in der CAS-Datenbank als Holzöl registriert.
 
 ## [beschreibung] Eigenschaften auf Holz
 - TUNGÖL polymerisiert und oxidiert ähnlich wie Leinöl, trocknet jedoch schneller.
@@ -55,11 +55,11 @@ Historisch wurde es in Europa als „Holzöl“ oder „chinesisches Holzöl“ 
 ### Auftrag
 - Dünn mit Lappen oder Schwamm auftragen.
 - Mehrfach streichen, bis das Holz kein Öl mehr aufgenommen wird.
-- Überschüssiges Öl nach ca. 1 Stunde entfernen, um das „Eisblumenmuster“ zu vermeiden.
+- Überschüssiges Öl nach ca. 1 Stunde entfernen, um das „Eisblumenmuster" zu vermeiden.
 - Innenbereich: Nur mit fusselfreiem Lappen dünn auftragen. Dicke Schichten verlängern Trocknung und Geruchsentwicklung.
 - Geringe Luftfeuchtigkeit und Sonnenlicht beschleunigen die Oxidation.
 
-### Option: „Flüssiges Holzöl zum Schleifen“
+### Option: „Flüssiges Holzöl zum Schleifen"
 - Für besonders glatte Oberflächen als Porenfüller geeignet.
 
 ### Verdünnung
@@ -72,14 +72,14 @@ Historisch wurde es in Europa als „Holzöl“ oder „chinesisches Holzöl“ 
 - Bitte auf ausreichende Belüftung achten.
 
 ## [fehler] Typische Fehlerbilder
-- Weißes „Eisblumenmuster“ bei zu dicken Schichten → überstehendes Öl deshalb rechtzeitig verreiben bzw. Überschuss nach ca. 1 Stunde entfernen.
+- Weißes „Eisblumenmuster" bei zu dicken Schichten → überstehendes Öl deshalb rechtzeitig verreiben bzw. Überschuss nach ca. 1 Stunde entfernen.
 - Lange Trocknung/Geruch → zu dicke Schicht, zu kalt/zu feucht/zu dunkel → dünner arbeiten, Temperatur/Luftwechsel/Licht verbessern.
 
 ## [fehler] Sicherheit!
 VORSICHT: Selbstentzündungsgefahr!
 - Mit (Tung-)Öl getränkte Lappen, Pads, Schleifstaub und Putzmaterialien können sich selbst entzünden.
 - Nach Gebrauch sofort in einem dicht schließenden, nicht brennbaren Behälter (z. B. Metall) sichern und bis zur Entsorgung geschlossen lagern; Lappen nach Möglichkeit vollständig mit Wasser bedecken.
-- Nicht zusammengeknüllt liegen lassen, nicht im Innenraum „trocknen lassen“ und nicht verbrennen. Entsorgung gemäß örtlichen Vorschriften (Problemstoff-/Schadstoffsammlung).
+- Nicht zusammengeknüllt liegen lassen, nicht im Innenraum „trocknen lassen" und nicht verbrennen. Entsorgung gemäß örtlichen Vorschriften (Problemstoff-/Schadstoffsammlung).
 
 ## [verweise] Shop
 Shop-Link: https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/69-336-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter
