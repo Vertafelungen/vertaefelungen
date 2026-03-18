@@ -3,7 +3,7 @@ title: Ochre Yellow - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '104'
 managed_by: ssot-sync
-last_synced: '2026-03-16'
+last_synced: '2026-03-18'
 produkt:
   id: '104'
   artikelnummer: '104'
