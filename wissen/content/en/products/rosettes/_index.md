@@ -1,8 +1,8 @@
 ---
-version: 2026-03-18 06:57 UTC
+version: 2026-03-18 07:20 UTC
 managed_by: categories.csv
-last_synced: 2026-03-18 06:57 UTC
-lastmod: 2026-03-18 06:57 UTC
+last_synced: 2026-03-18 07:20 UTC
+lastmod: 2026-03-18 07:20 UTC
 lang: en
 translationKey: ventilation-rosettes
 slug: rosettes
