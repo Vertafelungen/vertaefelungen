@@ -1,8 +1,8 @@
 ---
-version: 2026-03-16 17:38 UTC
+version: 2026-03-18 05:11 UTC
 managed_by: categories.csv
-last_synced: 2026-03-16 17:38 UTC
-lastmod: 2026-03-16 17:38 UTC
+last_synced: 2026-03-18 05:11 UTC
+lastmod: 2026-03-18 05:11 UTC
 lang: de
 translationKey: beeck-sip-pro-solid
 slug: sip-v
