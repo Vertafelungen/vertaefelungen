@@ -37,7 +37,7 @@ Verarbeitung (entscheidend gegen Klebrigkeit):
 - dünn auftragen, nach 15-30 min Überschuss abnehmen/auspolieren
 - lieber mehrere dünne Aufträge als "satt" (sonst Trocknungsprobleme/Runzeln)
 
-### Holzpflege: Reinigungs-/Entschichtungsnahe Anwendungen (vorsichtig formulieren)
+### Holzpflege: Reinigungs-/Entschichtungsnahe Anwendungen
 - für öl-/harztypische Rückstände: sparsam auf Tuch, kurze Einwirkzeit, mechanisch abnehmen
 - immer Testfläche: kann alte Polituren/Lacke anlösen (Schellack/alte Kunstharze besonders kritisch)
 
