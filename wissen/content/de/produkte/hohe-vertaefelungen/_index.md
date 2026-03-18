@@ -1,8 +1,8 @@
 ---
-version: 2026-03-18 06:50 UTC
+version: 2026-03-18 06:57 UTC
 managed_by: categories.csv
-last_synced: 2026-03-18 06:50 UTC
-lastmod: 2026-03-18 06:50 UTC
+last_synced: 2026-03-18 06:57 UTC
+lastmod: 2026-03-18 06:57 UTC
 lang: de
 translationKey: high-wainscoting
 slug: hohe-vertaefelungen
