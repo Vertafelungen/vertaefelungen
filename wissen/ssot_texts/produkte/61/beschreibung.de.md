@@ -66,7 +66,7 @@ Ohne chemische Holzschutzmittel wurde Leinöl als Grundierung / Imprägnierung, 
 - Für außen und stark belasteten Bauteilen war der Standard nicht "klar geölt", sondern Leinölfarbe: Firnis oder Öl + Pigmente.
   Pigmente liefern UV-Schutz und erhöhen die Haltbarkeit.
 
-### Klassischer Aufbau nach dem Grundsatz "fett auf mager":
+### Klassischer Aufbau (fett auf mager)
 - Erste Grundierungen magerer (mit Balsamterpentin 1:1 bis 1:2 verdünnt -> siehe Halböl), Schlussanstrich fetter z. B. mit Standöl für besseren Verlauf und höhere Wetterbeständigkeit.
 - Firnis / gekochtes Leinöl: schnelleres Trocknen durch Vorbehandlung / Sikkative
 - Historisch wurde Leinöl für Firnis / Anstrichzwecke häufig voroxidiert / erhitzt oder mit Trocknungsbeschleunigern (klassisch u. a. Blei-, später Mangan- / Kobaltverbindungen) verarbeitet.
