@@ -1,8 +1,8 @@
 ---
-version: 2026-03-18 06:35 UTC
+version: 2026-03-18 06:45 UTC
 managed_by: categories.csv
-last_synced: 2026-03-18 06:35 UTC
-lastmod: 2026-03-18 06:35 UTC
+last_synced: 2026-03-18 06:45 UTC
+lastmod: 2026-03-18 06:45 UTC
 lang: en
 translationKey: door-architraves
 slug: door
