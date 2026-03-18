@@ -1,4 +1,4 @@
-# Tungöl Holzöllack (Tungöl Lack)
+# Tungöl Holzöllack
 
 <!-- bucket:kurzantwort -->
 ## Wofür ist Tungöl Holzöllack gedacht?
@@ -15,7 +15,7 @@ Unser TUNG Holzöllack ist ein gekochter, naturfarbener Holzlack. Er besteht aus
 Durch diese Zusammensetzung trocknet der Holzöllack deutlich schneller und härter als ein herkömmlicher Leinölfirnis.
 
 <!-- bucket:beschreibung -->
-## Hintergrund: Tungöl ("Holzöl") und seine Rolle im System
+## Hintergrund: Tungöl / Holzöl
 Tung Öl wird aus den Nüssen des Holzölbaumes (Vernicia fordii) in Asien, den USA und Südamerika gewonnen.
 
 Mitte des 19. Jahrhunderts entdeckten europäische und amerikanische Hersteller auf der Suche nach neuen Anstrichstoffen das chinesische Holzöl für sich. Aufgrund der steigenden Nachfrage reichten die Erntemengen aus China und Japan bald nicht mehr aus, sodass der Holzölbaum auch in den USA und Südamerika kultiviert wurde.
@@ -49,7 +49,7 @@ Der Holzöllack wird häufig auch zur Pflege von Möbeln in Wohnräumen empfohle
 Als Alleinanstrich oder Deckanstrich.
 Bei Bedarf mit Balsamterpentin oder Citrusterpenen verdünnen, um tieferes Eindringen zu ermöglichen.
 
-### Außenbereich (Systemempfehlung)
+### Außenbereich
 Holz möglichst zuerst mit Lackleinöl ohne Sikkativ grundieren, anschließend mehrfach streichen, bis das Holz kein Öl mehr aufnimmt.
 Überschüssigen Holzöllack nach ca. 1 Stunde mit Lappen oder Pinsel entfernen.
 
@@ -83,7 +83,7 @@ Diese Materialien unter Aufsicht trocknen lassen oder kontrolliert verbrennen.
 ## Shop
 [Zum Produkt im Shop](<https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/65-332-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter>)
 <!-- bucket:verweise -->
-## Siehe auch (Wissensseite)
+## Siehe auch
 - [Reines Leinöl (ohne Sikkativ)](/wissen/de/produkte/oele-farben/leinoel-tung/61-loen/)
 - [Leinölfirnis (mit Sikkativ)](/wissen/de/produkte/oele-farben/leinoel-tung/62-loef/)
 - [Tungöl Natur](/wissen/de/produkte/oele-farben/leinoel-tung/69-toen/)
