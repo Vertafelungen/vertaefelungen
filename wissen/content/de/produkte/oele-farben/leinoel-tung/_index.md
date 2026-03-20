@@ -1,8 +1,8 @@
 ---
-version: 2026-03-18 19:46 UTC
+version: 2026-03-20 06:11 UTC
 managed_by: categories.csv
-last_synced: 2026-03-18 19:46 UTC
-lastmod: 2026-03-18 19:46 UTC
+last_synced: 2026-03-20 06:11 UTC
+lastmod: 2026-03-20 06:11 UTC
 lang: de
 translationKey: oils-linseed-tung-balsam
 slug: leinoel-tung
@@ -34,7 +34,7 @@ cascade:
 ---
 <!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:oils-linseed-tung-balsam | path_de:produkte/oele-farben/leinoel-tung | path_en:products/oil-paint/oil-tung -->
 
-In dieser Unterkategorie sind traditionelle Öle und Harze gebündelt, die je nach Rezeptur als Grundierung, Schutz- oder Pflegesystem eingesetzt werden.\n\n**Typische Themen:**\n- Penetration und Trocknung (oxidativ / polymerisierend)\n- Schichtaufbau (dünn, wiederholbar, reparierfähig)\n- Kompatibilität mit Altanstrichen und Holzarten\n\nWähle ein Produkt, um Eigenschaften, Varianten und Anwendungshinweise zu sehen.
+In dieser Kategorie sind traditionelle Öle und Harze gebündelt, die je nach Rezeptur als Grundierung, Schutz- oder Pflegesystem eingesetzt werden.**Typische Themen:** Penetration und Trocknung (oxidativ / polymerisierend) Schichtaufbau (dünn, wiederholbar, reparierfähig) Kompatibilität mit Altanstrichen und Holzarten. Wähle ein Produkt, um Eigenschaften, Varianten und Anwendungshinweise zu sehen.
 
 <!-- FAQ_SYNC:BEGIN -->
 ## Info

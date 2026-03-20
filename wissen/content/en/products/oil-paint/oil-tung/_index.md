@@ -1,8 +1,8 @@
 ---
-version: 2026-03-18 19:46 UTC
+version: 2026-03-20 06:11 UTC
 managed_by: categories.csv
-last_synced: 2026-03-18 19:46 UTC
-lastmod: 2026-03-18 19:46 UTC
+last_synced: 2026-03-20 06:11 UTC
+lastmod: 2026-03-20 06:11 UTC
 lang: en
 translationKey: oils-linseed-tung-balsam
 slug: oil-tung
