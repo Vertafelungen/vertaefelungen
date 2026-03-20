@@ -3,7 +3,7 @@ title: Ventilation Rosette 4
 lang: en
 translationKey: '70'
 managed_by: ssot-sync
-last_synced: '2026-03-18'
+last_synced: '2026-03-20'
 produkt:
   id: '70'
   artikelnummer: '70'

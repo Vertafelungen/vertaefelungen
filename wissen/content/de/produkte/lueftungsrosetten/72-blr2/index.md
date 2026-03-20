@@ -4,7 +4,7 @@ aliases:
 title: Lüftungsrosette 2
 translationKey: '72'
 managed_by: ssot-sync
-last_synced: '2026-03-18'
+last_synced: '2026-03-20'
 produkt:
   id: '72'
   artikelnummer: '72'
