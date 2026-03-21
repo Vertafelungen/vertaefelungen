@@ -33,23 +33,20 @@ slug: 62-loef
 
 <!-- bucket:kurzantwort -->
 ## Was ist Leinölfirnis mit Sikkativ?
-Leinölfirnis ist Leinöl, dem Trockenstoffe (Sikkative) zugesetzt werden, damit es schneller aushärtet als unbehandeltes Leinöl. Die Aushärtung erfolgt nicht durch "Verdunsten", sondern durch Oxidation (Sauerstoffaufnahme) und Vernetzung zu Linoxin.
-
-<!-- bucket:beschreibung -->
-## Produktbasis: Lackleinöl + Sikkative
-Dieses Produkt ist ein Leinölfirnis auf Basis von besonders reinem Lackleinöl (stark gereinigtes Leinöl; Schleimstoffe und natürliche Verunreinigungen entfernt). Als Trockenstoffe werden Marken-Sikkative auf Basis von Cobalt (Co), Calcium (Ca) und Zirkonium (Zr) eingesetzt.
-Herstellerangabe: Durch die besonders reine Lackleinöl-Basis wird eine höhere Qualität erreicht, als es die DIN-Norm für herkömmlichen Leinölfirnis fordert.
+Leinölfirnis ist ein reines Leinöl (Lackleinöl), dem Trockenstoffe (Sikkative) zugesetzt werden, damit es schneller aushärtet als unbehandeltes Leinöl. Die Aushärtung erfolgt nicht durch "Verdunsten", sondern durch Oxidation (Sauerstoffaufnahme) und Vernetzung zu Linoxin.
+Als Trockenstoffe werden Sikkative auf Basis von Cobalt (Co), Calcium (Ca) und Zirkonium (Zr) eingesetzt.
+Durch die besonders reine Lackleinöl-Basis wird eine höhere Qualität erreicht, als es die DIN-Norm für herkömmlichen Leinölfirnis fordert.
 
 <!-- bucket:beschreibung -->
 ## Begriffe: Leinölirnis, "maßhaltig" vs. "nicht maßhaltig"
-- **Lackleinöl**: stark gereinigtes Leinöl (Schleimstoffe/Verunreinigungen entfernt). Ziel: gleichmäßigeres Trocknen, weniger Klebrigkeit.
-- **Lackleinöl ohne Sikkative**: trocknet sehr langsam und zieht tief ein → typische Erstgrundierung auf rohem, saugfähigem Holz.
-- **Lackleinöl mit Sikkativ (Firnis)**: trocknet wesentlich schneller → typischer Folge-/Zweitauftrag in der Grundierungskette.
-- **Nicht maßhaltige Bauteile** (Praxisbegriff): Bauteile, die infolge Feuchtewechsel deutlich quellen/schwinden dürfen bzw. nicht auf enge Passungen angewiesen sind (z. B. Verschalungen, Fassadenbretter, viele Außenholzbauteile). **Maßhaltige Bauteile** sind hingegen passungs-/funktionskritisch (z. B. Fensterflügel), wo Maßänderungen direkt zu Funktionsproblemen führen.
+- **Reines Leinöl ohne Sikkative**: stark gereinigtes Leinöl (Schleimstoffe/Verunreinigungen entfernt). Ziel: gleichmäßigeres Trocknen, weniger Klebrigkeit. Dieses Öl trocknet sehr langsam und zieht dafür aber tief ein → typische Erstgrundierung auf rohem, saugfähigem Holz. 
+- **Leinöl mit Sikkativ (Leinölfirnis)**: trocknet wesentlich schneller → typischer Folge-/Zweitauftrag in der Grundierungskette.
+- **Nicht maßhaltige Bauteile** (Praxisbegriff): Bauteile, die infolge Feuchtewechsel deutlich quellen/schwinden dürfen bzw. nicht auf enge Passungen angewiesen sind (z. B. Verschalungen, Fassadenbretter, viele Außenholzbauteile).
+- **Maßhaltige Bauteile** sind hingegen passungs-/funktionskritisch (z. B. Fensterflügel), wo Maßänderungen direkt zu Funktionsproblemen führen.
 
 <!-- bucket:varianten -->
 ## Besonders helles Leinölfirnis
-Herstellerangabe: Das Lackleinöl wird gebleicht. Dadurch entsteht ein sehr helles Öl, das sich ideal für helle Ölfarben oder zur Imprägnierung von Hölzern eignet, die möglichst hell bleiben sollen. Durch den äußerst geringen Säuregehalt ist das Öl nahezu geruchslos.
+Das Lackleinöl wurde gebleicht. Dadurch entsteht ein sehr helles Öl, das sich ideal für helle Ölfarben oder zur Imprägnierung von Hölzern eignet, die möglichst hell bleiben sollen. Durch den äußerst geringen Säuregehalt ist das Öl nahezu geruchslos.
 
 <!-- bucket:beschreibung -->
 ## Umwelt- und Inhaltsstoffangaben
@@ -75,13 +72,13 @@ Herstellerangabe: Das Lackleinöl wird gebleicht. Dadurch entsteht ein sehr hell
 
 <!-- bucket:ablauf -->
 ## Typischer Systemaufbau
-### Kombination "Leinöl Natur" + "Lackleinöl-Firnis"
-- Lackleinöl ohne Sikkativ: tief einziehende Erstgrundierung auf rohem, saugfähigem Holz.
-- Lackleinöl mit Sikkativ (Firnis): schnelltrocknender Folgeauftrag ("zweite Grundierung").
-Herstellerangabe: Die Kombination aus Lackleinöl (roh) und Lackleinöl-Firnis gilt als bewährte und hochwertige Holzgrundierung für alle nicht maßhaltigen Bauteile.
+### Kombination "Reines Leinöl" + "Leinölfirnis"
+- Reines Leinöl ohne Sikkativ: tief einziehende Erstgrundierung auf rohem, saugfähigem Holz.
+- Leinölfirnis (mit Sikkativen): schnelltrocknender Folgeauftrag ("zweite Grundierung").
+Die Kombination aus reinem Leinöl und Leinölfirnis gilt als bewährte und hochwertige Holzgrundierung für alle nicht maßhaltigen Bauteile.
 
 ### Wichtiger Trocknungs-Hinweis
-Herstellerangabe: Leinöl dehnt sich in der ersten Phase der Trocknung aus und zieht sich anschließend wieder zusammen. Erst nach vollständiger Durchtrocknung weiterbeschichten. Die Zeit hängt von Witterung, Temperatur und der aufgenommenen Ölmenge ab.
+Leinöl dehnt sich in der ersten Phase der Trocknung aus und zieht sich anschließend wieder zusammen. Erst nach vollständiger Durchtrocknung weiterbeschichten. Die Zeit hängt von Witterung, Temperatur und der aufgenommenen Ölmenge ab.
 
 <!-- bucket:praxis -->
 ## Verarbeitung - Außenbereich
@@ -124,6 +121,7 @@ Diese Materialien unter Aufsicht ausgebreitet trocknen lassen oder kontrolliert 
 <!-- bucket:verweise -->
 ## Shop
 [Zum Produkt im Shop](<https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/62-leinolfirnis.html>)
+
 <!-- bucket:verweise -->
 ## Siehe auch
 - [Reines Leinöl (ohne Sikkativ)](/de/produkte/oele-farben/leinoel-tung/61-loen/)
@@ -131,9 +129,3 @@ Diese Materialien unter Aufsicht ausgebreitet trocknen lassen oder kontrolliert 
 - [Citrusterpene](/de/produkte/oele-farben/leinoel-tung/64-ctp/)
 - [Tungöl Natur](/de/produkte/oele-farben/leinoel-tung/69-toen/)
 - [Tungöl Holzöllack](/de/produkte/oele-farben/leinoel-tung/65-toel/)
-
-<!-- bucket:verweise -->
-## Quellen
-- Lackleinöl mit Sikkativ (Lackleinölfirnis): https://www.farbmanufaktur-potsdam.de/shop/Lackleinol-mit-Sikkativ-p813609762
-- Wikipedia Leinölfirnis: https://de.wikipedia.org/wiki/Leinölfirnis
-- Kreidezeit Produktinformation "Leinölfirnis"
