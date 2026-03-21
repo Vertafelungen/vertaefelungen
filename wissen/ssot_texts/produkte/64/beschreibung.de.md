@@ -8,7 +8,7 @@ Citrusterpene (auch Orangenterpene genannt) sind ein natürliches Lösungsmittel
 ## Herkunft, Rohstoffbasis und Kohlenstoffkreislauf
 Ohne diese Nutzung würden die enthaltenen Terpene bei der Verrottung der Schalen ungenutzt in die Umwelt freigesetzt. Ihr Einsatz führt daher zu keinem zusätzlichen Eintrag von Kohlenwasserstoffen oder CO2 in die Atmosphäre.
 
-Citrusterpene sind Bestandteil des natürlichen Stoffkreislaufs und gelten als mittelflüchtig. Dadurch geben sie Ölen, Lacken und Grundierungen mehr Zeit tief in das Holz einzudringen. Der typische Geruch nach Orange wirkt dabei als natürliche Warnfunktion.
+Citrusterpene sind Bestandteil des natürlichen Stoffkreislaufs und gelten als mittelflüchtig. Dadurch geben sie Ölen, Lacken und Grundierungen mehr Zeit tief in das Holz einzudringen. Der typische Geruch nach Orange wirkt dabei frisch und überdeckt den Eigengeruch von Lein- oder Tungöl.
 
 <!-- bucket:praxis -->
 ## Anwendungen
