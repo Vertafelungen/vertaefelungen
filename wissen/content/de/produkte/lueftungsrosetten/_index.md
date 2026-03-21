@@ -1,8 +1,8 @@
 ---
-version: 2026-03-21 07:19 UTC
+version: 2026-03-21 07:31 UTC
 managed_by: categories.csv
-last_synced: 2026-03-21 07:19 UTC
-lastmod: 2026-03-21 07:19 UTC
+last_synced: 2026-03-21 07:31 UTC
+lastmod: 2026-03-21 07:31 UTC
 lang: de
 translationKey: ventilation-rosettes
 slug: lueftungsrosetten

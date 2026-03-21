@@ -38,9 +38,9 @@ Als Trockenstoffe werden Sikkative auf Basis von Cobalt (Co), Calcium (Ca) und Z
 Durch die besonders reine Lackleinöl-Basis wird eine höhere Qualität erreicht, als es die DIN-Norm für herkömmlichen Leinölfirnis fordert.
 
 <!-- bucket:beschreibung -->
-## Begriffe: Leinölirnis, "maßhaltig" vs. "nicht maßhaltig"
+## Begriffe: Reines Leinöl, Leinölfirnis, "maßhaltig" vs. "nicht maßhaltig"
 - **Reines Leinöl ohne Sikkative**: stark gereinigtes Leinöl (Schleimstoffe/Verunreinigungen entfernt). Ziel: gleichmäßigeres Trocknen, weniger Klebrigkeit. Dieses Öl trocknet sehr langsam und zieht dafür aber tief ein → typische Erstgrundierung auf rohem, saugfähigem Holz. 
-- **Leinöl mit Sikkativ (Leinölfirnis)**: trocknet wesentlich schneller → typischer Folge-/Zweitauftrag in der Grundierungskette.
+- **Leinölfirnis (Reines Leinöl mit Sikkativen)**: trocknet wesentlich schneller → typischer Folge-/Zweitauftrag in der Grundierungskette.
 - **Nicht maßhaltige Bauteile** (Praxisbegriff): Bauteile, die infolge Feuchtewechsel deutlich quellen/schwinden dürfen bzw. nicht auf enge Passungen angewiesen sind (z. B. Verschalungen, Fassadenbretter, viele Außenholzbauteile).
 - **Maßhaltige Bauteile** sind hingegen passungs-/funktionskritisch (z. B. Fensterflügel), wo Maßänderungen direkt zu Funktionsproblemen führen.
 
@@ -61,8 +61,7 @@ Das Lackleinöl wurde gebleicht. Dadurch entsteht ein sehr helles Öl, das sich 
 - **Zähelastisch** und **diffusionsfähig** (nicht dampfdicht), dadurch oft gut geeignet für historische Substanz und bewegendes Holz.
 - **Schichtdicke ist entscheidend**: zu dicke Filme schließen an der Oberfläche, darunter bleibt es lange weich → Klebrigkeit/Runzeln/Blasen.
 - **Außenbereich**: Leinöl-/Firnissysteme brauchen konstruktiven Holzschutz und in der Regel einen **pigmentierten Folgeanstrich** (UV-Schutz, erhöhte Dauerhaftigkeit). Klarer Firnis allein ist im ungeschützten Außenbereich meist nicht ausreichend.
-- Nach vollständiger Trocknung ist Lackleinöl-Firnis wasserunlöslich. Herstellerangabe: Es kann jedoch auch nach Jahren im Wasser noch leicht quellen (mögliche Wasserflecken). Im trockenen Zustand ist es nicht mehr mit Lösungsmitteln löslich.
-- Herstellerangabe: Lackleinöl kann als Einlassgrund auf Kalk und Beton verwendet werden, sofern der Untergrund zuvor chemisch neutralisiert wurde.
+- Nach vollständiger Trocknung ist Leinölfirnis wasserunlöslich. Es kann jedoch auch nach Jahren durch Wasser leicht quellen (mögliche Wasserflecken). Im trockenen Zustand ist es nicht mehr mit Lösungsmitteln löslich.
 
 <!-- bucket:praxis -->
 ## Einsatzbereiche
@@ -73,8 +72,8 @@ Das Lackleinöl wurde gebleicht. Dadurch entsteht ein sehr helles Öl, das sich 
 <!-- bucket:ablauf -->
 ## Typischer Systemaufbau
 ### Kombination "Reines Leinöl" + "Leinölfirnis"
-- Reines Leinöl ohne Sikkativ: tief einziehende Erstgrundierung auf rohem, saugfähigem Holz.
-- Leinölfirnis (mit Sikkativen): schnelltrocknender Folgeauftrag ("zweite Grundierung").
+- Reines Leinöl: tief einziehende Erstgrundierung auf rohem, saugfähigem Holz.
+- Leinölfirnis: schnelltrocknender Folgeauftrag ("zweite Grundierung").
 Die Kombination aus reinem Leinöl und Leinölfirnis gilt als bewährte und hochwertige Holzgrundierung für alle nicht maßhaltigen Bauteile.
 
 ### Wichtiger Trocknungs-Hinweis
@@ -85,7 +84,7 @@ Leinöl dehnt sich in der ersten Phase der Trocknung aus und zieht sich anschlie
 - Holz im Außenbereich mehrfach streichen, bis kein Öl mehr aufgenommen wird.
 - Überschüssiges Öl nach ca. 1 Stunde mit Lappen oder Pinsel entfernen, da sonst Runzeln entstehen können.
 - Geringe Luftfeuchtigkeit und Sonnenlicht beschleunigen die Oxidation und damit die Trocknung.
-- Herstellerangabe zur Trocknung: Bei etwa 25 °C und Sonnenschein ist die Oberfläche am nächsten Tag staubtrocken.
+- Zur Trocknung: Bei etwa 25 °C und Sonnenschein ist die Oberfläche am nächsten Tag staubtrocken.
 
 <!-- bucket:praxis -->
 ## Verarbeitung - Innenbereich
