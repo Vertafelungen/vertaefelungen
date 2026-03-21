@@ -2,13 +2,7 @@
 
 <!-- bucket:kurzantwort -->
 ## Was ist Tungöl?
-Tungöl (auch "Holzöl" bzw. historisch "chinesisches Holzöl") ist ein pflanzliches, oxidativ trocknendes Holzöl. Für dieses Produkt gilt als Referenz: **TUNGÖL Natur ist ein reines Holzöl aus den Nüssen des Holzölbaumes (Vernicia fordii)**.
-
-In Asien und Japan wir es traditionell als Bindemittel für Holz- und Papiermalerei verwendet. Technisch ist Tungöl in der CAS-Datenbank als Holzöl registriert.
-TUNGÖL Natur ist ein reines Naturprodukt, ohne Lösungsmittel, Sikkative oder andere Zusatzstoffe.
-Umwelt- und Inhaltsstoffangaben (Herstellerangabe):
-- Lösungsmittelfrei: 0 % VOC
-- 100 % Naturprodukt, nachhaltig gewonnen
+TUNGÖL Natur ist ein reines Holzöl aus den Nüssen des Holzölbaumes (Vernicia fordii), ohne Lösungsmittel, Sikkative oder andere Zusatzstoffe. Tungöl (auch "Holzöl" bzw. historisch "chinesisches Holzöl") ist ein pflanzliches, oxidativ trocknendes Holzöl. 
 
 <!-- bucket:beschreibung -->
 ## Eigenschaften auf Holz
@@ -30,6 +24,7 @@ Umwelt- und Inhaltsstoffangaben (Herstellerangabe):
 - Pflegemittel auf alten bereits geölten Flächen: sehr sparsam anwenden
 - Imprägnierung für Textilien/Segel/Tauwerk
 - Korrosionsschutz für Metalle/elektronische Bauteile (jeweils sehr sparsam, Teststellen)
+- In Asien und Japan wir es traditionell als Bindemittel für Holz- und Papiermalerei verwendet
 
 <!-- bucket:ablauf -->
 ## Anwendung und Mischungen
@@ -67,6 +62,10 @@ Umwelt- und Inhaltsstoffangaben (Herstellerangabe):
 
 <!-- bucket:fehler -->
 ## Sicherheit!
+Tungöl ist unter der Nummer 8001-20-5 in der CAS-Datenbank als Holzöl registriert.
+Umwelt- und Inhaltsstoffangaben:
+- Lösungsmittelfrei: 0 % VOC
+- 100 % Naturprodukt
 VORSICHT: Selbstentzündungsgefahr!
 - Mit (Tung-)Öl getränkte Lappen, Pads, Schleifstaub und Putzmaterialien können sich selbst entzünden.
 - Nach Gebrauch sofort in einem dicht schließenden, nicht brennbaren Behälter (z. B. Metall) sichern und bis zur Entsorgung geschlossen lagern; Lappen nach Möglichkeit vollständig mit Wasser bedecken.
