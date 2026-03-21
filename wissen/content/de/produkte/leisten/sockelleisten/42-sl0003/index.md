@@ -4,7 +4,7 @@ description: 'Kräftige Sockelleiste (Höhe 165 mm, Ausladung 28 mm) mit histori
 lang: de
 translationKey: '42'
 managed_by: ssot-sync
-last_synced: '2026-03-20'
+last_synced: '2026-03-21'
 lastmod: 2026-02-12T16:45:00+01:00
 produkt:
   id: '42'

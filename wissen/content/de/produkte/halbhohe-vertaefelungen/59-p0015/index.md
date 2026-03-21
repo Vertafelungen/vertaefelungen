@@ -3,7 +3,7 @@ title: P0015 - Berlin - Alte Nationalgalerie
 lang: de
 translationKey: '59'
 managed_by: ssot-sync
-last_synced: '2026-03-20'
+last_synced: '2026-03-21'
 produkt:
   id: '59'
   artikelnummer: '59'
