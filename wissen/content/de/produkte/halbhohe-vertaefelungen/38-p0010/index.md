@@ -3,7 +3,7 @@ title: P0010 - Rom - Petersdom - Balustrade am Petrusgrab
 lang: de
 translationKey: '38'
 managed_by: ssot-sync
-last_synced: '2026-03-20'
+last_synced: '2026-03-21'
 produkt:
   id: '38'
   artikelnummer: '38'

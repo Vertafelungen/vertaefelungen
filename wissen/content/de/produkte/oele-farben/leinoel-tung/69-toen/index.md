@@ -4,7 +4,7 @@ aliases:
 title: Tungöl natur
 translationKey: '69'
 managed_by: ssot-sync
-last_synced: '2026-03-20'
+last_synced: '2026-03-21'
 produkt:
   id: '69'
   artikelnummer: '69'

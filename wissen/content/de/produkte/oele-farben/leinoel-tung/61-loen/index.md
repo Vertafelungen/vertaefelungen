@@ -4,7 +4,7 @@ aliases:
 title: Reines Leinöl, ohne Sikkativ
 translationKey: '61'
 managed_by: ssot-sync
-last_synced: '2026-03-20'
+last_synced: '2026-03-21'
 produkt:
   id: '61'
   artikelnummer: '61'
@@ -40,7 +40,7 @@ Reines Leinöl ohne Sikkative ist eine tief eindringende **Erstgrundierung** fü
 Leinöl ist das natürlichste Holzschutzmittel das es gibt. Leinöl ist ein Pflanzenöl, das aus Leinsamen, den reifen Samen des Gemeinen Leins / Flachs, gewonnen wird.
 Unser Reines Leinöl ohne Sikkative (Lackleinöl nach DIN EN ISO 150) ist hochgradig gereinigt und gefiltert, frei von Schleimstoffen und andere natürlichen Verunreinigungen.
 Die behandelten Oberflächen trocknen gleichmäßig und neigen deutlich weniger zum Kleben als bei herkömmlichem Leinölfirnis.
-In einem weiteren Arbeitsschritt wird das Lackleinöl zusätzlich gebleicht. Dadurch entsteht ein sehr helles Leinöl, das sich besonders für helle Holzoberflächen eignet.
+In einem weiteren Arbeitsschritt wird das Leinöl zusätzlich gebleicht. Dadurch entsteht ein sehr helles Öl, das sich besonders für helle Holzoberflächen eignet.
 
 Ohne Sikkative (Trocknungsbeschleuniger) trocknet Leinöl trocknet sehr langsam und zieht dadurch tiefer in das Holz ein.
 Reines Leinöl wird als Erstgrundierung verwendet. Es ist besonders gut für rohes, saugfähiges Holz geeignet.
@@ -68,7 +68,7 @@ Leinöl bildet keine Schicht auf der Holzoberfläche, wie ein Lack, sondern drin
 ### Dauerelastizität
 Leinöl-Filme sind anfangs relativ "zäh-elastisch".
 Mit Alterung (weitere Oxidation, Nachvernetzung, Kettenabbau) kann der Film spröder werden - besonders bei UV-Belastung und zu dicken Schichten.
-Standöl (vorpolymerisiert) ergibt i. d. R. flexiblere, zähere Filme als rohes Leinöl; Firnis trocknet schneller, ist aber nicht automatisch besser.
+Standöl (vorpolymerisiert) ergibt i. d. R. flexiblere, zähere Filme als rohes Leinöl; Leinölfirnis trocknet schneller, ist aber nicht automatisch besser.
 
 ### Wasserabweisende Wirkung
 hydrophobe Wirkung, Wasseraufnahme wird reduziert, Tropfenbildung wird begünstigt.
@@ -76,7 +76,7 @@ jedoch nicht wasserdicht. Bei Dauerbelastung (stehendes Wasser, Schlagregen, Ris
 Nach der Trocknung ist Leinöl mit Wasser und Lösungsmitteln unlöslich.
 
 ### Verwitterung
-UV + Sauerstoff führen zu Kreidung, Versprödung und Abbau an der Oberfläche, Vergilbung / Dunkelung, matte Zone.
+UV + Sauerstoff führen zu Versprödung und Abbau an der Oberfläche, Vergilbung / Dunkelung, matte Zone.
 
 ### Mikroorganismen
 Leinöl ist organisch → bei dauerhaft feuchten Bedingungen kann ein Biofilm mit Pilz- und Schimmelbefall (zB.: Holzbläue) entstehen. Nicht weil Öl "nährt", sondern weil Feuchte + Schmutz + Oberflächenenergie das begünstigen.
@@ -86,7 +86,7 @@ Leinöl wirkt farbtonvertiefend und befeuert die Maserung von Holz
 
 <!-- bucket:beschreibung -->
 ## Leinöl in der historischen Anwendung
-Ohne chemische Holzschutzmittel wurde Leinöl als Grundierung / Imprägnierung, sowie als Bindemittel für pigmentierte Anstriche, kombiniert mit konstruktivem Holzschutz eingesetzt.
+Solange es keine chemischen Holzschutzmittel gab, wurde Leinöl als Grundierung / Imprägnierung, sowie als Bindemittel für pigmentierte Anstriche eingesetzt. Wichtig dafür war die Kombination mit einem konstruktivem Holzschutz, der den Wasserlauf berücksichtigt und Durchfeuchtung vermeidet.
 
 ### Einlassen / Imprägnieren (roh, dünn, tief)
 - rohes, kaltgepresstes Leinöl als Holzimprägnierung, also ein sättigender Vorauftrag, der in die Randzone des Holzes (ca. 10 mm) einzieht.
@@ -94,7 +94,7 @@ Ohne chemische Holzschutzmittel wurde Leinöl als Grundierung / Imprägnierung, 
 - Es wurde dünn gearbeitet und Überschuss vermieden, weil Leinöl nur mit Sauerstoff aushärtet: dicke Schichten bilden eine Haut, darunter bleibt es lange weich.
 
 ### Danach: pigmentierte Leinölfarbe
-- Für außen und stark belasteten Bauteilen war der Standard nicht "klar geölt", sondern Leinölfarbe: Firnis oder Öl + Pigmente.
+- Für außen und stark belasteten Bauteilen war der Standard nicht "klar geölt", sondern Leinölfarbe: Leinöl + Pigmente.
   Pigmente liefern UV-Schutz und erhöhen die Haltbarkeit.
 
 ### Klassischer Aufbau (fett auf mager)
@@ -104,19 +104,13 @@ Ohne chemische Holzschutzmittel wurde Leinöl als Grundierung / Imprägnierung, 
 - Dabei gilt: mehr Beschleuniger = zwar schneller trocken, aber geringere Eindringtiefe und tendenziell schnelleres Altern.
 
 ### Pflege war Bestandteil des Systems
-- Leinöl-Systeme wurden nicht als "einmal streichen, fertig" verstanden, sondern als wartbares System: wenn UV / Alterung den Glanz senkt und Bindemittel abgebaut wird, wird nach Reinigung nachgeölt / nachimprägniert,
+- Leinöl-Systeme wurden nicht als "einmal streichen, fertig" verstanden, sondern als wartbares System: wenn UV / Alterung den Glanz senkt und Bindemittel abgebaut wird, wird nach einer Reinigung nachgeölt / nachimprägniert,
   Firnis bringt eher Glanz, roh eher tiefere Nachimprägnierung.
-
-### Einer der wichtigsten Faktoren ist der konstruktive Holzschutz:
-- Details wie Wasserführung nach außen, Tropfkanten, Querholzschutz
 
 <!-- bucket:praxis -->
 ## Leinöl in der Restaurierung
 ### Nach Befund arbeiten
-- Wenn ein historisches Leinöl- / Leinölfarbsystem erkennbar ist, ist es in der Regel sinnvoll, im gleichen Sytem zu bleiben und es zu erneuern, statt mit filmbildenden Lacksystemen zu arbeiten.
-
-### Konstruktiver Holzschutz schlägt Chemie
-- Früher funktionierte das auch deshalb, weil Details wie Wasserführung nach außen, Tropfkanten, Stirnholzschutz Staunässe vermeiden. Dieser Punkt bleibt restauratorisch wichtig: erst Geometrie / Abtropf- / Trocknungsfähigkeit lösen, dann Beschichtung.
+- Wenn ein historisches Leinöl- / Leinölfarbsystem erkennbar ist, ist es in der Regel sinnvoll, im gleichen Sytem zu bleiben und es zu erneuern, statt mit filmbildenden Lacksystemen zu arbeiten. 
 
 ### Dünne Schichten - Trocknungszeiten sind einzuhalten
 - Leinöl härtet über Sauerstoffaufnahme. Zu dicke Aufträge oder zu frühe Folgeanstriche führen zu Hautbildung, Blasen / Rissen und langen Trockenzeiten.
@@ -125,6 +119,9 @@ Ohne chemische Holzschutzmittel wurde Leinöl als Grundierung / Imprägnierung, 
 ### "Diffusionsoffen" nicht überschätzen
 - Ölanstriche sind witterungsbeständig, aber bauphysikalisch auch diffusionsbremsend; Feuchtigkeit im Holz trocknet langsamer ab.
   Daraus folgt: erst Ursache der Feuchtigkeit beheben, trocknen lassen, dann ölen
+
+### Einer der wichtigsten Faktoren ist der konstruktive Holzschutz:
+- Details wie Wasserführung nach außen, Tropfkanten, Querholzschutz müssen berücksichtigt werden. Erst Geometrie / Abtropf- / Trocknungsfähigkeit lösen, dann Beschichtung.
 
 <!-- bucket:praxis -->
 ## Verarbeitungshinweise - Innenbereiche (Vertäfelung, Leisten, Möbel)

@@ -3,7 +3,7 @@ title: Wandleiste 06
 lang: de
 translationKey: '81'
 managed_by: ssot-sync
-last_synced: '2026-03-20'
+last_synced: '2026-03-21'
 produkt:
   id: '81'
   artikelnummer: '81'

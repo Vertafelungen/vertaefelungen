@@ -4,7 +4,7 @@ aliases:
 title: Wandleiste 04 „Rundstableiste"
 translationKey: '79'
 managed_by: ssot-sync
-last_synced: '2026-03-20'
+last_synced: '2026-03-21'
 produkt:
   id: '79'
   artikelnummer: '79'
