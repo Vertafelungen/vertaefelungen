@@ -3,16 +3,11 @@
 <!-- bucket:kurzantwort -->
 ## Wofür ist Tungöl Holzöllack gedacht?
 Tungöl Holzöllack ist ein naturbasierter, gekochter Holzöllack für Innen- und Außenbereiche. Er wird bevorzugt als **Schlussfirnis auf Leinölgrundierungen** eingesetzt, weil er im Vergleich zu Leinölfirnis **schneller und härter trocknet**, **weniger durch Wasser quillt** und eine **bessere UV-Beständigkeit** besitzt.
-
-<!-- bucket:beschreibung -->
-## Was ist Tungöl Lack - Zusammensetzung und Grundprinzip
 Unser TUNG Holzöllack ist ein gekochter, naturfarbener Holzlack. Er besteht aus:
 - Lackleinöl
 - Leinölstandöl
 - chinesischem Holzöl (Tungöl)
 - hochwertigen Sikkativen
-
-Durch diese Zusammensetzung trocknet der Holzöllack deutlich schneller und härter als ein herkömmlicher Leinölfirnis.
 
 <!-- bucket:beschreibung -->
 ## Hintergrund: Tungöl / Holzöl
