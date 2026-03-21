@@ -31,31 +31,7 @@ slug: 69-toen
 
 <!-- bucket:kurzantwort -->
 ## Was ist Tungöl?
-Tungöl (auch "Holzöl" bzw. historisch "chinesisches Holzöl") ist ein pflanzliches, oxidativ trocknendes Holzöl. Für dieses Produkt gilt als Referenz: **TUNGÖL Natur ist ein reines Holzöl aus den Nüssen des Holzölbaumes (Vernicia fordii)**.
-
-<!-- bucket:kurzantwort -->
-## Stimmen die Aussagen der Quellen im Wesentlichen überein?
-Im Kern ja:
-- Trocknung: oxidativ/polymersierend (kein "Verdunsten"), Tungöl trocknet schneller als Leinöl.
-- Oberfläche: harzartig, relativ hart und matt; bei zu dicken Schichten drohen Fehlerbilder.
-- Verarbeitung: dünn/sparsam arbeiten, Überschuss nach kurzer Einwirkzeit abnehmen; mehrere dünne Aufträge bis zur Sättigung.
-- Geruch: typischer Geruch während der Oxidation ist möglich; Lüftung, Licht und dünne Schichten helfen.
-- Sicherheit: Selbstentzündungsgefahr ölgetränkter Lappen/Pads.
-
-Für **Entweder/Oder-Angaben** (z. B. Lösungsmittel ja/nein, Sikkative ja/nein, ökologische Aussagen, konkrete Anwendungshinweise wie "Eisblumenmuster") ist maßgeblich, was zur Produktausführung **TUNGÖL Natur** angegeben ist.
-
-<!-- bucket:beschreibung -->
-## Produktdefinition
-TUNGÖL Natur ist ein reines Naturprodukt, ohne Lösungsmittel, Sikkative oder andere Zusatzstoffe.
-Für die Gewinnung wird nachhaltige Waldwirtschaft eingesetzt, wodurch das Produkt ökologisch wertvoll ist.
-Umwelt- und Inhaltsstoffangaben (Herstellerangabe):
-- Lösungsmittelfrei: 0 % VOC
-- 100 % Naturprodukt, nachhaltig gewonnen
-
-<!-- bucket:beschreibung -->
-## Herkunft und historische Einordnung
-Das TUNG Holzöl wird aus den Nüssen des Holzölbaumes (Vernicia fordii) gewonnen, der in Asien, den USA und Südamerika wächst.
-Historisch wurde es in Europa als "Holzöl" oder "chinesisches Holzöl" bezeichnet. In Asien und Japan ist es traditionell als Bindemittel für Holz- und Papiermalerei bekannt. Technisch ist Tungöl in der CAS-Datenbank als Holzöl registriert.
+TUNGÖL Natur ist ein reines Holzöl aus den Nüssen des Holzölbaumes (Vernicia fordii), ohne Lösungsmittel, Sikkative oder andere Zusatzstoffe. Tungöl (auch "Holzöl" bzw. historisch "chinesisches Holzöl") ist ein pflanzliches, oxidativ trocknendes Holzöl. 
 
 <!-- bucket:beschreibung -->
 ## Eigenschaften auf Holz
@@ -72,15 +48,17 @@ Historisch wurde es in Europa als "Holzöl" oder "chinesisches Holzöl" bezeichn
 - Möbel und Gartenmöbel
 - Parkett- und Holzfußböden
 - Drechsel- und Schnitzarbeiten
-- Holzspielzeuge (Hinweis: Eignung/Normen sind produkt- und anwendungsabhängig; ggf. Nachweis/Prüfbericht erforderlich, falls mit Norm-Aussage beworben wird)
+- Holzspielzeuge (Hinweis: Eignung/Normen sind produkt- und anwendungsabhängig; ggf. Nachweis/Prüfbericht anfordern)
 - Holzboote (sparsamer Auftrag, Systemlogik beachten)
 - Pflegemittel auf alten bereits geölten Flächen: sehr sparsam anwenden
-- Weitere (anbieterabhängig genannt): Imprägnierung auf Naturstein/Klinker/Terrakotta/Tonwaren; Imprägnierung für Textilien/Segel/Tauwerk; Korrosionsschutz für Metalle/elektronische Bauteile (jeweils sehr sparsam, Teststellen)
+- Imprägnierung für Textilien/Segel/Tauwerk
+- Korrosionsschutz für Metalle/elektronische Bauteile (jeweils sehr sparsam, Teststellen)
+- In Asien und Japan wir es traditionell als Bindemittel für Holz- und Papiermalerei verwendet
 
 <!-- bucket:ablauf -->
-## Systemlogik und Mischungen
+## Anwendung und Mischungen
 - Innen- und Außenbereich: Allein oder als Deckanstrich. Bei Bedarf mit Balsamterpentin oder Citrusterpenen verdünnen, um tiefere Penetration ins Holz zu erreichen.
-- Grundierung Außenbereich (Herstellerangabe): Holz zunächst mit Lackleinöl (ohne Sikkativ) grundieren, dann Tungöl auftragen.
+- Grundierung Außenbereich (Herstellerangabe): Holz zunächst mit Reinem Leinöl grundieren, dann Tungöl auftragen.
 - Hinweis aus Malerei-Kontext (Herstellerangabe): Allein auf Holz angewendet kann es in der Malerei zu Riss- oder Versprödungsgefahr kommen; deshalb wird es häufig mit Leinöl oder Leinölfirnis gemischt (bis 20 %), um Trocknung zu beschleunigen, Quellung zu reduzieren und Haltbarkeit zu erhöhen.
 - Mischungen aus Leinöl und Tungöl sollten langsam auf ca. 120-150 °C erwärmt werden. Über 250-300 °C polymerisiert das Öl schlagartig und geliert dampfend.
 
@@ -99,9 +77,6 @@ Historisch wurde es in Europa als "Holzöl" oder "chinesisches Holzöl" bezeichn
 ### Option: "Flüssiges Holzöl zum Schleifen"
 - Für besonders glatte Oberflächen als Porenfüller geeignet.
 
-### Verdünnung
-- Bei Bedarf mit Balsamterpentin oder Citrusterpenen verdünnen, um tiefere Penetration ins Holz zu erreichen.
-
 <!-- bucket:praxis -->
 ## Hinweise für Innenräume
 - Holzölprodukte wie Leinöl und Tungöl entwickeln während der Oxidation den typischen Geruch. Dies ist kein Qualitätsmangel.
@@ -116,6 +91,10 @@ Historisch wurde es in Europa als "Holzöl" oder "chinesisches Holzöl" bezeichn
 
 <!-- bucket:fehler -->
 ## Sicherheit!
+Tungöl ist unter der Nummer 8001-20-5 in der CAS-Datenbank als Holzöl registriert.
+Umwelt- und Inhaltsstoffangaben:
+- Lösungsmittelfrei: 0 % VOC
+- 100 % Naturprodukt
 VORSICHT: Selbstentzündungsgefahr!
 - Mit (Tung-)Öl getränkte Lappen, Pads, Schleifstaub und Putzmaterialien können sich selbst entzünden.
 - Nach Gebrauch sofort in einem dicht schließenden, nicht brennbaren Behälter (z. B. Metall) sichern und bis zur Entsorgung geschlossen lagern; Lappen nach Möglichkeit vollständig mit Wasser bedecken.
@@ -124,6 +103,7 @@ VORSICHT: Selbstentzündungsgefahr!
 <!-- bucket:verweise -->
 ## Shop
 [Zum Produkt im Shop](<https://www.vertaefelungen.de/de/leinoel-tungoel-balsam/69-336-tungol-natur.html#/63-1_25_5_10_20_liter-1_liter>)
+
 <!-- bucket:verweise -->
 ## Siehe auch
 - [Reines Leinöl (ohne Sikkativ)](/de/produkte/oele-farben/leinoel-tung/61-loen/)
@@ -131,9 +111,3 @@ VORSICHT: Selbstentzündungsgefahr!
 - [Balsamterpentinöl](/de/produkte/oele-farben/leinoel-tung/63-btoe/)
 - [Citrusterpene](/de/produkte/oele-farben/leinoel-tung/64-ctp/)
 - [Tungöl Holzöllack](/de/produkte/oele-farben/leinoel-tung/65-toel/)
-
-<!-- bucket:verweise -->
-## Quellen
-- Herstellerreferenz TUNGÖL Natur (maßgeblich für Entweder/Oder-Angaben): https://www.farbmanufaktur-potsdam.de/shop/Tungol-Natur-p813605041
-- Wikipedia - Tungöl: https://de.wikipedia.org/wiki/Tungöl
-- ALLENDO/Bindulin - reines Tungöl (Anwendungsbereiche, Detailpraxis): https://bindulin-shop.de/de/produkt/ohne_kategorie/bindulin_reines_tungoel_100ml_flasche_natur__TG100.html#mehr
