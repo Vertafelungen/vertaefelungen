@@ -3,7 +3,7 @@ title: Wandleiste 08
 lang: de
 translationKey: '84'
 managed_by: ssot-sync
-last_synced: '2026-03-21'
+last_synced: '2026-03-23'
 produkt:
   id: '84'
   artikelnummer: '84'
