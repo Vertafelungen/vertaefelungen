@@ -1,6 +1,6 @@
-<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:oils-linseed-tung-balsam | path_de:produkte/oele-farben/leinoel-tung | path_en:products/oil-paint/oil-tung -->
-
-- Leinöl-, Tung- und Balsamöle werden für natürliche Holzoberflächen im Innenbereich eingesetzt.
-- Sie betonen Struktur und Farbton des Holzes statt eine deckende Schicht zu bilden.
-- System und Auftrag richten sich nach Holzart, Nutzung und gewünschter Haptik.
-- Musterflächen sind wichtig, um das Endbild realistisch zu beurteilen.
+<!-- ssot_texts | v2026-03-21 19:30 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:oils-linseed-tung-balsam | path_de:produkte/oele-farben/leinoel-tung | path_en:products/oil-paint/oil-tung -->
+- Leinöl und Tungöl sind nicht deckende Holzschutz- und Pflegesysteme: sie sättigen das Holz und bilden (je nach Produkt) eine mehr oder weniger harte, reparierbare Oberfläche.
+- 61 (reines Leinöl) ist die langsame, sehr universelle Grundierungs- und Pflegebasis; 62 (Firnis) ist die schnellere Leinöl-Variante für den Aufbau.
+- 69 (Tungöl natur) und 65 (Tung Holzöllack) zielen stärker auf Härte und Alltagstauglichkeit der Oberfläche.
+- 63 (Balsamterpentinöl) und 64 (Citrusterpene) sind Hilfsstoffe: sie verdünnen, verbessern Penetration/Verlauf und unterstützen Reinigung; sie bringen aber Lösemittel-Charakter (VOC) ins System.
+- Die wichtigsten Stellschrauben sind: dünn auftragen, Überschuss abnehmen, Klima/Lüftung für oxidative Trocknung sicherstellen, Wartung als Teil des Systems planen.
