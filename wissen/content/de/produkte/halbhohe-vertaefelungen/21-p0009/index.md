@@ -3,7 +3,7 @@ title: P0009 - Nadelstreif & Zierstab
 lang: de
 translationKey: '21'
 managed_by: ssot-sync
-last_synced: '2026-03-21'
+last_synced: '2026-03-23'
 produkt:
   id: '21'
   artikelnummer: '21'

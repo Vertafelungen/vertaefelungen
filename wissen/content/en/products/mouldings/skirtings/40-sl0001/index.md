@@ -3,7 +3,7 @@ title: SL0001 - Hamburg skirting board 170/25
 lang: en
 translationKey: '40'
 managed_by: ssot-sync
-last_synced: '2026-03-21'
+last_synced: '2026-03-23'
 produkt:
   id: '40'
   artikelnummer: '40'
