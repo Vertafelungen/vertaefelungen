@@ -1,8 +1,8 @@
 ---
-version: 2026-03-24 20:43 UTC
+version: 2026-03-24 21:02 UTC
 managed_by: categories.csv
-last_synced: 2026-03-24 20:43 UTC
-lastmod: 2026-03-24 20:43 UTC
+last_synced: 2026-03-24 21:02 UTC
+lastmod: 2026-03-24 21:02 UTC
 lang: de
 translationKey: mouldings-root
 slug: leisten
@@ -35,6 +35,52 @@ cascade:
 <!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:mouldings-root | path_de:produkte/leisten | path_en:products/mouldings -->
 
 Leisten sind das "Vokabular" historischer Innenausbauten: Sie fassen Öffnungen, gliedern Wandflächen und definieren Übergänge.\n\n## Unterkategorien\n- **Wandleisten** - Profile zur Gliederung von Wandflächen, Feldern und Gesimsen.\n- **Türrahmen / Türbekleidungen** - Profile zur Fassung von Türen und Durchgängen.\n- **Sockelleisten** - Abschluss am Boden, Schutz- und Proportionsleiste.\n\nWähle eine Unterkategorie, um passende Profile, Maße, Varianten und Bilder zu sehen.
+
+## Kurzantwort
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:mouldings-root | path_de:produkte/leisten | path_en:products/mouldings -->
+
+- Leisten bündelt Profile und Anwendungen mit vergleichbarer Wirkung.
+- Die Kategorie hilft bei schneller Vorauswahl nach Raumtyp und Detailtiefe.
+- Für belastbare Entscheidungen werden Bestand, Maßsystem und Montagebedingungen gemeinsam bewertet.
+
+## Praxis-Kontext
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_praxis | key:mouldings-root | path_de:produkte/leisten | path_en:products/mouldings -->
+
+Im Projektalltag dient Leisten als Struktur für Beratung, Bemusterung und Ausführungsplanung. Dadurch lassen sich Alternativen transparent vergleichen und mit angrenzenden Gewerken abstimmen.
+
+## Entscheidung & Varianten
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_varianten | key:mouldings-root | path_de:produkte/leisten | path_en:products/mouldings -->
+
+Varianten entstehen über Profilcharakter, Aufbauhöhe, Anschlussdetails und Oberflächenstrategie. Eine Musterachse mit zwei bis drei Optionen erleichtert die Freigabe.
+
+## Ablauf & Planung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_ablauf | key:mouldings-root | path_de:produkte/leisten | path_en:products/mouldings -->
+
+Üblich sind Erstgespräch, Bestandserfassung, Variantenvergleich, technische Klärung und finale Festlegung für Ausschreibung oder Beauftragung. So bleibt der Ablauf nachvollziehbar und reproduzierbar.
+
+## Kostenlogik
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kosten | key:mouldings-root | path_de:produkte/leisten | path_en:products/mouldings -->
+
+Die Kosten werden durch Fläche bzw. Laufmeter, Detailgrad, Vorarbeiten und Montagezugang beeinflusst. Eine strukturierte Vorprüfung reduziert Nachträge in der Umsetzung.
+
+## Häufige Fehler & Vermeidung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_fehler | key:mouldings-root | path_de:produkte/leisten | path_en:products/mouldings -->
+
+Typische Fehler sind vermischte Bezugsmaße, fehlende Anschlussdefinitionen und unklare Zuständigkeiten. Abhilfe schaffen definierte Referenzkanten und früh abgestimmte Schnittstellen.
+
+## Verweise
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_verweise | key:mouldings-root | path_de:produkte/leisten | path_en:products/mouldings -->
+
+- Katalog & Download: /de/beratung/katalog-und-download
+- Planung: /de/beratung/planung
+- Kategorie: /produkte/leisten
 
 <!-- FAQ_SYNC:BEGIN -->
 ## Info

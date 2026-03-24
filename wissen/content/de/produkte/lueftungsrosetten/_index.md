@@ -1,8 +1,8 @@
 ---
-version: 2026-03-24 20:43 UTC
+version: 2026-03-24 21:02 UTC
 managed_by: categories.csv
-last_synced: 2026-03-24 20:43 UTC
-lastmod: 2026-03-24 20:43 UTC
+last_synced: 2026-03-24 21:02 UTC
+lastmod: 2026-03-24 21:02 UTC
 lang: de
 translationKey: ventilation-rosettes
 slug: lueftungsrosetten
@@ -35,6 +35,54 @@ cascade:
 <!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:ventilation-rosettes | path_de:produkte/lueftungsrosetten | path_en:products/rosettes -->
 
 Lüftungsrosetten verbinden Funktion und Gestaltung: Sie decken Lüftungsöffnungen sauber ab und integrieren sich optisch in historische Innenausbauten.\n\n**Typische Anwendungen:**\n- Wand- und Türlüftungen\n- Nebenräume, Flure, Sanitär- und Küchenbereiche (je nach Konzept)\n- Ergänzung zu Vertäfelungen, Leisten und Türbekleidungen\n\nWähle eine Rosette, um Maße, Varianten und Bilder zu sehen.
+
+## Kurzantwort
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:ventilation-rosettes | path_de:produkte/lueftungsrosetten | path_en:products/rosettes -->
+
+- Lüftungsrosetten verbinden historische Optik mit kontrollierter Luftführung im Innenbereich.
+- Sie eignen sich für Altbau-Räume, in denen Technik dezent integriert werden soll.
+- Form, Durchmesser und Position sollten auf Wandbild und Achsen abgestimmt werden.
+- Sinnvoll ist die Planung gemeinsam mit Vertäfelung, Leisten und Farbfassung.
+
+## Praxis-Kontext
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_praxis | key:ventilation-rosettes | path_de:produkte/lueftungsrosetten | path_en:products/rosettes -->
+
+In der Praxis werden Rosetten häufig in Wandfeldern oder oberhalb von Türzonen platziert, damit die Luftführung funktioniert und die Gestaltung ruhig bleibt. Bei Sanierungen ist wichtig, bestehende Öffnungen und Leitungswege früh zu prüfen.
+
+## Entscheidung & Varianten
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_varianten | key:ventilation-rosettes | path_de:produkte/lueftungsrosetten | path_en:products/rosettes -->
+
+Varianten ergeben sich über Durchmesser, Ornamentik, Materialanmutung und Einbauposition. Reduzierte Rosetten passen zu schlichten Innenräumen, stärker dekorierte Modelle zu historischen, repräsentativen Bereichen.
+
+## Ablauf & Planung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_ablauf | key:ventilation-rosettes | path_de:produkte/lueftungsrosetten | path_en:products/rosettes -->
+
+Ablauf: Bestand aufnehmen, Luftführung klären, Positionen im Wandbild festlegen, Rosettenformat wählen, Untergrund vorbereiten und montieren. Abschließend erfolgt die farbliche Einbindung in das Gesamtkonzept.
+
+## Kostenlogik
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kosten | key:ventilation-rosettes | path_de:produkte/lueftungsrosetten | path_en:products/rosettes -->
+
+Die Kosten werden vor allem von Anzahl der Öffnungen, Anpassungen am Untergrund, Montagezugänglichkeit und Oberflächenbearbeitung bestimmt. Zusätzliche Abstimmungen mit anderen Gewerken erhöhen den Planungsaufwand.
+
+## Häufige Fehler & Vermeidung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_fehler | key:ventilation-rosettes | path_de:produkte/lueftungsrosetten | path_en:products/rosettes -->
+
+Häufige Fehler sind zufällige Positionen ohne Achsbezug, zu große oder zu kleine Formate und fehlende Abstimmung mit Leisten/Vertäfelung. Ein abgestimmter Einbauplan verhindert sichtbare Brüche im Gesamtbild.
+
+## Verweise
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_verweise | key:ventilation-rosettes | path_de:produkte/lueftungsrosetten | path_en:products/rosettes -->
+
+- /de/produkte/lueftungsrosetten/
+- /de/produkte/halbhohe-vertaefelungen/
+- /de/produkte/hohe-vertaefelungen/
+- /de/info/beratung/
 
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
