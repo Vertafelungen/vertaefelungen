@@ -1,7 +1,5 @@
 <!-- ssot_texts | v2026-03-21 19:30 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:oils-linseed-tung-balsam | path_de:produkte/oele-farben/leinoel-tung | path_en:products/oil-paint/oil-tung -->
 
-In dieser Unterkategorie sind traditionelle Öle und passende Lösemittel gebündelt, die je nach Rezeptur als Grundierung, Schutz- oder Pflegesystem eingesetzt werden. Im Alltag entscheidet weniger der Name als die Systemrolle: Grundierung (Penetration), Aufbau (Trocknung/Haftung), Topcoat (Härte) und Hilfsstoffe (Verdünnung/Reinigung).
-
 **Worum geht es hier konkret?** Ein Vergleich der sechs häufig kombinierten Produkte:
 - 61 Reines Leinöl (ohne Sikkativ): langsam, klassisch, sehr universell.
 - 62 Leinölfirnis (mit Sikkativ): schneller für Aufbau und Anstriche.
