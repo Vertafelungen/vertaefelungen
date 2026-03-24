@@ -3,7 +3,7 @@ title: Door Frame 04
 lang: en
 translationKey: '121'
 managed_by: ssot-sync
-last_synced: '2026-03-23'
+last_synced: '2026-03-24'
 produkt:
   id: '121'
   artikelnummer: '121'

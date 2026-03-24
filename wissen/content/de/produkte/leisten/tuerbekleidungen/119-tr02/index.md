@@ -3,7 +3,7 @@ title: Türbekleidung 02
 description: Tür- und Fensterrahmen TR02 (90 × 18 mm). Schlanke Rahmenleiste für Türen/Fenster; Auswahl- und Montagehinweise, Fugenlogik und Kombinationen mit Sockelleisten.
 lastmod: '2026-02-13T09:56:16+01:00'
 managed_by: ssot-sync
-last_synced: '2026-03-23'
+last_synced: '2026-03-24'
 translationKey: '119'
 seo:
   title: 'tr02 - Tür- und Fensterrahmen TR 02, Maße: 100 x'
