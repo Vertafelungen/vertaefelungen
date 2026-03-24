@@ -1,8 +1,8 @@
 ---
-version: 2026-03-24 20:43 UTC
+version: 2026-03-24 21:02 UTC
 managed_by: categories.csv
-last_synced: 2026-03-24 20:43 UTC
-lastmod: 2026-03-24 20:43 UTC
+last_synced: 2026-03-24 21:02 UTC
+lastmod: 2026-03-24 21:02 UTC
 lang: de
 translationKey: wall-mouldings
 slug: wandleisten
@@ -35,6 +35,52 @@ cascade:
 <!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:wall-mouldings | path_de:produkte/leisten/wandleisten | path_en:products/mouldings/wall -->
 
 Wandleisten gliedern Wandflächen und setzen Proportionen: als Rahmung von Feldern, als horizontale Teilung (z. B. Gurt-/Handlauf) oder als Abschlussprofil.\n\n**Typische Einsatzbereiche:** Felder-/Rahmungen, Wandteilungen, Übergänge zu Decke oder Vertäfelung.\n\nWähle ein Profil, um Details, Maße, Varianten und Bilder zu sehen.
+
+## Kurzantwort
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:wall-mouldings | path_de:produkte/leisten/wandleisten | path_en:products/mouldings/wall -->
+
+- Wandleisten bündelt Profile und Anwendungen mit vergleichbarer Wirkung.
+- Die Kategorie hilft bei schneller Vorauswahl nach Raumtyp und Detailtiefe.
+- Für belastbare Entscheidungen werden Bestand, Maßsystem und Montagebedingungen gemeinsam bewertet.
+
+## Praxis-Kontext
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_praxis | key:wall-mouldings | path_de:produkte/leisten/wandleisten | path_en:products/mouldings/wall -->
+
+Im Projektalltag dient Wandleisten als Struktur für Beratung, Bemusterung und Ausführungsplanung. Dadurch lassen sich Alternativen transparent vergleichen und mit angrenzenden Gewerken abstimmen.
+
+## Entscheidung & Varianten
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_varianten | key:wall-mouldings | path_de:produkte/leisten/wandleisten | path_en:products/mouldings/wall -->
+
+Varianten entstehen über Profilcharakter, Aufbauhöhe, Anschlussdetails und Oberflächenstrategie. Eine Musterachse mit zwei bis drei Optionen erleichtert die Freigabe.
+
+## Ablauf & Planung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_ablauf | key:wall-mouldings | path_de:produkte/leisten/wandleisten | path_en:products/mouldings/wall -->
+
+Üblich sind Erstgespräch, Bestandserfassung, Variantenvergleich, technische Klärung und finale Festlegung für Ausschreibung oder Beauftragung. So bleibt der Ablauf nachvollziehbar und reproduzierbar.
+
+## Kostenlogik
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kosten | key:wall-mouldings | path_de:produkte/leisten/wandleisten | path_en:products/mouldings/wall -->
+
+Die Kosten werden durch Fläche bzw. Laufmeter, Detailgrad, Vorarbeiten und Montagezugang beeinflusst. Eine strukturierte Vorprüfung reduziert Nachträge in der Umsetzung.
+
+## Häufige Fehler & Vermeidung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_fehler | key:wall-mouldings | path_de:produkte/leisten/wandleisten | path_en:products/mouldings/wall -->
+
+Typische Fehler sind vermischte Bezugsmaße, fehlende Anschlussdefinitionen und unklare Zuständigkeiten. Abhilfe schaffen definierte Referenzkanten und früh abgestimmte Schnittstellen.
+
+## Verweise
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_verweise | key:wall-mouldings | path_de:produkte/leisten/wandleisten | path_en:products/mouldings/wall -->
+
+- Katalog & Download: /de/beratung/katalog-und-download
+- Planung: /de/beratung/planung
+- Kategorie: /produkte/leisten/wandleisten
 
 <!-- FAQ_SYNC:BEGIN -->
 ## Info

@@ -1,8 +1,8 @@
 ---
-version: 2026-03-24 20:43 UTC
+version: 2026-03-24 21:02 UTC
 managed_by: categories.csv
-last_synced: 2026-03-24 20:43 UTC
-lastmod: 2026-03-24 20:43 UTC
+last_synced: 2026-03-24 21:02 UTC
+lastmod: 2026-03-24 21:02 UTC
 lang: de
 translationKey: door-architraves
 slug: tuerbekleidungen
@@ -35,6 +35,54 @@ cascade:
 <!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:door-architraves | path_de:produkte/leisten/tuerbekleidungen | path_en:products/mouldings/door -->
 
 Türbekleidungen fassen Türöffnungen und Durchgänge ein und bestimmen die Proportion von Türen im Raum. Je nach Stil können sie schlicht, profilbetont oder mit stärkerer Plastizität ausgeführt werden.\n\n**Typische Einsatzbereiche:** Wohnungstüren, Zimmertüren, Durchgänge, Portalrahmungen.\n\nWähle ein Profil, um Details, Maße, Varianten und Bilder zu sehen.
+
+## Kurzantwort
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:door-architraves | path_de:produkte/leisten/tuerbekleidungen | path_en:products/mouldings/door -->
+
+- Türbekleidungen rahmen Türöffnungen und prägen die Raumwirkung stark.
+- Profilwahl und Breite sollten zu Sockel- und Wandleisten passen.
+- Im Altbau sind Wandstärken, Laibungstiefen und Anschlusshöhen entscheidend.
+- Früh geplante Details vermeiden Nacharbeiten an Gehrungen und Übergängen.
+
+## Praxis-Kontext
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_praxis | key:door-architraves | path_de:produkte/leisten/tuerbekleidungen | path_en:products/mouldings/door -->
+
+In der Praxis werden Türbekleidungen als Leitdetail für die gesamte Leistenfamilie genutzt. Stimmen Proportion und Profil an der Tür, lassen sich Sockel und Wandleisten konsistent darauf beziehen.
+
+## Entscheidung & Varianten
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_varianten | key:door-architraves | path_de:produkte/leisten/tuerbekleidungen | path_en:products/mouldings/door -->
+
+Varianten bestehen aus reduzierten, linearen Profilen bis zu historisch stärker gegliederten Bekleidungen. Zusätzlich unterscheiden sich Lösungen für ein- oder beidseitige Bekleidung und für unterschiedliche Leibungstiefen.
+
+## Ablauf & Planung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_ablauf | key:door-architraves | path_de:produkte/leisten/tuerbekleidungen | path_en:products/mouldings/door -->
+
+Ablauf: Aufmaß der Öffnung, Profil- und Breitenwahl, Detailklärung an Sockelanschlüssen, Fertigung, Montage und Oberflächenabgleich. Besonders wichtig sind saubere Gehrungen im Sichtbereich.
+
+## Kostenlogik
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kosten | key:door-architraves | path_de:produkte/leisten/tuerbekleidungen | path_en:products/mouldings/door -->
+
+Kostenfaktoren sind Anzahl der Öffnungen, Profilkomplexität, Leibungssituation, erforderliche Anpassungen im Bestand und Oberflächenqualität. Komplexe Anschlussdetails erhöhen den Aufwand.
+
+## Häufige Fehler & Vermeidung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_fehler | key:door-architraves | path_de:produkte/leisten/tuerbekleidungen | path_en:products/mouldings/door -->
+
+Häufige Fehler sind unpassende Proportionen, inkonsistente Höhenbezüge und unsaubere Übergänge zu Sockelleisten. Ein abgestimmtes Detailset mit Referenzhöhen verhindert diese Probleme.
+
+## Verweise
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_verweise | key:door-architraves | path_de:produkte/leisten/tuerbekleidungen | path_en:products/mouldings/door -->
+
+- /de/produkte/leisten/tuerbekleidungen/
+- /de/produkte/leisten/sockelleisten/
+- /de/produkte/leisten/wandleisten/
+- /de/info/beratung/
 
 <!-- FAQ_SYNC:BEGIN -->
 ## Info

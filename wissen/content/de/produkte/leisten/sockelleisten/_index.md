@@ -1,8 +1,8 @@
 ---
-version: 2026-03-24 20:43 UTC
+version: 2026-03-24 21:02 UTC
 managed_by: categories.csv
-last_synced: 2026-03-24 20:43 UTC
-lastmod: 2026-03-24 20:43 UTC
+last_synced: 2026-03-24 21:02 UTC
+lastmod: 2026-03-24 21:02 UTC
 lang: de
 translationKey: skirting-boards
 slug: sockelleisten
@@ -35,6 +35,54 @@ cascade:
 <!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
 
 Sockelleisten bilden den sauberen Abschluss zwischen Boden und Wand. In historischen Innenräumen sind sie mehr als Schutzleisten: Höhe, Profilierung und Übergänge bestimmen die Raumproportion.\n\n**Typische Themen:**\n- passende Höhe zur Raumhöhe und zur Vertäfelung\n- Profilformen (Rundstab, Kehle, Hohlkehle, Wulst)\n- Anschluss an Türbekleidungen und Wandfelder\n\nWähle eine Sockelleiste, um Maße, Profilform, Varianten und Bilder zu sehen.
+
+## Kurzantwort
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
+
+- Sockelleisten bilden den sauberen Abschluss zwischen Wand und Boden.
+- Sie schützen Wandflächen vor Stoß- und Reinigungsbelastung.
+- Profilhöhe und Profilbild sollten zu Türbekleidungen und Wandleisten passen.
+- Im Altbau ist die Abstimmung auf unebene Bestandswände zentral.
+
+## Praxis-Kontext
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_praxis | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
+
+Sockelleisten werden meist zuletzt nach Wand- und Bodenabstimmung festgelegt. So können Höhen, Fugen und Anschlüsse stimmig aufeinander abgestimmt werden, auch wenn der Bestand nicht vollständig rechtwinklig ist.
+
+## Entscheidung & Varianten
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_varianten | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
+
+Übliche Varianten reichen von schlichten, niedrigen Profilen bis zu hohen historischen Sockeln mit stärkerer Kontur. Je nach Raumwirkung kann der Sockel zurückhaltend oder bewusst präsent ausgeführt werden.
+
+## Ablauf & Planung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_ablauf | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
+
+Typischer Ablauf: Höhenbezug festlegen, Profil auswählen, Ecken/Gehrungen planen, Untergrund prüfen, montieren und Oberfläche angleichen. Übergänge zu Türbekleidungen werden vorab im Detail geklärt.
+
+## Kostenlogik
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kosten | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
+
+Kostenfaktoren sind laufende Meter, Profilkomplexität, Anzahl Innen-/Außenecken, Zustand des Untergrunds und Nacharbeit beim Finish. Viele Kleinteile und schwierige Geometrien erhöhen den Aufwand.
+
+## Häufige Fehler & Vermeidung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_fehler | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
+
+Typische Fehler sind nicht durchlaufende Höhen, unsaubere Gehrungen und fehlende Abstimmung mit Türbekleidungen. Ein exakter Aufriss und Musterabschnitte vermeiden spätere Korrekturen.
+
+## Verweise
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_verweise | key:skirting-boards | path_de:produkte/leisten/sockelleisten | path_en:products/mouldings/skirtings -->
+
+- /de/produkte/leisten/sockelleisten/
+- /de/produkte/leisten/tuerbekleidungen/
+- /de/produkte/leisten/wandleisten/
+- /de/info/beratung/
 
 <!-- FAQ_SYNC:BEGIN -->
 ## Info

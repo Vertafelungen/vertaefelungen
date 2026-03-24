@@ -1,8 +1,8 @@
 ---
-version: 2026-03-24 20:43 UTC
+version: 2026-03-24 21:02 UTC
 managed_by: categories.csv
-last_synced: 2026-03-24 20:43 UTC
-lastmod: 2026-03-24 20:43 UTC
+last_synced: 2026-03-24 21:02 UTC
+lastmod: 2026-03-24 21:02 UTC
 lang: de
 translationKey: beeck-primer-pro
 slug: vsfp
@@ -35,6 +35,53 @@ cascade:
 <!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:beeck-primer-pro | path_de:produkte/oele-farben/beeck/vsfp | path_en:products/oil-paint/beeck/vsfp -->
 
 Die **Vorstreichfarbe Pro** dient als systemkonformer Grund-/Vorstreich für Standöl-Anstriche. Sie unterstützt einen gleichmäßigen Untergrund und verbessert die Haftung des nachfolgenden Anstrichs.\n\nWähle ein Produkt bzw. eine Variante, um Details, Gebinde und Systemhinweise zu sehen.
+
+## Kurzantwort
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:beeck-primer-pro | path_de:produkte/oele-farben/beeck/vsfp | path_en:products/oil-paint/beeck/vsfp -->
+
+- Vorstreichfarbe Pro bündeln Produkte mit abgestimmten Materialien und Oberflächen.
+- Die Auswahl richtet sich nach Untergrund, Nutzung und gewünschter Optik.
+- Für belastbare Entscheidungen helfen Fotos, Maße und Zielbild je Raum.
+- Varianten lassen sich projektbezogen strukturieren, ohne das System zu überladen.
+
+## Praxis-Kontext
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_praxis | key:beeck-primer-pro | path_de:produkte/oele-farben/beeck/vsfp | path_en:products/oil-paint/beeck/vsfp -->
+
+Im Projektalltag werden diese Kategorien genutzt, um Beratung, Bemusterung und Ausführung konsistent zu halten. Das reduziert Rückfragen zwischen Planung, Fertigung und Montage und verbessert die Vergleichbarkeit von Varianten.
+
+## Entscheidung & Varianten
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_varianten | key:beeck-primer-pro | path_de:produkte/oele-farben/beeck/vsfp | path_en:products/oil-paint/beeck/vsfp -->
+
+Sinnvolle Varianten ergeben sich aus Bindemitteltyp, Deckgrad, Farbfamilie und Vorbehandlung. Bei Bestandsobjekten ist die Kompatibilität mit vorhandenen Schichten entscheidend, bei Neubauten meist die gewünschte Haptik und Pflegeanforderung.
+
+## Ablauf & Planung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_ablauf | key:beeck-primer-pro | path_de:produkte/oele-farben/beeck/vsfp | path_en:products/oil-paint/beeck/vsfp -->
+
+Empfohlener Ablauf: Anwendungsfall klären, System eingrenzen, Muster abstimmen, technische Randbedingungen prüfen und dann erst die finale Produktauswahl treffen. Dadurch sinkt das Risiko späterer Umstellungen.
+
+## Kostenlogik
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kosten | key:beeck-primer-pro | path_de:produkte/oele-farben/beeck/vsfp | path_en:products/oil-paint/beeck/vsfp -->
+
+Die Kosten werden vor allem durch Flächenumfang, Schichtaufbau, Vorarbeiten und Ausführungsdetails beeinflusst. Aufwendige Untergrundkorrekturen und Sonderfarbtöne erhöhen typischerweise den Gesamtaufwand.
+
+## Häufige Fehler & Vermeidung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_fehler | key:beeck-primer-pro | path_de:produkte/oele-farben/beeck/vsfp | path_en:products/oil-paint/beeck/vsfp -->
+
+Häufige Fehler sind eine Systemwahl ohne Untergrundprüfung, fehlende Musterfreigabe und unklare Reihenfolge der Arbeitsschritte. Vermeidung gelingt über saubere Vorabklärung und dokumentierte Freigaben je Abschnitt.
+
+## Verweise
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_verweise | key:beeck-primer-pro | path_de:produkte/oele-farben/beeck/vsfp | path_en:products/oil-paint/beeck/vsfp -->
+
+- Überblick Öle & Farben: /de/produkte/oele-farben/
+- BEECK Übersicht: /de/produkte/oele-farben/beeck/
+- Beratung: /de/info/beratung/
 
 <!-- FAQ_SYNC:BEGIN -->
 ## Info

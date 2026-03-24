@@ -1,8 +1,8 @@
 ---
-version: 2026-03-24 20:43 UTC
+version: 2026-03-24 21:02 UTC
 managed_by: categories.csv
-last_synced: 2026-03-24 20:43 UTC
-lastmod: 2026-03-24 20:43 UTC
+last_synced: 2026-03-24 21:02 UTC
+lastmod: 2026-03-24 21:02 UTC
 lang: de
 translationKey: dado-panel
 slug: halbhohe-vertaefelungen
@@ -35,6 +35,52 @@ cascade:
 <!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_md_de | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
 
 Halbhohe Vertäfelungen - oft als **Lambris** bezeichnet - strukturieren Wandflächen, schützen beanspruchte Zonen und geben Räumen eine historische Proportion, ohne den Raum optisch zu "schließen".\n\n**Typische Anwendungen:** Flure, Esszimmer, Kinderzimmer, Treppenläufe, Arbeitszimmer.\n\n**Varianten:** mit/ohne Handlauf, glatte Füllungen oder profilierte Felder, integrierte Sockel- und Abschlussleisten.\n\n**Projektablauf:** Referenz auswählen → Maßaufnahme/Grundriss → 3D-Visualisierung → Fertigung & Montage durch Partnertischlerei.\n\nWenn du Raumhöhe, gewünschte Vertäfelungshöhe und Stilrichtung nennst, lässt sich ein passendes Feldraster und Profilpaket schnell bestimmen.
+
+## Kurzantwort
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kurzantwort | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
+
+- Halbhohe Vertäfelungen bündelt Profile und Anwendungen mit vergleichbarer Wirkung.
+- Die Kategorie hilft bei schneller Vorauswahl nach Raumtyp und Detailtiefe.
+- Für belastbare Entscheidungen werden Bestand, Maßsystem und Montagebedingungen gemeinsam bewertet.
+
+## Praxis-Kontext
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_praxis | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
+
+Im Projektalltag dient Halbhohe Vertäfelungen als Struktur für Beratung, Bemusterung und Ausführungsplanung. Dadurch lassen sich Alternativen transparent vergleichen und mit angrenzenden Gewerken abstimmen.
+
+## Entscheidung & Varianten
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_varianten | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
+
+Varianten entstehen über Profilcharakter, Aufbauhöhe, Anschlussdetails und Oberflächenstrategie. Eine Musterachse mit zwei bis drei Optionen erleichtert die Freigabe.
+
+## Ablauf & Planung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_ablauf | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
+
+Üblich sind Erstgespräch, Bestandserfassung, Variantenvergleich, technische Klärung und finale Festlegung für Ausschreibung oder Beauftragung. So bleibt der Ablauf nachvollziehbar und reproduzierbar.
+
+## Kostenlogik
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_kosten | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
+
+Die Kosten werden durch Fläche bzw. Laufmeter, Detailgrad, Vorarbeiten und Montagezugang beeinflusst. Eine strukturierte Vorprüfung reduziert Nachträge in der Umsetzung.
+
+## Häufige Fehler & Vermeidung
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_fehler | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
+
+Typische Fehler sind vermischte Bezugsmaße, fehlende Anschlussdefinitionen und unklare Zuständigkeiten. Abhilfe schaffen definierte Referenzkanten und früh abgestimmte Schnittstellen.
+
+## Verweise
+
+<!-- ssot_texts | v2026-02-28 09:55 Europe/Berlin | source: categories.csv:body_de_verweise | key:dado-panel | path_de:produkte/halbhohe-vertaefelungen | path_en:products/dado-panel -->
+
+- Katalog & Download: /de/beratung/katalog-und-download
+- Planung: /de/beratung/planung
+- Kategorie: /produkte/halbhohe-vertaefelungen
 
 <!-- FAQ_SYNC:BEGIN -->
 ## Info
