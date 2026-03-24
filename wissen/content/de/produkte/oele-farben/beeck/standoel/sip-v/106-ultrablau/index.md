@@ -4,7 +4,7 @@ aliases:
 title: Ultrablau - BEECK Standölinnenfarbe PRO
 translationKey: '106'
 managed_by: ssot-sync
-last_synced: '2026-03-23'
+last_synced: '2026-03-24'
 produkt:
   id: '106'
   artikelnummer: '106'

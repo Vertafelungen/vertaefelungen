@@ -6,7 +6,7 @@ description: 'Tür- und Fensterrahmen TR01-120: Auswahlhilfe, Planungsablauf, Ko
 lastmod: '2026-02-14T08:56:10+01:00'
 translationKey: '117'
 managed_by: ssot-sync
-last_synced: '2026-03-23'
+last_synced: '2026-03-24'
 produkt:
   id: '117'
   artikelnummer: TR01-120
