@@ -375,7 +375,7 @@ def validate_categories(rows: List[CategoryRow]) -> List[str]:
 def _build_structured_body(c: CategoryRow, lang: str) -> str:
     """
     Deterministically build body without FAQ section.
-    If legacy body_md_* exists, it takes precedence.
+    Legacy intro/body and structured slots can be combined.
     """
     if lang == "de":
         legacy = c.body_md_de
@@ -400,12 +400,11 @@ def _build_structured_body(c: CategoryRow, lang: str) -> str:
             ("## References", c.body_en_verweise),
         ]
 
-    if legacy and legacy.strip():
-        return rewrite_internal_links(legacy.strip()) + "\n"
-
+    legacy_text = rewrite_internal_links((legacy or "").strip()) if (legacy or "").strip() else ""
     any_new = any((v or "").strip() for _, v in parts)
+
     if not any_new:
-        return ""
+        return (legacy_text + "\n") if legacy_text else ""
 
     out: List[str] = []
     for h, txt in parts:
@@ -417,7 +416,10 @@ def _build_structured_body(c: CategoryRow, lang: str) -> str:
         out.append(rewrite_internal_links(t))
         out.append("")
 
-    return "\n".join(out).rstrip() + "\n"
+    slots_text = "\n".join(out).rstrip()
+    if legacy_text:
+        return f"{legacy_text}\n\n{slots_text}\n"
+    return slots_text + "\n"
 
 
 def build_frontmatter(c: CategoryRow, lang: str, now_utc: datetime, aliases: Optional[List[str]] = None) -> Tuple[Dict, str]:
