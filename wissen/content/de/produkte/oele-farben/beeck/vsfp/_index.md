@@ -1,8 +1,8 @@
 ---
-version: 2026-03-25 17:11 UTC
+version: 2026-03-25 17:20 UTC
 managed_by: categories.csv
-last_synced: 2026-03-25 17:11 UTC
-lastmod: 2026-03-25 17:11 UTC
+last_synced: 2026-03-25 17:20 UTC
+lastmod: 2026-03-25 17:20 UTC
 lang: de
 translationKey: beeck-primer-pro
 slug: vsfp
