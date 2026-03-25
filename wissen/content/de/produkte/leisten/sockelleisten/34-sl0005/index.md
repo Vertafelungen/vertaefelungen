@@ -18,7 +18,7 @@ refs:
 lang: de
 translationKey: '34'
 managed_by: ssot-sync
-last_synced: '2026-03-24'
+last_synced: '2026-03-25'
 slug: 34-sl0005
 aliases: []
 ---
