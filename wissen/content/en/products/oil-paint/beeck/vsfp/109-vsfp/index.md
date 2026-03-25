@@ -3,7 +3,7 @@ title: BEECK Undercoat PRO
 lang: en
 translationKey: '109'
 managed_by: ssot-sync
-last_synced: '2026-03-24'
+last_synced: '2026-03-25'
 produkt:
   id: '109'
   artikelnummer: '109'

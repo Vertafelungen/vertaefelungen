@@ -4,7 +4,7 @@ description: 'Sockelleiste mit moderater Höhe (120 mm) und schlanker Ausladung 
 lang: de
 translationKey: '41'
 managed_by: ssot-sync
-last_synced: '2026-03-24'
+last_synced: '2026-03-25'
 lastmod: 2026-02-12T16:45:00+01:00
 produkt:
   id: '41'
