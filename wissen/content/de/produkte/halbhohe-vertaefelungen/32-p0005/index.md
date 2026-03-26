@@ -2,7 +2,7 @@
 title: P0005 - Berlin - Bleibtreustraße
 translationKey: '32'
 managed_by: ssot-sync
-last_synced: '2026-03-25'
+last_synced: '2026-03-26'
 produkt:
   id: '32'
   artikelnummer: '32'
