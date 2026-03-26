@@ -1,8 +1,8 @@
 ---
-version: 2026-03-26 18:01 UTC
+version: 2026-03-26 18:04 UTC
 managed_by: categories.csv
-last_synced: 2026-03-26 18:01 UTC
-lastmod: 2026-03-26 18:01 UTC
+last_synced: 2026-03-26 18:04 UTC
+lastmod: 2026-03-26 18:04 UTC
 lang: de
 translationKey: oils-linseed-tung-balsam
 slug: leinoel-tung
@@ -46,9 +46,9 @@ Wir erklären hier die sechs wichtigsten Produkte, deren Einsatzgebiet und Wirku
 **Typische Fragen**
 - Wie ökologisch sind Leinöl, Tung und Balsam?
 - Welche Vorteile hat Leinöl gegenüber industriellen Mitteln?
-- Wie behandle ich unbehandeltes Holz richtig
+- Wie behandle ich unbehandeltes Holz richtig?
 - Einsatzgebiet Innen oder außen?
-- Welche Wartungsintervalle sollten eigehalten werden
+- Welche Wartungsintervalle sollten eigehalten werden?
 
 ## Kurzantwort
 
