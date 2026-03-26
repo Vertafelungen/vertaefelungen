@@ -3,7 +3,7 @@ title: Pastel Green - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '113'
 managed_by: ssot-sync
-last_synced: '2026-03-25'
+last_synced: '2026-03-26'
 produkt:
   id: '113'
   artikelnummer: '113'

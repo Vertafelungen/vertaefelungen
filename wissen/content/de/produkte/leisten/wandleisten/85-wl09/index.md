@@ -3,7 +3,7 @@ title: Wandleiste 09
 lang: de
 translationKey: '85'
 managed_by: ssot-sync
-last_synced: '2026-03-25'
+last_synced: '2026-03-26'
 produkt:
   id: '85'
   artikelnummer: '85'
