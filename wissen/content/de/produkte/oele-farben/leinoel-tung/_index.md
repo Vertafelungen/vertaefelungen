@@ -1,8 +1,8 @@
 ---
-version: 2026-03-25 18:01 UTC
+version: 2026-03-26 18:03 UTC
 managed_by: categories.csv
-last_synced: 2026-03-25 18:01 UTC
-lastmod: 2026-03-25 18:01 UTC
+last_synced: 2026-03-26 18:03 UTC
+lastmod: 2026-03-26 18:03 UTC
 lang: de
 translationKey: oils-linseed-tung-balsam
 slug: leinoel-tung
@@ -46,9 +46,9 @@ Wir erklären hier die sechs wichtigsten Produkte, deren Einsatzgebiet und Wirku
 **Typische Fragen**
 - Wie ökologisch sind Leinöl, Tung und Balsam?
 - Welche Vorteile hat Leinöl gegenüber industriellen Mitteln?
-- Wie behandle ich unbehandeltes Holz richtig
+- Wie behandle ich unbehandeltes Holz richtig?
 - Einsatzgebiet Innen oder außen?
-- Welche Wartungsintervalle sollten eigehalten werden
+- Welche Wartungsintervalle sollten eigehalten werden?
 
 ## Kurzantwort
 
@@ -104,20 +104,20 @@ Hinweis: Trocknung und Geruch hängen stark von Schichtdicke, Temperatur, Luftfe
 ### Systemlogik: typische Aufbauten
 **A) Holz innen (Vertäfelung, Leisten, Möbel)**
 1. Untergrund: sauber, trocken, passend geschliffen.
-2. Grundierung/Sättigung: 61 dünn einarbeiten; nach Einwirkzeit Überschuss abnehmen/auspolieren.
+2. Grundierung/Sättigung: Reines Leinöl (ohne Sikkative) dünn einarbeiten; nach Einwirkzeit Überschuss abnehmen/auspolieren.
 3. Aufbau nach Zeitfenster:
-   - langsam/universell: weiter mit 61, in dünnen Schichten.
-   - schneller: 62 als Aufbauöl.
-4. Für mehr Härte/Haptik: 69 als Topcoat oder 65 als fertiges System.
+   - langsam/universell: weiter mit reinem Leinöl, in dünnen Schichten.
+   - schneller: Leinölfirnis (mit Sikkativen) als Aufbauöl.
+4. Für mehr Härte/Haptik: Tungöl natur als Topcoat oder Tung Holzöllack als fertiges System.
 5. Zwischen den Schichten: nur weiterarbeiten, wenn die Fläche nicht mehr klebt und nicht "zieht".
 
 **B) Holz außen (Fenster, Türen, Bauteile)**
-1. Grundierung: 61 oder 62 (wenn Wetterfenster enger ist).
-2. Aufbau: 62 oder 65, je nach Schutzanforderung.
+1. Grundierung: Reines Leinöl oder Leinölfirnis (wenn Wetterfenster enger ist).
+2. Aufbau: mit Leinölfirnis oder Tung Holzöllack, je nach Schutzanforderung.
 3. Wartung: Oberfläche regelmäßig inspizieren; dünn auffrischen, bevor Schädigung einsetzt.
 
 **C) Hilfsstoffe sinnvoll einsetzen**
-- 63/64 nur bei Bedarf: zur Verdünnung (bessere Penetration/Verlauf) oder zur Reinigung.
+- Balsamterpentinöl oder Citrusterpene nur bei Bedarf: zur Verdünnung (bessere Penetration/Verlauf) oder zur Reinigung.
 - Immer mit Teststellen, besonders auf Kunststoffen, Schäumen, Folien und unbekannten Altbeschichtungen.
 
 ## Kostenlogik

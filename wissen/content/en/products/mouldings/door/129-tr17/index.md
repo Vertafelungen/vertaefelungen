@@ -3,7 +3,7 @@ title: Door Frame 17
 lang: en
 translationKey: '129'
 managed_by: ssot-sync
-last_synced: '2026-03-25'
+last_synced: '2026-03-26'
 produkt:
   id: '129'
   artikelnummer: '129'
