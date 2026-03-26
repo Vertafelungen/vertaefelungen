@@ -12,6 +12,6 @@ Wir erklären hier die sechs wichtigsten Produkte, deren Einsatzgebiet und Wirku
 **Typische Fragen**
 - Wie ökologisch sind Leinöl, Tung und Balsam?
 - Welche Vorteile hat Leinöl gegenüber industriellen Mitteln?
-- Wie behandle ich unbehandeltes Holz richtig
+- Wie behandle ich unbehandeltes Holz richtig?
 - Einsatzgebiet Innen oder außen?
-- Welche Wartungsintervalle sollten eigehalten werden
+- Welche Wartungsintervalle sollten eigehalten werden?
