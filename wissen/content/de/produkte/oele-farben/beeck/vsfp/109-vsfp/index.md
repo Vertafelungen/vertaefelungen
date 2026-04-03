@@ -3,7 +3,7 @@ title: BEECK Vorstreichfarbe PRO
 lang: de
 translationKey: '109'
 managed_by: ssot-sync
-last_synced: '2026-03-26'
+last_synced: '2026-04-03'
 produkt:
   id: '109'
   artikelnummer: '109'

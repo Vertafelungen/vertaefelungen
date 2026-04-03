@@ -3,7 +3,7 @@ title: SL0006 - with cyma 58/18
 lang: en
 translationKey: '45'
 managed_by: ssot-sync
-last_synced: '2026-03-26'
+last_synced: '2026-04-03'
 produkt:
   id: '45'
   artikelnummer: '45'

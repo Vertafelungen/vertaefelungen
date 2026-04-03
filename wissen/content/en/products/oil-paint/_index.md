@@ -1,8 +1,8 @@
 ---
-version: 2026-03-26 18:03 UTC
+version: 2026-04-03 13:44 UTC
 managed_by: categories.csv
-last_synced: 2026-03-26 18:03 UTC
-lastmod: 2026-03-26 18:03 UTC
+last_synced: 2026-04-03 13:44 UTC
+lastmod: 2026-04-03 13:44 UTC
 lang: en
 translationKey: oil-paints-root
 slug: oil-paint
