@@ -4,7 +4,7 @@ description: 'Hohe Sockelleiste (Höhe 170 mm, Ausladung 25 mm): Einsatzbereiche
 lang: de
 translationKey: '40'
 managed_by: ssot-sync
-last_synced: '2026-03-26'
+last_synced: '2026-04-03'
 lastmod: 2026-02-12T16:45:00+01:00
 produkt:
   id: '40'
