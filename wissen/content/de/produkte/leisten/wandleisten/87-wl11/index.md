@@ -3,7 +3,7 @@ title: Wandleiste 11
 lang: de
 translationKey: '87'
 managed_by: ssot-sync
-last_synced: '2026-03-26'
+last_synced: '2026-04-03'
 produkt:
   id: '87'
   artikelnummer: '87'
