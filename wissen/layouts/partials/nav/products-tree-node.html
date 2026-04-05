@@ -1,0 +1,91 @@
+{{- $page := .page -}}
+{{- $depth := .depth | default 0 -}}
+{{- $weightFallback := .weightFallback | default 1000000 -}}
+
+{{- $sections := where $page.Sections "Params.nav.show" "ne" false -}}
+{{- $pages := $page.RegularPages -}}
+
+{{- $orderedSections := slice -}}
+{{- range $sections -}}
+  {{- $label := .LinkTitle | default .Title -}}
+  {{- $sectionWeight := $weightFallback -}}
+  {{- if isset .Params "weight" -}}
+    {{- $sectionWeight = .Weight -}}
+  {{- end -}}
+  {{- $orderedSections = $orderedSections | append (dict "page" . "sort_key" (printf "%010d|%s" $sectionWeight (lower $label))) -}}
+{{- end -}}
+{{- $orderedSections = sort $orderedSections "sort_key" -}}
+
+{{- $orderedPages := slice -}}
+{{- range $pages -}}
+  {{- $label := .LinkTitle | default .Title -}}
+  {{- $pageWeight := $weightFallback -}}
+  {{- if isset .Params "weight" -}}
+    {{- $pageWeight = .Weight -}}
+  {{- end -}}
+  {{- $orderedPages = $orderedPages | append (dict "page" . "sort_key" (printf "%010d|%s" $pageWeight (lower $label))) -}}
+{{- end -}}
+{{- $orderedPages = sort $orderedPages "sort_key" -}}
+
+{{- $children := slice -}}
+
+{{- range $orderedSections -}}
+  {{- $childPage := .page -}}
+  {{- $childChildren := partial "nav/products-tree-node.html" (dict "page" $childPage "depth" (add $depth 1) "weightFallback" $weightFallback) | transform.Unmarshal -}}
+  {{- $key := "" -}}
+  {{- with $childPage.TranslationKey -}}
+    {{- $key = . -}}
+  {{- else -}}
+    {{- with $childPage.File -}}
+      {{- $key = .Path -}}
+    {{- else -}}
+      {{- $key = $childPage.Path -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $weight := $weightFallback -}}
+  {{- if isset $childPage.Params "weight" -}}
+    {{- $weight = $childPage.Weight -}}
+  {{- end -}}
+  {{- $children = $children | append (dict
+    "key" $key
+    "title" $childPage.Title
+    "label" ($childPage.LinkTitle | default $childPage.Title)
+    "url" $childPage.RelPermalink
+    "kind" "section"
+    "weight" $weight
+    "depth" (add $depth 1)
+    "has_children" (gt (len $childChildren) 0)
+    "children" $childChildren
+  ) -}}
+{{- end -}}
+
+{{- range $orderedPages -}}
+  {{- $childPage := .page -}}
+  {{- $key := "" -}}
+  {{- with $childPage.TranslationKey -}}
+    {{- $key = . -}}
+  {{- else -}}
+    {{- with $childPage.File -}}
+      {{- $key = .Path -}}
+    {{- else -}}
+      {{- $key = $childPage.Path -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $weight := $weightFallback -}}
+  {{- if isset $childPage.Params "weight" -}}
+    {{- $weight = $childPage.Weight -}}
+  {{- end -}}
+  {{- $children = $children | append (dict
+    "key" $key
+    "title" $childPage.Title
+    "label" ($childPage.LinkTitle | default $childPage.Title)
+    "url" $childPage.RelPermalink
+    "kind" "page"
+    "weight" $weight
+    "depth" (add $depth 1)
+    "has_children" false
+    "children" (slice)
+  ) -}}
+{{- end -}}
+
+{{- $children | jsonify -}}
