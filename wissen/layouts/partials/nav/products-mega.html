@@ -1,7 +1,7 @@
 {{- $tree := .tree -}}
 {{- $items := index $tree "items" -}}
 {{- if gt (len $items) 0 -}}
-  <div class="products-mega" id="products-mega-menu" data-products-mega aria-hidden="true" hidden>
+  <div class="products-mega" id="products-mega-menu" data-testid="products-mega-panel" data-products-mega aria-hidden="true" hidden>
     <div class="products-mega__inner" role="region" aria-label="{{ i18n "header_nav_label" }}">
       <ul class="products-mega__groups" role="list">
         {{- range $items -}}

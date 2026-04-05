@@ -5,7 +5,7 @@
   {{- $rootHasChildren := and (index $root "has_children") (gt (len $rootChildren) 0) -}}
   {{- if and $rootHasChildren .panelId -}}
     {{- $panelId := .panelId -}}
-    <ul class="nav-drawer__products-children" id="{{ $panelId }}" hidden>
+    <ul class="nav-drawer__products-children" id="{{ $panelId }}" data-testid="drawer-products-tree" hidden>
       {{- range $rootChildren -}}
         {{ partial "nav/products-drawer-node.html" (dict "node" . "level" 1 "idPrefix" $panelId "Site" $.ctx.Site) }}
       {{- end -}}
