@@ -1,0 +1,11 @@
+<li class="products-mega__node products-mega__node--depth-{{ index . "depth" }}">
+  <a class="products-mega__node-link" href="{{ index . "url" }}">{{ index . "label" }}</a>
+  {{- $children := index . "children" -}}
+  {{- if gt (len $children) 0 -}}
+    <ul class="products-mega__tree" role="list">
+      {{- range $children -}}
+        {{ partial "nav/products-mega-node.html" . }}
+      {{- end -}}
+    </ul>
+  {{- end -}}
+</li>
