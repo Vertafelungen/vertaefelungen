@@ -1,0 +1,39 @@
+{{- $weightFallback := 1000000 -}}
+{{- $lang := .Site.Language.Lang -}}
+{{- $root := cond (eq $lang "de") (.Site.GetPage "section" "produkte") (.Site.GetPage "section" "products") -}}
+
+{{- if not $root -}}
+  {{- dict "root" nil "items" (slice) | jsonify -}}
+{{- else -}}
+  {{- $items := partial "nav/products-tree-node.html" (dict "page" $root "depth" 0 "weightFallback" $weightFallback) | transform.Unmarshal -}}
+
+  {{- $rootKey := "" -}}
+  {{- with $root.TranslationKey -}}
+    {{- $rootKey = . -}}
+  {{- else -}}
+    {{- with $root.File -}}
+      {{- $rootKey = .Path -}}
+    {{- else -}}
+      {{- $rootKey = $root.Path -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $rootWeight := $weightFallback -}}
+  {{- if isset $root.Params "weight" -}}
+    {{- $rootWeight = $root.Weight -}}
+  {{- end -}}
+
+  {{- $rootNode := dict
+    "key" $rootKey
+    "title" $root.Title
+    "label" ($root.LinkTitle | default $root.Title)
+    "url" $root.RelPermalink
+    "kind" "section"
+    "weight" $rootWeight
+    "depth" 0
+    "has_children" (gt (len $items) 0)
+    "children" $items
+  -}}
+
+  {{- dict "root" $rootNode "items" $items | jsonify -}}
+{{- end -}}
