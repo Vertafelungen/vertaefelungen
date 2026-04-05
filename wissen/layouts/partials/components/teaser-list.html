@@ -1,15 +1,131 @@
 {{- $pages := .pages -}}
 {{- $title := .title -}}
 
-<div class="prose">
+<div class="teaser-list">
   {{- with $title }}
     <p class="section-title">{{ . }}</p>
   {{- end }}
-  <ul>
+
+  <div class="entry-cards teaser-list__grid">
     {{- range $pages }}
-      <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      </li>
+      {{- $page := . -}}
+      {{- $isProduct := isset $page.Params "produkt" -}}
+      {{- $produkt := cond $isProduct $page.Params.produkt nil -}}
+
+      {{- $description := "" -}}
+      {{- with $page.Description -}}
+        {{- $description = . | plainify | replaceRE "\\s+" " " -}}
+      {{- end -}}
+      {{- if and (eq $description "") (isset $page.Params "seo") -}}
+        {{- with index $page.Params.seo "description" -}}
+          {{- $description = . | plainify | replaceRE "\\s+" " " -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if eq $description "" -}}
+        {{- with $page.Summary -}}
+          {{- $description = . | plainify | replaceRE "\\s+" " " -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if eq $description "" -}}
+        {{- with $page.Plain -}}
+          {{- $description = . | plainify | replaceRE "\\s+" " " -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if ne $description "" -}}
+        {{- $description = $description | truncate 180 -}}
+      {{- end -}}
+
+      {{- $image := false -}}
+      {{- if $isProduct -}}
+        {{- with $produkt.bilder -}}
+          {{- if gt (len .) 0 -}}
+            {{- $firstImage := index . 0 -}}
+            {{- with $firstImage.datei -}}
+              {{- with $page.Resources.GetMatch . -}}
+                {{- $image = . -}}
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+      {{- if not $image -}}
+        {{- with $page.Resources.ByType "image" -}}
+          {{- if gt (len .) 0 -}}
+            {{- $image = index . 0 -}}
+          {{- end -}}
+        {{- end -}}
+      {{- end -}}
+
+      {{- $articleLabel := "Artikelnummer" -}}
+      {{- $basePriceLabel := "Basispreis" -}}
+      {{- $availabilityLabel := "Verfügbarkeit" -}}
+      {{- $availableText := "Verfügbar" -}}
+      {{- $unavailableText := "Nicht verfügbar" -}}
+      {{- if eq $page.Lang "en" -}}
+        {{- $articleLabel = "Article no." -}}
+        {{- $basePriceLabel = "Base price" -}}
+        {{- $availabilityLabel = "Availability" -}}
+        {{- $availableText = "Available" -}}
+        {{- $unavailableText = "Unavailable" -}}
+      {{- end -}}
+
+      <article class="teaser-card">
+        <a class="entry-card teaser-card__link" href="{{ $page.RelPermalink }}">
+          {{- with $image -}}
+            <figure class="teaser-card__media">
+              <img src="{{ .RelPermalink }}" alt="{{ $page.Title }}" loading="lazy" decoding="async">
+            </figure>
+          {{- end -}}
+
+          <div class="entry-card__inner teaser-card__body">
+            <h3 class="entry-card__title teaser-card__title">{{ $page.Title }}</h3>
+
+            {{- if ne $description "" -}}
+              <p class="entry-card__text teaser-card__text">{{ $description }}</p>
+            {{- end -}}
+
+            {{- if $isProduct -}}
+              {{- $hasArticle := false -}}
+              {{- $hasBasePrice := false -}}
+              {{- $hasAvailability := false -}}
+              {{- with $produkt.artikelnummer }}{{ $hasArticle = true }}{{ end -}}
+              {{- with $produkt.preis_basis }}{{ $hasBasePrice = true }}{{ end -}}
+              {{- if isset $produkt "verfuegbar" -}}{{ $hasAvailability = true }}{{ end -}}
+
+              {{- if or $hasArticle $hasBasePrice $hasAvailability -}}
+                <dl class="teaser-card__meta">
+                  {{- with $produkt.artikelnummer -}}
+                    <div class="teaser-card__meta-row">
+                      <dt>{{ $articleLabel }}</dt>
+                      <dd>{{ . }}</dd>
+                    </div>
+                  {{- end -}}
+
+                  {{- with $produkt.preis_basis -}}
+                    <div class="teaser-card__meta-row">
+                      <dt>{{ $basePriceLabel }}</dt>
+                      <dd>{{ . }}</dd>
+                    </div>
+                  {{- end -}}
+
+                  {{- if isset $produkt "verfuegbar" -}}
+                    <div class="teaser-card__meta-row">
+                      <dt>{{ $availabilityLabel }}</dt>
+                      <dd>
+                        {{- if $produkt.verfuegbar -}}
+                          {{ $availableText }}
+                        {{- else -}}
+                          {{ $unavailableText }}
+                        {{- end -}}
+                      </dd>
+                    </div>
+                  {{- end -}}
+                </dl>
+              {{- end -}}
+            {{- end -}}
+          </div>
+        </a>
+      </article>
     {{- end }}
-  </ul>
+  </div>
 </div>
