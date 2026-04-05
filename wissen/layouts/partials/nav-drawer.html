@@ -8,6 +8,12 @@ Change:
   Shop pages (PrestaShop content pages), consistent with the site footer.
   This keeps a single authoritative source for legal texts.
 -->
+{{- $productsTree := partial "nav/products-tree.html" . | transform.Unmarshal -}}
+{{- $productsRoot := index $productsTree "root" -}}
+{{- if not $productsRoot -}}
+  {{- errorf "PR4 dependency missing: partial nav/products-tree.html returned no products root for lang %s" .Site.Language.Lang -}}
+{{- end -}}
+{{- $productsRootUrl := index $productsRoot "url" -}}
 
 <div class="nav-drawer" id="nav-drawer" data-testid="nav-drawer" aria-hidden="true">
   <div class="nav-drawer__overlay" data-testid="nav-drawer-overlay"></div>
@@ -37,7 +43,14 @@ Change:
               {{- end -}}
             {{- end -}}
           {{- end -}}
-          <li><a href="{{ $href }}">{{ $label }}</a></li>
+
+          {{- if and $productsRootUrl (eq $href $productsRootUrl) -}}
+            <li class="nav-drawer__products-item">
+              {{ partial "nav/products-drawer-tree.html" (dict "ctx" $ "tree" $productsTree) }}
+            </li>
+          {{- else -}}
+            <li><a href="{{ $href }}">{{ $label }}</a></li>
+          {{- end -}}
         {{- end -}}
       </ul>
     </div>

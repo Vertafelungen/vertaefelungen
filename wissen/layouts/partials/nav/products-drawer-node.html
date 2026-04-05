@@ -1,0 +1,33 @@
+{{- $node := .node -}}
+{{- $level := .level | default 0 -}}
+{{- $idPrefix := .idPrefix | default "nav-drawer-products" -}}
+{{- $nodeKey := index $node "key" | default (index $node "url") -}}
+{{- $nodeId := printf "%s-%s" $idPrefix (md5 (printf "%s|%s|%d" $nodeKey (index $node "url") $level)) -}}
+{{- $childrenId := printf "%s-children" $nodeId -}}
+{{- $children := index $node "children" -}}
+{{- $hasChildren := and (index $node "has_children") (gt (len $children) 0) -}}
+
+<li class="nav-drawer__products-item nav-drawer__products-item--level-{{ $level }}">
+  <div class="nav-drawer__products-linkrow">
+    <a class="nav-drawer__products-link" href="{{ index $node "url" }}">{{ index $node "label" }}</a>
+    {{- if $hasChildren -}}
+      <button
+        class="nav-drawer__products-toggle"
+        type="button"
+        data-nav-drawer-products-toggle
+        aria-expanded="false"
+        aria-controls="{{ $childrenId }}"
+        aria-label="{{ if eq $.Site.Language.Lang "de" }}Unterpunkte von {{ index $node "label" }} anzeigen{{ else }}Toggle child pages for {{ index $node "label" }}{{ end }}">
+        <span aria-hidden="true">▾</span>
+      </button>
+    {{- end -}}
+  </div>
+
+  {{- if $hasChildren -}}
+    <ul class="nav-drawer__products-children" id="{{ $childrenId }}" hidden>
+      {{- range $children -}}
+        {{ partial "nav/products-drawer-node.html" (dict "node" . "level" (add $level 1) "idPrefix" $nodeId "Site" $.Site) }}
+      {{- end -}}
+    </ul>
+  {{- end -}}
+</li>
