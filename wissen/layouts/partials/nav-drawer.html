@@ -14,6 +14,9 @@ Change:
   {{- errorf "PR4 dependency missing: partial nav/products-tree.html returned no products root for lang %s" .Site.Language.Lang -}}
 {{- end -}}
 {{- $productsRootUrl := index $productsRoot "url" -}}
+{{- $productsRootChildren := index $productsRoot "children" -}}
+{{- $productsRootHasChildren := and (index $productsRoot "has_children") (gt (len $productsRootChildren) 0) -}}
+{{- $productsPanelId := printf "nav-drawer-products-root-%s" (md5 $productsRootUrl) -}}
 
 <div class="nav-drawer" id="nav-drawer" data-testid="nav-drawer" aria-hidden="true">
   <div class="nav-drawer__overlay" data-testid="nav-drawer-overlay"></div>
@@ -46,7 +49,20 @@ Change:
 
           {{- if and $productsRootUrl (eq $href $productsRootUrl) -}}
             <li class="nav-drawer__products-item">
-              {{ partial "nav/products-drawer-tree.html" (dict "ctx" $ "tree" $productsTree) }}
+              <div class="nav-drawer__products-linkrow">
+                <a class="nav-drawer__products-link" href="{{ $href }}">{{ $label }}</a>
+                {{- if $productsRootHasChildren -}}
+                  <button
+                    class="nav-drawer__products-toggle"
+                    type="button"
+                    data-nav-drawer-products-toggle
+                    aria-expanded="false"
+                    aria-controls="{{ $productsPanelId }}"
+                    aria-label="{{ if eq $.Site.Language.Lang "de" }}Unterpunkte von {{ $label }} anzeigen{{ else }}Toggle child pages for {{ $label }}{{ end }}">
+                    <span aria-hidden="true">▾</span>
+                  </button>
+                {{- end -}}
+              </div>
             </li>
           {{- else -}}
             <li><a href="{{ $href }}">{{ $label }}</a></li>
@@ -54,6 +70,12 @@ Change:
         {{- end -}}
       </ul>
     </div>
+
+    {{- if $productsRootHasChildren -}}
+      <div class="nav-drawer__section nav-drawer__products-panel" data-testid="drawer-products-panel">
+        {{ partial "nav/products-drawer-tree.html" (dict "ctx" $ "tree" $productsTree "panelId" $productsPanelId) }}
+      </div>
+    {{- end -}}
 
     <div class="nav-drawer__section" data-testid="drawer-footer-links">
       <p class="nav-drawer__title">{{ i18n "drawer_footer_title" }}</p>

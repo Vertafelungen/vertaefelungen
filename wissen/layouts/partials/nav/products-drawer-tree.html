@@ -1,32 +1,14 @@
 {{- $tree := .tree -}}
 {{- $root := index $tree "root" -}}
 {{- if $root -}}
-  {{- $rootId := printf "nav-drawer-products-root-%s" (md5 (index $root "url")) -}}
   {{- $rootChildren := index $root "children" -}}
   {{- $rootHasChildren := and (index $root "has_children") (gt (len $rootChildren) 0) -}}
-
-  <div class="nav-drawer__products">
-    <div class="nav-drawer__products-linkrow">
-      <a class="nav-drawer__products-link" href="{{ index $root "url" }}">{{ index $root "label" }}</a>
-      {{- if $rootHasChildren -}}
-        <button
-          class="nav-drawer__products-toggle"
-          type="button"
-          data-nav-drawer-products-toggle
-          aria-expanded="false"
-          aria-controls="{{ $rootId }}"
-          aria-label="{{ if eq $.ctx.Site.Language.Lang "de" }}Unterpunkte von {{ index $root "label" }} anzeigen{{ else }}Toggle child pages for {{ index $root "label" }}{{ end }}">
-          <span aria-hidden="true">▾</span>
-        </button>
+  {{- if and $rootHasChildren .panelId -}}
+    {{- $panelId := .panelId -}}
+    <ul class="nav-drawer__products-children" id="{{ $panelId }}" hidden>
+      {{- range $rootChildren -}}
+        {{ partial "nav/products-drawer-node.html" (dict "node" . "level" 1 "idPrefix" $panelId "Site" $.ctx.Site) }}
       {{- end -}}
-    </div>
-
-    {{- if $rootHasChildren -}}
-      <ul class="nav-drawer__products-children" id="{{ $rootId }}" hidden>
-        {{- range $rootChildren -}}
-          {{ partial "nav/products-drawer-node.html" (dict "node" . "level" 1 "idPrefix" $rootId "Site" $.ctx.Site) }}
-        {{- end -}}
-      </ul>
-    {{- end -}}
-  </div>
+    </ul>
+  {{- end -}}
 {{- end -}}
