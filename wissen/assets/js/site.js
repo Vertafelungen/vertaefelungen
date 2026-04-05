@@ -22,6 +22,22 @@ function initDrawerNavigation() {
     document.body.classList.toggle('nav-drawer-open', isOpen);
   };
 
+  const resetProductsAccordion = () => {
+    const toggles = drawer.querySelectorAll('[data-nav-drawer-products-toggle]');
+
+    toggles.forEach((toggle) => {
+      if (!(toggle instanceof HTMLButtonElement)) return;
+      const controlsId = toggle.getAttribute('aria-controls');
+      toggle.setAttribute('aria-expanded', 'false');
+
+      if (!controlsId) return;
+      const controlled = drawer.querySelector(`#${CSS.escape(controlsId)}`);
+      if (controlled instanceof HTMLElement) {
+        controlled.hidden = true;
+      }
+    });
+  };
+
   const openDrawer = () => {
     if (drawer.classList.contains('is-open')) return;
     lastFocused = document.activeElement;
@@ -34,6 +50,7 @@ function initDrawerNavigation() {
   const closeDrawer = () => {
     if (!drawer.classList.contains('is-open')) return;
     setDrawerState(false);
+    resetProductsAccordion();
     if (lastFocused instanceof HTMLElement) {
       lastFocused.focus();
     } else {
@@ -52,6 +69,24 @@ function initDrawerNavigation() {
   if (overlay instanceof HTMLElement) {
     overlay.addEventListener('click', closeDrawer);
   }
+
+  drawer.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    const toggle = target.closest('[data-nav-drawer-products-toggle]');
+    if (!(toggle instanceof HTMLButtonElement)) return;
+
+    const controlsId = toggle.getAttribute('aria-controls');
+    if (!controlsId) return;
+
+    const controlled = drawer.querySelector(`#${CSS.escape(controlsId)}`);
+    if (!(controlled instanceof HTMLElement)) return;
+
+    const willExpand = toggle.getAttribute('aria-expanded') !== 'true';
+    toggle.setAttribute('aria-expanded', String(willExpand));
+    controlled.hidden = !willExpand;
+  });
 
   drawer.addEventListener('click', (event) => {
     if (event.target instanceof HTMLAnchorElement) {
