@@ -6,7 +6,7 @@
     <p class="section-title">{{ . }}</p>
   {{- end }}
 
-  <div class="entry-cards teaser-list__grid">
+  <div class="entry-cards teaser-list__grid" data-testid="teaser-grid">
     {{- range $pages }}
       {{- $page := . -}}
       {{- $isProduct := isset $page.Params "produkt" -}}

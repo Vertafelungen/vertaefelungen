@@ -83,6 +83,25 @@ async function assertDrawerNavigation(page: Page, lang: 'de' | 'en'): Promise<vo
   await expect(mainSection.locator(`a[href*="/wissen/${lang}/${productsPath}/"]`)).toHaveCount(1);
   await expect(mainSection.locator(`a[href*="/wissen/${lang}/lookbook/"]`)).toHaveCount(1);
 
+  const productsToggle = drawer.getByTestId('drawer-products-toggle').first();
+  await expect(productsToggle).toBeVisible();
+  await expect(productsToggle).toHaveAttribute('aria-expanded', 'false');
+
+  const controlsId = await productsToggle.getAttribute('aria-controls');
+  expect(controlsId).not.toBeNull();
+  const productsTree = page.getByTestId('drawer-products-tree');
+  await expect(productsTree).toHaveAttribute('id', controlsId ?? '');
+  await expect(productsTree).toBeHidden();
+
+  await productsToggle.click();
+  await expect(productsToggle).toHaveAttribute('aria-expanded', 'true');
+  await expect(productsTree).toBeVisible();
+
+  const drawerProductsPanel = page.getByTestId('drawer-products-panel');
+  await expect(drawerProductsPanel).toBeVisible();
+  await expect(mainSection.getByTestId('drawer-products-panel')).toHaveCount(0);
+  expect(await drawerProductsPanel.locator('a').count()).toBeGreaterThan(0);
+
   const footerSection = page.getByTestId('drawer-footer-links');
 
   // Drawer footer legal links now point to canonical Shop pages (SSOT).
@@ -107,6 +126,43 @@ async function assertDrawerNavigation(page: Page, lang: 'de' | 'en'): Promise<vo
   await expect(hamburgerButton).toHaveAttribute('aria-expanded', 'false');
 }
 
+async function assertDesktopMegaMenu(page: Page): Promise<void> {
+  const primaryNav = page.getByTestId('primary-nav');
+  const trigger = page.getByTestId('products-mega-trigger');
+  const panel = page.getByTestId('products-mega-panel');
+
+  await expect(trigger).toBeVisible();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await expect(panel).toBeHidden();
+  await expect(panel).toHaveAttribute('aria-hidden', 'true');
+
+  await expect(primaryNav.getByTestId('products-mega-panel')).toHaveCount(0);
+
+  await trigger.click();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+  await expect(panel).toBeVisible();
+  await expect(panel).toHaveAttribute('aria-hidden', 'false');
+  expect(await panel.locator('a').count()).toBeGreaterThan(0);
+
+  await page.keyboard.press('Escape');
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  await expect(panel).toBeHidden();
+
+  await trigger.click();
+  await expect(panel).toBeVisible();
+  await page.locator('header.site-header .brand').click();
+  await expect(panel).toBeHidden();
+  await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+}
+
+async function assertTeaserGrid(page: Page, url: string): Promise<void> {
+  await gotoWithRetry(page, url);
+  const grid = page.getByTestId('teaser-grid');
+  await expect(grid).toBeVisible();
+  expect(await grid.locator('article.teaser-card').count()).toBeGreaterThan(0);
+  expect(await grid.locator('a.teaser-card__link').count()).toBeGreaterThan(0);
+}
+
 test.describe('Live navigation (Wissen)', () => {
   test('DE live navigation', async ({ page }) => {
     test.setTimeout(120_000);
@@ -126,10 +182,12 @@ test.describe('Live navigation (Wissen)', () => {
     await expect(primaryNav).toBeVisible({ timeout: 20_000 });
     await expect(primaryNav.locator('a')).toHaveCount(4);
     await assertPrimaryNavLinks(primaryNav, 'de');
+    await assertDesktopMegaMenu(page);
 
     await expect(primaryNav.locator('a[href*="ueber-uns"], a[href*="about-us"]')).toHaveCount(0);
 
     await assertDrawerNavigation(page, 'de');
+    await assertTeaserGrid(page, `${base}/de/produkte/`);
   });
 
   test('EN live navigation', async ({ page }) => {
@@ -150,9 +208,11 @@ test.describe('Live navigation (Wissen)', () => {
     await expect(primaryNav).toBeVisible({ timeout: 20_000 });
     await expect(primaryNav.locator('a')).toHaveCount(4);
     await assertPrimaryNavLinks(primaryNav, 'en');
+    await assertDesktopMegaMenu(page);
 
     await expect(primaryNav.locator('a[href*="ueber-uns"], a[href*="about-us"]')).toHaveCount(0);
 
     await assertDrawerNavigation(page, 'en');
+    await assertTeaserGrid(page, `${base}/en/products/`);
   });
 });
