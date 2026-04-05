@@ -3,18 +3,12 @@
   Version: 2026-02-13 06:20 CET
 
   Change:
-  - Render .Content for section landing pages (e.g., /wissen/de/produkte/), before listing child pages.
+  - Render child pages (or placeholder) before .Content on section landing pages.
 */}}
 
 {{ define "main" }}
   {{ partial "components/hero.html" (dict "title" .Title "lead" .Params.lead) }}
   {{ partial "guardrails/ssot-empty-landing.html" (dict "page" .) }}
-
-  {{- with .Content -}}
-    <div class="prose">
-      {{ . }}
-    </div>
-  {{- end -}}
 
   {{- $pages := .Pages -}}
   {{- if gt (len $pages) 0 -}}
@@ -27,5 +21,11 @@
       {{- $text = "This section is being prepared. Entries will appear here once they are available." -}}
     {{- end -}}
     {{ partial "components/placeholder.html" (dict "title" $title "text" $text) }}
+  {{- end -}}
+
+  {{- with .Content -}}
+    <div class="prose">
+      {{ . }}
+    </div>
   {{- end -}}
 {{ end }}
