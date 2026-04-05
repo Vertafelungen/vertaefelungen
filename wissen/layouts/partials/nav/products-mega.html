@@ -1,0 +1,23 @@
+{{- $tree := .tree -}}
+{{- $items := index $tree "items" -}}
+{{- if gt (len $items) 0 -}}
+  <div class="products-mega" id="products-mega-menu" data-products-mega aria-hidden="true" hidden>
+    <div class="products-mega__inner" role="region" aria-label="{{ i18n "header_nav_label" }}">
+      <ul class="products-mega__groups" role="list">
+        {{- range $items -}}
+          <li class="products-mega__group">
+            <a class="products-mega__group-link" href="{{ index . "url" }}">{{ index . "label" }}</a>
+            {{- $children := index . "children" -}}
+            {{- if gt (len $children) 0 -}}
+              <ul class="products-mega__tree" role="list">
+                {{- range $children -}}
+                  {{ partial "nav/products-mega-node.html" . }}
+                {{- end -}}
+              </ul>
+            {{- end -}}
+          </li>
+        {{- end -}}
+      </ul>
+    </div>
+  </div>
+{{- end -}}

@@ -1,4 +1,9 @@
 {{- $productsTree := partial "nav/products-tree.html" . | transform.Unmarshal -}}
+{{- $productsRoot := index $productsTree "root" -}}
+{{- $productsRootUrl := "" -}}
+{{- if $productsRoot -}}
+  {{- $productsRootUrl = index $productsRoot "url" -}}
+{{- end -}}
 {{- /* Ensure products tree partial is compiled in normal header render path without DOM output. */ -}}
 <!--
 File: wissen/layouts/partials/header.html
@@ -59,9 +64,28 @@ Notes:
             {{- end -}}
 
             {{- $isActive := and (not (hasPrefix $href "http://")) (not (hasPrefix $href "https://")) (hasPrefix $.RelPermalink $href) -}}
-            <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ $href }}">{{ $label }}</a>
+            {{- $isProductsRoot := and $productsRootUrl (eq $href $productsRootUrl) -}}
+            {{- if $isProductsRoot -}}
+              <span class="main-nav__item main-nav__item--products">
+                <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ $href }}">{{ $label }}</a>
+                <button
+                  class="main-nav__disclosure"
+                  type="button"
+                  data-products-mega-trigger
+                  aria-label="{{ printf "%s Menü" $label }}"
+                  aria-controls="products-mega-menu"
+                  aria-expanded="false"
+                >
+                  <span class="main-nav__disclosure-icon" aria-hidden="true"></span>
+                </button>
+              </span>
+            {{- else -}}
+              <a class="main-nav__link{{ if $isActive }} main-nav__link--active{{ end }}" href="{{ $href }}">{{ $label }}</a>
+            {{- end -}}
           {{- end -}}
         </nav>
+
+        {{ partial "nav/products-mega.html" (dict "ctx" . "tree" $productsTree) }}
       </div>
 
       <div class="header-actions">
