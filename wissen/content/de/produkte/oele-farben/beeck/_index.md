@@ -1,8 +1,8 @@
 ---
-version: 2026-04-03 13:44 UTC
+version: 2026-04-13 10:18 UTC
 managed_by: categories.csv
-last_synced: 2026-04-03 13:44 UTC
-lastmod: 2026-04-03 13:44 UTC
+last_synced: 2026-04-13 10:18 UTC
+lastmod: 2026-04-13 10:18 UTC
 lang: de
 translationKey: beeck-stand-oil-paints
 slug: beeck

@@ -3,7 +3,7 @@ title: Wandleiste 12
 lang: de
 translationKey: '88'
 managed_by: ssot-sync
-last_synced: '2026-04-03'
+last_synced: '2026-04-13'
 produkt:
   id: '88'
   artikelnummer: '88'

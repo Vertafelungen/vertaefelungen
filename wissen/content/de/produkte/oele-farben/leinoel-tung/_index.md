@@ -1,8 +1,8 @@
 ---
-version: 2026-04-03 13:44 UTC
+version: 2026-04-13 10:18 UTC
 managed_by: categories.csv
-last_synced: 2026-04-03 13:44 UTC
-lastmod: 2026-04-03 13:44 UTC
+last_synced: 2026-04-13 10:18 UTC
+lastmod: 2026-04-13 10:18 UTC
 lang: de
 translationKey: oils-linseed-tung-balsam
 slug: leinoel-tung
@@ -32,11 +32,9 @@ cascade:
   seo:
     robots: index,follow
 ---
-<!-- ssot_texts | v2026-03-21 19:30 Europe/Berlin | source: categories.csv:body_md_de | key:oils-linseed-tung-balsam | path_de:produkte/oele-farben/leinoel-tung | path_en:products/oil-paint/oil-tung -->
-In dieser Kategorie geht es um traditionelle Öle und passende Lösemittel, die je nach Rezeptur als Grundierung, Schutz- oder Pflegesystem eingesetzt werden können.  
-
 **Worum geht es hier konkret?** 
-Wir erklären hier das Einsatzgebiet und Wirkungsweise der sechs wichtigsten Produkte, damit Sie entscheiden können wie Sie weiter vorgehen. 
+Wir erklären hier das Einsatzgebiet und Wirkungsweise der sechs wichtigsten Produkte, damit Sie entscheiden können wie Sie weiter vorgehen. *
+
 - Reines Leinöl (ohne Sikkativ)
 - Leinölfirnis (mit Sikkativ)
 - Tungöl natur
