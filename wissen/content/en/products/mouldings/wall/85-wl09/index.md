@@ -3,7 +3,7 @@ title: Wall Moulding 09
 lang: en
 translationKey: '85'
 managed_by: ssot-sync
-last_synced: '2026-04-03'
+last_synced: '2026-04-13'
 produkt:
   id: '85'
   artikelnummer: '85'

@@ -3,7 +3,7 @@ title: Türbekleidung 01 / 200
 description: Tür- und Fensterrahmen TR01/200 (200 × 24 mm). Für präsente Umrahmungen; Auswahl nach Proportion und Fugenbedarf, Montage- und Anschlusslogik (Sockel, Ecken, Stöße).
 lastmod: '2026-02-13T09:56:16+01:00'
 managed_by: ssot-sync
-last_synced: '2026-04-03'
+last_synced: '2026-04-13'
 translationKey: '118'
 seo:
   title: tr01-200 - Tür- und Fensterrahmen TR 01 / 200, Maße
