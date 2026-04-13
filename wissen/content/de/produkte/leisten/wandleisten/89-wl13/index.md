@@ -3,7 +3,7 @@ title: Wandleiste 13
 lang: de
 translationKey: '89'
 managed_by: ssot-sync
-last_synced: '2026-04-03'
+last_synced: '2026-04-13'
 produkt:
   id: '89'
   artikelnummer: '89'

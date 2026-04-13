@@ -4,7 +4,7 @@ aliases:
 title: P0001 - Berlin - Winsstraße
 translationKey: '23'
 managed_by: ssot-sync
-last_synced: '2026-04-03'
+last_synced: '2026-04-13'
 produkt:
   id: '23'
   artikelnummer: '23'

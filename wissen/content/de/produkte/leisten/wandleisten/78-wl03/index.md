@@ -4,7 +4,7 @@ aliases:
 title: Wandleiste 03 „Riffelleiste"
 translationKey: '78'
 managed_by: ssot-sync
-last_synced: '2026-04-03'
+last_synced: '2026-04-13'
 produkt:
   id: '78'
   artikelnummer: '78'
