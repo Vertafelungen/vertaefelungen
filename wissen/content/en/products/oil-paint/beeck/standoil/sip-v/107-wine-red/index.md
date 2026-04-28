@@ -3,7 +3,7 @@ title: Wine Red - BEECK Interior Stand-Oil Paint PRO
 lang: en
 translationKey: '107'
 managed_by: ssot-sync
-last_synced: '2026-04-13'
+last_synced: '2026-04-28'
 produkt:
   id: '107'
   artikelnummer: '107'
