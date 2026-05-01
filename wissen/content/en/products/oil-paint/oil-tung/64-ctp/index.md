@@ -3,7 +3,7 @@ title: Citrus terpene
 lang: en
 translationKey: '64'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '64'
   artikelnummer: '64'

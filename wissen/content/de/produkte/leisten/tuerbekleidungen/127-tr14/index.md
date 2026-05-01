@@ -6,7 +6,7 @@ description: 'Tür- und Fensterrahmen TR14: Auswahlhilfe, Planungsablauf, Kosten
 lastmod: '2026-02-14T08:56:10+01:00'
 translationKey: '127'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '127'
   artikelnummer: '127'
