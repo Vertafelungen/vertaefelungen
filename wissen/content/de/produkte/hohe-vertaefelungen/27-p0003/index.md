@@ -3,7 +3,7 @@ title: P0003 - London - V&A - Morris Room
 lang: de
 translationKey: '27'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '27'
   artikelnummer: '27'
