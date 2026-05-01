@@ -4,7 +4,7 @@ aliases:
 title: Maisgelb - BEECK Standölinnenfarbe PRO
 translationKey: '103'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '103'
   artikelnummer: '103'
