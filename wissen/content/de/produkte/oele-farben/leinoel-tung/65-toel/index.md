@@ -4,7 +4,7 @@ aliases:
 title: Tung Holzöllack
 translationKey: '65'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '65'
   artikelnummer: '65'

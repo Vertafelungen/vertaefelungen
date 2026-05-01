@@ -5,7 +5,7 @@ aliases:
 title: P0018 - Berlin - Invalidenstraße
 translationKey: '57'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '57'
   artikelnummer: '57'
