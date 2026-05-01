@@ -1,8 +1,8 @@
 ---
-version: 2026-05-01 18:02 UTC
+version: 2026-05-01 18:04 UTC
 managed_by: categories.csv
-last_synced: 2026-05-01 18:02 UTC
-lastmod: 2026-05-01 18:02 UTC
+last_synced: 2026-05-01 18:04 UTC
+lastmod: 2026-05-01 18:04 UTC
 lang: de
 translationKey: mouldings-root
 slug: leisten
