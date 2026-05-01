@@ -5,7 +5,7 @@ aliases:
 title: P0004 - Berlin - Sophienstraße
 translationKey: '31'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '31'
   artikelnummer: '31'
