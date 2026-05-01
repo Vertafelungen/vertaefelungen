@@ -2,7 +2,7 @@
 title: P0014 - Lübeck - Schiffergesellschaft
 translationKey: '55'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '55'
   artikelnummer: '55'

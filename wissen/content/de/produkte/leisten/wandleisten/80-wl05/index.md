@@ -4,7 +4,7 @@ aliases:
 title: Wandleiste 05 „Hohe Welle"
 translationKey: '80'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '80'
   artikelnummer: '80'
