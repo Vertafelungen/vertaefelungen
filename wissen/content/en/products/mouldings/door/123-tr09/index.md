@@ -3,7 +3,7 @@ title: Door Frame 09
 lang: en
 translationKey: '123'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '123'
   artikelnummer: '123'

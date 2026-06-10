@@ -1,8 +1,8 @@
 ---
-version: 2026-04-28 06:59 UTC
+version: 2026-05-01 18:09 UTC
 managed_by: categories.csv
-last_synced: 2026-04-28 06:59 UTC
-lastmod: 2026-04-28 06:59 UTC
+last_synced: 2026-05-01 18:09 UTC
+lastmod: 2026-05-01 18:09 UTC
 lang: en
 translationKey: skirting-boards
 slug: skirtings

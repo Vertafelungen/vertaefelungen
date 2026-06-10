@@ -3,7 +3,7 @@ title: Wandleiste 10
 lang: de
 translationKey: '86'
 managed_by: ssot-sync
-last_synced: '2026-04-28'
+last_synced: '2026-05-01'
 produkt:
   id: '86'
   artikelnummer: '86'
